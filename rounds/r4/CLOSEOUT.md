@@ -13,11 +13,14 @@ path entirely (a canceled bounty can't take new claims).
   the cancel-bounty refund path. It is not part of the builder reward - it
   rolls forward, not distributed.
 - **Reward mechanism pivoted**: instead of a POIDH-native split, qualifying
-  builders get a $ZABAL Empire Builder leaderboard credit - 1 point per wallet,
-  uploaded via CSV (`address,score` schema, Empire Builder's CSV Upload
-  Leaderboard endpoint). No ETH or USDC changes hands for R4.
-- A $100 USDC split was floated and then dropped in favor of the simpler
-  1-point-per-wallet leaderboard credit - final call.
+  builders get an equal share of $100 distributed through Empire Builder's
+  own treasury feature - each wallet uploaded at 1 point (`address,score`
+  CSV, Empire Builder's CSV Upload Leaderboard endpoint), equal points =
+  equal ~$6.67 share, Empire Builder handles the actual send from its
+  treasury. No manual per-wallet transfer needed from the BCZ Treasury side.
+- Posted cast (2026-08-05) also clarified: everyone who submitted in July
+  is eligible for the August Finals, separate from this $100 credit.
+- Leaderboard live: empirebuilder.world/empire/zabalgamez01e9af
 
 ## The gap that started this
 
