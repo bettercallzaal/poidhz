@@ -1,84 +1,78 @@
-# R4 closeout - qualifying builder list + open decisions
+# R4 closeout - final resolution (2026-08-05)
 
-Bounty 1249 ("ZABAL Gamez Open Pot"). Deadline was Jul 31, 2026; today is Aug 5. Kenny
-pinged twice (funded another $25 into the pot, asked if this closes this week). Zaal's
-reply to Kenny: making one submit-then-claim, then splitting to everyone who submitted.
+Bounty 1249 ("ZABAL Gamez Open Pot"). Deadline was Jul 31, 2026.
 
-This doc is the draft candidate list + the still-open MECHANIC.md decisions that block
-actually running the split. Nothing here has been submitted or paid - Zaal confirms the
-list and the open decisions, then this becomes the real claim.
+## What actually happened
 
-## The gap that matters
+While closing this out, the bounty was accidentally **canceled** (via Farcaster
+wallet) instead of withdrawn to submit a split claim - the two actions were
+confused because the wallets were linked. This closed off the POIDH claim/vote
+path entirely (a canceled bounty can't take new claims).
 
-Bar rule 5 says "submit your claim on this POIDH bounty page." Only 2 POIDH claims
-exist on 1249 (both the same wallet, ghostmint.base.eth). But zabalgamez's own
-submission board (`/api/submissions?feed=projects`) has 16 unique builders across the
-July window. Almost nobody individually claimed on POIDH - which is exactly why Zaal
-told Kenny he's making one claim on their behalf rather than waiting for 16 separate
-POIDH claims that were never going to come.
+- **The escrowed 0.0138 ETH has been reclaimed** back to the treasury wallet via
+  the cancel-bounty refund path. It is not part of the builder reward - it
+  rolls forward, not distributed.
+- **Reward mechanism pivoted**: instead of a POIDH-native split, qualifying
+  builders get a $ZABAL Empire Builder leaderboard credit - 1 point per wallet,
+  uploaded via CSV (`address,score` schema, Empire Builder's CSV Upload
+  Leaderboard endpoint). No ETH or USDC changes hands for R4.
+- A $100 USDC split was floated and then dropped in favor of the simpler
+  1-point-per-wallet leaderboard credit - final call.
 
-## Candidate list (pulled live from zabalgamez `/api/submissions`, 2026-08-05)
+## The gap that started this
 
-### Tier 1 - approved/complete, real demo or repo link (clear qualify)
+Bar rule 5 said "submit your claim on this POIDH bounty page." Only 2 POIDH
+claims ever existed on 1249 (both the same wallet). zabalgamez's own
+submission board had the real activity - this mismatch (individual claims
+never came) is why a claim-and-split was attempted manually in the first
+place, before the cancel mistake happened.
 
-| Builder | Project | Track | Link |
-|---|---|---|---|
-| uniquebeing404 | ColorZAO | builder | https://colorzao.signalify.xyz/ (+ repo) |
-| Pascaline | ZAO Artist Value Ledger | builder | https://zao-artist-ledger.vercel.app/ (+ repo) |
-| breadcoop | Stacks | builder | https://bread.coop/stacks (+ repo) |
-| kayonfire | NeonTetris | builder | Farcaster mini app (+ repo) |
-| LadyrynNemesis | SURFBOARD | builder | https://surfboard.diyama.online/ |
-| mettodo | El Charro | builder | https://txirrin.lovable.app/ |
-| taydexfun (Halit Tayyar) | TayDex - creator prediction markets | creator | https://taydex.fun/ |
-| ghostmintops (Brandon) | ZABAL Recording Scout (+ more projects) | builder | https://dreamnet-zabal-scout.pages.dev/ |
-| branth (Korrocorp) | WaveWarZ Bridge Portal (+ more projects) | builder | https://wavewarz-bridge-portal.vercel.app/ |
-| jdwalka (JohnDaWalka) | Chroma Poker (+ more projects) | builder | repo linked, no live demo |
+## Final builder list (15, no tiers)
 
-**10 builders.**
+Resolved live from zabalgamez `/api/submissions` + Farcaster-verified wallets
+(via Warpcast's user-by-username API). Full detail with fid/project links in
+`rounds/r4/r4-builder-leaderboard.csv`; upload-ready CSV in
+`rounds/r4/r4-empire-builder-upload.csv`.
 
-### Tier 2 - needs Zaal's call
-
-| Builder | Project | Issue |
+| Handle | Project | Wallet |
 |---|---|---|
-| Gesd01 | "Blend Music Genres" video | No demo/repo link at all - bar says "linkable." Video claim only. |
-| IMan Afrikah | ZABAL Artwork | This is Iman - ZAO core team, not a community builder. Splitting the pot to a cofounder reads differently than to an outside builder. Your call whether he's in. |
-| Presdency.eth (HOOD) | status: draft, no links | Real project title but nothing to verify. |
-| dee-13 (Ledger) | status: draft | Has a Google Drive link - draft status but a real artifact. |
-| Joshua Grubbs / pyrofirezerox (GundariuM) | status: draft | Has BOTH a live demo and a repo - looks shipped, just never flipped to "approved." Probably should count. |
+| uniquebeing404 | ColorZAO | 0xd6B69E58D44e523EB58645F1B78425c96Dfa648C |
+| pascaline | ZAO Artist Value Ledger | 0x5Dc697f2799bd232CaD2d479C379fF305b699F9b |
+| breadcoop | Stacks | 0x09051AAa3a472A8Bf73B000349fca2073D06fa03 |
+| kayonfire | NeonTetris | 0xf109e709B89B820Ac38529bC354aA1f5AFB2f1a1 |
+| n3m (LadyrynNemesis) | SURFBOARD | 0xE243c5C876FD259AC41Bf8A15aEF64Cf522fea8f |
+| mettodo | El Charro | 0xad7575AEFd4d64520c3269FD24eae1b0E13dbE7B |
+| taydexfun (Halit Tayyar) | TayDex | 0x6A5B8AaFEDF836D2883bc5a251b3539F36f35D7B |
+| ghostmintops (Brandon) | ZABAL Recording Scout + 5 more | 0x7D79E902482469dA64977d2B0977120C77029593 |
+| branth (Korrocorp) | WaveWarZ Bridge Portal + 4 more | 0x258772bbc43845a43df7187f53624605366e0138 |
+| jdwalka (JohnDaWalka) | Chroma Poker + 2 more | 0x59223379E56f18Ead2AbDecE93BcfB5c6d6Cf5ae |
+| gesd1 | "Blend Music Genres" video | 0x97FdcF12e299031958f9Dd1e9Cc01E1eD73d4180 |
+| imanafrikah (IMan Afrikah) | ZABAL Artwork | 0xA0434a9A5403b9E2a197BA1cAe9963406c4f31ac |
+| presdency.eth | HOOD | 0x2805E9dBCe2839C5FeAe858723F9499f15fd88CF |
+| dee-13 | Ledger | 0x96E9025466a3e15DC2c3B28C1c6C71523a93f703 |
+| pyrofirezerox (Joshua Grubbs) | GundariuM | 0x682ebE895E62e046D86cBc1652E61196Dff1f256 |
 
-**Excluded:** "Iman QA Test" - literal test data in the feed, not a real submission.
+**Excluded:** the 2 "Iman QA Test" entries on the submission board - literal
+test data, not real submissions.
 
-## What's still genuinely blocking the split (from rounds/r4/MECHANIC.md, still unresolved)
+**Note on wallets:** several builders have multiple Farcaster-verified
+addresses; the first one returned by Warpcast's API was used as primary.
+Not re-verified individually - acceptable for a leaderboard-point credit,
+would need double-checking before any real-money send.
 
-These were flagged as open back in June and never locked:
+## Closed decisions (previously open in MECHANIC.md)
 
-1. **Distributor wallet** - which non-issuer wallet wins the vote and sends the shares? Can't be the BCZ Treasury EOA (PoidhV3 blocks issuer == claimant). Needs to be named and made public per the MECHANIC.md trust-transparency commitment.
-2. **Wallet addresses for the Tier 1/2 builders** - none of them are in the submission data (just handles + project links). Either resolve each Farcaster handle to a verified address, or ask each builder directly. Web3.bio lookups were timing out when I tried just now (worth a retry, or use Neynar instead).
-3. **Min-builders floor** - not relevant now, 10-15 is a real number, this was for the "what if only 1-2 ship" case.
-4. **"Real build" judge** - MECHANIC.md proposed Zaal + one co-host. The Tier 2 list above is exactly that call being made.
-5. **Late contributions** - Kenny's $25 landed after Jul 31. Does it fold into this split or carry to R5? Needs a decision either way before the claim amount is finalized.
+- ~~Distributor wallet~~ - moot. No vote/disperse happens; ZABAL credit goes
+  directly to each builder's own wallet.
+- ~~Wallet resolution~~ - done, see table above.
+- ~~Min-builders floor~~ - moot, 15 real builders shipped.
+- ~~"Real build" judge~~ - all Tier-2 judgment calls resolved to include
+  (Gesd01, Presdency.eth, dee-13, Joshua Grubbs, Iman all in).
+- ~~Late contributions~~ - moot, no ETH pot being split.
 
-## Draft claim text (placeholder - do not submit until the list + decisions above are locked)
+## Closeout cast
 
-```
-Title: ZABAL Gamez July Open Build - Qualifying Builders
-
-Description:
-This claim documents the builders who cleared the bar for the July open build pot -
-[FINAL COUNT] wallets, one equal slice each. Full submission board:
-https://zabalgamez.com/submissions
-
-[Builder handle] - [project] - [link]
-... (one line per confirmed builder)
-
-Per rounds/r4/MECHANIC.md (locked 2026-06-15, Option B): the distributor wallet
-[DISTRIBUTOR ADDRESS] wins this vote, withdraws the pot, and sends each builder above
-an equal share. Disperse tx hashes posted publicly after the split for transparency.
-```
-
-## Next step
-
-Zaal confirms: (a) the Tier 2 calls, (b) the distributor wallet, (c) late-contribution
-handling. Then wallets get resolved for the confirmed list, the real claim goes up,
-`submitClaimForVote(1249, <claimId>)`, 48h vote, `resolveVote(1249)`, distributor
-disperses, tx hashes get posted in the closeout cast.
+Draft at `rounds/r4/closeout-cast-draft.md` - tags all 15, explains the
+cancel mistake transparently, points to the ZABAL leaderboard credit. Not yet
+posted - post after the Empire Builder leaderboard CSV is actually live so
+the claim is true when made.

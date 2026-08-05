@@ -70,19 +70,35 @@ Options A (split contract is the winning claim) and C (POIDH = proof gallery, po
 Splits contract) stay documented above as alternatives if we want to harden the trust model
 on a later round.
 
+## Actual resolution (2026-08-05, supersedes Option B above)
+
+None of Options A/B/C ran as designed. While closing R4, the bounty was
+accidentally **canceled** instead of withdrawn (wallets were linked, wrong
+action fired). This closed the POIDH claim/vote path entirely - there is no
+"distributor wallet wins the vote" anymore, because there's no vote to win.
+
+What actually happened instead:
+1. The escrowed 0.0138 ETH was reclaimed to the treasury wallet via the
+   cancel-bounty refund path. It does not go to builders - rolls forward.
+2. The 15 qualifying builders (final list + wallets in `CLOSEOUT.md`) get a
+   $ZABAL Empire Builder leaderboard credit instead - 1 point per wallet,
+   via CSV upload. A $100 USDC split was considered and dropped in favor of
+   this simpler path.
+3. Closeout cast explains the mistake transparently and points builders to
+   the leaderboard credit.
+
+This is a real, unplanned fourth path - worth remembering for R8/R9 or any
+future OPEN-SPLIT bounty: **cancel and withdraw are easy to confuse when
+issuer + personal wallets are linked on the same Farcaster account.** Double
+-check which action fires before confirming, on a canceled bounty there is
+no recovery back to "resolvable."
+
 ## Still open (need Zaal's call)
 
-- ~~**Payout path**~~ - LOCKED: Option B, distributor disperses (2026-06-15).
-- **Distributor wallet:** which non-issuer wallet wins the vote + sends the shares? (Must
-  not be the BCZ Treasury issuer EOA - PoidhV3 blocks issuer == claimant.) Make it public.
-- **Seed amount:** what does Zaal seed the pot with now, and the weekly top-up size?
-- **Min builders floor:** if only 1-2 people ship, do we still split, roll the pot into the
-  August curated prize, or hold it for R5?
-- **"Real build" judge:** who confirms a submission cleared the effort floor (linkable,
-  this-month, actually theirs)? Proposed: Zaal + one co-host, lightweight pass/fail, no
-  scoring.
-- **Late contributions:** contributions can land after the July deadline (people keep
-  tipping). Do post-deadline funds roll into the same split (recompute) or carry to R5?
+All resolved as of 2026-08-05 - see "Actual resolution" above and
+`CLOSEOUT.md`. Original Option B open items (distributor wallet, seed
+amount, min-builders floor, real-build judge, late contributions) are all
+moot or answered there.
 
 ## Timeline
 
