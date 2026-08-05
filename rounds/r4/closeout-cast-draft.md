@@ -14,16 +14,21 @@ that. the escrowed eth is back in treasury, not part of this.
 instead, the 15 builders who shipped real stuff during july open build
 month are getting credited on the $zabal empire builder leaderboard:
 
+empirebuilder.world/empire/zabalgamez01e9af
+
 @uniquebeing404 @pascaline @breadcoop @kayonfire @n3m @mettodo @taydexfun
 @ghostmintops @jdwalka @gesd1 @imanafrikah @presdency.eth @dee-13
 @pyrofirezerox + branth (korrocorp)
 
-full project list at zabalgamez.com/submissions. thanks for building -
-this is exactly why the open pot existed in the first place.
+leaderboard's live now, distribution goes out tonight - ran out of time to
+get it all the way through today. full project list at
+zabalgamez.com/submissions. thanks for building - this is exactly why the
+open pot existed in the first place.
 
 ---
 
 ## Notes
 - Verify all 15 handles resolve correctly before posting (branth has no FC handle, drop or handle separately)
-- Post after the Empire Builder leaderboard CSV upload actually goes live
+- Leaderboard confirmed live: empirebuilder.world/empire/zabalgamez01e9af
 - No dollar figure in this cast - it's a leaderboard point credit, not a cash payout
+- Ready to post as-is
