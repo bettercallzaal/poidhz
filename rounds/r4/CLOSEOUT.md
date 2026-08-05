@@ -1,4 +1,8 @@
-# R4 closeout - final resolution (2026-08-05)
+# R4 closeout - CLOSED (2026-08-05)
+
+Cast posted to /zao, /zabal. Leaderboard live, distribution pending same
+night per the post. R4 is done pending Empire Builder's actual send - no
+more open decisions.
 
 Bounty 1249 ("ZABAL Gamez Open Pot"). Deadline was Jul 31, 2026.
 
