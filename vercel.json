@@ -5,13 +5,13 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/round/:n", "destination": "/rounds/r:n/README.md" },
-    { "source": "/round/:n/judging", "destination": "/rounds/r:n/judging.html" },
-    { "source": "/best-practices", "destination": "/docs/bounty-best-practices.html" },
-    { "source": "/hub", "destination": "/docs/poidh-hub.html" },
-    { "source": "/dashboard", "destination": "/docs/bounty-dashboard.html" },
-    { "source": "/calendar", "destination": "/docs/bounty-calendar.html" },
+    { "source": "/round/:n/judging", "destination": "/rounds/r:n/judging" },
+    { "source": "/best-practices", "destination": "/docs/bounty-best-practices" },
+    { "source": "/hub", "destination": "/docs/poidh-hub" },
+    { "source": "/dashboard", "destination": "/docs/bounty-dashboard" },
+    { "source": "/calendar", "destination": "/docs/bounty-calendar" },
     { "source": "/leaderboard", "destination": "/data/leaderboard.json" },
-    { "source": "/zabal-gamez-brand", "destination": "/assets/brand-kits/zabal-games/index.html" },
+    { "source": "/zabal-gamez-brand", "destination": "/assets/brand-kits/zabal-games" },
     { "source": "/zabal-gamez-brand/:file", "destination": "/assets/brand-kits/zabal-games/:file" }
   ],
   "headers": [
