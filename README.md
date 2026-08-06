@@ -151,6 +151,7 @@ Use the existing rounds as reference:
 - Cast on `/zabal` (or relevant channel) + `/poidh` + `/zao` with the bounty URL as embed
 - Pin in the home channel for the bounty window
 - Firefly cross-post to X
+- **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/r7/bountycaster-cast.md](rounds/r7/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
 - Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: bettercallzaal.com/poidh.html"
