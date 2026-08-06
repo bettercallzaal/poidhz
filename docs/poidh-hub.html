@@ -354,8 +354,8 @@
       lb.forEach((entry, i) => {
         const rank = entry.rank || (i + 1);
         const handle = entry.farcaster_username;
-        const fcUrl = handle ? `https://farcaster.xyz/${handle}` : null;
-        const xUrl = entry.twitter_url || (entry.twitter_handle ? `https://x.com/${entry.twitter_handle}` : null);
+        const fcUrl = handle ? `https://farcaster.xyz/${escHtml(handle)}` : null;
+        const xUrl = entry.twitter_url || (entry.twitter_handle ? `https://x.com/${escHtml(entry.twitter_handle)}` : null);
         const avatar = entry.avatar || `https://api.dicebear.com/7.x/identicon/svg?seed=${entry.address}`;
         const display = entry.displayName || handle || shortAddr(entry.address);
         const row = document.createElement('div');
@@ -385,8 +385,8 @@
     function buildClaimCard(c, profiles) {
       const prof = profiles[c.issuer.toLowerCase()] || {};
       const handle = prof.farcaster_username;
-      const fcUrl = handle ? `https://farcaster.xyz/${handle}` : null;
-      const xUrl = prof.twitter_url || (prof.twitter_handle ? `https://x.com/${prof.twitter_handle}` : null);
+      const fcUrl = handle ? `https://farcaster.xyz/${escHtml(handle)}` : null;
+      const xUrl = prof.twitter_url || (prof.twitter_handle ? `https://x.com/${escHtml(prof.twitter_handle)}` : null);
       const avatar = prof.avatar || `https://api.dicebear.com/7.x/identicon/svg?seed=${c.issuer}`;
       const displayName = prof.displayName || handle || shortAddr(c.issuer);
       const externalLink = (c.description || '').match(/https?:\/\/[^\s]+/)?.[0] || null;
@@ -478,7 +478,7 @@
       function chip(entry) {
         const handle = entry.farcaster_username;
         const display = handle ? '@' + handle : shortAddr(entry.address);
-        const fcUrl = handle ? `https://farcaster.xyz/${handle}` : `https://basescan.org/address/${entry.address}`;
+        const fcUrl = handle ? `https://farcaster.xyz/${escHtml(handle)}` : `https://basescan.org/address/${entry.address}`;
         const avatar = entry.avatar || `https://api.dicebear.com/7.x/identicon/svg?seed=${entry.address}`;
         const zabal = entry.totalRewards ? `<span class="chip-meta">${fmtZabal(entry.totalRewards)} ZABAL</span>` : '';
         return `<a class="chip" href="${fcUrl}" target="_blank" rel="noopener"><img class="chip-avatar" src="${escHtml(avatar)}" alt="" loading="lazy" onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${entry.address}'" /><span class="chip-handle">${escHtml(display)}</span>${zabal}</a>`;
