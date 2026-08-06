@@ -138,9 +138,9 @@ def main() -> int:
     print("  [Stage 4] Winner announcement drafted (if winner marked)")
 
     print("\nNext steps (all manual, human-gated):")
-    print("  1. Open rounds/r{round_num}/judging.html in your browser")
+    print(f"  1. Open rounds/r{args.round}/judging.html in your browser")
     print("  2. Review submissions and floor checks")
-    print("  3. Fill in rubric scores in rounds/r{round_num}/judging.json")
+    print(f"  3. Fill in rubric scores in rounds/r{args.round}/judging.json")
     print("  4. Mark the winner (set winner=true for one submission)")
     print("  5. Run stage 4 again to generate announcement draft")
     print("  6. Customize and post the announcement (manual)")

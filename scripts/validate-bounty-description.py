@@ -54,7 +54,7 @@ def load_description(path: Path) -> str | None:
         return None
 
 
-def validate_sections(description: str, strict: bool = False) -> tuple[bool, list]:
+def validate_sections(description: str) -> tuple[bool, list]:
     """Check for all required sections."""
     findings = []
     all_pass = True
@@ -186,7 +186,7 @@ def main() -> int:
         return 1
 
     print("\n--- SECTION VALIDATION ---")
-    sections_pass, sections_findings = validate_sections(description, args.strict)
+    sections_pass, sections_findings = validate_sections(description)
     for finding in sections_findings:
         print(f"  {finding}")
 
@@ -205,10 +205,14 @@ def main() -> int:
     for finding in struct_findings:
         print(f"  {finding}")
 
-    # Final verdict
+    # Final verdict. floor_pass/links_pass are always True by construction (those
+    # validators only ever emit WARN, never FAIL) - so --strict's documented promise
+    # ("warnings become failures") has to be enforced here, from the actual finding
+    # text, not from those functions' return values.
     all_pass = sections_pass and struct_pass
+    all_findings = sections_findings + floor_findings + links_findings + struct_findings
     if args.strict:
-        all_pass = all_pass and floor_pass and links_pass
+        all_pass = all_pass and not any(f.startswith("WARN:") for f in all_findings)
 
     print("\n" + "=" * 60)
     if all_pass:
