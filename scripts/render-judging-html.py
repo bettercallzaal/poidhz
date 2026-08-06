@@ -16,11 +16,29 @@ The rubric scores come FROM stage-1 or manual filling, not FROM this renderer.
 """
 
 import argparse
+import html
 import json
 from pathlib import Path
 import sys
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+def esc(s) -> str:
+    """HTML-escape any value before interpolating it into the page. Submission
+    fields (display_name, title, fc_handle, ...) come from POIDH claims, which
+    are attacker-controlled - a claim titled <script>...</script> would
+    otherwise execute in anyone's browser who opens the rendered scorecard."""
+    return html.escape(str(s if s is not None else ""))
+
+
+def safe_url(u: str) -> str:
+    """Only allow http(s) URLs through to an href attribute - blocks
+    javascript: URI injection via x_url/fc_url submission fields."""
+    u = str(u or "")
+    if u.startswith("http://") or u.startswith("https://"):
+        return html.escape(u, quote=True)
+    return "#"
 
 
 def load_judging_json(round_num: int) -> dict | None:
@@ -41,41 +59,41 @@ def load_judging_json(round_num: int) -> dict | None:
 def render_html(judging: dict, round_num: int) -> str:
     """Render judging.json to HTML."""
 
-    bounty_id = judging.get("bounty_id", "?")
-    bounty_title = judging.get("bounty_title", "POIDH Bounty")
-    bounty_url = judging.get("bounty_url", "#")
+    bounty_id = esc(judging.get("bounty_id", "?"))
+    bounty_title = esc(judging.get("bounty_title", "POIDH Bounty"))
+    bounty_url = safe_url(judging.get("bounty_url", ""))
     submissions = judging.get("submissions", [])
     floor_rules = judging.get("floor_rules", [])
     rubric_tiers = judging.get("rubric_tiers", [])
-    deadline_pt = judging.get("deadline_pt", "TBD")
-    amount_eth = judging.get("amount_eth_at_judging", 0)
-    judging_note = judging.get("judging_note", "")
+    deadline_pt = esc(judging.get("deadline_pt", "TBD"))
+    amount_eth = esc(judging.get("amount_eth_at_judging", 0))
+    judging_note = esc(judging.get("judging_note", ""))
     summary = judging.get("claude_summary", {})
 
     # Build floor rules HTML
     floor_rules_html = ""
     for rule in floor_rules:
-        floor_rules_html += f"    <li><strong>{rule.get('id', '').upper()}</strong> – {rule.get('label', '')}</li>\n"
+        floor_rules_html += f"    <li><strong>{esc(rule.get('id', '').upper())}</strong> – {esc(rule.get('label', ''))}</li>\n"
 
     # Build rubric tiers pills
     rubric_pills_html = ""
     for tier in rubric_tiers:
         rubric_pills_html += f"""    <div class="rubric-pill">
-      <div class="r-name">{tier.get('label', '')}</div>
-      <div class="r-ex">{tier.get('examples', '')}</div>
+      <div class="r-name">{esc(tier.get('label', ''))}</div>
+      <div class="r-ex">{esc(tier.get('examples', ''))}</div>
     </div>
 """
 
     # Build submissions
     submissions_html = ""
     for sub in submissions:
-        claim_id = sub.get("claim_id", "?")
-        fc_handle = sub.get("fc_handle") or "user"
-        wallet = sub.get("wallet", "")
-        display_name = sub.get("display_name") or fc_handle
-        x_url = sub.get("x_url", "")
-        fc_url = sub.get("fc_url", "")
-        title = sub.get("title", "Untitled")
+        claim_id = esc(sub.get("claim_id", "?"))
+        fc_handle = esc(sub.get("fc_handle") or "user")
+        wallet = esc(sub.get("wallet", ""))
+        display_name = esc(sub.get("display_name") or sub.get("fc_handle") or "user")
+        x_url = safe_url(sub.get("x_url", ""))
+        fc_url = safe_url(sub.get("fc_url", ""))
+        title = esc(sub.get("title", "Untitled"))
         duration_sec = sub.get("duration_sec")
         floor_checks = sub.get("floor_checks", {})
         rubric_score = sub.get("rubric_score", {})
@@ -87,7 +105,7 @@ def render_html(judging: dict, round_num: int) -> str:
         for check_id, check_val in floor_checks.items():
             if check_val and check_val != "UNKNOWN":
                 chip_class = "PASS" if "PASS" in check_val else "FAIL" if "FAIL" in check_val else "UNKNOWN"
-                floor_chips_html += f'    <span class="floor-chip {chip_class}">{check_id.upper()}: {check_val}</span>\n'
+                floor_chips_html += f'    <span class="floor-chip {chip_class}">{esc(str(check_id).upper())}: {esc(check_val)}</span>\n'
 
         # Build rubric scores
         rubric_html = ""
@@ -101,13 +119,14 @@ def render_html(judging: dict, round_num: int) -> str:
             if score_text:
                 rubric_html += f"""    <div class="rl">
       <div class="rl-cat">{tier_label}</div>
-      <div class="rl-body">{score_text}</div>
+      <div class="rl-body">{esc(score_text)}</div>
     </div>
 """
 
-        # Meta info
-        x_link = f'<a href="{x_url}" target="_blank">X Post</a>' if x_url else "No X URL"
-        fc_link = f'<a href="{fc_url}" target="_blank">Farcaster</a>' if fc_url else ""
+        # Meta info - check the ORIGINAL raw value for presence (safe_url always
+        # returns a truthy "#" placeholder for a missing/unsafe URL)
+        x_link = f'<a href="{x_url}" target="_blank">X Post</a>' if sub.get("x_url") else "No X URL"
+        fc_link = f'<a href="{fc_url}" target="_blank">Farcaster</a>' if sub.get("fc_url") else ""
 
         # Winner badge
         winner_badge = ""
