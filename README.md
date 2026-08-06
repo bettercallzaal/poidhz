@@ -2,9 +2,9 @@
 
 Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard refresh, the canonical bar, the lessons learned. Everything you need to draft + cast + judge the next round lives here.
 
-**Active bounty:** [Round 4 - The ZABAL Gamez open pot](https://poidh.xyz/base/bounty/1249) (OPEN-SPLIT, July open build month - LIVE, cast Jun 15, closes Fri Jul 31, 2026; 2 claims as of 2026-07-08)
-**Previous:** [Round 3 - Best ad for ZABAL Gamez](https://poidh.xyz/base/bounty/1180) (closed Sun Jun 14, 2026 - **fully resolved + paid out on-chain**, winner @femmie claim 6749; only the winner cast is still pending - Zaal's call, see [rounds/r3/](rounds/r3/))
-**Drafting:** Round 5 - POIDH x Unlock Protocol clipping bounty (not cast, no bounty ID yet - see [rounds/r5/](rounds/r5/))
+**Latest closed:** [Round 4 - The ZABAL Gamez open pot](https://poidh.xyz/base/bounty/1249) - CLOSED 2026-08-05. Bounty was accidentally canceled instead of withdrawn mid-closeout (ETH refund reclaimed to treasury); the 15 qualifying builders were rewarded via a $ZABAL Empire Builder leaderboard credit instead, cast posted. See [rounds/r4/CLOSEOUT.md](rounds/r4/CLOSEOUT.md) for the full story - worth reading before running another OPEN-SPLIT round.
+**Also closed:** [Round 3 - Best ad for ZABAL Gamez](https://poidh.xyz/base/bounty/1180) - fully resolved + paid out on-chain, winner @femmie claim 6749 (verified via direct `bounties()`/`getClaimsByBountyId()` eth_call against the deployed contract, not just the API). Winner + honorable-mention casts are drafted and ready in [rounds/r3/cast-templates/](rounds/r3/cast-templates/).
+**Drafting, not cast:** Round 5 (POIDH x Unlock Protocol, DAO co-funded pitch, DM never sent), Round 6 (same idea, solo-cast version, tooling built via `docs/create-bounty.html`, recommended over R5), Round 7 (first CODE bounty - bug fixes for zabalgamez.com, also ZOL's first money-action trust-ladder rung). See [rounds/r5/](rounds/r5/), [rounds/r6/](rounds/r6/), [rounds/r7/](rounds/r7/).
 
 **Live surfaces (all verified 200 on 2026-05-31, BCZ canonical during R3 window):**
 - Hub: https://bettercallzaal.com/poidh.html
@@ -45,24 +45,71 @@ zpoidh/
 ├── README.md                        # this file
 ├── docs/
 │   ├── bounty-best-practices.html   # canonical bar (use for every bounty)
+│   ├── bounty-calendar.html         # rendered deadline calendar
+│   ├── create-bounty.html           # standalone bounty-creation tool - any EIP-6963
+│   │                                 # browser wallet, no Farcaster app required (used for R6)
 │   ├── poidh-hub.html               # the live hub UI source
+│   ├── how-to-draft-next-bounty.md
+│   ├── erc20-bounty-fork.md         # notes on an ERC20-reward PoidhV2 fork explored, not shipped
+│   ├── qr-bid-reward-design.md      # design-only, gated on-chain spend
+│   ├── unlock-fireside-collectible.md
 │   └── RECAP.md                     # resume artifact + history log
 ├── rounds/
 │   ├── _template/                   # starter files for the NEXT round
-│   ├── r1/                          # Hannah Ep 17 clip-up (bounty 1151, Apr 2026)
-│   ├── r2/                          # Best 60s POIDH ad from Ep 19 (bounty 1166, May 2026)
-│   └── r3/                          # Best ad for ZABAL Gamez (bounty 1180, May-Jun 2026)
+│   ├── r1/                          # Hannah Ep 17 clip-up (bounty 1151, Apr 2026) - closed, paid
+│   ├── r2/                          # Best 60s POIDH ad from Ep 19 (bounty 1166, May 2026) - closed, paid
+│   ├── r3/                          # Best ad for ZABAL Gamez (bounty 1180) - closed, paid, cast drafted
+│   ├── r4/                          # ZABAL Gamez open pot (bounty 1249) - closed, see CLOSEOUT.md
+│   ├── r5/                          # POIDH x Unlock (DAO co-fund pitch) - draft only, not cast
+│   ├── r6/                          # POIDH x Unlock (solo-cast, recurring) - built, not cast
+│   └── r7/                          # ZABAL Gamez bug-fix bounty (first CODE round) - draft, not cast
 ├── assets/
 │   └── brand-kits/
-│       └── zabal-games/             # full CC-BY kit (used by R3)
+│       └── zabal-games/             # full CC-BY kit (used by R3+)
+├── api/
+│   └── claim-meta.mjs               # claim metadata endpoint
+├── pipeline/                        # Fable eval-runner - AI-assisted submission scoring
+│   ├── eval-runner.mjs              # per-submission scoring (distribution/craft/substance/spec), Claude-called
+│   ├── run-eval.md                  # manual-first runbook
+│   └── *-template.md                # rubric / scorecard / cohort-synthesis templates
 ├── data/
 │   ├── leaderboard.json             # the EB-pulled feed (`[{address, score}]`)
 │   ├── claims.json                  # rich page data
 │   ├── audit.json                   # audit trail
+│   ├── bounty-calendar.json         # parsed deadlines, output of build-bounty-calendar.py
+│   ├── poidh-deadlines-global.json  # platform-wide deadline scan (not just BCZ's own bounties)
 │   └── zabal-preview.json           # EB snapshot per submitter
 └── scripts/
-    └── refresh-poidh-leaderboard.py # canonical refresh script
+    ├── refresh-poidh-leaderboard.py # canonical leaderboard refresh (tRPC + web3.bio)
+    ├── scan-poidh-deadlines.py      # parses deadlines from bounty description free text
+    ├── build-bounty-calendar.py     # turns scanned deadlines into a calendar view
+    ├── deadlines-to-ics.py          # subscribable .ics calendar export
+    ├── build-bounty-dashboard.py    # platform-wide live dashboard: timers, submission status,
+    │                                 # estimated ease/difficulty/money per bounty (docs/bounty-dashboard.html)
+    ├── process-judging-videos.py    # Stage 1: download + duration-check + scaffold judging.json
+    ├── render-judging-html.py       # Stage 2: judging.json -> shareable HTML scorecard
+    ├── validate-bounty-description.py # Stage 3: check a draft description against the canonical bar
+    ├── prepare-winner-announcement.py # Stage 4: scaffold the winner-announce cast templates
+    └── run-judging-round.py         # Stage 5: orchestrates stages 1-4, pauses at two human gates
 ```
+
+## Round automation pipeline (stages 1-5)
+
+Chains together everything from "submissions closed" to "winner cast drafted," with two
+hard human gates that are never automated: **rubric scoring / winner selection**, and
+**posting the actual announcement + any on-chain call**. Run the whole thing with:
+
+```bash
+python3 scripts/run-judging-round.py --bounty <id> --round <N> [--skip-stage 1] [--skip-stage 3]
+```
+
+Or run each stage standalone:
+- `process-judging-videos.py --bounty <id> --round <N>` - downloads submitted videos, checks duration against spec, scaffolds `judging.json`
+- `render-judging-html.py --round <N>` - turns `judging.json` into a shareable HTML scorecard
+- `validate-bounty-description.py --description <path>` - checks a draft bounty description against the canonical bar before casting
+- `prepare-winner-announcement.py --round <N>` - scaffolds the winner-announce cast templates (Farcaster/X/short) into `rounds/rN/cast-templates/`, leaving the "why it won" reasoning for a human to fill
+
+All idempotent, safe to re-run. No script in this pipeline posts anything, signs anything, or touches chain state.
 
 ---
 
@@ -106,6 +153,7 @@ Use the existing rounds as reference:
 - Cast on `/zabal` (or relevant channel) + `/poidh` + `/zao` with the bounty URL as embed
 - Pin in the home channel for the bounty window
 - Firefly cross-post to X
+- **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/r7/bountycaster-cast.md](rounds/r7/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
 - Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: bettercallzaal.com/poidh.html"
@@ -153,17 +201,19 @@ Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates
 
 ## Round index
 
-| Round | Bounty | Episode / Source | Prize | Winner | Submissions | Doc |
+| Round | Bounty | Episode / Source | Prize | Winner | State | Doc |
 |---|---|---|---|---|---|---|
-| R1 | [1151](https://poidh.xyz/base/bounty/1151) | BCZ YapZ Ep 17 (Hannah / Farm Drop clip-up) | 0.0105 ETH | @cryptfi-mariano (claim 6368) | 11 claims / 10 editors | [rounds/r1/](rounds/r1/) |
-| R2 | [1166](https://poidh.xyz/base/bounty/1166) | BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny) | 0.0105 ETH | @joeyofdeus / Monksage (claim 6645) | 8 claims / 7 editors | [rounds/r2/](rounds/r2/) |
-| R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad (any format) | 0.025 ETH | @femmie (claim 6749) - confirmed paid on-chain, winner cast still pending | 8 claims | [rounds/r3/](rounds/r3/) |
-| R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open build pot | whole pot, split equally | OPEN-SPLIT - everyone who ships | LIVE - 2 claims so far, closes Jul 31 | [rounds/r4/](rounds/r4/) |
-| R5 | TBD | POIDH x Unlock Protocol clip bounty | TBD (Unlock to set) | DRAFT - not cast | draft only | [rounds/r5/](rounds/r5/) |
+| R1 | [1151](https://poidh.xyz/base/bounty/1151) | BCZ YapZ Ep 17 (Hannah / Farm Drop clip-up) | 0.0105 ETH | @cryptfi-mariano (claim 6368) | closed, paid | [rounds/r1/](rounds/r1/) |
+| R2 | [1166](https://poidh.xyz/base/bounty/1166) | BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny) | 0.0105 ETH | @joeyofdeus / Monksage (claim 6645) | closed, paid | [rounds/r2/](rounds/r2/) |
+| R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad (any format) | 0.025 ETH | @femmie (claim 6749) | closed, paid, confirmed on-chain via direct `bounties()`/`getClaimsByBountyId()` eth_call - cast templates drafted, not yet posted | [rounds/r3/](rounds/r3/) |
+| R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open build pot | $ZABAL leaderboard credit (originally an ETH split, bounty was accidentally canceled mid-close) | 15 qualifying builders | CLOSED 2026-08-05 - see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) | [rounds/r4/](rounds/r4/) |
+| R5 | not cast | POIDH x Unlock Protocol clip bounty, DAO co-funded pitch | TBD (Unlock to set) | - | DRAFT - pitch DM never sent | [rounds/r5/](rounds/r5/) |
+| R6 | not cast | Same Unlock idea, solo-cast, auto-versioning via `docs/create-bounty.html` | TBD | - | built + tested, ready to cast, recommended over R5 | [rounds/r6/](rounds/r6/) |
+| R7 | not cast | ZABAL Gamez bug fixes (first CODE bounty) | seeded at cast time, multiple winners possible | - | DRAFT - also ZOL's first trust-ladder money-action rung | [rounds/r7/](rounds/r7/) |
 
-Leaderboard refresh completed 2026-07-08 - `data/leaderboard.json` / `claims.json` /
-`audit.json` now include R3 (1180) and R4 (1249) to date (22 submitters, 29 claims total).
-That same pull is what surfaced R3's on-chain accepted claim - see [rounds/r3/](rounds/r3/).
+Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json` /
+`audit.json` include R1-R4 (22 submitters via on-chain POIDH claims, plus R4's separate
+15-wallet $ZABAL leaderboard credit tracked in `rounds/r4/r4-builder-leaderboard.csv`).
 
 ---
 
@@ -189,6 +239,8 @@ Each kit mirrors a canonical source repo (e.g. `github.com/ZAODEVZ/zabalgames` f
 - **Doc 631** (ZAO OS V1) - POIDH x $ZABAL x Sentinel convergence map
 - **Doc 625** (ZAO OS V1) - POIDH x ZAO bounty playbook (18 templates)
 - **Doc 992** (ZAO OS V1) - clipper -> POIDH pipeline concept, R5 is the manual v1 test of it
+- **Doc 2202** (ZAO OS V1) - POIDH x ZAO current-state + brand-alignment synthesis (Aug 2026)
+- **Doc 2203** (ZAO OS V1) - full POIDH x ZAO lore, Kenny's 2023 founding through today
 - **[docs/unlock-fireside-collectible.md](docs/unlock-fireside-collectible.md)** - the Unlock Protocol proof-of-attendance NFT minted at the fireside R5 draws on
 - **[docs/RECAP.md](docs/RECAP.md)** - resume artifact + ongoing state
 

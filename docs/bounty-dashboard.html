@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POID bounty dashboard - live deadlines, ease/difficulty, money - zpoidh</title>
+  <meta name="description" content="Platform-wide live POID bounty dashboard: countdown timers, submission status, and an estimated ease/difficulty/money score per bounty.">
+  <link rel="icon" type="image/png" href="/assets/icon.png">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #070709; --surface: #111115; --surface-2: #16161c;
+      --cyan: #00e5ff; --orange: #ff6b35; --green: #4ade80; --red: #f87171; --gold: #f5c842;
+      --purple: #c084fc;
+      --text: #e4e2dd; --text-muted: #8a8895; --text-dim: #4e4c57;
+      --border: #1f1e26;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6; padding: 2rem 1.5rem;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .sub { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem; line-height: 1.6; max-width: 820px; }
+    .sub code { color: var(--gold); }
+    .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1.1rem; }
+    .stat .n { font-size: 1.3rem; font-weight: 700; color: var(--cyan); }
+    .stat .l { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+    .controls { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+    .controls button {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);
+      padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.82rem; cursor: pointer;
+    }
+    .controls button.active { background: var(--cyan); color: #04262b; border-color: var(--cyan); font-weight: 600; }
+    .methodology {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.9rem 1.1rem; margin-bottom: 1.6rem; font-size: 0.82rem; color: var(--text-muted);
+    }
+    .methodology strong { color: var(--gold); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.1rem; display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .card-title { font-size: 0.98rem; font-weight: 600; line-height: 1.35; }
+    .card-title a { color: var(--text); }
+    .card-title a:hover { color: var(--cyan); }
+    .row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.76rem; font-weight: 600; }
+    .pill-money { background: rgba(245,200,66,0.15); color: var(--gold); }
+    .pill-subs-yes { background: rgba(74,222,128,0.15); color: var(--green); }
+    .pill-subs-no { background: rgba(138,136,149,0.15); color: var(--text-muted); }
+    .pill-type { background: rgba(192,132,252,0.15); color: var(--purple); }
+    .score-row { display: flex; gap: 1rem; }
+    .score { flex: 1; }
+    .score .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.2rem; }
+    .bar-track { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; }
+    .bar-fill.ease { background: var(--green); }
+    .bar-fill.difficulty { background: var(--orange); }
+    .score .val { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .timer { font-family: 'SF Mono', Menlo, monospace; font-size: 0.92rem; padding: 0.4rem 0.6rem; border-radius: 8px; background: var(--surface-2); }
+    .timer.urgent { color: var(--red); }
+    .timer.soon { color: var(--gold); }
+    .timer.plenty { color: var(--green); }
+    .timer.none { color: var(--text-dim); font-style: italic; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-dim); }
+    .empty { color: var(--text-dim); padding: 2rem; text-align: center; grid-column: 1 / -1; }
+    footer { margin-top: 1.5rem; color: var(--text-dim); font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>POID bounty dashboard</h1>
+  <p class="sub">
+    Every live bounty on POID (open + in-progress, platform-wide, all chains) with a
+    countdown timer, submission status, and an estimated ease/difficulty score.
+    See also the <a href="bounty-calendar.html">deadline-only calendar</a> for BCZ's own rounds.
+  </p>
+  <div class="stats" id="stats"></div>
+  <div class="controls" id="controls"></div>
+  <div class="methodology" id="methodology"></div>
+  <div class="grid" id="grid">
+    <div class="empty">Loading...</div>
+  </div>
+  <footer id="footer"></footer>
+</div>
+<script>
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+function fmtCountdown(deadlineIso) {
+  if (!deadlineIso) return { text: 'no stated deadline', cls: 'none' };
+  // deadline_iso is a date only (YYYY-MM-DD) - treat as end-of-day UTC
+  var deadline = new Date(deadlineIso + 'T23:59:59Z').getTime();
+  var now = Date.now();
+  var diff = deadline - now;
+  if (diff <= 0) return { text: 'closed', cls: 'none' };
+  var days = Math.floor(diff / 86400000);
+  var hours = Math.floor((diff % 86400000) / 3600000);
+  var mins = Math.floor((diff % 3600000) / 60000);
+  var cls = days < 1 ? 'urgent' : days < 3 ? 'soon' : 'plenty';
+  var text = days > 0 ? (days + 'd ' + hours + 'h left') : (hours + 'h ' + mins + 'm left');
+  return { text: text, cls: cls };
+}
+
+var ALL_BOUNTIES = [];
+var FILTER = 'all'; // all | deadline | submissions | no-submissions
+
+function render() {
+  var grid = document.getElementById('grid');
+  var list = ALL_BOUNTIES.filter(function (b) {
+    if (FILTER === 'deadline') return !!b.deadline_iso;
+    if (FILTER === 'submissions') return b.has_submissions;
+    if (FILTER === 'no-submissions') return !b.has_submissions;
+    return true;
+  });
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">No bounties match this filter.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(function (b) {
+    var cd = fmtCountdown(b.deadline_iso);
+    var money = b.amount_usd != null
+      ? '$' + b.amount_usd.toLocaleString() + ' <span style="color:var(--text-dim)">(' + b.amount_native + ' ' + esc(b.amount_token_symbol) + ')</span>'
+      : b.amount_native + ' ' + esc(b.amount_token_symbol);
+    return '' +
+      '<div class="card" data-id="' + b.bounty_id + '">' +
+        '<div class="card-title"><a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.title) + '</a></div>' +
+        '<div class="row">' +
+          '<span class="pill pill-money">' + money + '</span>' +
+          '<span class="pill ' + (b.has_submissions ? 'pill-subs-yes' : 'pill-subs-no') + '">' +
+            (b.has_submissions ? 'has submissions' : 'no submissions yet') + '</span>' +
+          '<span class="pill pill-type">' + esc(b.task_type) + (b.classified ? '' : ' (unclassified)') + '</span>' +
+        '</div>' +
+        '<div class="score-row">' +
+          '<div class="score"><div class="label">Ease /10</div><div class="bar-track"><div class="bar-fill ease" style="width:' + (b.ease * 10) + '%"></div></div><div class="val">' + b.ease + '/10</div></div>' +
+          '<div class="score"><div class="label">Difficulty /10</div><div class="bar-track"><div class="bar-fill difficulty" style="width:' + (b.difficulty * 10) + '%"></div></div><div class="val">' + b.difficulty + '/10</div></div>' +
+        '</div>' +
+        '<div class="timer countdown-cell ' + cd.cls + '" data-deadline="' + esc(b.deadline_iso || '') + '">' + cd.text + '</div>' +
+        '<div class="card-footer">' +
+          '<span>' + esc(b.status) + (b.is_multiplayer ? ' · open' : ' · solo') + '</span>' +
+          '<span>#' + b.bounty_id + '</span>' +
+        '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function tickTimers() {
+  document.querySelectorAll('.countdown-cell').forEach(function (el) {
+    var deadline = el.getAttribute('data-deadline');
+    var cd = fmtCountdown(deadline || null);
+    el.textContent = cd.text;
+    el.className = 'timer countdown-cell ' + cd.cls;
+  });
+}
+
+fetch('../data/bounty-dashboard.json', { cache: 'no-store' })
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    ALL_BOUNTIES = d.bounties || [];
+
+    document.getElementById('stats').innerHTML =
+      '<div class="stat"><div class="n">' + d.total_bounties + '</div><div class="l">Live bounties</div></div>' +
+      '<div class="stat"><div class="n">' + d.with_deadline + '</div><div class="l">Have a deadline</div></div>' +
+      '<div class="stat"><div class="n">' + d.with_submissions_already + '</div><div class="l">Have submissions</div></div>';
+
+    var filters = [
+      ['all', 'All'], ['deadline', 'Has deadline'],
+      ['submissions', 'Has submissions'], ['no-submissions', 'No submissions yet - open lane'],
+    ];
+    document.getElementById('controls').innerHTML = filters.map(function (f) {
+      return '<button data-filter="' + f[0] + '" class="' + (f[0] === 'all' ? 'active' : '') + '">' + f[1] + '</button>';
+    }).join('');
+    document.querySelectorAll('.controls button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.controls button').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        FILTER = btn.getAttribute('data-filter');
+        render();
+      });
+    });
+
+    document.getElementById('methodology').innerHTML =
+      '<strong>Ease/difficulty are estimated</strong>, not judged by a human or LLM reading the actual bar - ' +
+      esc(d.scoring_methodology) +
+      (d.token_usd_prices ? ' USD estimates use live prices at build time (' +
+        Object.entries(d.token_usd_prices).map(function (kv) { return kv[0] + ': $' + kv[1]; }).join(', ') + ').' : '');
+
+    render();
+    document.getElementById('footer').textContent = 'Generated ' + (d.generated_at || 'unknown') + ' - refresh via scripts/build-bounty-dashboard.py';
+    setInterval(tickTimers, 30000);
+  })
+  .catch(function (e) {
+    document.getElementById('grid').innerHTML = '<div class="empty">Could not load data/bounty-dashboard.json - run scripts/build-bounty-dashboard.py first.<br>' + esc(String(e)) + '</div>';
+  });
+</script>
+</body>
+</html>
