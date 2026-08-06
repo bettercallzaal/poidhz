@@ -84,6 +84,8 @@ zpoidh/
     ├── scan-poidh-deadlines.py      # parses deadlines from bounty description free text
     ├── build-bounty-calendar.py     # turns scanned deadlines into a calendar view
     ├── deadlines-to-ics.py          # subscribable .ics calendar export
+    ├── build-bounty-dashboard.py    # platform-wide live dashboard: timers, submission status,
+    │                                 # estimated ease/difficulty/money per bounty (docs/bounty-dashboard.html)
     ├── process-judging-videos.py    # Stage 1: download + duration-check + scaffold judging.json
     ├── render-judging-html.py       # Stage 2: judging.json -> shareable HTML scorecard
     ├── validate-bounty-description.py # Stage 3: check a draft description against the canonical bar
