@@ -36,6 +36,10 @@
       padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.82rem; cursor: pointer;
     }
     .controls button.active { background: var(--cyan); color: #04262b; border-color: var(--cyan); font-weight: 600; }
+    .controls select {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.82rem; cursor: pointer;
+    }
     .methodology {
       background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
       padding: 0.9rem 1.1rem; margin-bottom: 1.6rem; font-size: 0.82rem; color: var(--text-muted);
@@ -113,15 +117,33 @@ function fmtCountdown(deadlineIso) {
 
 var ALL_BOUNTIES = [];
 var FILTER = 'all'; // all | deadline | submissions | no-submissions
+var SORT = 'default'; // default | money | ease | difficulty | value
+
+// "Value" = a rough "worth your time" signal: reward weighted by how easy it is
+// to get, so a small-but-trivial bounty and a big-but-brutal one can be compared
+// on one axis. Same estimated-not-measured caveat as ease/difficulty themselves.
+function valueScore(b) {
+  return (b.amount_usd || 0) * (b.ease / 10);
+}
+
+function sortList(list) {
+  var copy = list.slice();
+  if (SORT === 'money') copy.sort(function (a, b) { return (b.amount_usd || 0) - (a.amount_usd || 0); });
+  else if (SORT === 'ease') copy.sort(function (a, b) { return b.ease - a.ease; });
+  else if (SORT === 'difficulty') copy.sort(function (a, b) { return a.difficulty - b.difficulty; });
+  else if (SORT === 'value') copy.sort(function (a, b) { return valueScore(b) - valueScore(a); });
+  // 'default' keeps the server-computed order (deadline-soonest first, then by money)
+  return copy;
+}
 
 function render() {
   var grid = document.getElementById('grid');
-  var list = ALL_BOUNTIES.filter(function (b) {
+  var list = sortList(ALL_BOUNTIES.filter(function (b) {
     if (FILTER === 'deadline') return !!b.deadline_iso;
     if (FILTER === 'submissions') return b.has_submissions;
     if (FILTER === 'no-submissions') return !b.has_submissions;
     return true;
-  });
+  }));
   if (!list.length) {
     grid.innerHTML = '<div class="empty">No bounties match this filter.</div>';
     return;
@@ -187,6 +209,17 @@ fetch('../data/bounty-dashboard.json', { cache: 'no-store' })
         render();
       });
     });
+
+    var sortSelect = document.createElement('select');
+    sortSelect.innerHTML = [
+      ['default', 'Sort: soonest deadline'],
+      ['value', 'Sort: best value (money x ease)'],
+      ['money', 'Sort: highest reward'],
+      ['ease', 'Sort: easiest first'],
+      ['difficulty', 'Sort: hardest first'],
+    ].map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join('');
+    sortSelect.addEventListener('change', function () { SORT = sortSelect.value; render(); });
+    document.getElementById('controls').appendChild(sortSelect);
 
     document.getElementById('methodology').innerHTML =
       '<strong>Ease/difficulty are estimated</strong>, not judged by a human or LLM reading the actual bar - ' +
