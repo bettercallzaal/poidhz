@@ -24,7 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 REQUIRED_SECTIONS = [
-    ("why", "One-paragraph WHY (link to source episode/event/page)"),
+    ("why", "WHY - one-paragraph link to source episode/event/page"),
     ("the_bar", "THE BAR - 3-5 numbered floor rules"),
     ("the_rubric", "THE RUBRIC - grouped by Distribution/Craft/Substance/Bonus"),
     ("asset_kit", "THE ASSET KIT - link to GitHub brand folder + direct download URLs"),
