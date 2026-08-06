@@ -52,18 +52,22 @@ def find_winner(submissions: list) -> dict | None:
 def build_draft(judging: dict, winner: dict, round_num: int) -> dict:
     """Build announcement draft."""
 
-    bounty_id = judging.get("bounty_id")
-    bounty_title = judging.get("bounty_title", "POIDH Bounty")
-    bounty_url = judging.get("bounty_url")
-    amount_eth = judging.get("amount_eth_at_judging", 0)
+    # `.get(key, default)` only supplies the default when the KEY is missing, not
+    # when its value is explicitly null - and process-judging-videos.py legitimately
+    # writes fc_handle: null when a submitter's wallet doesn't resolve on the
+    # leaderboard. `or default` catches both missing AND None/falsy.
+    bounty_id = judging.get("bounty_id") or "?"
+    bounty_title = judging.get("bounty_title") or "POIDH Bounty"
+    bounty_url = judging.get("bounty_url") or ""
+    amount_eth = judging.get("amount_eth_at_judging") or 0
 
-    claim_id = winner.get("claim_id", "?")
-    fc_handle = winner.get("fc_handle", "unknown")
-    display_name = winner.get("display_name", fc_handle)
-    wallet = winner.get("wallet", "")
-    x_url = winner.get("x_url", "")
-    title = winner.get("title", "Untitled")
-    rubric_score = winner.get("rubric_score", {})
+    claim_id = winner.get("claim_id") or "?"
+    fc_handle = winner.get("fc_handle") or "unknown"
+    display_name = winner.get("display_name") or fc_handle
+    wallet = winner.get("wallet") or ""
+    x_url = winner.get("x_url") or ""
+    title = winner.get("title") or "Untitled"
+    rubric_score = winner.get("rubric_score") or {}
 
     # Build why section
     why_lines = []
