@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//zpoidh//POID bounty deadlines//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:POID Bounty Deadlines
+BEGIN:VEVENT
+UID:poidh-1393-42825769@zpoidh
+DTSTAMP:20260806T020031Z
+DTSTART;VALUE=DATE:20260809
+SUMMARY:Closest to Zero - deadline
+DESCRIPTION:Stated: August 09\, 2026 - 13014.0 ETH - https://poidh.xyz/base
+ /bounty/1393
+URL:https://poidh.xyz/base/bounty/1393
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-321-33162049@zpoidh
+DTSTAMP:20260806T020031Z
+DTSTART;VALUE=DATE:20260831
+SUMMARY:Build a ship in a bottle  - deadline
+DESCRIPTION:Stated: August 31\, 2026 - 0.00438 ETH - https://poidh.xyz/base
+ /bounty/321
+URL:https://poidh.xyz/base/bounty/321
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1301-79672113@zpoidh
+DTSTAMP:20260806T020031Z
+DTSTART;VALUE=DATE:20260831
+SUMMARY:One Thing Web3 Fixed. One Thing It Broke. - deadline
+DESCRIPTION:Stated: August 31\, 2026 - 0.0038 ETH - https://poidh.xyz/base/
+ bounty/1301
+URL:https://poidh.xyz/base/bounty/1301
+END:VEVENT
+END:VCALENDAR

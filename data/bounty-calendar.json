@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T02:13:11.790050+00:00",
+  "generated_at": "2026-08-06T02:00:16.104661+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -35,7 +35,7 @@
       "title": "R4 - ZABAL Gamez open pot",
       "deadline_iso": "2026-07-31",
       "deadline_raw_text": "July 31, 2026",
-      "status": "upcoming",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1249"
     },
     {
