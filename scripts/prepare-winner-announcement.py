@@ -26,6 +26,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
+def load_org_config() -> dict:
+    """Read org.config.json if present - forking zpoidh for your own org? Edit
+    that file's "empire_token_symbol" instead of this script. Missing file/key
+    falls back to $ZABAL, the original hardcoded value."""
+    path = REPO_ROOT / "org.config.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return {}
+
+
+_CFG = load_org_config()
+TOKEN_SYMBOL = _CFG.get("empire_token_symbol") or "$ZABAL"
+
+
 def load_judging_json(round_num: int) -> dict | None:
     """Load judging.json for a given round."""
     judging_path = REPO_ROOT / f"rounds/r{round_num}/judging.json"
@@ -114,7 +131,7 @@ def build_draft(judging: dict, winner: dict, round_num: int) -> dict:
 
 Reason: [ADD YOUR REASONING - refer to rubric above]
 
-You've earned a slot in $ZABAL leaderboard. Details: [bounty URL]""",
+You've earned a slot in {TOKEN_SYMBOL} leaderboard. Details: [bounty URL]""",
             "x_post": f"""Big congrats to @{fc_handle.lstrip('@')}! Your POIDH Round {round_num} entry ({bounty_title}) took the top prize.
 
 [EMBED SUBMISSION VIDEO]
