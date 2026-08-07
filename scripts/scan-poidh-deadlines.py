@@ -29,6 +29,22 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 UA = "Mozilla/5.0 (zpoidh-bounty-deadline-scanner)"
 
+
+def load_org_config() -> dict:
+    """Read org.config.json if present - forking zpoidh for your own org? Edit
+    that file's "default_chain_id" instead of this script. Missing file/key
+    falls back to Base mainnet (8453), the original hardcoded default."""
+    path = REPO_ROOT / "org.config.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return {}
+
+
+_CFG = load_org_config()
+
 MONTHS = (
     "January|February|March|April|May|June|July|August|September|October|November|December"
 )
@@ -111,7 +127,7 @@ def main() -> int:
     p.add_argument("--pages", type=int, default=4, help="how many pages of the live feed to scan")
     p.add_argument("--limit", type=int, default=25, help="bounties per page")
     p.add_argument("--status", default="open", choices=["open", "progress", "past"])
-    p.add_argument("--chain", type=int, default=8453)
+    p.add_argument("--chain", type=int, default=_CFG.get("default_chain_id", 8453))
     args = p.parse_args()
 
     if args.selftest:
