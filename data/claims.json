@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T02:31:03Z",
+  "generated_at": "2026-08-07T07:27:29Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
@@ -105,14 +105,14 @@
       "score": 1,
       "rank": 3,
       "farcaster_username": "pascaline",
-      "displayName": null,
-      "avatar": null,
+      "displayName": "Caline",
+      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/80d1d058-fdd6-4573-24e2-637df5431700/original",
       "twitter_handle": null,
       "twitter_url": null,
-      "fid": null,
+      "fid": 1119246,
       "boost": 1,
       "totalRewards": 5.154348081899692,
-      "follower": null
+      "follower": 2000
     },
     {
       "address": "0x388e3daf94fab496f01b78aac25305d715aa24ff",
@@ -301,14 +301,14 @@
       "score": 1,
       "rank": null,
       "farcaster_username": "ghostmint.base.eth",
-      "displayName": "GhostMint OPS",
-      "avatar": "https://res.cloudinary.com/base-app/image/upload/f_auto/v1762880708/5b9e780b-c503-46d5-882f-23f712c15bf0.png",
+      "displayName": "ghostmint.base.eth",
+      "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
-      "fid": 1459781,
+      "fid": null,
       "boost": null,
       "totalRewards": null,
-      "follower": 5059
+      "follower": null
     },
     {
       "address": "0x64be80bc71516ac48d8b0d9ff56de0af45c95d58",
