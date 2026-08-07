@@ -51,11 +51,25 @@ figures below are current as of that search; re-verify before acting on anything
 - **Bountycaster** - not a partner-org exactly, but a complementary distribution surface:
   a Farcaster-native bounty board/aggregator (posted via tagging `@bountybot`), reporting
   $1.5M across ~2,967 bounties as of this search, explicitly no-fee peer-to-peer, and using
-  Ethereum Attestation Service (EAS) for onchain completion attestations. Worth
-  investigating whether a POIDH bounty can be cross-posted/mirrored to Bountycaster for
-  free extra discovery surface - this is a tooling question (does Bountycaster support
-  POIDH-originated bounties, or only its own bounty type), not a relationship-building one,
-  so it's a fast thing to check before the org-outreach items below.
+  Ethereum Attestation Service (EAS) for onchain completion attestations.
+
+  **Cross-posting feasibility - answered.** Checked Bountycaster's own FAQ directly. There
+  is no native mirroring/import mechanism for bounties created on another protocol - it
+  isn't mentioned anywhere in their docs, and Bountycaster is architecturally its own
+  standalone system. But the mechanism it actually uses turns out to make a manual
+  workaround realistic: Bountycaster **does not escrow funds at all**. A bounty there is
+  just a cast tagging `@bountybot` with a description + amount; the bot indexes it into a
+  page, and the actual payment happens peer-to-peer, off-platform, however the two parties
+  agree (wallet transfer or a Farcaster tip) - Bountycaster is a listing/discovery layer,
+  not a funds-holding one. That means a POIDH bounty's real content (the description, THE
+  BAR, the POIDH URL where the actual ETH is escrowed and claims are submitted) can simply
+  be pasted into a `@bountybot`-tagged cast as its own listing, with the POIDH link doing
+  double duty as both the funding mechanism and the "where to submit" instruction. This is
+  a **manual, one-time cross-post per bounty**, not an automatic sync - there's no API/webhook
+  to keep the two in sync if a POIDH bounty's status changes, so whoever posts it needs to
+  remember to update or note completion on the Bountycaster side too. Still free extra
+  discovery surface for the cost of one extra cast per round - worth doing on the next
+  bounty cast as a real test rather than a hypothetical.
 
 ## Suggested next actions (research-informed, not yet committed to)
 
@@ -64,7 +78,7 @@ figures below are current as of that search; re-verify before acting on anything
 | SheFi | DM asking if they'd co-run or cross-post a ZABAL Gamez artist/creator round | Low (1 DM) | Precedent already exists via POIDH x SheFi/Jessebot - warm intro angle: "saw POIDH already ran a bounty for you all" |
 | Purple DAO | Pitch a joint /zabal x /purple cross-promo bounty, framed as Farcaster-growth (their stated funding thesis) | Medium (needs a bounty description, not just a DM) | Use the P2P Ad Bounty Kit template directly - this is exactly the use case it's built for |
 | Yellow Collective | Cross-pollination bounty targeting their artist base for the ZABAL Gamez artist track | Medium | Natural fit given the shared "artist track" framing |
-| Bountycaster | Check whether POIDH bounties can cross-post/mirror there | Low (research/test, no relationship needed) | Do this first - it's free extra reach if it works, independent of any org outreach |
+| Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
 | Degen community | Run (or convert) a bounty denominated in DEGEN instead of ETH | Medium (needs a Degen-chain-specific description + confirming DEGEN prize UX on POIDH) | Removes the ETH-conversion friction noted in `docs/how-to-draft-next-bounty.md` |
 
 None of these are commitments - they're researched, precedent-grounded leads for Zaal to
@@ -77,6 +91,7 @@ mechanism, not a new pitch to invent per partner.
 - [pics or it didn't happen | Gitcoin](https://gitcoin.co/apps/poidh) - POIDH protocol overview, AI-agent compatibility, multi-chain deployment
 - [pics or it didn't happen (@poidhxyz) / Posts / X](https://x.com/poidhxyz) - POIDH x SheFi/Jessebot bounty
 - [Bountycaster](https://www.bountycaster.xyz/) - Bountycaster platform, fee structure, EAS attestations
+- [Bountycaster FAQ](https://www.bountycaster.xyz/faq) - confirmed no native cross-protocol mirroring, no-escrow p2p payment architecture, @bountybot cast-based creation flow
 - [Bountycaster: Project Guide | Bitget](https://web3.bitget.com/dapp/bountycaster-28503) - Bountycaster figures ($1.5M / ~2,967 bounties)
 - [Reflections on Purple - Phil Mohun](https://www.philmohun.com/purple-reflections/amp/) - Purple DAO mission, Rounds.wtf grants, Base auction history
 - [Web3 Galaxy Brain - Purple, the Farcaster DAO](https://web3galaxybrain.com/episode/Purple-the-Farcaster-DAO) - Purple DAO background
