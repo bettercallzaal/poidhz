@@ -78,7 +78,13 @@ can literally check off while scoring - specific and observable, never "good vib
   audience you want - a co-founder, a partner project, an investor with reach), a visible
   link to your site/page
 - **Craft**: clarity in N seconds, on-brand tone, format fit for the platform, captions,
-  logo/wordmark visibility, shareability
+  logo/wordmark visibility, shareability. On "clarity in N seconds" specifically: don't
+  score down a submission for skipping a traditional cold-feed hook (curiosity-gap,
+  scenario-drop). A bounty submission is judged content, not discovery-feed content - the
+  judge already opted in. ZAO OS V1 research doc 2240 found that hook tactics solve a
+  different problem (surviving an anonymous algorithmic feed) than a judged submission
+  has; what actually reads as strong craft here is front-loading the single highest-value
+  fact or moment, not a hook gimmick and not an unstructured info-dump either.
 - **Substance**: one clear takeaway about why your thing matters, names a real specific
   beat/fact (not generic hype), speaks to a named audience segment rather than "everyone"
 - **Bonus** (rare, big multiplier): the angle that makes a submission genuinely
