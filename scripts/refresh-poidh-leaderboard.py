@@ -34,11 +34,28 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-DEFAULT_BOUNTY_IDS = [1151, 1166, 1180, 1249]
-DEFAULT_CHAIN_ID = 8453
-ZABAL_EMPIRE_ID = "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07"
-POIDH_LEADERBOARD_UUID = "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187"
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_org_config() -> dict:
+    """Read org.config.json if present. Forking zpoidh for your own org? Edit
+    that file - every script reads from it instead of BCZ's hardcoded values.
+    Missing file or missing key = falls back to BCZ's original defaults below,
+    so this is purely additive and never breaks existing behavior."""
+    path = REPO_ROOT / "org.config.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return {}
+
+
+_CFG = load_org_config()
+DEFAULT_BOUNTY_IDS = _CFG.get("default_bounty_ids", [1151, 1166, 1180, 1249])
+DEFAULT_CHAIN_ID = _CFG.get("default_chain_id", 8453)
+ZABAL_EMPIRE_ID = _CFG.get("empire_token_address", "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07")
+POIDH_LEADERBOARD_UUID = _CFG.get("empire_leaderboard_uuid", "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187")
 
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 EB_BASE = "https://www.empirebuilder.world/api"
