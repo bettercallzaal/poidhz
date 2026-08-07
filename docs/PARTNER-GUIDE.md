@@ -103,12 +103,23 @@ both crons silently fail with a 0-second startup failure until this is flipped).
 | `scripts/build-bounty-dashboard.py` | Yes (chain default only - it was already org-agnostic otherwise) |
 | `scripts/deadlines-to-ics.py` | N/A - already fully org-agnostic, no wiring needed. It only reads whatever JSON `scan-poidh-deadlines.py` / `build-bounty-calendar.py` already produced (both already wired above) and has no chain default, bounty ids, or BCZ-specific strings of its own. |
 | `scripts/prepare-winner-announcement.py` | Yes (`empire_token_symbol` - turned out to have far less BCZ coupling than expected once actually read: no hardcoded wallet or handles, just one reward-rail mention in a cast template) |
-| `docs/create-bounty.html` | Not yet - has BCZ Treasury wallet + brand colors hardcoded in the page itself |
+| `docs/create-bounty.html` | Yes, partially (brand colors only - see note below) |
 
-If you fork before `docs/create-bounty.html` is finished, you'll hit hardcoded BCZ values
-in that one file - open an issue or a PR, the pattern for wiring a new script is identical
-across every script already done (see any of the "Yes" rows for the `load_org_config()`
-pattern to copy).
+**Note on `docs/create-bounty.html`:** reading the full 582-line file (this is the page
+that signs real Base-mainnet transactions - it got extra scrutiny, not less) turned up
+that it does NOT actually hardcode a BCZ treasury wallet. It connects to whichever wallet
+the user brings (`window.ethereum` / `eth_requestAccounts`) and signs with that - there
+was never a fixed wallet to generalize. The only genuinely BCZ-specific piece was the CSS
+brand colors, now wired via a client-side fetch of `/org.config.json`. Two smaller,
+intentionally-untouched BCZ-specific pieces remain if you fork: the "Load: Unlock Protocol
+Clipping Bounty (R6)" quick-fill preset (points at this repo's own `rounds/r6/description.md`
+- delete or replace it with your own round) and the `github.com/bettercallzaal/zpoidh` link
+in the page intro (point it at your fork). Neither affects the actual bounty-creation
+transaction logic, so both are safe/low-risk manual edits, not urgent wiring work.
+
+Every item in the table above is now wired (or confirmed to need no wiring). If you fork
+and still hit a hardcoded BCZ value somewhere, open an issue or a PR - the
+`load_org_config()` pattern in any "Yes" row is the template to copy.
 
 ## What stays yours regardless of config
 
