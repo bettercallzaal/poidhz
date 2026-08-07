@@ -36,6 +36,7 @@ field has a comment in the file explaining what it drives:
   "org_short": "YOUR",
   "treasury_wallet": "0xYOUR_EOA_HERE",          // must be an EOA - POIDH reverts smart-wallet bounty creation
   "empire_token_address": "0x...",                 // only if you're using Empire Builder for a secondary reward rail - optional
+  "empire_token_symbol": "$YOUR",                   // shown in generated winner-announcement drafts, e.g. "You've earned a slot in $YOUR leaderboard"
   "empire_leaderboard_name": "Your Leaderboard Name",
   "empire_leaderboard_url": "https://www.empirebuilder.world/empire/...",
   "empire_leaderboard_uuid": "...",
@@ -101,13 +102,13 @@ both crons silently fail with a 0-second startup failure until this is flipped).
 | `scripts/scan-poidh-deadlines.py` | Yes (chain default only - it was already org-agnostic otherwise) |
 | `scripts/build-bounty-dashboard.py` | Yes (chain default only - it was already org-agnostic otherwise) |
 | `scripts/deadlines-to-ics.py` | N/A - already fully org-agnostic, no wiring needed. It only reads whatever JSON `scan-poidh-deadlines.py` / `build-bounty-calendar.py` already produced (both already wired above) and has no chain default, bounty ids, or BCZ-specific strings of its own. |
-| `scripts/prepare-winner-announcement.py` | Not yet - has BCZ-specific voice/handle assumptions baked into its templates, will need more than a config swap |
+| `scripts/prepare-winner-announcement.py` | Yes (`empire_token_symbol` - turned out to have far less BCZ coupling than expected once actually read: no hardcoded wallet or handles, just one reward-rail mention in a cast template) |
 | `docs/create-bounty.html` | Not yet - has BCZ Treasury wallet + brand colors hardcoded in the page itself |
 
-If you fork before the two "Not yet" rows are finished, you'll hit hardcoded BCZ values in
-those two - open an issue or a PR, the pattern for wiring a new script is identical across
-every script already done (see any of the "Yes" rows for the `load_org_config()` pattern to
-copy).
+If you fork before `docs/create-bounty.html` is finished, you'll hit hardcoded BCZ values
+in that one file - open an issue or a PR, the pattern for wiring a new script is identical
+across every script already done (see any of the "Yes" rows for the `load_org_config()`
+pattern to copy).
 
 ## What stays yours regardless of config
 
