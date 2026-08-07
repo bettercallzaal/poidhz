@@ -174,6 +174,25 @@
 </div>
 
 <script>
+// Applies org.config.json's brand colors (bg/cyan/gold) as CSS variable overrides, if
+// the file exists and has a "brand" block - forking zpoidh for your own org? Edit
+// org.config.json instead of this page's CSS. Purely cosmetic: this never touches the
+// wallet/contract/transaction logic below, and silently no-ops if the fetch fails so a
+// missing or malformed org.config.json can never break bounty creation.
+(function applyOrgBrand() {
+  fetch('/org.config.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (cfg) {
+      var brand = cfg && cfg.brand;
+      if (!brand) return;
+      var root = document.documentElement.style;
+      if (brand.bg) root.setProperty('--bg', brand.bg);
+      if (brand.cyan) root.setProperty('--cyan', brand.cyan);
+      if (brand.gold) root.setProperty('--gold', brand.gold);
+    })
+    .catch(function () { /* no org.config.json - keep BCZ's own defaults from :root */ });
+})();
+
 (function () {
   var POIDH = '0x5555fa783936c260f77385b4e153b9725fef1719'; // POIDH main contract, Base
   var BASE_HEX = '0x2105'; // 8453
