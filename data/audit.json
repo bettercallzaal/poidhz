@@ -9,7 +9,9 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims": 29,
+  "total_claims_received": 29,
+  "total_claims_accepted": 27,
+  "total_claims_rejected": 2,
   "submitter_count": 22,
   "total_eth_escrow": 0.0598,
   "bounties": [
@@ -24,7 +26,7 @@
       "in_progress": false,
       "is_voting": true,
       "is_canceled": false,
-      "claims_count": 11
+      "claims_count": 10
     },
     {
       "id": 1166,
@@ -60,10 +62,10 @@
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
       "amount_eth": 0.0138,
-      "in_progress": true,
+      "in_progress": false,
       "is_voting": false,
-      "is_canceled": false,
-      "claims_count": 2
+      "is_canceled": true,
+      "claims_count": 1
     }
   ],
   "claims": [
@@ -146,16 +148,6 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmcpVeLqFxGdkquccxi7EKSyN2GZYbXmjmhwWjiN2GxiZA",
       "accepted": false,
       "on_chain_id": 1009
-    },
-    {
-      "bounty_id": 1151,
-      "claim_id": 6322,
-      "issuer": "0x34da767a377a77aca15f77ab4e8114cd79c0a7e9",
-      "title": "Farm drop review",
-      "description": "https://youtube.com/shorts/x4Ufpe5-PYk?si=piPOwY70lZ7i41br\n\nI made a review comment regarding farm drop's agenda",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmWEy1KBrPe8CjVwGegp49P6jeXj1yfdDFt2YDxPPV8Ddg",
-      "accepted": false,
-      "on_chain_id": 1006
     },
     {
       "bounty_id": 1151,
@@ -346,16 +338,20 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmXkANSPCtx9PbhBWrkFsz9DVMHc2okoaM2BuvsTsWP44q",
       "accepted": false,
       "on_chain_id": 1666
+    }
+  ],
+  "rejected_claims": [
+    {
+      "claim_id": 6322,
+      "bounty_id": 1151,
+      "issuer": "0x34da767a377a77aca15f77ab4e8114cd79c0a7e9",
+      "reason": "duplicate submission to same bounty"
     },
     {
-      "bounty_id": 1249,
       "claim_id": 6981,
+      "bounty_id": 1249,
       "issuer": "0x064915fad67e70d2fa708b14af9e01b0083a1b9e",
-      "title": "ZAAL Build Contribution",
-      "description": "The receipt is your portable proof package. Humans can read it, and agents can inspect it.\nIt is useful because it keeps the claim organized:\nwhat you built\nwhere it lives\nwhich proof image was used\nwhen the receipt was made\nwhat public posts should point to it\nSimple Version\nYou ship something.\nProof Drop helps you package the proof.\nPOIDH is just one destination/export for this particular ZABAL bounty. The receipt should be useful even if someone shares it on Farcaster, X, GitHub, a grant form, a client update, or a totally different bounty.",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZKi5S54wptf2Z4mf9usxn7xaKueRssHdMUDFJpmDjC1M",
-      "accepted": false,
-      "on_chain_id": 1665
+      "reason": "duplicate submission to same bounty"
     }
   ]
 }

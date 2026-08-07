@@ -1,0 +1,20 @@
+{
+  "_comment": "Every value here is BCZ/The ZAO's own config. Forking zpoidh for your own org? Change every value in this file and the tooling (scripts/, docs/) reads from it instead of BCZ's hardcoded values. See docs/PARTNER-GUIDE.md.",
+  "org_name": "BetterCallZaal / The ZAO",
+  "org_short": "BCZ",
+  "treasury_wallet": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+  "empire_token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
+  "empire_leaderboard_name": "POIDH Submitters",
+  "empire_leaderboard_url": "https://www.empirebuilder.world/empire/zabalgamez01e9af",
+  "empire_leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
+  "farcaster_album": "wethemmedia",
+  "farcaster_handle": "@bettercallzaal",
+  "default_bounty_ids": [1151, 1166, 1180, 1249],
+  "default_chain_id": 8453,
+  "site_url": "https://zpoidh.vercel.app",
+  "brand": {
+    "bg": "#070709",
+    "cyan": "#00e5ff",
+    "gold": "#f5c842"
+  }
+}
