@@ -28,12 +28,33 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 UA = "Mozilla/5.0 (zpoidh-bounty-calendar)"
 
-# BCZ's own rounds - the known-data proof set. R5 has no bounty id yet (not cast).
-ROUNDS = [
+
+def load_org_config() -> dict:
+    """Read org.config.json if present - forking zpoidh for your own org? Edit
+    that file's "rounds"/"planned_rounds" arrays instead of this script.
+    Missing file/key falls back to BCZ's original hardcoded rounds below."""
+    path = REPO_ROOT / "org.config.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return {}
+
+
+_CFG = load_org_config()
+
+# BCZ's own rounds - the known-data proof set, now the fallback default if
+# org.config.json doesn't define "rounds" (e.g. running this script from a
+# checkout that predates the config file).
+ROUNDS = _CFG.get("rounds") or [
     {"round": 1, "bounty_id": 1151, "title": "R1 - Hannah Ep 17 clip-up"},
     {"round": 2, "bounty_id": 1166, "title": "R2 - Best 60s POIDH ad from Ep 19"},
     {"round": 3, "bounty_id": 1180, "title": "R3 - Best ad for ZABAL Gamez"},
     {"round": 4, "bounty_id": 1249, "title": "R4 - ZABAL Gamez open pot"},
+]
+PLANNED_ROUNDS = _CFG.get("planned_rounds") or [
+    {"round": 5, "title": "R5 - POIDH x Unlock Protocol clip bounty"}
 ]
 
 MONTHS = (
@@ -119,7 +140,7 @@ def main() -> int:
 
     for r in ROUNDS:
         try:
-            b = trpc("bounties.fetch", {"id": r["bounty_id"], "chainId": 8453})
+            b = trpc("bounties.fetch", {"id": r["bounty_id"], "chainId": _CFG.get("default_chain_id", 8453)})
         except Exception as e:
             print(f"  WARN: could not fetch bounty {r['bounty_id']}: {e}")
             entries.append(
@@ -151,19 +172,21 @@ def main() -> int:
         )
         print(f"  R{r['round']} (bounty {r['bounty_id']}): {deadline_iso or 'NOT FOUND'} <- {raw!r}")
 
-    # R5 is drafted but not cast - no bounty id, so no tRPC fetch is possible. Include
-    # it as a placeholder row so the calendar doesn't silently omit a known round.
-    entries.append(
-        {
-            "round": 5,
-            "bounty_id": None,
-            "title": "R5 - POIDH x Unlock Protocol clip bounty",
-            "deadline_iso": None,
-            "deadline_raw_text": None,
-            "status": "not_cast",
-            "url": None,
-        }
-    )
+    # Planned-but-not-cast rounds have no bounty id, so no tRPC fetch is possible.
+    # Include each as a placeholder row so the calendar doesn't silently omit a
+    # known round (from org.config.json's "planned_rounds", falling back to R5).
+    for pr in PLANNED_ROUNDS:
+        entries.append(
+            {
+                "round": pr["round"],
+                "bounty_id": None,
+                "title": pr["title"],
+                "deadline_iso": None,
+                "deadline_raw_text": None,
+                "status": "not_cast",
+                "url": None,
+            }
+        )
 
     entries.sort(key=lambda e: e["deadline_iso"] or "9999-99-99")
 

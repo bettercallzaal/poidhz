@@ -16,5 +16,14 @@
     "bg": "#070709",
     "cyan": "#00e5ff",
     "gold": "#f5c842"
-  }
+  },
+  "rounds": [
+    {"round": 1, "bounty_id": 1151, "title": "R1 - Hannah Ep 17 clip-up"},
+    {"round": 2, "bounty_id": 1166, "title": "R2 - Best 60s POIDH ad from Ep 19"},
+    {"round": 3, "bounty_id": 1180, "title": "R3 - Best ad for ZABAL Gamez"},
+    {"round": 4, "bounty_id": 1249, "title": "R4 - ZABAL Gamez open pot"}
+  ],
+  "planned_rounds": [
+    {"round": 5, "title": "R5 - POIDH x Unlock Protocol clip bounty"}
+  ]
 }
