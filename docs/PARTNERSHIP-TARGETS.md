@@ -6,6 +6,36 @@ partner with on POIDH-based bounty campaigns (as a P2P ad system, per
 Grounded in verified precedent, not speculation. Live-searched 2026-08-06 - dates and
 figures below are current as of that search; re-verify before acting on anything time-sensitive.
 
+## Already-connected leads (highest priority, found 2026-08-07)
+
+These aren't cold-outreach targets - BCZ already has a real, existing connection to both.
+Found by researching what other real initiatives have actually used POIDH historically,
+rather than only researching new orgs to approach cold.
+
+- **We Them Media - BCZ is already inside this, not adjacent to it.** BCZ has posted
+  every single one of its own bounty submissions (R1, R2, R3) into the Farcaster album
+  `wethemmedia` - it's `org.config.json`'s own `farcaster_album` value, not a new
+  discovery. Separately, and verified live on-chain this pass (`bounties.fetch`, id 1096,
+  Base, direct tRPC query): a real, currently-running initiative called **"Preach POIDH &
+  We Them Media"** exists - "IYKYK is teaming up with POIDH & We Them Media for a series
+  of weekly bounties intended to survey thousands of people from around the world. Each
+  week, We Them Media will set a video survey bounty featuring a new question. POIDH
+  sponsors the bounty with a $100 prize, and IYKYK works to drive engagement." This is
+  issued from a different wallet than BCZ's own treasury, so it's a separate initiative -
+  but BCZ already shares the exact same media pipeline these bounties run through. The
+  actual next step here isn't a cold pitch - it's finding out who runs `wethemmedia` on
+  BCZ's side (or asking Kenny/POIDH directly) and asking whether BCZ's own rounds can
+  plug into or cross-promote with this existing weekly series.
+- **Haberdashery - already on BCZ's own catalytic-DM whale list.** `docs/how-to-draft-
+  next-bounty.md` already lists Haberdashery as one of the whales BCZ DMs for public
+  co-funder drops before casting an OPEN bounty (`Kenny, Tyler, Adrian, Jordan,
+  Haberdashery`). Separately verified via web research: Haberdashery ran POIDH's biggest
+  documented bounty to date - a $30K "kickflip" bounty that broke a Guinness World Record
+  and generated 100K+ views, the clearest proof anywhere that POIDH's OPEN-bounty viral
+  co-funding mechanic works at real scale. BCZ already has a direct line to the person who
+  proved this works - the next step is asking Haberdashery directly what made that bounty
+  work, before designing BCZ's next big OPEN round from scratch.
+
 ## Confirmed precedent (POIDH already has cross-community traction)
 
 - **POIDH x SheFi** - POIDH ran a bounty specifically for the SheFi community, judged by
@@ -123,6 +153,9 @@ mechanism, not a new pitch to invent per partner.
 - [ournetwork issue 188](https://ournetwork.substack.com/p/ournetwork-issue-188) - Nouns Builder ecosystem scale (200+ collectives), Yellow Collective
 - POIDH's own tRPC feed (`bounties.fetch`, id 1393, `chainId: 666666666`, queried directly) - confirmed a real live Degen Chain bounty (13,014 DEGEN, onChainId 196)
 - [Degen Chain marketplace app | Blockscout](https://explorer.degen.tips/apps/poidh) and the POIDH V2 NFT contract at `0xDdfb1A53E7b73Dba09f79FCA24765C593D447a80` - checked directly, contract is unverified (no published source), which is why its address was not used in any transaction-signing code
+- POIDH's own tRPC feed (`bounties.fetch`, id 1096, Base) - confirmed live the "Preach POIDH & We Them Media" / IYKYK weekly bounty series, direct on-chain query, not a search snippet
+- [Preach POIDH & We Them Media](https://poidh.xyz/base/bounty/1096) - the live bounty page itself
+- Web research (2026-08-07) - the $30K Degen Haberdashery kickflip Guinness World Record bounty, and the POAP x Degen community-call artwork bounty (50+ submissions) - both cited as real POIDH precedent, not speculation
 
 ## Also see
 

@@ -69,6 +69,17 @@ pattern:
   impact/craft way R7 judges code
 - **Event-support bounties** - a specific deliverable tied to an event (a recap, a
   highlight reel, a resource page), one-off and bounded like R7, not an ongoing role
+- **Civic/community-improvement bounties** - real, already-proven on POIDH: a "Public
+  Goods Album" pattern (per web research, 2026-08-07) has funded infrastructure
+  documentation, park cleanups, and small business spotlights - crowdfunded globally,
+  executed locally, verified onchain with a photo. Not currently something BCZ runs, but
+  directly matches this doc's "verifiable by looking at the output" fit criteria above and
+  is a proven pattern, not a speculative one.
+
+These aren't hypothetical either - design/asset bounties specifically are already proven
+on POIDH: the Degen x POAP community-call artwork bounty (per web research, 2026-08-07)
+drew 50+ design submissions crowdsourced from the Degen community for a single POAP
+commissioned piece, judged and selected the same impact/craft way this doc proposes.
 
 ## What fits poorly
 
