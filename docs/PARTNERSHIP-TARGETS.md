@@ -76,7 +76,7 @@ figures below are current as of that search; re-verify before acting on anything
 | Target | Action | Effort | Notes |
 |---|---|---|---|
 | SheFi | DM asking if they'd co-run or cross-post a ZABAL Gamez artist/creator round | Low (1 DM) | Precedent already exists via POIDH x SheFi/Jessebot - warm intro angle: "saw POIDH already ran a bounty for you all" |
-| Purple DAO | Pitch a joint /zabal x /purple cross-promo bounty, framed as Farcaster-growth (their stated funding thesis) | Medium (needs a bounty description, not just a DM) | Use the P2P Ad Bounty Kit template directly - this is exactly the use case it's built for |
+| Purple DAO | Send the outreach DM at [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md), pitching a joint /zabal x /purple cross-promo bounty | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Framed against Purple's own stated Farcaster-growth funding thesis, not a generic ask |
 | Yellow Collective | Cross-pollination bounty targeting their artist base for the ZABAL Gamez artist track | Medium | Natural fit given the shared "artist track" framing |
 | Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
 | Degen community | Run (or convert) a bounty denominated in DEGEN instead of ETH | Medium (needs a Degen-chain-specific description + confirming DEGEN prize UX on POIDH) | Removes the ETH-conversion friction noted in `docs/how-to-draft-next-bounty.md` |
@@ -102,3 +102,4 @@ mechanism, not a new pitch to invent per partner.
 
 - [P2P-AD-BOUNTY-KIT.md](P2P-AD-BOUNTY-KIT.md) - the bounty structure to use for any of the above
 - [PARTNER-GUIDE.md](PARTNER-GUIDE.md) - if a partner org wants their own forked instance of this tooling rather than a joint bounty
+- [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md) - send-ready DM draft pitching Purple DAO a joint round
