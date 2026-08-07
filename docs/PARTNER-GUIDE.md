@@ -99,15 +99,15 @@ both crons silently fail with a 0-second startup failure until this is flipped).
 | `scripts/refresh-poidh-leaderboard.py` | Yes |
 | `scripts/build-bounty-calendar.py` | Yes |
 | `scripts/scan-poidh-deadlines.py` | Yes (chain default only - it was already org-agnostic otherwise) |
-| `scripts/build-bounty-dashboard.py` | Not yet - already platform-wide/org-agnostic in practice (scans the live POID feed, doesn't filter by BCZ bounty ids), just hasn't had its `--chain` default wired to config yet |
-| `scripts/deadlines-to-ics.py` | Not yet |
+| `scripts/build-bounty-dashboard.py` | Yes (chain default only - it was already org-agnostic otherwise) |
+| `scripts/deadlines-to-ics.py` | N/A - already fully org-agnostic, no wiring needed. It only reads whatever JSON `scan-poidh-deadlines.py` / `build-bounty-calendar.py` already produced (both already wired above) and has no chain default, bounty ids, or BCZ-specific strings of its own. |
 | `scripts/prepare-winner-announcement.py` | Not yet - has BCZ-specific voice/handle assumptions baked into its templates, will need more than a config swap |
 | `docs/create-bounty.html` | Not yet - has BCZ Treasury wallet + brand colors hardcoded in the page itself |
 
-If you fork before these are finished, you'll hit hardcoded BCZ values in the
-not-yet-wired scripts above - open an issue or a PR, the pattern for wiring a new script is
-identical across every script already done (see any of the three in the "Yes" rows for the
-`load_org_config()` pattern to copy).
+If you fork before the two "Not yet" rows are finished, you'll hit hardcoded BCZ values in
+those two - open an issue or a PR, the pattern for wiring a new script is identical across
+every script already done (see any of the "Yes" rows for the `load_org_config()` pattern to
+copy).
 
 ## What stays yours regardless of config
 
