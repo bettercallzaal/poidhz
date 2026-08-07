@@ -21,13 +21,37 @@ figures below are current as of that search; re-verify before acting on anything
   bounties on behalf of BCZ (not just draft casts, per ZAO OS V1 doc 2213), with a human
   still gating the actual on-chain accept - the same "AI proposes, human approves" pattern
   already validated for social posting applies here too.
-- **Degen Chain is a first-class POIDH deployment**, not an afterthought - `zpoidh`'s own
-  `CHAIN_TOKENS` mapping already prices DEGEN natively (`scripts/build-bounty-dashboard.py`).
+- **Degen Chain is a first-class POIDH deployment, confirmed with a live example, not
+  just a claim.** Queried POIDH's own tRPC feed directly (`bounties.fetchAll` with
+  `chainId: 666666666`) and found a real, currently-open bounty on Degen Chain: id 1393
+  ("Closest to Zero"), 13,014 DEGEN, `onChainId` 196. This is the same live number
+  `scripts/build-bounty-dashboard.py`'s own inline comment references as a real example it
+  had to handle correctly (its `CHAIN_TOKENS` mapping already prices DEGEN natively, for
+  exactly this reason). So the "run a Degen-denominated bounty" idea below is genuinely
+  possible on POIDH - it isn't hypothetical.
+
+  **But a real gap exists between "POIDH supports it" and "zpoidh's own tooling supports
+  it."** `docs/create-bounty.html` (this repo's standalone bounty-creation page) hardcodes
+  Base mainnet only (`BASE_HEX = '0x2105'`) and the single POIDH contract address used on
+  Base/Arbitrum (`0x5555fa78...`) - it has no Degen Chain option and no Degen contract
+  address wired in. Creating a Degen bounty today means going directly to
+  `poidh.xyz/degen` (POIDH's own frontend), not zpoidh's tool.
+
+  Deliberately did NOT add Degen support to `create-bounty.html` to close this gap -
+  `create-bounty.html` signs real transactions with the connected wallet, and the Degen
+  Chain contract's exact address could not be confirmed from a source reliable enough to
+  hardcode into transaction-signing code. It's an unverified contract on Degen Chain's
+  block explorer (Blockscout) - no published source, no confirmed constructor args
+  distinguishing the NFT contract from the bounty-logic contract. Guessing a contract
+  address for a page that locks real funds is exactly the kind of shortcut this repo has
+  avoided all session. If someone wants to add real Degen support to `create-bounty.html`
+  later, get the verified address from POIDH's own team/docs first, not from block-explorer
+  archaeology.
+
   The Degen community (a Farcaster-native tipping/rewards culture with its own token) is
-  a low-friction target: they already understand token-incentivized public tasks, and a
-  Degen-denominated bounty removes the "convert to ETH" friction BCZ hits with every round
-  (see `docs/how-to-draft-next-bounty.md`'s "POIDH does not support USDC" gotcha - Degen
-  sidesteps needing ETH conversion entirely for a Degen-native audience).
+  still a low-friction partnership target for the reasons below - they already understand
+  token-incentivized public tasks - but today that means pointing them at `poidh.xyz/degen`
+  directly, not zpoidh's own bounty-creation tool.
 
 ## New candidate targets found this pass
 
@@ -79,7 +103,7 @@ figures below are current as of that search; re-verify before acting on anything
 | Purple DAO | Send the outreach DM at [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md), pitching a joint /zabal x /purple cross-promo bounty | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Framed against Purple's own stated Farcaster-growth funding thesis, not a generic ask |
 | Yellow Collective | Send the outreach DM at [outreach/yellow-collective-dm.md](outreach/yellow-collective-dm.md), pitching a cross-pollination round for artist-made work | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Natural fit given the shared "artist track" framing - narrower and more specific than the Purple DAO pitch |
 | Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
-| Degen community | Run (or convert) a bounty denominated in DEGEN instead of ETH | Medium (needs a Degen-chain-specific description + confirming DEGEN prize UX on POIDH) | Removes the ETH-conversion friction noted in `docs/how-to-draft-next-bounty.md` |
+| Degen community | Run a DEGEN-denominated bounty directly via `poidh.xyz/degen` (confirmed working - real live example: bounty 1393, 13,014 DEGEN) - NOT via `docs/create-bounty.html`, which only supports Base today | Medium (needs a Degen-chain-specific description; the bounty itself must be created on POIDH's own site, not this repo's tool) | Confirmed genuinely possible on POIDH, but adding Degen support to this repo's own create-bounty.html needs a verified contract address from POIDH's team first - see the note above on why that wasn't guessed |
 
 None of these are commitments - they're researched, precedent-grounded leads for Zaal to
 decide on. Every "Action" above assumes the P2P Ad Bounty Kit structure
@@ -97,6 +121,8 @@ mechanism, not a new pitch to invent per partner.
 - [Web3 Galaxy Brain - Purple, the Farcaster DAO](https://web3galaxybrain.com/episode/Purple-the-Farcaster-DAO) - Purple DAO background
 - [Nouns Builder | Purple](https://nouns.build/dao/base/0x8de71d80eE2C4700bC9D4F8031a2504Ca93f7088/507) - Purple's Nouns Builder deployment
 - [ournetwork issue 188](https://ournetwork.substack.com/p/ournetwork-issue-188) - Nouns Builder ecosystem scale (200+ collectives), Yellow Collective
+- POIDH's own tRPC feed (`bounties.fetch`, id 1393, `chainId: 666666666`, queried directly) - confirmed a real live Degen Chain bounty (13,014 DEGEN, onChainId 196)
+- [Degen Chain marketplace app | Blockscout](https://explorer.degen.tips/apps/poidh) and the POIDH V2 NFT contract at `0xDdfb1A53E7b73Dba09f79FCA24765C593D447a80` - checked directly, contract is unverified (no published source), which is why its address was not used in any transaction-signing code
 
 ## Also see
 
