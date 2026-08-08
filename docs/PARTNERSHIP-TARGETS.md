@@ -126,6 +126,18 @@ does.
   incentivized public tasks - and creating a Degen bounty can now go through either
   `poidh.xyz/degen` directly or zpoidh's own `create-bounty.html`.
 
+  **Contact point - resolved, honestly, not just a dead end.** Checked the `/degen`
+  Farcaster channel directly (2026-08-08): it's a broad, 2K-member "risk-takers and
+  meme-makers" channel with no listed host/moderator - it's a culture channel, not an
+  organized DAO body with a single point of contact. There is no single "Degen community
+  lead" to DM the way Purple DAO or Yellow Collective have one. The closest real,
+  verified, organized contact BCZ already has for the Degen ecosystem specifically is
+  The Haberdashery - already documented above as "Degen DAO grants council" per this
+  repo's own existing template, with a real send-ready draft
+  ([outreach/haberdashery-dm.md](outreach/haberdashery-dm.md)). Any Degen-specific
+  partnership push should go through that contact rather than a generic "Degen community"
+  DM that has no real recipient.
+
 ## New candidate targets found this pass
 
 - **Purple DAO** - a Farcaster-native DAO whose explicit mission is proliferating the
@@ -176,7 +188,7 @@ does.
 | Purple DAO | Send the outreach DM at [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md), pitching a joint /zabal x /purple cross-promo bounty | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Framed against Purple's own stated Farcaster-growth funding thesis, not a generic ask |
 | Yellow Collective | Send the outreach DM at [outreach/yellow-collective-dm.md](outreach/yellow-collective-dm.md), pitching a cross-pollination round for artist-made work | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Natural fit given the shared "artist track" framing - narrower and more specific than the Purple DAO pitch |
 | Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
-| Degen community | Run a DEGEN-denominated bounty via either `poidh.xyz/degen` or `docs/create-bounty.html` (both work as of 2026-08-08) - needs a Degen-chain-specific description | Medium (mainly the description/framing work now, not a tooling blocker) | Degen support shipped in create-bounty.html using the officially-documented contract address - see the section above |
+| Degen community | Run a DEGEN-denominated bounty via either `poidh.xyz/degen` or `docs/create-bounty.html` (both work as of 2026-08-08) - needs a Degen-chain-specific description | Medium (mainly the description/framing work now, not a tooling blocker) | Degen support shipped in create-bounty.html using the officially-documented contract address - see the section above. No single "Degen community" contact exists to DM (the `/degen` channel has no host) - route any Degen-specific ask through The Haberdashery instead |
 | We Them Media | Send the personal check-in at [outreach/wethemmedia-dm.md](outreach/wethemmedia-dm.md), a "Spotlight" bounty about them, zero effort on their end | Low - Zaal already has the relationship, this just needs sending | Deliberately not a template pitch - Zaal is personally close with them, drafted to sound like him, not a cold outreach voice |
 | The Haberdashery | Send the outreach DM at [outreach/haberdashery-dm.md](outreach/haberdashery-dm.md), pitching a co-funded "big swing" OPEN round | Medium - the DM is drafted and send-ready, but a real co-designed round needs real back-and-forth after | Reframes an existing catalytic-DM contact as a full grants-DAO partner, not just a one-off co-funder ask |
 
@@ -200,6 +212,8 @@ mechanism, not a new pitch to invent per partner.
 - [Degen Chain marketplace app | Blockscout](https://explorer.degen.tips/apps/poidh) and the POIDH V2 NFT contract at `0xDdfb1A53E7b73Dba09f79FCA24765C593D447a80` - checked directly during an earlier pass, contract was unverified (no published source), which is why its address was not used in transaction-signing code at the time (superseded - see docs.poidh.xyz below)
 - [docs.poidh.xyz](https://docs.poidh.xyz) - official POIDH v3 documentation, found via a real cast from Kenny (POIDH founder) in Zaal's own Telegram conversation history, cross-checked live in-browser (found 2026-08-08)
 - [docs.poidh.xyz/contracts/deployment.html](https://docs.poidh.xyz/contracts/deployment.html) - official deployment addresses for all 4 chains (Ethereum Mainnet, Arbitrum, Base, Degen Chain), fetched in full, not a snippet
+- [poidh.xyz/a/publicgoods](https://poidh.xyz/a/publicgoods) - queried directly via POIDH's own tRPC `album` filter (2026-08-08), confirmed a broad multi-issuer community tag, not a single curated program with one contact
+- [Degen Channel on Farcaster](https://farcaster.xyz/~/channel/degen) - checked live in-browser (2026-08-08), confirmed no listed host/moderator - a 2K-member culture channel, not an organized body
 - [poidh-app/SKILL.md](https://github.com/picsoritdidnthappen/poidh-app/blob/prod/SKILL.md) - POIDH's own official Claude Code agent skill (`picsoritdidnthappen/poidh-app`, branch `prod`), fetched in full
 - POIDH's own tRPC feed (`bounties.fetch`, id 1096, Base) - confirmed live the "Preach POIDH & We Them Media" / IYKYK weekly bounty series, direct on-chain query, not a search snippet
 - [Preach POIDH & We Them Media](https://poidh.xyz/base/bounty/1096) - the live bounty page itself
