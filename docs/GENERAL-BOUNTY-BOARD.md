@@ -72,9 +72,14 @@ pattern:
 - **Civic/community-improvement bounties** - real, already-proven on POIDH: a "Public
   Goods Album" pattern (per web research, 2026-08-07) has funded infrastructure
   documentation, park cleanups, and small business spotlights - crowdfunded globally,
-  executed locally, verified onchain with a photo. Not currently something BCZ runs, but
-  directly matches this doc's "verifiable by looking at the output" fit criteria above and
-  is a proven pattern, not a speculative one.
+  executed locally, verified onchain with a photo. Confirmed live 2026-08-08: the album
+  exists at `poidh.xyz/a/publicgoods` (launched 2024-04-24, real @poidhxyz-cited payouts,
+  e.g. a $30 ETH winner). Queried it directly via POIDH's own `album` filter and found it's
+  a broad, general-purpose community tag used by many different issuers for many different
+  bounty types (art challenges, poetry, photography, civic tasks all mixed together) - not
+  a single curated program with one identifiable owner or partnership contact. Adopt the
+  PATTERN (this is exactly what it demonstrates), not as an outreach target - there's no
+  one to DM here, it's a norm BCZ could start using directly via its own POIDH tooling.
 
 These aren't hypothetical either - design/asset bounties specifically are already proven
 on POIDH: the Degen x POAP community-call artwork bounty (per web research, 2026-08-07)
