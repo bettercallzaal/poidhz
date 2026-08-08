@@ -103,6 +103,59 @@
     <p class="note" id="preset-note"></p>
   </section>
 
+  <section id="generator-section">
+    <h2>Quick-fill: generate from the P2P Ad Bounty Kit</h2>
+    <p class="sub" style="margin-bottom: 0.9rem;">
+      Assembles a real description using the proven five-part structure from
+      <code>docs/P2P-AD-BOUNTY-KIT.md</code> (THE BAR, THE RUBRIC, THE ASSET KIT, THE
+      REWARD, DEADLINE) - fill in what applies, leave the rest blank for a sane default.
+      This is for a NEW ad/promo bounty, not a recurring series (use the presets above for
+      those). Generating only fills the title + description below - review before creating,
+      nothing is sent here.
+    </p>
+    <div class="row">
+      <div class="field">
+        <label for="g-subject">What is this an ad for?</label>
+        <input type="text" id="g-subject" placeholder="ZABAL Gamez">
+      </div>
+      <div class="field" style="flex: 0 0 auto;">
+        <label for="g-format">Format gate</label>
+        <select id="g-format">
+          <option value="" selected>Any format</option>
+          <option value="video">45-60s video only</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="g-tag">Tag on the primary platform (X)</label>
+        <input type="text" id="g-tag" placeholder="@youraccount">
+      </div>
+      <div class="field">
+        <label for="g-channel">Home channel to cross-post in</label>
+        <input type="text" id="g-channel" placeholder="/yourchannel">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="g-kit">Asset kit URL (optional - leave blank to skip THE ASSET KIT section entirely rather than link an empty folder)</label>
+        <input type="url" id="g-kit" placeholder="https://... (leave blank if no kit is ready yet)">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="g-rail">Secondary reward-rail note (optional - e.g. a token leaderboard every submitter earns from)</label>
+        <input type="text" id="g-rail" placeholder="Every submitter also earns... (leave blank to skip)">
+      </div>
+      <div class="field" style="flex: 0 0 auto;">
+        <label for="g-days">Days until deadline</label>
+        <input type="number" id="g-days" min="1" max="60" value="7">
+      </div>
+      <button class="btn secondary" id="generate-btn">Generate description</button>
+    </div>
+    <p class="note" id="generator-note"></p>
+  </section>
+
   <section id="create-section">
     <h2>1. Create a bounty</h2>
     <div class="row">
@@ -191,12 +244,20 @@
   fetch('/org.config.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (cfg) {
-      var brand = cfg && cfg.brand;
-      if (!brand) return;
-      var root = document.documentElement.style;
-      if (brand.bg) root.setProperty('--bg', brand.bg);
-      if (brand.cyan) root.setProperty('--cyan', brand.cyan);
-      if (brand.gold) root.setProperty('--gold', brand.gold);
+      if (!cfg) return;
+      var brand = cfg.brand;
+      if (brand) {
+        var root = document.documentElement.style;
+        if (brand.bg) root.setProperty('--bg', brand.bg);
+        if (brand.cyan) root.setProperty('--cyan', brand.cyan);
+        if (brand.gold) root.setProperty('--gold', brand.gold);
+      }
+      // Prefill the P2P Ad Bounty Kit generator's tag field with this org's own handle -
+      // one less field to fill for the common case, still fully editable.
+      var tagInput = document.getElementById('g-tag');
+      if (tagInput && !tagInput.value && cfg.farcaster_handle) {
+        tagInput.value = cfg.farcaster_handle;
+      }
     })
     .catch(function () { /* no org.config.json - keep BCZ's own defaults from :root */ });
 })();
@@ -375,6 +436,108 @@
   });
   document.getElementById('preset-r7code').addEventListener('click', function () {
     loadPreset('r7code');
+  });
+
+  // ---- P2P Ad Bounty Kit generator ----
+  // Pure function, no DOM access - assembles a description following the exact five-part
+  // structure in docs/P2P-AD-BOUNTY-KIT.md (THE BAR / THE RUBRIC / THE ASSET KIT / THE
+  // REWARD / DEADLINE). Kept pure and separate from the DOM-reading click handler below
+  // so it's directly testable (see scripts/query-bounty.py etc. for the same pattern -
+  // this file has no test runner, but the separation still means the logic can be
+  // exercised in a console without touching the page).
+  function buildP2PAdDescription(opts) {
+    var subject = (opts.subject || 'this').trim();
+    var formatLine = opts.format === 'video' ? 'a 45-60s video' : 'an ad in any format';
+    var tag = (opts.tag || '').trim() || '@youraccount';
+    var channel = (opts.channel || '').trim() || 'your home channel';
+    var bountyType = opts.bountyType === 'solo' ? 'solo' : 'open';
+
+    var lines = [
+      'Make the best ad for ' + subject + '. Any winning submission gets paid and we run it.',
+      '',
+      'THE BAR (do these or you are not in the running)',
+      '',
+      '1. Make ' + formatLine + ' for ' + subject + '.',
+      '2. Tag ' + tag + ' on X when you post it publicly.',
+      '3. Cross-post the same piece in ' + channel + ' so the community sees it.',
+      '4. Submit the public URL on this POIDH bounty page.',
+      '5. AUDIO: if your piece has audio, use official source audio or one clear instrumental that does not compete with spoken dialog. Random library music over talking = floor fail.',
+      '',
+      'THE RUBRIC (more boxes ticked = stronger judging weight)',
+      '',
+      'Distribution',
+      '+ Cross-post on any additional platform beyond ' + channel,
+      '+ Include a visible link back to the source in the asset or post body',
+      '',
+      'Craft',
+      '+ Clarity - you get what it is in 3 seconds',
+      '+ On-brand energy, not generic',
+      '+ Vertical or square format for mobile-native scroll',
+      '',
+      'Substance',
+      '+ One clear takeaway about why ' + subject + ' matters',
+      '+ Names a real specific beat or fact, not generic hype',
+      '',
+      'Bonus (rare, big multiplier)',
+      '+ A testimonial pull-quote or real footage that lands the message',
+      '',
+    ];
+
+    var kitUrl = (opts.kitUrl || '').trim();
+    if (kitUrl) {
+      lines.push('THE ASSET KIT (use any of this, CC-BY - keep ' + subject + ' visible somewhere in your final piece)');
+      lines.push('');
+      lines.push(kitUrl);
+      lines.push('');
+    }
+
+    lines.push('THE REWARD');
+    lines.push('');
+    lines.push('Best submission wins the pot and we run it as our promo.');
+    var rewardRail = (opts.rewardRail || '').trim();
+    if (rewardRail) lines.push(rewardRail);
+    lines.push(
+      bountyType === 'solo'
+        ? 'This is a SOLO bounty.'
+        : 'This is an OPEN bounty - the pot grows in real time if others stack contributions.'
+    );
+    lines.push('');
+    lines.push('DEADLINE');
+    lines.push('');
+    lines.push('Submissions close ' + opts.deadlineDate + ', 11:59pm PT.');
+    lines.push('Winner announced by ' + opts.winnerCastDate + ' (within 48h of close).');
+
+    return lines.join('\n');
+  }
+
+  document.getElementById('generate-btn').addEventListener('click', function () {
+    var subject = document.getElementById('g-subject').value.trim();
+    if (!subject) {
+      setNote('generator-note', 'Give a subject first - what is this an ad for?', 'err');
+      return;
+    }
+    var days = Math.max(1, Number(document.getElementById('g-days').value) || 7);
+    var now = new Date();
+    var deadline = new Date(now.getTime() + days * 24 * 60 * 60 * 1000);
+    var winnerCast = new Date(deadline.getTime() + 2 * 24 * 60 * 60 * 1000);
+
+    var desc = buildP2PAdDescription({
+      subject: subject,
+      format: document.getElementById('g-format').value,
+      tag: document.getElementById('g-tag').value,
+      channel: document.getElementById('g-channel').value,
+      kitUrl: document.getElementById('g-kit').value,
+      rewardRail: document.getElementById('g-rail').value,
+      deadlineDate: formatBountyDate(deadline),
+      winnerCastDate: formatBountyDate(winnerCast),
+      bountyType: document.getElementById('c-type').value,
+    });
+
+    document.getElementById('c-title').value = 'Best ad for ' + subject;
+    document.getElementById('c-desc').value = desc;
+    setNote('generator-note',
+      'Generated. Review THE BAR and THE RUBRIC below - edit anything that does not fit ' +
+      'this specific ad before creating. Nothing has been sent.', 'ok');
   });
 
   // ---- chain selector (create-bounty section only; the claim section below stays Base-only) ----
