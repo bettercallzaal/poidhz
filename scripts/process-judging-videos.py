@@ -202,15 +202,21 @@ def get_duration_verdict(sec: float, min_sec: int, max_sec: int, tolerance: floa
             return "FAIL_UNDER"
 
 
-def build_floor_checks(probe: dict, duration_verdict: str) -> dict:
+def build_floor_checks(media_url: str | None, duration_verdict: str) -> dict:
     """
     Build the floor_checks object for a submission.
-    Auto-checkable: duration, x_post, tag_bcz
-    Manual: edited
+
+    Auto-checkable for real: duration (measured via ffprobe), x_post (was a URL
+    actually submitted). tag_bcz is NOT auto-checkable without fetching the actual
+    post content to look for the tag - a prior version of this function hardcoded
+    both x_post and tag_bcz to "PASS" unconditionally, regardless of whether either
+    was ever actually verified. That was a real bug: any submission with no URL at
+    all, or that never tagged the account, still got a floor PASS on both checks.
+    Manual: edited, tag_bcz.
     """
     return {
-        "x_post": "PASS",  # All claims in data/claims.json have X URLs
-        "tag_bcz": "PASS",  # Assumed present (verify in rubric scoring)
+        "x_post": "PASS" if media_url else "FAIL",
+        "tag_bcz": "UNKNOWN",  # cannot verify without fetching the post's actual content
         "duration": duration_verdict,
         "edited": "UNKNOWN",  # Manual check by Zaal
     }
@@ -407,7 +413,7 @@ def main() -> int:
                     "media_url": media_url,
                     "duration_sec": None,
                     "floor_checks": {
-                        "x_post": "FAIL",
+                        "x_post": "PASS" if media_url else "FAIL",
                         "tag_bcz": "UNKNOWN",
                         "duration": "FAIL",
                         "edited": "UNKNOWN",
@@ -429,8 +435,8 @@ def main() -> int:
                     "media_url": media_url,
                     "duration_sec": None,
                     "floor_checks": {
-                        "x_post": "PASS",
-                        "tag_bcz": "PASS",
+                        "x_post": "PASS" if media_url else "FAIL",
+                        "tag_bcz": "UNKNOWN",
                         "duration": "UNKNOWN",
                         "edited": "UNKNOWN",
                     },
@@ -456,7 +462,7 @@ def main() -> int:
             }
 
             # Build floor checks
-            floor_checks = build_floor_checks(probe, verdict)
+            floor_checks = build_floor_checks(media_url, verdict)
 
             # Add submission
             submissions.append({
@@ -502,7 +508,7 @@ def main() -> int:
                 {"id": "duration", "label": f"{args.min_duration} to {args.max_duration} seconds", "auto_checkable": True},
                 {"id": "edited", "label": "Edited (cuts, not a raw screen recording)", "auto_checkable": False},
                 {"id": "x_post", "label": "Posted on X (post URL submitted)", "auto_checkable": True},
-                {"id": "tag_bcz", "label": "Tagged @bettercallzaal", "auto_checkable": True},
+                {"id": "tag_bcz", "label": "Tagged @bettercallzaal", "auto_checkable": False},
             ],
             "rubric_tiers": [
                 {"id": "distribution", "label": "Distribution", "examples": "Cross-posted, tags, engagement"},
