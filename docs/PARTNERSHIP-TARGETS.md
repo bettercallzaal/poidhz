@@ -12,29 +12,76 @@ These aren't cold-outreach targets - BCZ already has a real, existing connection
 Found by researching what other real initiatives have actually used POIDH historically,
 rather than only researching new orgs to approach cold.
 
-- **We Them Media - BCZ is already inside this, not adjacent to it.** BCZ has posted
-  every single one of its own bounty submissions (R1, R2, R3) into the Farcaster album
-  `wethemmedia` - it's `org.config.json`'s own `farcaster_album` value, not a new
-  discovery. Separately, and verified live on-chain this pass (`bounties.fetch`, id 1096,
-  Base, direct tRPC query): a real, currently-running initiative called **"Preach POIDH &
-  We Them Media"** exists - "IYKYK is teaming up with POIDH & We Them Media for a series
-  of weekly bounties intended to survey thousands of people from around the world. Each
-  week, We Them Media will set a video survey bounty featuring a new question. POIDH
-  sponsors the bounty with a $100 prize, and IYKYK works to drive engagement." This is
-  issued from a different wallet than BCZ's own treasury, so it's a separate initiative -
-  but BCZ already shares the exact same media pipeline these bounties run through. The
-  actual next step here isn't a cold pitch - it's finding out who runs `wethemmedia` on
-  BCZ's side (or asking Kenny/POIDH directly) and asking whether BCZ's own rounds can
-  plug into or cross-promote with this existing weekly series.
-- **Haberdashery - already on BCZ's own catalytic-DM whale list.** `docs/how-to-draft-
-  next-bounty.md` already lists Haberdashery as one of the whales BCZ DMs for public
-  co-funder drops before casting an OPEN bounty (`Kenny, Tyler, Adrian, Jordan,
-  Haberdashery`). Separately verified via web research: Haberdashery ran POIDH's biggest
-  documented bounty to date - a $30K "kickflip" bounty that broke a Guinness World Record
-  and generated 100K+ views, the clearest proof anywhere that POIDH's OPEN-bounty viral
-  co-funding mechanic works at real scale. BCZ already has a direct line to the person who
-  proved this works - the next step is asking Haberdashery directly what made that bounty
-  work, before designing BCZ's next big OPEN round from scratch.
+- **We Them Media - BCZ already carries their name, correction on how connected that
+  actually makes us.** BCZ has posted every one of its own bounty submissions (R1, R2, R3)
+  into the Farcaster album `wethemmedia` - it's `org.config.json`'s own `farcaster_album`
+  value, not a new discovery. Separately, verified live on-chain this pass (`bounties.fetch`
+  / `/data`, id 1096, Base, direct tRPC + REST query, not a search snippet): a real,
+  currently-running initiative called **"Preach POIDH & We Them Media"** exists - "IYKYK is
+  teaming up with POIDH & We Them Media for a series of weekly bounties intended to survey
+  thousands of people from around the world. Each week, We Them Media will set a video
+  survey bounty featuring a new question. POIDH sponsors the bounty with a $100 prize, and
+  IYKYK works to drive engagement." **Correction to an earlier version of this doc:** bounty
+  1096 is tagged to a DIFFERENT POIDH album (`iykyk`), not literally the same `wethemmedia`
+  album BCZ posts into - so "BCZ already shares the exact same media pipeline" overstated
+  it. What's real: the actual Farcaster account is verified live (`@wethemmedia`, fid
+  1091675, real bio: "We Them Media is a community of web3 native creatives... let's build
+  it, together") - a real, findable, warm-ish target since BCZ's own album already carries
+  their name, but it's "reach out to the account behind the name we've been using," not
+  "we're already inside their pipeline."
+- **Haberdashery - already on BCZ's own catalytic-DM whale list, and a grants DAO, not
+  just a whale.** `docs/how-to-draft-next-bounty.md` already lists Haberdashery as one of
+  the whales BCZ DMs for public co-funder drops before casting an OPEN bounty. Verified
+  live: the real Farcaster account is `@thehaberdashery` (fid 578265, 791 followers, real
+  bio: "A crowdfunded DAO deploying funds to builders scaling the Base ecosystem") -
+  `rounds/_template/cast-templates/catalytic-dm.md` already has the correct handle. This
+  reframes the collab pitch: not "ask a whale what worked," but "pitch a grants DAO whose
+  entire purpose is funding exactly this" - separately confirmed via web research to have
+  run POIDH's biggest documented bounty to date, a $30K "kickflip" bounty that broke a
+  Guinness World Record and generated 100K+ views, the clearest proof anywhere that POIDH's
+  OPEN-bounty viral co-funding mechanic works at real scale.
+
+## Official POIDH agent tooling - found 2026-08-08, resolves the Degen contract gap
+
+Found by tracing a real lead from Zaal's own Telegram conversation with Kenny (POIDH
+founder): Kenny cast on Farcaster that `@thoughtcrimeboss` had read all 20+ pages of new
+official POIDH docs and sent detailed notes - and linked `docs.poidh.xyz`. That site is
+real, live, and far more substantial than anything cited in this doc's earlier passes:
+
+- **`docs.poidh.xyz`** - official POIDH v3 documentation: protocol overview, using-poidh
+  guide, features, developer guide, and a full contracts section (architecture, state
+  machines, security, API reference, deployment guide).
+- **The Degen Chain contract address gap flagged earlier in this doc is now resolved,
+  from an authoritative source - not guessed.** `docs.poidh.xyz/contracts/deployment.html`
+  publishes the full deployment table directly:
+  - Ethereum Mainnet: `0xE731dFadBFf20542E10D09D26Fc71445C70d4232` (deployed 2026-05-13)
+  - Base: `0x5555Fa783936C260f77385b4E153B9725feF1719` (deployed 2026-01-19)
+  - Arbitrum: `0x5555Fa783936C260f77385b4E153B9725feF1719` (same address as Base, confirmed)
+  - **Degen Chain: `0x18E5585ca7cE31b90Bc8BB7aAf84152857cE243f`** (deployed 2026-01-19)
+  - Degen Chain minimums: 1000 DEGEN minimum bounty, 10 DEGEN minimum contribution (very
+    different from the 0.001 ETH minimum on the other three chains - anything adding Degen
+    support needs to branch on this, not assume the same minimum everywhere)
+- **POIDH's own team publishes a production-ready Claude Code agent skill** -
+  [`poidh-app/SKILL.md`](https://github.com/picsoritdidnthappen/poidh-app/blob/prod/SKILL.md)
+  (`picsoritdidnthappen/poidh-app`, branch `prod`). This is not a vague "AI-agent
+  compatible" feature-list claim - it's a complete, working skill covering: posting a solo
+  or open bounty, evaluating claim submissions (fetches each claim's proof URI, uses
+  vision for images, web-fetch for links/tweets/PRs, resolves IPFS/Arweave URIs), accepting
+  a winning claim directly or running the two-step open-bounty vote flow, submitting a
+  claim as an agent, and withdrawing funds. It resolves the correct contract per chain via
+  the exact same addresses above, and its own "Agent Decision Flow" section already bakes
+  in a human-confirm gate before every fund-moving transaction ("Confirm with user before
+  sending - this spends real ETH (or DEGEN)") - the identical "AI proposes, human approves"
+  pattern already validated for social posting in ZAO OS V1 doc 2213.
+
+**This directly answers "do stuff that's more automatic."** Instead of (or alongside)
+zpoidh's own custom scripts, a Claude Code session working in this repo could use POIDH's
+own official skill to post a round, and - genuinely new capability zpoidh doesn't have
+today - evaluate every claim's submission with vision and recommend a winner, the same
+judgment call R2/R3's manual scorecards did by hand. Worth a real evaluation: adopt this
+skill directly for round automation (Stage 4/5 of the round pipeline), rather than
+maintaining parallel custom tooling that does a subset of what POIDH's own skill already
+does.
 
 ## Confirmed precedent (POIDH already has cross-community traction)
 
@@ -44,13 +91,13 @@ rather than only researching new orgs to approach cold.
   base. SheFi (women-in-crypto education community) is a plausible direct follow-up
   partner for BCZ - similar audience-growth goals, and POIDH has already broken the ice
   with them once.
-- **POIDH is now explicitly AI-agent compatible** (per POIDH's own 2026 feature set) -
-  agents can propose bounties and select claims while a human retains verification
-  control, and the protocol is deployed across Arbitrum, Base, and Degen Chain. This
-  matters for ZAO specifically: ZOL/ZOE-adjacent tooling could eventually *propose*
-  bounties on behalf of BCZ (not just draft casts, per ZAO OS V1 doc 2213), with a human
-  still gating the actual on-chain accept - the same "AI proposes, human approves" pattern
-  already validated for social posting applies here too.
+- **POIDH is now explicitly AI-agent compatible - confirmed with the real skill above,
+  not just a feature-list claim.** Agents can propose bounties and select claims while a
+  human retains verification control, and the protocol is deployed across Ethereum
+  Mainnet, Arbitrum, Base, and Degen Chain. This matters for ZAO specifically: ZOL/ZOE-
+  adjacent tooling could eventually *propose* bounties on behalf of BCZ (not just draft
+  casts, per ZAO OS V1 doc 2213), with a human still gating the actual on-chain accept -
+  see the section above for the actual mechanism, already built by POIDH's own team.
 - **Degen Chain is a first-class POIDH deployment, confirmed with a live example, not
   just a claim.** Queried POIDH's own tRPC feed directly (`bounties.fetchAll` with
   `chainId: 666666666`) and found a real, currently-open bounty on Degen Chain: id 1393
@@ -60,28 +107,21 @@ rather than only researching new orgs to approach cold.
   exactly this reason). So the "run a Degen-denominated bounty" idea below is genuinely
   possible on POIDH - it isn't hypothetical.
 
-  **But a real gap exists between "POIDH supports it" and "zpoidh's own tooling supports
-  it."** `docs/create-bounty.html` (this repo's standalone bounty-creation page) hardcodes
-  Base mainnet only (`BASE_HEX = '0x2105'`) and the single POIDH contract address used on
-  Base/Arbitrum (`0x5555fa78...`) - it has no Degen Chain option and no Degen contract
-  address wired in. Creating a Degen bounty today means going directly to
-  `poidh.xyz/degen` (POIDH's own frontend), not zpoidh's tool.
+  **Gap between "POIDH supports it" and "zpoidh's own tooling supports it" - now
+  resolved.** As of 2026-08-08, `docs/create-bounty.html` has real Degen Chain support (see
+  below) using the officially-documented contract address, resolving the gap this doc
+  previously flagged. `docs/create-bounty.html` previously hardcoded Base mainnet only and
+  the shared Base/Arbitrum contract address, with no Degen option - deliberately left
+  unfixed in an earlier pass of this doc because the only Degen contract address findable
+  at the time was an unverified Blockscout listing, not safe to hardcode into
+  transaction-signing code. That blocker is gone: `docs.poidh.xyz/contracts/deployment.html`
+  (POIDH's own official docs, found 2026-08-08 - see the section above) now publishes the
+  verified address directly from POIDH's team, not from block-explorer archaeology.
 
-  Deliberately did NOT add Degen support to `create-bounty.html` to close this gap -
-  `create-bounty.html` signs real transactions with the connected wallet, and the Degen
-  Chain contract's exact address could not be confirmed from a source reliable enough to
-  hardcode into transaction-signing code. It's an unverified contract on Degen Chain's
-  block explorer (Blockscout) - no published source, no confirmed constructor args
-  distinguishing the NFT contract from the bounty-logic contract. Guessing a contract
-  address for a page that locks real funds is exactly the kind of shortcut this repo has
-  avoided all session. If someone wants to add real Degen support to `create-bounty.html`
-  later, get the verified address from POIDH's own team/docs first, not from block-explorer
-  archaeology.
-
-  The Degen community (a Farcaster-native tipping/rewards culture with its own token) is
-  still a low-friction partnership target for the reasons below - they already understand
-  token-incentivized public tasks - but today that means pointing them at `poidh.xyz/degen`
-  directly, not zpoidh's own bounty-creation tool.
+  The Degen community (a Farcaster-native tipping/rewards culture with its own token) is a
+  low-friction partnership target for the reasons below - they already understand token-
+  incentivized public tasks - and creating a Degen bounty can now go through either
+  `poidh.xyz/degen` directly or zpoidh's own `create-bounty.html`.
 
 ## New candidate targets found this pass
 
@@ -133,7 +173,7 @@ rather than only researching new orgs to approach cold.
 | Purple DAO | Send the outreach DM at [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md), pitching a joint /zabal x /purple cross-promo bounty | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Framed against Purple's own stated Farcaster-growth funding thesis, not a generic ask |
 | Yellow Collective | Send the outreach DM at [outreach/yellow-collective-dm.md](outreach/yellow-collective-dm.md), pitching a cross-pollination round for artist-made work | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Natural fit given the shared "artist track" framing - narrower and more specific than the Purple DAO pitch |
 | Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
-| Degen community | Run a DEGEN-denominated bounty directly via `poidh.xyz/degen` (confirmed working - real live example: bounty 1393, 13,014 DEGEN) - NOT via `docs/create-bounty.html`, which only supports Base today | Medium (needs a Degen-chain-specific description; the bounty itself must be created on POIDH's own site, not this repo's tool) | Confirmed genuinely possible on POIDH, but adding Degen support to this repo's own create-bounty.html needs a verified contract address from POIDH's team first - see the note above on why that wasn't guessed |
+| Degen community | Run a DEGEN-denominated bounty via either `poidh.xyz/degen` or `docs/create-bounty.html` (both work as of 2026-08-08) - needs a Degen-chain-specific description | Medium (mainly the description/framing work now, not a tooling blocker) | Degen support shipped in create-bounty.html using the officially-documented contract address - see the section above |
 
 None of these are commitments - they're researched, precedent-grounded leads for Zaal to
 decide on. Every "Action" above assumes the P2P Ad Bounty Kit structure
@@ -152,7 +192,10 @@ mechanism, not a new pitch to invent per partner.
 - [Nouns Builder | Purple](https://nouns.build/dao/base/0x8de71d80eE2C4700bC9D4F8031a2504Ca93f7088/507) - Purple's Nouns Builder deployment
 - [ournetwork issue 188](https://ournetwork.substack.com/p/ournetwork-issue-188) - Nouns Builder ecosystem scale (200+ collectives), Yellow Collective
 - POIDH's own tRPC feed (`bounties.fetch`, id 1393, `chainId: 666666666`, queried directly) - confirmed a real live Degen Chain bounty (13,014 DEGEN, onChainId 196)
-- [Degen Chain marketplace app | Blockscout](https://explorer.degen.tips/apps/poidh) and the POIDH V2 NFT contract at `0xDdfb1A53E7b73Dba09f79FCA24765C593D447a80` - checked directly, contract is unverified (no published source), which is why its address was not used in any transaction-signing code
+- [Degen Chain marketplace app | Blockscout](https://explorer.degen.tips/apps/poidh) and the POIDH V2 NFT contract at `0xDdfb1A53E7b73Dba09f79FCA24765C593D447a80` - checked directly during an earlier pass, contract was unverified (no published source), which is why its address was not used in transaction-signing code at the time (superseded - see docs.poidh.xyz below)
+- [docs.poidh.xyz](https://docs.poidh.xyz) - official POIDH v3 documentation, found via a real cast from Kenny (POIDH founder) in Zaal's own Telegram conversation history, cross-checked live in-browser (found 2026-08-08)
+- [docs.poidh.xyz/contracts/deployment.html](https://docs.poidh.xyz/contracts/deployment.html) - official deployment addresses for all 4 chains (Ethereum Mainnet, Arbitrum, Base, Degen Chain), fetched in full, not a snippet
+- [poidh-app/SKILL.md](https://github.com/picsoritdidnthappen/poidh-app/blob/prod/SKILL.md) - POIDH's own official Claude Code agent skill (`picsoritdidnthappen/poidh-app`, branch `prod`), fetched in full
 - POIDH's own tRPC feed (`bounties.fetch`, id 1096, Base) - confirmed live the "Preach POIDH & We Them Media" / IYKYK weekly bounty series, direct on-chain query, not a search snippet
 - [Preach POIDH & We Them Media](https://poidh.xyz/base/bounty/1096) - the live bounty page itself
 - Web research (2026-08-07) - the $30K Degen Haberdashery kickflip Guinness World Record bounty, and the POAP x Degen community-call artwork bounty (50+ submissions) - both cited as real POIDH precedent, not speculation
