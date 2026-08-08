@@ -28,7 +28,9 @@ rather than only researching new orgs to approach cold.
   1091675, real bio: "We Them Media is a community of web3 native creatives... let's build
   it, together") - a real, findable, warm-ish target since BCZ's own album already carries
   their name, but it's "reach out to the account behind the name we've been using," not
-  "we're already inside their pipeline."
+  "we're already inside their pipeline." Zaal is personally already close with them and
+  noted they're less active right now - outreach draft reflects that (a personal check-in,
+  not a template pitch): [outreach/wethemmedia-dm.md](outreach/wethemmedia-dm.md).
 - **Haberdashery - already on BCZ's own catalytic-DM whale list, and a grants DAO, not
   just a whale.** `docs/how-to-draft-next-bounty.md` already lists Haberdashery as one of
   the whales BCZ DMs for public co-funder drops before casting an OPEN bounty. Verified
@@ -39,7 +41,8 @@ rather than only researching new orgs to approach cold.
   entire purpose is funding exactly this" - separately confirmed via web research to have
   run POIDH's biggest documented bounty to date, a $30K "kickflip" bounty that broke a
   Guinness World Record and generated 100K+ views, the clearest proof anywhere that POIDH's
-  OPEN-bounty viral co-funding mechanic works at real scale.
+  OPEN-bounty viral co-funding mechanic works at real scale. Outreach draft:
+  [outreach/haberdashery-dm.md](outreach/haberdashery-dm.md).
 
 ## Official POIDH agent tooling - found 2026-08-08, resolves the Degen contract gap
 
@@ -174,6 +177,8 @@ does.
 | Yellow Collective | Send the outreach DM at [outreach/yellow-collective-dm.md](outreach/yellow-collective-dm.md), pitching a cross-pollination round for artist-made work | Low - the DM is drafted and send-ready, just needs a recipient confirmed and Zaal's go-ahead | Natural fit given the shared "artist track" framing - narrower and more specific than the Purple DAO pitch |
 | Bountycaster | Manually cross-post the next round's bounty as a `@bountybot`-tagged cast, with the POIDH URL as the funding/submission link | Low (1 extra cast per round, no relationship needed) | Feasibility confirmed via their FAQ - no native mirroring, but their no-escrow architecture makes a manual cross-post trivial. No sync mechanism, so note completion manually too |
 | Degen community | Run a DEGEN-denominated bounty via either `poidh.xyz/degen` or `docs/create-bounty.html` (both work as of 2026-08-08) - needs a Degen-chain-specific description | Medium (mainly the description/framing work now, not a tooling blocker) | Degen support shipped in create-bounty.html using the officially-documented contract address - see the section above |
+| We Them Media | Send the personal check-in at [outreach/wethemmedia-dm.md](outreach/wethemmedia-dm.md), a "Spotlight" bounty about them, zero effort on their end | Low - Zaal already has the relationship, this just needs sending | Deliberately not a template pitch - Zaal is personally close with them, drafted to sound like him, not a cold outreach voice |
+| The Haberdashery | Send the outreach DM at [outreach/haberdashery-dm.md](outreach/haberdashery-dm.md), pitching a co-funded "big swing" OPEN round | Medium - the DM is drafted and send-ready, but a real co-designed round needs real back-and-forth after | Reframes an existing catalytic-DM contact as a full grants-DAO partner, not just a one-off co-funder ask |
 
 None of these are commitments - they're researched, precedent-grounded leads for Zaal to
 decide on. Every "Action" above assumes the P2P Ad Bounty Kit structure
@@ -207,3 +212,5 @@ mechanism, not a new pitch to invent per partner.
 - [outreach/purple-dao-dm.md](outreach/purple-dao-dm.md) - send-ready DM draft pitching Purple DAO a joint round
 - [outreach/shefi-dm.md](outreach/shefi-dm.md) - send-ready DM draft pitching SheFi, leading with the existing POIDH x SheFi precedent
 - [outreach/yellow-collective-dm.md](outreach/yellow-collective-dm.md) - send-ready DM draft pitching Yellow Collective, an artist-track cross-pollination round
+- [outreach/wethemmedia-dm.md](outreach/wethemmedia-dm.md) - personal check-in draft for We Them Media, the "Spotlight" collab idea (Zaal is already close with them)
+- [outreach/haberdashery-dm.md](outreach/haberdashery-dm.md) - send-ready draft pitching The Haberdashery a co-funded "big swing" round, grants-DAO framing
