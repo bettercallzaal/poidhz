@@ -98,6 +98,7 @@
     </p>
     <div class="row">
       <button class="btn secondary" id="preset-unlock">Load: Unlock Protocol Clipping Bounty (R6)</button>
+      <button class="btn secondary" id="preset-r7code">Load: ZABAL Gamez Bug Fixes (R7, code bounty)</button>
     </div>
     <p class="note" id="preset-note"></p>
   </section>
@@ -268,6 +269,10 @@
       baseTitle: 'Unlock Protocol Clipping Bounty',
       templateUrl: '../rounds/r6/description.md',
     },
+    r7code: {
+      baseTitle: 'ZABAL Gamez Bug Fixes',
+      templateUrl: '../rounds/r7/description.md',
+    },
   };
 
   function ordinalRoundNote(n) {
@@ -367,6 +372,9 @@
 
   document.getElementById('preset-unlock').addEventListener('click', function () {
     loadPreset('unlock');
+  });
+  document.getElementById('preset-r7code').addEventListener('click', function () {
+    loadPreset('r7code');
   });
 
   // ---- chain selector (create-bounty section only; the claim section below stays Base-only) ----
