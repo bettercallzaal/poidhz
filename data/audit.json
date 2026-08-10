@@ -2,18 +2,17 @@
   "bounty_ids": [
     1151,
     1166,
-    1180,
-    1249
+    1180
   ],
   "chainId": 8453,
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 29,
-  "total_claims_accepted": 27,
-  "total_claims_rejected": 2,
-  "submitter_count": 22,
-  "total_eth_escrow": 0.0598,
+  "total_claims_received": 27,
+  "total_claims_accepted": 26,
+  "total_claims_rejected": 1,
+  "submitter_count": 34,
+  "total_eth_escrow": 0.046,
   "bounties": [
     {
       "id": 1151,
@@ -53,19 +52,6 @@
       "is_voting": true,
       "is_canceled": false,
       "claims_count": 8
-    },
-    {
-      "id": 1249,
-      "chainId": 8453,
-      "title": "ZABAL Gamez Open Pot",
-      "description": "The ZABAL Gamez open pot. Ship a real build during July open build month and you split this pot with everyone else who shows up.\n\nZABAL Gamez is The ZAO's 3-month Build-A-Thon - June workshops, July open build month, August Finals. Free to join. Anyone welcome. Three tracks - artist, builder, creator. The 100+ member ZAO community is your real audience.\n\nAugust has a curated prize - a few builders get picked to carry it forward. This is the other side of that: an open pot for everyone who actual",
-      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "album": "wethemmedia",
-      "amount_eth": 0.0138,
-      "in_progress": false,
-      "is_voting": false,
-      "is_canceled": true,
-      "claims_count": 1
     }
   ],
   "claims": [
@@ -328,16 +314,6 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmcUEtLSYUa4n3hu3SVtq17EketPGudhqNjS8oQJ9XaALr",
       "accepted": false,
       "on_chain_id": 1421
-    },
-    {
-      "bounty_id": 1249,
-      "claim_id": 6982,
-      "issuer": "0x064915fad67e70d2fa708b14af9e01b0083a1b9e",
-      "title": "ZAAL BOUNTY CONTRIBUTION",
-      "description": "Just an extra photo for proof",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmXkANSPCtx9PbhBWrkFsz9DVMHc2okoaM2BuvsTsWP44q",
-      "accepted": false,
-      "on_chain_id": 1666
     }
   ],
   "rejected_claims": [
@@ -345,12 +321,6 @@
       "claim_id": 6322,
       "bounty_id": 1151,
       "issuer": "0x34da767a377a77aca15f77ab4e8114cd79c0a7e9",
-      "reason": "duplicate submission to same bounty"
-    },
-    {
-      "claim_id": 6981,
-      "bounty_id": 1249,
-      "issuer": "0x064915fad67e70d2fa708b14af9e01b0083a1b9e",
       "reason": "duplicate submission to same bounty"
     }
   ]

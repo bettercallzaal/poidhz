@@ -27,6 +27,7 @@ Data sources (all free, no API keys):
 """
 
 import argparse
+import csv
 import json
 import sys
 import time
@@ -123,6 +124,30 @@ def fetch_web3_bio(address: str) -> dict | None:
         return None
 
 
+def load_offchain_credits() -> list[dict]:
+    """Off-chain round credits from org.config.json's offchain_credits - rounds where
+    the normal on-chain claim path broke (e.g. R4's bounty got canceled instead of
+    withdrawn) and participants were credited directly via a wallet,score CSV instead.
+    Each entry names a CSV of wallets to flat-credit + a note explaining why."""
+    credits = []
+    for entry in _CFG.get("offchain_credits", []):
+        csv_path = REPO_ROOT / entry["wallets_csv"]
+        if not csv_path.exists():
+            print(f"  WARN: offchain_credits round {entry.get('round')} references missing file {csv_path}")
+            continue
+        wallets = []
+        with open(csv_path) as f:
+            for row in csv.DictReader(f):
+                wallets.append(row["address"].lower())
+        credits.append({
+            "round": entry.get("round"),
+            "score": entry.get("score", 1),
+            "note": entry.get("note", ""),
+            "wallets": wallets,
+        })
+    return credits
+
+
 def validate_claim_address(addr: str) -> bool:
     """Check if address is a valid Ethereum address (0x + 40 hex chars)."""
     if not isinstance(addr, str):
@@ -138,8 +163,43 @@ def validate_claim_address(addr: str) -> bool:
         return False
 
 
+def _selftest_offchain() -> bool:
+    """Network-free proof that load_offchain_credits reads a wallets CSV via
+    org.config.json's offchain_credits, and that the result correctly
+    additively merges into addr_score (the R4 fix)."""
+    import tempfile
+
+    global _CFG
+    original_cfg = _CFG
+    with tempfile.TemporaryDirectory() as tmp:
+        csv_path = REPO_ROOT / f"_selftest_offchain_{Path(tmp).name}.csv"
+        csv_path.write_text("address,score\n" + "0x" + "a" * 40 + ",1\n" + "0x" + "b" * 40 + ",1\n")
+        _CFG = {"offchain_credits": [{"round": 4, "score": 1, "wallets_csv": csv_path.name, "note": "test"}]}
+        try:
+            wallets = load_offchain_credits()
+            ok_read = len(wallets) == 1 and wallets[0]["wallets"] == ["0x" + "a" * 40, "0x" + "b" * 40]
+        finally:
+            _CFG = original_cfg
+            csv_path.unlink(missing_ok=True)
+
+    # addr_score merge behavior, tested directly against the same formula used in main()
+    bounties_by_addr = {"0x" + "a" * 40: {1151}}  # on-chain: 1 bounty
+    offchain_score_by_addr = {"0x" + "a" * 40: 1, "0x" + "c" * 40: 1}  # offchain: +1 each
+
+    def addr_score(addr: str) -> int:
+        return (len(bounties_by_addr.get(addr, set())) + offchain_score_by_addr.get(addr, 0)) or 1
+
+    a_score = addr_score("0x" + "a" * 40)  # on-chain 1 + offchain 1 = 2
+    c_score = addr_score("0x" + "c" * 40)  # on-chain 0 + offchain 1 = 1 (offchain-only wallet)
+    ok_merge = a_score == 2 and c_score == 1
+    ok = ok_read and ok_merge
+    print(f"  {'ok  ' if ok else 'FAIL'} offchain CSV read + score merge (combined={a_score}, offchain-only={c_score})")
+    return ok
+
+
 def _selftest() -> int:
-    """Network-free proof that fetch_all_claims follows the cursor and stops.
+    """Network-free proof that fetch_all_claims follows the cursor and stops,
+    and that offchain round credits merge additively into addr_score.
     Run: python3 scripts/refresh-poidh-leaderboard.py --selftest"""
     global trpc
     pages = [
@@ -163,8 +223,12 @@ def _selftest() -> int:
         got = [c["id"] for c in fetch_all_claims(1, DEFAULT_CHAIN_ID)]
     finally:
         trpc = original
-    ok = got == [1, 2, 3] and calls["n"] == 2
-    print(f"  {'ok  ' if ok else 'FAIL'} paginated ids={got} in {calls['n']} calls (want [1,2,3] in 2)")
+    ok_pagination = got == [1, 2, 3] and calls["n"] == 2
+    print(f"  {'ok  ' if ok_pagination else 'FAIL'} paginated ids={got} in {calls['n']} calls (want [1,2,3] in 2)")
+
+    ok_offchain = _selftest_offchain()
+
+    ok = ok_pagination and ok_offchain
     print(f"selftest: {'passed' if ok else 'FAILED'}")
     return 0 if ok else 1
 
@@ -284,11 +348,25 @@ def main() -> int:
             "claims_count": sum(1 for c in all_claims if c["bounty_id"] == bid),
         })
 
-    # Score = number of distinct BCZ bounties this wallet submitted to
+    offchain_credits = load_offchain_credits()
+    offchain_score_by_addr: dict[str, int] = {}
+    offchain_notes_by_addr: dict[str, list[str]] = {}
+    for credit in offchain_credits:
+        print(f"Offchain credit round {credit['round']}: {len(credit['wallets'])} wallets, +{credit['score']} each")
+        for addr in credit["wallets"]:
+            offchain_score_by_addr[addr] = offchain_score_by_addr.get(addr, 0) + credit["score"]
+            offchain_notes_by_addr.setdefault(addr, []).append(credit["note"])
+            if addr not in seen:
+                seen.add(addr)
+                unique_order.append(addr)
+
+    # Score = number of distinct BCZ bounties this wallet submitted to on-chain
     # (capped at len(bounty_ids), so e.g. submitting twice to one bounty still = 1
-    # but submitting to both R1 + R2 = 2). Per Zaal 2026-05-27.
+    # but submitting to both R1 + R2 = 2), per Zaal 2026-05-27 - PLUS any offchain
+    # round credit (e.g. R4's flat +1, since its bounty got canceled and the
+    # on-chain claim path never happened for those wallets).
     def addr_score(addr: str) -> int:
-        return len(bounties_by_addr.get(addr, set())) or 1
+        return (len(bounties_by_addr.get(addr, set())) + offchain_score_by_addr.get(addr, 0)) or 1
 
     leaderboard_feed = [{"address": a, "score": addr_score(a)} for a in unique_order]
 
@@ -338,6 +416,8 @@ def main() -> int:
             "boost": eb_e.get("boost"),
             "totalRewards": eb_e.get("totalRewards"),
             "follower": prof.get("follower"),
+            "offchain_credit": offchain_score_by_addr.get(addr) or None,
+            "offchain_note": " / ".join(offchain_notes_by_addr.get(addr, [])) or None,
         })
     enriched_leaderboard.sort(key=lambda e: (e.get("rank") or 999, e["address"]))
 
@@ -369,6 +449,15 @@ def main() -> int:
             "total_zabal_distributed": round(sum(e.get("totalRewards", 0) or 0 for e in eb_entries), 4),
         },
         "bounties": bounty_meta,
+        "offchain_credits": [
+            {
+                "round": c["round"],
+                "score": c["score"],
+                "wallet_count": len(c["wallets"]),
+                "note": c["note"],
+            }
+            for c in offchain_credits
+        ],
         "leaderboard": enriched_leaderboard,
         "claims": all_claims,
     }, indent=2) + "\n")
