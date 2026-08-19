@@ -2,8 +2,12 @@ name: Refresh Bounty Dashboard
 
 on:
   schedule:
-    # Every hour - deadlines/submissions/prices move faster than the leaderboard
-    - cron: '0 * * * *'
+    # Every 6 hours. Was hourly, but every commit triggers a Vercel build and
+    # the diff check below never passed (generated_at churned every run), so
+    # this deployed ~25x/day. Countdowns render client-side from deadline
+    # timestamps, so hourly rebakes bought nothing. See ZAOOS PR #3147 for the
+    # sibling fix.
+    - cron: '30 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -29,10 +33,14 @@ jobs:
           git config user.name "poidh-dashboard-refresh[bot]"
           git config user.email "poidh-dashboard-refresh@users.noreply.github.com"
 
-          if ! git diff --quiet data/bounty-dashboard.json; then
+          # -I ignores lines matching the regex, so a run where ONLY
+          # generated_at (or the prices-source note) changed does not commit,
+          # does not push, and does not trigger a Vercel build.
+          if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' data/bounty-dashboard.json; then
             git add data/bounty-dashboard.json
             git commit -m "chore: auto-refresh bounty dashboard data (refresh-bounty-dashboard.yml)"
             git push
           else
-            echo "No changes to bounty dashboard data."
+            git checkout -- data/bounty-dashboard.json
+            echo "No substantive changes to bounty dashboard data (timestamp-only churn discarded)."
           fi
