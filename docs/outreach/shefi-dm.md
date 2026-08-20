@@ -13,10 +13,10 @@ contact at SheFi.
 
 ## Who to send this to
 
-SheFi is an education-focused community (women-in-crypto), so the right contact is
-whoever runs their Farcaster/X presence or community partnerships, not a single named
-founder assumed here. Confirm the right person before sending - this draft is written to
-work regardless of exact recipient.
+Verified 2026-08-20 via Warpcast API: @shefi (fid 444899, 466 followers) is the org
+account; the /shefi channel (1,001 followers) is led and solely moderated by @love (Maggie
+Love, fid 3928, 2,018 followers), SheFi's founder. Send to @love on Farcaster. Draft works
+regardless of exact recipient.
 
 ## Farcaster DM (long version)
 
@@ -75,6 +75,13 @@ would just need a cross-post/boost when it's live. Worth a quick chat?
 4. Consider cross-posting to Bountycaster too per the workaround documented in
    [PARTNERSHIP-TARGETS.md](../PARTNERSHIP-TARGETS.md) - free extra reach either side
    could do.
+
+
+## Refreshed 2026-08-20 (card 9b8a766f)
+
+- Target re-verified live via Warpcast public API on 2026-08-20 (details in "Who to send this to").
+- Premise check: ZABAL Gamez Season 1 finals run Aug 24-30. "Promote our build event" is about to go stale, so the DMs now pitch the joint round as a post-finals / Season 2 kickoff, or a round on the partner's own subject. Zaal can swap in the WaveWarZ clip series (rounds/r8) as the subject if that is the better lead.
+- Prize language widened to "0.01-0.025 ETH per round" (R1-R3 actuals: 0.0105 / 0.0105 / 0.025).
 
 ## Also see
 
