@@ -66,7 +66,7 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 
 1. Wallet: connect the issuer EOA to poidh.xyz. Switch network to Base before Create.
 2. Create bounty. Type: **Open**. Token: ETH. Amount: 0.0128 (0.0125 seed x 1.025).
-3. Title: `Best WaveWarZ clip from the Twitch stream`
+3. Title: `Best 60s clip from the WaveWarZ Twitch stream`
 4. Description: paste `description.md` between the sentinel lines. Poidh renders plain text; keep line breaks.
 5. Submit, confirm the tx, copy the bounty URL.
 6. Check it shows under poidh.xyz/a/thezao. Add to the README round index.
