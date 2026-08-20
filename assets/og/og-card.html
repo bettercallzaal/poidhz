@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#070709;color:#e4e2dd;font-family:'Outfit',sans-serif;overflow:hidden;position:relative}
+body::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 10% -10%,rgba(167,139,250,0.22),transparent 60%),radial-gradient(ellipse 700px 500px at 95% 15%,rgba(0,229,255,0.18),transparent 60%),radial-gradient(ellipse 600px 400px at 50% 110%,rgba(255,107,53,0.14),transparent 60%)}
+.wrap{position:relative;padding:64px 72px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:#a78bfa}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:112px;line-height:1;margin:12px 0 18px;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{font-size:30px;color:#b9b7c2;max-width:660px;line-height:1.35}
+.cal{position:absolute;right:72px;top:64px;display:grid;grid-template-columns:repeat(7,44px);gap:6px}
+.cal div{height:44px;border-radius:6px;background:#16161c;border:1px solid #2a2933}
+.cal div.on{background:rgba(0,229,255,0.18);border-color:rgba(0,229,255,0.6)}
+.cal div.hot{background:rgba(245,200,66,0.22);border-color:rgba(245,200,66,0.7)}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:22px;color:#8a8895}
+.foot b{color:#e4e2dd;font-weight:500}
+</style></head><body><div class="wrap">
+<div><div class="kicker">every open poidh bounty, by deadline</div><h1>poidhz</h1>
+<p>The deadline calendar for poidh bounties. Countdowns, filters, a subscribable .ics, and every open bounty that forgot to say when it closes.</p></div>
+<div class="cal"></div>
+<div class="foot"><span><b>zpoidh.vercel.app</b></span><span>by BetterCallZaal / The ZAO</span></div>
+</div>
+<script>var c=document.querySelector('.cal');var on=[3,9,15,16,23,30],hot=[24];for(var i=0;i<35;i++){var d=document.createElement('div');if(on.indexOf(i)>-1)d.className='on';if(hot.indexOf(i)>-1)d.className='hot';c.appendChild(d)}</script>
+</body></html>

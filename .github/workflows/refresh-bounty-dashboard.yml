@@ -28,6 +28,17 @@ jobs:
       - name: Run dashboard build script
         run: python3 scripts/build-bounty-dashboard.py
 
+      - name: Refresh deadline calendar (scan + calendar + ics)
+        # Added 2026-08-20: these went stale for two weeks because only the
+        # dashboard was on a schedule (zpoidh issue #6).
+        run: |
+          python3 scripts/scan-poidh-deadlines.py
+          python3 scripts/build-bounty-calendar.py
+          python3 scripts/deadlines-to-ics.py
+
+      - name: Refresh live round state
+        run: python3 scripts/refresh-rounds.py
+
       - name: Commit and push if changed
         run: |
           git config user.name "poidh-dashboard-refresh[bot]"
@@ -36,11 +47,12 @@ jobs:
           # -I ignores lines matching the regex, so a run where ONLY
           # generated_at (or the prices-source note) changed does not commit,
           # does not push, and does not trigger a Vercel build.
-          if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' data/bounty-dashboard.json; then
-            git add data/bounty-dashboard.json
-            git commit -m "chore: auto-refresh bounty dashboard data (refresh-bounty-dashboard.yml)"
+          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json"
+          if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' -I '^DTSTAMP' -- $FILES; then
+            git add $FILES
+            git commit -m "chore: auto-refresh bounty dashboard + deadline calendar data (refresh-bounty-dashboard.yml)"
             git push
           else
-            git checkout -- data/bounty-dashboard.json
+            git checkout -- $FILES
             echo "No substantive changes to bounty dashboard data (timestamp-only churn discarded)."
           fi
