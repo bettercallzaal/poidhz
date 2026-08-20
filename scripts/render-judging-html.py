@@ -14,6 +14,7 @@ Outputs:
 This stage is human-gated: it renders existing judging data, does not modify it.
 The rubric scores come FROM stage-1 or manual filling, not FROM this renderer.
 """
+from __future__ import annotations
 
 import argparse
 import html

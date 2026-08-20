@@ -15,6 +15,7 @@ render. Bounties with no parseable deadline are flagged, not silently dropped.
 
 Writes data/bounty-calendar.json.
 """
+from __future__ import annotations
 
 import json
 import re

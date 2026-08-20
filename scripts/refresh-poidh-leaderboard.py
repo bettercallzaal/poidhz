@@ -31,6 +31,7 @@ Data sources (all free, no API keys):
     - api.web3.bio: GET /profile/<address> (avatar, fid, follower - enrichment
       only; handles come from /data first)
 """
+from __future__ import annotations
 
 import argparse
 import csv

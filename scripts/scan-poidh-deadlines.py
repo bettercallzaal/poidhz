@@ -14,6 +14,7 @@ There genuinely is no structured deadline; the only source of truth is free text
 
 Writes data/poidh-deadlines-global.json.
 """
+from __future__ import annotations
 
 import argparse
 import json
