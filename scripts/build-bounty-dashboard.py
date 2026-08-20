@@ -33,6 +33,9 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from deadline_parser import extract_deadline  # shared free-text deadline parser
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 UA = "Mozilla/5.0 (zpoidh-bounty-dashboard-builder)"
@@ -53,14 +56,6 @@ def load_org_config() -> dict:
 
 _CFG = load_org_config()
 
-MONTHS = (
-    "January|February|March|April|May|June|July|August|September|October|November|December"
-)
-DATE_RE = re.compile(rf"({MONTHS})\s+(\d{{1,2}}),?\s*(\d{{4}})")
-DEADLINE_RE = re.compile(
-    r"\b(?:deadline|closes?|closing|due|ends?|ending|submit\s+by|until)\b",
-    re.IGNORECASE,
-)
 
 # Keyword buckets for the ease/difficulty heuristic. Order matters - checked
 # in this order, first match wins the task-type classification.
@@ -121,28 +116,6 @@ def fetch_token_prices() -> dict:
         return {}
 
 
-def _parse_match(m: "re.Match[str]") -> str | None:
-    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
-    try:
-        dt = datetime.strptime(f"{month_name} {day} {year}", "%B %d %Y").replace(
-            tzinfo=timezone.utc
-        )
-    except ValueError:
-        return None
-    return dt.date().isoformat()
-
-
-def extract_deadline(description: str) -> tuple[str | None, str | None]:
-    """Same rule as scan-poidh-deadlines.py: a date only counts as a deadline
-    within ~300 chars AFTER a deadline-signalling keyword. Duplicated here
-    (not imported) to keep each script self-contained per repo convention."""
-    for hit in DEADLINE_RE.finditer(description):
-        m = DATE_RE.search(description[hit.start() : hit.start() + 300])
-        if m:
-            iso = _parse_match(m)
-            if iso:
-                return iso, m.group(0)
-    return None, None
 
 
 def score_bounty(title: str, description: str) -> dict:
@@ -195,7 +168,7 @@ def main() -> int:
                 if b.get("isCanceled"):
                     continue
                 desc = b.get("description", "") or ""
-                deadline_iso, deadline_raw = extract_deadline(desc)
+                deadline_iso, deadline_raw = extract_deadline(desc, created_at=b.get("createdAt"))
                 chain_id = b.get("chainId")
                 symbol, cg_id = CHAIN_TOKENS.get(chain_id, ("ETH", "ethereum"))
                 amount_native = int(b.get("amount", "0") or 0) / 1e18

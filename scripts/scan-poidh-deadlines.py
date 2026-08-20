@@ -25,6 +25,9 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from deadline_parser import extract_deadline  # shared free-text deadline parser
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 UA = "Mozilla/5.0 (zpoidh-bounty-deadline-scanner)"
@@ -45,18 +48,6 @@ def load_org_config() -> dict:
 
 _CFG = load_org_config()
 
-MONTHS = (
-    "January|February|March|April|May|June|July|August|September|October|November|December"
-)
-DATE_RE = re.compile(rf"({MONTHS})\s+(\d{{1,2}}),?\s*(\d{{4}})")
-
-# Words that actually signal a submission cutoff. Word-boundary matched so
-# "due" does not fire inside "residue"/"produce". A date only counts as a
-# deadline when it sits shortly AFTER one of these.
-DEADLINE_RE = re.compile(
-    r"\b(?:deadline|closes?|closing|due|ends?|ending|submit\s+by|until)\b",
-    re.IGNORECASE,
-)
 
 
 def trpc(proc: str, payload: dict) -> dict:
@@ -68,57 +59,11 @@ def trpc(proc: str, payload: dict) -> dict:
         return json.loads(r.read())[0]["result"]["data"]["json"]
 
 
-def _parse_match(m: "re.Match[str]") -> tuple[str | None, str | None]:
-    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
-    try:
-        dt = datetime.strptime(f"{month_name} {day} {year}", "%B %d %Y").replace(
-            tzinfo=timezone.utc
-        )
-    except ValueError:
-        return None, m.group(0)
-    return dt.date().isoformat(), m.group(0)
-
-
-def extract_deadline(description: str) -> tuple[str | None, str | None]:
-    """Return (iso_date, raw_text) for the submission deadline, or (None, None).
-
-    A date only counts as a deadline when it appears within ~300 chars AFTER a
-    deadline-signalling keyword (deadline / closes / due / ends / submit by / ...),
-    trying each keyword occurrence in text order. We deliberately do NOT grab an
-    arbitrary date from elsewhere in the text: that produced false positives, e.g.
-    an event kickoff date ("kickoff on August 5") being reported as the submission
-    deadline even when the text says "no deadline stated". Per this tool's own
-    framing, "no stated deadline -> just don't show it".
-    """
-    for hit in DEADLINE_RE.finditer(description):
-        m = DATE_RE.search(description[hit.start() : hit.start() + 300])
-        if m:
-            return _parse_match(m)
-    return None, None
 
 
 def selftest() -> int:
-    """Guard the deadline parser against the false-positive it used to have.
-    Run: python3 scripts/scan-poidh-deadlines.py --selftest"""
-    cases = [
-        # (description, expected_iso)
-        ("Build a game. Event kickoff on August 5, 2026. No deadline stated.", None),
-        ("Submissions close on July 5, 2026. Prizes paid after.", "2026-07-05"),
-        ("Deadline: submissions due August 12, 2026.", "2026-08-12"),
-        ("This bounty ends September 1, 2026 at midnight.", "2026-09-01"),
-        ("Submit by October 3, 2026 to qualify.", "2026-10-03"),
-        ("Prize pool. Judging happens live, winners announced later.", None),
-        ("Launched June 2024, still open.", None),  # no day -> not a date match
-    ]
-    fails = 0
-    for desc, want in cases:
-        got, _ = extract_deadline(desc)
-        ok = got == want
-        fails += 0 if ok else 1
-        print(f"  {'ok  ' if ok else 'FAIL'} want={want!r:>14} got={got!r:>14}  <- {desc[:52]}")
-    total = len(cases)
-    print(f"selftest: {total - fails}/{total} passed")
-    return 1 if fails else 0
+    from deadline_parser import selftest as _st
+    return _st()
 
 
 def main() -> int:
@@ -157,7 +102,7 @@ def main() -> int:
             if b.get("deadline") is not None:
                 native_deadline_field_ever_set += 1
 
-            deadline_iso, raw = extract_deadline(b.get("description", ""))
+            deadline_iso, raw = extract_deadline(b.get("description", ""), created_at=b.get("createdAt"))
             if not deadline_iso:
                 continue  # per Kenny's own framing: no stated deadline -> just don't show it
 
