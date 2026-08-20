@@ -9,6 +9,11 @@
   <meta property="og:title" content="poidhz - poidh deadlines">
   <meta property="og:description" content="Every open poidh bounty with a stated deadline, on a calendar. Refreshes every 6 hours.">
   <meta property="og:url" content="https://zpoidh.vercel.app/">
+  <meta property="og:image" content="https://zpoidh.vercel.app/assets/og/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zpoidh.vercel.app/assets/og/og.png">
   <link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +49,7 @@
     .stat b{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;line-height:1.1}
     .stat span{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
     .stat.hot b{color:var(--gold)}
+    .stat.stale b{color:var(--text-muted)}
     .toolbar{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:1rem 0;position:sticky;top:0;z-index:5;background:var(--bg);padding:0.6rem 0;border-bottom:1px solid var(--border)}
     .toolbar label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
     select,input[type=number]{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.55rem;font:inherit;font-size:0.85rem}
@@ -207,12 +213,14 @@
   function renderStats(all,dated){
     var now=Date.now(), week=now+7*DAY;
     var soon=dated.filter(function(b){var t=localDate(b.deadline_iso).getTime();return t>=now&&t<=week}).length;
+    var stale=dated.filter(function(b){return localDate(b.deadline_iso).getTime()<now}).length;
     var usd=all.reduce(function(s,b){return s+(b.amount_usd||0)},0);
     $('stats').innerHTML=
       '<div class="stat"><b>'+all.length+'</b><span>open bounties</span></div>'+
       '<div class="stat"><b>'+dated.length+'</b><span>state a deadline</span></div>'+
       '<div class="stat hot"><b>'+soon+'</b><span>close in 7 days</span></div>'+
-      '<div class="stat"><b>'+fmtMoney(usd)+'</b><span>open prize money</span></div>';
+      '<div class="stat"><b>'+fmtMoney(usd)+'</b><span>open prize money</span></div>'+
+      (stale?'<div class="stat stale"><b>'+stale+'</b><span>past deadline, still open</span></div>':'');
   }
   function renderCal(dated){
     var m=state.month?new Date(+state.month.slice(0,4),+state.month.slice(5,7)-1,1):new Date(); m.setDate(1);
@@ -236,7 +244,7 @@
   function row(b,withWhen){
     var t=localDate(b.deadline_iso||'2100-01-01').getTime(); var past=t<Date.now(); var soon=!past&&t-Date.now()<3*DAY;
     var when=withWhen?'<div class="when"><b>'+esc(b.deadline_iso)+'</b>'+countdown(b.deadline_iso)+(b.deadline_raw_text?'<br><span title="as written in the description">"'+esc(b.deadline_raw_text)+'"</span>':'')+'</div>':'<div class="when">'+(b.created_at?'posted '+new Date(b.created_at*1000).toLocaleDateString():'')+'</div>';
-    var meta='<span class="tag chain-'+b.chain_id+'">'+esc(CHAINS[b.chain_id]||b.chain_id)+'</span><span class="tag type">'+esc(b.task_type||'unclassified')+'</span>'+(b.is_multiplayer?'<span class="tag">open pot</span>':'')+(b.has_submissions?'<span class="tag">has claims</span>':'')+(b.is_voting?'<span class="tag">voting</span>':'');
+    var meta='<span class="tag chain-'+b.chain_id+'">'+esc(CHAINS[b.chain_id]||b.chain_id)+'</span><span class="tag type">'+esc(b.task_type||'unclassified')+'</span>'+(b.is_multiplayer?'<span class="tag">open pot</span>':'')+(b.has_submissions?'<span class="tag">has claims</span>':'')+(b.is_voting?'<span class="tag">voting</span>':'')+(withWhen&&past?'<span class="tag" title="deadline passed but the bounty is still open on poidh">stale</span>':'');
     return '<div class="row'+(past&&withWhen?' past':'')+(soon?' soon':'')+'">'+when+
       '<div class="what"><a class="title" href="'+esc(b.url)+'" target="_blank" rel="noopener">'+esc(b.title||('bounty '+b.bounty_id))+'</a><div class="meta">'+meta+'</div></div>'+
       '<div class="amt"><b>'+fmtMoney(b.amount_usd)+'</b><small>'+esc(b.amount_native)+' '+esc(b.amount_token_symbol||'')+'</small>'+(withWhen&&!past?'<a href="'+gcal(b)+'" target="_blank" rel="noopener">+ google calendar</a>':'')+'</div></div>';
@@ -245,7 +253,7 @@
     var now=Date.now();
     var up=dated.filter(function(b){return localDate(b.deadline_iso)>=now}).sort(function(a,b){return a.deadline_iso<b.deadline_iso?-1:1});
     var past=dated.filter(function(b){return localDate(b.deadline_iso)<now}).sort(function(a,b){return a.deadline_iso>b.deadline_iso?-1:1});
-    $('agenda-count').textContent=up.length+' upcoming'+(past.length?', '+past.length+' past':'');
+    $('agenda-count').textContent=up.length+' upcoming'+(past.length?', '+past.length+' past deadline but still open':'');
     $('agenda').innerHTML=(up.length?up.map(function(b){return row(b,true)}).join(''):'<div class="empty">No upcoming bounty states a deadline with the current filters.</div>')+past.map(function(b){return row(b,true)}).join('');
   }
   function renderUndated(list){
