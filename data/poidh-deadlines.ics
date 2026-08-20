@@ -5,8 +5,98 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:POID Bounty Deadlines
 BEGIN:VEVENT
-UID:poidh-1327-77132655@zpoidh
-DTSTAMP:20260820T215711Z
+UID:poidh-1334-64728257@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260209
+SUMMARY:🍽️ Show Your Current Meal - deadline
+DESCRIPTION:Stated: 2026-02-09 - 1.0 ETH - https://poidh.xyz/base/bounty/13
+ 34
+URL:https://poidh.xyz/base/bounty/1334
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1333-45433599@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260209
+SUMMARY:🍽️ Show Your Current Meal - deadline
+DESCRIPTION:Stated: 2026-02-09 - 1.0 ETH - https://poidh.xyz/base/bounty/13
+ 33
+URL:https://poidh.xyz/base/bounty/1333
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1332-95946761@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260209
+SUMMARY:🍽️ Show Your Current Meal - deadline
+DESCRIPTION:Stated: 2026-02-09 - 1.0 ETH - https://poidh.xyz/base/bounty/13
+ 32
+URL:https://poidh.xyz/base/bounty/1332
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1062-33535751@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260318
+SUMMARY:smokingfrog tattoos POIDH  - deadline
+DESCRIPTION:Stated: March 18th\, 2026 - 0.023 ETH - https://poidh.xyz/base/
+ bounty/1062
+URL:https://poidh.xyz/base/bounty/1062
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1192-29342644@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260628
+SUMMARY:Help Fund A Theoretical Neuroscience Paper - deadline
+DESCRIPTION:Stated: June 28 - 0.0185 ETH - https://poidh.xyz/base/bounty/11
+ 92
+URL:https://poidh.xyz/base/bounty/1192
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1186-50052722@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260731
+SUMMARY:Be A Freedom Fighter In Your Community - deadline
+DESCRIPTION:Stated: July 31rst\, 2026 - 0.0251 ETH - https://poidh.xyz/base
+ /bounty/1186
+URL:https://poidh.xyz/base/bounty/1186
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1310-40198668@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260820
+SUMMARY:Best Sunrise Shot - deadline
+DESCRIPTION:Stated: 20th August\, 2026 - 0.0053 ETH - https://poidh.xyz/bas
+ e/bounty/1310
+URL:https://poidh.xyz/base/bounty/1310
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1304-85327908@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260821
+SUMMARY:Share Your Story of 10\,000 Steps - deadline
+DESCRIPTION:Stated: August 21st - 0.028 ETH - https://poidh.xyz/base/bounty
+ /1304
+URL:https://poidh.xyz/base/bounty/1304
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1329-31251117@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260823
+SUMMARY:take a purple pic 💜 - deadline
+DESCRIPTION:Stated: August 23rd - 0.0025 ETH - https://poidh.xyz/base/bount
+ y/1329
+URL:https://poidh.xyz/base/bounty/1329
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-322-56542122@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260823
+SUMMARY:"this is for poidh" highlight video - deadline
+DESCRIPTION:Stated: August 23rd - 0.03 ETH - https://poidh.xyz/base/bounty/
+ 322
+URL:https://poidh.xyz/base/bounty/322
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1327-81613439@zpoidh
+DTSTAMP:20260820T221835Z
 DTSTART;VALUE=DATE:20260824
 SUMMARY:ZitiCashbox - $10 send to a Farcaster user - deadline
 DESCRIPTION:Stated: August 24\, 2026 - 0.028 ETH - https://poidh.xyz/base/b
@@ -14,8 +104,35 @@ DESCRIPTION:Stated: August 24\, 2026 - 0.028 ETH - https://poidh.xyz/base/b
 URL:https://poidh.xyz/base/bounty/1327
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-321-50968885@zpoidh
-DTSTAMP:20260820T215711Z
+UID:poidh-1322-45785088@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260830
+SUMMARY:Find 3 of a Kind - deadline
+DESCRIPTION:Stated: August 30 - 0.03013 ETH - https://poidh.xyz/base/bounty
+ /1322
+URL:https://poidh.xyz/base/bounty/1322
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1321-12577227@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260831
+SUMMARY:Hot Sauce Hero Image - deadline
+DESCRIPTION:Stated: August 31\, 2026 - 0.0095 ETH - https://poidh.xyz/base/
+ bounty/1321
+URL:https://poidh.xyz/base/bounty/1321
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1309-19865150@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260831
+SUMMARY:Photography bounty:Black and white ⚫️⚪️ - deadline
+DESCRIPTION:Stated: August 31 - 0.0069 ETH - https://poidh.xyz/base/bounty/
+ 1309
+URL:https://poidh.xyz/base/bounty/1309
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-321-31254293@zpoidh
+DTSTAMP:20260820T221835Z
 DTSTART;VALUE=DATE:20260831
 SUMMARY:Build a ship in a bottle  - deadline
 DESCRIPTION:Stated: August 31\, 2026 - 0.00438 ETH - https://poidh.xyz/base
@@ -23,8 +140,17 @@ DESCRIPTION:Stated: August 31\, 2026 - 0.00438 ETH - https://poidh.xyz/base
 URL:https://poidh.xyz/base/bounty/321
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1301-16515161@zpoidh
-DTSTAMP:20260820T215711Z
+UID:poidh-21-59257764@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260831
+SUMMARY:Warplets URL -> IRL - deadline
+DESCRIPTION:Stated: August 31st\, 2026 - 0.0845 ETH - https://poidh.xyz/bas
+ e/bounty/21
+URL:https://poidh.xyz/base/bounty/21
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1301-32564539@zpoidh
+DTSTAMP:20260820T221835Z
 DTSTART;VALUE=DATE:20260831
 SUMMARY:One Thing Web3 Fixed. One Thing It Broke. - deadline
 DESCRIPTION:Stated: August 31\, 2026 - 0.0038 ETH - https://poidh.xyz/base/
@@ -32,12 +158,39 @@ DESCRIPTION:Stated: August 31\, 2026 - 0.0038 ETH - https://poidh.xyz/base/
 URL:https://poidh.xyz/base/bounty/1301
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-326-45043582@zpoidh
-DTSTAMP:20260820T215711Z
+UID:poidh-1305-29894805@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:Share Your Music on Tortoise 🐢 - deadline
+DESCRIPTION:Stated: September 4th - 0.0295 ETH - https://poidh.xyz/base/bou
+ nty/1305
+URL:https://poidh.xyz/base/bounty/1305
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1311-76127810@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260905
+SUMMARY:BINARY PIXELS — FIND SOMETHING IN RANDOMNESS - deadline
+DESCRIPTION:Stated: 5 September - 0.036 ETH - https://poidh.xyz/base/bounty
+ /1311
+URL:https://poidh.xyz/base/bounty/1311
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-326-70075516@zpoidh
+DTSTAMP:20260820T221835Z
 DTSTART;VALUE=DATE:20260908
 SUMMARY:Art\, Coffee & Farcaster ☕️🟣 - deadline
 DESCRIPTION:Stated: September 8\, 2026 - 0.0245 ETH - https://poidh.xyz/bas
  e/bounty/326
 URL:https://poidh.xyz/base/bounty/326
+END:VEVENT
+BEGIN:VEVENT
+UID:poidh-1326-7656248@zpoidh
+DTSTAMP:20260820T221835Z
+DTSTART;VALUE=DATE:20260930
+SUMMARY:Farcaster Season 1 & 2 Recap 🎬 - deadline
+DESCRIPTION:Stated: September 30th - 0.0245 ETH - https://poidh.xyz/base/bo
+ unty/1326
+URL:https://poidh.xyz/base/bounty/1326
 END:VEVENT
 END:VCALENDAR
