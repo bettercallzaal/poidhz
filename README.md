@@ -4,6 +4,8 @@ Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand 
 
 **Latest closed:** [Round 4 - The ZABAL Gamez open pot](https://poidh.xyz/base/bounty/1249) - CLOSED 2026-08-05. Bounty was accidentally canceled instead of withdrawn mid-closeout (ETH refund reclaimed to treasury); the 15 qualifying builders were rewarded via a $ZABAL Empire Builder leaderboard credit instead, cast posted. See [rounds/r4/CLOSEOUT.md](rounds/r4/CLOSEOUT.md) for the full story - worth reading before running another OPEN-SPLIT round.
 **Also closed:** [Round 3 - Best ad for ZABAL Gamez](https://poidh.xyz/base/bounty/1180) - fully resolved + paid out on-chain, winner @femmie claim 6749 (verified via direct `bounties()`/`getClaimsByBountyId()` eth_call against the deployed contract, not just the API). Winner + honorable-mention casts are drafted and ready in [rounds/r3/cast-templates/](rounds/r3/cast-templates/).
+**Designed, awaiting Zaal's go:** the WEEKLY format - "this is for the ZAO" recurring solo video bounty, one fresh bounty per week, claim-is-the-entry, skill-judged with a published 100-point rubric (raffle-safe). Spec: ZAOOS doc 2308. Templates: [rounds/weekly/](rounds/weekly/). Blocked on prize pick + album config + EB sync fix.
+
 **Drafting, not cast:** Round 5 (POIDH x Unlock Protocol, DAO co-funded pitch, DM never sent), Round 6 (same idea, solo-cast version, tooling built via `docs/create-bounty.html`, recommended over R5), Round 7 (first CODE bounty - bug fixes for zabalgamez.com, also ZOL's first money-action trust-ladder rung). See [rounds/r5/](rounds/r5/), [rounds/r6/](rounds/r6/), [rounds/r7/](rounds/r7/).
 
 **Live surfaces (all verified 200 on 2026-05-31, BCZ canonical during R3 window):**
