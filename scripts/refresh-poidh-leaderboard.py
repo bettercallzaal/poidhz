@@ -21,9 +21,15 @@ Score = 1 per unique submitter wallet across the whole bounty set. Issuer
 wallets are excluded (PoidhV3 enforces issuer != claimant on-chain).
 
 Data sources (all free, no API keys):
-    - poidh.xyz tRPC: bounties.fetch, claims.fetchBountyClaims
+    - poidh.xyz /data: GET /<chain>/bounty/<id>/data - full bounty + every claim
+      in one call, Farcaster/X handles already resolved (doc 2202: found via
+      Kenny; replaces the tRPC-scrape + web3.bio-handle-lookup pattern)
+    - poidh.xyz tRPC: claims.fetchBountyClaims, kept ONLY to recover per-claim
+      isAccepted/onChainId, which /data does not expose (verified 2026-08-20);
+      degrades to WARN + accepted=false if it goes away
     - empirebuilder.world API: GET /api/leaderboards/<uuid> (handles + rewards)
-    - api.web3.bio: GET /profile/<address> (avatar, X handle, bio)
+    - api.web3.bio: GET /profile/<address> (avatar, fid, follower - enrichment
+      only; handles come from /data first)
 """
 
 import argparse
@@ -59,8 +65,12 @@ ZABAL_EMPIRE_ID = _CFG.get("empire_token_address", "0xbB48f19B0494Ff7C1fE5Dc2032
 POIDH_LEADERBOARD_UUID = _CFG.get("empire_leaderboard_uuid", "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187")
 
 POIDH_BASE = "https://poidh.xyz/api/trpc"
+POIDH_SITE = "https://poidh.xyz"
 EB_BASE = "https://www.empirebuilder.world/api"
 WEB3_BIO_BASE = "https://api.web3.bio"
+
+# poidh.xyz URL slugs per chain id (the /data endpoint is path-addressed)
+CHAIN_SLUGS = {8453: "base", 42161: "arbitrum", 1: "ethereum", 666666666: "degen"}
 
 UA = "Mozilla/5.0 (poidh-leaderboard-refresh)"
 
@@ -76,31 +86,42 @@ def trpc(proc: str, payload: dict) -> dict:
     return http_get(f"{POIDH_BASE}/{proc}?batch=1&input={inp}")[0]["result"]["data"]["json"]
 
 
-def fetch_all_claims(bid: int, chain: int, page_limit: int = 100) -> list[dict]:
-    """Fetch EVERY claim for a bounty, following the cursor.
+def fetch_bounty_data(bid: int, chain: int) -> dict:
+    """One GET against poidh's /data endpoint: the full bounty object plus
+    EVERY claim (no pagination), with farcasterHandle/twitterHandle already
+    resolved per claim. Shape verified live against bounty 1180, 2026-08-20:
+    claims carry claimId, imageUrl, issuerAddress, issuerName, farcasterHandle,
+    twitterHandle, title, description - and do NOT carry isAccepted/onChainId
+    (see fetch_accepted_map)."""
+    slug = CHAIN_SLUGS.get(chain)
+    if slug is None:
+        raise SystemExit(f"unknown chain id {chain} - add it to CHAIN_SLUGS")
+    return http_get(f"{POIDH_SITE}/{slug}/bounty/{bid}/data")
 
-    The old code requested a single page of `limit=100` and used it as-is, which
-    silently dropped every submitter past #100. On the tokenless-empire
-    leaderboard each submission is supposed to count, so a silent truncation is a
-    real bug. Page 1 is identical to the old request (no cursor sent); we only
-    paginate if the API itself returns a nextCursor - so this is safe even if the
-    endpoint does not support cursors. A hard page cap prevents a bad cursor from
-    looping forever, and it WARNs rather than truncating silently.
-    """
-    items: list[dict] = []
-    cursor = None
-    for _ in range(50):
-        payload = {"bountyId": bid, "chainId": chain, "limit": page_limit}
-        if cursor is not None:
-            payload["cursor"] = cursor
-        resp = trpc("claims.fetchBountyClaims", payload)
-        items.extend(resp.get("items", []))
+
+def fetch_accepted_map(bid: int, chain: int) -> dict[int, dict]:
+    """Map claimId -> {accepted, on_chain_id} via the one tRPC call that /data
+    cannot replace yet. Best-effort: if tRPC breaks, the refresh still runs and
+    the accepted flag degrades to false with a loud WARN (never silently)."""
+    out: dict[int, dict] = {}
+    try:
+        resp = trpc("claims.fetchBountyClaims", {"bountyId": bid, "chainId": chain, "limit": 100})
+        items = resp.get("items", [])
         cursor = resp.get("nextCursor")
-        if not cursor:
-            return items
-        time.sleep(0.2)  # courtesy delay on someone else's public API
-    print(f"  WARN: claims pagination hit the 50-page cap for bounty {bid}; results may be incomplete")
-    return items
+        for _ in range(49):
+            if not cursor:
+                break
+            resp = trpc("claims.fetchBountyClaims",
+                        {"bountyId": bid, "chainId": chain, "limit": 100, "cursor": cursor})
+            items.extend(resp.get("items", []))
+            cursor = resp.get("nextCursor")
+            time.sleep(0.2)  # courtesy delay on someone else's public API
+        for c in items:
+            out[c["id"]] = {"accepted": bool(c.get("isAccepted")), "on_chain_id": c.get("onChainId")}
+    except Exception as e:
+        print(f"  WARN: tRPC accepted-flag fetch failed for bounty {bid}: {e} - "
+              f"claims will carry accepted=false, on_chain_id=null this run")
+    return out
 
 
 def fetch_eb_leaderboard() -> dict:
@@ -198,13 +219,16 @@ def _selftest_offchain() -> bool:
 
 
 def _selftest() -> int:
-    """Network-free proof that fetch_all_claims follows the cursor and stops,
-    and that offchain round credits merge additively into addr_score.
+    """Network-free proof that fetch_accepted_map follows the tRPC cursor,
+    merges pages, and degrades to {} (not a crash) when tRPC fails; that the
+    chain-slug guard rejects unknown chains; and that offchain round credits
+    merge additively into addr_score.
     Run: python3 scripts/refresh-poidh-leaderboard.py --selftest"""
     global trpc
     pages = [
-        {"items": [{"id": 1}, {"id": 2}], "nextCursor": "c1"},
-        {"items": [{"id": 3}], "nextCursor": None},
+        {"items": [{"id": 1, "isAccepted": False, "onChainId": 10},
+                   {"id": 2, "isAccepted": True, "onChainId": 11}], "nextCursor": "c1"},
+        {"items": [{"id": 3, "isAccepted": False, "onChainId": 12}], "nextCursor": None},
     ]
     calls = {"n": 0}
 
@@ -212,7 +236,7 @@ def _selftest() -> int:
         i = calls["n"]
         calls["n"] += 1
         if i == 0:
-            assert "cursor" not in payload, "page 1 must not send a cursor (stays identical to old request)"
+            assert "cursor" not in payload, "page 1 must not send a cursor"
         else:
             assert payload.get("cursor") == "c1", "page 2 must thread the returned cursor"
         return pages[i]
@@ -220,15 +244,35 @@ def _selftest() -> int:
     original = trpc
     trpc = fake_trpc
     try:
-        got = [c["id"] for c in fetch_all_claims(1, DEFAULT_CHAIN_ID)]
+        amap = fetch_accepted_map(1, DEFAULT_CHAIN_ID)
     finally:
         trpc = original
-    ok_pagination = got == [1, 2, 3] and calls["n"] == 2
-    print(f"  {'ok  ' if ok_pagination else 'FAIL'} paginated ids={got} in {calls['n']} calls (want [1,2,3] in 2)")
+    ok_map = (calls["n"] == 2 and sorted(amap) == [1, 2, 3]
+              and amap[2] == {"accepted": True, "on_chain_id": 11}
+              and amap[1]["accepted"] is False)
+    print(f"  {'ok  ' if ok_map else 'FAIL'} accepted map paginated: {len(amap)} claims in {calls['n']} calls, winner flagged")
+
+    def broken_trpc(proc: str, payload: dict) -> dict:
+        raise RuntimeError("tRPC gone")
+
+    trpc = broken_trpc
+    try:
+        degraded = fetch_accepted_map(1, DEFAULT_CHAIN_ID)
+    finally:
+        trpc = original
+    ok_degrade = degraded == {}
+    print(f"  {'ok  ' if ok_degrade else 'FAIL'} tRPC failure degrades to empty map (accepted=false), not a crash")
+
+    try:
+        fetch_bounty_data(1, chain=999999)
+        ok_slug = False
+    except SystemExit:
+        ok_slug = True
+    print(f"  {'ok  ' if ok_slug else 'FAIL'} unknown chain id rejected before any network call")
 
     ok_offchain = _selftest_offchain()
 
-    ok = ok_pagination and ok_offchain
+    ok = ok_map and ok_degrade and ok_slug and ok_offchain
     print(f"selftest: {'passed' if ok else 'FAILED'}")
     return 0 if ok else 1
 
@@ -259,21 +303,26 @@ def main() -> int:
     # Track unique (bounty_id, issuer) pairs to detect & reject duplicates
     seen_submissions: set[tuple[int, str]] = set()
 
+    # farcaster/twitter handles the /data endpoint resolves per claim, keyed by
+    # wallet - used to seed profiles so web3.bio is enrichment, not the source
+    data_handles_by_addr: dict[str, dict] = {}
+
     for bid in bounty_ids:
-        b = trpc("bounties.fetch", {"id": bid, "chainId": args.chain})
+        b = fetch_bounty_data(bid, args.chain)
         issuer = b["issuer"].lower()
         issuers.add(issuer)
         amount_eth = int(b.get("amount", "0") or 0) / 1e18
         total_eth += amount_eth
 
-        items = fetch_all_claims(bid, args.chain)
+        items = b.get("claims") or []
         total_claims += len(items)
+        accepted_map = fetch_accepted_map(bid, args.chain)
 
         print(f"Bounty {bid}: '{b['title'][:60]}' - {len(items)} claims, {amount_eth:.4f} ETH")
 
         for c in items:
-            claim_id = c.get("id")
-            claim_issuer = c.get("issuer")
+            claim_id = c.get("claimId")
+            claim_issuer = c.get("issuerAddress")
 
             # Validation: issuer field must exist and be a valid address
             if not claim_issuer:
@@ -323,15 +372,21 @@ def main() -> int:
             if addr not in seen:
                 seen.add(addr)
                 unique_order.append(addr)
+            if c.get("farcasterHandle") or c.get("twitterHandle"):
+                data_handles_by_addr.setdefault(addr, {
+                    "farcaster": c.get("farcasterHandle"),
+                    "twitter": c.get("twitterHandle"),
+                })
+            acc = accepted_map.get(claim_id, {})
             all_claims.append({
                 "bounty_id": bid,
                 "claim_id": claim_id,
                 "issuer": addr,
                 "title": (c.get("title") or ""),
                 "description": (c.get("description") or ""),
-                "image_url": c.get("url") or "",
-                "accepted": bool(c.get("isAccepted")),
-                "on_chain_id": c.get("onChainId"),
+                "image_url": c.get("imageUrl") or "",
+                "accepted": bool(acc.get("accepted")),
+                "on_chain_id": acc.get("on_chain_id"),
             })
 
         bounty_meta.append({
@@ -403,14 +458,15 @@ def main() -> int:
     for addr in unique_order:
         eb_e = eb_by_addr.get(addr, {})
         prof = profiles.get(addr, {})
+        dh = data_handles_by_addr.get(addr, {})
         enriched_leaderboard.append({
             "address": addr,
             "score": addr_score(addr),
             "rank": eb_e.get("rank"),
-            "farcaster_username": eb_e.get("farcaster_username") or prof.get("handle"),
+            "farcaster_username": eb_e.get("farcaster_username") or dh.get("farcaster") or prof.get("handle"),
             "displayName": prof.get("displayName"),
             "avatar": prof.get("avatar"),
-            "twitter_handle": prof.get("twitter_handle"),
+            "twitter_handle": dh.get("twitter") or prof.get("twitter_handle"),
             "twitter_url": prof.get("twitter_url"),
             "fid": prof.get("fid"),
             "boost": eb_e.get("boost"),
