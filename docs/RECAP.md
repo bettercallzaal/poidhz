@@ -13,7 +13,7 @@ Most recent first. Each session entry: what happened + pending items + state of 
 - **R3 (bounty 1180) winner already accepted on-chain** - the live pull surfaced `isAccepted: true` on claim 6749 (femmie, "ZABALGAMEZ.COM AD"), the same field that correctly flags the confirmed R1 (6368) and R2 (6645) winners already in this repo's data. This corrects the prior README/memory note that said "winner still to post + run." `submitClaimForVote(1180, 6749)` already happened, most likely by Zaal outside a tracked session. NOT confirmed: whether `resolveVote` has run or femmie has withdrawn - that needs an on-chain read this session didn't do.
 - Built `rounds/r3/judging.json` documenting the real 8-claim list + the on-chain accepted claim, and `rounds/r3/cast-templates/winner-announce-femmie.md` (draft, not sent - has an open placeholder for Zaal's actual "why she won" reasoning and a checklist to confirm withdrawal before posting).
 - Updated `rounds/r3/README.md`, `rounds/r4/README.md` (2 claims live as of today), and root `README.md` (round index, active-bounty line, refresh footnote) to match the live pull.
-- **R5 scaffolded** at `rounds/r5/` - POIDH x Unlock Protocol clipping bounty, pulled from local clipboard drafts (`~/.zao/clipboard/clip-20260708-165603-poidh-unlock-clip-bounty.html` and `clip-20260708-170147-msg-trigs-kenny-bounty.html`). DRAFT only - no bounty ID, reward amount, source recording link, or launch date locked yet. Includes `description.md` (POIDH/WTM voice) and `pitch-dm.md` (the trigs + Kenny group-chat ask).
+- **R5 scaffolded** at `rounds/drafts/unlock-cofund/` - POIDH x Unlock Protocol clipping bounty, pulled from local clipboard drafts (`~/.zao/clipboard/clip-20260708-165603-poidh-unlock-clip-bounty.html` and `clip-20260708-170147-msg-trigs-kenny-bounty.html`). DRAFT only - no bounty ID, reward amount, source recording link, or launch date locked yet. Includes `description.md` (POIDH/WTM voice) and `pitch-dm.md` (the trigs + Kenny group-chat ask).
 - Added `docs/unlock-fireside-collectible.md` logging the ZABAL Gamez x POIDH Unlock lock config (5 free soulbound-optional keys) minted live at today's fireside space - not a bounty, the proof-of-attendance NFT that R5's pitch references as the live Unlock example.
 
 ### Lessons logged
@@ -26,7 +26,7 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 - [ ] Confirm on-chain whether `resolveVote(1180)` ran and femmie withdrew
 - [ ] Fill in the real "why femmie won" reasoning in `rounds/r3/cast-templates/winner-announce-femmie.md` and post it (Farcaster + X + Telegram)
-- [ ] Send `rounds/r5/pitch-dm.md` to the trigs + Kenny group chat (not sent as of this session)
+- [ ] Send `rounds/drafts/unlock-cofund/pitch-dm.md` to the trigs + Kenny group chat (not sent as of this session)
 - [ ] Lock R5 placeholders once Unlock confirms budget: reward, source recording URL, issuer wallet, launch date
 - [ ] R4: keep weekly pot top-ups + day-15/day-25 reminder casts going through Jul 31 close
 
@@ -133,7 +133,7 @@ Reading github.com/bettercallzaal/zpoidh/docs/RECAP.md to bootstrap context.
 We are picking up BCZ POIDH bounty ops. Active state: R4 (bounty 1249, ZABAL Gamez
 open pot, OPEN-SPLIT) LIVE through Fri Jul 31 2026. R3 (bounty 1180) winner already
 accepted on-chain (femmie, claim 6749) - resolveVote/withdraw + winner cast still
-need confirming. R5 (POIDH x Unlock Protocol clip bounty) is drafted at rounds/r5/
+need confirming. R5 (POIDH x Unlock Protocol clip bounty) is drafted at rounds/drafts/unlock-cofund/
 but not cast - no bounty ID yet.
 zpoidh repo is canonical home for all rounds + playbook.
 

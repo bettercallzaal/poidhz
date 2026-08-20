@@ -1,50 +1,51 @@
-# zpoidh - BCZ POIDH bounty ops
+# poidhz - a public client for poidh bounties
 
-Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard refresh, the canonical bar, the lessons learned. Everything you need to draft + cast + judge the next round lives here.
+**Live: [zpoidh.vercel.app](https://zpoidh.vercel.app)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
 
-**Latest closed:** [Round 4 - The ZABAL Gamez open pot](https://poidh.xyz/base/bounty/1249) - CLOSED 2026-08-05. Bounty was accidentally canceled instead of withdrawn mid-closeout (ETH refund reclaimed to treasury); the 15 qualifying builders were rewarded via a $ZABAL Empire Builder leaderboard credit instead, cast posted. See [rounds/r4/CLOSEOUT.md](rounds/r4/CLOSEOUT.md) for the full story - worth reading before running another OPEN-SPLIT round.
-**Also closed:** [Round 3 - Best ad for ZABAL Gamez](https://poidh.xyz/base/bounty/1180) - fully resolved + paid out on-chain, winner @femmie claim 6749 (verified via direct `bounties()`/`getClaimsByBountyId()` eth_call against the deployed contract, not just the API). Winner + honorable-mention casts are drafted and ready in [rounds/r3/cast-templates/](rounds/r3/cast-templates/).
-**Designed, awaiting Zaal's go:** the WEEKLY format - "this is for the ZAO" recurring solo video bounty, one fresh bounty per week, claim-is-the-entry, skill-judged with a published 100-point rubric (raffle-safe). Spec: ZAOOS doc 2308. Templates: [rounds/weekly/](rounds/weekly/). Blocked on prize pick + album config + EB sync fix.
+poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judging pages, the canonical bounty bar) and grew the tooling any issuer or hunter can use. Both halves live here. MIT, fork it.
 
-**Drafting, not cast:** Round 5 (POIDH x Unlock Protocol, DAO co-funded pitch, DM never sent), Round 6 (same idea, solo-cast version, tooling built via `docs/create-bounty.html`, recommended over R5), Round 7 (first CODE bounty - bug fixes for zabalgamez.com, also ZOL's first money-action trust-ladder rung). See [rounds/r5/](rounds/r5/), [rounds/r6/](rounds/r6/), [rounds/r7/](rounds/r7/).
+## Surfaces
 
-**Live surfaces (all verified 200 on 2026-05-31, BCZ canonical during R3 window):**
-- Hub: https://bettercallzaal.com/poidh.html
-- Best practices: https://bettercallzaal.com/poidh-bounty-best-practices.html
-- R2 judging: https://bettercallzaal.com/poidh-round2-judging.html
-- R3 judging (scaffold ready, populates as submissions land): https://bettercallzaal.com/poidh-round3-judging.html
-- Brand kit landing: https://bettercallzaal.com/assets/zabal-games-brand/
-- Brand kit promo MP3 (50s): https://bettercallzaal.com/assets/zabal-games-brand/zabal-gamez-promo.mp3
-- EB leaderboard feed: https://bettercallzaal.com/poidh-leaderboard.json
+| URL | What |
+|---|---|
+| [/](https://zpoidh.vercel.app/) | Deadline calendar + agenda + every open bounty without a date |
+| [/dashboard](https://zpoidh.vercel.app/dashboard) | Platform-wide live dashboard: timers, claim status, ease / difficulty / money per bounty |
+| [/data/poidh-deadlines.ics](https://zpoidh.vercel.app/data/poidh-deadlines.ics) | Subscribe in any calendar app |
+| [/data/bounty-dashboard.json](https://zpoidh.vercel.app/data/bounty-dashboard.json) | The data behind both pages, CORS open |
+| [/best-practices](https://zpoidh.vercel.app/best-practices) | The canonical bounty bar: how to write a bounty people can actually win |
+| [/about](https://zpoidh.vercel.app/about) | Our own rounds, winners, brand kits |
+| [/leaderboard](https://zpoidh.vercel.app/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
 
-After R3 closes + winner cast, those URLs cut over to redirect into this repo's Vercel deploy. Until then BCZ stays canonical so the live bounty 1180 description never breaks.
+## Our rounds (cast order)
 
-## Session closeout 2026-05-31 (everything that landed)
+| Round | Bounty | Ask | Prize | Result |
+|---|---|---|---|---|
+| R1 | [1151](https://poidh.xyz/base/bounty/1151) | BCZ YapZ Ep 17 clip-up | 0.0105 ETH | paid, @cryptfi-mariano |
+| R2 | [1166](https://poidh.xyz/base/bounty/1166) | Best 60s POIDH ad from Ep 19 | 0.0105 ETH | paid, @joeyofdeus |
+| R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad, any format | 0.025 ETH | paid, @femmie (8 claims) |
+| R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open pot | canceled at closeout | 15 builders credited in $ZABAL, see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) |
+| R5 | next | Best WaveWarZ clip from the Twitch stream | 0.02 ETH proposed | paste-ready in [rounds/r5/](rounds/r5/) |
 
-All PRs from the R3 prep + zpoidh launch session merged. Live state:
+Never-cast drafts (Unlock Protocol clip bounty, solo variant, ZABAL Gamez bug-fix bounty) live in [rounds/drafts/](rounds/drafts/).
 
-| Repo | PR | What |
-|---|---|---|
-| BCZ | #16 | R3 prep folder + best-practices page + binaural beat MP3 (merged earlier) |
-| BCZ | #17 | Replace binaural with synth promo (merged, superseded by #18) |
-| BCZ | #18 | Real production promo MP3 + full brand kit rebuild (12 files) |
-| BCZ | #19 | index.html for `/assets/zabal-games-brand/` folder URL (fixes Vercel directory 404) |
-| BCZ | **#20** | R3 judging scaffold + zpoidh cross-links from nexus, poidh hub, best-practices, brand kit README |
-| ZAOOS | #718 | Doc 768 - POIDH bounty best practices + R3 draft seed |
-| ZAOOS | #724 | Doc 769 - ZAODEVZ/zabalgames repo audit |
-| ZAOOS | #761 | Doc 786 - ZABAL Gamez brand kit rebuild audit |
-| ZAODEVZ/zabalgames | #33 | llms.txt R3 bounty section (so any LLM reading zabalgamez.com gets bounty context) |
-| zpoidh | initial | This repo's first 47 files + landing + vercel.json |
+## Run it yourself
 
-R3 bounty 1180 LIVE on POIDH through Sun Jun 14. Brand kit fully shipped. zpoidh repo is the canonical home for everything POIDH going forward.
+```bash
+python3 scripts/build-bounty-dashboard.py     # all open bounties + USD + type guess -> data/bounty-dashboard.json
+python3 scripts/scan-poidh-deadlines.py       # free-text deadline parse -> data/poidh-deadlines-global.json
+python3 scripts/build-bounty-calendar.py      # our rounds -> data/bounty-calendar.json
+python3 scripts/deadlines-to-ics.py           # -> data/poidh-deadlines.ics
+python3 scripts/query-bounty.py --bounty 1180 --chain 8453   # any bounty, any chain, resolves the winner
+```
 
----
+Python 3.9+ standard library only, no dependencies. `org.config.json` holds the issuer wallets and bounty ids; point it at your own to run this for a different org.
 
 ## What this repo holds
 
 ```
-zpoidh/
-├── README.md                        # this file
+poidhz/
+├── README.md
+├── index.html                       # the deadline calendar (front page)                        # this file
 ├── docs/
 │   ├── bounty-best-practices.html   # canonical bar (use for every bounty)
 │   ├── bounty-calendar.html         # rendered deadline calendar
@@ -62,9 +63,8 @@ zpoidh/
 │   ├── r2/                          # Best 60s POIDH ad from Ep 19 (bounty 1166, May 2026) - closed, paid
 │   ├── r3/                          # Best ad for ZABAL Gamez (bounty 1180) - closed, paid, cast drafted
 │   ├── r4/                          # ZABAL Gamez open pot (bounty 1249) - closed, see CLOSEOUT.md
-│   ├── r5/                          # POIDH x Unlock (DAO co-fund pitch) - draft only, not cast
-│   ├── r6/                          # POIDH x Unlock (solo-cast, recurring) - built, not cast
-│   └── r7/                          # ZABAL Gamez bug-fix bounty (first CODE round) - draft, not cast
+│   ├── r5/                          # WaveWarZ Twitch clip bounty - paste-ready, not cast
+│   └── drafts/                      # never-cast drafts: unlock-cofund, unlock-solo, zabal-bugfix
 ├── assets/
 │   └── brand-kits/
 │       └── zabal-games/             # full CC-BY kit (used by R3+)
@@ -115,7 +115,7 @@ All idempotent, safe to re-run. No script in this pipeline posts anything, signs
 
 ---
 
-## How to draft + cast the next BCZ POIDH bounty (the playbook)
+## How to draft + cast the next round (the playbook)
 
 ### 1. Pick the subject + the win
 - What is the bounty FOR? (an ad, a clip, a recap, a proof-of-attendance, etc.)
@@ -155,7 +155,7 @@ Use the existing rounds as reference:
 - Cast on `/zabal` (or relevant channel) + `/poidh` + `/zao` with the bounty URL as embed
 - Pin in the home channel for the bounty window
 - Firefly cross-post to X
-- **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/r7/bountycaster-cast.md](rounds/r7/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
+- **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/drafts/zabal-bugfix/bountycaster-cast.md](rounds/drafts/zabal-bugfix/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
 - Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: bettercallzaal.com/poidh.html"
@@ -209,10 +209,8 @@ Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates
 | R2 | [1166](https://poidh.xyz/base/bounty/1166) | BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny) | 0.0105 ETH | @joeyofdeus / Monksage (claim 6645) | closed, paid | [rounds/r2/](rounds/r2/) |
 | R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad (any format) | 0.025 ETH | @femmie (claim 6749) | closed, paid, confirmed on-chain via direct `bounties()`/`getClaimsByBountyId()` eth_call - cast templates drafted, not yet posted | [rounds/r3/](rounds/r3/) |
 | R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open build pot | $ZABAL leaderboard credit (originally an ETH split, bounty was accidentally canceled mid-close) | 15 qualifying builders | CLOSED 2026-08-05 - see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) | [rounds/r4/](rounds/r4/) |
-| R5 | not cast | POIDH x Unlock Protocol clip bounty, DAO co-funded pitch | TBD (Unlock to set) | - | DRAFT - pitch DM never sent | [rounds/r5/](rounds/r5/) |
-| R6 | not cast | Same Unlock idea, solo-cast, auto-versioning via `docs/create-bounty.html` | TBD | - | built + tested, ready to cast, recommended over R5 | [rounds/r6/](rounds/r6/) |
-| R7 | not cast | ZABAL Gamez bug fixes (first CODE bounty) | seeded at cast time, multiple winners possible | - | DRAFT - also ZOL's first trust-ladder money-action rung | [rounds/r7/](rounds/r7/) |
-| R8 | not cast | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.02 ETH recommended, Zaal sets | - | DRAFT 2026-08-20 - paste-ready, gated on Zaal (scope confirm, prize, fund, create, post); card 769a4a6b | [rounds/r8/](rounds/r8/) |
+| R5 | not cast | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.02 ETH recommended, Zaal sets | - | DRAFT 2026-08-20 - paste-ready, gated on Zaal (scope confirm, prize, fund, create, post) | [rounds/r5/](rounds/r5/) |
+| drafts | not cast | Unlock Protocol clip bounty (co-fund + solo variants), ZABAL Gamez bug-fix bounty | TBD | - | parked, see folder READMEs | [rounds/drafts/](rounds/drafts/) |
 
 Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json` /
 `audit.json` include R1-R4 (22 submitters via on-chain POIDH claims, plus R4's separate

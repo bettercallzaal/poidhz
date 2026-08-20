@@ -9,10 +9,10 @@ task board for whatever The ZAO needs done, not just promotional content.
 
 ## The one real precedent that already exists: R7
 
-[rounds/r7/](../rounds/r7/) is BCZ's first non-ad bounty: a code bounty for fixing real
+[rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) is BCZ's first non-ad bounty: a code bounty for fixing real
 bugs on zabalgamez.com. Submissions are pull requests, not clips. This is the pattern to
 generalize from, not a hypothetical - it's live, its description is already written
-(`rounds/r7/description.md`), and it already established the key structural differences
+(`rounds/drafts/zabal-bugfix/description.md`), and it already established the key structural differences
 from an ad bounty:
 
 - **No BAR/RUBRIC ad-specific requirements** (no "tag @account", no "cross-post to
@@ -30,7 +30,7 @@ from an ad bounty:
   needs to be tailored to what verification actually looks like for that task, the same
   way an ad bounty's proof is a public post URL.
 - **A longer window**: R7 runs cast-date + 14 days instead of the usual 7, because
-  `rounds/r7/README.md` notes explicitly - "code takes longer than clips."
+  `rounds/drafts/zabal-bugfix/README.md` notes explicitly - "code takes longer than clips."
 - **Named as a trust-ladder step**: R7's README frames this bounty as "the trust-ladder
   first step for ZOL toward money actions - a controlled, human-funded bounty ZOL can
   help scope + judge without ever holding funds." Worth remembering if ZAO OS V1's
@@ -127,7 +127,7 @@ bounty yet - that's a real decision for Zaal, not something to pre-write specula
 
 ## Also see
 
-- [rounds/r7/](../rounds/r7/) - the one real non-ad bounty this doc generalizes from
+- [rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) - the one real non-ad bounty this doc generalizes from
 - [P2P-AD-BOUNTY-KIT.md](P2P-AD-BOUNTY-KIT.md) - the ad/promo bounty pattern (the other half of "ad system + bounty board")
 - [PARTNER-GUIDE.md](PARTNER-GUIDE.md) - org.config.json and the tooling this doc references
 - `docs/bounty-dashboard.html` / `scripts/build-bounty-dashboard.py` - the already-platform-wide bounty scanner referenced above

@@ -2,7 +2,7 @@
 
 Not a bounty - a proof-of-attendance NFT minted live during the ZABAL Gamez x POIDH space
 with Kenny on Unlock Protocol, 2026-07-08. Logged here because it's the live example
-[R5's description](../rounds/r5/description.md) points to, and because it's the first time
+[R5's description](../rounds/drafts/unlock-cofund/description.md) points to, and because it's the first time
 BCZ/ZAO used Unlock directly.
 
 ## Lock config (deployed via app.unlock-protocol.com > Deploy Lock)
@@ -30,5 +30,5 @@ BCZ/ZAO used Unlock directly.
 ## Relationship to R5
 
 This collectible is what proved out Unlock live in front of Kenny - it's the concrete
-example cited in the R5 clipping-bounty pitch (`rounds/r5/pitch-dm.md`) and description
-(`rounds/r5/description.md`). It is not itself a POIDH bounty and has no prize pot.
+example cited in the R5 clipping-bounty pitch (`rounds/drafts/unlock-cofund/pitch-dm.md`) and description
+(`rounds/drafts/unlock-cofund/description.md`). It is not itself a POIDH bounty and has no prize pot.

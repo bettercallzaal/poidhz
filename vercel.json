@@ -9,7 +9,8 @@
     { "source": "/best-practices", "destination": "/docs/bounty-best-practices" },
     { "source": "/hub", "destination": "/docs/poidh-hub" },
     { "source": "/dashboard", "destination": "/docs/bounty-dashboard" },
-    { "source": "/calendar", "destination": "/docs/bounty-calendar" },
+    { "source": "/calendar", "destination": "/index.html" },
+    { "source": "/about", "destination": "/docs/about" },
     { "source": "/leaderboard", "destination": "/data/leaderboard.json" },
     { "source": "/zabal-gamez-brand", "destination": "/assets/brand-kits/zabal-games" },
     { "source": "/zabal-gamez-brand/:file", "destination": "/assets/brand-kits/zabal-games/:file" }
