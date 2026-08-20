@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-07T01:35:14.805260+00:00",
+  "generated_at": "2026-08-20T21:57:09.420312+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_deadline_found": [
     {
-      "bounty_id": 1393,
-      "title": "Closest to Zero",
-      "issuer": "0x3ebcecea588e5a6dfad865fc43732d14e1ac850c",
-      "amount_eth": 13014.0,
-      "deadline_iso": "2026-08-09",
-      "deadline_raw_text": "August 09, 2026",
+      "bounty_id": 1327,
+      "title": "ZitiCashbox - $10 send to a Farcaster user",
+      "issuer": "0xc0f0e1512d6a0a77ff7b9c172405d1b0d73565bf",
+      "amount_eth": 0.028,
+      "deadline_iso": "2026-08-24",
+      "deadline_raw_text": "August 24, 2026",
       "status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1393"
+      "url": "https://poidh.xyz/base/bounty/1327"
     },
     {
       "bounty_id": 321,
@@ -33,6 +33,16 @@
       "deadline_raw_text": "August 31, 2026",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1301"
+    },
+    {
+      "bounty_id": 326,
+      "title": "Art, Coffee & Farcaster \u2615\ufe0f\ud83d\udfe3",
+      "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
+      "amount_eth": 0.0245,
+      "deadline_iso": "2026-09-08",
+      "deadline_raw_text": "September 8, 2026",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/326"
     }
   ]
 }
