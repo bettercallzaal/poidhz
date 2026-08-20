@@ -10,13 +10,13 @@ wavewarz-clip-bounty"). Template: R1 / doc 533 (bounty 1151), the proven single-
 
 - **Source:** [twitch.tv/wavewarzofficial/videos](https://www.twitch.tv/wavewarzofficial/videos). Verified 2026-08-20 via Twitch GQL: channel id 1329490346, "WaveWarZOfficial", 39 followers, 6 archive VODs titled "WaveWarZ Song vs. Song BattleZ" (Aug 13 to Aug 20, 1.9h to 3h each), 0 highlights, a handful of viewer clips.
 - **Format:** 20 to 90 second clip, battle audio kept, posted to either X / Instagram / TikTok / YouTube, then claimed on poidh with the post link. Poidh claim is the entry (doc 2308 one-surface rule).
-- **Deadline:** 11:59 pm PT Thursday, August 27, 2026 (create-date + 7; shift if created after Aug 21).
-- **Judge:** single judge (Zaal). Deliberate, from R1. Not a 48h open vote.
-- **Chain / type:** Base, SOLO bounty (Zaal funds and accepts; no contributor vote). Album poidh.xyz/a/thezao.
+- **Deadline:** 11:59 pm PT Sunday, August 30, 2026 (10-day window, locked by Zaal).
+- **Winner:** poidh consensus (contributor-weighted vote on the OPEN pot). Zaal chose OPEN over single-judge on 2026-08-20.
+- **Chain / type:** Base, OPEN bounty (anyone can top up). Album poidh.xyz/a/thezao.
 - **Issuer:** the EOA Zaal connects (BCZ Treasury EOA `0x7234c36a71ec237c2ae7698e8916e0735001e9af` per docs/how-to-draft-next-bounty.md). Must be an EOA, not a smart wallet.
 - **Reward:** recommendation below. One winner takes the pot.
 
-## Prize recommendation: 0.02 ETH (about $47 at $2,328/ETH, Coinbase spot 2026-08-20)
+## Prize: 0.0125 ETH seed, locked by Zaal 2026-08-20 (recommendation had been 0.02)
 
 | Round | Ask | Prize | Outcome |
 |---|---|---|---|
@@ -65,8 +65,8 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 ## POIDH creation steps
 
 1. Wallet: connect the issuer EOA to poidh.xyz. Switch network to Base before Create.
-2. Create bounty. Type: **Solo**. Token: ETH. Amount: 0.0205 (or chosen prize x 1.025).
-3. Title: `Best WaveWarZ clip from the Twitch stream`
+2. Create bounty. Type: **Open**. Token: ETH. Amount: 0.0128 (0.0125 seed x 1.025).
+3. Title: `Best 60s clip from the WaveWarZ Twitch stream`
 4. Description: paste `description.md` between the sentinel lines. Poidh renders plain text; keep line breaks.
 5. Submit, confirm the tx, copy the bounty URL.
 6. Check it shows under poidh.xyz/a/thezao. Add to the README round index.

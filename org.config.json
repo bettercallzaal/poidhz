@@ -10,7 +10,11 @@
   "empire_leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
   "farcaster_album": "wethemmedia",
   "farcaster_handle": "@bettercallzaal",
-  "default_bounty_ids": [1151, 1166, 1180],
+  "default_bounty_ids": [
+    1151,
+    1166,
+    1180
+  ],
   "default_chain_id": 8453,
   "site_url": "https://zpoidh.vercel.app",
   "brand": {
@@ -19,13 +23,35 @@
     "gold": "#f5c842"
   },
   "rounds": [
-    {"round": 1, "bounty_id": 1151, "title": "R1 - Hannah Ep 17 clip-up"},
-    {"round": 2, "bounty_id": 1166, "title": "R2 - Best 60s POIDH ad from Ep 19"},
-    {"round": 3, "bounty_id": 1180, "title": "R3 - Best ad for ZABAL Gamez"},
-    {"round": 4, "bounty_id": 1249, "title": "R4 - ZABAL Gamez open pot", "offchain": true, "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring."}
+    {
+      "round": 1,
+      "bounty_id": 1151,
+      "title": "R1 - Hannah Ep 17 clip-up"
+    },
+    {
+      "round": 2,
+      "bounty_id": 1166,
+      "title": "R2 - Best 60s POIDH ad from Ep 19"
+    },
+    {
+      "round": 3,
+      "bounty_id": 1180,
+      "title": "R3 - Best ad for ZABAL Gamez"
+    },
+    {
+      "round": 4,
+      "bounty_id": 1249,
+      "title": "R4 - ZABAL Gamez open pot",
+      "offchain": true,
+      "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring."
+    }
   ],
   "planned_rounds": [
-    {"round": 5, "title": "R5 - POIDH x Unlock Protocol clip bounty"}
+    {
+      "round": 5,
+      "title": "R5 - Best WaveWarZ clip from the Twitch stream",
+      "folder": "rounds/r5"
+    }
   ],
   "offchain_credits": [
     {

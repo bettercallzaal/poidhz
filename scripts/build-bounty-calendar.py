@@ -25,6 +25,9 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from deadline_parser import extract_deadline  # shared free-text deadline parser
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POIDH_BASE = "https://poidh.xyz/api/trpc"
 UA = "Mozilla/5.0 (zpoidh-bounty-calendar)"
@@ -58,21 +61,6 @@ PLANNED_ROUNDS = _CFG.get("planned_rounds") or [
     {"round": 5, "title": "R5 - POIDH x Unlock Protocol clip bounty"}
 ]
 
-MONTHS = (
-    "January|February|March|April|May|June|July|August|September|October|November|December"
-)
-# Matches "May 4, 2026", "June 14, 2026", "July 31, 2026" etc, case-sensitive on the
-# month name (as POID descriptions are written in normal prose).
-DATE_RE = re.compile(rf"({MONTHS})\s+(\d{{1,2}}),?\s*(\d{{4}})")
-
-# Words that actually signal a submission cutoff. Word-boundary matched so "due"
-# does not fire inside "residue"/"produce". A date only counts as a deadline when
-# it sits shortly AFTER one of these. (Mirrors scan-poidh-deadlines.py; once that
-# fix merges these two parsers should share one module - see zpoidh issue #6.)
-DEADLINE_RE = re.compile(
-    r"\b(?:deadline|closes?|closing|due|ends?|ending|submit\s+by|until)\b",
-    re.IGNORECASE,
-)
 
 
 def trpc(proc: str, payload: dict) -> dict:
@@ -84,32 +72,6 @@ def trpc(proc: str, payload: dict) -> dict:
         return json.loads(r.read())[0]["result"]["data"]["json"]
 
 
-def _parse_match(m: "re.Match[str]") -> tuple[str | None, str | None]:
-    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
-    try:
-        dt = datetime.strptime(f"{month_name} {day} {year}", "%B %d %Y").replace(
-            tzinfo=timezone.utc
-        )
-    except ValueError:
-        return None, m.group(0)
-    return dt.date().isoformat(), m.group(0)
-
-
-def extract_deadline(description: str) -> tuple[str | None, str | None]:
-    """Find the free-text submission deadline in a bounty description.
-
-    A date only counts as a deadline when it appears within ~300 chars AFTER a
-    deadline-signalling keyword (deadline / closes / due / ends / submit by / ...),
-    tried in text order. We do NOT fall back to grabbing an arbitrary date from
-    elsewhere in the text: that mislabelled unrelated dates (e.g. an event kickoff
-    "August 5") as the deadline even when the text said "no deadline stated".
-    Returns (iso_date_or_None, raw_matched_text_or_None).
-    """
-    for hit in DEADLINE_RE.finditer(description):
-        m = DATE_RE.search(description[hit.start() : hit.start() + 300])
-        if m:
-            return _parse_match(m)
-    return None, None
 
 
 def _selftest() -> int:
@@ -155,7 +117,7 @@ def main() -> int:
             )
             continue
 
-        deadline_iso, raw = extract_deadline(b.get("description", ""))
+        deadline_iso, raw = extract_deadline(b.get("description", ""), created_at=b.get("createdAt"))
         status = "no_deadline_found"
         if deadline_iso:
             status = "closed" if deadline_iso < now.isoformat() else "upcoming"

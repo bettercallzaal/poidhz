@@ -9,6 +9,11 @@
   <meta property="og:title" content="zpoidh">
   <meta property="og:description" content="BCZ POIDH bounty ops. R3 ZABAL Gamez ad bounty live through Sun Jun 14.">
   <meta property="og:url" content="https://zpoidh.vercel.app/about">
+  <meta property="og:image" content="https://zpoidh.vercel.app/assets/og/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zpoidh.vercel.app/assets/og/og.png">
   <link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,44 +92,12 @@
       </a>
     </div>
 
-    <h2>Rounds</h2>
+    <h2>Rounds <small class="mono" id="rounds-gen" style="font-weight:400;font-size:0.72rem;color:var(--text-muted)"></small></h2>
     <table>
-      <thead><tr><th>Round</th><th>Bounty</th><th>Source</th><th>Prize</th><th>Winner</th><th>Submissions</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><a href="/round/1">R1</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1151" target="_blank" rel="noopener">1151</a></td>
-          <td>BCZ YapZ Ep 17 (Hannah / Farm Drop clip-up)</td>
-          <td>0.0105 ETH</td>
-          <td>@cryptfi-mariano</td>
-          <td>11 / 10</td>
-        </tr>
-        <tr>
-          <td><a href="/round/2">R2</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener">1166</a></td>
-          <td>BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny)</td>
-          <td>0.0105 ETH</td>
-          <td>@joeyofdeus / Monksage</td>
-          <td>8 / 7</td>
-        </tr>
-        <tr>
-          <td><a href="/round/3">R3</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1180" target="_blank" rel="noopener">1180</a></td>
-          <td>ZABAL Gamez ad (any format)</td>
-          <td>0.025 ETH</td>
-          <td>@femmie (claim 6749)</td>
-          <td>8</td>
-        </tr>
-        <tr>
-          <td><a href="/round/4">R4</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1249" target="_blank" rel="noopener">1249</a></td>
-          <td>ZABAL Gamez July open pot</td>
-          <td>canceled at closeout; 15 builders credited in $ZABAL</td>
-          <td>15 builders</td>
-          <td>2 on-chain / 17 on the board</td>
-        </tr>
-      </tbody>
+      <thead><tr><th>Round</th><th>Bounty</th><th>Ask</th><th>Prize</th><th>State</th><th>Winner</th><th>Claims</th></tr></thead>
+      <tbody id="rounds-body"><tr><td colspan="7" style="color:var(--text-muted)">loading live state from data/rounds-live.json</td></tr></tbody>
     </table>
+    <p class="mono" style="font-size:0.72rem;color:var(--text-muted)">State is read live from poidh on every 6h refresh, not hand-edited. R4 shows CANCELED because it was; the builders were credited off-chain, see <a href="https://github.com/bettercallzaal/zpoidh/blob/main/rounds/r4/CLOSEOUT.md">CLOSEOUT.md</a>.</p>
 
     <h2>Resources</h2>
     <div class="grid">
@@ -171,5 +144,22 @@
       <div class="lifeline">Maintained by Zaal / BetterCallZaal. Issuer wallet: 0x7234c36a71ec237c2ae7698e8916e0735001e9af on Base.</div>
     </div>
   </footer>
+<script>
+(function(){
+  var esc=function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var pill=function(st){var cls=st==='WINNER SET'?'done':(st==='OPEN'||st==='VOTING')?'live':'';return '<span class="pill '+cls+'">'+esc(st)+'</span>'};
+  fetch('/data/rounds-live.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+    document.getElementById('rounds-gen').textContent='live as of '+new Date(d.generated_at).toLocaleString();
+    document.getElementById('rounds-body').innerHTML=d.rounds.map(function(r){
+      var ask=esc((r.title||'').replace(/^R\d+ - /,''));
+      var bounty=r.bounty_id?'<a href="'+esc(r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id))+'" target="_blank" rel="noopener">'+r.bounty_id+'</a>':'<span style="color:var(--text-muted)">not cast</span>';
+      var prize=r.amount_native!=null?(r.amount_native.toFixed(4).replace(/0+$/,'').replace(/\.$/,'')+' ETH'+(r.amount_usd?' <span style="color:var(--text-muted)">(~$'+Math.round(r.amount_usd)+')</span>':'')):'-';
+      var winner=r.winner?'@'+esc(r.winner.handle||r.winner.wallet.slice(0,8))+' <span style="color:var(--text-muted)">(claim '+r.winner.claim_id+')</span>':(r.offchain?'<span style="color:var(--text-muted)">15 builders, off-chain credit</span>':'-');
+      var folder=r.folder||('rounds/r'+r.round);
+      return '<tr><td><a href="https://github.com/bettercallzaal/zpoidh/tree/main/'+esc(folder)+'" target="_blank" rel="noopener">R'+r.round+'</a></td><td>'+bounty+'</td><td>'+ask+'</td><td>'+prize+'</td><td>'+pill(r.status)+'</td><td>'+winner+'</td><td>'+(r.claims!=null?r.claims:'-')+'</td></tr>';
+    }).join('');
+  }).catch(function(){document.getElementById('rounds-body').innerHTML='<tr><td colspan="7" style="color:var(--pink)">could not load data/rounds-live.json</td></tr>'});
+})();
+</script>
 </body>
 </html>
