@@ -210,6 +210,7 @@ Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates
 | R5 | not cast | POIDH x Unlock Protocol clip bounty, DAO co-funded pitch | TBD (Unlock to set) | - | DRAFT - pitch DM never sent | [rounds/r5/](rounds/r5/) |
 | R6 | not cast | Same Unlock idea, solo-cast, auto-versioning via `docs/create-bounty.html` | TBD | - | built + tested, ready to cast, recommended over R5 | [rounds/r6/](rounds/r6/) |
 | R7 | not cast | ZABAL Gamez bug fixes (first CODE bounty) | seeded at cast time, multiple winners possible | - | DRAFT - also ZOL's first trust-ladder money-action rung | [rounds/r7/](rounds/r7/) |
+| R8 | not cast | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.02 ETH recommended, Zaal sets | - | DRAFT 2026-08-20 - paste-ready, gated on Zaal (scope confirm, prize, fund, create, post); card 769a4a6b | [rounds/r8/](rounds/r8/) |
 
 Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json` /
 `audit.json` include R1-R4 (22 submitters via on-chain POIDH claims, plus R4's separate
