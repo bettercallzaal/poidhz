@@ -22,6 +22,7 @@ Writes data/bounty-dashboard.json for docs/bounty-dashboard.html to render.
 
     python3 scripts/build-bounty-dashboard.py [--pages 6] [--limit 25]
 """
+from __future__ import annotations
 
 import argparse
 import json

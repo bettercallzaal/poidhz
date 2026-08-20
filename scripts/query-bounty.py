@@ -16,6 +16,7 @@ Merges two POIDH endpoints that each carry half the picture:
     python3 scripts/query-bounty.py --bounty 1180 --json             # raw merged JSON, no formatting
     python3 scripts/query-bounty.py --selftest                       # no network
 """
+from __future__ import annotations
 
 import argparse
 import json

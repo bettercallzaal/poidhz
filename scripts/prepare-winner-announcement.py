@@ -17,6 +17,7 @@ Human gates:
 - Posting/publishing is human - this script only generates a DRAFT
 - On-chain payout is human - announcement prep does not trigger payout
 """
+from __future__ import annotations
 
 import argparse
 import json

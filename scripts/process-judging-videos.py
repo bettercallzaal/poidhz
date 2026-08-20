@@ -16,6 +16,7 @@ doesn't stop the run).
 Dependencies: ffmpeg, ffprobe (check at startup)
 Pure stdlib: urllib, subprocess, json, tempfile
 """
+from __future__ import annotations
 
 import argparse
 import json

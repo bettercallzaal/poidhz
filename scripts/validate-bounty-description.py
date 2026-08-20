@@ -14,6 +14,7 @@ Outputs:
 Human gate: This is a validation stage. It does not modify the description,
 only checks it against the canonical bar and reports findings.
 """
+from __future__ import annotations
 
 import argparse
 import re
