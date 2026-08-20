@@ -1,0 +1,21 @@
+# poidhz
+
+> A public client for poidh (poidh.xyz) bounties: every open bounty with a stated deadline on a calendar, a live dashboard, a subscribable .ics, and the tooling to run it. Built by BetterCallZaal / The ZAO. MIT.
+
+poidh has a structured deadline field that issuers do not set (0 of 95 open bounties on 2026-08-20). poidhz parses the deadline out of each bounty's description text. 21 of 95 open bounties state one.
+
+## Pages
+- https://zpoidh.vercel.app/ : deadline calendar, agenda with countdowns, filters, undated bounties
+- https://zpoidh.vercel.app/dashboard : all open bounties with USD, chain, task type, ease and difficulty estimates
+- https://zpoidh.vercel.app/best-practices : how to write a bounty people can actually win
+- https://zpoidh.vercel.app/about : BetterCallZaal's own rounds (R1-R5), winners, brand kits
+
+## Data (JSON, CORS open, refreshed every 6 hours)
+- https://zpoidh.vercel.app/data/bounty-dashboard.json : every open bounty (title, url, chain_id, amount_native, amount_usd, deadline_iso, deadline_raw_text, task_type, has_submissions, is_multiplayer)
+- https://zpoidh.vercel.app/data/poidh-deadlines.ics : calendar feed of every dated bounty
+- https://zpoidh.vercel.app/data/leaderboard.json : submitter leaderboard in Empire Builder format
+
+## Code
+- https://github.com/bettercallzaal/zpoidh : scripts/ (python 3.9+, stdlib only), rounds/, docs/
+- scripts/deadline_parser.py : the free-text deadline parser, with a self-test
+- scripts/query-bounty.py --bounty N --chain 8453 : resolve any bounty and its winner
