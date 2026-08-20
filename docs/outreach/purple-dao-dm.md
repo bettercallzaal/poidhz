@@ -12,11 +12,10 @@ contact.
 
 ## Who to send this to
 
-Purple DAO doesn't have one obvious single DM target the way a project with a named
-founder does - it's a DAO. Realistic entry points: whoever runs their Farcaster
-account/channel presence, or a known contributor active in `/purple`. Confirm the right
-person before sending rather than guessing - this draft is written to work regardless of
-exact recipient.
+Verified 2026-08-20 via Warpcast API: @purple (fid 4417, 2,684 followers) is the DAO
+account; the /purple channel (20,198 followers) is led by @ccarella (fid 472, 46k
+followers), with moderators fids 234616, 861203, 864314. Send to @ccarella on Farcaster
+first; @purple as a fallback. Draft works regardless of exact recipient.
 
 ## Farcaster DM (long version)
 
@@ -26,7 +25,8 @@ We've run 4 rounds paying real ETH for user-made ads/clips, all on Base, all pub
 judged with a posted rubric.
 
 Pitching a joint round: a POIDH bounty asking for ads that promote both ZABAL Gamez (our
-build event) and /purple, cross-posted in both channels. Same structure as our last round
+build event - Season 1 finals wrap Aug 30, Season 2 is the natural moment) and /purple,
+cross-posted in both channels. Same structure as our last round
 - a floor bar (post publicly, tag both accounts, submit the URL), a weighted rubric
 (distribution/craft/substance), a public brand kit, and a posted deadline. Full template
 is public: github.com/bettercallzaal/zpoidh/blob/main/docs/P2P-AD-BOUNTY-KIT.md
@@ -36,7 +36,7 @@ before anyone even wins - the bounty pays for content that grows the channel whe
 not it wins. That's the same mechanism a lot of what Rounds.wtf grants for, just funded by
 a bounty prize instead of a grant.
 
-What we'd bring: the bounty prize (we've been running ~0.0125 ETH per round), the
+What we'd bring: the bounty prize (0.01-0.025 ETH per round so far), the
 description/rubric/brand-kit-template work, and our own POIDH ops tooling (live bounty
 dashboard + deadline calendar, all open source if you want to fork it for your own bounty
 tracking - github.com/bettercallzaal/zpoidh/blob/main/docs/PARTNER-GUIDE.md).
@@ -75,6 +75,13 @@ this is interesting. Worth a quick chat?
 3. Consider also cross-posting the live bounty to Bountycaster per the workaround in
    [PARTNERSHIP-TARGETS.md](../PARTNERSHIP-TARGETS.md#confirmed-precedent-poidh-already-has-cross-community-traction) -
    free extra reach, same cast-based mechanism either DAO could do.
+
+
+## Refreshed 2026-08-20 (card 9b8a766f)
+
+- Target re-verified live via Warpcast public API on 2026-08-20 (details in "Who to send this to").
+- Premise check: ZABAL Gamez Season 1 finals run Aug 24-30. "Promote our build event" is about to go stale, so the DMs now pitch the joint round as a post-finals / Season 2 kickoff, or a round on the partner's own subject. Zaal can swap in the WaveWarZ clip series (rounds/r8) as the subject if that is the better lead.
+- Prize language widened to "0.01-0.025 ETH per round" (R1-R3 actuals: 0.0105 / 0.0105 / 0.025).
 
 ## Also see
 

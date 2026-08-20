@@ -14,18 +14,20 @@ contact.
 
 ## Who to send this to
 
-Same caveat as the Purple DAO draft - Yellow Collective is a DAO, not a single founder.
-Realistic entry points: whoever runs their Farcaster presence, or a known active
-contributor. Confirm the right person before sending - this draft is written to work
-regardless of exact recipient.
+Verified 2026-08-20 via Warpcast API: there is NO @yellowcollective Farcaster account
+(@yellow is an unrelated user). The /yellow channel (27,654 followers, "an onchain culture
+club on Base, dedicated to supporting and empowering artists") is led by @toadyhawk.eth
+(Toady Hawk, fid 3642, 45k followers), moderators include @symbiotech (fid 4567). Send to
+@toadyhawk.eth on Farcaster. Use "/yellow" not "@yellowcollective" in any tag line.
 
 ## Farcaster DM (long version)
 
 ```
 Hey - running BCZ / The ZAO's POIDH bounty program (zpoidh, github.com/bettercallzaal/zpoidh).
 One of our three build tracks is specifically for artists (ZABAL Gamez runs artist/builder/
-creator tracks), and that's the reason I'm reaching out to Yellow Collective specifically,
-not a general "let's partner" DM.
+creator tracks - Season 1 finals wrap Aug 30 and we are lining up what comes next), and
+that's the reason I'm reaching out to Yellow Collective specifically, not a general "let's
+partner" DM.
 
 Pitching a cross-pollination round: a POIDH bounty for artist-made work (an ad, a piece,
 whatever format fits) that gets shared into both our artist track and your community. Same
@@ -39,7 +41,7 @@ Why this fits specifically: your artists get a real ETH prize plus visibility in
 an established artist-focused DAO instead of starting from zero. Neither side is starting
 this from a generic ask - it's two artist-focused efforts finding each other.
 
-What we'd bring: the bounty prize (recent rounds have run ~0.0125 ETH), the
+What we'd bring: the bounty prize (0.01-0.025 ETH per round so far), the
 description/rubric/brand-kit-template work, and our open POIDH ops tooling if useful for
 tracking your own bounties (fork-ready:
 github.com/bettercallzaal/zpoidh/blob/main/docs/PARTNER-GUIDE.md).
@@ -76,6 +78,13 @@ live. Worth a quick chat?
 3. Consider cross-posting to Bountycaster too per the workaround documented in
    [PARTNERSHIP-TARGETS.md](../PARTNERSHIP-TARGETS.md) - free extra reach either side
    could do.
+
+
+## Refreshed 2026-08-20 (card 9b8a766f)
+
+- Target re-verified live via Warpcast public API on 2026-08-20 (details in "Who to send this to").
+- Premise check: ZABAL Gamez Season 1 finals run Aug 24-30. "Promote our build event" is about to go stale, so the DMs now pitch the joint round as a post-finals / Season 2 kickoff, or a round on the partner's own subject. Zaal can swap in the WaveWarZ clip series (rounds/r8) as the subject if that is the better lead.
+- Prize language widened to "0.01-0.025 ETH per round" (R1-R3 actuals: 0.0105 / 0.0105 / 0.025).
 
 ## Also see
 
