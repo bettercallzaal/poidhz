@@ -1,47 +1,41 @@
-# R5 description - DRAFT, placeholders unresolved
+# R5 description (paste-ready for the POIDH Description field)
 
-Not cast. Do not paste to POIDH until the placeholders below are locked with Kenny + trigs
-(reward amount, source link, launch date, issuer wallet). Voice matches R1-R4 (lowercase
-poidh, single judge, explicit deadline, THE BAR + rubric).
+Paste everything between the sentinel lines. Title goes in the POIDH Title field separately.
 
----
+Title (42 chars, under the 50-char Farcaster embed cap):
 
-clip up unlock protocol
+```
+Best WaveWarZ clip from the Twitch stream
+```
 
-unlock protocol lets anyone create memberships, tickets, and token-gated access as onchain NFTs - no code. we just used it live for the zabal gamez x poidh fireside collectible.
+Description:
 
-make the best clip that makes someone get unlock in a few seconds. best clips win and we run them.
+----- BEGIN POIDH DESCRIPTION -----
 
+Go through the WaveWarZ Twitch stream and cut the best 20 to 90 second clip. One winner takes the pot, and WaveWarZ runs your clip on its official channels with your name on it.
 
-THE BAR (do these or you are not in the running)
+WaveWarZ is live music battles. Song vs. song, traded in real time, artists paid on the spot. The battle stream lands most nights at twitch.tv/wavewarzofficial. Somewhere in those hours is the moment that makes a stranger stop scrolling. Find it.
 
-1. clip a moment from the fireside recording [SOURCE LINK - confirm], or make an original clip that clearly shows what unlock does.
-2. post it publicly on x, instagram, or youtube.
-3. tag @UnlockProtocol and @bettercallzaal on x, and cross-post in a farcaster channel so the community sees it.
-4. submit the public url on this poidh bounty page.
-5. audio: if your clip has audio, use the source recording audio or one clear instrumental that does not fight the dialog. random library music over talking = floor fail.
+Where to look: https://www.twitch.tv/wavewarzofficial/videos
 
+Heads up: Twitch keeps these VODs for 7 days only, so clip early. The Clip button on the Twitch player is the easiest path (it caps at 60 seconds and the clip survives after the VOD expires). Downloading and cutting your own edit is fine too.
 
-THE RUBRIC (more boxes = stronger)
+What wins: the final seconds of a close battle and the flip. An artist finding out they just earned real money. A line from the MC or a judge that says what WaveWarZ is in one breath. This is not about hype. It is the clip someone who has never heard of WaveWarZ would watch twice.
 
-distribution
-+ cross-post beyond one platform (bluesky, threads, linkedin, tiktok)
-+ tag @kennyistyping / @kenny (poidh) and @poidh
-+ include unlock-protocol.com as a visible link
+How to enter:
 
-craft
-+ you get what unlock is in 3 seconds
-+ vertical or square, captions if there is audio
-+ on-brand energy, not generic crypto
+1. Make a clip, 20 to 90 seconds, from any VOD or live stream on twitch.tv/wavewarzofficial. Keep the battle audio. Captions are a plus, not a rule.
+2. Post it to either X, Instagram, TikTok, or YouTube. Tag @wavewarz and @bettercallzaal so we find it. In your post, name the artists in the clip.
+3. Claim on this poidh page with the link to your post and the Twitch clip link (or VOD link plus timestamp). If it is not claimed here, it is not entered.
 
-substance
-+ one clear takeaway - memberships / event tickets / token-gated access as onchain NFTs, gasless, no code
-+ names a real use - the zabal gamez x poidh collectible we just minted is a live example
+By entering you are saying WaveWarZ and The ZAO can repost your clip on our official channels, and we credit your handle every time we do. You keep your edit. The music belongs to the artists in the battle, which is why we ask you to name them.
 
+One winner. Chosen by me (Zaal). Deadline to enter: 11:59 pm PT, Thursday, August 27, 2026. Winner picked within 48 hours, paid here, and the clip goes up on @wavewarz with your name on it.
 
-THE REWARD
+Already in the WaveWarZ Clippers group? This stacks with your points. Drop the same clip in t.me/wavewarzclipshq too.
 
-reward: [UNLOCK TO SET] on base
-deadline: [LAUNCH DATE + 1 week], 11:59pm pt
-judge: single judge (zaal + an unlock rep)
-best submission gets paid AND becomes pinned promo across the channels.
+----- END POIDH DESCRIPTION -----
+
+## Deadline note
+
+The deadline above assumes the bounty is created on or before Fri Aug 21. If it goes up later, move the deadline to create-date + 7 days, keep 11:59 pm PT, and re-check the day of week (Kenny caught a Sat/Sun mismatch in R3).

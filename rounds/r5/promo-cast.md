@@ -1,4 +1,4 @@
-# R8 promo casts
+# R5 promo casts
 
 Replace `<BOUNTY_URL>` with the live poidh URL before posting. No emojis, no em dashes.
 

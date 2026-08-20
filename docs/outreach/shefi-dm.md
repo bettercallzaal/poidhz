@@ -80,7 +80,7 @@ would just need a cross-post/boost when it's live. Worth a quick chat?
 ## Refreshed 2026-08-20 (card 9b8a766f)
 
 - Target re-verified live via Warpcast public API on 2026-08-20 (details in "Who to send this to").
-- Premise check: ZABAL Gamez Season 1 finals run Aug 24-30. "Promote our build event" is about to go stale, so the DMs now pitch the joint round as a post-finals / Season 2 kickoff, or a round on the partner's own subject. Zaal can swap in the WaveWarZ clip series (rounds/r8) as the subject if that is the better lead.
+- Premise check: ZABAL Gamez Season 1 finals run Aug 24-30. "Promote our build event" is about to go stale, so the DMs now pitch the joint round as a post-finals / Season 2 kickoff, or a round on the partner's own subject. Zaal can swap in the WaveWarZ clip series (rounds/r5) as the subject if that is the better lead.
 - Prize language widened to "0.01-0.025 ETH per round" (R1-R3 actuals: 0.0105 / 0.0105 / 0.025).
 
 ## Also see

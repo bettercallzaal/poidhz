@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>zpoidh - BCZ POIDH bounty ops</title>
-  <meta name="description" content="Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard, the canonical bar. Currently R3 active: Best ad for ZABAL Gamez through Sun Jun 14, 2026.">
-  <link rel="canonical" href="https://zpoidh.com/">
-  <meta property="og:title" content="zpoidh">
-  <meta property="og:description" content="BCZ POIDH bounty ops. R3 ZABAL Gamez ad bounty live through Sun Jun 14.">
-  <meta property="og:url" content="https://zpoidh.com/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>poidhz - poidh deadlines calendar</title>
+  <meta name="description" content="Every open poidh bounty with a stated deadline, on a calendar, with countdowns and a subscribable .ics feed. Plus every open bounty without one.">
+  <link rel="canonical" href="https://zpoidh.vercel.app/">
+  <meta property="og:title" content="poidhz - poidh deadlines">
+  <meta property="og:description" content="Every open poidh bounty with a stated deadline, on a calendar. Refreshes every 6 hours.">
+  <meta property="og:url" content="https://zpoidh.vercel.app/">
   <link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,150 +17,272 @@
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
       --bg:#070709;--surface:#111115;--surface-2:#16161c;
-      --orange:#ff6b35;--cyan:#00e5ff;--gold:#f5c842;--pink:#ff3d6e;--zabal:#a78bfa;
+      --orange:#ff6b35;--cyan:#00e5ff;--gold:#f5c842;--pink:#ff3d6e;--zabal:#a78bfa;--green:#4ade80;
       --text:#e4e2dd;--text-muted:#8a8895;--text-dim:#4e4c57;
       --border:#1f1e26;--border-hover:#2f2d3a;--radius:8px;
     }
-    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
-    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,0.12),transparent 60%),radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,0.10),transparent 60%),radial-gradient(ellipse 600px 400px at 50% 100%,rgba(255,107,53,0.08),transparent 60%)}
-    a{color:var(--cyan);text-decoration:none;transition:color 0.15s}
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f7f6f3;--surface:#ffffff;--surface-2:#f0eee9;--text:#17161c;--text-muted:#5d5b66;--text-dim:#9a98a3;--border:#e2e0da;--border-hover:#cfcdc6;--cyan:#0077a8;--gold:#a87a00;--green:#15803d}
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,0.12),transparent 60%),radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,0.10),transparent 60%)}
+    a{color:var(--cyan);text-decoration:none}
     a:hover{color:var(--orange)}
-    .container{max-width:960px;margin:0 auto;padding:0 1.5rem}
-    .topnav{padding:1.25rem 0;border-bottom:1px solid var(--border)}
+    .container{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+    .topnav{padding:1.1rem 0;border-bottom:1px solid var(--border)}
     .topnav-inner{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .topnav .brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}
-    .topnav nav{display:flex;gap:1.25rem;flex-wrap:wrap}
-    .topnav nav a{color:var(--text-muted);font-size:0.9rem}
+    .brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}
+    .topnav nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+    .topnav nav a{color:var(--text-muted);font-size:0.88rem}
     .topnav nav a:hover{color:var(--text)}
-    .hero{padding:3rem 0 2rem;border-bottom:1px solid var(--border)}
-    .badge{display:inline-block;padding:0.25rem 0.625rem;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;background:rgba(167,139,250,0.16);border:1px solid rgba(167,139,250,0.4);color:var(--zabal)}
-    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin:0.75rem 0 0.5rem;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin:2.5rem 0 1rem;color:var(--text)}
-    p.sub{color:var(--text-muted);max-width:640px;font-size:1rem}
-    p.sub strong{color:var(--text);font-weight:500}
-    .grid{display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:0.5rem 0 1.5rem}
-    .card{padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all 0.15s;color:var(--text);display:flex;flex-direction:column;gap:0.35rem}
-    .card:hover{border-color:var(--cyan);transform:translateY(-2px);background:var(--surface-2);color:var(--text)}
-    .card .label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--cyan)}
-    .card .desc{font-size:0.85rem;color:var(--text-muted)}
-    .card.active{border-color:var(--gold)}
-    .card.active .label{color:var(--gold)}
-    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem}
-    th,td{padding:0.55rem 0.75rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
-    th{font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)}
-    .pill{display:inline-block;padding:0.15rem 0.5rem;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:0.7rem}
-    .pill.live{background:rgba(245,200,66,0.16);color:var(--gold);border:1px solid rgba(245,200,66,0.4)}
-    .pill.done{background:rgba(74,222,128,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.3)}
-    footer{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:3rem;text-align:center;color:var(--text-muted);font-size:0.85rem}
-    footer .lifeline{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-dim);margin-top:0.4rem}
+    .mono{font-family:'JetBrains Mono',monospace}
+    .hero{padding:2.25rem 0 1.25rem}
+    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.1;margin:0.25rem 0 0.5rem;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{color:var(--text-muted);max-width:680px;font-size:0.98rem}
+    .stats{display:flex;gap:0.75rem;flex-wrap:wrap;margin:1.25rem 0 0.5rem}
+    .stat{flex:1 1 140px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.7rem 0.9rem}
+    .stat b{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;line-height:1.1}
+    .stat span{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
+    .stat.hot b{color:var(--gold)}
+    .toolbar{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:1rem 0;position:sticky;top:0;z-index:5;background:var(--bg);padding:0.6rem 0;border-bottom:1px solid var(--border)}
+    .toolbar label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
+    select,input[type=number]{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.55rem;font:inherit;font-size:0.85rem}
+    input[type=number]{width:90px}
+    .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 0.8rem;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:0.85rem;cursor:pointer;font:inherit}
+    .btn:hover{border-color:var(--cyan);color:var(--text)}
+    .btn.primary{border-color:rgba(0,229,255,0.5);color:var(--cyan)}
+    .spacer{flex:1}
+    h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:1.75rem 0 0.75rem}
+    h2 small{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:0.72rem;color:var(--text-muted);margin-left:0.5rem}
+    /* calendar */
+    .cal-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.5rem}
+    .cal-head h3{font-family:'Syne',sans-serif;font-size:1.05rem}
+    .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .dow{background:var(--surface-2);padding:0.35rem;text-align:center;font-size:0.68rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+    .day{background:var(--surface);min-height:84px;padding:0.3rem 0.35rem;font-size:0.78rem;display:flex;flex-direction:column;gap:0.2rem}
+    .day.out{opacity:0.38}
+    .day.today{outline:2px solid var(--cyan);outline-offset:-2px}
+    .day.past .chip{opacity:0.45}
+    .day .n{color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:0.7rem}
+    .day.today .n{color:var(--cyan);font-weight:600}
+    .chip{display:block;padding:0.15rem 0.35rem;border-radius:4px;background:rgba(0,229,255,0.12);border:1px solid rgba(0,229,255,0.3);color:var(--text);font-size:0.7rem;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .chip:hover{border-color:var(--orange);color:var(--text)}
+    .chip b{font-family:'JetBrains Mono',monospace;color:var(--gold);font-weight:500;margin-right:0.25rem}
+    .chip.more{background:transparent;border-style:dashed;color:var(--text-muted);text-align:center}
+    @media (max-width:640px){
+      .day{min-height:58px;padding:0.2rem}
+      .chip{font-size:0.6rem;padding:0.1rem 0.2rem}
+      .chip .t{display:none}
+    }
+    /* agenda */
+    .row{display:grid;grid-template-columns:110px 1fr auto;gap:0.75rem;align-items:center;padding:0.7rem 0.9rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:0.5rem}
+    .row:hover{border-color:var(--border-hover)}
+    .row.past{opacity:0.5}
+    .row .when{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-muted);line-height:1.3}
+    .row .when b{display:block;color:var(--gold);font-weight:500;font-size:0.85rem}
+    .row.soon .when b{color:var(--orange)}
+    .row .what a.title{color:var(--text);font-weight:500}
+    .row .what a.title:hover{color:var(--cyan)}
+    .row .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.25rem}
+    .tag{font-family:'JetBrains Mono',monospace;font-size:0.66rem;padding:0.1rem 0.45rem;border-radius:999px;border:1px solid var(--border);color:var(--text-muted)}
+    .tag.chain-8453{color:#7aa8ff;border-color:rgba(122,168,255,0.4)}
+    .tag.chain-42161{color:#6fd0ff;border-color:rgba(111,208,255,0.4)}
+    .tag.chain-1{color:#c9c9d6;border-color:rgba(201,201,214,0.4)}
+    .tag.chain-666666666{color:var(--zabal);border-color:rgba(167,139,250,0.4)}
+    .tag.type{color:var(--text)}
+    .row .amt{text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.85rem}
+    .row .amt b{display:block;color:var(--green);font-weight:500}
+    .row .amt small{color:var(--text-muted);font-size:0.7rem}
+    .row .amt a{display:block;font-size:0.7rem;margin-top:0.2rem}
+    @media (max-width:640px){.row{grid-template-columns:1fr;gap:0.35rem}.row .amt{text-align:left}}
+    .empty{padding:1.25rem;border:1px dashed var(--border);border-radius:var(--radius);color:var(--text-muted);text-align:center;font-size:0.9rem}
+    details{margin-top:1.5rem}
+    summary{cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;list-style:none;display:flex;align-items:center;gap:0.5rem}
+    summary::before{content:'+';font-family:'JetBrains Mono',monospace;color:var(--cyan);width:1.2rem}
+    details[open] summary::before{content:'-'}
+    summary small{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:0.72rem;color:var(--text-muted)}
+    .note{font-size:0.85rem;color:var(--text-muted);margin:0.5rem 0 1rem}
+    .note code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text)}
+    footer{padding:2rem 0;border-top:1px solid var(--border);margin-top:3rem;color:var(--text-muted);font-size:0.82rem}
+    footer p{margin-bottom:0.4rem}
+    .err{padding:1rem;border:1px solid var(--pink);border-radius:var(--radius);color:var(--pink);font-family:'JetBrains Mono',monospace;font-size:0.85rem}
   </style>
 </head>
 <body>
-  <div class="topnav">
-    <div class="container topnav-inner">
-      <a class="brand" href="/">zpoidh</a>
-      <nav>
-        <a href="https://github.com/bettercallzaal/zpoidh" target="_blank" rel="noopener">repo</a>
-        <a href="/best-practices">best practices</a>
-        <a href="/leaderboard">leaderboard json</a>
-        <a href="https://bettercallzaal.com" target="_blank" rel="noopener">bcz</a>
-      </nav>
-    </div>
-  </div>
+  <div class="topnav"><div class="container topnav-inner">
+    <a class="brand" href="/">poidhz</a>
+    <nav>
+      <a href="/">calendar</a>
+      <a href="/dashboard">dashboard</a>
+      <a href="/best-practices">best practices</a>
+      <a href="/about">rounds</a>
+      <a href="https://github.com/bettercallzaal/zpoidh" target="_blank" rel="noopener">repo</a>
+      <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>
+    </nav>
+  </div></div>
 
-  <header class="hero">
-    <div class="container">
-      <span class="badge">BCZ POIDH bounty ops</span>
-      <h1>zpoidh</h1>
-      <p class="sub">Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard refresh, the canonical bar, the lessons learned. <strong>Active right now: Round 3 - Best ad for ZABAL Gamez (closes Sun Jun 14).</strong></p>
-    </div>
+  <header class="hero container">
+    <span class="mono" style="font-size:0.7rem;color:var(--zabal);text-transform:uppercase;letter-spacing:0.1em">every open poidh bounty, by deadline</span>
+    <h1>poidh deadlines</h1>
+    <p class="sub">poidh has no on-chain deadline, so bounties state one in their description, or do not. This page reads every open bounty, pulls the date out of the text, and puts it on a calendar. Refreshes every 6 hours from <a href="https://github.com/bettercallzaal/zpoidh" target="_blank" rel="noopener">open scripts</a>.</p>
+    <div class="stats" id="stats"></div>
   </header>
 
   <main class="container">
-    <h2>Active</h2>
-    <div class="grid">
-      <a class="card active" href="https://poidh.xyz/base/bounty/1180" target="_blank" rel="noopener">
-        <span class="label">R3 / bounty 1180 <span class="pill live">LIVE</span></span>
-        <strong>Best ad for ZABAL Gamez</strong>
-        <span class="desc">Any format. 0.0125 ETH on Base. OPEN bounty. Closes 11:59pm PT Sun Jun 14, 2026.</span>
-      </a>
+    <div class="toolbar">
+      <label>type</label><select id="f-type"><option value="">all</option></select>
+      <label>chain</label><select id="f-chain"><option value="">all</option></select>
+      <label>min $</label><input id="f-usd" type="number" min="0" step="5" placeholder="0">
+      <span class="spacer"></span>
+      <a class="btn primary" id="ics" href="/data/poidh-deadlines.ics" download>subscribe .ics</a>
+      <button class="btn" id="copy-link" type="button">copy link</button>
     </div>
 
-    <h2>Rounds</h2>
-    <table>
-      <thead><tr><th>Round</th><th>Bounty</th><th>Source</th><th>Prize</th><th>Winner</th><th>Submissions</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><a href="/round/1">R1</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1151" target="_blank" rel="noopener">1151</a></td>
-          <td>BCZ YapZ Ep 17 (Hannah / Farm Drop clip-up)</td>
-          <td>0.0105 ETH</td>
-          <td>@cryptfi-mariano</td>
-          <td>11 / 10</td>
-        </tr>
-        <tr>
-          <td><a href="/round/2">R2</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener">1166</a></td>
-          <td>BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny)</td>
-          <td>0.0105 ETH</td>
-          <td>@joeyofdeus / Monksage</td>
-          <td>8 / 7</td>
-        </tr>
-        <tr>
-          <td><a href="/round/3">R3</a></td>
-          <td><a href="https://poidh.xyz/base/bounty/1180" target="_blank" rel="noopener">1180</a></td>
-          <td>ZABAL Gamez ad (any format)</td>
-          <td>0.0125 ETH</td>
-          <td><span class="pill live">LIVE</span></td>
-          <td>open</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Resources</h2>
-    <div class="grid">
-      <a class="card" href="/best-practices">
-        <span class="label">docs/bounty-best-practices.html</span>
-        <span class="desc">The canonical bar. Cite this from every bounty cast. Floor rules + rubric + audio rule + binaural beat sources.</span>
-      </a>
-      <a class="card" href="https://github.com/bettercallzaal/zpoidh/blob/main/docs/how-to-draft-next-bounty.md" target="_blank" rel="noopener">
-        <span class="label">docs/how-to-draft-next-bounty.md</span>
-        <span class="desc">11-step playbook for the next round. Prereqs, basics, description, cast, judging, on-chain finalize, gotchas.</span>
-      </a>
-      <a class="card" href="/zabal-gamez-brand">
-        <span class="label">assets/brand-kits/zabal-games/</span>
-        <span class="desc">CC-BY brand kit: arcade logo, palette + arcade palette, official 50s promo MP3, phrases + glossary, asset inventory, embed cards.</span>
-      </a>
-      <a class="card" href="https://github.com/bettercallzaal/zpoidh/tree/main/rounds/_template" target="_blank" rel="noopener">
-        <span class="label">rounds/_template/</span>
-        <span class="desc">Starter files for the next round: description, promo cast, cast templates for winner + catalytic DMs.</span>
-      </a>
-      <a class="card" href="/hub">
-        <span class="label">docs/poidh-hub.html</span>
-        <span class="desc">Source of the live hub UI (mirrored from bettercallzaal.com/poidh.html).</span>
-      </a>
-      <a class="card" href="/dashboard">
-        <span class="label">docs/bounty-dashboard.html</span>
-        <span class="desc">Every live POID bounty platform-wide - countdown timers, submission status, estimated ease/difficulty/money per bounty. Refreshes hourly.</span>
-      </a>
-      <a class="card" href="/leaderboard">
-        <span class="label">data/leaderboard.json</span>
-        <span class="desc">EB-pulled feed in strict format [{address, score}]. Score = count of BCZ POIDH bounties submitted to.</span>
-      </a>
+    <h2>Calendar <small id="cal-range"></small></h2>
+    <div class="cal-head">
+      <button class="btn" id="prev" type="button" aria-label="previous month">&larr;</button>
+      <h3 id="cal-title"></h3>
+      <button class="btn" id="next" type="button" aria-label="next month">&rarr;</button>
     </div>
+    <div class="cal" id="cal"></div>
 
-    <h2>Audio rule (every BCZ POIDH bounty)</h2>
-    <p>No random library music or ambient pads under spoken dialog. If you want non-silence, use the official campaign promo MP3 (e.g. <a href="/zabal-gamez-brand/zabal-gamez-promo.mp3">zabal-gamez-promo.mp3</a>), original source-episode audio, or one clear instrumental that does not compete with dialog. Layered melodic music over spoken dialog = automatic floor fail.</p>
+    <h2>Agenda <small id="agenda-count"></small></h2>
+    <div id="agenda"></div>
 
-    <h2>Score-by-count compounding</h2>
-    <p>Every BCZ POIDH submitter lands on slot 8 of $ZABAL Empire on Empire Builder. Score = count of BCZ POIDH bounties they have submitted to. Two-round submitters at score 2 (@joeyofdeus, @cryptfi-mariano). Submit to R3 = compound to 3.</p>
+    <details id="undated-wrap">
+      <summary>Open bounties with no stated deadline <small id="undated-count"></small></summary>
+      <p class="note">These are open right now but the description never says when they close. Newest first. If you issue bounties: write the date and a timezone in the description, it is the only place anyone can read it.</p>
+      <div id="undated"></div>
+    </details>
+
+    <h2>How it works</h2>
+    <p class="note">
+      <code>scripts/scan-poidh-deadlines.py</code> pages through poidh's live bounty feed and parses dates like "August 24, 2026" or "11:59 pm PT Sun Jun 14" out of each description. <code>build-bounty-dashboard.py</code> adds amounts, USD, chain, and a task-type guess. Nothing here is read from a structured deadline field, because across every open bounty scanned, none set one. poidhz is built by <a href="https://bettercallzaal.com" target="_blank" rel="noopener">BetterCallZaal</a> / The ZAO for <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>. MIT, fork it.
+    </p>
   </main>
 
-  <footer>
-    <div class="container">
-      zpoidh - BCZ POIDH bounty ops - MIT (code) + CC-BY 4.0 (brand kits)
-      <div class="lifeline">Maintained by Zaal / BetterCallZaal. Issuer wallet: 0x7234c36a71ec237c2ae7698e8916e0735001e9af on Base.</div>
-    </div>
-  </footer>
+  <footer><div class="container">
+    <p>Data: <a href="/data/bounty-dashboard.json">bounty-dashboard.json</a> (6h refresh), <a href="/data/poidh-deadlines.ics">poidh-deadlines.ics</a>. Last refresh: <span id="generated" class="mono">loading</span>.</p>
+    <p>Our own rounds, judging pages, and the canonical bounty bar: <a href="/about">/about</a>. Not affiliated with poidh; we just issue bounties there and wanted a calendar.</p>
+  </div></footer>
+
+<script>
+(function(){
+  var CHAINS={8453:'Base',42161:'Arbitrum',1:'Ethereum',666666666:'Degen'};
+  var state={type:'',chain:'',usd:0,month:null,data:null};
+  var $=function(id){return document.getElementById(id)};
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var DAY=86400000;
+
+  function readHash(){
+    var h=location.hash.replace(/^#/,''); if(!h) return;
+    h.split('&').forEach(function(kv){var p=kv.split('=');var k=decodeURIComponent(p[0]),v=decodeURIComponent(p[1]||'');
+      if(k==='type')state.type=v; if(k==='chain')state.chain=v; if(k==='usd')state.usd=+v||0; if(k==='m')state.month=v;});
+  }
+  function writeHash(){
+    var parts=[]; if(state.type)parts.push('type='+state.type); if(state.chain)parts.push('chain='+state.chain); if(state.usd)parts.push('usd='+state.usd);
+    if(state.month)parts.push('m='+state.month);
+    history.replaceState(null,'','#'+parts.join('&'));
+  }
+  function localDate(iso){ var p=iso.split('-'); return new Date(+p[0],+p[1]-1,+p[2],23,59,59); }
+  function fmtMoney(n){ return n==null?'':'$'+(n>=100?Math.round(n):n.toFixed(n>=10?0:2)); }
+  function countdown(iso){
+    var ms=localDate(iso)-Date.now(); var past=ms<0; ms=Math.abs(ms);
+    var d=Math.floor(ms/DAY), h=Math.floor(ms%DAY/3600000);
+    var s=d>0?d+'d '+h+'h':h>0?h+'h '+Math.floor(ms%3600000/60000)+'m':Math.floor(ms/60000)+'m';
+    return past?'closed '+s+' ago':'closes in '+s;
+  }
+  function gcal(b){
+    var d=b.deadline_iso.replace(/-/g,''); var nx=new Date(localDate(b.deadline_iso).getTime()+DAY); var d2=nx.getFullYear()+String(nx.getMonth()+1).padStart(2,'0')+String(nx.getDate()).padStart(2,'0');
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('poidh deadline: '+b.title)+'&dates='+d+'/'+d2+'&details='+encodeURIComponent(b.url+'\n'+(b.amount_native||'')+' '+(b.amount_token_symbol||'')+' on '+(CHAINS[b.chain_id]||b.chain_id)+'\nStated: '+(b.deadline_raw_text||''));
+  }
+  function filtered(){
+    return state.data.bounties.filter(function(b){
+      if(state.type && (b.task_type||'unclassified')!==state.type) return false;
+      if(state.chain && String(b.chain_id)!==state.chain) return false;
+      if(state.usd && (b.amount_usd||0)<state.usd) return false;
+      return true;
+    });
+  }
+  function renderStats(all,dated){
+    var now=Date.now(), week=now+7*DAY;
+    var soon=dated.filter(function(b){var t=localDate(b.deadline_iso).getTime();return t>=now&&t<=week}).length;
+    var usd=all.reduce(function(s,b){return s+(b.amount_usd||0)},0);
+    $('stats').innerHTML=
+      '<div class="stat"><b>'+all.length+'</b><span>open bounties</span></div>'+
+      '<div class="stat"><b>'+dated.length+'</b><span>state a deadline</span></div>'+
+      '<div class="stat hot"><b>'+soon+'</b><span>close in 7 days</span></div>'+
+      '<div class="stat"><b>'+fmtMoney(usd)+'</b><span>open prize money</span></div>';
+  }
+  function renderCal(dated){
+    var m=state.month?new Date(+state.month.slice(0,4),+state.month.slice(5,7)-1,1):new Date(); m.setDate(1);
+    state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');
+    $('cal-title').textContent=m.toLocaleString(undefined,{month:'long',year:'numeric'});
+    var byDay={}; dated.forEach(function(b){(byDay[b.deadline_iso]=byDay[b.deadline_iso]||[]).push(b)});
+    var todayIso=new Date().toLocaleDateString('sv');
+    var first=new Date(m); first.setDate(1-first.getDay());
+    var html=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(function(d){return '<div class="dow">'+d+'</div>'}).join('');
+    for(var i=0;i<42;i++){
+      var d=new Date(first.getTime()+i*DAY); var iso=d.toLocaleDateString('sv');
+      var cls='day'+(d.getMonth()!==m.getMonth()?' out':'')+(iso===todayIso?' today':'')+(iso<todayIso?' past':'');
+      var items=(byDay[iso]||[]).sort(function(a,b){return (b.amount_usd||0)-(a.amount_usd||0)});
+      var chips=items.slice(0,3).map(function(b){return '<a class="chip" href="'+esc(b.url)+'" target="_blank" rel="noopener" title="'+esc(b.title)+'"><b>'+fmtMoney(b.amount_usd)+'</b><span class="t">'+esc(b.title)+'</span></a>'}).join('');
+      if(items.length>3) chips+='<span class="chip more">+'+(items.length-3)+' more</span>';
+      html+='<div class="'+cls+'"><span class="n">'+d.getDate()+'</span>'+chips+'</div>';
+      if(i>=34 && new Date(first.getTime()+(i+1)*DAY).getMonth()!==m.getMonth() && d.getMonth()!==m.getMonth()) break;
+    }
+    $('cal').innerHTML=html;
+  }
+  function row(b,withWhen){
+    var t=localDate(b.deadline_iso||'2100-01-01').getTime(); var past=t<Date.now(); var soon=!past&&t-Date.now()<3*DAY;
+    var when=withWhen?'<div class="when"><b>'+esc(b.deadline_iso)+'</b>'+countdown(b.deadline_iso)+(b.deadline_raw_text?'<br><span title="as written in the description">"'+esc(b.deadline_raw_text)+'"</span>':'')+'</div>':'<div class="when">'+(b.created_at?'posted '+new Date(b.created_at*1000).toLocaleDateString():'')+'</div>';
+    var meta='<span class="tag chain-'+b.chain_id+'">'+esc(CHAINS[b.chain_id]||b.chain_id)+'</span><span class="tag type">'+esc(b.task_type||'unclassified')+'</span>'+(b.is_multiplayer?'<span class="tag">open pot</span>':'')+(b.has_submissions?'<span class="tag">has claims</span>':'')+(b.is_voting?'<span class="tag">voting</span>':'');
+    return '<div class="row'+(past&&withWhen?' past':'')+(soon?' soon':'')+'">'+when+
+      '<div class="what"><a class="title" href="'+esc(b.url)+'" target="_blank" rel="noopener">'+esc(b.title||('bounty '+b.bounty_id))+'</a><div class="meta">'+meta+'</div></div>'+
+      '<div class="amt"><b>'+fmtMoney(b.amount_usd)+'</b><small>'+esc(b.amount_native)+' '+esc(b.amount_token_symbol||'')+'</small>'+(withWhen&&!past?'<a href="'+gcal(b)+'" target="_blank" rel="noopener">+ google calendar</a>':'')+'</div></div>';
+  }
+  function renderAgenda(dated){
+    var now=Date.now();
+    var up=dated.filter(function(b){return localDate(b.deadline_iso)>=now}).sort(function(a,b){return a.deadline_iso<b.deadline_iso?-1:1});
+    var past=dated.filter(function(b){return localDate(b.deadline_iso)<now}).sort(function(a,b){return a.deadline_iso>b.deadline_iso?-1:1});
+    $('agenda-count').textContent=up.length+' upcoming'+(past.length?', '+past.length+' past':'');
+    $('agenda').innerHTML=(up.length?up.map(function(b){return row(b,true)}).join(''):'<div class="empty">No upcoming bounty states a deadline with the current filters.</div>')+past.map(function(b){return row(b,true)}).join('');
+  }
+  function renderUndated(list){
+    list=list.slice().sort(function(a,b){return (b.created_at||0)-(a.created_at||0)});
+    $('undated-count').textContent=list.length;
+    $('undated').innerHTML=list.length?list.map(function(b){return row(b,false)}).join(''):'<div class="empty">None with the current filters.</div>';
+  }
+  function render(){
+    var all=filtered();
+    var dated=all.filter(function(b){return b.deadline_iso}); var undated=all.filter(function(b){return !b.deadline_iso});
+    renderStats(all,dated); renderCal(dated); renderAgenda(dated); renderUndated(undated);
+    var isos=dated.map(function(b){return b.deadline_iso}).sort(); $('cal-range').textContent=isos.length?isos[0]+' to '+isos[isos.length-1]:'';
+    writeHash();
+  }
+  function fillFilters(data){
+    var types={},chains={};
+    data.bounties.forEach(function(b){types[b.task_type||'unclassified']=(types[b.task_type||'unclassified']||0)+1; chains[b.chain_id]=(chains[b.chain_id]||0)+1});
+    Object.keys(types).sort().forEach(function(t){var o=document.createElement('option');o.value=t;o.textContent=t+' ('+types[t]+')';$('f-type').appendChild(o)});
+    Object.keys(chains).sort(function(a,b){return chains[b]-chains[a]}).forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=(CHAINS[c]||c)+' ('+chains[c]+')';$('f-chain').appendChild(o)});
+    $('f-type').value=state.type; $('f-chain').value=state.chain; if(state.usd)$('f-usd').value=state.usd;
+  }
+  readHash();
+  fetch('/data/bounty-dashboard.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(data){
+    state.data=data; fillFilters(data);
+    $('generated').textContent=data.generated_at?new Date(data.generated_at).toLocaleString():'unknown';
+    render();
+    $('f-type').onchange=function(){state.type=this.value;render()};
+    $('f-chain').onchange=function(){state.chain=this.value;render()};
+    $('f-usd').oninput=function(){state.usd=+this.value||0;render()};
+    $('prev').onclick=function(){var m=new Date(+state.month.slice(0,4),+state.month.slice(5,7)-2,1);state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');render()};
+    $('next').onclick=function(){var m=new Date(+state.month.slice(0,4),+state.month.slice(5,7),1);state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');render()};
+    $('copy-link').onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='copied';var b=this;setTimeout(function(){b.textContent='copy link'},1200)};
+    setInterval(function(){renderAgenda(filtered().filter(function(b){return b.deadline_iso}))},60000);
+  }).catch(function(e){
+    $('stats').innerHTML='<div class="err">Could not load /data/bounty-dashboard.json ('+esc(e.message)+'). Run scripts/build-bounty-dashboard.py.</div>';
+  });
+})();
+</script>
 </body>
 </html>

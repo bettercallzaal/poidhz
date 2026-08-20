@@ -112,7 +112,7 @@ the user brings (`window.ethereum` / `eth_requestAccounts`) and signs with that 
 was never a fixed wallet to generalize. The only genuinely BCZ-specific piece was the CSS
 brand colors, now wired via a client-side fetch of `/org.config.json`. Two smaller,
 intentionally-untouched BCZ-specific pieces remain if you fork: the "Load: Unlock Protocol
-Clipping Bounty (R6)" quick-fill preset (points at this repo's own `rounds/r6/description.md`
+Clipping Bounty (R6)" quick-fill preset (points at this repo's own `rounds/drafts/unlock-solo/description.md`
 - delete or replace it with your own round) and the `github.com/bettercallzaal/zpoidh` link
 in the page intro (point it at your fork). Neither affects the actual bounty-creation
 transaction logic, so both are safe/low-risk manual edits, not urgent wiring work.
