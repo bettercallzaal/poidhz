@@ -1,6 +1,15 @@
-# R4 - The ZABAL Gamez open pot (OPEN-SPLIT) - LIVE
+# R4 - The ZABAL Gamez open pot (OPEN-SPLIT) - CLOSED, CANCELED AT CLOSEOUT
 
-POIDH bounty [1249](https://poidh.xyz/base/bounty/1249) on Base. **Cast 2026-06-15. LIVE.**
+**This round did not execute as designed below.** Cast 2026-06-15 as an OPEN-SPLIT POIDH
+bounty (the mechanic this file describes). At closeout on 2026-08-05, the bounty was
+**accidentally canceled** instead of resolved through the intended vote/disperse path - see
+[CLOSEOUT.md](CLOSEOUT.md) for the full story. The escrowed 0.0138 ETH was reclaimed to the
+treasury, not distributed, and the reward pivoted to a $100 equal-share $ZABAL credit paid
+through Empire Builder instead of a POIDH-native split. **Read CLOSEOUT.md first** - the rest
+of this file (Status, Still open, Run-the-window checklist below) describes the ORIGINAL plan,
+kept for the design record, not what actually happened.
+
+POIDH bounty [1249](https://poidh.xyz/base/bounty/1249) on Base.
 
 A new bounty type: **OPEN-SPLIT**. One pot, split equally across every builder who ships a
 real project during ZABAL Gamez July open build month and posts a POIDH proof photo. Not a
@@ -39,22 +48,25 @@ single-winner ad bounty - the participation reward for the whole July cohort.
 | Claim | the ad asset | proof photo + link to the build |
 | Point | best promo for the campaign | reward participation in the build month |
 
-## Status
+## Status (original plan - superseded, see CLOSEOUT.md for what actually happened)
 
-- [x] Payout path - **LOCKED: Option B, distributor disperses** (2026-06-15)
+- [x] Payout path - **LOCKED: Option B, distributor disperses** (2026-06-15) - never executed; see closed decisions in CLOSEOUT.md
 - [x] POIDH OPEN bounty cast on Base - [bounty 1249](https://poidh.xyz/base/bounty/1249) (2026-06-15)
 - [x] Bounty id 1249 added to `scripts/refresh-poidh-leaderboard.py` defaults
-- Live check 2026-07-08: 2 claims so far (0.0138 ETH escrowed) - window still open through Jul 31, so this is a mid-month snapshot, not a final count.
+- Live check 2026-07-08: 2 claims so far (0.0138 ETH escrowed) - window still open through Jul 31, so this is a mid-month snapshot, not a final count. Both claims were the same wallet - individual POIDH claims never really came in, which is part of why closeout ended up handled manually (CLOSEOUT.md).
 
-## Still open (need Zaal's call before payout - in MECHANIC.md)
+## Originally still-open items - all moot now (CLOSEOUT.md "Closed decisions")
 
-- [ ] Name the distributor wallet (non-issuer; wins the vote + sends the equal shares)
-- [ ] Set the weekly top-up size (pot is seeded + live)
-- [ ] Decide the min-builders floor (what if only 1-2 ship)
-- [ ] Name the pass/fail "real build" checker (proposed: Zaal + one co-host)
-- [ ] Decide how post-deadline contributions are handled (recompute split vs roll to R5)
+None of these were resolved via the plan below - they became moot when the bounty was
+accidentally canceled at closeout and the reward pivoted to a flat $ZABAL credit per builder:
 
-## Run-the-window checklist
+- ~~Name the distributor wallet~~ - moot, no vote/disperse happened
+- ~~Set the weekly top-up size~~ - moot
+- ~~Decide the min-builders floor~~ - moot, 15 real builders shipped regardless
+- ~~Name the pass/fail "real build" checker~~ - moot, resolved case-by-case at closeout instead
+- ~~Decide how post-deadline contributions are handled~~ - moot, no ETH pot being split
+
+## Run-the-window checklist (as planned - did NOT run this way, see CLOSEOUT.md)
 
 - [ ] Cast `promo-cast.md` on /zabal + /poidh + /zao with the bounty URL as embed
 - [ ] Pin in /zabal for the whole window
@@ -63,6 +75,10 @@ single-winner ad bounty - the participation reward for the whole July cohort.
 - [ ] Day 15 + day 25: reminder casts
 - [ ] Fri Jul 31: close. First week of Aug: finalize qualifiers -> distributor wallet wins
       the vote + withdraws -> disperse equal shares -> cast the payout + tx hashes
+
+  **Did not happen this way** - see CLOSEOUT.md: the bounty was accidentally canceled
+  instead, the escrowed ETH was reclaimed (not distributed), and the reward became a $100
+  equal-share $ZABAL credit via Empire Builder for the 15 qualifying builders instead.
 - [ ] Run `scripts/refresh-poidh-leaderboard.py` to fold R4 submitters into the leaderboard
 
 ## Related rounds
