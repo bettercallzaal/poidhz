@@ -7,13 +7,17 @@ protocol doesn't care what the task is - it's a generic "post a bounty, submit p
 get paid" primitive. This doc covers the other half: using POIDH as a general-purpose
 task board for whatever The ZAO needs done, not just promotional content.
 
-## The one real precedent that already exists: R7
+## The one fully-designed precedent, though never cast: the ZABAL Gamez bug-fix bounty
 
-[rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) is BCZ's first non-ad bounty: a code bounty for fixing real
-bugs on zabalgamez.com. Submissions are pull requests, not clips. This is the pattern to
-generalize from, not a hypothetical - it's live, its description is already written
-(`rounds/drafts/zabal-bugfix/description.md`), and it already established the key structural differences
-from an ad bounty:
+[rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) is BCZ's first non-ad bounty design: a code bounty for fixing
+real bugs on zabalgamez.com, with submissions as pull requests instead of clips. **It was
+never cast** - it briefly held the "R7" slot before the R5-R7 renumbering, sat as a draft,
+and now lives in `rounds/drafts/` alongside the Unlock Protocol drafts, all three never
+launched. Referring to it as "R7" below is a naming convenience for the description that
+was written, not a claim that a round by that name ran. What it IS good for: the
+description (`rounds/drafts/zabal-bugfix/description.md`) is a complete, thought-through
+design for the key structural differences from an ad bounty - worth reading as a template
+even though it was never validated by an actual run:
 
 - **No BAR/RUBRIC ad-specific requirements** (no "tag @account", no "cross-post to
   another platform", no distribution scoring) - because the value here isn't
@@ -34,9 +38,9 @@ from an ad bounty:
 - **Named as a trust-ladder step**: R7's README frames this bounty as "the trust-ladder
   first step for ZOL toward money actions - a controlled, human-funded bounty ZOL can
   help scope + judge without ever holding funds." Worth remembering if ZAO OS V1's
-  agent tooling (ZOL/ZOE) becomes more involved in bounty scoping over time - R7 already
-  establishes the pattern of an agent assisting a human-gated bounty rather than the
-  agent controlling funds directly.
+  agent tooling (ZOL/ZOE) becomes more involved in bounty scoping over time - the design
+  already lays out a pattern of an agent assisting a human-gated bounty rather than the
+  agent controlling funds directly, even though it was never run to prove it out.
 
 ## What task types fit POIDH's model well
 
@@ -113,21 +117,23 @@ If The ZAO wants to run task bounties through POIDH regularly (bug fixes, resear
 docs, design), the dashboard is the natural place to also surface The ZAO's *own* task
 bounties specifically - the same way `org.config.json`'s `default_bounty_ids` already
 lets any org's known bounty ids get pulled into the calendar/leaderboard tooling (see
-[PARTNER-GUIDE.md](PARTNER-GUIDE.md)). No new tooling is required to start; R7 is the
-proof this already works end to end with the existing scripts.
+[PARTNER-GUIDE.md](PARTNER-GUIDE.md)). No new tooling is required to start - the existing
+scripts already handle it; the zabal-bugfix draft just hasn't been cast yet to prove it
+end to end.
 
 ## Practical next step
 
-The fastest way to validate this beyond R7 is running a second, different task-bounty
-type (research or docs, since code is already proven) using the same structural pattern
-R7 established: no ad-style BAR/RUBRIC, an impact/craft-style rubric suited to the task,
-proof tailored to what verification actually needs, and non-winner-take-all payout if
-multiple submissions genuinely clear the bar. This doc doesn't propose drafting that
+The fastest way to actually validate this - not just design it - is casting a real
+task bounty. Either finish and launch the zabal-bugfix draft, or draft a different task
+type (research or docs) using the same structural pattern it established: no ad-style
+BAR/RUBRIC, an impact/craft-style rubric suited to the task, proof tailored to what
+verification actually needs, and non-winner-take-all payout if multiple submissions
+genuinely clear the bar. This doc doesn't propose drafting that
 bounty yet - that's a real decision for Zaal, not something to pre-write speculatively.
 
 ## Also see
 
-- [rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) - the one real non-ad bounty this doc generalizes from
+- [rounds/drafts/zabal-bugfix/](../rounds/drafts/zabal-bugfix/) - the never-cast non-ad bounty design this doc generalizes from
 - [P2P-AD-BOUNTY-KIT.md](P2P-AD-BOUNTY-KIT.md) - the ad/promo bounty pattern (the other half of "ad system + bounty board")
 - [PARTNER-GUIDE.md](PARTNER-GUIDE.md) - org.config.json and the tooling this doc references
 - `docs/bounty-dashboard.html` / `scripts/build-bounty-dashboard.py` - the already-platform-wide bounty scanner referenced above

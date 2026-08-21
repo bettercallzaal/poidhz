@@ -1,6 +1,10 @@
 # poidhz share post - HOLD until 2026-08-21
 
-Post AFTER PRs #98, #99, #100 are merged so the live page matches the numbers. Replace `<N>` with the live "state a deadline" count on the page at post time. No emojis, no em dashes.
+Post AFTER PRs #98, #99, #100 are merged so the live page matches the numbers. Replace `<N>`
+with the live "state a deadline" count on the page at post time. Also re-check `95` (total
+open bounties) and the "zero/0 of 95 set the native field" claims against the live page before
+posting - both were true when this was written (2026-08-20) but drift as bounties open/close
+and are not auto-updated in this file. No emojis, no em dashes.
 
 ## Farcaster (long, embed https://zpoidh.vercel.app)
 

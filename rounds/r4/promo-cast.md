@@ -1,7 +1,11 @@
 # R4 promo cast - the open pot
 
-Paste-ready for /zabal + /poidh + /zao with [bounty 1249](https://poidh.xyz/base/bounty/1249)
-as the embed. Firefly cross-posts to X. Bounty is LIVE - these are ready to send as-is.
+Written for the original R4 launch (cast 2026-06-15) - for /zabal + /poidh + /zao with
+[bounty 1249](https://poidh.xyz/base/bounty/1249) as the embed, Firefly cross-post to X.
+R4 is long closed now (see [CLOSEOUT.md](CLOSEOUT.md) - it ran for the full window with
+real builder activity, so this was almost certainly posted at the time, though that
+wasn't independently re-verified while writing this note). Kept here as the historical
+launch copy, not a pending action.
 
 ## Farcaster (long, primary channel + cross-posts)
 
