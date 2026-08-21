@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T22:18:30.144045+00:00",
+  "generated_at": "2026-08-21T02:05:32.386727+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -41,7 +41,7 @@
     {
       "round": 5,
       "bounty_id": null,
-      "title": "R5 - POIDH x Unlock Protocol clip bounty",
+      "title": "R5 - Best WaveWarZ clip from the Twitch stream",
       "deadline_iso": null,
       "deadline_raw_text": null,
       "status": "not_cast",
