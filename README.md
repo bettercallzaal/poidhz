@@ -246,7 +246,7 @@ Each kit mirrors a canonical source repo (e.g. `github.com/ZAODEVZ/zabalgames` f
 - **[docs/RECAP.md](docs/RECAP.md)** - resume artifact + ongoing state
 - **[docs/PARTNER-GUIDE.md](docs/PARTNER-GUIDE.md)** - fork this repo's tooling for your own org, via `org.config.json`
 - **[docs/P2P-AD-BOUNTY-KIT.md](docs/P2P-AD-BOUNTY-KIT.md)** - the proven ad/promo bounty structure (BAR/RUBRIC/ASSET KIT/REWARD), extracted from R2/R3 into an org-agnostic template
-- **[docs/GENERAL-BOUNTY-BOARD.md](docs/GENERAL-BOUNTY-BOARD.md)** - using POIDH beyond ads, as a general task bounty board (bug fixes, research, docs), grounded in R7's precedent
+- **[docs/GENERAL-BOUNTY-BOARD.md](docs/GENERAL-BOUNTY-BOARD.md)** - using POIDH beyond ads, as a general task bounty board (bug fixes, research, docs), designed around the never-cast zabal-bugfix draft (see [rounds/drafts/zabal-bugfix/](rounds/drafts/zabal-bugfix/))
 - **[docs/PARTNERSHIP-TARGETS.md](docs/PARTNERSHIP-TARGETS.md)** - researched partnership candidates for spreading POIDH adoption, plus send-ready outreach drafts in `docs/outreach/`
 
 ---

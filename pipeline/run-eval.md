@@ -9,7 +9,9 @@
 Pick a completed round from `rounds/` that has submissions you want to evaluate:
 - **R2 (POIDH Ad):** 8 submissions, real rubric + judging notes already exist - use this for PoC
 - **R3 (ZABAL Gamez Ad):** 8 submissions, lightweight rubric
-- **R1/R4/R5/R6:** See `rounds/[rX]/judging.json` for submission data
+- **R1:** see `rounds/r1/judging.json`
+- **R4:** OPEN-SPLIT, not single-winner judged - see `rounds/r4/CLOSEOUT.md` instead
+- **R5 (WaveWarZ Twitch clip bounty):** open as of 2026-08-21, no `judging.json` yet - closes Sun Aug 30
 
 Compile a JSON file with the submissions:
 

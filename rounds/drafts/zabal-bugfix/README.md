@@ -1,8 +1,11 @@
-# R7 - ZABAL Gamez bug fixes bounty
+# ZABAL Gamez bug fixes bounty (DRAFT, never cast)
 
-First CODE bounty in the series. R1-R6 were clip/content bounties (Unlock clipping, etc.);
-R7 crowdsources real bug fixes for the ZABAL Gamez platform. Submissions are pull requests,
-not clips.
+Not live. No bounty ID. This held the "R7" slot before the R5-R7 renumbering freed it up
+for other rounds (see root `README.md`'s round index) - "R7" below is a leftover label from
+that draft, not a claim that a round by that number ran. Would have been the first CODE
+bounty in the series: every round that has actually launched (R1-R5) has been a
+clip/content bounty; this one crowdsources real bug fixes for the ZABAL Gamez platform,
+with pull requests as submissions instead of clips.
 
 ## At a glance
 
@@ -13,12 +16,13 @@ not clips.
 - **Issuer:** BCZ Treasury EOA / whichever wallet Zaal connects in [docs/create-bounty.html](../../docs/create-bounty.html)
 - **Reward:** seeded by Zaal at create time. NOT winner-take-all - multiple strong fixes can each be paid, because the point is making ZABAL Gamez better.
 
-## Why this one is different
+## Why this one would be different
 
-R1-R6 judged clips. R7 judges code: impact (does it fix a real user-blocking bug) plus craft
-(clean, minimal diff that does not break anything else). Best fixes get merged. This is also
-the trust-ladder first step for ZOL toward money actions - a controlled, human-funded bounty
-ZOL can help scope + judge without ever holding funds.
+R1-R5 all judged clips. This one would judge code instead: impact (does it fix a real
+user-blocking bug) plus craft (clean, minimal diff that does not break anything else).
+Best fixes get merged. It's also designed as the trust-ladder first step for ZOL toward
+money actions - a controlled, human-funded bounty ZOL could help scope + judge without
+ever holding funds - though that's untested since the bounty never ran.
 
 ## Files in this folder
 
