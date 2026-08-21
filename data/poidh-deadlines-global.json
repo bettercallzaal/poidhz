@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T07:22:14.369046+00:00",
+  "generated_at": "2026-08-21T13:25:01.308686+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -113,6 +113,16 @@
       "deadline_raw_text": "August 24, 2026",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1327"
+    },
+    {
+      "bounty_id": 1330,
+      "title": "Best 60s clip from the WaveWarZ Twitch stream",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "amount_eth": 0.0128,
+      "deadline_iso": "2026-08-30",
+      "deadline_raw_text": "August 30, 2026",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1330"
     },
     {
       "bounty_id": 1322,
