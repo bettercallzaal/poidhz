@@ -54,13 +54,13 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 
 ## Zaal gates (money, public, outbound)
 
-- [ ] **Confirm scope:** source channel is `twitch.tv/wavewarzofficial` (the only channel with WaveWarZ battle VODs; `twitch.tv/bettercallzaal` carries ZM / Artizen streams, not battles). All VODs in the 7-day window are in scope, plus live.
-- [ ] **Confirm with Hurric4n3IKE** that WaveWarZ is fine with a ZAO-issued bounty reposting on @wavewarz, and whether he wants to co-fund or co-post. One message.
-- [ ] **Standing hold check:** the earlier POIDH hold was on the weekly competition (doc 2308), not this one-off. Confirm it does not extend here.
-- [ ] **Set prize** (0.02 ETH recommended) and fund the issuer EOA with prize + gas (~0.025 ETH on Base).
-- [ ] **Create the bounty** (steps below).
+- [x] **Confirm scope:** source channel is `twitch.tv/wavewarzofficial` (the only channel with WaveWarZ battle VODs; `twitch.tv/bettercallzaal` carries ZM / Artizen streams, not battles). All VODs in the 7-day window are in scope, plus live.
+- [ ] **Confirm with Hurric4n3IKE** - held by Zaal 2026-08-21 (not sent yet; will capture VODs himself soon). Clip-upload toggle (Settings > Stream > Clips > "Let viewers upload clips to their socials") confirmed ON via screenshot 2026-08-21.
+- [x] **Standing hold check:** confirmed does not extend to this one-off.
+- [x] **Set prize** 0.0125 ETH, funded 0.0128 ETH (fee-adjusted) to the issuer EOA.
+- [x] **Create the bounty** - LIVE: [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330), 2026-08-21.
 - [ ] **Post** promo-cast.md with the live URL.
-- [ ] Optional but cheap: send the description to Kenny first. His review caught 4 issues on R1 in under 30 minutes.
+- [ ] Kenny DM (kenny-poidhz-combined) - held for tomorrow per Zaal.
 
 ## POIDH creation steps
 
