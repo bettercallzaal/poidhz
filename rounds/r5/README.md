@@ -12,7 +12,7 @@ wavewarz-clip-bounty"). Template: R1 / doc 533 (bounty 1151), the proven single-
 - **Format:** 20 to 90 second clip, battle audio kept, posted to either X / Instagram / TikTok / YouTube, then claimed on poidh with the post link. Poidh claim is the entry (doc 2308 one-surface rule).
 - **Deadline:** 11:59 pm PT Sunday, August 30, 2026 (10-day window, locked by Zaal).
 - **Winner:** poidh consensus (contributor-weighted vote on the OPEN pot). Zaal chose OPEN over single-judge on 2026-08-20.
-- **Chain / type:** Base, OPEN bounty (anyone can top up). Album poidh.xyz/a/thezao.
+- **Chain / type:** Base, OPEN bounty (anyone can top up). Album `wethemmedia` (continuity with R1-R3, per the locked playbook in the repo README) - live at [poidh.xyz/a/wethemmedia](https://poidh.xyz/a/wethemmedia). This doc originally said `thezao`, which was wrong; the bounty was created against the correct album.
 - **Issuer:** the EOA Zaal connects (BCZ Treasury EOA `0x7234c36a71ec237c2ae7698e8916e0735001e9af` per docs/how-to-draft-next-bounty.md). Must be an EOA, not a smart wallet.
 - **Reward:** recommendation below. One winner takes the pot.
 
@@ -69,9 +69,11 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 3. Title: `Best 60s clip from the WaveWarZ Twitch stream`
 4. Description: paste `description.md` between the sentinel lines. Poidh renders plain text; keep line breaks.
 5. Submit, confirm the tx, copy the bounty URL.
-6. Check it shows under poidh.xyz/a/thezao. Add to the README round index.
-7. Cast: Farcaster long version in /wavewarz and /poidh, X short version via Firefly, Telegram version in the Clippers group and ZAO GCs.
+6. Check it shows under poidh.xyz/a/wethemmedia. Add to the README round index.
+7. Cast: Farcaster long version in /wavewarz and /poidh, X short version via Firefly, Telegram version in the Clippers group and ZAO GCs, plus X/Farcaster DM group chats and Discord.
 8. Day 3 or 4: reply-cast (VODs rolling off). Day 7: close. Pick winner within 48h, accept claim on poidh, post the clip on @wavewarz with the entrant credited.
+
+**Status 2026-08-21:** LIVE at [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330). Steps 1-6 done. Step 7 (propagation) staged in clipboard `wavewarz-r5-propagate-all` - Farcaster main, X main, X GC, Farcaster /zao GC, Telegram, Discord, all six ready to post.
 
 ## Files in this folder
 

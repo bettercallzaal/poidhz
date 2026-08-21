@@ -4,6 +4,36 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-08-21 - poidhz rebrand shipped, R3/R4 closed, R5 renumbered to WaveWarZ and LIVE
+
+### Shipped (since the 2026-07-08 entry below - large gap, folding several sessions' work into one)
+
+- **R3 (bounty 1180) confirmed closed, paid.** femmie (claim 6749) won, confirmed on-chain.
+- **R4 (bounty 1249) closed 2026-08-05**, canceled at closeout - 15 builders credited in $ZABAL instead of an ETH split. Full story in [rounds/r4/CLOSEOUT.md](../rounds/r4/CLOSEOUT.md).
+- **Repo rebranded zpoidh -> poidhz** (chrome-level: title, nav, README, `/about` all say "poidhz"). GitHub repo name (`bettercallzaal/zpoidh`) and a `poidhz.xyz`/`.com` domain are still Zaal's taps, not done.
+- **Front page swapped**: `/` is now the deadline calendar (was `/about`); the old rounds/brand-kit landing moved to `/about`.
+- **R5-R7 slots freed up.** The Unlock Protocol clip bounty (co-fund + solo) and a ZABAL Gamez bug-fix bounty that held those numbers were never cast - moved to `rounds/drafts/unlock-cofund/`, `unlock-solo/`, `zabal-bugfix/`. Open as GitHub issues #5 (Unlock, blocked on Unlock's budget + issuer wallet) and #10/#8 (Poker tournament bounty, recording-spark tool test - both blocked on other people, see repo issues).
+- **R5 is now the WaveWarZ Twitch clip bounty** - "go through the archive, cut the best clip, WaveWarZ reposts it on their own channels." Grounded via doc 2356 (ZAO OS V1): 0.0125 ETH prize band, format+platform titles draw 2-4x claims, Twitch non-affiliate VOD retention is 7 days (drives the "clip early" framing).
+- **R5 LIVE 2026-08-21**: [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330), album `wethemmedia`, deadline Sun Aug 30 11:59pm PT, winner by poidh consensus (OPEN bounty - Zaal chose consensus over the single-judge shape R1-R3 used). Propagation (Farcaster main + GC, X main + GC, Telegram, Discord) staged, not yet all posted as of this entry.
+- **Leaderboard identity resolution rebuilt**: `scripts/refresh-poidh-leaderboard.py` now reads `poidh.xyz/base/bounty/<id>/data`, which returns every claim with `farcasterHandle`/`twitterHandle` already resolved server-side - web3.bio is enrichment (avatar, fid, ENS) on top of that, not the source. No Twitch or Telegram handle resolution exists anywhere in the pipeline yet - WaveWarZ's own Clippers program (t.me/wavewarzclipshq) stays a manual "submit in both places" ask, not a technical link.
+- Various tooling PRs (deadline parser py3.9 fix, calendar/dashboard live-data wiring, outreach draft refresh) - see git log for the full list; not itemized here to keep this entry scannable.
+
+### Lessons logged
+
+- **The repo's own playbook (README "How to draft + cast the next round," step 4) already locks the album as `wethemmedia`** for continuity with R1-R3. `rounds/r5/README.md` briefly said `thezao` instead - a documentation bug, not a bounty-creation error; the live bounty correctly landed on `wethemmedia`. Check the README playbook before writing a new round doc's "at a glance" section, don't re-derive locked conventions from memory.
+- **POIDH has no comment/chat feature** - the `/data` endpoint's schema is `{...bounty fields, claims: [...]}`, nothing else. "Tell people something after launch" means a reply-cast on Farcaster/X, not a poidh-native comment.
+
+### Pending / next up
+
+- [ ] Finish propagating R5 across all staged channels (clipboard `wavewarz-r5-propagate-all`)
+- [ ] Kenny DM + the poidhz platform-launch share post (`docs/launch-post.md`) - both held, about the poidhz platform itself rather than R5
+- [ ] GitHub repo rename + poidhz.xyz/.com domain purchase (Zaal)
+- [ ] Day 3/4 reply-cast on R5 once VODs start rolling off
+- [ ] R5 close (Aug 30): pick winner, poidh consensus vote, post clip on @wavewarz with credit
+- [ ] Open repo issues #5 (Unlock), #8 (spark-tool test), #10 (Poker bounty), #11 (R4 claimant confirm) - all blocked on people outside this repo, re-check when they unblock
+
+---
+
 ## 2026-07-08 - Live leaderboard refresh + R3 winner discovery + R5 Unlock draft scaffolded
 
 ### Shipped
@@ -130,17 +160,19 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ```
 Reading github.com/bettercallzaal/zpoidh/docs/RECAP.md to bootstrap context.
-We are picking up BCZ POIDH bounty ops. Active state: R4 (bounty 1249, ZABAL Gamez
-open pot, OPEN-SPLIT) LIVE through Fri Jul 31 2026. R3 (bounty 1180) winner already
-accepted on-chain (femmie, claim 6749) - resolveVote/withdraw + winner cast still
-need confirming. R5 (POIDH x Unlock Protocol clip bounty) is drafted at rounds/drafts/unlock-cofund/
-but not cast - no bounty ID yet.
-zpoidh repo is canonical home for all rounds + playbook.
+We are picking up BCZ POIDH bounty ops (repo now branded "poidhz"). Active state:
+R1-R4 all closed and paid/credited. R5 (WaveWarZ Twitch clip bounty, bounty 1330,
+poidh.xyz/base/bounty/1330) is LIVE as of 2026-08-21, deadline Sun Aug 30 11:59pm PT,
+album wethemmedia, winner by poidh consensus. Propagation across Farcaster/X/Telegram/
+Discord is staged (see the 2026-08-21 entry above) but confirm what has actually
+been posted before re-drafting anything.
+poidhz repo (github.com/bettercallzaal/zpoidh) is canonical home for all rounds + the
+playbook in root README.md.
 
 Tell me what to work on:
-(a) Confirm R3 vote/withdrawal status + post the femmie winner cast
-(b) Send the R5 pitch DM to trigs + Kenny, then lock R5 placeholders
-(c) R4 weekly top-up + reminder cast cadence
-(d) Migrate BCZ POIDH URLs to redirect into zpoidh deploy
+(a) Finish/confirm R5 propagation across the staged channels
+(b) R5 close (Aug 30): pick winner, run the poidh consensus vote, post the clip on @wavewarz
+(c) The still-open repo issues (#5 Unlock, #8 spark-tool, #10 Poker bounty, #11 R4 claimant) - check if any unblocked
+(d) GitHub repo rename to poidhz + domain purchase, once Zaal is ready
 (e) Something else
 ```
