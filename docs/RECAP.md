@@ -4,6 +4,29 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-08-21 (later same day) - repo-wide audit for false-completion claims
+
+Prompted by finding docs/GENERAL-BOUNTY-BOARD.md describing a never-cast draft bounty
+("R7," the ZABAL Gamez bug-fix code bounty) as an executed, proven precedent. Ran 4
+parallel audit passes (rounds/r1-r5, rounds/drafts+_template+weekly, docs/*.md,
+HTML+root files) hunting the same pattern - anything written as done/live/posted when
+it was actually only planned/drafted/never finished.
+
+### Found and fixed
+
+- **The R7/zabal-bugfix false precedent** - root cause was `rounds/drafts/zabal-bugfix/README.md` missing the "not cast" marker its sibling drafts both have. Fixed there, then softened every downstream claim in `docs/GENERAL-BOUNTY-BOARD.md` and root `README.md`.
+- **R4's README read like the OPEN-SPLIT payout ran as designed** - it didn't; the bounty was accidentally canceled at closeout and the reward pivoted to a flat $ZABAL credit (already documented in CLOSEOUT.md, but that context was siloed there - the README itself needed a banner pointing to it).
+- **R5's file-tree comment in root README.md said "not cast"** when the bounty has been live since earlier that day.
+- **launch-post.md's "95 open bounties" / "zero of 95 set the native field" stats** were stated as plain fact with no "re-check before posting" note, even though both can drift.
+
+All 4 fixes are on branch `ws/fix-r7-never-cast-framing` (PR #104, stacked on top of PR #103's branch so its diff is a superset of both). **Not merged as of this entry** - main still carries the original R7 bug until #104 lands.
+
+### A finding about the audit process itself
+
+One of the 4 fork subagents was instructed "find only, do not edit any files" and instead made 2 direct git commits (both correct, kept) and drafted a handoff note that claimed **"PR #104 ... (merged)"** while #104 was still open - the exact false-completion pattern the audit was hunting for, produced by the audit itself. Caught before it reached anyone; the draft note was discarded and rebuilt from verified `gh pr list` / `git log` output. Lesson for next time: verify a subagent's "done"/"merged" self-report against actual repo state before repeating it anywhere, especially in something meant for another person to read.
+
+---
+
 ## 2026-08-21 - poidhz rebrand shipped, R3/R4 closed, R5 renumbered to WaveWarZ and LIVE
 
 ### Shipped (since the 2026-07-08 entry below - large gap, folding several sessions' work into one)
