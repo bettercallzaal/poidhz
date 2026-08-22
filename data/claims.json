@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T18:47:03Z",
+  "generated_at": "2026-08-22T01:39:48Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
@@ -159,7 +159,7 @@
       "fid": 1102924,
       "boost": 1,
       "totalRewards": 2.0000338804549456,
-      "follower": 2031,
+      "follower": 2032,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -191,7 +191,7 @@
       "fid": 291971,
       "boost": 1,
       "totalRewards": 1.899311260695385,
-      "follower": 4337,
+      "follower": 4338,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -271,7 +271,7 @@
       "fid": 1104991,
       "boost": 1,
       "totalRewards": 0.8952216126055632,
-      "follower": 2028,
+      "follower": 2033,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -367,7 +367,7 @@
       "fid": 1079922,
       "boost": null,
       "totalRewards": null,
-      "follower": 5611,
+      "follower": 5612,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -439,15 +439,15 @@
       "address": "0x7d79e902482469da64977d2b0977120c77029593",
       "score": 1,
       "rank": null,
-      "farcaster_username": null,
-      "displayName": null,
-      "avatar": null,
-      "twitter_handle": null,
-      "twitter_url": null,
-      "fid": null,
+      "farcaster_username": "ghostmintops",
+      "displayName": "ghostmintops",
+      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/dc02c711-9086-4577-c151-eda7b9b02c00/original",
+      "twitter_handle": "ghostminto71217",
+      "twitter_url": "https://x.com/ghostminto71217",
+      "fid": 1477142,
       "boost": null,
       "totalRewards": null,
-      "follower": null,
+      "follower": 1496,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -463,7 +463,7 @@
       "fid": 1025388,
       "boost": null,
       "totalRewards": null,
-      "follower": 1449,
+      "follower": 1450,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -479,7 +479,7 @@
       "fid": 1355878,
       "boost": null,
       "totalRewards": null,
-      "follower": 62,
+      "follower": 61,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -520,14 +520,14 @@
       "score": 1,
       "rank": null,
       "farcaster_username": "taku0x",
-      "displayName": "taku0x.eth",
-      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d1dd5180-7a2a-4693-d4c9-b14801da3800/original",
+      "displayName": null,
+      "avatar": null,
       "twitter_handle": "0xcryt29",
-      "twitter_url": "https://x.com/0xcryt29",
-      "fid": 880910,
+      "twitter_url": null,
+      "fid": null,
       "boost": null,
       "totalRewards": null,
-      "follower": 39,
+      "follower": null,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -543,7 +543,7 @@
       "fid": 267104,
       "boost": null,
       "totalRewards": null,
-      "follower": 14815,
+      "follower": 14814,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -575,7 +575,7 @@
       "fid": 849116,
       "boost": null,
       "totalRewards": null,
-      "follower": 4024,
+      "follower": 4026,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -607,7 +607,7 @@
       "fid": 1088459,
       "boost": null,
       "totalRewards": null,
-      "follower": 3653,
+      "follower": 3652,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     }
@@ -720,8 +720,8 @@
       "title": "Real-world coordination shouldn't require permission. \ud83c\udf0d",
       "description": "https://x.com/i/status/2057966595029319888",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYWTsGEREEkQpb2v56RXPgzb9ok8dByNeGQ6uMZD9M2VS",
-      "accepted": true,
-      "on_chain_id": 1329
+      "accepted": false,
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -731,7 +731,7 @@
       "description": "X : https://x.com/akukiwil_/status/2057950695945552254?s=20\n\nFcaster : https://farcaster.xyz/akukiwil/0xea2c0371\n\nImagine a tool that lets humans coordinate funds for laser-specific real-world tasks without relying on a single middleman. \n\n\"The coolest thing is the fact that it wouldn\u2019t be possible to create POIDH without blockchain.\" \n\nPOIDH changes the game by bringing trustless, permissionless bounty structures into action. All you need is a wallet. \n\nPost your bounty now at poidh.xyz \ud83d\udee0\ufe0f",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmQQVYzAqDt8Ri61WPvkrSxA2Zif9VKyxYpoU8tNjBgiYD",
       "accepted": false,
-      "on_chain_id": 1328
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -741,7 +741,7 @@
       "description": "Poidh.xyz is building a new way for people to share real experiences, discover trusted opinions, and make better decisions online \u2014 turning \u201cPic Or It Didn\u2019t Happen\u201d into a movement for internet trust.\n\nhttps://youtu.be/0sJTe4999gU?si=71rVQSsJI25eS08i",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmSnBPLfY92Z9CyX4bHv99YHK5QZAvuu1eYy1E3UbP3HM2",
       "accepted": false,
-      "on_chain_id": 1318
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -751,7 +751,7 @@
       "description": "https://x.com/remixitphotos/status/2056492760337719605?s=46",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/Qmb3YwUJwJg9Xg64dkURRbHrQJazhk8YXYeaSUGtkForgL",
       "accepted": false,
-      "on_chain_id": 1300
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -761,7 +761,7 @@
       "description": "https://x.com/i/status/2056276687206097376\n\n\ncross posted across farcaster, POIDH channel and zao channel. ",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmULPz3j6d6z3foVnhWFnj6QEK8CFTjJTcF1EGUDA2Lmjc",
       "accepted": false,
-      "on_chain_id": 1292
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -771,7 +771,7 @@
       "description": "https://x.com/i/status/2055231464120131692",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmPboBehSDyBhVv87dfDuW3dv1R3Qafis4EJfEkrRuNMgZ",
       "accepted": false,
-      "on_chain_id": 1270
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -781,7 +781,7 @@
       "description": "https://x.com/kayhwizard/status/2055004108239564818?s=46",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmcTP1e4aqSF35JGgHqfmLCeNwgszMwtry5KPX79wNSs8d",
       "accepted": false,
-      "on_chain_id": 1269
+      "on_chain_id": null
     },
     {
       "bounty_id": 1166,
@@ -791,7 +791,7 @@
       "description": "https://x.com/i/status/2054990017487880667",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmRexftJ74n8ZYNdx71gi4g7vRVdwAQnVfGV3cpPnVpWEC",
       "accepted": false,
-      "on_chain_id": 1268
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -800,8 +800,8 @@
       "title": "ZABALGAMEZ.COM AD \ud83d\udd79\ufe0f",
       "description": "https://x.com/femmie/status/2065083051714003291\n\nhttps://farcaster.xyz/femmie/0xd42f8ee9\n",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmPQ3qbYUnFPRUt4mK62AgxZJ1nhpmuxgfCebrnvLBX3zA",
-      "accepted": true,
-      "on_chain_id": 1433
+      "accepted": false,
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -811,7 +811,7 @@
       "description": "https://x.com/i/status/2065942628403716570\nhttps://farcaster.xyz/joeyofdeus/0xa967775e",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmSuKpdL75WrgsmfReMMfs1GeUjzuX9ibN2k7gUEsbce5X",
       "accepted": false,
-      "on_chain_id": 1482
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -821,7 +821,7 @@
       "description": "This ad focuses on positioning ZABAL Gamez as more than a typical short-term build event.\nhttps://x.com/forkmster/status/2065749889448120439\nHere's the video link; ",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmdE3ZWticXQ8DSFjZ37dAgzVj7v9tYR2F47GQazsCP9fP",
       "accepted": false,
-      "on_chain_id": 1473
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -831,7 +831,7 @@
       "description": "https://x.com/i/status/2065727427230261515",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmQ7Anm2r8Dv8Jgid4oGRM8H7kQFgDA98NY2iReSRXJJMd",
       "accepted": false,
-      "on_chain_id": 1472
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -841,7 +841,7 @@
       "description": "https://x.com/i/status/2065364310436598058\nhttps://farcaster.xyz/taku0x/0xf9b631e1\nhttps://www.facebook.com/share/r/1CxveoLrWN/",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZ9xyaFzLdi73p4iJt7W2Mrxqz5oJKbs2hNDnyvoyhWbu",
       "accepted": false,
-      "on_chain_id": 1459
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -851,7 +851,7 @@
       "description": "x https://x.com/i/status/2064774721485582839\n\nfar https://farcaster.xyz/vipulpapriwal/0x84fb8383",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmPUmZP7Qavq9fyUPm1ZxpZNDMPd7MstjHg6YZK6nXRoZj",
       "accepted": false,
-      "on_chain_id": 1426
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -861,7 +861,7 @@
       "description": "https://x.com/khanawais5898/status/2064407057772712395?s=46\n\nhttps://farcaster.xyz/awaiskhan/0x6ee66c4c\n",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmW1FXUHi1Djq9PYe32dfTge81k1yLfcikVps9XJMxwxka",
       "accepted": false,
-      "on_chain_id": 1424
+      "on_chain_id": null
     },
     {
       "bounty_id": 1180,
@@ -871,7 +871,7 @@
       "description": "Submission links:\n\nFarcaster:https://farcaster.xyz/0xcollinxweb3/0x6e02c4c4\n\nX:https://x.com/i/status/2064275976045904313\n\nTikTok:https://vm.tiktok.com/ZSQk4Lyqn/ This post is shared via TikTok Lite. Download TikTok Lite to enjoy more posts: https://www.tiktok.com/tiktoklite",
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmcUEtLSYUa4n3hu3SVtq17EketPGudhqNjS8oQJ9XaALr",
       "accepted": false,
-      "on_chain_id": 1421
+      "on_chain_id": null
     }
   ]
 }
