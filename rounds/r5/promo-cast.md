@@ -1,11 +1,11 @@
 # R5 promo casts
 
-Replace `<BOUNTY_URL>` with the live poidh URL before posting. No emojis, no em dashes.
+Live URL filled in 2026-08-21 (bounty 1330). No emojis, no em dashes. The day 3-4 reply-cast still has one placeholder, `<N>`, which is the live claim count at the moment you post it: check poidh.xyz/base/bounty/1330 first.
 
 ## Farcaster (long, embed the bounty URL)
 
 ```
-<BOUNTY_URL>
+https://poidh.xyz/base/bounty/1330
 
 New poidh bounty: go through the WaveWarZ Twitch stream and cut the best 20 to 90 second clip.
 
@@ -28,7 +28,7 @@ New @poidhxyz bounty: cut the best 20-90s clip from the @wavewarz Twitch stream.
 
 VODs expire in 7 days, clip early. Deadline 11:59pm PT Sun Aug 30.
 
-<BOUNTY_URL>
+https://poidh.xyz/base/bounty/1330
 ```
 
 ## Telegram / GC / Discord (mid-length)
@@ -42,11 +42,11 @@ Post it to X / IG / TikTok / YouTube, tag @wavewarz, name the artists in the cli
 
 Clippers: this stacks with your points here. Submit both places.
 
-<BOUNTY_URL>
+https://poidh.xyz/base/bounty/1330
 ```
 
 ## Reply-cast (day 3 or 4)
 
 ```
-<N> clips in so far. VODs from the first nights are about to roll off Twitch - if you saw a moment this week, clip it today. Deadline Sun 11:59 pm PT. <BOUNTY_URL>
+<N> clips in so far. VODs from the first nights are about to roll off Twitch - if you saw a moment this week, clip it today. Deadline Sun 11:59 pm PT. https://poidh.xyz/base/bounty/1330
 ```

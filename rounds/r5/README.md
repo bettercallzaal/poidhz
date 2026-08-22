@@ -59,7 +59,8 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 - [x] **Standing hold check:** confirmed does not extend to this one-off.
 - [x] **Set prize** 0.0125 ETH, funded 0.0128 ETH (fee-adjusted) to the issuer EOA.
 - [x] **Create the bounty** - LIVE: [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330), 2026-08-21.
-- [ ] **Post** promo-cast.md with the live URL.
+- [x] **Post** promo-cast.md with the live URL. **PARTIAL, and this is the R5 problem.** It went out 2026-08-21 12:36 PT from Zaal's personal X ([@bettercallzaal](https://x.com/bettercallzaal/status/2090749876950691917)) and from Iman's personal account. Verified by eye 2026-08-22. It has **never** gone out from [@wavewarz](https://x.com/wavewarz) (verified, and the audience that actually watches the stream; handle confirmed in doc 1223), or into the WaveWarZ clippers group at [t.me/wavewarzclipshq](https://t.me/wavewarzclipshq) where the clippers named in docs 1223 / 1293 already are. Result after 27 hours: **147 views, 0 claims.** The pot moved 0.0128 to 0.0238 ETH, so someone in Zaal's own network topped it up, which is reach among peers and not among clippers. The bounty text promises "the clip runs on WaveWarZ official channels" while never having been announced on one. Owner-account propagation is Zaal's call, so this is flagged, not actioned.
+- [x] **ZAO amplification** - posted from @TheZAODAO on X 2026-08-22 by Iman, under the standing rule that ZAO account posting continues unless Zaal says otherwise. This is the first owner-account reach R5 has had. @wavewarz and t.me/wavewarzclipshq remain unreached and remain Zaal's to run.
 - [ ] Kenny DM (kenny-poidhz-combined) - held for tomorrow per Zaal.
 
 ## POIDH creation steps
