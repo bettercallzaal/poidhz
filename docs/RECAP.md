@@ -12,7 +12,7 @@ in fact gone out, from Zaal's personal X on 2026-08-21 12:36 PT
 Iman's personal account. Same false-completion pattern this log already warns about, just
 inverted: a box left unticked on work that happened.
 
-What it has **not** done is reach an owner account. Nothing from @WaveWaZ (verified, and the
+What it has **not** done is reach an owner account. Nothing from @wavewarz (verified, and the
 audience that watches the stream it is asking people to clip), nothing from @TheZAODAO, and
 nothing in the WaveWarZ clippers Telegram at t.me/wavewarzclipshq, which docs 1223 and 1293
 name as an existing points-based clippers group.
@@ -25,6 +25,20 @@ never having been announced on one.
 So R5 is not under-priced and not badly written. It is **under-distributed**, and the fix is one
 post from an account that already has the right audience. Owner-account posting is Zaal's call,
 so this is flagged and queued, not actioned.
+
+### Update, same day: ZAO posted, handle corrected
+
+Iman posted the R5 promo from @TheZAODAO on X on 2026-08-22, the first owner-account reach the
+round has had, under the standing rule that ZAO posting continues unless Zaal says otherwise.
+Zaal was told in the same breath, with the post treated as reversible.
+
+@wavewarz and t.me/wavewarzclipshq are still unreached and still Zaal's to run. Those two are
+the ones that matter: ZAO's audience is builders, while the clippers group is people already
+clipping that exact stream for points.
+
+Also corrected an error introduced earlier in this entry: the handle is **@wavewarz**, confirmed
+in doc 1223 and in the R5 README, not "@WaveWaZ" which was misread off a truncated screenshot
+sidebar. Fixed here and in rounds/r5/README.md.
 
 ---
 
