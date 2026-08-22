@@ -4,6 +4,55 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-08-21 (evening) - handoff to Iman, R5 verified live but unpromoted
+
+Ownership of this repo passed to Iman. First act was verifying the handoff against live repo
+state rather than acting on it, per the lesson recorded in the entry below.
+
+### Handoff items that were already done or do not exist
+
+- **"Merge PR #104 first, then close #103"** - both already done by Zaal before the handoff
+  landed. #104 merged 13:00:39Z (`eb9e9a2`), #103 closed unmerged 15:31:56Z, branch deleted.
+  Superset claim independently confirmed: #103's 3 files are all inside #104's 11. No action.
+- **`.handoffs/session-2026-08-21-wavewarz-r5-iman-handoff/README.md`** - does not exist. Not
+  on main, not on any of the 23 branches, not in either PR. Zero of main's 157 files match
+  "handoff". Probably an uncommitted scratchpad, or lived on the deleted `ws/r5-docs-recap-update`.
+  Root README.md stands as the reference playbook. Flagged to Zaal, not blocking.
+
+### R5 state, verified from data/bounty-dashboard.json (generated 13:24:54Z)
+
+Bounty 1330 is `open`, multiplayer, 0.0128 ETH / $30.49, deadline 2026-08-30, issuer matches
+the BCZ Treasury EOA on file. **`has_submissions: false`, `has_participants: false`.**
+
+Zero claims, because the promo was never posted. The "Post promo-cast.md with the live URL"
+gate in `rounds/r5/README.md` is unchecked, and `promo-cast.md` still carries an unfilled
+`<BOUNTY_URL>` placeholder, so the casts are not merely unposted, they are not yet postable.
+Repo state is not proof of social state, so the accounts still get checked by eye before
+anything goes out.
+
+Urgency is structural: the bounty asks entrants to clip a Twitch archive that self-deletes
+after 7 days on a 10-day round, so source VODs roll off faster than the deadline arrives.
+Every silent day burns material. Nine days left as of this entry.
+
+### Timing
+
+R5 closes Sun 30 Aug 11:59pm PT = **Mon 31 Aug 08:59 CAT / 02:59 ET**. That falls inside
+Iman's working morning while Zaal is asleep, so the close and the consensus vote need no one
+else awake.
+
+### Pending
+
+1. Fill `<BOUNTY_URL>` across promo-cast.md surfaces, verify copy against repo rules (no
+   emojis, no em dashes, artists credited), hand Zaal a one-tap queue.
+2. Eyeball the socials before posting. Assume nothing.
+3. Track R5 to close, consensus vote, winner posted on @wavewarz with the entrant credited.
+4. Zaal's calls, unchanged: GitHub repo rename to `poidhz`, buying `poidhz.xyz`/`.com`, and
+   posting from ZAO-owned accounts.
+5. Logged not fixed: dashboard classifies 1330 as `task_type: "code"`. It is a clip bounty.
+   Auto-classifier artifact, harmless unless it affects discovery.
+
+---
+
 ## 2026-08-21 (later same day) - repo-wide audit for false-completion claims
 
 Prompted by finding docs/GENERAL-BOUNTY-BOARD.md describing a never-cast draft bounty
@@ -19,7 +68,7 @@ it was actually only planned/drafted/never finished.
 - **R5's file-tree comment in root README.md said "not cast"** when the bounty has been live since earlier that day.
 - **launch-post.md's "95 open bounties" / "zero of 95 set the native field" stats** were stated as plain fact with no "re-check before posting" note, even though both can drift.
 
-All 4 fixes are on branch `ws/fix-r7-never-cast-framing` (PR #104, stacked on top of PR #103's branch so its diff is a superset of both). **Not merged as of this entry** - main still carries the original R7 bug until #104 lands.
+All 4 fixes are on branch `ws/fix-r7-never-cast-framing` (PR #104, stacked on top of PR #103's branch so its diff is a superset of both). **Merged 2026-08-21 13:00:39Z as `eb9e9a2`** - main no longer carries the R7 bug. PR #103 was closed unmerged at 15:31:56Z the same day, correctly: its 3 changed files are all contained in #104's 11. Superset claim verified against both PRs' file lists rather than taken on trust.
 
 ### A finding about the audit process itself
 
