@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:56:29.064103+00:00",
+  "generated_at": "2026-08-22T07:08:08.909840+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
