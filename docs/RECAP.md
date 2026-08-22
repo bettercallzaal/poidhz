@@ -4,6 +4,30 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-08-22 - R5 was posted after all, but only from personal accounts
+
+The unchecked "Post promo-cast.md" gate was **stale in the opposite direction**: the promo had
+in fact gone out, from Zaal's personal X on 2026-08-21 12:36 PT
+([status 2090749876950691917](https://x.com/bettercallzaal/status/2090749876950691917)) and from
+Iman's personal account. Same false-completion pattern this log already warns about, just
+inverted: a box left unticked on work that happened.
+
+What it has **not** done is reach an owner account. Nothing from @WaveWaZ (verified, and the
+audience that watches the stream it is asking people to clip), nothing from @TheZAODAO, and
+nothing in the WaveWarZ clippers Telegram at t.me/wavewarzclipshq, which docs 1223 and 1293
+name as an existing points-based clippers group.
+
+That reconciles the numbers exactly. 147 views in 27 hours. `has_participants: true` because
+someone in Zaal's network topped the pot 0.0128 to 0.0238 ETH. `has_submissions: false` because
+no clipper saw it. The bounty copy promises "the clip runs on WaveWarZ official channels" while
+never having been announced on one.
+
+So R5 is not under-priced and not badly written. It is **under-distributed**, and the fix is one
+post from an account that already has the right audience. Owner-account posting is Zaal's call,
+so this is flagged and queued, not actioned.
+
+---
+
 ## 2026-08-21 (evening) - handoff to Iman, R5 verified live but unpromoted
 
 Ownership of this repo passed to Iman. First act was verifying the handoff against live repo
