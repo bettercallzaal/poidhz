@@ -1,43 +1,41 @@
 {
-  "generated_at": "2026-08-23T07:09:11.814085+00:00",
+  "generated_at": "2026-08-23T13:08:53.814926+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
       "round": 1,
       "bounty_id": 1151,
       "title": "R1 - Hannah Ep 17 clip-up",
-      "deadline_iso": null,
-      "deadline_raw_text": null,
-      "status": "fetch_failed",
+      "deadline_iso": "2026-05-04",
+      "deadline_raw_text": "May 4, 2026",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1151"
     },
     {
       "round": 2,
       "bounty_id": 1166,
       "title": "R2 - Best 60s POIDH ad from Ep 19",
-      "deadline_iso": null,
-      "deadline_raw_text": null,
-      "status": "fetch_failed",
+      "deadline_iso": "2026-05-22",
+      "deadline_raw_text": "May 22, 2026",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1166"
     },
     {
       "round": 3,
       "bounty_id": 1180,
       "title": "R3 - Best ad for ZABAL Gamez",
-      "deadline_iso": null,
-      "deadline_raw_text": null,
-      "status": "fetch_failed",
+      "deadline_iso": "2026-06-14",
+      "deadline_raw_text": "June 14, 2026",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1180"
     },
     {
       "round": 4,
       "bounty_id": 1249,
       "title": "R4 - ZABAL Gamez open pot",
-      "offchain": true,
-      "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring.",
-      "deadline_iso": null,
-      "deadline_raw_text": null,
-      "status": "fetch_failed",
+      "deadline_iso": "2026-07-31",
+      "deadline_raw_text": "July 31, 2026",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1249"
     },
     {
