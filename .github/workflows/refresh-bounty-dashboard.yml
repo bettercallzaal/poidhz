@@ -25,6 +25,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Run guard tests
+        run: python3 -m pytest tests/test_dashboard_guard.py -v
+
       - name: Run dashboard build script
         run: python3 scripts/build-bounty-dashboard.py
 

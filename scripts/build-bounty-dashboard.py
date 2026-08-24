@@ -137,6 +137,19 @@ def score_bounty(title: str, description: str) -> dict:
     return {"task_type": "unclassified", "ease": DEFAULT_EASE, "difficulty": DEFAULT_DIFFICULTY, "classified": False}
 
 
+def should_overwrite_dashboard(prev_total: int, current_total: int) -> bool:
+    """Decide whether a freshly built dashboard may replace the on-disk one.
+
+    A refresh that returns 0 bounties (transient scrape failure, API outage,
+    rate-limit) must NOT clobber the last good live data. We only overwrite
+    when either the new data is non-empty, or there was no previous data to
+    protect.
+    """
+    if current_total > 0:
+        return True
+    return prev_total <= 0
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--pages", type=int, default=6, help="pages per status to scan")
@@ -233,6 +246,24 @@ def main() -> int:
     }
 
     out_path = REPO_ROOT / "data" / "bounty-dashboard.json"
+
+    # Guard: never overwrite a populated dashboard with an empty one.
+    # A refresh that returns 0 bounties (transient scrape failure, API outage,
+    # rate-limit) must NOT clobber the last good live data.
+    prev_total = 0
+    if out_path.exists():
+        try:
+            prev_total = json.loads(out_path.read_text()).get("total_bounties", 0) or 0
+        except Exception:
+            prev_total = 0
+    if not should_overwrite_dashboard(prev_total, len(bounties)):
+        print(
+            f"WARNING: refresh returned 0 bounties but previous dashboard had "
+            f"{prev_total}. Refusing to overwrite live data with an empty dashboard. "
+            f"Keeping the last good run."
+        )
+        return 0
+
     out_path.write_text(json.dumps(out, indent=2) + "\n")
     print(f"Scanned {len(bounties)} live bounties ({out['with_deadline']} with a parseable deadline, "
           f"{out['with_submissions_already']} already have submissions).")
