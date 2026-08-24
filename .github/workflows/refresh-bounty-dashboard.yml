@@ -39,6 +39,39 @@ jobs:
       - name: Refresh live round state
         run: python3 scripts/refresh-rounds.py
 
+      - name: Guard against degenerate data
+        # Second line of defence. build-bounty-dashboard.py now exits non-zero
+        # rather than writing an empty list, but any future path that produces a
+        # degenerate file must not reach the commit step either. On 2026-08-23
+        # 431f7ea pushed total_bounties: 0 over 100 live listings, and the only
+        # reason it recovered was the next scheduled run happening to succeed.
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+
+          bad = []
+          p = Path("data/bounty-dashboard.json")
+          try:
+              d = json.loads(p.read_text())
+          except Exception as e:
+              print(f"FAIL {p}: unparseable ({e})")
+              sys.exit(1)
+
+          n = len(d.get("bounties") or [])
+          if n == 0:
+              bad.append(f"{p}: bounties list is empty")
+          if d.get("total_bounties") != n:
+              bad.append(f"{p}: total_bounties {d.get('total_bounties')} does not match {n} entries")
+
+          if bad:
+              for b in bad:
+                  print("FAIL " + b)
+              print("Refusing to commit. The last good data stays on main.")
+              sys.exit(1)
+          print(f"OK {p}: {n} bounties, self-consistent.")
+          PY
+
       - name: Commit and push if changed
         run: |
           git config user.name "poidh-dashboard-refresh[bot]"
