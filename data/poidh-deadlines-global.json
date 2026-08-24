@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T07:35:00.950896+00:00",
+  "generated_at": "2026-08-24T13:29:00.849631+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -63,16 +63,6 @@
       "deadline_raw_text": "July 31rst, 2026",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1186"
-    },
-    {
-      "bounty_id": 1310,
-      "title": "Best Sunrise Shot",
-      "issuer": "0x96e9025466a3e15dc2c3b28c1c6c71523a93f703",
-      "amount_eth": 0.0053,
-      "deadline_iso": "2026-08-20",
-      "deadline_raw_text": "20th August, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1310"
     },
     {
       "bounty_id": 1333,
