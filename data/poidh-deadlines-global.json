@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T19:08:39.527913+00:00",
+  "generated_at": "2026-08-25T01:57:55.552412+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -73,26 +73,6 @@
       "deadline_raw_text": "August 22nd",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1333"
-    },
-    {
-      "bounty_id": 1329,
-      "title": "take a purple pic \ud83d\udc9c",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.0025,
-      "deadline_iso": "2026-08-23",
-      "deadline_raw_text": "August 23rd",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1329"
-    },
-    {
-      "bounty_id": 1327,
-      "title": "ZitiCashbox - $10 send to a Farcaster user",
-      "issuer": "0xc0f0e1512d6a0a77ff7b9c172405d1b0d73565bf",
-      "amount_eth": 0.028,
-      "deadline_iso": "2026-08-24",
-      "deadline_raw_text": "August 24, 2026",
-      "status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1327"
     },
     {
       "bounty_id": 1330,
