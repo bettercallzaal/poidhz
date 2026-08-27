@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:24:13.625758+00:00",
+  "generated_at": "2026-08-27T10:03:54.175344+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -11,7 +11,7 @@
       "url": "https://poidh.xyz/base/bounty/1151",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 25.92765,
+      "amount_usd": 26.60543,
       "claims": 11,
       "winner": {
         "claim_id": 6368,
@@ -25,8 +25,19 @@
       "round": 2,
       "bounty_id": 1166,
       "title": "R2 - Best 60s POIDH ad from Ep 19",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Best 60s POIDH ad from Ep 19 w/ Kenny",
+      "url": "https://poidh.xyz/base/bounty/1166",
+      "status": "WINNER SET",
+      "amount_native": 0.0105,
+      "amount_usd": 26.60543,
+      "claims": 8,
+      "winner": {
+        "claim_id": 6645,
+        "handle": "joeyofdeus",
+        "wallet": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": 3,
@@ -36,7 +47,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 61.7325,
+      "amount_usd": 63.34625,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -54,7 +65,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 34.07634,
+      "amount_usd": 34.96713,
       "claims": 2,
       "winner": null,
       "offchain": true,

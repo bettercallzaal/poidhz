@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:23:48.600604+00:00",
+  "generated_at": "2026-08-27T10:03:44.919575+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
