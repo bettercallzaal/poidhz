@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T22:27:25.705986+00:00",
+  "generated_at": "2026-08-28T11:35:26.091054+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -11,7 +11,7 @@
       "url": "https://poidh.xyz/base/bounty/1151",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 26.29536,
+      "amount_usd": 26.36592,
       "claims": 11,
       "winner": {
         "claim_id": 6368,
@@ -29,7 +29,7 @@
       "url": "https://poidh.xyz/base/bounty/1166",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 26.29536,
+      "amount_usd": 26.36592,
       "claims": 8,
       "winner": {
         "claim_id": 6645,
@@ -47,7 +47,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 62.608,
+      "amount_usd": 62.776,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -61,15 +61,8 @@
       "round": 4,
       "bounty_id": 1249,
       "title": "R4 - ZABAL Gamez open pot",
-      "bounty_title": "ZABAL Gamez Open Pot",
-      "url": "https://poidh.xyz/base/bounty/1249",
-      "status": "CANCELED",
-      "amount_native": 0.0138,
-      "amount_usd": 34.55962,
-      "claims": 2,
-      "winner": null,
-      "offchain": true,
-      "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring."
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 5,
