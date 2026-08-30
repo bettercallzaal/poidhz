@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T05:35:41.497533+00:00",
+  "generated_at": "2026-08-30T12:04:11.803048+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -183,16 +183,6 @@
       "deadline_raw_text": "September 21st",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
-    },
-    {
-      "bounty_id": 1335,
-      "title": "Enter Collective Memory mini app staking challenge",
-      "issuer": "0x5d6ae7e2e76d9f15e42f20a02bbc2e7cdecdbb0d",
-      "amount_eth": 0.01,
-      "deadline_iso": "2026-09-27",
-      "deadline_raw_text": "27th of September",
-      "status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1335"
     },
     {
       "bounty_id": 1326,
