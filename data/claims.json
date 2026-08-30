@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T20:49:07Z",
+  "generated_at": "2026-08-30T05:01:19Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
@@ -191,7 +191,7 @@
       "fid": 291971,
       "boost": 1,
       "totalRewards": 1.899311260695385,
-      "follower": 4336,
+      "follower": 4337,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -279,15 +279,15 @@
       "address": "0x3c768766da85cce630f10b40ee118be440b5f4b9",
       "score": 1,
       "rank": 14,
-      "farcaster_username": "0x3c768766da85cce630f10b40ee118be440b5f4b9",
-      "displayName": "0x3c76...f4b9",
+      "farcaster_username": null,
+      "displayName": null,
       "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
       "fid": null,
       "boost": 1,
       "totalRewards": 0.8952216126055632,
-      "follower": 0,
+      "follower": null,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -511,7 +511,7 @@
       "fid": 550655,
       "boost": null,
       "totalRewards": null,
-      "follower": 71,
+      "follower": 72,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -543,7 +543,7 @@
       "fid": 267104,
       "boost": null,
       "totalRewards": null,
-      "follower": 14828,
+      "follower": 14829,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -575,7 +575,7 @@
       "fid": 849116,
       "boost": null,
       "totalRewards": null,
-      "follower": 4045,
+      "follower": 4046,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
