@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T14:13:14.787655+00:00",
+  "generated_at": "2026-08-31T22:57:21.080291+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -103,16 +103,6 @@
       "deadline_raw_text": "August 31, 2026",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1321"
-    },
-    {
-      "bounty_id": 1309,
-      "title": "Photography bounty:Black and white \u26ab\ufe0f\u26aa\ufe0f",
-      "issuer": "0x1d81bc80f8b6bbd7ca123fd8cee9cecb3f263472",
-      "amount_eth": 0.0069,
-      "deadline_iso": "2026-08-31",
-      "deadline_raw_text": "August 31",
-      "status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1309"
     },
     {
       "bounty_id": 321,
