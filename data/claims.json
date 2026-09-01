@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T04:44:24Z",
+  "generated_at": "2026-09-01T11:30:06Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187",
@@ -503,15 +503,15 @@
       "address": "0xad7575aefd4d64520c3269fd24eae1b0e13dbe7b",
       "score": 1,
       "rank": null,
-      "farcaster_username": "mettodo",
-      "displayName": "Mettodo",
-      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/191c906f-fb4d-4f39-b8de-0f9fe2604900/rectcrop3",
+      "farcaster_username": null,
+      "displayName": null,
+      "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
-      "fid": 550655,
+      "fid": null,
       "boost": null,
       "totalRewards": null,
-      "follower": 73,
+      "follower": null,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
