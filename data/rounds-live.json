@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T16:48:10.281661+00:00",
+  "generated_at": "2026-09-01T21:11:24.655823+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -7,37 +7,15 @@
       "round": 1,
       "bounty_id": 1151,
       "title": "R1 - Hannah Ep 17 clip-up",
-      "bounty_title": "Find your favorite clip from BCZ YapZ Ep 17 (Hannah / Farm Drop) and post it to either X, Instagram, or YouTube with a written comment about what it says to you.",
-      "url": "https://poidh.xyz/base/bounty/1151",
-      "status": "WINNER SET",
-      "amount_native": 0.0105,
-      "amount_usd": 25.606035,
-      "claims": 11,
-      "winner": {
-        "claim_id": 6368,
-        "handle": "cryptfi-mariano",
-        "wallet": "0xa34514c2150029afa4d37577daee301166105355"
-      },
-      "offchain": false,
-      "offchain_note": null
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 2,
       "bounty_id": 1166,
       "title": "R2 - Best 60s POIDH ad from Ep 19",
-      "bounty_title": "Best 60s POIDH ad from Ep 19 w/ Kenny",
-      "url": "https://poidh.xyz/base/bounty/1166",
-      "status": "WINNER SET",
-      "amount_native": 0.0105,
-      "amount_usd": 25.606035,
-      "claims": 8,
-      "winner": {
-        "claim_id": 6645,
-        "handle": "joeyofdeus",
-        "wallet": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953"
-      },
-      "offchain": false,
-      "offchain_note": null
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 3,
@@ -47,7 +25,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 60.96675,
+      "amount_usd": 60.43,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -65,7 +43,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 33.653645,
+      "amount_usd": 33.35736,
       "claims": 2,
       "winner": null,
       "offchain": true,

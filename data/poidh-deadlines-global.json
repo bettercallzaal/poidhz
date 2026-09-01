@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T16:48:01.501813+00:00",
+  "generated_at": "2026-09-01T21:10:50.028457+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -93,26 +93,6 @@
       "deadline_raw_text": "August 30",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1322"
-    },
-    {
-      "bounty_id": 1321,
-      "title": "Hot Sauce Hero Image",
-      "issuer": "0x2a9d91b6c9de04826318d8b94f240e15f907eec0",
-      "amount_eth": 0.0095,
-      "deadline_iso": "2026-08-31",
-      "deadline_raw_text": "August 31, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1321"
-    },
-    {
-      "bounty_id": 321,
-      "title": "Build a ship in a bottle ",
-      "issuer": "0xaa2483130cb248c3e679c404a3dccdd5b03dea00",
-      "amount_eth": 0.00438,
-      "deadline_iso": "2026-08-31",
-      "deadline_raw_text": "August 31, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/321"
     },
     {
       "bounty_id": 21,
