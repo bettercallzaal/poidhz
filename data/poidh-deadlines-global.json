@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-01T21:10:50.028457+00:00",
+  "generated_at": "2026-09-02T04:50:00.207554+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
-  "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
+  "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_deadline_found": [
     {
       "bounty_id": 1334,
@@ -93,16 +93,6 @@
       "deadline_raw_text": "August 30",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1322"
-    },
-    {
-      "bounty_id": 21,
-      "title": "Warplets URL -> IRL",
-      "issuer": "0xf35ff7426e2dbe06305e71eaee7e038e6dbac620",
-      "amount_eth": 0.0845,
-      "deadline_iso": "2026-08-31",
-      "deadline_raw_text": "August 31st, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/21"
     },
     {
       "bounty_id": 1301,
