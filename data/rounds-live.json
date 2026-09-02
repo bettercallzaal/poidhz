@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T04:50:09.117271+00:00",
+  "generated_at": "2026-09-02T11:32:59.228373+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -7,69 +7,29 @@
       "round": 1,
       "bounty_id": 1151,
       "title": "R1 - Hannah Ep 17 clip-up",
-      "bounty_title": "Find your favorite clip from BCZ YapZ Ep 17 (Hannah / Farm Drop) and post it to either X, Instagram, or YouTube with a written comment about what it says to you.",
-      "url": "https://poidh.xyz/base/bounty/1151",
-      "status": "WINNER SET",
-      "amount_native": 0.0105,
-      "amount_usd": 25.329885,
-      "claims": 11,
-      "winner": {
-        "claim_id": 6368,
-        "handle": "cryptfi-mariano",
-        "wallet": "0xa34514c2150029afa4d37577daee301166105355"
-      },
-      "offchain": false,
-      "offchain_note": null
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 2,
       "bounty_id": 1166,
       "title": "R2 - Best 60s POIDH ad from Ep 19",
-      "bounty_title": "Best 60s POIDH ad from Ep 19 w/ Kenny",
-      "url": "https://poidh.xyz/base/bounty/1166",
-      "status": "WINNER SET",
-      "amount_native": 0.0105,
-      "amount_usd": 25.329885,
-      "claims": 8,
-      "winner": {
-        "claim_id": 6645,
-        "handle": "joeyofdeus",
-        "wallet": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953"
-      },
-      "offchain": false,
-      "offchain_note": null
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 3,
       "bounty_id": 1180,
       "title": "R3 - Best ad for ZABAL Gamez",
-      "bounty_title": "ZABAL GAMEZ AD",
-      "url": "https://poidh.xyz/base/bounty/1180",
-      "status": "WINNER SET",
-      "amount_native": 0.025,
-      "amount_usd": 60.30925,
-      "claims": 8,
-      "winner": {
-        "claim_id": 6749,
-        "handle": "femmie",
-        "wallet": "0xc143cf8515b87ea88d8db8a9892639b5046cf81c"
-      },
-      "offchain": false,
-      "offchain_note": null
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 4,
       "bounty_id": 1249,
       "title": "R4 - ZABAL Gamez open pot",
-      "bounty_title": "ZABAL Gamez Open Pot",
-      "url": "https://poidh.xyz/base/bounty/1249",
-      "status": "CANCELED",
-      "amount_native": 0.0138,
-      "amount_usd": 33.290707,
-      "claims": 2,
-      "winner": null,
-      "offchain": true,
-      "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring."
+      "status": "UNKNOWN",
+      "error": "fetch failed"
     },
     {
       "round": 5,
