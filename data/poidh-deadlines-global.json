@@ -1,7 +1,118 @@
 {
-  "generated_at": "2026-09-02T11:32:54.467501+00:00",
+  "generated_at": "2026-09-02T16:43:47.712726+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
-  "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
-  "bounties_with_deadline_found": []
+  "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
+  "bounties_with_deadline_found": [
+    {
+      "bounty_id": 1062,
+      "title": "smokingfrog tattoos POIDH ",
+      "issuer": "0x66e007f39f48cffa0f59fd4d05aee1031093ed9f",
+      "amount_eth": 0.023,
+      "deadline_iso": "2026-03-18",
+      "deadline_raw_text": "March 18th, 2026",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1062"
+    },
+    {
+      "bounty_id": 1192,
+      "title": "Help Fund A Theoretical Neuroscience Paper",
+      "issuer": "0x18a85ad341b2d6a2bd67fbb104b4827b922a2a3c",
+      "amount_eth": 0.0185,
+      "deadline_iso": "2026-06-28",
+      "deadline_raw_text": "June 28",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1192"
+    },
+    {
+      "bounty_id": 1333,
+      "title": "ZitiCashbox - send $1 to a user at the LATAM Digital Assets Conference",
+      "issuer": "0xc0f0e1512d6a0a77ff7b9c172405d1b0d73565bf",
+      "amount_eth": 0.0029,
+      "deadline_iso": "2026-08-22",
+      "deadline_raw_text": "August 22nd",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1333"
+    },
+    {
+      "bounty_id": 1330,
+      "title": "Best 60s clip from the WaveWarZ Twitch stream",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "amount_eth": 0.0238,
+      "deadline_iso": "2026-08-30",
+      "deadline_raw_text": "August 30, 2026",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1330"
+    },
+    {
+      "bounty_id": 1322,
+      "title": "Find 3 of a Kind",
+      "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
+      "amount_eth": 0.03013,
+      "deadline_iso": "2026-08-30",
+      "deadline_raw_text": "August 30",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1322"
+    },
+    {
+      "bounty_id": 1301,
+      "title": "One Thing Web3 Fixed. One Thing It Broke.",
+      "issuer": "0x87e233874a7e37b40e4878fa29c3910f41ffe78d",
+      "amount_eth": 0.0038,
+      "deadline_iso": "2026-08-31",
+      "deadline_raw_text": "August 31, 2026",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1301"
+    },
+    {
+      "bounty_id": 1305,
+      "title": "Share Your Music on Tortoise \ud83d\udc22",
+      "issuer": "0x3ee75b599c076193b81885ca1838e560d268aad1",
+      "amount_eth": 0.0295,
+      "deadline_iso": "2026-09-04",
+      "deadline_raw_text": "September 4th",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1305"
+    },
+    {
+      "bounty_id": 1311,
+      "title": "BINARY PIXELS \u2014 FIND SOMETHING IN RANDOMNESS",
+      "issuer": "0xfc5708cb64604dcf6f62de5d63a051ed577e10c1",
+      "amount_eth": 0.036,
+      "deadline_iso": "2026-09-05",
+      "deadline_raw_text": "5 September",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1311"
+    },
+    {
+      "bounty_id": 326,
+      "title": "Art, Coffee & Farcaster \u2615\ufe0f\ud83d\udfe3",
+      "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
+      "amount_eth": 0.0245,
+      "deadline_iso": "2026-09-08",
+      "deadline_raw_text": "September 8, 2026",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/326"
+    },
+    {
+      "bounty_id": 329,
+      "title": "Feedback for FreeToken",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.0065,
+      "deadline_iso": "2026-09-21",
+      "deadline_raw_text": "September 21st",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 1326,
+      "title": "Farcaster Season 1 & 2 Recap \ud83c\udfac",
+      "issuer": "0x2a9d91b6c9de04826318d8b94f240e15f907eec0",
+      "amount_eth": 0.0245,
+      "deadline_iso": "2026-09-30",
+      "deadline_raw_text": "September 30th",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1326"
+    }
+  ]
 }
