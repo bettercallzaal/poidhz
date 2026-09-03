@@ -5,8 +5,8 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:POID Bounty Deadlines
 BEGIN:VEVENT
-UID:poidh-1062-74840849@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1062-25889886@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260318
 SUMMARY:smokingfrog tattoos POIDH  - deadline
 DESCRIPTION:Stated: March 18th\, 2026 - 0.023 ETH - https://poidh.xyz/base/
@@ -14,8 +14,8 @@ DESCRIPTION:Stated: March 18th\, 2026 - 0.023 ETH - https://poidh.xyz/base/
 URL:https://poidh.xyz/base/bounty/1062
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1192-97301166@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1192-33621197@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260628
 SUMMARY:Help Fund A Theoretical Neuroscience Paper - deadline
 DESCRIPTION:Stated: June 28 - 0.0185 ETH - https://poidh.xyz/base/bounty/11
@@ -23,8 +23,8 @@ DESCRIPTION:Stated: June 28 - 0.0185 ETH - https://poidh.xyz/base/bounty/11
 URL:https://poidh.xyz/base/bounty/1192
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1333-38963785@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1333-97966028@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260822
 SUMMARY:ZitiCashbox - send $1 to a user at the LATAM Digital Assets Confere
  nce - deadline
@@ -33,8 +33,8 @@ DESCRIPTION:Stated: August 22nd - 0.0029 ETH - https://poidh.xyz/base/bount
 URL:https://poidh.xyz/base/bounty/1333
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1322-40509585@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1322-39174694@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260830
 SUMMARY:Find 3 of a Kind - deadline
 DESCRIPTION:Stated: August 30 - 0.03013 ETH - https://poidh.xyz/base/bounty
@@ -42,17 +42,8 @@ DESCRIPTION:Stated: August 30 - 0.03013 ETH - https://poidh.xyz/base/bounty
 URL:https://poidh.xyz/base/bounty/1322
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1301-40094649@zpoidh
-DTSTAMP:20260903T163502Z
-DTSTART;VALUE=DATE:20260831
-SUMMARY:One Thing Web3 Fixed. One Thing It Broke. - deadline
-DESCRIPTION:Stated: August 31\, 2026 - 0.0038 ETH - https://poidh.xyz/base/
- bounty/1301
-URL:https://poidh.xyz/base/bounty/1301
-END:VEVENT
-BEGIN:VEVENT
-UID:poidh-1305-26911921@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1305-62702013@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260904
 SUMMARY:Share Your Music on Tortoise 🐢 - deadline
 DESCRIPTION:Stated: September 4th - 0.0295 ETH - https://poidh.xyz/base/bou
@@ -60,8 +51,8 @@ DESCRIPTION:Stated: September 4th - 0.0295 ETH - https://poidh.xyz/base/bou
 URL:https://poidh.xyz/base/bounty/1305
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1311-67580488@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1311-44422809@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260905
 SUMMARY:BINARY PIXELS — FIND SOMETHING IN RANDOMNESS - deadline
 DESCRIPTION:Stated: 5 September - 0.036 ETH - https://poidh.xyz/base/bounty
@@ -69,8 +60,8 @@ DESCRIPTION:Stated: 5 September - 0.036 ETH - https://poidh.xyz/base/bounty
 URL:https://poidh.xyz/base/bounty/1311
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-326-29878900@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-326-44840303@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260908
 SUMMARY:Art\, Coffee & Farcaster ☕️🟣 - deadline
 DESCRIPTION:Stated: September 8\, 2026 - 0.0245 ETH - https://poidh.xyz/bas
@@ -78,8 +69,8 @@ DESCRIPTION:Stated: September 8\, 2026 - 0.0245 ETH - https://poidh.xyz/bas
 URL:https://poidh.xyz/base/bounty/326
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-329-42318952@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-329-88291151@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260921
 SUMMARY:Feedback for FreeToken - deadline
 DESCRIPTION:Stated: September 21st - 0.0065 ETH - https://poidh.xyz/base/bo
@@ -87,8 +78,8 @@ DESCRIPTION:Stated: September 21st - 0.0065 ETH - https://poidh.xyz/base/bo
 URL:https://poidh.xyz/base/bounty/329
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1326-10350092@zpoidh
-DTSTAMP:20260903T163502Z
+UID:poidh-1326-85668647@zpoidh
+DTSTAMP:20260903T211137Z
 DTSTART;VALUE=DATE:20260930
 SUMMARY:Farcaster Season 1 & 2 Recap 🎬 - deadline
 DESCRIPTION:Stated: September 30th - 0.0245 ETH - https://poidh.xyz/base/bo

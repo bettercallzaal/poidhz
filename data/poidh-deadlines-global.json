@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T16:35:00.175511+00:00",
+  "generated_at": "2026-09-03T21:11:36.149943+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -43,16 +43,6 @@
       "deadline_raw_text": "August 30",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1322"
-    },
-    {
-      "bounty_id": 1301,
-      "title": "One Thing Web3 Fixed. One Thing It Broke.",
-      "issuer": "0x87e233874a7e37b40e4878fa29c3910f41ffe78d",
-      "amount_eth": 0.0038,
-      "deadline_iso": "2026-08-31",
-      "deadline_raw_text": "August 31, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1301"
     },
     {
       "bounty_id": 1305,
