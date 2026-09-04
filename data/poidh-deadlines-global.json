@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T21:11:36.149943+00:00",
+  "generated_at": "2026-09-04T04:49:51.045250+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -73,6 +73,16 @@
       "deadline_raw_text": "September 8, 2026",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/326"
+    },
+    {
+      "bounty_id": 27,
+      "title": "Clip the V2 DAO Collective Sensemaking Call \u2702\ufe0f",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.0044,
+      "deadline_iso": "2026-09-18",
+      "deadline_raw_text": "September 18th",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/27"
     },
     {
       "bounty_id": 329,
