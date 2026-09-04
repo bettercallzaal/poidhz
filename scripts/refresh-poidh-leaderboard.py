@@ -20,6 +20,11 @@ Writes three files into data/:
 Score = 1 per unique submitter wallet across the whole bounty set. Issuer
 wallets are excluded (PoidhV3 enforces issuer != claimant on-chain).
 
+Nothing is written unless the whole run is healthy. Every source below can fail
+in a way that produces a smaller, emptier, still-valid-looking set of files, so
+the run is compared against the files already on disk and refused if anything
+that should only grow went backwards. See guard_publishable().
+
 Data sources (all free, no API keys):
     - poidh.xyz /data: GET /<chain>/bounty/<id>/data - full bounty + every claim
       in one call, Farcaster/X handles already resolved (doc 2202: found via
@@ -75,6 +80,12 @@ CHAIN_SLUGS = {8453: "base", 42161: "arbitrum", 1: "ethereum", 666666666: "degen
 
 UA = "Mozilla/5.0 (poidh-leaderboard-refresh)"
 
+# Every path in this script that used to print a WARN and carry on appends here
+# instead. A non-empty list at write time means this run assembled worse data
+# than the files already on disk, which is never worth publishing - see
+# guard_publishable() for why that matters and what it refuses.
+DEGRADATIONS: list[str] = []
+
 
 def http_get(url: str, timeout: int = 20) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -122,6 +133,8 @@ def fetch_accepted_map(bid: int, chain: int) -> dict[int, dict]:
     except Exception as e:
         print(f"  WARN: tRPC accepted-flag fetch failed for bounty {bid}: {e} - "
               f"claims will carry accepted=false, on_chain_id=null this run")
+        DEGRADATIONS.append(f"bounty {bid}: tRPC accepted-flag fetch failed ({e}), "
+                            f"every claim would publish as accepted=false")
     return out
 
 
@@ -130,6 +143,8 @@ def fetch_eb_leaderboard() -> dict:
         return http_get(f"{EB_BASE}/leaderboards/{POIDH_LEADERBOARD_UUID}", timeout=15)
     except Exception as e:
         print(f"  WARN: EB leaderboard fetch failed: {e}")
+        DEGRADATIONS.append(f"Empire Builder leaderboard fetch failed ({e}), so every rank, "
+                            f"boost and totalRewards would publish as null")
         return {"success": False, "leaderboard": None, "entries": []}
 
 
@@ -156,6 +171,9 @@ def load_offchain_credits() -> list[dict]:
         csv_path = REPO_ROOT / entry["wallets_csv"]
         if not csv_path.exists():
             print(f"  WARN: offchain_credits round {entry.get('round')} references missing file {csv_path}")
+            DEGRADATIONS.append(f"offchain_credits round {entry.get('round')} references missing "
+                                f"file {entry['wallets_csv']}, so those wallets would silently "
+                                f"lose their credit")
             continue
         wallets = []
         with open(csv_path) as f:
@@ -183,6 +201,91 @@ def validate_claim_address(addr: str) -> bool:
         return True
     except ValueError:
         return False
+
+
+def summarize(feed: list[dict], enriched: list[dict], claims: list[dict], eb_entries: list[dict]) -> dict:
+    """The four numbers that decide whether a run is publishable. Kept as a plain
+    dict so guard_publishable() can be tested without touching the network or disk."""
+    return {
+        "submitters": len(feed),
+        "accepted_claims": sum(1 for c in claims if c.get("accepted")),
+        "ranked": sum(1 for e in enriched if e.get("rank") is not None),
+        "zabal": round(sum(e.get("totalRewards", 0) or 0 for e in eb_entries), 4),
+    }
+
+
+def summarize_on_disk(feed_path: Path, claims_path: Path, audit_path: Path) -> dict | None:
+    """The same four numbers read back off the files this run is about to replace.
+    Returns None on a first-ever run (nothing to compare against), which is the one
+    case where every shrink check has to be skipped rather than failed."""
+    try:
+        feed = json.loads(feed_path.read_text())
+        claims_doc = json.loads(claims_path.read_text())
+        audit_doc = json.loads(audit_path.read_text())
+    except Exception:
+        return None
+    return {
+        "submitters": len(feed) if isinstance(feed, list) else 0,
+        "accepted_claims": sum(1 for c in audit_doc.get("claims") or [] if c.get("accepted")),
+        "ranked": sum(1 for e in claims_doc.get("leaderboard") or [] if e.get("rank") is not None),
+        "zabal": (claims_doc.get("totals") or {}).get("total_zabal_distributed") or 0,
+    }
+
+
+def guard_publishable(new: dict, existing: dict | None, degradations: list[str],
+                      allow_shrink: bool = False) -> list[str]:
+    """Return the reasons this run must not be written, empty list if it is safe.
+
+    Written after 2026-08-23, when build-bounty-dashboard.py committed
+    total_bounties: 0 over 100 live listings because a transient upstream failure
+    was indistinguishable from a real empty answer. This script has the same
+    shape in four more places, and one thing that incident taught is that an
+    exception is not the only way a fetch fails: an upstream that answers 200
+    with an empty body degrades data without raising anything at all.
+
+    So there are two families of check here. The degradation list catches the
+    paths that threw and were swallowed. The comparisons against what is already
+    on disk catch the paths that returned successfully and returned nothing,
+    which no amount of exception handling would ever see.
+
+    Every quantity below only ever grows in normal operation. Submitters are
+    append-only, an accepted claim is finalised on-chain and cannot un-accept,
+    and Empire Builder rank and reward totals are cumulative. A decrease is
+    therefore a broken run, not news - except when a human is deliberately
+    correcting the set, which is what --allow-shrink is for."""
+    blocking: list[str] = []
+
+    for d in degradations:
+        blocking.append(d)
+
+    if new["submitters"] == 0:
+        blocking.append("assembled 0 submitters; empty is never a real answer here, "
+                        "wallets that have already scored cannot un-score")
+
+    if existing is None:
+        return blocking
+
+    if not allow_shrink:
+        if new["submitters"] < existing["submitters"]:
+            blocking.append(f"submitters fell {existing['submitters']} -> {new['submitters']}; "
+                            f"the leaderboard is append-only, pass --allow-shrink if this "
+                            f"removal is deliberate")
+        if new["accepted_claims"] < existing["accepted_claims"]:
+            blocking.append(f"accepted claims fell {existing['accepted_claims']} -> "
+                            f"{new['accepted_claims']}; an accepted claim is finalised "
+                            f"on-chain and cannot un-accept")
+
+    # These two are the 200-with-an-empty-body case: no exception was raised, so
+    # nothing is in the degradation list, but the enrichment silently vanished.
+    if existing["ranked"] > 0 and new["ranked"] == 0:
+        blocking.append(f"every Empire Builder rank disappeared ({existing['ranked']} -> 0) "
+                        f"without the fetch failing; treating the feed as degraded, not as "
+                        f"everyone having been unranked at once")
+    if existing["zabal"] > 0 and new["zabal"] == 0:
+        blocking.append(f"total $ZABAL distributed fell {existing['zabal']} -> 0 without the "
+                        f"fetch failing; rewards already paid cannot unpay")
+
+    return blocking
 
 
 def _selftest_offchain() -> bool:
@@ -216,6 +319,46 @@ def _selftest_offchain() -> bool:
     ok_merge = a_score == 2 and c_score == 1
     ok = ok_read and ok_merge
     print(f"  {'ok  ' if ok else 'FAIL'} offchain CSV read + score merge (combined={a_score}, offchain-only={c_score})")
+    return ok
+
+
+def _selftest_guard() -> bool:
+    """Network-free, disk-free proof that guard_publishable() blocks each way this
+    refresh can quietly publish worse data than it found, and that a healthy run
+    still sails through. The numbers are the real ones from 2026-08-24:
+    34 submitters, 3 accepted claims, 16 ranked, 32.2585 $ZABAL."""
+    live = {"submitters": 34, "accepted_claims": 3, "ranked": 16, "zabal": 32.2585}
+    cases = [
+        ("healthy run publishes",
+         dict(new=live, existing=live, degradations=[]), True),
+        ("growth publishes",
+         dict(new={**live, "submitters": 35}, existing=live, degradations=[]), True),
+        ("first ever run publishes with nothing to compare",
+         dict(new=live, existing=None, degradations=[]), True),
+        ("zero submitters blocked",
+         dict(new={**live, "submitters": 0}, existing=live, degradations=[]), False),
+        ("a swallowed fetch exception blocks",
+         dict(new=live, existing=live, degradations=["EB fetch failed"]), False),
+        ("submitters shrinking blocks",
+         dict(new={**live, "submitters": 19}, existing=live, degradations=[]), False),
+        ("accepted claims un-accepting blocks",
+         dict(new={**live, "accepted_claims": 0}, existing=live, degradations=[]), False),
+        ("ranks vanishing with no exception blocks",
+         dict(new={**live, "ranked": 0}, existing=live, degradations=[]), False),
+        ("rewards zeroing with no exception blocks",
+         dict(new={**live, "zabal": 0}, existing=live, degradations=[]), False),
+        ("--allow-shrink permits a deliberate removal",
+         dict(new={**live, "submitters": 33}, existing=live, degradations=[], allow_shrink=True), True),
+        ("--allow-shrink does NOT permit an upstream outage",
+         dict(new={**live, "ranked": 0}, existing=live, degradations=[], allow_shrink=True), False),
+    ]
+    ok = True
+    for label, kwargs, should_publish in cases:
+        blocking = guard_publishable(**kwargs)
+        passed = (not blocking) == should_publish
+        ok = ok and passed
+        print(f"  {'ok  ' if passed else 'FAIL'} {label}"
+              + (f" ({blocking[0]})" if blocking and not passed else ""))
     return ok
 
 
@@ -272,8 +415,9 @@ def _selftest() -> int:
     print(f"  {'ok  ' if ok_slug else 'FAIL'} unknown chain id rejected before any network call")
 
     ok_offchain = _selftest_offchain()
+    ok_guard = _selftest_guard()
 
-    ok = ok_map and ok_degrade and ok_slug and ok_offchain
+    ok = ok_map and ok_degrade and ok_slug and ok_offchain and ok_guard
     print(f"selftest: {'passed' if ok else 'FAILED'}")
     return 0 if ok else 1
 
@@ -284,6 +428,10 @@ def main() -> int:
     p.add_argument("--bounty", type=int, action="append", default=None)
     p.add_argument("--chain", type=int, default=DEFAULT_CHAIN_ID)
     p.add_argument("--skip-web3bio", action="store_true", help="Skip web3.bio profile fetches (faster but no avatars/X)")
+    p.add_argument("--allow-shrink", action="store_true",
+                   help="Permit this run to publish fewer submitters or fewer accepted claims "
+                        "than the files on disk. Only for deliberate corrections; the guard "
+                        "exists because a shrink is otherwise always a broken upstream.")
     args = p.parse_args()
 
     if args.selftest:
@@ -435,6 +583,7 @@ def main() -> int:
 
     print(f"\nResolving submitter profiles via web3.bio...")
     profiles: dict[str, dict] = {}
+    web3bio_misses = 0
     if not args.skip_web3bio:
         for addr in unique_order:
             row = fetch_web3_bio(addr)
@@ -453,7 +602,14 @@ def main() -> int:
                 print(f"  {addr[:10]}... -> @{profiles[addr]['handle']}")
             else:
                 profiles[addr] = {}
+                web3bio_misses += 1
             time.sleep(0.15)
+        # A single miss is normal - plenty of wallets have no profile anywhere.
+        # Every single one missing is web3.bio being down, and publishing that
+        # blanks every avatar and display name on the hub at once.
+        if unique_order and web3bio_misses == len(unique_order):
+            DEGRADATIONS.append(f"web3.bio returned nothing for all {len(unique_order)} wallets, "
+                                f"so every avatar and display name would publish as null")
 
     enriched_leaderboard: list[dict] = []
     for addr in unique_order:
@@ -483,6 +639,24 @@ def main() -> int:
     feed_path = data_dir / "leaderboard.json"
     claims_path = data_dir / "claims.json"
     audit_path = data_dir / "audit.json"
+
+    # Nothing above this line has touched disk, which is the point: all three
+    # files are written together or none of them are, so a refused run leaves a
+    # consistent last-good set rather than a half-updated one.
+    new_summary = summarize(leaderboard_feed, enriched_leaderboard, all_claims, eb_entries)
+    existing_summary = summarize_on_disk(feed_path, claims_path, audit_path)
+    blocking = guard_publishable(new_summary, existing_summary, DEGRADATIONS,
+                                 allow_shrink=args.allow_shrink)
+    if blocking:
+        print(f"\nERROR: refusing to publish this run over the files in "
+              f"{data_dir.relative_to(REPO_ROOT)}/.", file=sys.stderr)
+        for reason in blocking:
+            print(f"  - {reason}", file=sys.stderr)
+        if existing_summary:
+            print(f"  on disk now: {existing_summary}", file=sys.stderr)
+        print(f"  this run:    {new_summary}", file=sys.stderr)
+        print("The last good data stays on main. Re-run when upstream recovers.", file=sys.stderr)
+        return 1
 
     feed_path.write_text(json.dumps(leaderboard_feed, indent=2) + "\n")
 

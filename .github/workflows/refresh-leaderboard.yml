@@ -21,8 +21,99 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Self-test the refusal guards
+        # Cheap, network-free, and it runs before the refresh so a broken guard
+        # is caught here rather than by not firing on the day it is needed.
+        run: python3 scripts/refresh-poidh-leaderboard.py --selftest
+
       - name: Run refresh script
         run: python3 scripts/refresh-poidh-leaderboard.py
+
+      - name: Guard against degenerate data
+        # Second line of defence, same as refresh-bounty-dashboard.yml. The script
+        # already refuses to write a degraded run, but nothing degenerate should be
+        # able to reach the commit step even if a future path exits 0 with bad files.
+        # This one also diffs against what is committed, which is the check the
+        # dashboard wipe of 2026-08-23 would have needed.
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, sys
+          from pathlib import Path
+
+          bad = []
+
+          def load(p):
+              try:
+                  return json.loads(Path(p).read_text())
+              except Exception as e:
+                  bad.append(f"{p}: unparseable ({e})")
+                  return None
+
+          def committed(p):
+              """The version on main, or None if this file is new."""
+              r = subprocess.run(["git", "show", f"HEAD:{p}"], capture_output=True, text=True)
+              if r.returncode != 0:
+                  return None
+              try:
+                  return json.loads(r.stdout)
+              except Exception:
+                  return None
+
+          feed = load("data/leaderboard.json")
+          claims = load("data/claims.json")
+          audit = load("data/audit.json")
+          if bad:
+              for b in bad:
+                  print("FAIL " + b)
+              sys.exit(1)
+
+          if not isinstance(feed, list) or not feed:
+              bad.append("data/leaderboard.json: not a non-empty list")
+          else:
+              for e in feed:
+                  a = e.get("address", "")
+                  if not (isinstance(a, str) and a.startswith("0x") and len(a) == 42):
+                      bad.append(f"data/leaderboard.json: bad address {a!r}")
+                      break
+                  if not isinstance(e.get("score"), int) or e["score"] < 1:
+                      bad.append(f"data/leaderboard.json: {a} has score {e.get('score')!r}, min is 1")
+                      break
+
+          lb = (claims or {}).get("leaderboard") or []
+          totals = (claims or {}).get("totals") or {}
+          if isinstance(feed, list) and len(lb) != len(feed):
+              bad.append(f"claims.json leaderboard has {len(lb)} rows, leaderboard.json has {len(feed)}")
+          if totals.get("unique_submitters") != len(lb):
+              bad.append(f"claims.json totals.unique_submitters {totals.get('unique_submitters')} "
+                         f"does not match {len(lb)} rows")
+
+          ac = (audit or {}).get("claims") or []
+          if (audit or {}).get("total_claims_accepted") != len(ac):
+              bad.append(f"audit.json total_claims_accepted {(audit or {}).get('total_claims_accepted')} "
+                         f"does not match {len(ac)} claims")
+
+          prev = committed("data/leaderboard.json")
+          if isinstance(prev, list) and isinstance(feed, list) and len(feed) < len(prev):
+              bad.append(f"leaderboard.json would shrink {len(prev)} -> {len(feed)} submitters")
+
+          prev_claims = committed("data/claims.json")
+          if prev_claims:
+              pz = (prev_claims.get("totals") or {}).get("total_zabal_distributed") or 0
+              nz = totals.get("total_zabal_distributed") or 0
+              if pz > 0 and nz == 0:
+                  bad.append(f"total_zabal_distributed would go {pz} -> 0")
+              pr = sum(1 for e in prev_claims.get("leaderboard") or [] if e.get("rank") is not None)
+              nr = sum(1 for e in lb if e.get("rank") is not None)
+              if pr > 0 and nr == 0:
+                  bad.append(f"every Empire Builder rank would disappear ({pr} -> 0)")
+
+          if bad:
+              for b in bad:
+                  print("FAIL " + b)
+              print("Refusing to commit. The last good data stays on main.")
+              sys.exit(1)
+          print(f"OK {len(feed)} submitters, {len(ac)} claims, self-consistent and not shrinking.")
+          PY
 
       - name: Commit and push if changed
         run: |
