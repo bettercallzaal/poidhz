@@ -28,7 +28,7 @@
         font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
         font-weight="900" font-size="138" letter-spacing="-3">
     <tspan fill="#e4e2dd">ZABAL </tspan>
-    <tspan fill="url(#gamesGrad)">GAMES</tspan>
+    <tspan fill="url(#gamesGrad)">GAMEZ</tspan>
   </text>
 
   <line x1="380" y1="335" x2="820" y2="335" stroke="#1f1e26" stroke-width="1"/>
