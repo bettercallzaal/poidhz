@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T11:32:08.294347+00:00",
+  "generated_at": "2026-09-04T16:30:29.092531+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -93,16 +93,6 @@
       "deadline_raw_text": "September 21st",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
-    },
-    {
-      "bounty_id": 1326,
-      "title": "Farcaster Season 1 & 2 Recap \ud83c\udfac",
-      "issuer": "0x2a9d91b6c9de04826318d8b94f240e15f907eec0",
-      "amount_eth": 0.0245,
-      "deadline_iso": "2026-09-30",
-      "deadline_raw_text": "September 30th",
-      "status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1326"
     }
   ]
 }
