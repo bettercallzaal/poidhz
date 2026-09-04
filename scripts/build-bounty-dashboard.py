@@ -147,6 +147,7 @@ def main() -> int:
     token_prices = fetch_token_prices()
     now_iso = datetime.now(timezone.utc).isoformat()
     bounties = []
+    fetch_errors: list[str] = []
 
     for status in ("open", "progress"):
         cursor = None
@@ -158,6 +159,7 @@ def main() -> int:
                 d = trpc("bounties.fetchAll", payload)
             except Exception as e:
                 print(f"  WARN: {status} page {page} fetch failed: {e}")
+                fetch_errors.append(f"{status} page {page}: {e}")
                 break
 
             items = d.get("items", [])
@@ -233,6 +235,38 @@ def main() -> int:
     }
 
     out_path = REPO_ROOT / "data" / "bounty-dashboard.json"
+
+    # A transient upstream failure used to look exactly like "the platform has no
+    # bounties": the fetch raised, we broke out of the page loop, wrote an empty
+    # list, and returned 0. The refresh workflow then saw a substantive diff and
+    # committed the wipe. That is what happened at 07:09Z on 2026-08-23, when
+    # 431f7ea replaced 100 live listings with total_bounties: 0, and it self-healed
+    # six hours later only because the next scheduled run happened to succeed.
+    #
+    # Empty is never a real answer here, so treat it as the failure it is and
+    # leave the last good file untouched.
+    if not bounties:
+        print("ERROR: scanned 0 bounties, refusing to overwrite "
+              f"{out_path.relative_to(REPO_ROOT)}.", file=sys.stderr)
+        for err in fetch_errors:
+            print(f"  fetch error: {err}", file=sys.stderr)
+        if not fetch_errors:
+            print("  no fetch errors recorded, so the upstream feed itself "
+                  "returned an empty page set.", file=sys.stderr)
+        return 1
+
+    # A partial fetch is not safe to publish either. If some pages failed we hold
+    # a truncated list, which reads as bounties having disappeared rather than as
+    # a broken run.
+    if fetch_errors:
+        print(f"ERROR: {len(fetch_errors)} page fetch(es) failed, so the "
+              f"{len(bounties)} bounties collected are an incomplete set. "
+              f"Refusing to overwrite {out_path.relative_to(REPO_ROOT)}.",
+              file=sys.stderr)
+        for err in fetch_errors:
+            print(f"  fetch error: {err}", file=sys.stderr)
+        return 1
+
     out_path.write_text(json.dumps(out, indent=2) + "\n")
     print(f"Scanned {len(bounties)} live bounties ({out['with_deadline']} with a parseable deadline, "
           f"{out['with_submissions_already']} already have submissions).")
