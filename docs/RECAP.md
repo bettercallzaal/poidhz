@@ -4,6 +4,94 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-09-05 - R5 closed and paid, R6 drafted, and the "low turnout" story was wrong
+
+### R5 final state, measured not assumed
+
+Bounty 1330 is **closed and paid**. Claim **7795** carries `isAccepted: true`, `inProgress`
+is `false`, pot **0.0238 ETH** (~$59) to `0x3f07d412da0aa3615bd92a496c73823a64370ec9`. The
+winning clip is [@wimpydwi's](https://x.com/wimpydwi/status/2094135544758608181), JOHN 3v16
+by @LadyrynNemesis vs THE SUMO WRESLER by @The7_is_a_T. Accepted on-chain outside a tracked
+session, some time between 2026-09-03 and 2026-09-05.
+
+Reproduce any of this with `python3 scripts/query-bounty.py --bounty 1330`.
+
+### Three things this repo believed about R5 that were false
+
+1. **"Claims cannot be read without a connected wallet."** They can. The anonymous
+   `poidh.xyz/base/bounty/1330/data` endpoint returns the full claims array to nobody in
+   particular. Only the *rendered page* hangs on "loading claims" - the data behind it was
+   always public. A whole handoff was built around going and connecting a wallet, and the
+   answer was one curl.
+2. **"Low turnout, the format is the problem."** R5 drew **9 claims from 7 distinct
+   entrants** (coolhat and one unlinked wallet filed twice each). Against R1's 11, R2's 8
+   and R3's 8, that is mid-pack. There was never a format problem to fix.
+3. **"The dashboard is nine days stale."** It refreshes on cron now - `data/bounty-dashboard.json`
+   was 20 minutes old when checked, correctly showing `has_submissions: true`. The
+   auto-refresh from #106 works. The stale-dashboard warning was itself stale.
+
+The lesson is the one already in this log, pointing the other way: a claim about what
+*cannot* be known deserves the same verification as a claim about what was done. "The live
+page hangs, so this needs a wallet" was a guess that hardened into a blocker across two
+handoffs.
+
+### What is actually still owed on R5
+
+**The winner has been paid but never announced.** Nothing has gone out on @wavewarz with
+@wimpydwi credited, which the bounty text explicitly promised ("the clip goes up on
+@wavewarz with your name on it"). R5's under-distribution problem, logged on 2026-08-22,
+now extends past the close: the round was never announced to the clippers, and its winner
+has not been announced to anyone. This is the oldest open item in the repo and it is one post.
+
+Also unresolved: the payee wallet resolves to no Farcaster, X or ENS identity on web3.bio.
+The claim carried @wimpydwi's X link, so the pot was released on a reasonable judgment call,
+but nothing on-chain ties the address to the handle. R6 fixes the general case by requiring
+the handle in the claim text.
+
+### R6 drafted
+
+`rounds/r6/` - WaveWarZ clip round 2, not cast, no bounty ID. Zaal's levers, set 2026-09-05:
+0.0125 ETH seed (fund 0.0128), **14-day window** (a month was considered and rejected against
+a 7-day archive), and the ask reframed from finding to making - "capture a moment and try
+something new so that we can use that."
+
+Five changes from R5, each with its reasoning inline in `rounds/r6/README.md`: treatment
+ranked above moment, the deliverable spec made binding rather than a rubric bonus (vertical
+9:16, burned-in captions, visible mark, kept audio, 20-90s), handle required in the claim,
+retainer holders excluded from the pot, and the on-chain deadline set to match the stated one
+(R5's disagreed by six days; every prior round shows the same drift, since the field is set
+at creation and never tracks the text).
+
+Gate 1 on R6 is not the money. It is announcing from @wavewarz and dropping it in
+t.me/wavewarzclipshq - the two surfaces R5 never reached. R5 got nine claims without ever
+being shown to the people who clip this stream for points.
+
+Also drafted: `rounds/r6/retainer-outreach.md`, a message to @wimpydwi asking what a month
+of clips would cost. Zaal's call, price to come from them. It states the eligibility
+exclusion up front rather than letting it surface after a deal.
+
+### Source freshness note
+
+`wavewarz.info` reports **1,371 battles** (test battles excluded) as of 2026-09-05. R5's
+description said 1,419 as of Aug 20 - a *higher* number a fortnight earlier, so the two are
+counting different things. R6 quotes the site's current figure with its exclusion wording
+rather than picking a side. The SOL volume and artist-earnings figures from R5 are dropped
+rather than carried, because `wavewarz.info` serves them client-side with no JSON endpoint
+and they could not be re-measured. Settle the battle count with WaveWarZ before a third
+round quotes one.
+
+### Pending
+
+- [ ] **Announce R5's winner on @wavewarz with @wimpydwi credited.** Oldest open promise.
+- [ ] Confirm with @wimpydwi that `0x3f07d412...70ec9` is their wallet
+- [ ] Send `rounds/r6/retainer-outreach.md`, if the retainer conversation is on
+- [ ] R6 gate 1: @wavewarz + t.me/wavewarzclipshq, before anything else
+- [ ] R6: fund 0.0128, cast with the deadline matching the text
+- [ ] Hurric4n3IKE conversation, open since 2026-08-21 - includes archiving VODs off Twitch,
+      which is the real fix for the 7-day expiry that a 14-day window makes worse
+
+---
+
 ## 2026-08-22 - R5 was posted after all, but only from personal accounts
 
 The unchecked "Post promo-cast.md" gate was **stale in the opposite direction**: the promo had

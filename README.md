@@ -24,7 +24,8 @@ poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judgin
 | R2 | [1166](https://poidh.xyz/base/bounty/1166) | Best 60s POIDH ad from Ep 19 | 0.0105 ETH | paid, @joeyofdeus |
 | R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad, any format | 0.025 ETH | paid, @femmie (8 claims) |
 | R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open pot | canceled at closeout | 15 builders credited in $ZABAL, see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) |
-| R5 | [1330](https://poidh.xyz/base/bounty/1330) | Best 60s clip from the WaveWarZ Twitch stream | 0.0125 ETH (open pot) | LIVE 2026-08-21, deadline Sun Aug 30 11:59pm PT |
+| R5 | [1330](https://poidh.xyz/base/bounty/1330) | Best 60s clip from the WaveWarZ Twitch stream | 0.0125 ETH seed, 0.0238 final | paid, claim 7795 (9 claims). Winner announcement still owed |
+| R6 | not cast | Best original clip from the WaveWarZ battle stream | 0.0125 ETH (open pot) | DRAFT, see [rounds/r6/](rounds/r6/) |
 
 Never-cast drafts (Unlock Protocol clip bounty, solo variant, ZABAL Gamez bug-fix bounty) live in [rounds/drafts/](rounds/drafts/).
 
@@ -209,7 +210,8 @@ Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates
 | R2 | [1166](https://poidh.xyz/base/bounty/1166) | BCZ YapZ Ep 19 (Best 60s POIDH ad w/ Kenny) | 0.0105 ETH | @joeyofdeus / Monksage (claim 6645) | closed, paid | [rounds/r2/](rounds/r2/) |
 | R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad (any format) | 0.025 ETH | @femmie (claim 6749) | closed, paid, confirmed on-chain via direct `bounties()`/`getClaimsByBountyId()` eth_call - cast templates drafted, not yet posted | [rounds/r3/](rounds/r3/) |
 | R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open build pot | $ZABAL leaderboard credit (originally an ETH split, bounty was accidentally canceled mid-close) | 15 qualifying builders | CLOSED 2026-08-05 - see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) | [rounds/r4/](rounds/r4/) |
-| R5 | [1330](https://poidh.xyz/base/bounty/1330) | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.0125 ETH open pot | - | LIVE 2026-08-21, deadline Sun Aug 30 11:59pm PT, casts pending | [rounds/r5/](rounds/r5/) |
+| R5 | [1330](https://poidh.xyz/base/bounty/1330) | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.0125 ETH seed, pot grew to 0.0238 | claim 7795, [@wimpydwi's clip](https://x.com/wimpydwi/status/2094135544758608181), paid to `0x3f07d412...70ec9` (wallet resolves to no linked handle) | closed, paid, `isAccepted` confirmed on-chain 2026-09-05. 9 claims from 7 entrants. **Winner never announced on @wavewarz**, which the bounty text promised | [rounds/r5/](rounds/r5/) |
+| R6 | not cast | WaveWarZ clip round 2 - the edit, not the moment. Binding deliverable spec, handle required in claim, retainer holders excluded | 0.0125 ETH seed, fund 0.0128 | - | DRAFT. 14-day window, recommended cast Mon 2026-09-07, close Sun 2026-09-20 | [rounds/r6/](rounds/r6/) |
 | drafts | not cast | Unlock Protocol clip bounty (co-fund + solo variants), ZABAL Gamez bug-fix bounty | TBD | - | parked, see folder READMEs | [rounds/drafts/](rounds/drafts/) |
 
 Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json` /
