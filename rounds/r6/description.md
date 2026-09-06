@@ -3,87 +3,90 @@
 Strip this header before pasting. Poidh renders plain text, so keep the line breaks
 exactly as they are. Everything between the sentinel lines goes in the Description field.
 
-**Title field:** `Best original clip from the WaveWarZ battle stream`
+**Title field:** `Recap my NYC trip in 60 seconds`
+
+**Two placeholders must be filled before this is castable:**
+
+- `<DRIVE-LINK>` - the folder of raw footage and photos. Without it there is no bounty.
+- `<WHAT-THE-TRIP-WAS>` - two or three sentences on what the trip actually was: what it
+  was for, who was there, what happened that mattered. Everything else in this text is
+  structure; that paragraph is the only part that tells an editor what story they are
+  cutting. Do not cast without it.
 
 <!-- PASTE BELOW THIS LINE -->
 
-Cut a clip from the WaveWarZ battle stream that we can actually run. 20 to 90 seconds, 60 is the sweet spot. The pot starts at 0.0125 ETH and grows as people add to it. Winner takes all of it, and WaveWarZ runs your clip on its official channels with your name on it.
+Cut the best 60 second recap of my NYC trip. Everything you need is in the folder. Winner takes 0.0125 ETH on Base, and the pot grows as people add to it.
 
-This round is not "find the good bit." Round 5 already proved people can find the moment. This one asks you to do something with it. Take a moment from a battle and give it a treatment nobody has tried on this stream yet. A cold open. A cut that lands on the flip. Text that does the work the audio cannot. A format you have seen work somewhere else and have not seen here. We are looking for the edit we would not have thought to ask for, because we are going to run it.
+<WHAT-THE-TRIP-WAS>
 
-WaveWarZ is live music battles. Song vs song, traded in real time, artists paid on the spot. 1,371 battles so far, test battles excluded, as of Sep 5. The battle stream runs most weeknights from about 9:30 pm ET at twitch.tv/wavewarzofficial. Almost nobody is watching it live. That is the point. The clip is how a stranger finds out this exists.
+The footage: <DRIVE-LINK>
 
-Where to look: https://www.twitch.tv/wavewarzofficial/videos
-What it is: https://wavewarz.com
-Find the drama fast: https://wavewarz.info/battles lists every battle with its pool size and winner. The biggest pools are where the flips happened. Match the time to the VOD.
-
-Heads up: Twitch keeps these VODs for 7 days only. This bounty runs for two weeks, so roughly half the window's source will be gone before the deadline. Clip early. The Clip button on the Twitch player is the easiest path, it caps at 60 seconds and the clip survives after the VOD expires. Downloading and cutting your own edit is better for this round, because this round is about the edit.
+Sixty seconds is the cap, not the target. The whole ask is density. Get the most of what happened into the least time, and make someone who was not there feel like they get it.
 
 
-THE BAR (these are requirements, not preferences)
+THE BAR (do these or you are not in the running)
 
-We are publishing the winner on our own channels, so the file has to be publishable.
-
-1. Vertical, 9:16. Not welcome, required. This runs as a Reel, a Short, and a TikTok.
-2. Captions burned into the video. Most people watch with sound off.
-3. @wavewarz or the WaveWarZ logo visible on screen. Typing the handle on screen counts, so nobody is blocked on getting artwork. If you would rather use the logo, DM @bettercallzaal for the files.
-4. AUDIO: keep the battle audio from the source. The music is the point. Do not bed it under library music or a melodic pad. Original source audio only.
-5. 20 to 90 seconds.
-
-Miss any of these five and we cannot run it, which means it cannot win.
+1. 60 seconds maximum. Under is fine if it is better.
+2. Use the footage in the folder. You can add your own titles, music, motion, whatever the edit needs.
+3. Vertical 9:16 or square. This is going out on short-form feeds, so a wide 16:9 cut cannot run as-is.
+4. Captions burned in. Most people watch with sound off.
+5. Claim on this poidh page with a link to your video, and put your handle in the claim text. If it is not claimed here, it is not entered.
 
 
 THE RUBRIC - what wins
 
-The treatment, first. Two entrants can pick the same battle and only one of them made something. Show us a way of cutting this stream that we have not seen.
+Density first. The most that happened, in the least time, still legible. That is the whole brief.
 
-Then the moment. The final seconds of a close battle and the flip. An artist finding out they just earned real money. A line from the MC or a judge that says what WaveWarZ is in one breath.
+Then story. A recap that goes somewhere beats a montage that just goes.
 
-Then the craft. Clean cuts, readable text, a first three seconds that stops a thumb.
-
-This is not about hype. It is the clip someone who has never heard of WaveWarZ would watch twice.
+Then craft. Clean cuts, readable text, a first three seconds that stops a thumb.
 
 
-HOW TO ENTER
+EARLY MATTERS MORE THAN LATE
 
-1. Make the clip from any VOD or live stream on twitch.tv/wavewarzofficial. Meet all five requirements above.
-2. Post it to either X, Instagram, TikTok, or YouTube. Tag @wavewarz and @bettercallzaal so we find it. Tag @poidhxyz and @kennyistyping too if you want a boost. In your post, name the artists in the clip.
-3. Claim on this poidh page with the link to your post and the Twitch clip link, or the VOD link plus timestamp. If it is not claimed here, it is not entered.
-4. Put your handle in the claim text. Last round we had a winning claim from a wallet with no handle attached to it and no way to check who it belonged to. Write your @ in the claim so we can credit you and pay the right person.
-
-By entering you are saying WaveWarZ and The ZAO can repost your clip on our official channels, and we credit your handle every time we do. You keep your edit. The music belongs to the artists in the battle, which is why we ask you to name them.
-
-Anyone on a paid WaveWarZ clipping retainer is not eligible for this pot. Retainer work and bounty work are separate, and the pot is for the community.
+This is not first-come-first-served for the prize, but it is for the posting. Read the next section: there are seven channel slots and they fill as clips come in. Submit in week one and every slot is still open. Submit on the last day and you are competing for whatever is left. The pot is judged at the end regardless.
 
 
 THE ASSET KIT
 
-There is no WaveWarZ brand kit folder yet, so this round runs on the source itself. Everything you need is public.
+The footage: <DRIVE-LINK>
 
-Source VODs: https://www.twitch.tv/wavewarzofficial/videos
-Battle data, pool sizes and winners: https://wavewarz.info/battles
-What WaveWarZ is: https://wavewarz.com
-Clipper rankings, if you want to see what already scores: https://wavewarz.info/leaderboards
+That folder is the whole kit. Raw clips and photos from the trip, free to cut however you want. Add your own titles, music and motion on top - nothing in there has to survive into your edit except the trip itself.
 
-Logo files: DM @bettercallzaal. You do not need them to enter - typing @wavewarz on screen satisfies rule 3.
+Unlike our last few rounds this source does not expire, so there is no rush to grab it before it disappears. The only clock is the deadline and the channel slots below.
 
 Every past round, its rules and who won:
 https://github.com/bettercallzaal/poidhz
 
 
-THE REWARD
+THE REWARD - and you can get paid even if you do not win
 
-Winner takes the whole pot, 0.0125 ETH on Base to start, growing as people add to it. Last round the pot grew from 0.0128 to 0.0238 before it closed.
+One winner takes 0.0125 ETH on Base, and the pot grows as people add to it. Separately, we are going to run the best of these across our channels, and if we run yours, you get $5 in $ZABAL for it.
 
-The winning clip runs on @wavewarz with your handle credited every time we post it. That is the part worth more than the ETH: this is a clip made for a channel that will actually publish it, not a spec piece.
+How that works, precisely, so nobody is guessing:
 
-This is an OPEN bounty, so the pot grows in real time if others stack contributions.
+- There are seven channels: Instagram, YouTube, TikTok, Facebook, Farcaster, X, and Lens.
+- Each channel gets ONE clip. When a clip is posted to a channel, that channel is taken and no other clip can be posted there.
+- Whoever made the clip we post gets $5 in $ZABAL, per channel their clip runs on.
+- So at most seven people get paid this way, and slots close as they fill. That is why submitting early is worth something.
+
+Every time we post one, we credit the maker by handle and say plainly that it came from a poidh bounty. You keep your edit. Post it on your own channels too if you want - we would rather you did.
+
+The one thing we ask back: when we post yours, help push it. That is the whole point of doing it this way instead of hiring one editor.
+
+
+HOW TO ENTER
+
+1. Pull the footage from <DRIVE-LINK>.
+2. Cut your 60 seconds. Meet all five bar rules above.
+3. Post it publicly on either X, Instagram, TikTok, or YouTube, and tag @bettercallzaal so we see it. Tag @poidhxyz and @kennyistyping too if you want a boost.
+4. Claim on this poidh page with the link to your post, and put your handle in the claim text.
+
+By entering you are saying The ZAO can repost your cut on our channels with your handle credited every time. You keep your edit.
 
 
 DEADLINE
 
-One winner, chosen using poidh consensus. Submissions close 11:59 pm PT, Sunday, September 20, 2026. Winner paid here within 48 hours, and the clip goes up on @wavewarz with your name on it.
-
-Already in the WaveWarZ Clippers group? This stacks with your points. Drop the same clip in https://t.me/+U4ZaQ69Qr44wMzRh too.
+Submissions close 11:59 pm PT, Wednesday, September 30, 2026. Winner announced and paid here after that, and the winning cut goes out with your name on it.
 
 <!-- PASTE ABOVE THIS LINE -->

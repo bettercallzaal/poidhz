@@ -1,128 +1,114 @@
-# R6 promo copy
+# R6 promo copy - NYC trip recap
 
-Replace `<BOUNTY-ID>` everywhere once the bounty is live.
+Replace `<BOUNTY-ID>` and `<DRIVE-LINK>` everywhere once the bounty is live.
 
-**Post in this order.** R5 went out from personal accounts and never reached @wavewarz or
-the Clippers group, and still pulled nine claims. The first two blocks below are the ones
-R5 never sent. They go first, not last.
+The seven-slot mechanic is the reason to enter this one, and it is the part people will not
+expect. Lead with it everywhere except the shortest surface. "You can get paid even if you
+lose" is a different pitch from every round this repo has run, so do not bury it under the
+prize.
 
----
-
-## 1. Clippers group - t.me/wavewarzclipshq
-
-The audience that already clips this stream for points. Highest-intent readers, so this
-version is short and assumes they know what WaveWarZ is.
-
-```
-New clip bounty is live: https://poidh.xyz/base/bounty/<BOUNTY-ID>
-
-0.0125 ETH on Base to start, pot grows if others stack on it. Two weeks.
-
-This one is different from the last round. We are not asking for the best moment, we are asking for the best edit. Take a moment and give it a treatment nobody has tried on this stream. We run the winner on @wavewarz with your name on it.
-
-Hard requirements, miss one and we cannot run it: vertical 9:16, captions burned in, @wavewarz or the logo on screen, battle audio kept, 20 to 90 seconds.
-
-Claim on the poidh page or it does not count, and put your @ in the claim so we pay the right person.
-
-Stacks with your Clippers points. Drop the same clip here too.
-
-Closes 11:59pm PT Sunday Sep 20.
-```
-
-## 2. @wavewarz on X
-
-The owner account. R5 promised "the clip runs on WaveWarZ official channels" while never
-having been announced on one.
-
-```
-Clip bounty is live.
-
-0.0125 ETH on Base, pot grows as people add to it. Winner runs on this account with your name on it.
-
-We do not want the best moment. We want the best edit. Take a moment from a battle and give it a treatment this stream has not seen.
-
-Vertical, captions, logo, battle audio, 20 to 90 seconds. Closes Sun Sep 20.
-
-https://poidh.xyz/base/bounty/<BOUNTY-ID>
-```
+**Post R5's winner announcement before any of this goes out.** That round promised a winner
+post and has not delivered one; launching R6 on the same channels first is how a series
+teaches people its promises are soft.
 
 ---
 
-## 3. Farcaster (long, /wavewarz primary, cross-post /poidh and /zao)
+## Farcaster (long) - /zao primary, cross-post /poidh
 
 ```
-The WaveWarZ clip bounty is back, and the ask changed.
+New bounty: cut the best 60 second recap of my NYC trip.
 
 https://poidh.xyz/base/bounty/<BOUNTY-ID>
 
-Round one asked for the best moment from the battle stream. People found it. This round asks for the best edit. Take a moment and give it a treatment nobody has tried on this stream yet. A cold open, a cut that lands on the flip, text doing the work the audio cannot. We are going to run the winner, so make something we would not have thought to ask for.
+All the footage is in one folder, link is in the bounty. Sixty seconds is the cap, not the target - the whole ask is density. The most of what happened, in the least time, so someone who was not there gets it.
 
-WaveWarZ is live music battles. Song vs song, traded in real time, artists paid on the spot. 1,371 battles so far. The stream runs most weeknights around 9:30pm ET at twitch.tv/wavewarzofficial and almost nobody is watching it live. That is the point. The clip is how a stranger finds out this exists.
+0.0125 ETH on Base to the best cut. OPEN bounty, so the pot grows if people stack on it.
 
-Requirements, not preferences, because we publish the winner: vertical 9:16, captions burned in, @wavewarz or the logo visible, battle audio kept, 20 to 90 seconds. Miss one and we cannot run it.
+Here is the part that is different. One person wins the ETH, but I am running the best of these across seven channels - Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens - and every channel gets ONE clip. If I post yours, you get $5 in $ZABAL for it. Seven slots, and they close as they fill.
 
-Twitch deletes these VODs after 7 days and this bounty runs 14, so half the window's source will be gone before the deadline. Clip early.
+Which means submitting early is worth actual money, even though the prize itself is judged at the end on merit.
 
-0.0125 ETH on Base to start. OPEN bounty, so the pot grows in real time if others stack. Last round it went from 0.0128 to 0.0238 on its own.
+Every clip I post gets its maker credited by handle, and I say where it came from. You keep your edit.
 
-Claim on the poidh page or you are not entered, and put your handle in the claim.
+Closes 11:59pm PT Wednesday September 30.
 
-Closes 11:59pm PT Sunday Sep 20. Winner paid within 48 hours and posted on @wavewarz with credit.
-
-cc @kennyistyping @poidhxyz
+cc @poidhxyz @kennyistyping
 ```
 
-## 4. X (short, under 280)
+## X (short, under 280)
 
 ```
-The WaveWarZ clip bounty is back and the ask changed.
+Cut the best 60 second recap of my NYC trip. Footage is all in the folder.
 
-Not the best moment. The best edit. Take a moment from a battle and give it a treatment this stream has not seen. We run the winner.
+0.0125 ETH to the winner. But I am running the best across 7 channels, one clip each, and if I post yours you get $5 in $ZABAL. Slots close as they fill, so early is worth money.
 
-0.0125 ETH on Base, pot grows. Closes Sun Sep 20.
+Closes Wed Sep 30.
 
 https://poidh.xyz/base/bounty/<BOUNTY-ID>
 ```
 
-## 5. Telegram / GC / Discord (mid-length)
+## Telegram / GC / Discord (mid-length)
 
 ```
-WaveWarZ clip bounty round 2: https://poidh.xyz/base/bounty/<BOUNTY-ID>
+NYC trip recap bounty: https://poidh.xyz/base/bounty/<BOUNTY-ID>
 
-0.0125 ETH on Base to start, OPEN so the pot grows if people stack on it. Two weeks, closes 11:59pm PT Sun Sep 20.
+60 seconds max, cut from my own footage - the folder link is in the bounty. Density is the brief: the most of what happened in the least time.
 
-The change from last round: we are not asking for the best moment, we are asking for the best edit. Take a moment from the battle stream and give it a treatment nobody has tried on it. We run the winner on @wavewarz with credit.
+0.0125 ETH on Base to the best one, OPEN so the pot can grow.
 
-Five hard requirements because we publish it: vertical 9:16, burned-in captions, @wavewarz or logo on screen, battle audio kept, 20 to 90 seconds.
+The new part: I am posting the best of these across 7 channels (Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens). Each channel gets one clip. If I post yours, that is $5 in $ZABAL to you, credited by handle every time. Seven slots total and they close as they fill, so getting in early is worth something even if you do not win the pot.
 
-Source is twitch.tv/wavewarzofficial. Twitch deletes VODs after 7 days so clip early, and the Clip button makes one that survives the VOD.
+Claim on the poidh page with your video link and put your @ in the claim, or you are not entered.
 
-Claim on poidh with your post link, and put your @ in the claim.
+Closes 11:59pm PT Wed Sep 30.
+```
+
+## For the ZAO channels, where people know what $ZABAL is
+
+```
+Bounty is up: 60 second recap of my NYC trip, footage provided.
+
+https://poidh.xyz/base/bounty/<BOUNTY-ID>
+
+0.0125 ETH to the winner, and up to seven more people get $5 in $ZABAL each - one clip per channel across Instagram, YouTube, TikTok, Facebook, Farcaster, X and Lens. Post yours early and more slots are still open.
+
+This is the first round where not winning still pays. Curious whether that changes who enters.
+
+Closes Wed Sep 30, 11:59pm PT.
 ```
 
 ---
-
-## Reply-cast, day 5
-
-Per the playbook's mid-window step. Fill in the real count before posting - do not guess it,
-`python3 scripts/query-bounty.py --bounty <BOUNTY-ID>` prints it.
-
-```
-<N> clips in, <N> days left on the WaveWarZ bounty.
-
-Reminder that Twitch has already deleted the VODs from launch week. This week's are still up: twitch.tv/wavewarzofficial/videos
-
-The edit is what wins here, not the moment. Pot is at <AMOUNT> ETH.
-
-https://poidh.xyz/base/bounty/<BOUNTY-ID>
-```
 
 ## Reply-cast, right after launch
 
 ```
-Two things people asked about last round.
+To be clear about the seven slots, since it is the unusual bit:
 
-Vertical and captions are not scoring bonuses this time, they are floor requirements. We publish the winner on @wavewarz, so a file we cannot post cannot win.
+The ETH is judged at the end, on merit, no matter when you submit. The slots are different - each of the seven channels gets one clip, first good one in takes it, and that is $5 in $ZABAL to whoever made it.
 
-And put your handle in the poidh claim. Last round a winning claim came from a wallet with no handle attached and we had to work out who to credit.
+So there is no penalty for submitting late, but there is a reason not to.
+```
+
+## Reply-cast, mid-window
+
+Fill in the real numbers before posting. `python3 scripts/query-bounty.py --bounty <BOUNTY-ID>`
+prints the claim count; the slot table in `README.md` has what has actually been posted.
+
+```
+<N> cuts in on the NYC recap bounty, <N> days left.
+
+<N> of the 7 channel slots are still open, so there is still $ZABAL on the table beyond the pot.
+
+https://poidh.xyz/base/bounty/<BOUNTY-ID>
+```
+
+## When posting a used clip on one of the seven channels
+
+Not a bounty announcement - this is the credit line that runs with each posted clip. The
+description promises this explicitly, so it is not optional.
+
+```
+Cut by @<MAKER>, from an open bounty I ran on poidh - anyone could enter, the footage was public, and I am paying for the ones I use.
+
+<BOUNTY-URL>
 ```
