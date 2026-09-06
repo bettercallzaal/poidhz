@@ -31,7 +31,7 @@
     tr:last-child td { border-bottom: none; }
     .status { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
     .status-upcoming { background: rgba(74,222,128,0.15); color: var(--green); }
-    .status-closed { background: rgba(138,136,149,0.15); color: var(--text-muted); }
+    .status-past, .status-closed { background: rgba(138,136,149,0.15); color: var(--text-muted); }
     .status-not_cast { background: rgba(245,200,66,0.15); color: var(--gold); }
     .status-no_deadline_found, .status-fetch_failed { background: rgba(248,113,113,0.15); color: var(--red); }
     .empty { color: var(--text-dim); padding: 2rem; text-align: center; }
@@ -112,12 +112,16 @@ fetch('../data/poidh-deadlines-global.json', { cache: 'no-store' })
     var body = document.getElementById('scan-body');
     var list = d.bounties_with_deadline_found || [];
     var rows = list.map(function (b) {
-      var statusLabel = String(b.status || '').replace(/_/g, ' ');
+      // deadline_status, not status: this column says whether the DATE has passed, which
+      // is a different question from whether the bounty is still open on chain. Renamed
+      // 2026-09-06; the || b.status fallback reads data generated before that rename.
+      var ds = b.deadline_status || b.status || '';
+      var statusLabel = String(ds).replace(/_/g, ' ');
       return '<tr><td><a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.title) + '</a></td>' +
         '<td style="font-family:monospace;font-size:0.8rem;">' + esc((b.issuer || '').slice(0, 10)) + '...</td>' +
         '<td>' + esc(b.amount_eth) + ' ETH</td>' +
         '<td>' + esc(b.deadline_iso) + ' <span style="color:var(--text-dim)">(' + esc(b.deadline_raw_text) + ')</span></td>' +
-        '<td><span class="status status-' + esc(b.status) + '">' + esc(statusLabel) + '</span></td></tr>';
+        '<td><span class="status status-' + esc(ds) + '">' + esc(statusLabel) + '</span></td></tr>';
     });
     body.innerHTML = rows.join('') || '<tr><td colspan="5" class="empty">No bounties with a parseable deadline in this scan.</td></tr>';
     document.getElementById('scan-footer').textContent = 'Scanned ' + (d.pages_scanned || '?') + ' page(s) of "' +
