@@ -29,6 +29,21 @@ jobs:
       - name: Run refresh script
         run: python3 scripts/refresh-poidh-leaderboard.py
 
+      - name: Report Empire Builder drift
+        # scripts/check-eb-sync.py has existed since 2026-08-08 and had never been
+        # run by anything. It detects a real, still-open bug: EB's "POIDH Submitters"
+        # leaderboard pulls from a stale api_endpoint, so it silently serves fewer
+        # submitters than this repo generates - femmie, the R3 winner, is missing from
+        # it entirely. A checker nothing invokes is a checker that does not exist.
+        #
+        # Deliberately continue-on-error. The drift is on Empire Builder's side and
+        # cannot be fixed from this repo - only by someone with EB dashboard access.
+        # Failing every 6h run on a bug we cannot close would train everyone to ignore
+        # a red build, which is worse than the drift. This makes it loud in the log and
+        # re-detectable the moment someone does fix it.
+        continue-on-error: true
+        run: python3 scripts/check-eb-sync.py
+
       - name: Guard against degenerate data
         # Second line of defence, same as refresh-bounty-dashboard.yml. The script
         # already refuses to write a degraded run, but nothing degenerate should be

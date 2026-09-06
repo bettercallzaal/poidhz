@@ -13,7 +13,8 @@
   "default_bounty_ids": [
     1151,
     1166,
-    1180
+    1180,
+    1330
   ],
   "default_chain_id": 8453,
   "site_url": "https://zpoidh.vercel.app",
@@ -44,13 +45,18 @@
       "title": "R4 - ZABAL Gamez open pot",
       "offchain": true,
       "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring."
+    },
+    {
+      "round": 5,
+      "bounty_id": 1330,
+      "title": "R5 - Best 60s clip from the WaveWarZ Twitch stream"
     }
   ],
   "planned_rounds": [
     {
-      "round": 5,
-      "title": "R5 - Best WaveWarZ clip from the Twitch stream",
-      "folder": "rounds/r5"
+      "round": 6,
+      "title": "R6 - Best original clip from the WaveWarZ battle stream",
+      "folder": "rounds/r6"
     }
   ],
   "offchain_credits": [

@@ -16,7 +16,7 @@ THE BAR (do these or you are not in the running)
 1. Make a <ARTIFACT> for <CAMPAIGN> in any format - image, video, meme, motion graphic, cast, poster, audio drop, whatever sells it. No format gate.
 2. Tag @bettercallzaal on X when you post publicly.
 3. Cross-post the same piece in the <CHANNEL> channel on Farcaster so the community sees it.
-4. Submit the public URL on this POIDH bounty page.
+4. Submit the public URL on this POIDH bounty page, and put your handle in the claim text. If it is not claimed here, it is not entered.
 5. AUDIO: if your <ARTIFACT> has audio, use the official <CAMPAIGN> promo MP3 from the asset kit, or original source-episode audio, or one clear instrumental that does not compete with spoken dialog. Random library music or melodic pads over dialog = floor fail.
 
 

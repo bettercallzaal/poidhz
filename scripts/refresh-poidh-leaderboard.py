@@ -98,15 +98,24 @@ DEGRADATIONS: list[str] = []
 # Retries cover 5xx, 429 and network/timeout errors. A 404 is a real answer about
 # a bounty that does not exist on that chain and is raised immediately - retrying
 # it would just cost four more seconds per missing bounty.
+# Retries are for dependencies the run CANNOT proceed without - poidh's /data above
+# all. They are wrong for best-effort enrichment: when api.web3.bio is unreachable it
+# is unreachable for every wallet, so retrying each one turns a fast, already-handled
+# degradation into 7 seconds x every submitter of pure backoff. Measured 2026-09-06,
+# when web3.bio was unroutable from a dev machine and a 38-wallet run spent about four
+# and a half minutes sleeping. Callers that are enrichment pass retries=0.
 RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
 RETRY_BACKOFF = (1, 2, 4)  # seconds; 3 retries after the first attempt
 
 
-def http_get(url: str, timeout: int = 20) -> dict:
+def http_get(url: str, timeout: int = 20, retries: int | None = None) -> dict:
+    """GET and parse JSON. `retries` defaults to the full backoff ladder; pass 0 for
+    best-effort calls whose failure the caller already degrades gracefully."""
+    backoff = RETRY_BACKOFF if retries is None else RETRY_BACKOFF[:max(0, retries)]
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     last: Exception | None = None
 
-    for attempt, pause in enumerate((*RETRY_BACKOFF, None)):
+    for attempt, pause in enumerate((*backoff, None)):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return json.loads(r.read())
@@ -120,7 +129,7 @@ def http_get(url: str, timeout: int = 20) -> dict:
         if pause is None:
             break
         print(
-            f"  WARN retry {attempt + 1}/{len(RETRY_BACKOFF)} in {pause}s "
+            f"  WARN retry {attempt + 1}/{len(backoff)} in {pause}s "
             f"after {type(last).__name__}: {last} - {url}",
             file=sys.stderr,
         )
@@ -186,7 +195,9 @@ def fetch_eb_leaderboard() -> dict:
 
 def fetch_web3_bio(address: str) -> dict | None:
     try:
-        d = http_get(f"{WEB3_BIO_BASE}/profile/{address}", timeout=10)
+        # retries=0: enrichment only. If web3.bio is down it is down for every wallet,
+        # and the caller already turns a total miss into a loud DEGRADATION.
+        d = http_get(f"{WEB3_BIO_BASE}/profile/{address}", timeout=10, retries=0)
         if isinstance(d, list) and d:
             for row in d:
                 if row.get("platform") == "farcaster":
