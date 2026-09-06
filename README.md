@@ -64,7 +64,10 @@ poidhz/
 │   ├── r2/                          # Best 60s POIDH ad from Ep 19 (bounty 1166, May 2026) - closed, paid
 │   ├── r3/                          # Best ad for ZABAL Gamez (bounty 1180) - closed, paid, cast drafted
 │   ├── r4/                          # ZABAL Gamez open pot (bounty 1249) - closed, see CLOSEOUT.md
-│   ├── r5/                          # WaveWarZ Twitch clip bounty (bounty 1330) - LIVE 2026-08-21, closes Sun Aug 30
+│   ├── r5/                          # WaveWarZ Twitch clip bounty (bounty 1330) - closed, paid,
+│   │                                 # winner announcement still owed (see r5/winner-announce.md)
+│   ├── r6/                          # WaveWarZ clip round 2 - DRAFT, not cast. Blocked on funding
+│   │                                 # the issuer wallet, see r6/README.md's pre-cast audit
 │   └── drafts/                      # never-cast drafts: unlock-cofund, unlock-solo, zabal-bugfix
 ├── assets/
 │   └── brand-kits/

@@ -154,8 +154,83 @@ push to `zpoidh` redirects, and the remote now answers as `bettercallzaal/poidhz
 per-round judging page - neither of which existed for R5. Do not paste that template
 without checking both claims against the round it is describing.
 
+## Pre-cast audit, measured 2026-09-06
+
+Run these four checks again on the morning you cast. Three of the four were green when
+this was written; one was not, and it stops the round dead.
+
+### BLOCKER: the issuer wallet cannot fund this bounty
+
+`0x7234c36a71ec237c2ae7698e8916e0735001e9af` holds **0.002154 ETH** on Base, measured
+against `mainnet.base.org` and `base-rpc.publicnode.com` (same answer from both).
+R6 needs **0.0128** plus gas.
+
+| | ETH | USD at $2,499.78 |
+|---|---|---|
+| Have | 0.002154 | $5.38 |
+| Need | 0.0128 | $32.00 |
+| **Short** | **0.0106** | **$26.61** |
+
+This is expected, not alarming: R5 funded 0.0128 out of this wallet and the pot paid out
+to the winner. Nobody had checked it since. **Fund the wallet before anything else** -
+every other gate below is wasted effort if this one is not cleared first.
+
+Re-check with:
+
+```bash
+curl -s -X POST https://mainnet.base.org -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_getBalance","params":["0x7234c36a71ec237c2ae7698e8916e0735001e9af","latest"]}'
+```
+
+poidh's on-chain `MIN_BOUNTY_AMOUNT` is 0.001 ETH (doc 2202), so a smaller round is
+technically castable - but 0.0125 is Zaal's locked number and dropping it to fit the
+wallet would be a silent downgrade, not a decision.
+
+### Green: the description passes
+
+`python3 scripts/validate-bounty-description.py --description rounds/r6/description.md`
+returns PASS. The one WARN (no poidh URL) is expected before creation. Read the caveat in
+"Validator status" below before trusting the PASS further than it goes.
+
+### Green, with a caveat: the source still exists
+
+Twitch archive on 2026-09-06: **5 archive VODs**, window **2026-09-01 to 2026-09-05**,
+124-157 minutes each, 0-3 views apiece. Down from 7 VODs the day before, which is the
+7-day expiry doing exactly what this round's text warns about.
+
+The caveat is that the newest VOD is from 2026-09-05 and there was no stream on the 6th.
+The round assumes battle nights keep happening across its 14 days. If the stream goes
+quiet mid-window, entrants who join late have nothing to clip. Worth a word with
+Hurric4n3IKE, who is already on the gate list below.
+
+### The deadline is hardcoded, so a slipped cast silently shortens the round
+
+`description.md` states **Sunday, September 20, 2026** in plain text. That was written for a
+cast on Monday 2026-09-07, giving 14 days. The date does not move on its own.
+
+If funding pushes the cast later, either edit the date in `description.md` to keep 14 days,
+or accept a shorter round on purpose. What must not happen is casting on the 12th against a
+Sep 20 deadline and calling it a two-week window, which is how R5 ended up with a stated
+deadline and an on-chain deadline six days apart.
+
+| Cast date | Sep 20 close gives |
+|---|---|
+| Mon Sep 7 | 14 days, as designed |
+| Wed Sep 9 | 12 days |
+| Fri Sep 11 | 10 days, R5's length |
+| Mon Sep 14 | 7 days, and half the archive expires inside it |
+
+### Green: the data pipeline is healthy
+
+`data/bounty-dashboard.json` regenerating on cron. The leaderboard refresh failed twice on
+2026-09-05/06 with poidh 504s; the retry added in #114 landed 2026-09-06T07:38 and the
+first run after it (10:43) succeeded. One green run is not proof the fix works, but it is
+not contradicted either.
+
 ## Zaal gates (money, public, outbound)
 
+- [ ] **FUND THE WALLET - 0.0106 ETH short, see the blocker above.** Nothing else on this
+      list can complete until this does.
 - [ ] **Gate 1, and the one that matters: announce from @wavewarz and drop it in
       [t.me/wavewarzclipshq](https://t.me/wavewarzclipshq).** R5 never did either. Owner-account
       posting is Zaal's, which is exactly why it is first here instead of buried in a
