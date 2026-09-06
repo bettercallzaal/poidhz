@@ -115,7 +115,16 @@ def main() -> int:
                     "amount_eth": int(b.get("amount", "0") or 0) / 1e18,
                     "deadline_iso": deadline_iso,
                     "deadline_raw_text": raw,
-                    "status": "closed" if deadline_iso < now.isoformat() else "upcoming",
+                    # NOT the bounty's on-chain state - this is only whether the DATE has
+                    # passed. It was called "status" until 2026-09-06, which collided with
+                    # bounty-dashboard.json's "status" (open / progress, the real on-chain
+                    # state) and made the two published files look like they disagreed about
+                    # 11 bounties. They never did: bounty 1062 reads "closed" here because
+                    # its March deadline is long gone, and "open" there because it is still
+                    # inProgress on chain, with both being true at once. That is a genuinely
+                    # interesting fact about poidh - deadlines do not close bounties - and it
+                    # deserves a field name that says so rather than one that hides it.
+                    "deadline_status": "past" if deadline_iso < now.isoformat() else "upcoming",
                     "url": f"https://poidh.xyz/base/bounty/{b['id']}",
                 }
             )
