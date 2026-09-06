@@ -43,6 +43,7 @@ import csv
 import json
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -87,10 +88,45 @@ UA = "Mozilla/5.0 (poidh-leaderboard-refresh)"
 DEGRADATIONS: list[str] = []
 
 
+# poidh's own endpoint returns transient 5xx often enough to red-build the cron:
+# two of eight scheduled runs failed on 2026-09-05/06, both with a bare
+# "HTTP Error 504: Gateway Timeout" out of fetch_bounty_data. Nothing was wrong
+# with this repo on either run - the guard below (guard_publishable) had already
+# done its job by refusing to publish degraded data, so the correct behaviour on
+# a blip is to wait and ask again, not to fail the whole refresh.
+#
+# Retries cover 5xx, 429 and network/timeout errors. A 404 is a real answer about
+# a bounty that does not exist on that chain and is raised immediately - retrying
+# it would just cost four more seconds per missing bounty.
+RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
+RETRY_BACKOFF = (1, 2, 4)  # seconds; 3 retries after the first attempt
+
+
 def http_get(url: str, timeout: int = 20) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read())
+    last: Exception | None = None
+
+    for attempt, pause in enumerate((*RETRY_BACKOFF, None)):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_STATUSES:
+                raise
+            last = e
+        except (urllib.error.URLError, TimeoutError) as e:
+            last = e
+
+        if pause is None:
+            break
+        print(
+            f"  WARN retry {attempt + 1}/{len(RETRY_BACKOFF)} in {pause}s "
+            f"after {type(last).__name__}: {last} - {url}",
+            file=sys.stderr,
+        )
+        time.sleep(pause)
+
+    raise last  # type: ignore[misc]
 
 
 def trpc(proc: str, payload: dict) -> dict:
