@@ -76,6 +76,33 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 
 **Status 2026-08-21:** LIVE at [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330). Steps 1-6 done. Step 7 (propagation) staged in clipboard `wavewarz-r5-propagate-all` - Farcaster main, X main, X GC, Farcaster /zao GC, Telegram, Discord, all six ready to post.
 
+**Status 2026-09-05: CLOSED AND PAID, WINNER NEVER ANNOUNCED.**
+
+Claim **7795** accepted on-chain, **0.0238 ETH** paid to
+`0x3f07d412da0aa3615bd92a496c73823a64370ec9`. Winning clip is
+[@wimpydwi's](https://x.com/wimpydwi/status/2094135544758608181): JOHN 3v16 by
+@LadyrynNemesis vs THE SUMO WRESLER by @The7_is_a_T. Final field **9 claims from 7 distinct
+entrants** (coolhat and one unlinked wallet filed twice each). Accepted outside a tracked
+session between 09-03 and 09-05. Verify with `python3 scripts/query-bounty.py --bounty 1330`.
+
+Two things this closes out, and one it does not:
+
+- The "low turnout" reading of this round was wrong. Nine claims sits between R2/R3's eight
+  and R1's eleven. The round was under-distributed, not under-subscribed - see the 2026-08-22
+  entry in `docs/RECAP.md`.
+- The pot grew 0.0128 to 0.0238 with no catalytic DM campaign run at all.
+- **Still open: the winner has been paid but never announced.** Nothing has gone out on
+  @wavewarz crediting @wimpydwi, which this bounty's own text promised ("the clip goes up on
+  @wavewarz with your name on it"). Copy is drafted and unsent in
+  [`winner-announce.md`](winner-announce.md). Do not paste the `_template` version - it
+  promises a $ZABAL airdrop this round never offered and links a judging page that does not
+  exist.
+
+The payee wallet resolves to no Farcaster, X or ENS identity on web3.bio. The claim carried
+@wimpydwi's X link, so the pot was released on a reasonable judgment call, but nothing
+on-chain ties the address to the handle. R6 fixes the general case by requiring the handle
+in the claim text.
+
 ## Files in this folder
 
 - `description.md` - poidh Title + Description, paste-ready
