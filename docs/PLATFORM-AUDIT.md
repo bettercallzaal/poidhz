@@ -50,14 +50,15 @@ prize size and tooling do survive it. Use those.
    `scripts/refresh-poidh-leaderboard.py:111`. This is the PR #107 guard working correctly,
    refusing to publish degraded data. The gap is that there is no retry, so a transient
    upstream blip reds the build.
-3. **The name is split three ways.** Repo is `poidhz`, the live deployment is
-   **`zpoidh.vercel.app`**, and `poidhz.xyz` / `poidhz.com` do not resolve. The README
-   correctly links the working URL; the risk is any post that says "poidhz" and links
-   something poidhz-branded.
+3. ~~**The name is split three ways.**~~ **RESOLVED 2026-09-06.** At audit time the repo
+   was `poidhz`, the deployment was `zpoidh.vercel.app`, and no `poidhz.*` domain resolved.
+   Zaal registered and connected **poidhz.com** the same day; it now serves all 10 surfaces,
+   `zpoidh.vercel.app` 307s to it, and every URL in this repo has moved over. Remaining nit:
+   `www.poidhz.com` reports Valid Configuration in Vercel but does not resolve yet.
 4. **Every `bettercallzaal.com/poidh-*` URL redirects to this GitHub repo** - including
    `poidh-bounty-best-practices.html`, which `rounds/_template/description.md` tells every
    future round to cite in its bounty text. The page is alive at
-   `zpoidh.vercel.app/best-practices`. We host it and point entrants at a repo.
+   `poidhz.com/best-practices`. We host it and point entrants at a repo.
 5. **`rounds/_template/cast-templates/winner-announce.md` carries two false claims** for
    any round without a $ZABAL trail: it promises every submitter an Empire Builder airdrop,
    and links a per-round judging page that was never built. R5 has no $ZABAL trail.

@@ -11,7 +11,7 @@ data/leaderboard.json, not just trusting the two are in sync.
 Real bug this script would have caught (found 2026-08-08, still unfixed as of writing):
 Empire Builder's "POIDH Submitters" leaderboard has `api_endpoint` set to
 bettercallzaal.com/poidh-leaderboard.json - a stale, pre-zpoidh URL, not this repo's own
-zpoidh.vercel.app/leaderboard. Live diff: EB has 16 entries, zpoidh generates 22 - missing
+poidhz.com/leaderboard. Live diff: EB has 16 entries, zpoidh generates 22 - missing
 6 real submitters entirely, including the actual R3 winner (femmie), whose wallet isn't
 in EB's feed at all. Three more wallets have understated scores. This is NOT fixable by
 this script or any code change here - EB's own leaderboard admin dashboard needs the
@@ -51,7 +51,7 @@ def load_org_config() -> dict:
 
 
 _CFG = load_org_config()
-SITE_URL = _CFG.get("site_url", "https://zpoidh.vercel.app")
+SITE_URL = _CFG.get("site_url", "https://poidhz.com")
 LEADERBOARD_UUID = _CFG.get("empire_leaderboard_uuid", "7b8e8dfa-529d-48ad-8c9b-bdb45cc35187")
 EB_API_BASE = "https://www.empirebuilder.world/api"
 

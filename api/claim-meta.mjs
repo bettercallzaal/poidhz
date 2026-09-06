@@ -14,7 +14,7 @@
 
 export const config = { runtime: 'edge' };
 
-const FALLBACK_IMAGE = 'https://zpoidh.vercel.app/assets/brand-kits/zabal-games/embed-card-gamez.png';
+const FALLBACK_IMAGE = 'https://poidhz.com/assets/brand-kits/zabal-games/embed-card-gamez.png';
 
 function json(body) {
   return new Response(JSON.stringify(body), {
@@ -49,6 +49,6 @@ export default async function handler(req) {
     name: title,
     description: desc,
     image: img || FALLBACK_IMAGE,
-    external_url: clip || 'https://zpoidh.vercel.app',
+    external_url: clip || 'https://poidhz.com',
   });
 }
