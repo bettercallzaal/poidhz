@@ -1,13 +1,15 @@
 # poidhz - a public client for poidh bounties
 
-**Live: [zpoidh.vercel.app](https://zpoidh.vercel.app)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
+**Live: [poidhz.com](https://poidhz.com)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
 
-> **`poidhz.com` is bought but not connected yet.** Zaal registered it 2026-09-06; as of that
-> date it does not resolve, so `zpoidh.vercel.app` is still the only working URL and every
-> link in this repo points there on purpose. To finish: add `poidhz.com` as a domain on the
-> Vercel project and point the registrar's nameservers or A/CNAME records at Vercel. Once it
-> serves, the URLs here and in `org.config.json`'s `site_url` should move over in one pass -
-> not before, or the docs advertise a dead address.
+> **The name is settled.** `poidhz.com` was registered and connected on 2026-09-06 and is now
+> the production domain. `zpoidh.vercel.app` still works and 307s to it, so every link ever
+> shared stays alive. All URLs in this repo moved over in one pass once the domain actually
+> served - the repo, the site and the docs finally say the same word.
+>
+> Known gap: `www.poidhz.com` shows Valid Configuration in Vercel but does not resolve yet
+> (measured 2026-09-06). The apex works; if `www` is still dead later, the DNS record for it
+> needs a look.
 
 poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judging pages, the canonical bounty bar) and grew the tooling any issuer or hunter can use. Both halves live here. MIT, fork it.
 
@@ -15,13 +17,13 @@ poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judgin
 
 | URL | What |
 |---|---|
-| [/](https://zpoidh.vercel.app/) | Deadline calendar + agenda + every open bounty without a date |
-| [/dashboard](https://zpoidh.vercel.app/dashboard) | Platform-wide live dashboard: timers, claim status, ease / difficulty / money per bounty |
-| [/data/poidh-deadlines.ics](https://zpoidh.vercel.app/data/poidh-deadlines.ics) | Subscribe in any calendar app |
-| [/data/bounty-dashboard.json](https://zpoidh.vercel.app/data/bounty-dashboard.json) | The data behind both pages, CORS open |
-| [/best-practices](https://zpoidh.vercel.app/best-practices) | The canonical bounty bar: how to write a bounty people can actually win |
-| [/about](https://zpoidh.vercel.app/about) | Our own rounds, winners, brand kits |
-| [/leaderboard](https://zpoidh.vercel.app/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
+| [/](https://poidhz.com/) | Deadline calendar + agenda + every open bounty without a date |
+| [/dashboard](https://poidhz.com/dashboard) | Platform-wide live dashboard: timers, claim status, ease / difficulty / money per bounty |
+| [/data/poidh-deadlines.ics](https://poidhz.com/data/poidh-deadlines.ics) | Subscribe in any calendar app |
+| [/data/bounty-dashboard.json](https://poidhz.com/data/bounty-dashboard.json) | The data behind both pages, CORS open |
+| [/best-practices](https://poidhz.com/best-practices) | The canonical bounty bar: how to write a bounty people can actually win |
+| [/about](https://poidhz.com/about) | Our own rounds, winners, brand kits |
+| [/leaderboard](https://poidhz.com/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
 
 ## Our rounds (cast order)
 
@@ -173,7 +175,7 @@ Use the existing rounds as reference:
 - **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/drafts/zabal-bugfix/bountycaster-cast.md](rounds/drafts/zabal-bugfix/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
-- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: zpoidh.vercel.app/hub"
+- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: poidhz.com/hub"
 - Close date + 1: lock judging
 - Close date + 2: cast winner
 
@@ -212,7 +214,7 @@ Every BCZ POIDH submitter lands on slot 8 of $ZABAL Empire (`POIDH Submitters` l
 
 Token Boosters + Reputation Boosters intentionally OFF (cleanest mechanic, no Talent Protocol or token-holder confounders).
 
-Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`, served at [zpoidh.vercel.app/leaderboard](https://zpoidh.vercel.app/leaderboard).
+Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`, served at [poidhz.com/leaderboard](https://poidhz.com/leaderboard).
 
 **The cut-over has not happened.** Empire Builder's "POIDH Submitters" leaderboard still has its `api_endpoint` pointed at `bettercallzaal.com/poidh-leaderboard.json`, a pre-poidhz URL that now redirects away. Measured 2026-08-08 and unchanged since: EB shows 16 entries where this repo generates 22, so 6 real submitters are missing from EB entirely - including **femmie, the R3 winner**, whose wallet is absent from EB's feed. Three more wallets have understated scores. No code change here can fix it; EB's own admin dashboard needs the `api_endpoint` corrected by someone with access. `scripts/check-eb-sync.py` exists to detect exactly this drift.
 

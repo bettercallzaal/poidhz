@@ -157,8 +157,8 @@ Measured 2026-09-05. `bettercallzaal.com/poidh-bounty-best-practices.html`,
 `/poidh.html` and `/poidh-round<N>-judging.html` all return 200 only after redirecting to
 `https://github.com/bettercallzaal/poidhz`. The pages still exist as `docs/*.html` in this
 repo, but nothing serves them: GitHub Pages 404s, `poidhz.vercel.app` 404s at those paths,
-and `poidhz.xyz` / `poidhz.com` do not resolve at all - the domain purchase flagged as
-outstanding in the 2026-08-21 handoff is still outstanding.
+and no `poidhz.*` domain resolved. **That last part is fixed: poidhz.com was registered and
+connected on 2026-09-06 and is now the production domain**, so the URLs below point at it.
 
 This is entrant-facing, not cosmetic. The `_template` description tells every future round
 to cite the canonical bar, which now drops a clipper on a GitHub repo page. The same dead

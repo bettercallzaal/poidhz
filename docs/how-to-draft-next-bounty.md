@@ -63,7 +63,7 @@ Voice rules (per ZABAL Gamez brand kit `phrases.md`):
 Cite the canonical bar at the end of the asset kit section:
 ```
 Canonical bounty bar:
-https://zpoidh.vercel.app/best-practices
+https://poidhz.com/best-practices
 ```
 
 ---
@@ -167,7 +167,7 @@ done > durations-raw.txt
 
 Floor-fail per spec. Do not inflate verdict to clear the bounty.
 
-Publish per-submission scorecard at `zpoidh.vercel.app/round/<N>/judging` within 48h.
+Publish per-submission scorecard at `poidhz.com/round/<N>/judging` within 48h.
 
 ---
 
@@ -203,7 +203,7 @@ Publish per-submission scorecard at `zpoidh.vercel.app/round/<N>/judging` within
 | Template for new round | `rounds/_template/` |
 | Past rounds | `rounds/r1/`, `rounds/r2/`, `rounds/r3/` |
 | Brand kits | `assets/brand-kits/<campaign>/` |
-| Live EB feed | `data/leaderboard.json`, served at `zpoidh.vercel.app/leaderboard`. **EB itself is still pointed at the old `bettercallzaal.com/poidh-leaderboard.json` and is missing 6 submitters incl. femmie - see the leaderboard section of the root README.** |
+| Live EB feed | `data/leaderboard.json`, served at `poidhz.com/leaderboard`. **EB itself is still pointed at the old `bettercallzaal.com/poidh-leaderboard.json` and is missing 6 submitters incl. femmie - see the leaderboard section of the root README.** |
 | Refresh script | `scripts/refresh-poidh-leaderboard.py` |
 | Resume + history | `docs/RECAP.md` |
 
