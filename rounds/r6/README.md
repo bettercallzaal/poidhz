@@ -134,6 +134,26 @@ to a floor rule - which would have put a hard requirement behind a DM. Rule 3 is
 it, so no entrant is blocked on artwork they cannot get. Building a real WaveWarZ kit is worth
 doing before a third round, and is the natural companion to the Hurric4n3IKE conversation.
 
+## Every bettercallzaal.com/poidh* link in this repo is dead
+
+Measured 2026-09-05. `bettercallzaal.com/poidh-bounty-best-practices.html`,
+`/poidh.html` and `/poidh-round<N>-judging.html` all return 200 only after redirecting to
+`https://github.com/bettercallzaal/poidhz`. The pages still exist as `docs/*.html` in this
+repo, but nothing serves them: GitHub Pages 404s, `poidhz.vercel.app` 404s at those paths,
+and `poidhz.xyz` / `poidhz.com` do not resolve at all - the domain purchase flagged as
+outstanding in the 2026-08-21 handoff is still outstanding.
+
+This is entrant-facing, not cosmetic. The `_template` description tells every future round
+to cite the canonical bar, which now drops a clipper on a GitHub repo page. The same dead
+URL is cited in `README.md`, `docs/how-to-draft-next-bounty.md`, `rounds/r3/`, and both
+`_template` cast files. R6 cites the repo directly instead, which works today.
+
+Two notes for whoever fixes this properly: the repo has been **renamed to `poidhz`** (the
+push to `zpoidh` redirects, and the remote now answers as `bettercallzaal/poidhz`), and the
+`_template` winner-announce copy promises every submitter a $ZABAL airdrop and links a
+per-round judging page - neither of which existed for R5. Do not paste that template
+without checking both claims against the round it is describing.
+
 ## Zaal gates (money, public, outbound)
 
 - [ ] **Gate 1, and the one that matters: announce from @wavewarz and drop it in

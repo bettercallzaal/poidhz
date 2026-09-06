@@ -67,8 +67,8 @@ Clipper rankings, if you want to see what already scores: https://wavewarz.info/
 
 Logo files: DM @bettercallzaal. You do not need them to enter - typing @wavewarz on screen satisfies rule 3.
 
-Canonical bounty bar:
-https://bettercallzaal.com/poidh-bounty-best-practices.html
+Every past round, its rules and who won:
+https://github.com/bettercallzaal/poidhz
 
 
 THE REWARD
