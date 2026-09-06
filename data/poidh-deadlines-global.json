@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T15:36:03.511033+00:00",
+  "generated_at": "2026-09-06T20:35:15.198257+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -93,6 +93,16 @@
       "deadline_raw_text": "September 21st",
       "status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 29,
+      "title": "Who\u2019s Got the Nerdiest Don't F With Me Face?",
+      "issuer": "0x59733c7cd78d08dab90368ad2cc09c8c81f097c0",
+      "amount_eth": 0.0082,
+      "deadline_iso": "2026-10-01",
+      "deadline_raw_text": "Oct. 1st",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/29"
     },
     {
       "bounty_id": 1362,
