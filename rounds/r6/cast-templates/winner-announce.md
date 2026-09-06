@@ -1,6 +1,29 @@
 # Winner announce cast template
 
-Use after `submitClaimForVote` + `resolveVote` + winner withdraws. Cast in primary channel + cross-post + Firefly to X.
+Use after the winner is settled on poidh. For an OPEN bounty that runs the vote path, that
+means after `submitClaimForVote` + `resolveVote` + the winner withdraws; for a round the
+issuer accepted directly, it means after the claim shows `isAccepted: true`. Confirm which
+happened with `python3 scripts/query-bounty.py --bounty <id>` rather than assuming.
+
+## Check these two before you paste anything
+
+This template used to state both as facts. Neither is true of every round, and R5 shipped
+with neither - a paste-as-is would have promised seven people an airdrop nobody offered.
+
+1. **The $ZABAL trail.** The blocks below carry an optional line saying every submitter
+   earned $ZABAL via Empire Builder slot 8. **Only use it if the round's own
+   `description.md` actually promised it.** Check with
+   `grep -ci zabal rounds/r<N>/description.md` - R5 returns 0. Announcing an airdrop that
+   was never offered creates a debt to every entrant on the spot.
+   Also note: Empire Builder's leaderboard is currently pointed at a stale endpoint and is
+   missing 6 submitters including R3's winner (see the root README). Do not claim a
+   submitter "already got" anything without checking EB shows them.
+2. **The judging page.** `poidhz.com/round/<N>/judging` only resolves if a judging
+   page was actually built for that round. R1-R3 have one; R5 does not. Check that the URL
+   returns 200 before putting it in a public post, and drop the line if it does not.
+
+Lines marked `[OPTIONAL - verify first]` are the ones this applies to. Delete them rather
+than shipping them unverified.
 
 ## Farcaster (long)
 
@@ -13,16 +36,20 @@ The <ARTIFACT>: <X-URL or POIDH-CLAIM-URL>
 
 Real congrats. Earned it.
 
-<PRIZE> ETH released to you once the contributor vote resolves (~48h on POIDH's open bounty flow).
+<PRIZE> ETH, paid.
 
-And here is the part that actually scales - every single submitter to Round <N> already got $ZABAL airdropped to their wallet via slot 8 of $ZABAL Empire on Empire Builder. Winning the ETH is the spike. Showing up earns the baseline. That's the whole model.
+[OPTIONAL - verify first] And here is the part that actually scales - every submitter to Round <N> also earned $ZABAL via slot 8 of $ZABAL Empire on Empire Builder. Winning the ETH is the spike. Showing up earns the baseline. That's the whole model.
 
 Full breakdown of all <N-SUBMISSIONS> submissions + rubric scoring + the judging logic:
-- Page: https://bettercallzaal.com/poidh-round<N>-judging.html
-- GitHub: https://github.com/bettercallzaal/zpoidh/tree/main/rounds/r<N>
+[OPTIONAL - verify first] - Page: https://poidhz.com/round/<N>/judging
+- GitHub: https://github.com/bettercallzaal/poidhz/tree/main/rounds/r<N>
 
 cc @poidhxyz
 ```
+
+Note on the prize line: say "paid" only once the payout has actually settled. If the
+contributor vote is still running, say "<PRIZE> ETH released once the contributor vote
+resolves, about 48h on POIDH's open bounty flow" instead.
 
 ## X (under 280)
 
@@ -31,10 +58,10 @@ cc @poidhxyz
 
 <ONE-LINE WHY THEY WON>
 
-winner takes <PRIZE> ETH. every submitter already earned $ZABAL via @empirebuilder slot 8
+winner takes <PRIZE> ETH
 
 clip: <X-URL>
-breakdown: https://bettercallzaal.com/poidh-round<N>-judging.html
+[OPTIONAL - verify first] breakdown: https://poidhz.com/round/<N>/judging
 ```
 
 ## Short - Telegram / GC / Discord
@@ -42,11 +69,13 @@ breakdown: https://bettercallzaal.com/poidh-round<N>-judging.html
 ```
 Round <N> BCZ x POIDH winner: @<WINNER-HANDLE> / <NAME>. Real congrats - earned it.
 
-Winner takes <PRIZE> ETH after the ~48h contributor vote. Every submitter to Round <N> already got $ZABAL airdropped via the $ZABAL Empire leaderboard - submitting is the reward, winning is the bonus.
+Winner takes <PRIZE> ETH.
+
+[OPTIONAL - verify first] Every submitter to Round <N> also earned $ZABAL via the $ZABAL Empire leaderboard - submitting is the reward, winning is the bonus.
 
 Clip: <X-URL>
-Breakdown: https://bettercallzaal.com/poidh-round<N>-judging.html
-Source: https://github.com/bettercallzaal/zpoidh/tree/main/rounds/r<N>
+[OPTIONAL - verify first] Breakdown: https://poidhz.com/round/<N>/judging
+Source: https://github.com/bettercallzaal/poidhz/tree/main/rounds/r<N>
 ```
 
 ## Reply-cast to winner on the thread

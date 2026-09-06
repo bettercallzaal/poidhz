@@ -17,7 +17,7 @@
     1330
   ],
   "default_chain_id": 8453,
-  "site_url": "https://zpoidh.vercel.app",
+  "site_url": "https://poidhz.com",
   "brand": {
     "bg": "#070709",
     "cyan": "#00e5ff",
@@ -55,8 +55,13 @@
   "planned_rounds": [
     {
       "round": 6,
-      "title": "R6 - Best original clip from the WaveWarZ battle stream",
+      "title": "R6 - Recap my NYC trip in 60 seconds",
       "folder": "rounds/r6"
+    },
+    {
+      "round": 7,
+      "title": "R7 - WaveWarZ clip round 2",
+      "folder": "rounds/r7"
     }
   ],
   "offchain_credits": [

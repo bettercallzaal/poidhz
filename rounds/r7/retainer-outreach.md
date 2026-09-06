@@ -36,9 +36,9 @@ Also, so we can keep our records straight - can you confirm the wallet 0x3f07...
 ## Notes for whoever sends this
 
 - Do not name a budget first. The instruction was to ask what it would cost.
-- If they come back with a number, the next decision is Zaal's and it interacts with R6:
+- If they come back with a number, the next decision is Zaal's and it interacts with R7:
   a retainer may make a second clip round redundant, or may make it more valuable because
   the retainer covers volume and the bounty covers experiments. That call was explicitly
   deferred until the price is known.
-- If they decline the retainer, nothing about R6 changes and the eligibility clause in
+- If they decline the retainer, nothing about R7 changes and the eligibility clause in
   `description.md` still stands for anyone else on one.

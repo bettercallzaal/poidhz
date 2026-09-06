@@ -65,5 +65,5 @@ Quick context for first-timers: this is round <N> of the BCZ x POIDH bounty seri
 
 Brand kit + promo audio: https://bettercallzaal.com/assets/<campaign-brand>/
 
-Canonical bounty bar: https://zpoidh.vercel.app/best-practices
+Canonical bounty bar: https://poidhz.com/best-practices
 ```
