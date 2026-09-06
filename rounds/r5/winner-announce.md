@@ -75,7 +75,7 @@ https://poidh.xyz/base/bounty/1330
 cc @poidhxyz
 ```
 
-## 4. Clippers group - t.me/wavewarzclipshq
+## 4. The WaveWarZ clippers Telegram - t.me/wavewarzclipshq
 
 R5 never reached this group at any point, launch or close. Say so plainly rather than
 posting as though they had been part of it.

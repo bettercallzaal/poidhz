@@ -5,7 +5,7 @@
   },
   {
     "address": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
-    "score": 2
+    "score": 3
   },
   {
     "address": "0x388e3daf94fab496f01b78aac25305d715aa24ff",
@@ -45,11 +45,11 @@
   },
   {
     "address": "0x8dbab1f53609b3f40241557ad0bf3d76275db485",
-    "score": 1
+    "score": 2
   },
   {
     "address": "0x96e9025466a3e15dc2c3b28c1c6c71523a93f703",
-    "score": 3
+    "score": 4
   },
   {
     "address": "0x3c768766da85cce630f10b40ee118be440b5f4b9",
@@ -81,6 +81,22 @@
   },
   {
     "address": "0xd5a86c3be58eb59cd816068568272f45b5f19e05",
+    "score": 1
+  },
+  {
+    "address": "0x3f07d412da0aa3615bd92a496c73823a64370ec9",
+    "score": 1
+  },
+  {
+    "address": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
+    "score": 1
+  },
+  {
+    "address": "0x1c7afa67130ee637765a8281e83342e307409d57",
+    "score": 1
+  },
+  {
+    "address": "0x876f24f98841e57444611c1cf9a8991ec4b64919",
     "score": 1
   },
   {

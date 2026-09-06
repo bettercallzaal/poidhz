@@ -6,12 +6,12 @@ open bounties) and the "zero/0 of 95 set the native field" claims against the li
 posting - both were true when this was written (2026-08-20) but drift as bounties open/close
 and are not auto-updated in this file. No emojis, no em dashes.
 
-## Farcaster (long, embed https://zpoidh.vercel.app)
+## Farcaster (long, embed https://poidhz.com)
 
 ```
 We built the thing poidh was missing: a deadline calendar.
 
-zpoidh.vercel.app
+poidhz.com
 
 poidh has a deadline field nobody fills in. Zero of 95 open bounties set it. So we read every open bounty's description, pull the date out of the text, and put it on a calendar. Countdowns, filters by chain and type, a subscribable .ics, and a list of every bounty that forgot to say when it closes.
 
@@ -27,7 +27,7 @@ github.com/bettercallzaal/zpoidh
 ```
 poidh has a deadline field nobody fills in (0 of 95 open bounties). So we parse the date out of every description and put it on a calendar, with countdowns and an .ics feed.
 
-poidhz: zpoidh.vercel.app
+poidhz: poidhz.com
 
 MIT, fork it. @poidhxyz @kennyistyping
 ```
@@ -35,5 +35,5 @@ MIT, fork it. @poidhxyz @kennyistyping
 ## Telegram / GC
 
 ```
-New from the ZAO: poidhz, a deadline calendar for poidh bounties. Every open bounty with a stated deadline on a month grid, countdowns, a subscribable .ics, plus the list of bounties that never said when they close. zpoidh.vercel.app
+New from the ZAO: poidhz, a deadline calendar for poidh bounties. Every open bounty with a stated deadline on a month grid, countdowns, a subscribable .ics, plus the list of bounties that never said when they close. poidhz.com
 ```

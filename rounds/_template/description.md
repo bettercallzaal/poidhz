@@ -16,7 +16,7 @@ THE BAR (do these or you are not in the running)
 1. Make a <ARTIFACT> for <CAMPAIGN> in any format - image, video, meme, motion graphic, cast, poster, audio drop, whatever sells it. No format gate.
 2. Tag @bettercallzaal on X when you post publicly.
 3. Cross-post the same piece in the <CHANNEL> channel on Farcaster so the community sees it.
-4. Submit the public URL on this POIDH bounty page.
+4. Submit the public URL on this POIDH bounty page, and put your handle in the claim text. If it is not claimed here, it is not entered.
 5. AUDIO: if your <ARTIFACT> has audio, use the official <CAMPAIGN> promo MP3 from the asset kit, or original source-episode audio, or one clear instrumental that does not compete with spoken dialog. Random library music or melodic pads over dialog = floor fail.
 
 
@@ -68,7 +68,7 @@ Farcaster channel:
 https://farcaster.xyz/~/channel/<channel>
 
 Canonical bounty bar:
-https://zpoidh.vercel.app/best-practices
+https://poidhz.com/best-practices
 
 CC-BY 4.0. Remix freely. Just keep "<CAMPAIGN>" or "<CAMPAIGN-URL>" visible somewhere in your final piece.
 
@@ -80,7 +80,7 @@ Best <ARTIFACT> wins <PRIZE> ETH on Base. Winner clip becomes <CAMPAIGN>'s pinne
 Every submitter earns $ZABAL automatically via the slot 8 leaderboard on Empire Builder. Drop scales by how many BCZ POIDH bounties you have entered total - submit to all rounds and your score compounds. <PRIOR-ROUNDS-NOTE>.
 
 Track live: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07
-Submitter leaderboard hub: https://zpoidh.vercel.app/hub
+Submitter leaderboard hub: https://poidhz.com/hub
 
 This is an OPEN bounty - the pot grows in real time if others stack contributions.
 

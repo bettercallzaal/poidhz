@@ -1,6 +1,15 @@
 # poidhz - a public client for poidh bounties
 
-**Live: [zpoidh.vercel.app](https://zpoidh.vercel.app)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
+**Live: [poidhz.com](https://poidhz.com)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
+
+> **The name is settled.** `poidhz.com` was registered and connected on 2026-09-06 and is now
+> the production domain. `zpoidh.vercel.app` still works and 307s to it, so every link ever
+> shared stays alive. All URLs in this repo moved over in one pass once the domain actually
+> served - the repo, the site and the docs finally say the same word.
+>
+> Known gap: `www.poidhz.com` shows Valid Configuration in Vercel but does not resolve yet
+> (measured 2026-09-06). The apex works; if `www` is still dead later, the DNS record for it
+> needs a look.
 
 poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judging pages, the canonical bounty bar) and grew the tooling any issuer or hunter can use. Both halves live here. MIT, fork it.
 
@@ -8,13 +17,13 @@ poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judgin
 
 | URL | What |
 |---|---|
-| [/](https://zpoidh.vercel.app/) | Deadline calendar + agenda + every open bounty without a date |
-| [/dashboard](https://zpoidh.vercel.app/dashboard) | Platform-wide live dashboard: timers, claim status, ease / difficulty / money per bounty |
-| [/data/poidh-deadlines.ics](https://zpoidh.vercel.app/data/poidh-deadlines.ics) | Subscribe in any calendar app |
-| [/data/bounty-dashboard.json](https://zpoidh.vercel.app/data/bounty-dashboard.json) | The data behind both pages, CORS open |
-| [/best-practices](https://zpoidh.vercel.app/best-practices) | The canonical bounty bar: how to write a bounty people can actually win |
-| [/about](https://zpoidh.vercel.app/about) | Our own rounds, winners, brand kits |
-| [/leaderboard](https://zpoidh.vercel.app/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
+| [/](https://poidhz.com/) | Deadline calendar + agenda + every open bounty without a date |
+| [/dashboard](https://poidhz.com/dashboard) | Platform-wide live dashboard: timers, claim status, ease / difficulty / money per bounty |
+| [/data/poidh-deadlines.ics](https://poidhz.com/data/poidh-deadlines.ics) | Subscribe in any calendar app |
+| [/data/bounty-dashboard.json](https://poidhz.com/data/bounty-dashboard.json) | The data behind both pages, CORS open |
+| [/best-practices](https://poidhz.com/best-practices) | The canonical bounty bar: how to write a bounty people can actually win |
+| [/about](https://poidhz.com/about) | Our own rounds, winners, brand kits |
+| [/leaderboard](https://poidhz.com/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
 
 ## Our rounds (cast order)
 
@@ -25,7 +34,8 @@ poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judgin
 | R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad, any format | 0.025 ETH | paid, @femmie (8 claims) |
 | R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open pot | canceled at closeout | 15 builders credited in $ZABAL, see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) |
 | R5 | [1330](https://poidh.xyz/base/bounty/1330) | Best 60s clip from the WaveWarZ Twitch stream | 0.0125 ETH seed, 0.0238 final | paid, claim 7795 (9 claims). Winner announcement still owed |
-| R6 | not cast | Best original clip from the WaveWarZ battle stream | 0.0125 ETH (open pot) | DRAFT, see [rounds/r6/](rounds/r6/) |
+| R6 | not cast | Recap my NYC trip in 60 seconds - one pot plus seven paid channel slots | 0.0125 ETH (open pot) + up to $35 $ZABAL | DRAFT, closes Wed Sep 30. See [rounds/r6/](rounds/r6/) |
+| R7 | not cast | WaveWarZ clip round 2 - the edit, not the moment | 0.0125 ETH (open pot) | DRAFT, queued behind R6. See [rounds/r7/](rounds/r7/) |
 
 Never-cast drafts (Unlock Protocol clip bounty, solo variant, ZABAL Gamez bug-fix bounty) live in [rounds/drafts/](rounds/drafts/).
 
@@ -64,7 +74,11 @@ poidhz/
 │   ├── r2/                          # Best 60s POIDH ad from Ep 19 (bounty 1166, May 2026) - closed, paid
 │   ├── r3/                          # Best ad for ZABAL Gamez (bounty 1180) - closed, paid, cast drafted
 │   ├── r4/                          # ZABAL Gamez open pot (bounty 1249) - closed, see CLOSEOUT.md
-│   ├── r5/                          # WaveWarZ Twitch clip bounty (bounty 1330) - LIVE 2026-08-21, closes Sun Aug 30
+│   ├── r5/                          # WaveWarZ Twitch clip bounty (bounty 1330) - closed, paid,
+│   │                                 # winner announcement still owed (see r5/winner-announce.md)
+│   ├── r6/                          # NYC trip recap, 60s - DRAFT. Blocked on the Drive link,
+│   │                                 # the trip write-up, and funding the issuer wallet
+│   ├── r7/                          # WaveWarZ clip round 2 - DRAFT, queued behind R6
 │   └── drafts/                      # never-cast drafts: unlock-cofund, unlock-solo, zabal-bugfix
 ├── assets/
 │   └── brand-kits/
@@ -91,6 +105,8 @@ poidhz/
     │                                 # estimated ease/difficulty/money per bounty (docs/bounty-dashboard.html)
     ├── process-judging-videos.py    # Stage 1: download + duration-check + scaffold judging.json
     ├── render-judging-html.py       # Stage 2: judging.json -> shareable HTML scorecard
+    ├── precast-check.py             # is this round castable? wallet balance, deadline window,
+    │                                 # config wiring, placeholders, validator, data freshness
     ├── validate-bounty-description.py # Stage 3: check a draft description against the canonical bar
     ├── prepare-winner-announcement.py # Stage 4: scaffold the winner-announce cast templates
     └── run-judging-round.py         # Stage 5: orchestrates stages 1-4, pauses at two human gates
@@ -159,7 +175,7 @@ Use the existing rounds as reference:
 - **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/drafts/zabal-bugfix/bountycaster-cast.md](rounds/drafts/zabal-bugfix/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
-- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: zpoidh.vercel.app/hub"
+- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: poidhz.com/hub"
 - Close date + 1: lock judging
 - Close date + 2: cast winner
 
@@ -198,7 +214,7 @@ Every BCZ POIDH submitter lands on slot 8 of $ZABAL Empire (`POIDH Submitters` l
 
 Token Boosters + Reputation Boosters intentionally OFF (cleanest mechanic, no Talent Protocol or token-holder confounders).
 
-Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`, served at [zpoidh.vercel.app/leaderboard](https://zpoidh.vercel.app/leaderboard).
+Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`, served at [poidhz.com/leaderboard](https://poidhz.com/leaderboard).
 
 **The cut-over has not happened.** Empire Builder's "POIDH Submitters" leaderboard still has its `api_endpoint` pointed at `bettercallzaal.com/poidh-leaderboard.json`, a pre-poidhz URL that now redirects away. Measured 2026-08-08 and unchanged since: EB shows 16 entries where this repo generates 22, so 6 real submitters are missing from EB entirely - including **femmie, the R3 winner**, whose wallet is absent from EB's feed. Three more wallets have understated scores. No code change here can fix it; EB's own admin dashboard needs the `api_endpoint` corrected by someone with access. `scripts/check-eb-sync.py` exists to detect exactly this drift.
 
@@ -213,7 +229,8 @@ Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates
 | R3 | [1180](https://poidh.xyz/base/bounty/1180) | ZABAL Gamez ad (any format) | 0.025 ETH | @femmie (claim 6749) | closed, paid, confirmed on-chain via direct `bounties()`/`getClaimsByBountyId()` eth_call - cast templates drafted, not yet posted | [rounds/r3/](rounds/r3/) |
 | R4 | [1249](https://poidh.xyz/base/bounty/1249) | ZABAL Gamez July open build pot | $ZABAL leaderboard credit (originally an ETH split, bounty was accidentally canceled mid-close) | 15 qualifying builders | CLOSED 2026-08-05 - see [CLOSEOUT.md](rounds/r4/CLOSEOUT.md) | [rounds/r4/](rounds/r4/) |
 | R5 | [1330](https://poidh.xyz/base/bounty/1330) | WaveWarZ Twitch clip bounty (twitch.tv/wavewarzofficial, clip for WaveWarZ's own socials) | 0.0125 ETH seed, pot grew to 0.0238 | claim 7795, [@wimpydwi's clip](https://x.com/wimpydwi/status/2094135544758608181), paid to `0x3f07d412...70ec9` (wallet resolves to no linked handle) | closed, paid, `isAccepted` confirmed on-chain 2026-09-05. 9 claims from 7 entrants. **Winner never announced on @wavewarz**, which the bounty text promised | [rounds/r5/](rounds/r5/) |
-| R6 | not cast | WaveWarZ clip round 2 - the edit, not the moment. Binding deliverable spec, handle required in claim, retainer holders excluded | 0.0125 ETH seed, fund 0.0128 | - | DRAFT. 14-day window, recommended cast Mon 2026-09-07, close Sun 2026-09-20 | [rounds/r6/](rounds/r6/) |
+| R6 | not cast | Recap my NYC trip in 60 seconds. One 0.0125 ETH pot, plus seven channel slots paying $5 in $ZABAL each to clips we actually post | 0.0125 ETH seed, fund 0.0128, plus up to $35 $ZABAL | - | DRAFT. Closes Wed 2026-09-30. Blocked on the Drive link, the trip write-up, and funding | [rounds/r6/](rounds/r6/) |
+| R7 | not cast | WaveWarZ clip round 2 - the edit, not the moment. Binding deliverable spec, handle required in claim, retainer holders excluded | 0.0125 ETH seed, fund 0.0128 | - | DRAFT, queued behind R6. Deadline placeholdered, re-measure the Twitch archive before casting | [rounds/r7/](rounds/r7/) |
 | drafts | not cast | Unlock Protocol clip bounty (co-fund + solo variants), ZABAL Gamez bug-fix bounty | TBD | - | parked, see folder READMEs | [rounds/drafts/](rounds/drafts/) |
 
 Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json` /

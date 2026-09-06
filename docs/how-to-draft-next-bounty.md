@@ -63,7 +63,7 @@ Voice rules (per ZABAL Gamez brand kit `phrases.md`):
 Cite the canonical bar at the end of the asset kit section:
 ```
 Canonical bounty bar:
-https://zpoidh.vercel.app/best-practices
+https://poidhz.com/best-practices
 ```
 
 ---
@@ -81,14 +81,34 @@ Plus a reply-cast for after the main lands.
 
 ## 5. Cast it on POIDH
 
+**Run the pre-cast check first. It is one command and it has already caught a round that
+could not be funded:**
+
+```bash
+python3 scripts/precast-check.py --round <N> --prize 0.0128
+```
+
+It measures the issuer wallet's actual Base balance, the window your hardcoded deadline
+still leaves given today's date, whether every prior round is in `default_bounty_ids`
+(R5 was not, so its nine claimants scored nothing), unfilled placeholders, the description
+validator, and data freshness. Exit 0 means nothing blocking. It checks preconditions, not
+judgement.
+
 1. POIDH UI -> Create bounty
 2. Type = OPEN (default) or SOLO (if no vote needed)
 3. Network = Base
 4. Title = clean noun phrase (e.g. "Best ad for ZABAL Gamez")
 5. Description = paste from `description.md`
 6. Reward seed = 0.0125 ETH (or your decided amount)
-7. Sign with BCZ Treasury EOA
-8. Capture the resulting bounty URL (poidh.xyz/base/bounty/NNNN)
+7. **Set the on-chain deadline to the same date the description states.** They are separate
+   fields and nothing keeps them in sync. R5 shipped with a stated deadline of Aug 30 and an
+   on-chain deadline of Sep 5 - six days apart - so every tool reading the chain got a
+   different close date than every human reading the bounty.
+8. Sign with BCZ Treasury EOA
+9. Capture the resulting bounty URL (poidh.xyz/base/bounty/NNNN)
+10. **Add the new bounty id to `default_bounty_ids` in `org.config.json`, and move the round
+    from `planned_rounds` to `rounds`.** Skipping this is invisible until someone asks why a
+    round's entrants have no leaderboard score.
 
 ---
 
@@ -147,7 +167,7 @@ done > durations-raw.txt
 
 Floor-fail per spec. Do not inflate verdict to clear the bounty.
 
-Publish per-submission scorecard at `zpoidh.vercel.app/round/<N>/judging` within 48h.
+Publish per-submission scorecard at `poidhz.com/round/<N>/judging` within 48h.
 
 ---
 
@@ -183,7 +203,7 @@ Publish per-submission scorecard at `zpoidh.vercel.app/round/<N>/judging` within
 | Template for new round | `rounds/_template/` |
 | Past rounds | `rounds/r1/`, `rounds/r2/`, `rounds/r3/` |
 | Brand kits | `assets/brand-kits/<campaign>/` |
-| Live EB feed | `data/leaderboard.json`, served at `zpoidh.vercel.app/leaderboard`. **EB itself is still pointed at the old `bettercallzaal.com/poidh-leaderboard.json` and is missing 6 submitters incl. femmie - see the leaderboard section of the root README.** |
+| Live EB feed | `data/leaderboard.json`, served at `poidhz.com/leaderboard`. **EB itself is still pointed at the old `bettercallzaal.com/poidh-leaderboard.json` and is missing 6 submitters incl. femmie - see the leaderboard section of the root README.** |
 | Refresh script | `scripts/refresh-poidh-leaderboard.py` |
 | Resume + history | `docs/RECAP.md` |
 
