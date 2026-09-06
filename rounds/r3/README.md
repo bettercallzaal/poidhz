@@ -73,7 +73,9 @@ something this session does. See [judging.json](judging.json) for the full claim
 - [x] Build `judging.json` documenting the claim list + the on-chain accepted claim
 - [x] Winner already selected on-chain - claim 6749 (femmie, ZABALGAMEZ.COM AD), `isAccepted: true`
 - [x] Confirmed resolved + paid: claim NFT owner is the treasury wallet, proving accept+payout completed (2026-07-09)
-- [ ] Fill in the real why-she-won reasoning in `cast-templates/winner-announce-femmie.md` (still a placeholder) and post it - Zaal's call, not automated here
+- [x] Fill in the real why-they-won reasoning in `cast-templates/winner-announce-femmie.md` - DONE, that file is filled in and marked READY TO SEND, grounded in the actual claim against the posted rubric. This line said "still a placeholder" long after it stopped being one.
+- [ ] **Post it.** Zaal's call. As of 2026-09-06 femmie has been paid since June and never announced. Zaal chose to ASK FIRST rather than post a belated announcement unannounced - draft at `cast-templates/femmie-dm.md`.
+- Note on language: never assume femmie's gender. Use the handle or they/them.
 - [ ] Ship `judging.html` (copy from `rounds/r2/judging.html`, swap JSON path) - optional now that winner is locked
 - [ ] Update root `README.md` round index with winner + submission count
 - [ ] Cast post-mortem learnings + add to R4/R5 description
