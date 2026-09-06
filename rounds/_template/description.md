@@ -68,7 +68,7 @@ Farcaster channel:
 https://farcaster.xyz/~/channel/<channel>
 
 Canonical bounty bar:
-https://bettercallzaal.com/poidh-bounty-best-practices.html
+https://zpoidh.vercel.app/best-practices
 
 CC-BY 4.0. Remix freely. Just keep "<CAMPAIGN>" or "<CAMPAIGN-URL>" visible somewhere in your final piece.
 
@@ -80,7 +80,7 @@ Best <ARTIFACT> wins <PRIZE> ETH on Base. Winner clip becomes <CAMPAIGN>'s pinne
 Every submitter earns $ZABAL automatically via the slot 8 leaderboard on Empire Builder. Drop scales by how many BCZ POIDH bounties you have entered total - submit to all rounds and your score compounds. <PRIOR-ROUNDS-NOTE>.
 
 Track live: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07
-Submitter leaderboard hub: https://bettercallzaal.com/poidh.html
+Submitter leaderboard hub: https://zpoidh.vercel.app/hub
 
 This is an OPEN bounty - the pot grows in real time if others stack contributions.
 

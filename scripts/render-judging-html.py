@@ -202,10 +202,10 @@ def render_html(judging: dict, round_num: int) -> str:
   <title>POIDH Round {round_num} (Bounty {bounty_id}) - Submission Judging - BetterCallZaal</title>
   <meta name="description" content="Per-submission judging for POIDH bounty {bounty_id} '{bounty_title}'. Floor checks + rubric scores + verdict.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://bettercallzaal.com/poidh-round{round_num}-judging.html">
+  <link rel="canonical" href="https://zpoidh.vercel.app/round/{round_num}/judging">
   <meta property="og:title" content="POIDH Round {round_num} ({bounty_id}) - Submission Judging">
   <meta property="og:description" content="Floor rules + rubric scores for submissions to bounty {bounty_id}. Floor PASS/FAIL on each; rubric on Distribution/Craft/Substance/Bonus.">
-  <meta property="og:url" content="https://bettercallzaal.com/poidh-round{round_num}-judging.html">
+  <meta property="og:url" content="https://zpoidh.vercel.app/round/{round_num}/judging">
   <meta property="og:image" content="https://bettercallzaal.com/assets/icon.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/assets/icon.png">
@@ -352,7 +352,7 @@ def render_html(judging: dict, round_num: int) -> str:
         <a href="/" class="brand">BetterCallZaal</a>
         <nav>
           <a href="https://poidh.xyz">POIDH</a>
-          <a href="https://bettercallzaal.com/poidh.html">POIDH Hub</a>
+          <a href="https://zpoidh.vercel.app/hub">POIDH Hub</a>
         </nav>
       </div>
     </div>

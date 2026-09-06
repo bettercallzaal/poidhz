@@ -158,7 +158,7 @@ Use the existing rounds as reference:
 - **For CODE bounties especially**: same-day cross-post to Bountycaster (bountycaster.xyz, indexed by @bountybot via the `/bounties` channel) - reaches 200-400 Farcaster-native builders who won't see poidh.xyz or a GitHub issue on their own. POIDH handles escrow, Bountycaster handles discovery. See [rounds/drafts/zabal-bugfix/bountycaster-cast.md](rounds/drafts/zabal-bugfix/bountycaster-cast.md) for the format (ZAOOS doc 1584 has the full mechanics). This was flagged for R7 back in July and never actually posted because R7 itself was never cast - don't repeat that gap.
 
 ### 5. Set reminders
-- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: bettercallzaal.com/poidh.html"
+- Day 5 of window: reply-cast with "N submissions so far, deadline in X days, gallery: zpoidh.vercel.app/hub"
 - Close date + 1: lock judging
 - Close date + 2: cast winner
 
@@ -197,7 +197,9 @@ Every BCZ POIDH submitter lands on slot 8 of $ZABAL Empire (`POIDH Submitters` l
 
 Token Boosters + Reputation Boosters intentionally OFF (cleanest mechanic, no Talent Protocol or token-holder confounders).
 
-Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`. EB pulls from `https://bettercallzaal.com/poidh-leaderboard.json` during the R3 window; after cut-over it pulls from this repo's Vercel deploy.
+Update via `scripts/refresh-poidh-leaderboard.py` - reads POIDH tRPC, aggregates per-wallet counts, writes the strict EB feed at `data/leaderboard.json`, served at [zpoidh.vercel.app/leaderboard](https://zpoidh.vercel.app/leaderboard).
+
+**The cut-over has not happened.** Empire Builder's "POIDH Submitters" leaderboard still has its `api_endpoint` pointed at `bettercallzaal.com/poidh-leaderboard.json`, a pre-poidhz URL that now redirects away. Measured 2026-08-08 and unchanged since: EB shows 16 entries where this repo generates 22, so 6 real submitters are missing from EB entirely - including **femmie, the R3 winner**, whose wallet is absent from EB's feed. Three more wallets have understated scores. No code change here can fix it; EB's own admin dashboard needs the `api_endpoint` corrected by someone with access. `scripts/check-eb-sync.py` exists to detect exactly this drift.
 
 ---
 
