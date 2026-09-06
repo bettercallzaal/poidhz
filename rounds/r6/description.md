@@ -7,86 +7,58 @@ exactly as they are. Everything between the sentinel lines goes in the Descripti
 
 **Two placeholders must be filled before this is castable:**
 
-- `<DRIVE-LINK>` - the folder of raw footage and photos. Without it there is no bounty.
-- `<WHAT-THE-TRIP-WAS>` - two or three sentences on what the trip actually was: what it
-  was for, who was there, what happened that mattered. Everything else in this text is
-  structure; that paragraph is the only part that tells an editor what story they are
-  cutting. Do not cast without it.
+- `<DRIVE-LINK>` - the folder of footage. Without it there is no bounty.
+- `<WHAT-THE-TRIP-WAS>` - ONE sentence on what the trip was. It is the only line that tells
+  an editor what story they are cutting, and it is deliberately one sentence so it stays
+  short enough that people actually read this.
+
+**Length is a feature here.** R5 ran 464 words and drew 9 claims. The first draft of this
+one ran 707 and Zaal cut it: "not too long as well so people can read it." This version is
+about 300. If you add to it, take something out.
 
 <!-- PASTE BELOW THIS LINE -->
 
-Cut the best 60 second recap of my NYC trip. Everything you need is in the folder. Winner takes 0.0125 ETH on Base, and the pot grows as people add to it.
+Cut the best 60 second recap of my NYC trip. The footage is all in one folder. Winner takes 0.0125 ETH on Base, and up to seven more people get paid too.
 
 <WHAT-THE-TRIP-WAS>
 
-The footage: <DRIVE-LINK>
+THE ASSET KIT - the footage: <DRIVE-LINK>
 
-Sixty seconds is the cap, not the target. The whole ask is density. Get the most of what happened into the least time, and make someone who was not there feel like they get it.
-
-
-THE BAR (do these or you are not in the running)
-
-1. 60 seconds maximum. Under is fine if it is better.
-2. Use the footage in the folder. You can add your own titles, music, motion, whatever the edit needs.
-3. Vertical 9:16 or square. This is going out on short-form feeds, so a wide 16:9 cut cannot run as-is.
-4. Captions burned in. Most people watch with sound off.
-5. Claim on this poidh page with a link to your video, and put your handle in the claim text. If it is not claimed here, it is not entered.
+That folder is the whole kit, and it does not expire, so there is no rush to grab it. Sixty seconds is the cap, not the target. The ask is density - the most of what happened, in the least time, so someone who was not there gets it.
 
 
 THE RUBRIC - what wins
 
-Density first. The most that happened, in the least time, still legible. That is the whole brief.
-
-Then story. A recap that goes somewhere beats a montage that just goes.
-
-Then craft. Clean cuts, readable text, a first three seconds that stops a thumb.
+Density first, then story, then craft. A recap that goes somewhere beats a montage that just goes. Why it matters should land without me explaining it.
 
 
-EARLY MATTERS MORE THAN LATE
+THE REWARD - how you get paid
 
-This is not first-come-first-served for the prize, but it is for the posting. Read the next section: there are seven channel slots and they fill as clips come in. Submit in week one and every slot is still open. Submit on the last day and you are competing for whatever is left. The pot is judged at the end regardless.
+One winner takes the pot. That is the ETH.
 
+Then, separately: I am running the best of these across seven channels - Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens. Each channel gets ONE clip. If I post yours, you get $5 in $ZABAL for it. Seven slots, and they close as they fill.
 
-THE ASSET KIT
+So submitting early is worth real money even if you do not win. The pot is still judged at the end, on merit.
 
-The footage: <DRIVE-LINK>
-
-That folder is the whole kit. Raw clips and photos from the trip, free to cut however you want. Add your own titles, music and motion on top - nothing in there has to survive into your edit except the trip itself.
-
-Unlike our last few rounds this source does not expire, so there is no rush to grab it before it disappears. The only clock is the deadline and the channel slots below.
-
-Every past round, its rules and who won:
-https://github.com/bettercallzaal/poidhz
+Every clip I post credits the maker by handle and says it came from this bounty. You keep your edit. Post it yourself too - I would rather you did. When I post yours, help push it. That is the whole point of running seven people's cuts instead of hiring one editor.
 
 
-THE REWARD - and you can get paid even if you do not win
+THE BAR
 
-One winner takes 0.0125 ETH on Base, and the pot grows as people add to it. Separately, we are going to run the best of these across our channels, and if we run yours, you get $5 in $ZABAL for it.
-
-How that works, precisely, so nobody is guessing:
-
-- There are seven channels: Instagram, YouTube, TikTok, Facebook, Farcaster, X, and Lens.
-- Each channel gets ONE clip. When a clip is posted to a channel, that channel is taken and no other clip can be posted there.
-- Whoever made the clip we post gets $5 in $ZABAL, per channel their clip runs on.
-- So at most seven people get paid this way, and slots close as they fill. That is why submitting early is worth something.
-
-Every time we post one, we credit the maker by handle and say plainly that it came from a poidh bounty. You keep your edit. Post it on your own channels too if you want - we would rather you did.
-
-The one thing we ask back: when we post yours, help push it. That is the whole point of doing it this way instead of hiring one editor.
+1. 60 seconds max. Shorter is fine if it is better.
+2. Vertical or square. A wide 16:9 cut cannot run on these feeds as-is.
+3. Captions burned in.
+4. Use the footage in the folder. Your own titles, music and motion on top are welcome.
+5. Claim on this poidh page with a link to your video and your handle in the claim text. If it is not claimed here, it is not entered.
 
 
-HOW TO ENTER
+WANT MORE TO WORK WITH
 
-1. Pull the footage from <DRIVE-LINK>.
-2. Cut your 60 seconds. Meet all five bar rules above.
-3. Post it publicly on either X, Instagram, TikTok, or YouTube, and tag @bettercallzaal so we see it. Tag @poidhxyz and @kennyistyping too if you want a boost.
-4. Claim on this poidh page with the link to your post, and put your handle in the claim text.
-
-By entering you are saying The ZAO can repost your cut on our channels with your handle credited every time. You keep your edit.
+I will jump on a Space with anyone who wants to interview me or ask about the trip, and the audio from that is yours to cut over the footage. Ask and we will book it. Better content if we make it together.
 
 
 DEADLINE
 
-Submissions close 11:59 pm PT, Wednesday, September 30, 2026. Winner announced and paid here after that, and the winning cut goes out with your name on it.
+Closes 11:59 pm PT, Wednesday, September 30, 2026.
 
 <!-- PASTE ABOVE THIS LINE -->

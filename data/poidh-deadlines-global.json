@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T20:35:15.198257+00:00",
+  "generated_at": "2026-09-06T22:37:10.798215+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -11,7 +11,7 @@
       "amount_eth": 0.023,
       "deadline_iso": "2026-03-18",
       "deadline_raw_text": "March 18th, 2026",
-      "status": "closed",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1062"
     },
     {
@@ -21,7 +21,7 @@
       "amount_eth": 0.0185,
       "deadline_iso": "2026-06-28",
       "deadline_raw_text": "June 28",
-      "status": "closed",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1192"
     },
     {
@@ -31,7 +31,7 @@
       "amount_eth": 0.0029,
       "deadline_iso": "2026-08-22",
       "deadline_raw_text": "August 22nd",
-      "status": "closed",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1333"
     },
     {
@@ -41,7 +41,7 @@
       "amount_eth": 0.03013,
       "deadline_iso": "2026-08-30",
       "deadline_raw_text": "August 30",
-      "status": "closed",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1322"
     },
     {
@@ -51,18 +51,8 @@
       "amount_eth": 0.0295,
       "deadline_iso": "2026-09-04",
       "deadline_raw_text": "September 4th",
-      "status": "closed",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1305"
-    },
-    {
-      "bounty_id": 1311,
-      "title": "BINARY PIXELS \u2014 FIND SOMETHING IN RANDOMNESS",
-      "issuer": "0xfc5708cb64604dcf6f62de5d63a051ed577e10c1",
-      "amount_eth": 0.036,
-      "deadline_iso": "2026-09-05",
-      "deadline_raw_text": "5 September",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1311"
     },
     {
       "bounty_id": 326,
@@ -71,7 +61,7 @@
       "amount_eth": 0.0245,
       "deadline_iso": "2026-09-08",
       "deadline_raw_text": "September 8, 2026",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/326"
     },
     {
@@ -81,7 +71,7 @@
       "amount_eth": 0.0044,
       "deadline_iso": "2026-09-18",
       "deadline_raw_text": "September 18th",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/27"
     },
     {
@@ -91,7 +81,7 @@
       "amount_eth": 0.0065,
       "deadline_iso": "2026-09-21",
       "deadline_raw_text": "September 21st",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
     },
     {
@@ -101,7 +91,7 @@
       "amount_eth": 0.0082,
       "deadline_iso": "2026-10-01",
       "deadline_raw_text": "Oct. 1st",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/29"
     },
     {
@@ -111,7 +101,7 @@
       "amount_eth": 0.0211,
       "deadline_iso": "2026-10-01",
       "deadline_raw_text": "October 1st",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1362"
     },
     {
@@ -121,7 +111,7 @@
       "amount_eth": 0.003,
       "deadline_iso": "2026-12-31",
       "deadline_raw_text": "31 December 2026",
-      "status": "upcoming",
+      "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1365"
     }
   ]
