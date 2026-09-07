@@ -30,7 +30,7 @@ well as the wallet, so it will not let this cast half-finished.
 Every round R1 through R5 paid exactly one person. This one pays up to eight, and the
 second mechanism is the interesting part.
 
-**One pot, seven channel slots.** The 0.0125 ETH goes to the best cut, judged at close.
+**One pot, seven channel slots.** The 0.0125 ETH goes to the best cut, decided by poidh contributor vote at close.
 Separately, seven channels - Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens -
 each carry ONE used clip, and whoever made it gets **$5 in $ZABAL** per channel their clip
 runs on. When a channel's slot is filled it is gone.
@@ -70,10 +70,16 @@ description rather than assumed.
 - **Window:** cast on or after Mon 2026-09-07, close **11:59 pm PT Wednesday, September 30,
   2026**. Weekday verified: Sep 30 2026 is a Wednesday. From a Sep 7 cast that is 23 days,
   the longest round this repo has run.
-- **Winner:** Zaal picks at close ("at the end of the month ill pick the best"). The bounty
-  is still OPEN so the pot can grow - R5's grew 0.0128 to 0.0238 unprompted - and in practice
-  R5 was resolved by the issuer accepting the winning claim directly rather than by running
-  a contributor vote, which is the same path this round takes.
+- **Winner: poidh contributor vote.** Zaal's call, 2026-09-07, asked directly because the
+  round was ambiguous: he had said "at the end of the month ill pick the best" while the
+  bounty type is OPEN, which resolves by contributor vote. He confirmed the vote - "it is a
+  contributor vote we can say that" - so the description says so plainly rather than leaving
+  entrants to infer it.
+
+  This is a real change from R5, not a restatement. R5 was OPEN but resolved by the issuer
+  accepting the winning claim directly; no vote was ever run. R6 runs the vote. Whoever
+  funds the pot gets a say in who takes it, which matters more here than in any prior round
+  because 47.3% of all prize money this programme has paid came from a second funder.
 
 ## Deliberately different from R5 and R7
 
