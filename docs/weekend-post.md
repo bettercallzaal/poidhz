@@ -13,7 +13,13 @@ python3 scripts/build-bounty-dashboard.py
 
 Measured 2026-09-07: **90 open bounties**, **44 draw zero submissions (49%)**, **77 state no
 deadline (86%)**, median prize **$12.12**, **$6,412** in open prize money platform-wide.
+Of the 13 that do state a date, **6 are already past it and still open.**
 Our own four completed rounds: **36 claims**, 8 to 11 each, never zero, at prizes of $26-$63.
+
+**Use `bounty-dashboard.json` for every figure here, not `poidh-deadlines-global.json`.**
+The two disagree on the dated count (13 vs 11) because the global scan only walks four
+pages while the dashboard covers every open bounty. The dashboard is what the site renders,
+so it is the one a reader can check you against.
 
 ## What this post does NOT claim, and why
 
@@ -67,11 +73,11 @@ poidhz.com
 ```
 poidhz.com is live.
 
-Every open poidh bounty with a deadline, on a calendar, with countdowns and a calendar feed.
+Every open poidh bounty with a deadline, on a calendar, with countdowns and an .ics feed.
 
-86% of open bounties state no deadline a tool can read. Half get zero submissions. Median prize is $12.
+86% of open bounties state no deadline a tool can read. Half get zero submissions.
 
-MIT, fork it, runs for your org:
+MIT, fork it:
 github.com/bettercallzaal/poidhz
 ```
 
@@ -92,7 +98,7 @@ poidhz.com
 ## Reply-cast, to drop under the main one
 
 ```
-The part I did not expect: poidh bounties outlive their own deadlines. Six of the twelve dated ones on the board right now are past the date and still open, still claimable.
+The part I did not expect: poidh bounties outlive their own deadlines. Six of the thirteen dated ones on the board right now are past the date and still open, still claimable.
 
 So poidhz shows those separately rather than hiding them - "past deadline, still open" is a real state, not an error.
 ```
