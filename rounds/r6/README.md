@@ -88,6 +88,34 @@ description rather than assumed.
   `[OPTIONAL - verify first]` $ZABAL lines in `cast-templates/winner-announce.md` ARE usable
   for this round, once the numbers match what actually got posted.
 
+## A measurement is planned on this round - do not change the round to make it come out
+
+The finance-hq lane read the POIDH contract on Base and found that every round so far
+(R1, R2, R3, R5) has a second funder leg beyond the BCZ treasury - **0.0330 ETH, 47.3% of
+all prize money the programme has ever paid.** For R3 and R5 that money is Kenny's, from
+POIDH's own Clanker Eco Fund and Activation Grant, offered in DM each time. R1 and R2
+predate that programme and remain unattributed.
+
+So the honest read is: this programme distributes to members well, and the money it
+distributes comes from Zaal and from POIDH. **A mechanism that turns members into funders
+exists** - Zaal used it himself, calling `joinOpenBounty` for 0.003 ETH on someone else's
+bounty 331 on 2026-08-13 - **but the ask has never been made on one of ours.**
+
+R6 is the first round where a non-winner has a reason to care about the pot at all, because
+the seven channel slots pay for clips that actually run. That makes it a clean test. The
+measurement is one contract call after close: **does any address other than the treasury and
+the poidh relayer appear in `getParticipants` for this bounty.**
+
+**Two things follow, and the second matters more.**
+
+1. A yes is the first measured instance of internal capital formation in this estate. A no
+   closes the question honestly instead of leaving it hopeful. Both outcomes are useful.
+2. **Do not add a "chip in to the pot" ask to this round in order to make the test come
+   out.** Running the ask to produce the result is how a measurement becomes theatre. If an
+   ask belongs in R6 it is because it is right for the round on its own merits - and that is
+   Zaal's call, made for that reason, not a finance-side experiment design. Recorded here so
+   nobody later reads the planned measurement as an instruction.
+
 ## Zaal gates (money, public, outbound)
 
 - [ ] **Provide the Drive link** and paste it over `<DRIVE-LINK>` in `description.md`.

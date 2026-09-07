@@ -41,6 +41,18 @@ was briefly written into this very file as a fourth wrong variant:
 
 Do not say "the trade fee is 1.005%". That is the artist's share of the fee, not the fee.
 
+**How that error actually travelled, because the mechanism is the lesson.** The source
+document had it right twice - a table row said "artist share of the trade fee, at 1.005%",
+and the sentence below the headline carried the full 1.500% and the 67/33 split. The wrong
+compression was the part in **bold**. The bold line is the part that gets read, quoted and
+relayed, so a correct body under a compressed headline still propagates the headline. When
+you write a figure into a bounty, the shortest form of it is the one that will travel: make
+that form the true one, or do not put a short form in at all.
+
+It was caught by opening the generator to cite its path and reading `FEE = 0.015` and
+`ARTIST_SHARE = 0.67` on the way past - not by re-reading anyone's prose. That is the
+argument for regenerating rather than copying, in one line.
+
 **Generate the artist line, do not copy it.** The correct string above is right today; the
 generator is right always. Run
 `python3 tools/artist-earnings.py --census census.json --trades trades.json` in
