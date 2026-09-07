@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T12:50:32.485566+00:00",
+  "generated_at": "2026-09-07T21:38:07.177623+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -33,16 +33,6 @@
       "deadline_raw_text": "August 22nd",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1333"
-    },
-    {
-      "bounty_id": 1305,
-      "title": "Share Your Music on Tortoise \ud83d\udc22",
-      "issuer": "0x3ee75b599c076193b81885ca1838e560d268aad1",
-      "amount_eth": 0.0295,
-      "deadline_iso": "2026-09-04",
-      "deadline_raw_text": "September 4th",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1305"
     },
     {
       "bounty_id": 326,
