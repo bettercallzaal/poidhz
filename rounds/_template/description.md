@@ -2,6 +2,36 @@
 
 Replace `<placeholders>` and adapt rubric items per the bounty's intent. Strip this header before pasting.
 
+## Rule for any partner statistic you put in a bounty
+
+A bounty description is public, permanent and immutable once cast. A number in it that
+nobody can reproduce reads as invented, even when it is correct.
+
+**Never quote a partner figure without naming its legs and its measurement date.** A bare
+total is what produced three irreconcilable copies of the same WaveWarZ artist-earnings
+number across three documents.
+
+- **Wrong:** "13.9 SOL paid straight to artists, as of Aug 20"
+- **Right:** "13.94 SOL to artists, all legs, as of 7 September 2026 - 9.33 from the artist
+  share of the trade fee, 4.61 from settlement bonuses"
+
+R5 (bounty 1330) shipped the wrong form. The figure was defensible under the all-legs
+reading, but it was dated **two weeks before the total actually reached it** - on 20 August
+the artist total was 13.47, and 13.9 is where it gets to around 5 September. Anyone checking
+it against an August snapshot fails to reproduce it and concludes we made it up. 1330 is
+on-chain and immutable, so that one cannot be fixed. The point is not to inherit it.
+
+**Known-bad numbers, measured by the wwtracker lane 2026-09-07. Do not carry these forward:**
+
+| Do not use | Why |
+|---|---|
+| "13.9 SOL to artists as of Aug 20" | right number, wrong date - see above |
+| "458 SOL volume as of 2026-05-25" (doc 743) | about 11% high, and predates a volume repair |
+| "1.00% trade fee" / "1.0% artist share" | the fee is **1.005%**, verified at exact lamports |
+
+**Re-measure before every cast.** These figures move. A number that was right in August is
+not right in October, and a bounty runs for weeks after you paste it.
+
 ---
 
 Make the best <ARTIFACT> for <CAMPAIGN>. Any format. Best one wins <PRIZE> ETH on Base and we run it.
