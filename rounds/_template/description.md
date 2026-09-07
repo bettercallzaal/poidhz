@@ -2,6 +2,69 @@
 
 Replace `<placeholders>` and adapt rubric items per the bounty's intent. Strip this header before pasting.
 
+## Rule for any partner statistic you put in a bounty
+
+A bounty description is public, permanent and immutable once cast. A number in it that
+nobody can reproduce reads as invented, even when it is correct.
+
+**Never quote a partner figure without naming its legs and its measurement date.** A bare
+total is what produced three irreconcilable copies of the same WaveWarZ artist-earnings
+number across three documents.
+
+- **Wrong:** "13.9 SOL paid straight to artists, as of Aug 20"
+- **Right:** "13.94 SOL to artists, all legs, as of 7 September 2026 - 9.33 from the artist
+  share of the trade fee, 4.61 from settlement bonuses"
+
+R5 (bounty 1330) shipped the wrong form. The figure was defensible under the all-legs
+reading, but it was dated **two weeks before the total actually reached it** - on 20 August
+the artist total was 13.47, and 13.9 is where it gets to around 5 September. Anyone checking
+it against an August snapshot fails to reproduce it and concludes we made it up. 1330 is
+on-chain and immutable, so that one cannot be fixed. The point is not to inherit it.
+
+**Known-bad numbers, measured by the wwtracker lane 2026-09-07. Do not carry these forward:**
+
+| Do not use | Why |
+|---|---|
+| "13.9 SOL to artists as of Aug 20" | right number, wrong date - see above |
+| "458 SOL volume as of 2026-05-25" (doc 743) | about 11% high, and predates a volume repair |
+| "1.00% artist share" | it is **1.005%**, verified at exact lamports |
+| "2.28% effective fee rate" | that is platform revenue over volume, so it FALLS as volume rises. Not a fee rate. |
+| "1.53% artist payout rate on every trade" | includes settlement bonuses, which are not per-trade |
+
+**The fee numbers, stated correctly**, because a compressed version of this reached us and
+was briefly written into this very file as a fourth wrong variant:
+
+- The **trade fee is 1.500%** of volume.
+- It splits **67/33, artist to platform**.
+- So the **artist share is 1.005% of volume** - not the 1.00% that the PRD and
+  `wavewarz-math.ts` both state. Small, and real.
+
+Do not say "the trade fee is 1.005%". That is the artist's share of the fee, not the fee.
+
+**How that error actually travelled, because the mechanism is the lesson.** The source
+document had it right twice - a table row said "artist share of the trade fee, at 1.005%",
+and the sentence below the headline carried the full 1.500% and the 67/33 split. The wrong
+compression was the part in **bold**. The bold line is the part that gets read, quoted and
+relayed, so a correct body under a compressed headline still propagates the headline. When
+you write a figure into a bounty, the shortest form of it is the one that will travel: make
+that form the true one, or do not put a short form in at all.
+
+It was caught by opening the generator to cite its path and reading `FEE = 0.015` and
+`ARTIST_SHARE = 0.67` on the way past - not by re-reading anyone's prose. That is the
+argument for regenerating rather than copying, in one line.
+
+**Generate the artist line, do not copy it.** The correct string above is right today; the
+generator is right always. Run
+`python3 tools/artist-earnings.py --census census.json --trades trades.json` in
+`wavewarz-protocol`. It reports by leg - artist share of the trade fee, plus the 5% winner
+and 2% loser settlement bonuses - and labels which legs are measured versus inherited.
+
+**Re-measure before every cast.** These figures move. A number that was right in August is
+not right in October, and a bounty runs for weeks after you paste it. The wwtracker lane hit
+this same date-drift defect on their own case-study page the same day, where it was emitted
+as JSON-LD FAQ schema and therefore scraped into answer engines - two lanes, two surfaces,
+one day, same signature.
+
 ---
 
 Make the best <ARTIFACT> for <CAMPAIGN>. Any format. Best one wins <PRIZE> ETH on Base and we run it.

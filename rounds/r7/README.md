@@ -301,5 +301,40 @@ not contradicted either.
   them. Worth settling with WaveWarZ before a third round quotes a number at all.
 - SOL volume and artist-earnings totals from R5's description are NOT carried over. They
   were "as of Aug 20" and could not be re-measured from `wavewarz.info` this session, which
-  serves those figures client-side and exposes no JSON endpoint. Refresh them from WaveWarZ
-  directly before casting if you want them in the text.
+  serves those figures client-side and exposes no JSON endpoint. **That call turned out to
+  be the right one** - see below.
+
+### The artist-earnings figure R5 shipped was right, and dated two weeks early
+
+Measured from per-battle chain data by the wwtracker lane, 2026-09-07. R5's description
+said **"13.9 SOL paid straight to artists, as of Aug 20."** On 20 August the artist total
+was **13.47**. 13.9 is where it gets to around **5 September**.
+
+The number is defensible under the all-legs reading; the date is not. Anyone checking it
+against an August snapshot fails to reproduce it and concludes we invented it. Bounty 1330
+is immutable so it cannot be fixed there - the only job is not to inherit it, and R7 does
+not, because these figures were dropped rather than carried.
+
+**If R7 quotes an artist figure, use this exact form, legs named:**
+
+> 13.94 SOL to artists, all legs, as of 7 September 2026 - 9.33 from the artist share of
+> the trade fee, 4.61 from settlement bonuses.
+
+A bare "13.9 to artists" is what produced three irreconcilable copies of this number across
+three documents. **Generate that line, do not copy it** - the string above is right today,
+`wavewarz-protocol/tools/artist-earnings.py` is right always, and it labels which legs are
+measured versus inherited.
+
+Four more do-not-carry figures from the same pass. Doc 743's **"458 SOL volume as of
+2026-05-25" is about 11% high** and predates a volume repair. **"2.28% effective fee rate"**
+is platform revenue over volume, so it falls as volume rises - it is not a fee rate.
+**"1.53% artist payout rate on every trade"** folds in settlement bonuses, which are not
+per-trade. And the fee itself, stated correctly because a compressed version of it briefly
+got written into our own template as a fourth wrong variant: **the trade fee is 1.500%, it
+splits 67/33 artist to platform, so the artist share is 1.005% of volume** - not the 1.00%
+the PRD states. Do not say "the trade fee is 1.005%"; that is the artist's share of the fee,
+not the fee.
+
+Re-measure before casting regardless. R7 is queued behind R6, so every figure here will be
+weeks stale by the time it goes out. The rule now also lives in
+`rounds/_template/description.md` so future rounds inherit the caution instead of the number.
