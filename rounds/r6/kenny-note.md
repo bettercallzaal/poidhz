@@ -1,5 +1,29 @@
 # Note to Kenny - R6 idea
 
+> # SEND GATE - DO NOT SEND THIS UNTIL R5'S WINNER IS PUBLIC
+>
+> **Check first:** has the R5 winner announcement gone out publicly, crediting @wimpydwi?
+> If you cannot point at a live post, this note is not sendable yet. Not "probably fine",
+> not "it is going out later today" - live, or wait.
+>
+> **Why this is a hard gate and not a preference.** Kenny endorsed @wimpydwi as R5's winner
+> himself on 2026-09-02 ("i'm down for this one! Wimpy is a G, always has great claims") and
+> believes that round closed cleanly. It did not - wimpydwi was paid and never announced,
+> and the R5 bounty text promised in writing that the clip would go up on @wavewarz with
+> their name on it.
+>
+> Send this note first and you are pitching Kenny a new round while the last one he
+> personally blessed is still an unkept promise he does not know about. He is the person
+> most likely to notice, because he watches these rounds close out - on 2026-09-02 he
+> messaged unprompted asking "need anything on my end for this bounty finalization?"
+>
+> **Zaal's decision, 2026-09-06: he posts R5 himself, and it is not routed through the zol
+> lane.** Copy is ready at `rounds/r5/winner-announce.md`.
+>
+> This gate lives here, at the top of the file that gets pasted, on purpose. It was
+> previously only a line in a status file, and a note that can be sent early will eventually
+> be sent early.
+
 **DRAFT, unsent.** Outbound is Zaal's tap. Telegram DM, continuing today's thread where
 Zaal sent poidhz.com and said "making a bounty for recapping my trip to nyc".
 
@@ -15,9 +39,9 @@ pattern across 722 messages is that he engages fastest with a tight draft plus a
    but it is worth naming that in the note, because it is the first thing he will check.
 2. **He has an open question waiting on Zaal since 2026-08-20**: "should I list this yet
    under alternate frontends? or you want me to wait for a little bit." It was never
-   answered. poidhz.com is live now and he said today he would use it himself, so the answer
-   is finally yes. That is a separate paragraph below - send it or not, but it should not
-   keep sitting there.
+   answered. poidhz.com is live now and he said on 2026-09-06 he would use it himself, so
+   the answer is finally yes. **Send that paragraph too - it is not optional.** See
+   "Send this too" below.
 
 ---
 
@@ -43,7 +67,23 @@ One more thing I'm putting in it: I'll jump on a Space with anyone who wants to 
 Closes Sep 30. Any big suggestions before I cast it?
 ```
 
-## Optional add-on, the thing he asked in August
+## Send this too - answering the question he asked 17 days ago
+
+**Not optional.** It was drafted as an optional add-on and that was wrong: this is a direct
+question Kenny asked on **2026-08-20** and has never had an answer to.
+
+> "should I list this yet under alternate frontends? or you want me to wait for a little bit"
+
+He was asking permission to promote this repo inside poidh's own docs, and the honest answer
+at the time was "wait" - the site was half-finished and lived on a URL that did not match its
+name. **That answer expired.** poidhz.com is live, all ten surfaces return 200, and on
+2026-09-06 he said unprompted "I'm probably gonna use this myself lol".
+
+Leaving it unanswered for 17 days reads as disinterest in an offer he made for free. It also
+holds up the single highest-leverage distribution this project has - a listing in the docs of
+the platform it is built on, from the person who runs it.
+
+Send it in the same message or immediately after. Do not hold it for a better moment.
 
 ```
 also - you asked back in August if you should list zpoidh under alternate frontends or wait. i never got back to you, my bad. it's at poidhz.com now and it's clean, so yeah, list it whenever works. community projects section or wherever you think it fits.
