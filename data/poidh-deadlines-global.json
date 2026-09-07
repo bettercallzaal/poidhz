@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T22:37:10.798215+00:00",
+  "generated_at": "2026-09-07T04:58:53.909756+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -33,16 +33,6 @@
       "deadline_raw_text": "August 22nd",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1333"
-    },
-    {
-      "bounty_id": 1322,
-      "title": "Find 3 of a Kind",
-      "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
-      "amount_eth": 0.03013,
-      "deadline_iso": "2026-08-30",
-      "deadline_raw_text": "August 30",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1322"
     },
     {
       "bounty_id": 1305,
@@ -103,6 +93,16 @@
       "deadline_raw_text": "October 1st",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1362"
+    },
+    {
+      "bounty_id": 1367,
+      "title": "Take #1 Overall on OlympicDucks \ud83e\udd86\ud83e\udd47",
+      "issuer": "0xe5574554d6a4be5ca39f22990492d756ebc4d6c3",
+      "amount_eth": 0.05,
+      "deadline_iso": "2026-10-02",
+      "deadline_raw_text": "October 2",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1367"
     },
     {
       "bounty_id": 1365,
