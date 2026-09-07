@@ -38,7 +38,7 @@ One winner takes the pot. That is the ETH.
 
 Then, separately: I am running the best of these across seven channels - Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens. Each channel gets ONE clip. If I post yours, you get $5 in $ZABAL for it. Seven slots, and they close as they fill.
 
-So submitting early is worth real money even if you do not win. The pot is still judged at the end, on merit.
+So submitting early is worth real money even if you do not win. The pot itself is decided at the end by a poidh contributor vote - everyone who put ETH into it gets a say in who takes it.
 
 Every clip I post credits the maker by handle and says it came from this bounty. You keep your edit. Post it yourself too - I would rather you did. When I post yours, help push it. That is the whole point of running seven people's cuts instead of hiring one editor.
 
@@ -59,6 +59,6 @@ I will jump on a Space with anyone who wants to interview me or ask about the tr
 
 DEADLINE
 
-Closes 11:59 pm PT, Wednesday, September 30, 2026.
+Closes 11:59 pm PT, Wednesday, September 30, 2026. One winner, chosen by poidh contributor vote after close.
 
 <!-- PASTE ABOVE THIS LINE -->
