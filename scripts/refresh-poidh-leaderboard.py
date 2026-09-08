@@ -95,16 +95,22 @@ DEGRADATIONS: list[str] = []
 # done its job by refusing to publish degraded data, so the correct behaviour on
 # a blip is to wait and ask again, not to fail the whole refresh.
 #
-# Retries cover 5xx, 429 and network/timeout errors. A 404 is a real answer about
-# a bounty that does not exist on that chain and is raised immediately - retrying
-# it would just cost four more seconds per missing bounty.
+# 404 IS RETRIED, which is not the usual rule. poidh's /data returns spurious 404s for
+# bounties that certainly exist: the 6h cron died on 2026-09-08T04:11 with a bare
+# "HTTP Error 404" fetching a known-good bounty, and reproducing it by hand the same
+# morning, bounty 1180 - R3, paid, queried successfully all week - returned 404 once and
+# 200 on every retry. A bounty that genuinely does not exist (99999) returns 404 on every
+# attempt, so retrying costs nothing on a real absence: the caller gets the same answer
+# about seven seconds later. The original comment here said 404 was "a real answer about a
+# bounty that does not exist" and that reasoning is right in general and wrong for this API.
+#
 # Retries are for dependencies the run CANNOT proceed without - poidh's /data above
 # all. They are wrong for best-effort enrichment: when api.web3.bio is unreachable it
 # is unreachable for every wallet, so retrying each one turns a fast, already-handled
 # degradation into 7 seconds x every submitter of pure backoff. Measured 2026-09-06,
 # when web3.bio was unroutable from a dev machine and a 38-wallet run spent about four
 # and a half minutes sleeping. Callers that are enrichment pass retries=0.
-RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
+RETRY_STATUSES = frozenset({404, 429, 500, 502, 503, 504})
 RETRY_BACKOFF = (1, 2, 4)  # seconds; 3 retries after the first attempt
 
 
