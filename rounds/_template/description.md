@@ -21,7 +21,13 @@ the artist total was 13.47, and 13.9 is where it gets to around 5 September. Any
 it against an August snapshot fails to reproduce it and concludes we made it up. 1330 is
 on-chain and immutable, so that one cannot be fixed. The point is not to inherit it.
 
-**Known-bad numbers, measured by the wwtracker lane 2026-09-07. Do not carry these forward:**
+**Known-bad numbers, measured by the wwtracker lane 2026-09-07. Do not carry these forward.**
+
+**This table is enforced, not advisory.** `scripts/precast-check.py` blocks a cast on any of
+these appearing between the paste sentinels in a round's `description.md`. It was verified
+against R5's live text, which it blocks on two counts - a bounty description is immutable
+once cast, so the check has to happen before, not after. **If you add a row here, add a
+pattern to `KNOWN_BAD` in that script**, or the row is advice rather than a rule.
 
 | Do not use | Why |
 |---|---|
