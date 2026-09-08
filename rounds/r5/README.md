@@ -1,5 +1,18 @@
 # R5 - WaveWarZ Twitch clip bounty
 
+> **CLOSED AND PAID 2026-09-05. THE WINNER HAS STILL NOT BEEN ANNOUNCED.**
+>
+> Claim 7795, 0.0238 ETH, paid to `0x3f07d412da0aa3615bd92a496c73823a64370ec9`. The clip is
+> [@wimpydwi's](https://x.com/wimpydwi/status/2094135544758608181). 9 claims from 7 entrants.
+>
+> **The bounty text promised the clip would go up on @wavewarz with the entrant's name on
+> it. It has not.** Copy is written and unsent at [`winner-announce.md`](winner-announce.md);
+> Zaal is posting it himself. Everything below describing this round as running is history.
+>
+> This banner exists because the status lines further down read "LIVE" before they read
+> "CLOSED", and a record that stays loud after it stops being true is as dangerous as an
+> alarm that goes quiet when things break. Corrections belong where the file is read.
+
 Fifth cast round (the Unlock and bug-fix drafts that held R5-R7 numbers were never cast and now live in rounds/drafts/). Entrants go through the WaveWarZ Twitch archive and cut the best
 20 to 90 second moment. The winning clip is for WaveWarZ's OWN social channels, not the entrant's.
 
@@ -74,7 +87,7 @@ first of a series: 0.03 ETH (~$70). Prize is Zaal's call.
 7. Cast: Farcaster long version in /wavewarz and /poidh, X short version via Firefly, Telegram version in the Clippers group and ZAO GCs, plus X/Farcaster DM group chats and Discord.
 8. Day 3 or 4: reply-cast (VODs rolling off). Day 7: close. Pick winner within 48h, accept claim on poidh, post the clip on @wavewarz with the entrant credited.
 
-**Status 2026-08-21:** LIVE at [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330). Steps 1-6 done. Step 7 (propagation) staged in clipboard `wavewarz-r5-propagate-all` - Farcaster main, X main, X GC, Farcaster /zao GC, Telegram, Discord, all six ready to post.
+**Status 2026-08-21 - SUPERSEDED, kept as the record of what was true that day:** LIVE at [poidh.xyz/base/bounty/1330](https://poidh.xyz/base/bounty/1330). Steps 1-6 done. Step 7 (propagation) staged in clipboard `wavewarz-r5-propagate-all` - Farcaster main, X main, X GC, Farcaster /zao GC, Telegram, Discord, all six ready to post.
 
 **Status 2026-09-05: CLOSED AND PAID, WINNER NEVER ANNOUNCED.**
 
