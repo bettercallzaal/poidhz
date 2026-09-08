@@ -13,13 +13,18 @@ before posting regardless - the figures below already drifted once between draft
 - **88 open bounties across all chains** (Base, Arbitrum, mainnet), **43 draw zero
   submissions (49%)**, **74 state no machine-readable deadline (84%)**, median prize **$10.99**
   <!-- measured 2026-09-08T19:19Z - zao-measure --verify "poidhz: open poidh bounties, zero-submission share" -->
-- Cross-checked against poidh's own API, **Base only: 83 open, 43 zero-submission (52%)**
-  <!-- measured 2026-09-08T19:24Z - zao-measure --verify "poidhz: LIVE poidh open-bounty count and zero-submission share (from poidh API, not a local file)" -->
+- Cross-checked against poidh's own API, **Base only: 83 open, 42 zero-submission (51%)**
+  <!-- measured 2026-09-08T20:45Z - zao-measure --verify "poidhz: LIVE poidh open-bounty count and zero-submission share (from poidh API, not a local file)"
+       [volatile: reads the poidh API directly, moves hourly - 43 to 42 in eighty minutes on the day it was written] -->
 
   **Name the scope whenever you quote these.** 88 and 83 are not in conflict - one is every
-  chain, one is Base. The zero-submission count is 43 in both; only the denominator moves,
-  which is why the share reads 49% or 52% depending on which you mean. A number separated
-  from its scope is the same defect as a number separated from its date.
+  chain, one is Base. A number separated from its scope is the same defect as a number
+  separated from its date.
+
+  The Base figure is marked `[volatile]` because it re-reads the platform: it went 43 to 42
+  zero-submission in eighty minutes. That is not a citation going stale, it is the world
+  moving, and the two need telling apart. **Re-measure it before posting rather than quoting
+  what is written here.** The all-chains snapshot above is the stable one.
 - Our four completed rounds: **36 claims** - R1 11, R2 8, R3 8, R5 9 - never zero
   <!-- measured 2026-09-08T19:20Z - zao-measure --verify "poidhz: BCZ rounds claim counts" -->
 
