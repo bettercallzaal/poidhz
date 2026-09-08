@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>poidhz - rounds, judging, bounty bar</title>
-  <meta name="description" content="Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard, the canonical bar. Currently R5 active: Best 60s clip from the WaveWarZ Twitch stream, through Sun Aug 30, 2026.">
+  <!--
+    No round state in the metadata. This said "Currently R5 active ... through Sun Aug 30,
+    2026" until 2026-09-08, and metadata is the worst place to put a claim with an expiry:
+    it is what search results and link previews show, it is cached by other people's
+    systems, and nothing on the page makes it obvious it went stale. The live state is on
+    the page itself, rendered from data/rounds-live.json.
+  -->
+  <meta name="description" content="Source of truth for every BCZ-issued POIDH bounty. Rounds, judging pages, brand kits, leaderboard, the canonical bar, and the live state of every round.">
   <link rel="canonical" href="https://poidhz.com/about">
   <meta property="og:title" content="poidhz">
-  <meta property="og:description" content="BCZ POIDH bounty ops. R5 WaveWarZ Twitch clip bounty live through Sun Aug 30.">
+  <meta property="og:description" content="BCZ POIDH bounty ops - every round, its judging page, and its live on-chain state.">
   <meta property="og:url" content="https://poidhz.com/about">
   <meta property="og:image" content="https://poidhz.com/assets/og/og.png">
   <meta property="og:image:width" content="1200">
@@ -83,13 +90,16 @@
   </header>
 
   <main class="container">
-    <h2>Live now</h2>
-    <div class="grid">
-      <a class="card active" href="https://poidh.xyz/base/bounty/1330" target="_blank" rel="noopener">
-        <span class="label">R5 <span class="pill live">LIVE</span></span>
-        <strong>Best 60s clip from the WaveWarZ Twitch stream</strong>
-        <span class="desc">20-90s clip from twitch.tv/wavewarzofficial, reposted on WaveWarZ's own channels with credit. Open pot, winner by poidh consensus. Deadline Sun Aug 30, 11:59pm PT.</span>
-      </a>
+    <!--
+      This block was hand-written and marked R5 LIVE until 2026-09-08, three days after
+      bounty 1330 was settled and paid - sitting directly above a table that renders the
+      real state from data/rounds-live.json. The page contradicted itself, and the
+      hand-written half was the half on top. It now renders from the same feed as the
+      table, so the two cannot disagree. The default below assumes nothing is open.
+    -->
+    <h2 id="live-now-heading">Open now</h2>
+    <div class="grid" id="live-now">
+      <p style="color:var(--text-muted)">No round is open right now - see the table below for every round and its state.</p>
     </div>
 
     <h2>Rounds <small class="mono" id="rounds-gen" style="font-weight:400;font-size:0.72rem;color:var(--text-muted)"></small></h2>
@@ -150,6 +160,17 @@
   var pill=function(st){var cls=st==='WINNER SET'?'done':(st==='OPEN'||st==='VOTING')?'live':'';return '<span class="pill '+cls+'">'+esc(st)+'</span>'};
   fetch('/data/rounds-live.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
     document.getElementById('rounds-gen').textContent='live as of '+new Date(d.generated_at).toLocaleString();
+    // The "Open now" block, from the same feed as the table below it, so the top of the
+    // page cannot contradict the bottom. Only OPEN and VOTING can honestly be shown here;
+    // anything else leaves the honest default in place.
+    var open=(d.rounds||[]).filter(function(r){return r.status==='OPEN'||r.status==='VOTING'});
+    if(open.length){
+      document.getElementById('live-now').innerHTML=open.map(function(r){
+        return '<a class="card active" href="'+esc(r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id))+'" target="_blank" rel="noopener">'+
+               '<span class="label">R'+r.round+' '+pill(r.status)+'</span>'+
+               '<strong>'+esc(r.bounty_title||r.title||'')+'</strong></a>';
+      }).join('');
+    }
     document.getElementById('rounds-body').innerHTML=d.rounds.map(function(r){
       var ask=esc((r.title||'').replace(/^R\d+ - /,''));
       var bounty=r.bounty_id?'<a href="'+esc(r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id))+'" target="_blank" rel="noopener">'+r.bounty_id+'</a>':'<span style="color:var(--text-muted)">not cast</span>';

@@ -236,7 +236,7 @@
     <div class="nav-inner">
       <a href="/" class="nav-brand">BetterCallZaal</a>
       <div class="nav-links">
-        <a href="/nexus.html">Nexus</a>
+        <a href="https://bettercallzaal.com/nexus.html">Nexus</a>
         <a href="https://empirebuilder.world/empire/0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07" target="_blank" rel="noopener">$ZABAL Empire</a>
         <a href="https://poidh.xyz/a/wethemmedia" target="_blank" rel="noopener">POIDH album</a>
         <a href="/">Home</a>
@@ -248,11 +248,22 @@
     <section class="hero">
       <div class="hero-eyebrow">$ZABAL Empire · POIDH Submitters · Slot 8</div>
       <h1>Make POIDH's next ad - earn <span class="accent">ETH + ZABAL</span>.</h1>
-      <p class="hero-sub">
-        Clip 45-60s from <a href="https://www.youtube.com/watch?v=IFG_34K7Vig" target="_blank" rel="noopener">BCZ YapZ Ep 19 with @kenny</a>. Closes Fri May 22.
+      <!--
+        The default below says NO round is open, and the script upgrades it only when
+        data/rounds-live.json actually reports one. That direction is deliberate. This block
+        was hand-written and read "Closes Fri May 22" with a live Submit button pointing at
+        bounty 1166 - which closed 2026-05-22 and was still inviting submissions on
+        2026-09-08, nearly four months later. Inviting someone into a closed round wastes
+        the work they do; saying "none open" while one is open costs them a click. Those are
+        not the same size of mistake, so a failed fetch lands on the cheap one. It is the
+        same reason refresh-rounds.py exists: bounty 1249 sat marked LIVE for six weeks
+        after it was canceled.
+      -->
+      <p class="hero-sub" id="hero-round">
+        No round is open right now. Past rounds and the live leaderboard are below.
       </p>
-      <div style="margin-top: 1.1rem">
-        <a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener" class="bounty-cta cyan" style="font-size: 0.78rem; padding: 0.7rem 1.4rem">Submit your clip ->_</a>
+      <div style="margin-top: 1.1rem" id="hero-cta">
+        <a href="#lb-table" class="bounty-cta cyan" style="font-size: 0.78rem; padding: 0.7rem 1.4rem">See the leaderboard ->_</a>
       </div>
       <div class="hero-meta" id="hero-meta">Last refresh: <span class="skeleton" style="width:10rem"></span></div>
     </section>
@@ -265,22 +276,29 @@
       <div class="marquee-track" id="marquee-images-track"></div>
     </div>
 
-    <section class="bounty-card live" style="margin-bottom: 2rem">
-      <div class="bounty-tag live">Round 2 · Live now</div>
+    <!--
+      Past tense on purpose. This card said "Round 2 - Live now / Closes Fri May 22" with a
+      Submit button until 2026-09-08, nearly four months after the bounty closed. A
+      present-tense claim about a round has to be maintained to stay true and nobody
+      maintains it; a dated past-tense record of what happened stays true by itself. The
+      figures below are R2's settled state from data/rounds-live.json, read 2026-09-08.
+    -->
+    <section class="bounty-card" style="margin-bottom: 2rem">
+      <div class="bounty-tag">Round 2 · Closed 22 May 2026</div>
       <h3>Best 60s POIDH ad from Ep 19 w/ Kenny</h3>
       <div class="bounty-meta">
-        <span>Pot <strong>0.006+ ETH</strong> (open bounty - grows as folks contribute)</span>
+        <span>Paid <strong>0.0105 ETH</strong></span>
         <span>Bounty <strong>#1166</strong></span>
-        <span>Closes <strong>Fri May 22, 11:59pm PT</strong></span>
-        <span>Winner cast <strong>Sun May 24</strong></span>
+        <span><strong>8</strong> claims</span>
+        <span>Winner <strong>@joeyofdeus</strong></span>
       </div>
       <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0.85rem 0 1rem; font-weight: 300; line-height: 1.55">
         <strong style="color: var(--text)">Floor:</strong> post a 45-60s edited clip on X tagging <a href="https://x.com/bettercallzaal" target="_blank" rel="noopener">@bettercallzaal</a> + submit the URL on POIDH. <strong style="color: var(--text)">Ceiling:</strong> rubric of distribution / craft / substance bonuses (full text on POIDH). One wallet = one leaderboard slot, no matter how many clips you post.
       </p>
       <div style="display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center">
-        <a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener" class="bounty-cta cyan">Submit on POIDH ->_</a>
-        <a href="/poidh-round2-judging.html" class="bounty-cta" style="background:rgba(245,200,66,0.16);color:var(--gold);border:1px solid rgba(245,200,66,0.5);padding:0.65rem 1.1rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;text-decoration:none">View Round 2 judging ->_</a>
-        <a href="/poidh-bounty-best-practices.html" class="bounty-cta" style="background:rgba(0,229,255,0.12);color:var(--cyan);border:1px solid rgba(0,229,255,0.5);padding:0.65rem 1.1rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;text-decoration:none">How to write a good bounty ->_</a>
+        <a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener" class="bounty-cta cyan">View the bounty ->_</a>
+        <a href="/round/2/judging" class="bounty-cta" style="background:rgba(245,200,66,0.16);color:var(--gold);border:1px solid rgba(245,200,66,0.5);padding:0.65rem 1.1rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;text-decoration:none">View Round 2 judging ->_</a>
+        <a href="/best-practices" class="bounty-cta" style="background:rgba(0,229,255,0.12);color:var(--cyan);border:1px solid rgba(0,229,255,0.5);padding:0.65rem 1.1rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.05em;text-decoration:none">How to write a good bounty ->_</a>
       </div>
     </section>
 
@@ -322,7 +340,7 @@
     <footer class="footer">
       <p id="footer-totals">Lifetime ZABAL distributed: <span class="skeleton" style="width:4rem"></span> · <span id="footer-submitters">-</span> unique submitters across <span id="footer-bounties">-</span> BCZ bounties</p>
       <p style="margin-top: 0.6rem">BCZ x ZAO x ZABAL Empire on Empire Builder. POIDH data live from <a href="https://poidh.xyz/a/wethemmedia" target="_blank" rel="noopener">poidh.xyz/a/wethemmedia</a>. Distribution via <a href="https://empirebuilder.world/empire/0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07" target="_blank" rel="noopener">empirebuilder.world</a>.</p>
-      <p style="margin-top: 0.5rem"><a href="/">BetterCallZaal home</a> · <a href="/nexus.html">ZABAL Nexus</a></p>
+      <p style="margin-top: 0.5rem"><a href="/">BetterCallZaal home</a> · <a href="https://bettercallzaal.com/nexus.html">ZABAL Nexus</a></p>
     </footer>
   </main>
 
@@ -348,7 +366,10 @@
       if (loading) loading.remove();
       const lb = data.leaderboard || [];
       if (!lb.length) {
-        const e = document.createElement('div'); e.className = 'empty'; e.textContent = 'No submissions yet. Be the first.';
+        // 38 submitters are on this leaderboard, so an empty one means the feed failed,
+        // not that nobody has entered. "Be the first" also invited submissions with no
+        // open round to submit to.
+        const e = document.createElement('div'); e.className = 'empty'; e.textContent = 'Leaderboard is empty - the feed may have failed to load.';
         table.appendChild(e); return;
       }
       lb.forEach((entry, i) => {
@@ -431,7 +452,10 @@
         const e = document.createElement('div');
         e.className = 'empty';
         e.style.gridColumn = '1 / -1';
-        e.innerHTML = 'No Round 2 submissions yet. <a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener" style="color: var(--cyan)">Be the first ->_</a>';
+        // Round 2 closed on 2026-05-22 with 8 claims, so an empty gallery now means the
+        // feed failed to load, not that nobody entered. "Be the first" invited submissions
+        // to a closed bounty.
+        e.innerHTML = 'Could not load Round 2 submissions. <a href="https://poidh.xyz/base/bounty/1166" target="_blank" rel="noopener" style="color: var(--cyan)">View them on POIDH ->_</a>';
         r2Grid.appendChild(e);
       } else {
         r2.forEach(c => r2Grid.appendChild(buildClaimCard(c, profiles)));
@@ -452,7 +476,34 @@
       totalsEl.innerHTML = `Lifetime ZABAL distributed: <strong>${fmtZabal(t.total_zabal_distributed)}</strong> · <strong>${t.unique_submitters ?? 0}</strong> unique submitters across <strong>${t.bounties ?? 0}</strong> BCZ bounties`;
     }
 
+    // OPEN and VOTING are the only two states that can honestly ask for a submission.
+    // refresh-rounds.py derives them from chain (inProgress / isVoting), so this cannot
+    // disagree with poidh unless poidh itself does.
+    const CAN_SUBMIT = ['OPEN', 'VOTING'];
+
+    async function renderHeroRound() {
+      const sub = document.getElementById('hero-round');
+      const cta = document.getElementById('hero-cta');
+      if (!sub || !cta) return;
+      const r = await fetch('/data/rounds-live.json', { cache: 'no-store' });
+      if (!r.ok) throw new Error('rounds feed ' + r.status);
+      const d = await r.json();
+      const live = (d.rounds || []).filter(function (x) { return CAN_SUBMIT.includes(x.status); });
+      if (!live.length) return;                     // keep the honest default
+      const x = live[live.length - 1];              // newest open round
+      const title = x.bounty_title || x.title || ('Round ' + x.round);
+      sub.textContent = title;
+      if (x.url) {
+        cta.innerHTML = '<a href="' + x.url + '" target="_blank" rel="noopener" ' +
+          'class="bounty-cta cyan" style="font-size: 0.78rem; padding: 0.7rem 1.4rem">' +
+          'Submit your clip ->_</a>';
+      }
+    }
+
     (async function () {
+      // Its own try, so a rounds-feed failure cannot take the leaderboard down with it -
+      // and so the hero silently keeps the honest default rather than a stale invitation.
+      try { await renderHeroRound(); } catch (err) { /* default stands */ }
       try {
         const r = await fetch('/poidh-claims.json', { cache: 'no-store' });
         if (!r.ok) throw new Error('claims feed ' + r.status);
