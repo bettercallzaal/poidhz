@@ -29,6 +29,19 @@ jobs:
       - name: Run refresh script
         run: python3 scripts/refresh-poidh-leaderboard.py
 
+      - name: Sweep cast rounds for closeout gaps
+        # R5 closed, was paid, and was never added to default_bounty_ids - so nine
+        # claimants scored ZERO on this very leaderboard for weeks and nothing said so.
+        # It was found by hand on 2026-09-06. This is the check that would have caught it
+        # the same day, and it runs here because this is the workflow that builds the
+        # scores those claimants were missing from.
+        #
+        # continue-on-error for the same reason as the EB check below: a red build every
+        # six hours over something only Zaal can action trains everyone to ignore red.
+        # The line in the log is the point.
+        continue-on-error: true
+        run: python3 scripts/postclose-check.py --all
+
       - name: Report Empire Builder drift
         # scripts/check-eb-sync.py has existed since 2026-08-08 and had never been
         # run by anything. It detects a real, still-open bug: EB's "POIDH Submitters"

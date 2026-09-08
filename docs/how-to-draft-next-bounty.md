@@ -186,6 +186,27 @@ Publish per-submission scorecard at `poidhz.com/round/<N>/judging` within 48h.
 
 ---
 
+## 10.5 Check the round is actually closed out
+
+```bash
+python3 scripts/postclose-check.py --bounty <id> --round <N>
+```
+
+Confirms the payout from chain, confirms the round is in `default_bounty_ids` so its
+entrants actually score, confirms announcement copy exists, then lists every promise the
+bounty text made as a checklist for you to tick off by hand.
+
+**It cannot tell you a post went out** - that is not knowable from a terminal, and a script
+that guessed would recreate the failure it exists to catch. It tells you what you said you
+would do.
+
+Worth running because four of the five rounds so far were paid and left owing something:
+see [docs/PROMISE-AUDIT.md](PROMISE-AUDIT.md). The automatic half of this also runs on the
+6h leaderboard cron as `--all`, which would have caught R5's entrants scoring zero the same
+day instead of weeks later.
+
+---
+
 ## 11. Post-round housekeeping
 
 - Update root `README.md` round index table with winner + submission count
