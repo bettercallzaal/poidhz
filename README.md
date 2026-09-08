@@ -1,17 +1,51 @@
 # poidhz - a public client for poidh bounties
 
-**Live: [poidhz.com](https://poidhz.com)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has no on-chain deadline field, so this reads the date out of each bounty's description; across every open bounty scanned, none set the native field.
-
-> **The name is settled.** `poidhz.com` was registered and connected on 2026-09-06 and is now
-> the production domain. `zpoidh.vercel.app` still works and 307s to it, so every link ever
-> shared stays alive. All URLs in this repo moved over in one pass once the domain actually
-> served - the repo, the site and the docs finally say the same word.
->
-> Known gap: `www.poidhz.com` shows Valid Configuration in Vercel but does not resolve yet
-> (measured 2026-09-06). The apex works; if `www` is still dead later, the DNS record for it
-> needs a look.
+**Live: [poidhz.com](https://poidhz.com)** - every open [poidh](https://poidh.xyz) bounty with a stated deadline, on a calendar, with countdowns, filters, and a subscribable `.ics`. Refreshes every 6 hours. poidh has an on-chain deadline field that almost nobody sets, so this reads the date out of each bounty's description instead; of the bounties scanned on 2026-09-07, exactly one had the native field populated.
 
 poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judging pages, the canonical bounty bar) and grew the tooling any issuer or hunter can use. Both halves live here. MIT, fork it.
+
+## Start here
+
+Nothing below needs permission, an account, or a fork. Pick the row that is you.
+
+| You are | Start with | You do not need |
+|---|---|---|
+| **Hunting bounties** - looking for work worth doing | [poidhz.com](https://poidhz.com) for what closes when, and [/dashboard](https://poidhz.com/dashboard) for prize size and whether anyone has claimed yet | anything in this repo |
+| **Issuing a bounty** and want people to actually enter | [/best-practices](https://poidhz.com/best-practices), then [docs/how-to-draft-next-bounty.md](docs/how-to-draft-next-bounty.md). [`docs/PROMISE-AUDIT.md`](docs/PROMISE-AUDIT.md) is the honest version - five of our own rounds, and what we promised and failed to deliver | to run our rounds or use our brand |
+| **Building something on poidh** | [The open data](#the-open-data-cors-open-no-key) below. Every file the site renders is a public endpoint | to scrape the site |
+| **Running your own bounty programme** | [docs/PARTNER-GUIDE.md](docs/PARTNER-GUIDE.md) - point `org.config.json` at your wallet and every script here runs for your org | to change any code |
+
+**The rounds, playbook and brand kits further down are BetterCallZaal's own use of this
+tooling.** They are here as a worked example, not as the product. Skip them unless a real
+example of a bounty that actually paid out is useful to you.
+
+## The open data (CORS-open, no key)
+
+poidh has no public deadline index and no submitter leaderboard. These are those, rebuilt
+from poidh's own API every 6 hours and served with `Access-Control-Allow-Origin: *` so you
+can fetch them straight from a browser. Verified live 2026-09-07.
+
+| Endpoint | What is in it |
+|---|---|
+| [`/data/bounty-dashboard.json`](https://poidhz.com/data/bounty-dashboard.json) | Every open bounty platform-wide: prize in native token and USD, parsed deadline, claim status, chain, and a guessed task type. This is what both pages render. |
+| [`/data/poidh-deadlines.ics`](https://poidhz.com/data/poidh-deadlines.ics) | The same deadlines as a calendar feed. Subscribe in any calendar app. |
+| [`/leaderboard`](https://poidhz.com/leaderboard) | Submitters by count of bounties entered, in Empire Builder's `[{address, score}]` shape. |
+| [`/data/poidh-deadlines-global.json`](https://poidhz.com/data/poidh-deadlines-global.json) | The raw deadline scan, with the free text each date was parsed out of so you can check the parse. |
+
+**The one thing worth knowing before you build on it:** poidh has an on-chain `deadline`
+field and almost nobody sets it. Of the 90 open bounties on 2026-09-07, **77 stated no
+machine-readable deadline at all** and only one had the native field populated. Every date
+in these files was parsed out of free text in the description, and
+`deadline_raw_text` carries the exact string it came from so you can judge the parse
+yourself rather than trusting it.
+
+Bounties also outlive their own deadlines - a passed date does not close a poidh bounty, so
+`deadline_status` is `past` or `upcoming` and is **not** the same question as whether the
+bounty is still open. `status` in the dashboard answers that one.
+
+> **Domain note.** `poidhz.com` is the production domain as of 2026-09-06.
+> `zpoidh.vercel.app` still resolves and 307s to it, so older links keep working.
+> `www.poidhz.com` does not resolve yet - use the apex.
 
 ## Surfaces
 
@@ -26,6 +60,11 @@ poidhz started as BetterCallZaal / The ZAO's own bounty-ops repo (rounds, judgin
 | [/leaderboard](https://poidhz.com/leaderboard) | Submitter leaderboard feed (Empire Builder format) |
 
 ## Our rounds (cast order)
+
+*BetterCallZaal's own five rounds. Kept public because a bounty that actually paid out is
+more useful than a template - including [R4](rounds/r4/CLOSEOUT.md), which we broke, and
+[the audit](docs/PROMISE-AUDIT.md) of what every round promised and did not deliver.*
+
 
 | Round | Bounty | Ask | Prize | Result |
 |---|---|---|---|---|
@@ -47,7 +86,12 @@ python3 scripts/scan-poidh-deadlines.py       # free-text deadline parse -> data
 python3 scripts/build-bounty-calendar.py      # our rounds -> data/bounty-calendar.json
 python3 scripts/deadlines-to-ics.py           # -> data/poidh-deadlines.ics
 python3 scripts/query-bounty.py --bounty 1180 --chain 8453   # any bounty, any chain, resolves the winner
+python3 scripts/precast-check.py --round 6 --prize 0.0128     # can this round cast? wallet, deadline, config, placeholders
+python3 scripts/postclose-check.py --bounty 1330 --round 5    # did we do what the bounty text promised after it closed?
 ```
+
+Every script takes `--selftest` and runs it offline, so you can check the logic without
+hitting the network or having our data.
 
 Python 3.9+ standard library only, no dependencies. `org.config.json` holds the issuer wallets and bounty ids; point it at your own to run this for a different org.
 
