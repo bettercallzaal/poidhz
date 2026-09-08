@@ -34,7 +34,7 @@ Density first, then story, then craft. A recap that goes somewhere beats a monta
 
 THE REWARD - how you get paid
 
-One winner takes the pot. That is the ETH.
+One winner takes the pot: 0.0125 ETH on Base to start, and it grows as people add to it.
 
 Then, separately: I am running the best of these across seven channels - Instagram, YouTube, TikTok, Facebook, Farcaster, X, Lens. Each channel gets ONE clip. If I post yours, you get $5 in $ZABAL for it. Seven slots, and they close as they fill.
 
