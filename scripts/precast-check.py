@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import importlib.util
 import pathlib
 import json
 import re
@@ -278,6 +279,32 @@ KNOWN_BAD = [
 
 RECHECK_RE = re.compile(r"[Rr]e-check(?:ed)?\s+(?:the\s+\w+\s+)?by\s+(\d{4}-\d{2}-\d{2})")
 
+# What validate-bounty-description.py actually checks, printed next to its PASS so a green
+# line is not read as more assurance than it is. This used to say the validator "matches
+# section HEADERS only and reads nothing inside them". That stopped being true when the
+# validator gained SECTION_MUST_CONTAIN, and it went on printing for days - understating a
+# check is the same defect as overstating one, and it survived because prose about code has
+# nothing holding it to the code. The selftest now pins it: every section the validator
+# inspects has to be named here, so adding a fifth fails until this text is updated.
+VALIDATOR_CAVEAT = (
+    "(it reads four section BODIES, not just headers: THE BAR needs a\n"
+    " numbered or bulleted rule, THE REWARD a prize amount with its token,\n"
+    " DEADLINE a real date or time, THE ASSET KIT a usable link. It still\n"
+    " cannot tell you THE REWARD promises something this round does not\n"
+    " actually offer. Read the description yourself too.)"
+)
+
+
+def validator_sections() -> list[str]:
+    """The section ids validate-bounty-description.py inspects the body of.
+
+    Imported from the validator rather than restated, so the two cannot disagree."""
+    spec = importlib.util.spec_from_file_location(
+        "_vbd", pathlib.Path(__file__).resolve().parent / "validate-bounty-description.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return sorted(mod.SECTION_MUST_CONTAIN)
+
 
 def paste_body(text: str) -> tuple[str, str]:
     """The part of a description.md that actually gets pasted into poidh, and how we knew.
@@ -360,9 +387,8 @@ def check_description(round_dir: Path) -> None:
     verdict = [ln for ln in r.stdout.splitlines() if "VERDICT" in ln]
     if any("PASS" in v for v in verdict):
         ok("validate-bounty-description.py PASSes")
-        print("         (that check matches section HEADERS only and reads nothing inside")
-        print("          them - it cannot tell you a REWARD section promises something the")
-        print("          round does not actually offer. Read the description yourself too.)")
+        for line in VALIDATOR_CAVEAT.splitlines():
+            print(f"         {line}")
     else:
         for ln in r.stdout.splitlines():
             if ln.strip().startswith("FAIL"):
@@ -511,6 +537,14 @@ def _selftest() -> bool:
     check("no marker scans the whole file and says so", how == "whole file (no marker)")
     b, _ = paste_body("notes\n\n```\nshort title\n```\n\nthe real description follows here\n")
     check("a fenced title is NOT mistaken for the body", "real description" in b)
+
+    secs = validator_sections()
+    unnamed = [s for s in secs if s.replace("_", " ").upper() not in VALIDATOR_CAVEAT.upper()]
+    for s in unnamed:
+        print(f"       CAVEAT DOES NOT MENTION: {s}")
+    check("the printed caveat names every section the validator inspects",
+          secs and not unnamed)
+
     BLOCKING, WARNINGS, NOTES = [], [], []
     rows = table_rows()
     check("reads the do-not-carry table out of _template", len(rows) >= 5)
