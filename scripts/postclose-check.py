@@ -279,6 +279,30 @@ def _selftest() -> bool:
 
     dup = "The winner gets credited. The winner gets credited."
     check("does not report the same sentence twice", len(find_promises(dup)) == 1)
+
+    # Banner checks. Each case is a banner this repo actually carried at some point.
+    check("a round owing promises may not call itself fully resolved",
+          banner_problems("R3 - FULLY RESOLVED.", owing=True, settled=True, cast=True))
+    check("R3's real banner, which is honest, is NOT flagged",
+          not banner_problems("R3 - **PAID OUT, NOT FULLY RESOLVED.**",
+                              owing=True, settled=True, cast=True))
+    check("a settled bounty may not still say LIVE",
+          banner_problems("> **LIVE** - submissions close Friday.",
+                          owing=False, settled=True, cast=True))
+    check("R5's current banner, which is honest, is NOT flagged",
+          not banner_problems("> **CLOSED AND PAID 2026-09-05. THE WINNER HAS STILL NOT "
+                              "BEEN ANNOUNCED.**", owing=True, settled=True, cast=True))
+    check("a cast round may not still call itself a draft",
+          banner_problems("# R7 - clip round 2 (DRAFT, not cast)",
+                          owing=False, settled=False, cast=True))
+    check("an uncast draft saying DRAFT is fine",
+          not banner_problems("# R7 - clip round 2 (DRAFT, not cast)",
+                              owing=False, settled=False, cast=False))
+    check("an unknown payout state does not fire the LIVE rule",
+          not banner_problems("> **LIVE**", owing=False, settled=None, cast=True))
+    check("a clean round with a clean banner is silent",
+          not banner_problems("R1 - closed, winner accepted on-chain 2026-05-25.",
+                              owing=False, settled=True, cast=True))
     return passed
 
 
@@ -345,6 +369,70 @@ def read_closeout(round_num: int) -> tuple[int, int, int] | None:
     return un, br, len(rows)
 
 
+BANNER_LINES = 10
+
+# Claims a round's own README makes about itself, each traced to a banner that was wrong.
+# The negation lookbehind is not decoration: R3's CORRECT banner reads "PAID OUT, NOT
+# FULLY RESOLVED", so a plain substring match blocks the one round whose banner is honest.
+# A check that fires on the fixed version is worse than no check - it gets muted, and then
+# the real one is muted too.
+# The (?i) has to lead the pattern, so the lookbehinds sit after it and are themselves
+# case-insensitive - which is why one lowercase form covers "NOT FULLY RESOLVED" too.
+_NEGATED = r"(?<!not )(?<!not fully )(?<!never )(?<!no )"
+RESOLVED_CLAIMS = [
+    (r"(?i)" + _NEGATED + r"fully resolved", "says it is fully resolved"),
+    (r"(?i)" + _NEGATED + r"all promises kept", "says all promises were kept"),
+    (r"(?i)nothing (?:is )?owed|no promises outstanding", "says nothing is owed"),
+    (r"(?i)closed out clean", "says it closed out clean"),
+]
+# Uppercase LIVE only. Lowercase "live" is ordinary prose here ("track it live", "live
+# figures") and matching it would fire on almost every round README.
+LIVE_CLAIMS = [
+    (r"\bLIVE\b", "says LIVE"),
+    (r"(?i)submissions (?:are )?open|accepting submissions|open for entries", "says submissions are open"),
+]
+DRAFT_CLAIMS = [
+    (r"(?i)\bnot cast\b|\bDRAFT\b|\buncast\b", "says it is a draft or not cast"),
+]
+
+
+def banner_text(round_num: int) -> str | None:
+    """The top of a round's README - the part that actually gets read.
+
+    Only the first lines count, on purpose. R5's README carried CLOSED further down while
+    the top still read LIVE, and the top is what everyone acted on. A correction that is
+    not at the top has not been made."""
+    p = REPO_ROOT / "rounds" / f"r{round_num}" / "README.md"
+    if not p.exists():
+        return None
+    return "".join(p.read_text().splitlines(keepends=True)[:BANNER_LINES])
+
+
+def banner_problems(banner: str, *, owing: bool, settled: bool | None, cast: bool) -> list[str]:
+    """What this round's banner claims that its measured state contradicts.
+
+    Pure on purpose - every input is passed in, so the selftest can put this in a state
+    the repo is not currently in. A checker that can only be exercised against today's
+    files is a checker that passes because today happens to be fine."""
+    out = []
+    if owing:
+        for pat, why in RESOLVED_CLAIMS:
+            if re.search(pat, banner):
+                out.append(f"banner {why}, but its ledger still records promises owed")
+                break
+    if settled:
+        for pat, why in LIVE_CLAIMS:
+            if re.search(pat, banner):
+                out.append(f"banner {why}, but the bounty is settled on-chain")
+                break
+    if cast:
+        for pat, why in DRAFT_CLAIMS:
+            if re.search(pat, banner):
+                out.append(f"banner {why}, but this round is cast and has a bounty id")
+                break
+    return out
+
+
 def sweep_all(chain: int) -> int:
     """Every cast round, automatic checks only. Built for the 6h cron.
 
@@ -405,6 +493,16 @@ def sweep_all(chain: int) -> int:
                 problems += 1
             if not br and not un:
                 print(f"         all {tot} promise(s) recorded as kept or n/a")
+
+        banner = banner_text(n)
+        if banner is None:
+            print(f"         no README - this round cannot say what state it is in")
+            problems += 1
+        else:
+            owing = bool(led and (led[0] or led[1]))
+            for msg in banner_problems(banner, owing=owing, settled=bool(acc), cast=True):
+                print(f"         {msg}")
+                problems += 1
 
     print()
     if problems:
