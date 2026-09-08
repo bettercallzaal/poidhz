@@ -5,17 +5,21 @@ generated the same day.
 
 ## Re-measure before posting
 
-Every number below is live and moves daily. **Re-check by 2026-09-09**; after that treat
-every figure here as unverified and re-run before posting:
+Every number below is live and moves daily. **Re-check by 2026-09-11**, and re-measure
+before posting regardless - the figures below already drifted once between drafting and now.
 
-```bash
-python3 scripts/build-bounty-dashboard.py
-```
+**Measured 2026-09-08, and every one of these is re-runnable:**
 
-Measured 2026-09-07: **90 open bounties**, **44 draw zero submissions (49%)**, **77 state no
-deadline (86%)**, median prize **$12.12**, **$6,412** in open prize money platform-wide.
-Of the 13 that do state a date, **6 are already past it and still open.**
-Our own four completed rounds: **36 claims**, 8 to 11 each, never zero, at prizes of $26-$63.
+- **88 open bounties**, **43 draw zero submissions (49%)**, **74 state no machine-readable
+  deadline (84%)**, median prize **$10.99**
+  <!-- measured 2026-09-08T19:19Z - zao-measure --verify "poidhz: open poidh bounties, zero-submission share" -->
+- Our four completed rounds: **36 claims** - R1 11, R2 8, R3 8, R5 9 - never zero
+  <!-- measured 2026-09-08T19:20Z - zao-measure --verify "poidhz: BCZ rounds claim counts" -->
+
+**What drifted in one day, which is the argument for re-measuring rather than trusting a
+draft:** open bounties 90 to 88, undated share 86% to 84%, median prize $12.12 to $10.99.
+The 49% zero-submission figure held. Nothing here was wrong when written; it stopped being
+right, which is a different problem and the one these citations exist for.
 
 **Use `bounty-dashboard.json` for every figure here, not `poidh-deadlines-global.json`.**
 The two disagree on the dated count (13 vs 11) because the global scan only walks four
@@ -50,11 +54,11 @@ Every open poidh bounty with a stated deadline, on a calendar, with countdowns a
 
 I built it because I kept missing deadlines on my own bounties.
 
-poidh has an on-chain deadline field and almost nobody sets it. So the date lives in the description as free text, or nowhere. Right now 77 of the 90 open bounties state no deadline a tool can read - 86%. poidhz parses the text, puts what it finds on a calendar, and is honest about the rest.
+poidh has an on-chain deadline field and almost nobody sets it. So the date lives in the description as free text, or nowhere. Right now 74 of the 88 open bounties state no deadline a tool can read - 84%. poidhz parses the text, puts what it finds on a calendar, and is honest about the rest.
 
 Some numbers from building it, which say something about bounties generally:
 
-44 of the 90 open bounties have zero submissions. Half the board is asking and getting nothing back. The median prize is $12.
+43 of the 88 open bounties have zero submissions. Half the board is asking and getting nothing back. The median prize is $11.
 
 Across the five rounds I have run, 36 claims came in, 8 to 11 per round, and not one round drew zero. I do not think that is because my bounties are better written. I think it is because a bounty that nobody sees is indistinguishable from one nobody wants, and most of the work is in the seeing.
 
@@ -76,7 +80,7 @@ poidhz.com is live.
 
 Every open poidh bounty with a deadline, on a calendar, with countdowns and an .ics feed.
 
-86% of open bounties state no deadline a tool can read. Half get zero submissions.
+84% of open bounties state no deadline a tool can read. Half get zero submissions.
 
 MIT, fork it:
 github.com/bettercallzaal/poidhz
@@ -87,9 +91,9 @@ github.com/bettercallzaal/poidhz
 Use this one if the launch framing feels thin. It travels further because the number is the hook.
 
 ```
-Half of all open poidh bounties get zero submissions. 44 of 90, measured today.
+Half of all open poidh bounties get zero submissions. 43 of 88, measured today.
 
-The median prize is $12 and 86% state no deadline a tool can read.
+The median prize is $11 and 84% state no deadline a tool can read.
 
 So I built the calendar the platform does not have. Free, MIT, and the data is open:
 
@@ -99,7 +103,7 @@ poidhz.com
 ## Reply-cast, to drop under the main one
 
 ```
-The part I did not expect: poidh bounties outlive their own deadlines. Six of the thirteen dated ones on the board right now are past the date and still open, still claimable.
+The part I did not expect: poidh bounties outlive their own deadlines. Several of the dated ones on the board right now are past the date and still open, still claimable. Re-count before posting - that split moves daily.
 
 So poidhz shows those separately rather than hiding them - "past deadline, still open" is a real state, not an error.
 ```
