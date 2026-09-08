@@ -55,24 +55,64 @@ def load_description(path: Path) -> str | None:
         return None
 
 
+# What each section must CONTAIN, not merely be titled. Until 2026-09-08 this file matched
+# section header names and read nothing inside them, so a REWARD section could pass while
+# promising something the round did not offer - which is exactly what happened: the
+# winner-announce template promised every submitter a $ZABAL airdrop for R5, a round with no
+# $ZABAL trail at all, and the validator was green throughout.
+#
+# Each entry is (regex the section body must match, what it is checking for).
+SECTION_MUST_CONTAIN = {
+    "the_bar": (r"(?im)^\s*(\d+[.)]|[-+*])\s+\S", "at least one numbered or bulleted floor rule"),
+    "reward": (r"(?i)\b\d+(\.\d+)?\s*(ETH|USDC|DEGEN|SOL)\b", "a concrete prize amount with its token"),
+    "deadline": (r"(?i)(20\d{2}|\b\d{1,2}\s*(am|pm)\b)", "an actual date or time, not just the word DEADLINE"),
+    "asset_kit": (r"https?://\S+", "at least one usable link"),
+}
+
+
+def _section_body(description: str, header: str) -> str | None:
+    """Text from a section header to the next ALL-CAPS header or end."""
+    m = re.search(r"(?im)^[^\S\n]*" + re.escape(header) + r"\b.*$", description)
+    if not m:
+        return None
+    rest = description[m.end():]
+    nxt = re.search(r"(?m)^[A-Z][A-Z \-']{6,}$", rest)
+    return rest[:nxt.start()] if nxt else rest
+
+
 def validate_sections(description: str) -> tuple[bool, list]:
-    """Check for all required sections."""
+    """Check each required section is present AND says something.
+
+    A header match alone is not evidence. See SECTION_MUST_CONTAIN above for why."""
     findings = []
     all_pass = True
 
     for section_id, section_label in REQUIRED_SECTIONS:
-        # Loose check: look for section headers (case-insensitive)
+        header = section_label.split(" - ")[0]
         patterns = [
-            r"(?i)" + re.escape(section_label.split(" - ")[0]),
-            r"(?i)#+\s*" + re.escape(section_label.split(" - ")[0].replace("THE ", "").replace("_", " ")),
+            r"(?i)" + re.escape(header),
+            r"(?i)#+\s*" + re.escape(header.replace("THE ", "").replace("_", " ")),
         ]
-
         found = any(re.search(p, description) for p in patterns)
 
-        if found:
+        if not found:
+            findings.append(f"FAIL: {section_label} - NOT FOUND")
+            all_pass = False
+            continue
+
+        rule = SECTION_MUST_CONTAIN.get(section_id)
+        if not rule:
+            findings.append(f"PASS: {section_label}")
+            continue
+
+        pat, what = rule
+        body = _section_body(description, header)
+        if body is None:
+            findings.append(f"PASS: {section_label}")
+        elif re.search(pat, body):
             findings.append(f"PASS: {section_label}")
         else:
-            findings.append(f"FAIL: {section_label} - NOT FOUND")
+            findings.append(f"FAIL: {section_label} - header present but the section has no {what}")
             all_pass = False
 
     return all_pass, findings
@@ -162,6 +202,51 @@ def validate_structure(description: str) -> tuple[bool, list]:
     return all_pass, findings
 
 
+def _selftest() -> bool:
+    """Offline. Every case here is a real failure this file used to pass."""
+    passed = True
+
+    def check(label: str, cond: bool) -> None:
+        nonlocal passed
+        print(f"  {'ok  ' if cond else 'FAIL'} {label}")
+        passed = passed and cond
+
+    # The case this was built for: a REWARD section that is a header and nothing else.
+    empty_reward = "THE REWARD\n\nDetails to follow.\n\nDEADLINE\n\nCloses 2026-10-01.\n"
+    _, f = validate_sections(empty_reward)
+    check("fails a REWARD section with no prize amount",
+          any("THE REWARD" in x and x.startswith("FAIL") for x in f))
+
+    real_reward = "THE REWARD\n\nBest one wins 0.025 ETH on Base.\n\nDEADLINE\n\nCloses 2026-10-01.\n"
+    _, f = validate_sections(real_reward)
+    check("passes a REWARD section that names the prize",
+          any("THE REWARD" in x and x.startswith("PASS") for x in f))
+
+    bar_no_rules = "THE BAR\n\nDo good work.\n"
+    _, f = validate_sections(bar_no_rules)
+    check("fails a BAR with no numbered or bulleted rules",
+          any("THE BAR" in x and x.startswith("FAIL") for x in f))
+
+    bar_rules = "THE BAR\n\n1. Sixty seconds max.\n2. Captions burned in.\n"
+    _, f = validate_sections(bar_rules)
+    check("passes a BAR that has floor rules",
+          any("THE BAR" in x and x.startswith("PASS") for x in f))
+
+    kit_no_link = "THE ASSET KIT\n\nAsk us for the files.\n"
+    _, f = validate_sections(kit_no_link)
+    check("fails an ASSET KIT with no link",
+          any("ASSET KIT" in x and x.startswith("FAIL") for x in f))
+
+    no_deadline_date = "DEADLINE\n\nCloses soon.\n"
+    _, f = validate_sections(no_deadline_date)
+    check("fails a DEADLINE with no date or time",
+          any("DEADLINE" in x and x.startswith("FAIL") for x in f))
+
+    check("a missing section still fails outright",
+          any(x.startswith("FAIL") for x in validate_sections("nothing here at all")[1]))
+    return passed
+
+
 def main() -> int:
     p = argparse.ArgumentParser(
         description="Stage 3: Validate POIDH bounty description against canonical bar"
@@ -169,8 +254,7 @@ def main() -> int:
     p.add_argument(
         "--description",
         type=Path,
-        required=True,
-        help="Path to bounty description markdown file",
+        help="Path to bounty description markdown file (required unless --selftest)",
     )
     p.add_argument(
         "--strict",
@@ -178,7 +262,18 @@ def main() -> int:
         help="Strict mode: warnings become failures",
     )
 
+    p.add_argument("--selftest", action="store_true",
+                   help="offline checks of the section-content rules")
     args = p.parse_args()
+
+    if args.selftest:
+        print("validate-bounty-description selftest")
+        good = _selftest()
+        print("selftest:", "passed" if good else "FAILED")
+        return 0 if good else 1
+
+    if args.description is None:
+        p.error("--description is required (or use --selftest)")
 
     # Load description
     print(f"Validating description: {args.description}")
