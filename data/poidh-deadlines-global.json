@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T11:32:08.879635+00:00",
+  "generated_at": "2026-09-08T16:46:19.151655+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -43,6 +43,16 @@
       "deadline_raw_text": "September 8, 2026",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/326"
+    },
+    {
+      "bounty_id": 1371,
+      "title": "Buy $1 of $HOME on Farcaster",
+      "issuer": "0x6a0ba3707df9d13a4445cd7e04274b2725930cd7",
+      "amount_eth": 0.0087,
+      "deadline_iso": "2026-09-14",
+      "deadline_raw_text": "Sept 14th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1371"
     },
     {
       "bounty_id": 27,
