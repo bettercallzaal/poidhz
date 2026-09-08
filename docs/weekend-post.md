@@ -1,5 +1,7 @@
 # poidhz launch post - Farcaster + X
 
+<!-- SEND-GATE: round=5 -->
+
 **DRAFT, unsent.** Zaal posts. Drafted 2026-09-07 off `data/bounty-dashboard.json`
 generated the same day.
 
