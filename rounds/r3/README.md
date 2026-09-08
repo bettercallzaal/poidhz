@@ -1,6 +1,10 @@
 # R3 - Best ad for ZABAL Gamez
 
-POIDH bounty 1180 on Base. Cast 2026-05-31. Closed 2026-06-14. **FULLY RESOLVED, PAID OUT.**
+POIDH bounty 1180 on Base. Cast 2026-05-31. Closed 2026-06-14. **PAID OUT, NOT FULLY RESOLVED.**
+femmie was paid 0.025 ETH. Two promises in the bounty text were never kept: the winner cast
+("by end of day Monday June 15, 2026") and the pinned promo. See
+[docs/PROMISE-AUDIT.md](../../docs/PROMISE-AUDIT.md). This line previously read "FULLY
+RESOLVED", which was true of the money and false of everything else.
 
 Confirmed 2026-07-09: pulled the raw `claims.fetchBountyClaims` record for claim 6749
 (femmie, "ZABALGAMEZ.COM AD") directly from POIDH's tRPC. Its `owner` field is
