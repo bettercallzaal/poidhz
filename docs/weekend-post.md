@@ -10,9 +10,16 @@ before posting regardless - the figures below already drifted once between draft
 
 **Measured 2026-09-08, and every one of these is re-runnable:**
 
-- **88 open bounties**, **43 draw zero submissions (49%)**, **74 state no machine-readable
-  deadline (84%)**, median prize **$10.99**
+- **88 open bounties across all chains** (Base, Arbitrum, mainnet), **43 draw zero
+  submissions (49%)**, **74 state no machine-readable deadline (84%)**, median prize **$10.99**
   <!-- measured 2026-09-08T19:19Z - zao-measure --verify "poidhz: open poidh bounties, zero-submission share" -->
+- Cross-checked against poidh's own API, **Base only: 83 open, 43 zero-submission (52%)**
+  <!-- measured 2026-09-08T19:24Z - zao-measure --verify "poidhz: LIVE poidh open-bounty count and zero-submission share (from poidh API, not a local file)" -->
+
+  **Name the scope whenever you quote these.** 88 and 83 are not in conflict - one is every
+  chain, one is Base. The zero-submission count is 43 in both; only the denominator moves,
+  which is why the share reads 49% or 52% depending on which you mean. A number separated
+  from its scope is the same defect as a number separated from its date.
 - Our four completed rounds: **36 claims** - R1 11, R2 8, R3 8, R5 9 - never zero
   <!-- measured 2026-09-08T19:20Z - zao-measure --verify "poidhz: BCZ rounds claim counts" -->
 
@@ -58,7 +65,7 @@ poidh has an on-chain deadline field and almost nobody sets it. So the date live
 
 Some numbers from building it, which say something about bounties generally:
 
-43 of the 88 open bounties have zero submissions. Half the board is asking and getting nothing back. The median prize is $11.
+43 of the 88 open bounties across all chains have zero submissions. Half the board is asking and getting nothing back. The median prize is $11.
 
 Across the five rounds I have run, 36 claims came in, 8 to 11 per round, and not one round drew zero. I do not think that is because my bounties are better written. I think it is because a bounty that nobody sees is indistinguishable from one nobody wants, and most of the work is in the seeing.
 
@@ -91,7 +98,7 @@ github.com/bettercallzaal/poidhz
 Use this one if the launch framing feels thin. It travels further because the number is the hook.
 
 ```
-Half of all open poidh bounties get zero submissions. 43 of 88, measured today.
+Half of all open poidh bounties get zero submissions. 43 of 88 across all chains, measured today.
 
 The median prize is $11 and 84% state no deadline a tool can read.
 
