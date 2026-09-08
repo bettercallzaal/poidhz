@@ -37,6 +37,7 @@ import argparse
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -78,10 +79,32 @@ def ok(m: str) -> None:
     print(f"  ok     {m}")
 
 
+# poidh's /data returns spurious 404s and 504s for bounties that certainly exist - the
+# leaderboard cron died on one on 2026-09-08, and bounty 1180 reproduced it by hand the
+# same morning, 404 once then 200 on every retry. A genuinely absent bounty 404s every
+# time, so retrying costs only seconds on a real absence. --all runs on cron, so an
+# unretried blip here would report a healthy round as unreadable.
+RETRY_STATUSES = frozenset({404, 429, 500, 502, 503, 504})
+RETRY_BACKOFF = (1, 2, 4)
+
+
 def http_get(url: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=25) as r:
-        return json.loads(r.read())
+    last: Exception | None = None
+    for pause in (*RETRY_BACKOFF, None):
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_STATUSES:
+                raise
+            last = e
+        except (urllib.error.URLError, TimeoutError) as e:
+            last = e
+        if pause is None:
+            break
+        time.sleep(pause)
+    raise last  # type: ignore[misc]
 
 
 def load_org_config() -> dict:
