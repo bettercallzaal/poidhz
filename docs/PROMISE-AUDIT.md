@@ -96,7 +96,23 @@ Three consequences, all already in the round docs:
 
 ## What would stop this recurring
 
-`scripts/precast-check.py` checks whether a round is castable. Nothing checks whether a
-round was **closed out.** The natural companion is a post-close check that reads the bounty
-text back and asks, per promise, whether it was delivered - the same way this audit was done
-by hand. That is worth building before R6 closes on 2026-09-30.
+`scripts/precast-check.py` checks whether a round is castable. Nothing checked whether a
+round was **closed out** - so `scripts/postclose-check.py` now does, built the same day as
+this audit.
+
+```bash
+python3 scripts/postclose-check.py --bounty 1330 --round 5
+```
+
+It reads the live on-chain description, confirms the payout, confirms the round is in
+`default_bounty_ids` so its entrants actually score, checks that announcement copy exists at
+all - R2's did not - and then lists every promise-shaped sentence as a checklist.
+
+**Step four is deliberately not automated.** Whether a clip was posted on @wavewarz is not
+knowable from a terminal, and a script that guessed would recreate the exact failure this
+exists to catch: a confident "done" nobody checked. It tells you what you said you would do
+and makes a human tick it off.
+
+Run against the real rounds it reproduces this audit: R2 blocks on having no announcement
+copy, R4 blocks as canceled, R5 flags that its winning wallet has no linked handle so it
+cannot be credited by name from chain data alone.
