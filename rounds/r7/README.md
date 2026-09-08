@@ -131,12 +131,17 @@ returns PASS. Two things to know before trusting that:
   encodes the R3-era template (`THE BAR` / `THE RUBRIC` / `THE ASSET KIT` / `THE REWARD`),
   which R5 deliberately walked away from in favour of a plainer voice. R7 keeps R5's voice
   and restores the canonical headers, so it satisfies both. Do not read R5's FAIL as a defect.
-- **The section check is a literal header-name match.** It reads nothing inside the section.
-  In particular `THE REWARD` is labelled "prize + winner-cast distribution + EB ZABAL trail"
-  and passes on the header alone - R7's reward section has **no Empire Builder $ZABAL trail**,
-  because R5 omitted that mechanic and inventing reward terms is Zaal's call, not a drafting
-  decision. If the $ZABAL trail should be in this round, it has to be added by hand; the
-  green verdict will not tell you it is missing.
+- **The section check reads section bodies as of 2026-09-08, not just header names.**
+  THE REWARD must name a prize amount with its token, THE BAR must carry at least one
+  numbered or bulleted rule, THE ASSET KIT must carry a link, DEADLINE must carry a date or
+  time. A header over an empty section now fails. This paragraph previously said the check
+  was a bare header match, which was true until that change and is the kind of note that
+  stays loud after it stops being true.
+- **It still cannot check a promise against reality.** It can see that THE REWARD names an
+  amount; it cannot see whether a $ZABAL trail the text promises actually exists. R7's
+  reward section has **no Empire Builder $ZABAL trail**, because R5 omitted that mechanic
+  and inventing reward terms is Zaal's call, not a drafting decision. The green verdict will
+  not tell you it is missing.
 
 The two remaining WARNs are both expected: no poidh URL yet (added after creation) and no
 GitHub brand-kit link (there is no WaveWarZ brand kit - see below).
