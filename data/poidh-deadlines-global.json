@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T11:32:08.879635+00:00",
+  "generated_at": "2026-09-08T21:17:24.073583+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 1 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -45,6 +45,16 @@
       "url": "https://poidh.xyz/base/bounty/326"
     },
     {
+      "bounty_id": 1371,
+      "title": "Buy $1 of $HOME on Farcaster",
+      "issuer": "0x6a0ba3707df9d13a4445cd7e04274b2725930cd7",
+      "amount_eth": 0.0097,
+      "deadline_iso": "2026-09-14",
+      "deadline_raw_text": "Sept 14th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1371"
+    },
+    {
       "bounty_id": 27,
       "title": "Clip the V2 DAO Collective Sensemaking Call \u2702\ufe0f",
       "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
@@ -63,6 +73,16 @@
       "deadline_raw_text": "September 21st",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 1372,
+      "title": "Give old \"mining\" hardware a new life with PiLoader",
+      "issuer": "0xd9a4c304e68b6b1779df9cc59b79de8cc3fd3117",
+      "amount_eth": 0.0097,
+      "deadline_iso": "2026-09-30",
+      "deadline_raw_text": "30 September 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1372"
     },
     {
       "bounty_id": 29,

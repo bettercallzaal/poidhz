@@ -1,0 +1,16 @@
+{
+  "bounty_id": 1151,
+  "round": 1,
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "The reward: One winner takes the full pot - and the pot grows in real time as others contribute.",
+      "commits_to": [
+        "the prize payout"
+      ],
+      "status": "kept",
+      "evidence": "claim 6368, @cryptfi-mariano, paid. R1 is the only round that kept every promise it made - and the only round whose entire commitment was the pot. docs/PROMISE-AUDIT.md, verified 2026-09-07.",
+      "recorded_at": "2026-09-08"
+    }
+  ]
+}

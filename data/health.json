@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-09-08T19:09:56.979708+00:00",
+  "note": "Findings from the advisory cron checks. They run continue-on-error so a human-only problem does not red-build every six hours - which means their output would otherwise live only in logs nobody opens. This file is the half that stays visible.",
+  "promises": {
+    "by_round": {
+      "r1": {
+        "kept": 1
+      },
+      "r2": {
+        "kept": 3,
+        "unrecorded": 1,
+        "broken": 1
+      },
+      "r3": {
+        "broken": 4,
+        "kept": 1,
+        "na": 1
+      },
+      "r5": {
+        "broken": 2,
+        "na": 1
+      }
+    },
+    "totals": {
+      "kept": 5,
+      "broken": 7,
+      "na": 2,
+      "unrecorded": 1
+    },
+    "still_owed": 8
+  },
+  "recheck_dates": {
+    "total": 3,
+    "passed": [],
+    "upcoming": [
+      {
+        "file": "docs/weekend-post.md",
+        "line": 10,
+        "due": "2026-09-09"
+      },
+      {
+        "file": "rounds/_template/description.md",
+        "line": 100,
+        "due": "2026-10-08"
+      },
+      {
+        "file": "rounds/r7/README.md",
+        "line": 13,
+        "due": "2026-09-13"
+      }
+    ]
+  },
+  "send_gates": {
+    "blocked": [
+      "docs/weekend-post.md",
+      "rounds/r6/kenny-note.md",
+      "rounds/r7/retainer-outreach.md"
+    ],
+    "open": []
+  }
+}

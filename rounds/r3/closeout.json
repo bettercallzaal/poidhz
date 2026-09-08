@@ -1,0 +1,61 @@
+{
+  "bounty_id": 1180,
+  "round": 3,
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "Best one wins 0.0125 ETH on Base and we run it.",
+      "commits_to": [
+        "publishing the winning work"
+      ],
+      "status": "broken",
+      "evidence": "Paid 0.025 ETH, MORE than promised - but 'we run it' never happened. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Best submission gets paid AND becomes our pinned promo across @bettercallzaal channels.",
+      "commits_to": [
+        "a pin, which no round has ever actually delivered"
+      ],
+      "status": "broken",
+      "evidence": "Paid. Never pinned anywhere. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Winner clip becomes ZABAL Gamez's pinned promo across @bettercallzaal channels.",
+      "commits_to": [
+        "a pin, which no round has ever actually delivered"
+      ],
+      "status": "broken",
+      "evidence": "No record of any pin. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Every submitter earns $ZABAL automatically via the slot 8 leaderboard on Empire Builder.",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "kept",
+      "evidence": "Late. femmie was absent from Empire Builder entirely until 2026-09-07.",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Submitter leaderboard hub: https://bettercallzaal.com/poidh.html",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "na",
+      "evidence": "A link, not a commitment. The URL is now dead and redirects; current is poidhz.com/hub.",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Winner cast by end of day Monday June 15, 2026.",
+      "commits_to": [
+        "a winner announcement"
+      ],
+      "status": "broken",
+      "evidence": "Copy is written and marked READY TO SEND at cast-templates/winner-announce-femmie.md. Never posted. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    }
+  ]
+}
