@@ -298,15 +298,26 @@ Each kit mirrors a canonical source repo (e.g. `github.com/ZAODEVZ/zabalgames` f
 
 ## Where to go for more
 
-- **Doc 768** (ZAO OS V1) - canonical bounty best practices distillation
-- **Doc 769** (ZAO OS V1) - the ZAODEVZ/zabalgames repo audit
-- **Doc 786** (ZAO OS V1) - the ZABAL Gamez brand kit rebuild audit
-- **Doc 759** (ZAO OS V1) - POIDH history (Kenny + lifetime stats + cohort patterns)
-- **Doc 631** (ZAO OS V1) - POIDH x $ZABAL x Sentinel convergence map
-- **Doc 625** (ZAO OS V1) - POIDH x ZAO bounty playbook (18 templates)
-- **Doc 992** (ZAO OS V1) - clipper -> POIDH pipeline concept, R5 is the manual v1 test of it
-- **Doc 2202** (ZAO OS V1) - POIDH x ZAO current-state + brand-alignment synthesis (Aug 2026)
-- **Doc 2203** (ZAO OS V1) - full POIDH x ZAO lore, Kenny's 2023 founding through today
+These live in the ZAO OS V1 research library, which is internal. Paths are given in full
+because **a doc number alone is not an address** - 218 numbers in that library resolve to
+more than one document. Four of the nine below are among them: 759, 769, 992 and 743 each
+name two different docs in two different topic folders. Resolve with
+`zao-research-health --resolve <n>` if you ever have only a number; never rebuild a path
+with `find | head -1`, which is how a lane read a POIDH bounty doc under an Empire Builder
+title tonight.
+
+| Path | What |
+|---|---|
+| `business/768-poidh-bounty-best-practices-zabalgames-r3` | canonical bounty best practices distillation |
+| `business/769-zaodevz-zabalgames-repo-state` | the ZAODEVZ/zabalgames repo audit |
+| `business/786-zabal-gamez-brand-kit-rebuild` | the ZABAL Gamez brand kit rebuild audit |
+| `business/759-poidh-history-origin-to-2026` | POIDH history: Kenny, lifetime stats, cohort patterns |
+| `business/631-poidh-zabal-sentinel-convergence` | POIDH x $ZABAL x Sentinel convergence map |
+| `community/625-poidh-zao-bounty-playbook` | POIDH x ZAO bounty playbook, 18 templates |
+| `agents/992-live-clipper-agent-creator-ops` | clipper to POIDH pipeline concept; R5 was the manual v1 test |
+| `business/2202-poidh-zao-collab-current-state-brand-alignment` | current-state + brand-alignment synthesis, Aug 2026 |
+| `business/2203-poidh-zao-full-lore-history` | full POIDH x ZAO lore, Kenny's 2023 founding onward |
+| `business/2466-poidhz-platform-honest-audit` | this platform measured against the live poidh board, Sep 2026 |
 - **[docs/unlock-fireside-collectible.md](docs/unlock-fireside-collectible.md)** - the Unlock Protocol proof-of-attendance NFT minted at the fireside R5 draws on
 - **[docs/RECAP.md](docs/RECAP.md)** - resume artifact + ongoing state
 - **[docs/PARTNER-GUIDE.md](docs/PARTNER-GUIDE.md)** - fork this repo's tooling for your own org, via `org.config.json`

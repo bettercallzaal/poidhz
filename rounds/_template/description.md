@@ -26,7 +26,7 @@ on-chain and immutable, so that one cannot be fixed. The point is not to inherit
 | Do not use | Why |
 |---|---|
 | "13.9 SOL to artists as of Aug 20" | right number, wrong date - see above |
-| "458 SOL volume as of 2026-05-25" (doc 743) | about 11% high, and predates a volume repair |
+| "458 SOL volume as of 2026-05-25" | **superseded May figure. Its own source says so.** Use `wavewarz/974-wavewarz-financials-snapshot-2026-07`: **878.316 SOL volume, 13.3918 SOL artist payouts, validated 2026-07-23.** |
 | "1.00% artist share" | it is **1.005%**, verified at exact lamports |
 | "2.28% effective fee rate" | that is platform revenue over volume, so it FALLS as volume rises. Not a fee rate. |
 | "1.53% artist payout rate on every trade" | includes settlement bonuses, which are not per-trade |
@@ -52,6 +52,40 @@ that form the true one, or do not put a short form in at all.
 It was caught by opening the generator to cite its path and reading `FEE = 0.015` and
 `ARTIST_SHARE = 0.67` on the way past - not by re-reading anyone's prose. That is the
 argument for regenerating rather than copying, in one line.
+
+## Resolve the doc number. Cite the slug. Open the document.
+
+Three steps, and skipping the third is the worst of the failures on this page.
+
+**"458 SOL is about 11% high" was itself wrong** - not the instruction, the reason. The
+figure is not a bad number caught by measurement. It is a **superseded May figure whose own
+source already says not to use it.** `wavewarz/743-wavewarz-whitepaper-v2-deep-dive` carries
+this at the top, added 2026-08-09, three weeks before anyone here touched it:
+
+> "This doc contains TWO different sets of headline figures... the 458 figure is the May
+> number, and the 878.30 figure is July... **Use doc 974 for any current figure. Do not copy
+> Key Decision 1's numbers.** A public brand page copied them on 2026-08-09 and had to be
+> corrected."
+
+The warning was stronger than ours, named the replacement, and recorded that a public page
+had already made this exact mistake once. **Nobody had opened the document.** The conclusion
+was reconstructed from a chain scan and relayed twice before someone read the source.
+
+**A bare doc number is what let that happen.** It looks like a citation and identifies
+nothing: 218 numbers in the research library resolve to more than one document, and `743`
+names a WaveWarZ whitepaper *and* a cold-outreach workflow. Resolve with
+`zao-research-health --resolve <n>`, cite `topic/NNNN-slug`, and then actually open it.
+
+**One more thing that document settles.** The volume spread is not one bad number - it is
+four figures for the same period from four methodologies (410.97 chain-measured, 403.90 from
+the volume series, 458 from the Intelligence dashboard, 472.71 from another library doc),
+which 743 already attributes to test-battle exclusion and counting method. It is a
+definitional disagreement about what counts as a battle, and describing it as an error
+misrepresents it.
+
+And the "1.53% artist payout rate" on the do-not-carry list above traces to here: `974`
+computes 1.52% as cumulative payouts divided by cumulative volume. That is a ratio between
+two lifetime totals, not a rate applied to a trade, and it moves whenever either total moves.
 
 **Generate the artist line, do not copy it.** The correct string above is right today; the
 generator is right always. Run

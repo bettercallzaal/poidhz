@@ -14,7 +14,7 @@ advertising Unlock for them - low lift, real distribution, and it shows Unlock t
 model next to their existing Incented campaign.
 
 This is the manual v1 of the recording -> clips -> POIDH bounty pipeline described in
-ZAO OS V1 research doc 992.
+ZAO OS V1 research doc 992 (`agents/992-live-clipper-agent-creator-ops`).
 
 ## Files
 
@@ -43,7 +43,7 @@ ZAO OS V1 research doc 992.
   See `docs/unlock-fireside-collectible.md`.
 - [R3 - Best ad for ZABAL Gamez](../r3/) - most recent completed round, same audio rule +
   single-judge-vs-OPEN-vote considerations apply here.
-- ZAO OS V1 research doc 992 - clipper -> POIDH pipeline concept this bounty is a manual
+- ZAO OS V1 research doc 992 (`agents/992-live-clipper-agent-creator-ops`) - clipper -> POIDH pipeline concept this bounty is a manual
   test of.
 
 ## Next steps (in order)

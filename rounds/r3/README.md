@@ -67,7 +67,7 @@ something this session does. See [judging.json](judging.json) for the full claim
 - BCZ PR #18 - real production promo MP3 + full brand kit rebuild (MERGED)
 - BCZ PR #19 - index.html for folder URL so kit folder doesn't 404 (open at write-time)
 - ZAOOS PR #718 - Doc 768 bounty best practices (MERGED)
-- ZAOOS PR #724 - Doc 769 ZAODEVZ repo audit (MERGED)
+- ZAOOS PR #724 - Doc 769 (`business/769-zaodevz-zabalgames-repo-state`) ZAODEVZ repo audit (MERGED)
 - ZAOOS PR #761 - Doc 786 brand kit rebuild audit (MERGED)
 - ZAODEVZ/zabalgames PR #33 - llms.txt R3 bounty section (open)
 
@@ -87,7 +87,7 @@ something this session does. See [judging.json](judging.json) for the full claim
 ## Reference docs
 
 - ZAO OS V1 Doc 768 - bounty best practices + R3 draft seed
-- ZAO OS V1 Doc 769 - ZAODEVZ/zabalgames repo audit
+- ZAO OS V1 Doc 769 (`business/769-zaodevz-zabalgames-repo-state`) - ZAODEVZ/zabalgames repo audit
 - ZAO OS V1 Doc 786 - ZABAL Gamez brand kit rebuild audit
 
 ## Related rounds

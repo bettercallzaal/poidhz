@@ -110,6 +110,12 @@ in the claim text.
 
 ## Sources
 
-- Doc 533 / rounds/r1 (bounty 1151 wording and lessons), doc 625 (playbook, tiers, solo vs open), doc 768 (R3 best practices, audio rule, title pattern), doc 415 (WaveWarZ bounty templates), doc 2308 (weekly spec, claim-is-entry rule), doc 1223 + 1293 (WaveWarZ channels + Clippers program), doc 743 (locked WaveWarZ facts: 979 battles, 458 SOL volume, 7.76 SOL to artists, as of 2026-05-25).
+- `community/533-poidh-clipup-bounty-bcz-yapz-hannah` and rounds/r1 - bounty 1151 wording and lessons
+- `community/625-poidh-zao-bounty-playbook` - playbook, tiers, solo vs open
+- `business/768-poidh-bounty-best-practices-zabalgames-r3` - R3 best practices, audio rule, title pattern
+- `community/415-poidh-bounties-zao-wavewarz` - WaveWarZ bounty templates. **Note 415 is ambiguous** - it also names `dev-workflows/415-composio-agent-orchestrator` and `infrastructure/415-composable-os-architecture`.
+- `community/2308-poidh-weekly-zao-video-competition-spec` - weekly spec, claim-is-entry rule
+- `wavewarz/1223-wavewarz-live-programming-community-jul2026` and `wavewarz/1293-wavewarz-clippers-program-guide-jul2026` - WaveWarZ channels and the clippers Telegram. Note there is no formal points programme; see the correction in rounds/r7.
+- `wavewarz/743-wavewarz-whitepaper-v2-deep-dive` - "979 battles, 458 SOL volume, 7.76 SOL to artists, as of 2026-05-25". **Do not carry those forward.** They are superseded May figures, and that doc has said so at the top since 2026-08-09: it holds two conflicting sets of headline numbers, names `wavewarz/974-wavewarz-financials-snapshot-2026-07` as the one to use, and records that a public brand page copied the old ones once already and had to be corrected. Current, validated 2026-07-23: **878.316 SOL volume, 13.3918 SOL artist payouts.** Note `743` is also ambiguous, naming `business/743-agentic-cold-outreach-workflow`.
 - Twitch GQL lookups 2026-08-20 (public web client id) for channel status, VOD list, affiliate flag.
 - ETH spot: Coinbase API, 2026-08-20, $2,328.
