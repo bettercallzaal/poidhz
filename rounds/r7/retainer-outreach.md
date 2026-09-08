@@ -1,5 +1,20 @@
 # Retainer outreach - @wimpydwi
 
+> # SEND GATE - R5'S WINNER ANNOUNCEMENT GOES FIRST
+>
+> **Confirmed still live by Zaal 2026-09-07**, and explicitly ordered behind the winner
+> announcement: send this after R5's winner is public, not before.
+>
+> The reason is that this message opens with congratulating them on winning. Offering
+> @wimpydwi paid work before publicly crediting them for the round they already won reads as
+> a private consolation for a public promise we have not kept - the R5 bounty text said in
+> writing that the clip would go up on @wavewarz with their name on it, and as of now it has
+> not. Congratulations in a DM do not substitute for that.
+>
+> Sent in the right order it reads as what it is: we ran it, you won, here is the credit,
+> and now here is more work. Copy for the announcement is ready at
+> `rounds/r5/winner-announce.md`, and Zaal is posting it himself.
+
 **DRAFT. Not sent.** Outbound is Zaal's tap.
 
 Zaal's call 2026-09-05: open a conversation about hiring wimpydwi for a month of clips and
