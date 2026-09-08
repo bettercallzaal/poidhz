@@ -93,8 +93,15 @@ generator is right always. Run
 `wavewarz-protocol`. It reports by leg - artist share of the trade fee, plus the 5% winner
 and 2% loser settlement bonuses - and labels which legs are measured versus inherited.
 
-**Re-measure before every cast.** These figures move. A number that was right in August is
-not right in October, and a bounty runs for weeks after you paste it. The wwtracker lane hit
+**Re-measure before every cast, and put a re-check date next to anything time-bound.**
+These figures move. A number that was right in August is not right in October, and a bounty
+runs for weeks after you paste it.
+
+**Re-check the figures on this page by 2026-10-08.** The 974 snapshot is validated
+2026-07-23 and was already six weeks old when it was cited here; the chain-derived artist
+line was measured 2026-09-07. Neither is wrong today and neither stays right. A claim about
+an external service, a programme or a cycle with no re-check date is the defect this whole
+page is about, so this page carries one. The wwtracker lane hit
 this same date-drift defect on their own case-study page the same day, where it was emitted
 as JSON-LD FAQ schema and therefore scraped into answer engines - two lanes, two surfaces,
 one day, same signature.

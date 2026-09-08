@@ -10,9 +10,10 @@
 > 1. **The deadline is now a `<DAY>, <MONTH DAY, YEAR>` placeholder** in `description.md`.
 >    It used to say Sunday, September 20, 2026, which was written for a Sep 7 cast and is
 >    meaningless now. Set it when you know the cast date, and keep 14 days.
-> 2. **Re-measure the Twitch archive.** Everything below about VOD counts and the 7-day
->    window was measured on 2026-09-06. By the time this casts, none of those specific VODs
->    exist. The constraint holds; the numbers do not.
+> 2. **Re-measure the Twitch archive - RE-CHECK BY 2026-09-13 and before any cast.**
+>    Everything below about VOD counts and the 7-day window was measured on 2026-09-06. The
+>    archive self-deletes after 7 days, so those specific VODs are already gone. The
+>    constraint holds; the numbers do not.
 >
 > Run `python3 scripts/precast-check.py --round 7 --prize 0.0128` before casting.
 
