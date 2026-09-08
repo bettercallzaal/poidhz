@@ -246,6 +246,61 @@ def _selftest() -> bool:
     return passed
 
 
+def sweep_all(chain: int) -> int:
+    """Every cast round, automatic checks only. Built for the 6h cron.
+
+    This exists because a checker nobody runs is a checker that does not exist.
+    scripts/check-eb-sync.py sat uninvoked from 2026-08-08 to 2026-09-07 while the drift
+    it detects stayed open the whole time. The specific thing this catches is R5's
+    failure: bounty 1330 closed, was paid, and was never added to default_bounty_ids, so
+    nine claimants scored zero on the leaderboard for weeks and nothing said so.
+
+    Deliberately does NOT check promises - those need a human, and a cron that asked a
+    human something every six hours would be ignored inside a day."""
+    cfg = load_org_config()
+    rounds = sorted(cfg.get("rounds") or [], key=lambda r: r.get("round", 0))
+    ids = set(cfg.get("default_bounty_ids") or [])
+    problems = 0
+
+    print(f"Post-close sweep - {len(rounds)} cast round(s)\n")
+    for r in rounds:
+        n, bid = r.get("round"), r.get("bounty_id")
+        if not bid:
+            continue
+        label = f"R{n} ({bid})"
+        if r.get("offchain"):
+            print(f"  skip   {label} - offchain by design: {str(r.get('offchain_note',''))[:60]}...")
+            continue
+        try:
+            d = http_get(f"{POIDH_SITE}/{CHAIN_SLUGS.get(chain,'base')}/bounty/{bid}/data")
+        except Exception as e:
+            print(f"  ?      {label} - could not read ({type(e).__name__}). UNKNOWN, not broken.")
+            continue
+
+        if bid not in ids:
+            print(f"  BROKEN {label} - not in default_bounty_ids, its claimants score ZERO")
+            problems += 1
+            continue
+
+        acc = fetch_accepted_ids(bid, chain)
+        if acc is None:
+            print(f"  ?      {label} - payout state UNKNOWN, could not read isAccepted")
+        elif not acc and not d.get("isCanceled"):
+            print(f"  BROKEN {label} - closed and scored, but nothing accepted yet")
+            problems += 1
+        else:
+            print(f"  ok     {label} - wired for scoring, payout settled")
+
+    print()
+    if problems:
+        print(f"{problems} round(s) need attention. This is the check that would have caught")
+        print("R5's nine claimants scoring zero, weeks before anyone noticed by hand.")
+        return 1
+    print("Every cast round is wired for scoring and settled.")
+    print("Promises are NOT checked here - run --bounty <id> --round <n> for those.")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -253,6 +308,9 @@ def main() -> int:
     ap.add_argument("--round", type=int)
     ap.add_argument("--chain", type=int, default=8453)
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--all", action="store_true",
+                    help="sweep every cast round in org.config.json - the automatic checks "
+                         "only, for cron. Exits non-zero if any round is unwired or unpaid.")
     a = ap.parse_args()
 
     if a.selftest:
@@ -261,8 +319,11 @@ def main() -> int:
         print("selftest:", "passed" if good else "FAILED")
         return 0 if good else 1
 
+    if a.all:
+        return sweep_all(a.chain)
+
     if a.bounty is None:
-        ap.error("--bounty is required (or use --selftest)")
+        ap.error("--bounty is required (or use --selftest or --all)")
 
     slug = CHAIN_SLUGS.get(a.chain, "base")
     try:
