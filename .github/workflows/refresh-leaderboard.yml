@@ -53,6 +53,15 @@ jobs:
         continue-on-error: true
         run: python3 scripts/recheck-dates.py --days 3
 
+      - name: Write the health artifact
+        # The three checks around this step are continue-on-error, which is correct - a
+        # human-only problem should not red-build every six hours. The cost is that their
+        # findings would live only in a log nobody opens, which is an inverted alarm: it
+        # goes quiet exactly when it has something to say. This writes them to
+        # data/health.json, which the commit step below already picks up, so drift shows in
+        # a diff instead of a log.
+        run: python3 scripts/health-report.py
+
       - name: Report Empire Builder drift
         # scripts/check-eb-sync.py has existed since 2026-08-08 and had never been
         # run by anything. It detects a real, still-open bug: EB's "POIDH Submitters"
@@ -161,7 +170,7 @@ jobs:
 
           # Check if any data files changed
           if ! git diff --quiet data/; then
-            git add data/leaderboard.json data/claims.json data/audit.json
+            git add data/leaderboard.json data/claims.json data/audit.json data/health.json
             git commit -m "chore: auto-refresh POIDH leaderboard data (refresh-leaderboard.yml)"
             git push
           else
