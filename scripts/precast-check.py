@@ -372,6 +372,31 @@ def check_data_freshness(max_age_hours: int = 12) -> None:
         ok(f"dashboard data is {age:.1f}h old")
 
 
+DO_NOT_CARRY_TABLE = REPO_ROOT / "rounds" / "_template" / "description.md"
+
+
+def table_rows() -> list[str]:
+    """The quoted figure from each row of the do-not-carry table in _template.
+
+    The published table and KNOWN_BAD have to say the same thing. A comment asking the
+    next person to keep them in step is honor-system, and honor-system rules in this
+    estate run at 3-40% while enforced ones run at ~100%. So it is checked, not asked."""
+    if not DO_NOT_CARRY_TABLE.exists():
+        return []
+    rows = []
+    for line in DO_NOT_CARRY_TABLE.read_text().splitlines():
+        m = re.match(r'\s*\|\s*"([^"]+)"\s*\|', line)
+        if m:
+            rows.append(m.group(1))
+    return rows
+
+
+def check_no_drift() -> list[str]:
+    """Published rows with no enforcing pattern. Empty list means the two are in step."""
+    return [r for r in table_rows()
+            if not any(re.search(pat, r) for pat, _ in KNOWN_BAD)]
+
+
 def _selftest() -> bool:
     """No network. Exercises the pure logic - date parsing and the config check."""
     passed = True
@@ -458,6 +483,14 @@ def _selftest() -> bool:
         (rd / "notes.md").write_text("Re-check by 2099-01-01.\n")
         check_recheck_dates(rd, dt.date(2026, 9, 8))
     check("silent on a future re-check date", not WARNINGS)
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    rows = table_rows()
+    check("reads the do-not-carry table out of _template", len(rows) >= 5)
+    missed = check_no_drift()
+    for r in missed:
+        print(f"       UNENFORCED ROW: {r}")
+    check("every published do-not-carry row has an enforcing pattern", not missed)
 
     BLOCKING, WARNINGS, NOTES = [], [], []
     return passed

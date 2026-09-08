@@ -26,8 +26,14 @@ on-chain and immutable, so that one cannot be fixed. The point is not to inherit
 **This table is enforced, not advisory.** `scripts/precast-check.py` blocks a cast on any of
 these appearing between the paste sentinels in a round's `description.md`. It was verified
 against R5's live text, which it blocks on two counts - a bounty description is immutable
-once cast, so the check has to happen before, not after. **If you add a row here, add a
-pattern to `KNOWN_BAD` in that script**, or the row is advice rather than a rule.
+once cast, so the check has to happen before, not after.
+
+**Adding a row here without a matching pattern now fails the selftest.** The two cannot
+drift apart: `precast-check --selftest` parses this table and asserts every row is caught by
+a `KNOWN_BAD` pattern. Asking the next person to keep them in step was honor-system, and
+honor-system rules run at 3-40% here against ~100% for enforced ones - so it is checked
+rather than requested. If you add a row, add the pattern, and the selftest will tell you if
+you forgot.
 
 | Do not use | Why |
 |---|---|
