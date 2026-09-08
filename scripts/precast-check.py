@@ -279,16 +279,36 @@ KNOWN_BAD = [
 RECHECK_RE = re.compile(r"[Rr]e-check(?:ed)?\s+(?:the\s+\w+\s+)?by\s+(\d{4}-\d{2}-\d{2})")
 
 
+def paste_body(text: str) -> tuple[str, str]:
+    """The part of a description.md that actually gets pasted into poidh, and how we knew.
+
+    Rounds have used three conventions and nothing standardised them: R6 and R7 use sentinel
+    comments, R5 fences its TITLE (not its description), R1-R3 have no marker at all.
+
+    Only the sentinels are trusted. Guessing was tried and was worse than not guessing: a
+    "longest fenced block" heuristic extracted R5's 8-word title as its description, which
+    would have scanned almost none of the real text while looking like it had worked.
+
+    Without sentinels the whole file is scanned and the caller warns. Over-scanning can
+    cause a false block, which is visible and correctable in one edit. Under-scanning
+    silently passes a banned figure into text that is immutable once cast. Those failures
+    are not symmetrical, so the fallback is the loud one."""
+    if "<!-- PASTE BELOW THIS LINE -->" in text:
+        b = text.split("<!-- PASTE BELOW THIS LINE -->", 1)[1]
+        return b.split("<!-- PASTE ABOVE THIS LINE -->", 1)[0], "sentinel comments"
+    return text, "whole file (no marker)"
+
+
 def check_known_bad(round_dir: Path) -> None:
     """Block on any figure from the do-not-carry list. Immutable once cast."""
     desc = round_dir / "description.md"
     if not desc.exists():
         return
-    body = desc.read_text()
-    # only the part that actually gets pasted, if the sentinels are present
-    if "<!-- PASTE BELOW THIS LINE -->" in body:
-        body = body.split("<!-- PASTE BELOW THIS LINE -->", 1)[1]
-        body = body.split("<!-- PASTE ABOVE THIS LINE -->", 1)[0]
+    body, how = paste_body(desc.read_text())
+    if how == "whole file (no marker)":
+        warn("description.md has no paste marker, so the whole file is being scanned - "
+             "instructional prose can trip a false block. Add the "
+             "<!-- PASTE BELOW THIS LINE --> sentinels from rounds/_template.")
     hits = [(re.search(pat, body), why) for pat, why in KNOWN_BAD]
     hits = [(m, why) for m, why in hits if m]
     if not hits:
@@ -484,6 +504,13 @@ def _selftest() -> bool:
         check_recheck_dates(rd, dt.date(2026, 9, 8))
     check("silent on a future re-check date", not WARNINGS)
 
+    b, how = paste_body("head\n<!-- PASTE BELOW THIS LINE -->\nBODY\n<!-- PASTE ABOVE THIS LINE -->\ntail")
+    check("sentinel style extracts only the body",
+          b.strip() == "BODY" and how == "sentinel comments")
+    _, how = paste_body("a description with no marker at all, several words long")
+    check("no marker scans the whole file and says so", how == "whole file (no marker)")
+    b, _ = paste_body("notes\n\n```\nshort title\n```\n\nthe real description follows here\n")
+    check("a fenced title is NOT mistaken for the body", "real description" in b)
     BLOCKING, WARNINGS, NOTES = [], [], []
     rows = table_rows()
     check("reads the do-not-carry table out of _template", len(rows) >= 5)

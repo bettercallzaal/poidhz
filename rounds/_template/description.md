@@ -1,6 +1,13 @@
 # Description template (paste-ready for POIDH Description field)
 
-Replace `<placeholders>` and adapt rubric items per the bounty's intent. Strip this header before pasting.
+Replace `<placeholders>` and adapt rubric items per the bounty's intent.
+
+**Keep the two sentinel comments below.** Everything between them is what gets pasted into
+poidh's Description field; everything outside them is notes for us. The tooling reads those
+markers to know which part of this file is the actual bounty text, and without them it scans
+the whole file - so instructional prose in a round doc can trip a false block on a figure it
+is only explaining. R1 through R5 have no markers and R5 fences its title, which is why
+`precast-check` warns when they are missing rather than guessing.
 
 ## Rule for any partner statistic you put in a bounty
 
@@ -120,6 +127,8 @@ one day, same signature.
 
 ---
 
+<!-- PASTE BELOW THIS LINE -->
+
 Make the best <ARTIFACT> for <CAMPAIGN>. Any format. Best one wins <PRIZE> ETH on Base and we run it.
 
 <CAMPAIGN> is <ONE-PARAGRAPH WHY>. <SOURCE PAGE / EPISODE / EVENT>.
@@ -207,3 +216,5 @@ Submissions close 11:59pm PT, <DAY-OF-WEEK> <DATE>.
 Winner cast by end of day <DAY-OF-WEEK + 1> <DATE + 1>.
 
 Site: <CAMPAIGN-URL>
+
+<!-- PASTE ABOVE THIS LINE -->
