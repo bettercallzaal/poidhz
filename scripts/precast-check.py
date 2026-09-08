@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import pathlib
 import json
 import re
 import subprocess
@@ -252,6 +253,68 @@ def check_config(cfg: dict, round_num: int) -> None:
 
 PLACEHOLDER_RE = re.compile(r"<[A-Z][A-Z0-9_-]{2,}>")
 
+# Figures that must never reach a bounty description. A poidh description is IMMUTABLE once
+# cast, so a wrong number in one is permanent and public - R5 shipped "13.9 SOL as of Aug 20"
+# and it cannot be fixed, only apologised for.
+#
+# This list is the enforced half of the do-not-carry table in
+# rounds/_template/description.md. That table is prose in a file nobody is required to read;
+# this runs before every cast and blocks. Keep the two in step - if you add a row there, add
+# a pattern here, or it is advice rather than a rule.
+KNOWN_BAD = [
+    (r"\b458(\.\d+)?\s*SOL", "458 SOL volume is a superseded May figure and "
+     "wavewarz/743 itself says not to use it. Current: 878.316 SOL (wavewarz/974, 2026-07-23)."),
+    (r"\b13\.9\b(?!\d)", "13.9 SOL to artists was dated ~2 weeks before the total reached "
+     "it. Use the all-legs form with its date, or regenerate from tools/artist-earnings.py."),
+    (r"\b1[,.]419\b", "1,419 battles conflicts with the site's own current count and nobody "
+     "has settled what counts as a battle. Do not quote a battle count."),
+    (r"1\.0+%\s*(artist|share)", "the artist share is 1.005%, not 1.00%."),
+    (r"trade fee (is |of )?1\.005", "1.005% is the artist's SHARE of the fee. The trade fee "
+     "is 1.500%, split 67/33."),
+    (r"\b2\.28\s*%", "2.28% is platform revenue over volume, which FALLS as volume rises. "
+     "It is not a fee rate."),
+    (r"\b1\.53\s*%", "1.53% folds in settlement bonuses, which are not per-trade."),
+]
+
+RECHECK_RE = re.compile(r"[Rr]e-check(?:ed)?\s+(?:the\s+\w+\s+)?by\s+(\d{4}-\d{2}-\d{2})")
+
+
+def check_known_bad(round_dir: Path) -> None:
+    """Block on any figure from the do-not-carry list. Immutable once cast."""
+    desc = round_dir / "description.md"
+    if not desc.exists():
+        return
+    body = desc.read_text()
+    # only the part that actually gets pasted, if the sentinels are present
+    if "<!-- PASTE BELOW THIS LINE -->" in body:
+        body = body.split("<!-- PASTE BELOW THIS LINE -->", 1)[1]
+        body = body.split("<!-- PASTE ABOVE THIS LINE -->", 1)[0]
+    hits = [(re.search(pat, body), why) for pat, why in KNOWN_BAD]
+    hits = [(m, why) for m, why in hits if m]
+    if not hits:
+        ok("no known-bad figures in the pasted description")
+        return
+    for m, why in hits:
+        blocking(f'description contains "{m.group(0).strip()}" - {why}')
+
+
+def check_recheck_dates(round_dir: Path, today: dt.date) -> None:
+    """A re-check date that has passed means the claim beside it is unverified."""
+    stale = []
+    for f in sorted(round_dir.glob("*.md")):
+        for m in RECHECK_RE.finditer(f.read_text()):
+            try:
+                d = dt.date.fromisoformat(m.group(1))
+            except ValueError:
+                continue
+            if d < today:
+                stale.append((f.name, d))
+    if not stale:
+        return
+    for name, d in stale:
+        warn(f"{name} carries a re-check date of {d} which has passed - "
+             f"re-verify the claim beside it before casting, then move the date")
+
 
 def check_description(round_dir: Path) -> None:
     print("\n[4/5] DESCRIPTION")
@@ -352,6 +415,51 @@ def _selftest() -> bool:
           not any("R2" in b for b in BLOCKING))
 
     BLOCKING, WARNINGS, NOTES = [], [], []
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        rd = pathlib.Path(d)
+        (rd / "description.md").write_text(
+            "<!-- PASTE BELOW THIS LINE -->\n"
+            "WaveWarZ has done 458 SOL of volume and paid 13.9 SOL to artists.\n"
+            "<!-- PASTE ABOVE THIS LINE -->\n")
+        check_known_bad(rd)
+    check("blocks a description carrying 458 SOL", any("458" in b for b in BLOCKING))
+    check("blocks a description carrying 13.9", any("13.9" in b for b in BLOCKING))
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    with tempfile.TemporaryDirectory() as d:
+        rd = pathlib.Path(d)
+        (rd / "description.md").write_text(
+            "<!-- PASTE BELOW THIS LINE -->\nA clean description with 60 seconds and 0.0125 ETH.\n"
+            "<!-- PASTE ABOVE THIS LINE -->\n")
+        check_known_bad(rd)
+    check("passes a clean description", not BLOCKING)
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    with tempfile.TemporaryDirectory() as d:
+        rd = pathlib.Path(d)
+        # the banned figures live OUTSIDE the paste sentinels - must not block
+        (rd / "description.md").write_text(
+            "Do not use 458 SOL or 13.9 here.\n"
+            "<!-- PASTE BELOW THIS LINE -->\nClean body.\n<!-- PASTE ABOVE THIS LINE -->\n")
+        check_known_bad(rd)
+    check("ignores banned figures outside the pasted body", not BLOCKING)
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    with tempfile.TemporaryDirectory() as d:
+        rd = pathlib.Path(d)
+        (rd / "notes.md").write_text("Re-check by 2020-01-01.\n")
+        check_recheck_dates(rd, dt.date(2026, 9, 8))
+    check("warns on a passed re-check date", any("2020-01-01" in w for w in WARNINGS))
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    with tempfile.TemporaryDirectory() as d:
+        rd = pathlib.Path(d)
+        (rd / "notes.md").write_text("Re-check by 2099-01-01.\n")
+        check_recheck_dates(rd, dt.date(2026, 9, 8))
+    check("silent on a future re-check date", not WARNINGS)
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
     return passed
 
 
@@ -388,6 +496,8 @@ def main() -> int:
     check_deadline(round_dir, cast_date)
     check_config(cfg, args.round)
     check_description(round_dir)
+    check_known_bad(round_dir)
+    check_recheck_dates(round_dir, cast_date)
     check_data_freshness()
 
     print("\n" + "=" * 62)
