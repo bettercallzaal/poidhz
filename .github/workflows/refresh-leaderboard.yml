@@ -42,6 +42,17 @@ jobs:
         continue-on-error: true
         run: python3 scripts/postclose-check.py --all
 
+      - name: Report time-bound claims that have gone unverified
+        # The estate hit this five times in one day - records that stayed loud after they
+        # stopped being true. The rule that came out of it is that anything time-bound
+        # carries a re-check date; this is the half that reads them, because a date nobody
+        # revisits is the same defect one level up.
+        #
+        # continue-on-error like the checks below: a passed date means a claim is now
+        # unverified, which is a prompt to look, not proof of anything wrong.
+        continue-on-error: true
+        run: python3 scripts/recheck-dates.py --days 3
+
       - name: Report Empire Builder drift
         # scripts/check-eb-sync.py has existed since 2026-08-08 and had never been
         # run by anything. It detects a real, still-open bug: EB's "POIDH Submitters"
