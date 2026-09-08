@@ -1,5 +1,7 @@
 # Retainer outreach - @wimpydwi
 
+<!-- SEND-GATE: round=5 -->
+
 > # SEND GATE - R5'S WINNER ANNOUNCEMENT GOES FIRST
 >
 > **Confirmed still live by Zaal 2026-09-07**, and explicitly ordered behind the winner

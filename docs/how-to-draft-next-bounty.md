@@ -112,6 +112,23 @@ judgement.
 
 ---
 
+## 5.5 Before sending anything that waits on another round
+
+```bash
+python3 scripts/send-gate.py --all
+```
+
+Any draft that must not go out before a round is closed out declares
+`<!-- SEND-GATE: round=N -->` at the top. The checker reads that round's
+`closeout.json` and refuses while any promise there is recorded broken - or still
+unrecorded, because "nobody has said whether we did it" is the state that produced this
+problem in the first place.
+
+It sends nothing and cannot see whether a post went out. It answers from what a human
+recorded, which is why marking a promise `kept` is a deliberate act with evidence attached.
+
+---
+
 ## 6. Cast the launch
 
 1. Cast Farcaster long in the home channel (e.g. `/zabal`) with bounty URL as embed

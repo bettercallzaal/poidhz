@@ -1,5 +1,7 @@
 # Note to Kenny - R6 idea
 
+<!-- SEND-GATE: round=5 -->
+
 > # SEND GATE - DO NOT SEND THIS UNTIL R5'S WINNER IS PUBLIC
 >
 > **Check first:** has the R5 winner announcement gone out publicly, crediting @wimpydwi?
