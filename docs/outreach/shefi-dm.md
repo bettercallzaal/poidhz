@@ -1,5 +1,16 @@
 # SheFi outreach DM - send-ready draft
 
+> **DROPPED 2026-09-07. Do not send this as written.**
+>
+> Zaal's call when asked directly: these three outreach DMs had been send-ready since
+> 2026-08-10 and sat four weeks, and he chose drop over re-draft or send. Tracker card 9235
+> is closed with that reason.
+>
+> Kept because the research under it is real and reusable, not because the message is live.
+> **Every follower count and account fact below was verified 2026-08-20 and has no re-check
+> date - treat all of it as unverified.** If this is ever revived, re-verify against the
+> Warpcast API first and put a new date on it.
+
 Warm-intro outreach DM pitching a joint POIDH bounty round to SheFi. Grounded in research
 from [PARTNERSHIP-TARGETS.md](../PARTNERSHIP-TARGETS.md) - POIDH itself already ran a
 bounty specifically for the SheFi community once, judged by POIDH's own "Jessebot" AI,

@@ -5,7 +5,8 @@ generated the same day.
 
 ## Re-measure before posting
 
-Every number below is live and moves daily. Re-run and update if this sits more than a day:
+Every number below is live and moves daily. **Re-check by 2026-09-09**; after that treat
+every figure here as unverified and re-run before posting:
 
 ```bash
 python3 scripts/build-bounty-dashboard.py
