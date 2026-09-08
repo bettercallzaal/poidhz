@@ -325,7 +325,7 @@ three documents. **Generate that line, do not copy it** - the string above is ri
 `wavewarz-protocol/tools/artist-earnings.py` is right always, and it labels which legs are
 measured versus inherited.
 
-Four more do-not-carry figures from the same pass. Doc 743's **"458 SOL volume as of
+Four more do-not-carry figures from the same pass. Doc 743 (`wavewarz/743-wavewarz-whitepaper-v2-deep-dive`)'s **"458 SOL volume as of
 2026-05-25" is about 11% high** and predates a volume repair. **"2.28% effective fee rate"**
 is platform revenue over volume, so it falls as volume rises - it is not a fee rate.
 **"1.53% artist payout rate on every trade"** folds in settlement bonuses, which are not

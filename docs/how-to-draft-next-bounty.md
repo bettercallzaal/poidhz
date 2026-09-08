@@ -124,7 +124,7 @@ judgement.
 
 ## 7. Optional catalytic contributor DMs (OPEN only)
 
-Send `rounds/r$N/cast-templates/catalytic-dm.md` privately to Kenny, Tyler, Adrian, Jordan. Asks them to drop 0.003 ETH each as a public co-funder. Same Jesse-Pollak-on-bounty-906 pattern from POIDH lifetime (per ZAO OS V1 doc 759 + 631). Triggers a submission wave.
+Send `rounds/r$N/cast-templates/catalytic-dm.md` privately to Kenny, Tyler, Adrian, Jordan. Asks them to drop 0.003 ETH each as a public co-funder. Same Jesse-Pollak-on-bounty-906 pattern from POIDH lifetime (per ZAO OS V1 doc 759 (`business/759-poidh-history-origin-to-2026`) + 631). Triggers a submission wave.
 
 ---
 

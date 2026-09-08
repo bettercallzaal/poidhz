@@ -30,7 +30,7 @@ POIDH bounty 1151 on Base. Cast April 2026. Closed late April. Winner accepted o
 ## Reference docs
 
 - ZAO OS V1 Doc 533 - the original R1 brainstorm + cast
-- ZAO OS V1 Doc 759 - POIDH history + R1 as the seed dataset
+- ZAO OS V1 Doc 759 (`business/759-poidh-history-origin-to-2026`) - POIDH history + R1 as the seed dataset
 
 ## Related rounds
 

@@ -289,7 +289,7 @@ One of the 4 fork subagents was instructed "find only, do not edit any files" an
 - **ZAODEVZ/zabalgames llms.txt** updated with Active POIDH Bounty section so any LLM reading zabalgamez.com gets full R3 context
 - **3 ZAO OS research docs** shipped + merged:
   - Doc 768 - POIDH bounty best practices distillation + R3 draft seed
-  - Doc 769 - ZAODEVZ/zabalgames repo state audit
+  - Doc 769 (`business/769-zaodevz-zabalgames-repo-state`) - ZAODEVZ/zabalgames repo state audit
   - Doc 786 - ZABAL Gamez brand kit rebuild audit (this session)
 
 ### Lessons logged (folded into future-round defaults)

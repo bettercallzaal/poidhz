@@ -26,7 +26,7 @@ on-chain and immutable, so that one cannot be fixed. The point is not to inherit
 | Do not use | Why |
 |---|---|
 | "13.9 SOL to artists as of Aug 20" | right number, wrong date - see above |
-| "458 SOL volume as of 2026-05-25" (doc 743) | about 11% high, and predates a volume repair |
+| "458 SOL volume as of 2026-05-25" (doc 743 (`wavewarz/743-wavewarz-whitepaper-v2-deep-dive`)) | about 11% high, and predates a volume repair |
 | "1.00% artist share" | it is **1.005%**, verified at exact lamports |
 | "2.28% effective fee rate" | that is platform revenue over volume, so it FALLS as volume rises. Not a fee rate. |
 | "1.53% artist payout rate on every trade" | includes settlement bonuses, which are not per-trade |
