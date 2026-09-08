@@ -56,7 +56,9 @@ PROMISE_PATTERNS = [
     (r"(?i)\bannounce", "an announcement"),
     (r"(?i)goes up on|will be reused|we run it|runs your|repost", "publishing the winning work"),
     (r"(?i)credit(?:ed|s)?\b|with your name on it", "crediting the entrant"),
-    (r"(?i)airdrop|\$?ZABAL|leaderboard", "a token or leaderboard drop"),
+    # \$ZABAL needs the sigil: bare "ZABAL" matches the BRAND ("ZABAL Gamez"), which put
+    # every mention of the campaign name into R3's ledger as a promise.
+    (r"(?i)airdrop|\$ZABAL\b|earns? \$?ZABAL|leaderboard", "a token or leaderboard drop"),
     (r"(?i)split (?:equally|the pot|this pot)|equal slices?", "a pot split"),
     (r"(?i)paid (?:here )?within|winner paid|takes? the (?:full )?pot", "the prize payout"),
 ]
@@ -129,6 +131,17 @@ def find_promises(description: str) -> list[tuple[str, list[str]]]:
     for raw in chunks:
         s = raw.strip()
         if len(s) < 15:
+            continue
+        # Bullets and numbered items are THE BAR and THE RUBRIC - what the ENTRANT owes us.
+        # A promise is what WE owe them. Without this, R3 produced 29 rows, most of them
+        # rubric lines like "+ Tag @kennyistyping (will boost)", and a 29-box checklist is
+        # one nobody fills in - which defeats the ledger entirely.
+        if re.match(r"^([+*\-\u2022]|\d+[.)])\s", s):
+            continue
+        # Asset-kit and link lines are references, not commitments. A line that is mostly a
+        # URL matched on words like "leaderboard" inside the URL itself.
+        without_urls = re.sub(r"https?://\S+", "", s).strip(" :-")
+        if len(without_urls) < 15:
             continue
         labels = [label for pat, label in PROMISE_PATTERNS if re.search(pat, s)]
         if not labels:
@@ -269,6 +282,69 @@ def _selftest() -> bool:
     return passed
 
 
+CLOSEOUT_NAME = "closeout.json"
+
+
+def closeout_path(round_num: int) -> Path:
+    return REPO_ROOT / "rounds" / f"r{round_num}" / CLOSEOUT_NAME
+
+
+def scaffold_closeout(bounty_id: int, round_num: int, description: str) -> int:
+    """Write a promise ledger for this round, one row per promise, all unrecorded.
+
+    A printed checklist is read once and forgotten; four of five rounds were paid and left
+    owing something, and nothing in the repo carried that state. This turns the checklist
+    into a file the 6h cron reads, so a promise nobody kept stays visible instead of
+    depending on someone remembering to look."""
+    path = closeout_path(round_num)
+    existing = {}
+    if path.exists():
+        try:
+            for row in json.loads(path.read_text()).get("promises", []):
+                existing[row.get("text", "")[:80]] = row
+        except Exception:
+            pass
+
+    rows = []
+    for text, labels in find_promises(description):
+        prev = existing.get(text[:80], {})
+        rows.append({
+            "text": text,
+            "commits_to": labels,
+            "status": prev.get("status", "unrecorded"),
+            "evidence": prev.get("evidence", ""),
+            "recorded_at": prev.get("recorded_at", ""),
+        })
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({
+        "bounty_id": bounty_id,
+        "round": round_num,
+        "note": ("One row per promise in the live bounty text. status is one of "
+                 "unrecorded / kept / broken / na. Set it BY HAND with evidence - a "
+                 "terminal cannot see a post. Regenerating preserves what you set."),
+        "promises": rows,
+    }, indent=2) + "\n")
+    kept = sum(1 for r in rows if r["status"] != "unrecorded")
+    print(f"  wrote {path.relative_to(REPO_ROOT)} - {len(rows)} promise(s), "
+          f"{kept} already recorded")
+    return 0
+
+
+def read_closeout(round_num: int) -> tuple[int, int, int] | None:
+    """(unrecorded, broken, total) or None if this round has no ledger."""
+    path = closeout_path(round_num)
+    if not path.exists():
+        return None
+    try:
+        rows = json.loads(path.read_text()).get("promises", [])
+    except Exception:
+        return None
+    un = sum(1 for r in rows if r.get("status") == "unrecorded")
+    br = sum(1 for r in rows if r.get("status") == "broken")
+    return un, br, len(rows)
+
+
 def sweep_all(chain: int) -> int:
     """Every cast round, automatic checks only. Built for the 6h cron.
 
@@ -314,6 +390,22 @@ def sweep_all(chain: int) -> int:
         else:
             print(f"  ok     {label} - wired for scoring, payout settled")
 
+        led = read_closeout(n)
+        if led is None:
+            print(f"         no {CLOSEOUT_NAME} - promises for this round are untracked")
+            problems += 1
+        else:
+            un, br, tot = led
+            if br:
+                print(f"         {br} of {tot} promise(s) recorded BROKEN - still owed")
+                problems += 1
+            if un:
+                print(f"         {un} of {tot} promise(s) unrecorded - nobody has said "
+                      f"whether these were kept")
+                problems += 1
+            if not br and not un:
+                print(f"         all {tot} promise(s) recorded as kept or n/a")
+
     print()
     if problems:
         print(f"{problems} round(s) need attention. This is the check that would have caught")
@@ -331,6 +423,9 @@ def main() -> int:
     ap.add_argument("--round", type=int)
     ap.add_argument("--chain", type=int, default=8453)
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--scaffold", action="store_true",
+                    help="write/refresh rounds/rN/closeout.json from the live bounty text, "
+                         "preserving any status already set by hand")
     ap.add_argument("--all", action="store_true",
                     help="sweep every cast round in org.config.json - the automatic checks "
                          "only, for cron. Exits non-zero if any round is unwired or unpaid.")
@@ -358,6 +453,11 @@ def main() -> int:
     print(f"Post-close check - bounty {a.bounty}"
           + (f", R{a.round}" if a.round else "")
           + f"\n  {data.get('title')}")
+
+    if a.scaffold:
+        if a.round is None:
+            ap.error("--scaffold needs --round")
+        return scaffold_closeout(a.bounty, a.round, data.get("description") or "")
 
     check_money(data, a.bounty, a.chain)
     check_scoring(load_org_config(), a.bounty)

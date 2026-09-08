@@ -200,6 +200,17 @@ bounty text made as a checklist for you to tick off by hand.
 that guessed would recreate the failure it exists to catch. It tells you what you said you
 would do.
 
+**Scaffold the promise ledger at the same time:**
+
+```bash
+python3 scripts/postclose-check.py --bounty <id> --round <N> --scaffold
+```
+
+That writes `rounds/rN/closeout.json`, one row per promise in the live bounty text, each
+`unrecorded` until a human sets it to `kept`, `broken` or `na` with evidence. The 6h cron
+reads it and reports anything unrecorded or broken, so an unkept promise stays visible
+instead of depending on someone remembering to look. Re-running preserves what you set.
+
 Worth running because four of the five rounds so far were paid and left owing something:
 see [docs/PROMISE-AUDIT.md](PROMISE-AUDIT.md). The automatic half of this also runs on the
 6h leaderboard cron as `--all`, which would have caught R5's entrants scoring zero the same
