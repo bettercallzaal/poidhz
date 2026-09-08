@@ -1,0 +1,38 @@
+{
+  "bounty_id": 1330,
+  "round": 5,
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "Winner takes all of it, and WaveWarZ runs your clip on its official channels with your name on it.",
+      "commits_to": [
+        "publishing the winning work",
+        "crediting the entrant"
+      ],
+      "status": "broken",
+      "evidence": "Paid 0.0238 ETH to claim 7795. Never run on @wavewarz. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "By entering you are saying WaveWarZ and The ZAO can repost your clip on our official channels, and we credit your handle every time we do.",
+      "commits_to": [
+        "publishing the winning work",
+        "crediting the entrant"
+      ],
+      "status": "na",
+      "evidence": "A grant of rights from the entrant, not a commitment by us.",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Winner paid here within 48 hours, and the clip goes up on @wavewarz with your name on it.",
+      "commits_to": [
+        "publishing the winning work",
+        "crediting the entrant",
+        "the prize payout"
+      ],
+      "status": "broken",
+      "evidence": "The payout half was kept - claim 7795 accepted. The publish half was not: the clip has not gone up on @wavewarz. Copy ready and unsent at rounds/r5/winner-announce.md. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    }
+  ]
+}
