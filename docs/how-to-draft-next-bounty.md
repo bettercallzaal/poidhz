@@ -112,6 +112,23 @@ judgement.
 
 ---
 
+## 5.5 Before sending anything that waits on another round
+
+```bash
+python3 scripts/send-gate.py --all
+```
+
+Any draft that must not go out before a round is closed out declares
+`<!-- SEND-GATE: round=N -->` at the top. The checker reads that round's
+`closeout.json` and refuses while any promise there is recorded broken - or still
+unrecorded, because "nobody has said whether we did it" is the state that produced this
+problem in the first place.
+
+It sends nothing and cannot see whether a post went out. It answers from what a human
+recorded, which is why marking a promise `kept` is a deliberate act with evidence attached.
+
+---
+
 ## 6. Cast the launch
 
 1. Cast Farcaster long in the home channel (e.g. `/zabal`) with bounty URL as embed
@@ -199,6 +216,17 @@ bounty text made as a checklist for you to tick off by hand.
 **It cannot tell you a post went out** - that is not knowable from a terminal, and a script
 that guessed would recreate the failure it exists to catch. It tells you what you said you
 would do.
+
+**Scaffold the promise ledger at the same time:**
+
+```bash
+python3 scripts/postclose-check.py --bounty <id> --round <N> --scaffold
+```
+
+That writes `rounds/rN/closeout.json`, one row per promise in the live bounty text, each
+`unrecorded` until a human sets it to `kept`, `broken` or `na` with evidence. The 6h cron
+reads it and reports anything unrecorded or broken, so an unkept promise stays visible
+instead of depending on someone remembering to look. Re-running preserves what you set.
 
 Worth running because four of the five rounds so far were paid and left owing something:
 see [docs/PROMISE-AUDIT.md](PROMISE-AUDIT.md). The automatic half of this also runs on the

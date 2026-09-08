@@ -1,0 +1,54 @@
+{
+  "bounty_id": 1166,
+  "round": 2,
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "One winner takes the full pot.",
+      "commits_to": [
+        "the prize payout"
+      ],
+      "status": "kept",
+      "evidence": "claim 6645, @joeyofdeus, paid. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "The winning clip will be reused as POIDH's pinned ad on @bettercallzaal channels and may be shared by Kenny / @poidhxyz - real distribution beyond the ETH.",
+      "commits_to": [
+        "a pin, which no round has ever actually delivered",
+        "publishing the winning work"
+      ],
+      "status": "unrecorded",
+      "evidence": "No record either way. A pin is not visible from a terminal - someone who can see @bettercallzaal must confirm.",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Winner announced via cast + X post by end of day Sunday May 24, 2026.",
+      "commits_to": [
+        "a winner announcement",
+        "an announcement"
+      ],
+      "status": "broken",
+      "evidence": "No announcement copy was ever drafted - rounds/r2/ has no cast-templates/. Telegram shows the winner still being decided 2026-05-27, three days after the promised date. docs/PROMISE-AUDIT.md, verified 2026-09-07 from the live on-chain description",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Multiple submissions allowed but the leaderboard counts unique wallets only.",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "kept",
+      "evidence": "The leaderboard counts unique wallets; verified in data/leaderboard.json.",
+      "recorded_at": "2026-09-08"
+    },
+    {
+      "text": "Leaderboard feeds ZABAL distribution via the $ZABAL Empire on Empire Builder - every submitter (not just the winner) lands on the leaderboard and gets boosted ZABAL drops.",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "kept",
+      "evidence": "True today. Empire Builder served a stale feed from at least 2026-08-08 until 2026-09-07, so this was late, not undelivered.",
+      "recorded_at": "2026-09-08"
+    }
+  ]
+}

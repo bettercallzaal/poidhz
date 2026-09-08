@@ -4,6 +4,89 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-09-06 to 09-08 - the money got credited, the promises got counted, and the tooling started checking itself
+
+Three days in one entry. If you read nothing else: **R5's entrants were uncredited in two
+places at once and only one was visible**, four of five rounds were paid and left owing
+something, and the two checkers built to catch that were themselves broken in ways only
+running them exposed.
+
+### The credit gap, closed in both places
+
+R5's nine claimants were scoring **zero** on the leaderboard. Bounty 1330 was never added to
+`default_bounty_ids`, so `refresh-poidh-leaderboard.py` never counted it and
+`refresh-rounds.py` never tracked it - 1330 appeared nowhere in `data/claims.json`. Fixed;
+the leaderboard went 34 -> 38 submitters and the two R5-only wallets, including the winner,
+now appear.
+
+Separately, **Empire Builder had been serving a stale feed since at least 2026-08-08**,
+missing six submitters including **femmie, R3's winner**. Zaal repointed its `api_endpoint`
+at `poidhz.com/leaderboard`; re-adding the leaderboard changed its uuid, so every tool here
+was calling a dead one and 404ing. `org.config.json` updated, and `check-eb-sync.py` now
+passes end to end for the first time since it was written - **38 local vs 38 on EB, in sync**.
+
+**Both halves were needed.** Either fix alone still leaves R5's entrants uncredited.
+
+### Four of five rounds were paid and left owing something
+
+[`docs/PROMISE-AUDIT.md`](PROMISE-AUDIT.md), read from the live on-chain descriptions rather
+than this repo's copies. **R1 is the only round that kept every promise it made - and it is
+the round that promised the least.** Every round since promised distribution on top of money
+and delivered the money only. R2 promised an announcement by a named date and never even
+drafted the copy; R3's has been READY TO SEND since June; R5's is unsent today.
+
+This is not carelessness about money. Every winner was paid, and R3's got more than
+promised. What rots is the promises that cost nothing and have no deadline forcing them.
+
+### The tooling now checks the parts humans forget
+
+- `scripts/precast-check.py` - can this round cast. Caught R6 unfundable.
+- `scripts/postclose-check.py` - did we do what the bounty text said. Runs `--all` on the 6h
+  cron, which would have caught R5's zero-scoring entrants the same day.
+- `check-eb-sync.py` finally **runs**, on that same cron. It had existed since 2026-08-08
+  invoked by nothing, while the bug it detects stayed open the whole time.
+
+Three bugs were found by *running* these, not by their selftests passing: postclose-check
+reported a paid round as unpaid (`/data` does not carry `isAccepted`), its tRPC accessor
+assumed a list where the payload is `{"items": [...]}`, and a cron exit code I "verified"
+through a pipe was reading grep's status, not the script's.
+
+### poidhz.com, and the rounds
+
+Domain live 2026-09-06, all 18 files migrated, `zpoidh.vercel.app` 307s to it. `/calendar`
+had been 404ing while `/` served the same file - fixed and verified in production.
+
+**R6 is now the NYC trip recap** (Zaal, 09-06), with a seven-channel-slot mechanic paying $5
+in $ZABAL per used clip - the first round that pays more than one person. **It is PARKED as
+of 09-08**: the Drive link and the one-sentence trip summary are deferred, ZAOstock's 13th is
+the priority. Drafted, uncast, gated on `precast-check --round 6`.
+**R7** is the WaveWarZ clip round, renumbered and queued.
+
+### Two defect families worth carrying forward
+
+**Numbers separated from what makes them true.** A figure ahead of its date (R5 shipped
+"13.9 SOL as of Aug 20" when the total hit 13.9 in September), separated from its leg
+(1.005% is the artist's *share*, not the trade fee - which is 1.500%), or separated from its
+source's own warning (`wavewarz/743` has said since 2026-08-09 not to use its 458 SOL figure,
+and nobody had opened it). `rounds/_template/description.md` now carries the rule, the
+do-not-carry list, and the generator path - **generate the line, do not copy it.**
+
+**Records that stay loud after they stop being true.** The mirror of an inverted alarm. R5's
+README said LIVE above CLOSED; three dropped outreach DMs still read as send-ready. Fixed at
+the top of each file, because that is where they are read. Anything time-bound now carries a
+re-check date next to the claim.
+
+### Pending
+
+- [ ] **R5's winner announcement.** Paid 09-05, still unannounced. Zaal posts it himself.
+      Gates the Kenny R6 note, the wimpydwi retainer, and the launch post - all written.
+- [ ] **femmie's DM** - `rounds/r3/cast-templates/femmie-dm.md`, asks before announcing
+- [ ] R6: Drive link + trip sentence, both **parked** by Zaal, not pending
+- [ ] Verify the 6h cron goes green after the 404-retry fix (#130); it failed 09-08T04:11
+- [ ] Empire Builder: nothing owed, in sync. Left here so nobody re-opens it.
+
+---
+
 ## 2026-09-05 - R5 closed and paid, R6 drafted, and the "low turnout" story was wrong
 
 ### R5 final state, measured not assumed

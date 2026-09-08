@@ -31,6 +31,7 @@ can fetch them straight from a browser. Verified live 2026-09-07.
 | [`/data/poidh-deadlines.ics`](https://poidhz.com/data/poidh-deadlines.ics) | The same deadlines as a calendar feed. Subscribe in any calendar app. |
 | [`/leaderboard`](https://poidhz.com/leaderboard) | Submitters by count of bounties entered, in Empire Builder's `[{address, score}]` shape. |
 | [`/data/poidh-deadlines-global.json`](https://poidhz.com/data/poidh-deadlines-global.json) | The raw deadline scan, with the free text each date was parsed out of so you can check the parse. |
+| [`/data/health.json`](https://poidhz.com/data/health.json) | What this programme currently owes: promises made in bounty text and not yet delivered, time-bound claims that have gone unverified, and drafts held back because a round is not closed out. Written by the 6h cron. |
 
 **The one thing worth knowing before you build on it:** poidh has an on-chain `deadline`
 field and almost nobody sets it. Of the 90 open bounties on 2026-09-07, **77 stated no
