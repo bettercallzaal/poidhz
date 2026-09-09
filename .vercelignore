@@ -1,0 +1,35 @@
+# Outbound copy is not published here.
+#
+# Measured 2026-09-09: every markdown file in this repo except the root README.md was
+# returning 200 as text/markdown on poidhz.com. That included drafts that had never been
+# sent - docs/owed-credit.md, which says what credit the programme owes and to whom, and
+# rounds/r5/winner-announce.md, naming a winner who had not yet been told. "Drafted, never
+# sent" turned out to mean "published, just not posted to social", which is not what the
+# phrase implied to anyone using it. Zaal asked for them out of the served tree.
+#
+# The rule is by SHAPE, not by a list of filenames, so a draft written next week is covered
+# the moment it is created rather than when someone remembers to add it. Outbound copy in
+# this repo lives in exactly three shapes and all three are excluded, sent or unsent -
+# deciding per-file which had gone out is the judgement call that lets one slip.
+#
+# These files stay in git. They are working files for the people running the programme, and
+# the repo is public on GitHub - this stops poidhz.com serving them as if they were pages,
+# it is not a secrecy control. Nothing in them is secret; some of it is simply not ours to
+# publish before the person named in it has been told.
+#
+# scripts/check-site-claims.py enforces this: it fails if a file carrying a SEND-GATE marker
+# or declaring itself unsent is not matched here. Verified in production after deploying -
+# the paths 404 rather than 200.
+
+rounds/*/cast-templates/
+rounds/*/promo-cast.md
+rounds/*/winner-announce.md
+rounds/r6/kenny-note.md
+rounds/r7/retainer-outreach.md
+docs/owed-credit.md
+docs/weekend-post.md
+docs/launch-post.md
+docs/outreach/
+
+# Not site content either - working notes and local session bundles.
+.handoffs/

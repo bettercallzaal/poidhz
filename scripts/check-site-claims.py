@@ -136,6 +136,38 @@ ARCHIVE_MARKER = re.compile(
     r"|^<!--\s*COPY:")
 
 
+# A file is outbound copy if it is held by a send gate or says it has not been sent. Those
+# must not be servable. Found 2026-09-09: docs/owed-credit.md and rounds/r5/winner-announce.md
+# were both returning 200 on poidhz.com - a draft naming a winner who had not been told yet.
+UNSENT_MARKER = re.compile(
+    r"(?im)^<!--\s*SEND-GATE:|\bDRAFT, unsent\b|\bunsent\b.*\bOutbound is")
+
+
+def vercelignore_patterns() -> list[str]:
+    p = REPO_ROOT / ".vercelignore"
+    if not p.exists():
+        return []
+    return [ln.strip() for ln in p.read_text().splitlines()
+            if ln.strip() and not ln.startswith("#")]
+
+
+def is_unserved(rel: str, patterns: list[str]) -> bool:
+    """Does .vercelignore cover this path? Directory entries cover everything beneath."""
+    import fnmatch
+    for pat in patterns:
+        pat = pat.rstrip("/")
+        if fnmatch.fnmatch(rel, pat) or fnmatch.fnmatch(rel, pat + "/*"):
+            return True
+        # a pattern with no slash matches at any depth, as .vercelignore does
+        if "/" not in pat and fnmatch.fnmatch(Path(rel).name, pat):
+            return True
+    return False
+
+
+def is_unsent_draft(text: str) -> bool:
+    return bool(UNSENT_MARKER.search(text[:2000]))
+
+
 def is_archived_copy(text: str) -> bool:
     """True if the file declares itself a record of copy, in its first 400 characters."""
     return bool(ARCHIVE_MARKER.search(text[:400]))
@@ -297,6 +329,23 @@ def _selftest() -> bool:
           is_archived_copy("<!-- COPY: text to post when this round is live -->\n# R5 promo"))
     check("an undeclared file is not skipped",
           not is_archived_copy("# R5 promo casts\n\nThe bounty is live now.\n"))
+
+    # Unsent drafts must not be servable.
+    pats = ["rounds/*/cast-templates/", "docs/owed-credit.md", "rounds/*/winner-announce.md"]
+    check("a send-gated file is recognised as unsent",
+          is_unsent_draft("<!-- SEND-GATE: round=5 -->\n# copy\n"))
+    check("a DRAFT, unsent file is recognised",
+          is_unsent_draft("# R5 winner announcement\n\n**DRAFT, unsent.** Outbound is Zaal's tap.\n"))
+    check("an ordinary doc is not treated as a draft",
+          not is_unsent_draft("# Promise audit\n\nR1 kept every promise.\n"))
+    check("a directory entry covers files beneath it",
+          is_unserved("rounds/r3/cast-templates/femmie-dm.md", pats))
+    check("an exact path is covered",
+          is_unserved("docs/owed-credit.md", pats))
+    check("a glob in the middle is covered",
+          is_unserved("rounds/r5/winner-announce.md", pats))
+    check("an unrelated doc is NOT reported unserved",
+          not is_unserved("docs/PROMISE-AUDIT.md", pats))
     return passed
 
 
@@ -350,9 +399,14 @@ def main() -> int:
     # them is a separate job from checking what a page asserts.
     docs = sorted(p for p in REPO_ROOT.glob("**/*.md")
                   if not {".git", "node_modules", ".handoffs"} & set(p.parts))
+    ignore = vercelignore_patterns()
     skipped = 0
     for p in docs:
         text = p.read_text()
+        rel_s = str(p.relative_to(REPO_ROOT))
+        if is_unsent_draft(text) and not is_unserved(rel_s, ignore):
+            print(f"  PUBLIC {rel_s}: unsent draft is servable - add it to .vercelignore")
+            problems += 1
         if is_archived_copy(text):
             skipped += 1
             continue
