@@ -62,6 +62,19 @@ jobs:
         # a diff instead of a log.
         run: python3 scripts/health-report.py
 
+      - name: Check what the public site claims
+        # Runs AFTER the refresh, so it reads the round states that were just written.
+        # On 2026-09-08 poidhz.com/hub had been inviting submissions to bounty 1166 for 15
+        # weeks after it closed, /about's meta description said "Currently R5 active" three
+        # days after R5 was paid, and the CC-BY brand kit called a June bounty active. Six
+        # pages also had a 404 favicon and several pre-migration links, all confirmed 404
+        # with curl against production.
+        #
+        # NOT continue-on-error, unlike the two steps around it. Those report drift on
+        # someone else's system that this repo cannot fix. This one reports our own pages
+        # lying to entrants, which is always fixable here, so it should fail the run.
+        run: python3 scripts/check-site-claims.py
+
       - name: Report Empire Builder drift
         # scripts/check-eb-sync.py has existed since 2026-08-08 and had never been
         # run by anything. It detects a real, still-open bug: EB's "POIDH Submitters"
