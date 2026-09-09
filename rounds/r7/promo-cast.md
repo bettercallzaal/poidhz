@@ -1,3 +1,7 @@
+<!-- COPY: text to post when this round is live, not a statement that it is.
+     scripts/check-site-claims.py skips files that declare this, because copy
+     saying "the bounty is live" is correct in copy and wrong in a status page. -->
+
 # R7 promo copy
 
 Replace `<BOUNTY-ID>` everywhere once the bounty is live.

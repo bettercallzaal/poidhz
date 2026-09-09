@@ -70,7 +70,15 @@ def strip_comments(html: str) -> str:
     return re.sub(r"(?m)^[ \t]*//.*$", " ", html)
 
 
-def stale_invitations(html: str, status: dict[int, str]) -> list[str]:
+def stale_invitations(html: str, status: dict[int, str], *, flavor: str = "html") -> list[str]:
+    """flavor='md' bounds the window to the containing LINE.
+
+    The character window is right for HTML, where a card spans many lines, and wrong for
+    markdown, where one line is one row or one bullet. Measured on this repo's own README:
+    a +-320 char window reached from R5's table row into R6's, and reported R6's planned
+    "closes Wed Sep 30" as an invitation attached to bounty 1330. Four of the five markdown
+    hits in the first run were false like that, and a check that fires on correct content
+    gets muted - which then mutes it on the one hit that was real."""
     text = strip_comments(html)
     out = []
     for m in re.finditer(r"poidh\.xyz/\w+/bounty/(\d+)", text):
@@ -78,7 +86,12 @@ def stale_invitations(html: str, status: dict[int, str]) -> list[str]:
         st = status.get(bid)
         if st is None or st in CAN_SUBMIT:
             continue
-        seg = text[max(0, m.start() - WINDOW):m.end() + WINDOW]
+        if flavor == "md":
+            ls = text.rfind("\n", 0, m.start()) + 1
+            le = text.find("\n", m.end())
+            seg = text[ls:le if le != -1 else len(text)]
+        else:
+            seg = text[max(0, m.start() - WINDOW):m.end() + WINDOW]
         hit = INVITATION.search(seg)
         if hit:
             out.append(f"bounty {bid} is {st} but the page says {hit.group(0)!r} beside it")
@@ -102,17 +115,57 @@ LIVE_CLAIMS = [
 ]
 
 
-def unsupported_live_claims(html: str, any_open: bool) -> list[str]:
+# Markdown prose says "live now" about things that are not rounds - "poidhz.com is live now"
+# in the Kenny note is true and was flagged by the HTML pattern. In prose the claim only
+# counts when a round or bounty is named in the same breath, so the loose forms are dropped
+# and the rest must sit beside a round token.
+LIVE_CLAIMS_MD = [
+    r"(?i)\bcurrently R\d+\b",
+    r"(?i)\bR\d+\b[^.\n]{0,40}\b(?:is live|active|live through|live now)\b",
+    r"(?i)\bbounty\b[^.\n]{0,30}\b(?:is live|live through|live now)\b",
+    r"(?i)\bactive bounty\b",
+]
+
+# Copy that RECORDS a post rather than making a claim - a cast that went out in May still
+# says "Closes Sun Jun 14" because that is what was posted, and rewriting it would falsify
+# the record. Exempt, but only when the file SAYS so on its first lines, so the exemption is
+# claimed explicitly rather than inferred from a path. An unmarked file is checked.
+ARCHIVE_MARKER = re.compile(
+    r"(?im)^#.*\b(?:posted|sent|published)\b\s+\d{4}-\d{2}-\d{2}"
+    r"|^\W*\*\*(?:DRAFT, unsent|ARCHIVED|POSTED)\b"
+    r"|^<!--\s*COPY:")
+
+
+def is_archived_copy(text: str) -> bool:
+    """True if the file declares itself a record of copy, in its first 400 characters."""
+    return bool(ARCHIVE_MARKER.search(text[:400]))
+
+
+def unsupported_live_claims(html: str, any_open: bool, *, flavor: str = "html") -> list[str]:
     """Liveness claims on a site with no open round. Silent when one is genuinely open -
     this rule is about a claim outliving its round, not about the wording."""
     if any_open:
         return []
     text = strip_comments(html)
+    if flavor == "md":
+        # Wording in double quotes is being QUOTED, not asserted. The README's own
+        # correction reads: Said "R3 (active)" until 2026-09-09 - and the checker flagged
+        # the sentence that fixed the bug, which is the third time tonight a note
+        # explaining a removal tripped the rule it documents.
+        text = re.sub(r'"[^"\n]{0,200}"', " ", text)
     out = []
-    for pat in LIVE_CLAIMS:
-        m = re.search(pat, text)
-        if m:
+    for pat in (LIVE_CLAIMS_MD if flavor == "md" else LIVE_CLAIMS):
+        for m in re.finditer(pat, text):
+            ls = text.rfind("\n", 0, m.start()) + 1
+            le = text.find("\n", m.end())
+            line = text[ls:le if le != -1 else len(text)]
+            # A claim that carries its own date is not a stale claim - it is a record of
+            # when it was true, which is the thing this repo keeps asking people to write.
+            # docs/RECAP.md is a dated log and every entry in it would otherwise fail.
+            if re.search(r"(?i)\bas of\b\s*\d{4}-\d{2}-\d{2}|\bas of\b\s*\w+ \d{1,2}", line):
+                continue
             out.append(f"says {m.group(0).strip()!r} but no round is OPEN or VOTING")
+            break
     return sorted(set(out))
 
 
@@ -218,6 +271,32 @@ def _selftest() -> bool:
     check("a URL inside code is not mistaken for a comment",
           dead_links('<script>\n  var x = 1; // note\n</script>'
                      '<a href="/poidh-round2-judging.html">x</a>', matchers, ex))
+
+    # Markdown. Every case here is a real line from this repo, and four of the five are
+    # things the HTML rules got WRONG on their first run over markdown.
+    md_rows = ("| R5 | [1330](https://poidh.xyz/base/bounty/1330) | paid, claim 7795 |\n"
+               "| R6 | not cast | DRAFT, closes Wed Sep 30 |\n")
+    check("a window does not reach across markdown table rows",
+          not stale_invitations(md_rows, {1330: "WINNER SET"}, flavor="md"))
+    check("the same wording ON the row is still caught",
+          stale_invitations("| R5 | [1330](https://poidh.xyz/base/bounty/1330) | closes Wed |\n",
+                            {1330: "WINNER SET"}, flavor="md"))
+    check("'poidhz.com is live now' is not a claim about a round",
+          not unsupported_live_claims("poidhz.com is live now and he said he would use it",
+                                      any_open=False, flavor="md"))
+    check("'R3 (active)' IS a claim about a round",
+          unsupported_live_claims("- brand kit - for R3 (active) and future bounties",
+                                  any_open=False, flavor="md"))
+    check("wording quoted in prose is not asserted",
+          not unsupported_live_claims('Said "R3 (active)" until 2026-09-09.',
+                                      any_open=False, flavor="md"))
+    check("a claim carrying its own date is not stale",
+          not unsupported_live_claims("bounty/1330) is LIVE as of 2026-08-21, deadline Aug 30",
+                                      any_open=False, flavor="md"))
+    check("copy that declares itself is skipped",
+          is_archived_copy("<!-- COPY: text to post when this round is live -->\n# R5 promo"))
+    check("an undeclared file is not skipped",
+          not is_archived_copy("# R5 promo casts\n\nThe bounty is live now.\n"))
     return passed
 
 
@@ -261,6 +340,27 @@ def main() -> int:
         for msg in dead_links(html, matchers, exists):
             print(f"  DEAD   {rel}: {msg}")
             problems += 1
+
+    # Markdown is served too, and `/round/:n` maps straight onto a round README - verified
+    # 2026-09-09, text/markdown 200 for /round/5, /round/2 and /docs/*.md. Only the claim
+    # rules run here: markdown links are a different syntax and resolving them is a separate
+    # job from checking what a page asserts.
+    docs = sorted(p for p in REPO_ROOT.glob("**/*.md")
+                  if not {".git", "node_modules", ".handoffs"} & set(p.parts))
+    skipped = 0
+    for p in docs:
+        text = p.read_text()
+        if is_archived_copy(text):
+            skipped += 1
+            continue
+        rel = p.relative_to(REPO_ROOT)
+        for msg in stale_invitations(text, status, flavor="md"):
+            print(f"  STALE  {rel}: {msg}")
+            problems += 1
+        for msg in unsupported_live_claims(text, any_open, flavor="md"):
+            print(f"  CLAIM  {rel}: {msg}")
+            problems += 1
+    print(f"  ({len(docs)} markdown file(s) served, {skipped} declared copy or draft)")
 
     print()
     if problems:

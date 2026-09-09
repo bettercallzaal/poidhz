@@ -289,7 +289,7 @@ Leaderboard refresh last run 2026-08-05 - `data/leaderboard.json` / `claims.json
 Each campaign gets a CC-BY brand kit under `assets/brand-kits/<campaign>/`. The kit holds the canonical logo, palette, typography spec, voice rules, approved/banned phrases, glossary, and an official 50-second promo audio file editors can use freely.
 
 Current campaigns:
-- [`assets/brand-kits/zabal-games/`](assets/brand-kits/zabal-games/) - for R3 (active) and any future ZABAL Gamez bounties
+- [`assets/brand-kits/zabal-games/`](assets/brand-kits/zabal-games/) - used by R3, which closed 2026-06-14, and by any future ZABAL Gamez bounties. Said "R3 (active)" until 2026-09-09, nearly three months after it closed.
 
 Future campaigns get their own subfolder when launched.
 
