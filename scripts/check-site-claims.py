@@ -341,10 +341,13 @@ def main() -> int:
             print(f"  DEAD   {rel}: {msg}")
             problems += 1
 
-    # Markdown is served too, and `/round/:n` maps straight onto a round README - verified
-    # 2026-09-09, text/markdown 200 for /round/5, /round/2 and /docs/*.md. Only the claim
-    # rules run here: markdown links are a different syntax and resolving them is a separate
-    # job from checking what a page asserts.
+    # Markdown is served too, and `/round/:n` maps straight onto a round README. Measured
+    # against production 2026-09-09: text/markdown 200 for /round/2, /round/3, /round/5,
+    # /docs/*.md, /rounds/*/*.md, /assets/**/*.md, /pipeline/*.md and /CONTRIBUTING.md.
+    # The single exception is the root /README.md, which 404s - so it is scanned for
+    # GitHub's sake, where it is the repo's front page, rather than for the site's.
+    # Only the claim rules run here: markdown links are a different syntax and resolving
+    # them is a separate job from checking what a page asserts.
     docs = sorted(p for p in REPO_ROOT.glob("**/*.md")
                   if not {".git", "node_modules", ".handoffs"} & set(p.parts))
     skipped = 0
@@ -360,7 +363,12 @@ def main() -> int:
         for msg in unsupported_live_claims(text, any_open, flavor="md"):
             print(f"  CLAIM  {rel}: {msg}")
             problems += 1
-    print(f"  ({len(docs)} markdown file(s) served, {skipped} declared copy or draft)")
+    # "scanned", not "served". Measured 2026-09-09 against production: every markdown file
+    # in the repo returns 200 as text/markdown - docs/, rounds/, assets/, pipeline/,
+    # CONTRIBUTING.md - EXCEPT the root README.md, which 404s. So one of these is checked
+    # for GitHub's sake rather than the site's, and a label saying "served" would be a
+    # claim this script cannot support about the one file it is wrong for.
+    print(f"  ({len(docs)} markdown file(s) scanned, {skipped} declared copy or draft)")
 
     print()
     if problems:
