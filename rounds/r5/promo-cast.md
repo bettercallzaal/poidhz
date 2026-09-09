@@ -1,3 +1,7 @@
+<!-- COPY: text to post when this round is live, not a statement that it is.
+     scripts/check-site-claims.py skips files that declare this, because copy
+     saying "the bounty is live" is correct in copy and wrong in a status page. -->
+
 # R5 promo casts
 
 Live URL filled in 2026-08-21 (bounty 1330). No emojis, no em dashes. The day 3-4 reply-cast still has one placeholder, `<N>`, which is the live claim count at the moment you post it: check poidh.xyz/base/bounty/1330 first.

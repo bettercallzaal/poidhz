@@ -1,3 +1,7 @@
+<!-- COPY: text to post when this round is live, not a statement that it is.
+     scripts/check-site-claims.py skips files that declare this, because copy
+     saying "the bounty is live" is correct in copy and wrong in a status page. -->
+
 # Promo cast template
 
 Paste-ready for /zabal + /poidh + /zao with the POIDH bounty URL as embed. Firefly cross-posts to X.
