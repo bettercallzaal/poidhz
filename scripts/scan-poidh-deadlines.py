@@ -82,6 +82,7 @@ def main() -> int:
     now = datetime.now(timezone.utc).date()
     scanned = []
     native_deadline_field_ever_set = 0
+    total_seen = 0
     cursor = None
 
     for page in range(args.pages):
@@ -100,6 +101,7 @@ def main() -> int:
         cursor = d.get("nextCursor")
 
         for b in items:
+            total_seen += 1
             if b.get("deadline") is not None:
                 native_deadline_field_ever_set += 1
 
@@ -147,6 +149,13 @@ def main() -> int:
             f"of the bounties scanned had it set at all, even though many describe a clear "
             "deadline in free text. That gap is exactly why this tool exists."
         ),
+        # The count as a FIELD, not only inside the note. It lived only in that prose
+        # string, so index.html could not render it and instead asserted "none set one" as
+        # a permanent fact. It is not permanent: two scans an hour apart on 2026-09-08
+        # returned 1 and then 0. A moving number stated as an absolute is the defect this
+        # repo keeps finding, so the page now reads this field instead of claiming.
+        "bounties_with_native_deadline": native_deadline_field_ever_set,
+        "bounties_scanned": total_seen,
         "bounties_with_deadline_found": scanned,
     }
 

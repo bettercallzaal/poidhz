@@ -163,7 +163,7 @@
 
     <h2>How it works</h2>
     <p class="note">
-      <code>scripts/scan-poidh-deadlines.py</code> pages through poidh's live bounty feed and parses dates like "August 24, 2026" or "11:59 pm PT Sun Jun 14" out of each description. <code>build-bounty-dashboard.py</code> adds amounts, USD, chain, and a task-type guess. Nothing here is read from a structured deadline field, because across every open bounty scanned, none set one. poidhz is built by <a href="https://bettercallzaal.com" target="_blank" rel="noopener">BetterCallZaal</a> / The ZAO for <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>. MIT, fork it.
+      <code>scripts/scan-poidh-deadlines.py</code> pages through poidh's live bounty feed and parses dates like "August 24, 2026" or "11:59 pm PT Sun Jun 14" out of each description. <code>build-bounty-dashboard.py</code> adds amounts, USD, chain, and a task-type guess. Nothing here is read from a structured deadline field, because almost no bounty sets one - the current count is <code>bounties_with_native_deadline</code> in <a href="/data/poidh-deadlines-global.json">poidh-deadlines-global.json</a>, regenerated every 6h. <!-- Said "none set one" until 2026-09-08. Two scans an hour apart that day returned 1 and then 0, so it was an absolute claim about a moving number - true most days, wrong on the days it matters. The count now lives in a field rather than only inside a prose note, so it can be read rather than asserted. --> poidhz is built by <a href="https://bettercallzaal.com" target="_blank" rel="noopener">BetterCallZaal</a> / The ZAO for <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>. MIT, fork it.
     </p>
   </main>
 
