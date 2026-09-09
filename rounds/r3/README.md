@@ -6,6 +6,11 @@ femmie was paid 0.025 ETH. Two promises in the bounty text were never kept: the 
 [docs/PROMISE-AUDIT.md](../../docs/PROMISE-AUDIT.md). This line previously read "FULLY
 RESOLVED", which was true of the money and false of everything else.
 
+Copy that closes both, drafted and unsent: [docs/owed-credit.md](../../docs/owed-credit.md).
+Send [cast-templates/femmie-dm.md](cast-templates/femmie-dm.md) before or with it, not after -
+femmie was also missing from Empire Builder until 2026-09-07, which is a third uncredited
+thing for one person.
+
 Confirmed 2026-07-09: pulled the raw `claims.fetchBountyClaims` record for claim 6749
 (femmie, "ZABALGAMEZ.COM AD") directly from POIDH's tRPC. Its `owner` field is
 `0x7234c36a71ec237c2ae7698e8916e0735001e9af` - the BCZ Treasury issuer wallet - while every

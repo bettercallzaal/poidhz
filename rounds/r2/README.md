@@ -1,6 +1,14 @@
 # R2 - Best 60s POIDH ad from Ep 19 w/ Kenny
 
-POIDH bounty 1166 on Base. Cast May 2026. Closed 2026-05-22. Winner cast 2026-05-27.
+POIDH bounty 1166 on Base. Cast May 2026. Closed 2026-05-22. **Winner accepted on-chain
+2026-05-27 and never announced.**
+
+This line read "Winner cast 2026-05-27" until 2026-09-09. In this repo "cast" means a
+Farcaster post, so it read as the announcement having gone out. It had not: the bounty
+promised "Winner announced via cast + X post by end of day Sunday May 24, 2026" and
+`closeout.json` records that promise BROKEN. What happened on the 27th was the claim being
+accepted on chain, which is the payment, not the credit. @joeyofdeus was paid 0.0105 ETH and
+has never been named in public. Copy to close it: [docs/owed-credit.md](../../docs/owed-credit.md).
 
 ## At a glance
 
