@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T11:37:24.519810+00:00",
+  "generated_at": "2026-09-09T16:48:13.270094+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -75,6 +75,16 @@
       "deadline_raw_text": "September 21st",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 30,
+      "title": "Create a Pixel-Art Setting for Final Whistle with Split & Peel",
+      "issuer": "0x59733c7cd78d08dab90368ad2cc09c8c81f097c0",
+      "amount_eth": 0.00701,
+      "deadline_iso": "2026-09-30",
+      "deadline_raw_text": "September 30, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/30"
     },
     {
       "bounty_id": 1372,
