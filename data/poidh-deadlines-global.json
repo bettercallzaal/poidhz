@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-10T21:01:18.697186+00:00",
+  "generated_at": "2026-09-11T04:56:02.704026+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
-  "bounties_scanned": 86,
+  "bounties_scanned": 85,
   "bounties_with_deadline_found": [
     {
       "bounty_id": 1062,
@@ -130,7 +130,7 @@
       "bounty_id": 1377,
       "title": "That Poetry Guy Fights Cancer",
       "issuer": "0x4a90f5a9401158a70f5f307aa13ff0b0e62c7b51",
-      "amount_eth": 0.15222,
+      "amount_eth": 0.15495,
       "deadline_iso": "2026-10-15",
       "deadline_raw_text": "15 October",
       "deadline_status": "upcoming",
