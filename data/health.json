@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T04:18:37.691358+00:00",
+  "generated_at": "2026-09-12T04:14:16.551883+00:00",
   "note": "Findings from the advisory cron checks. They run continue-on-error so a human-only problem does not red-build every six hours - which means their output would otherwise live only in logs nobody opens. This file is the half that stays visible.",
   "promises": {
     "by_round": {
@@ -31,13 +31,14 @@
   },
   "recheck_dates": {
     "total": 3,
-    "passed": [],
-    "upcoming": [
+    "passed": [
       {
         "file": "docs/weekend-post.md",
         "line": 10,
         "due": "2026-09-11"
-      },
+      }
+    ],
+    "upcoming": [
       {
         "file": "rounds/_template/description.md",
         "line": 119,
