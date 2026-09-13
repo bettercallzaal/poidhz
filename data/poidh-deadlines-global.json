@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-13T16:31:41.668563+00:00",
+  "generated_at": "2026-09-13T20:59:14.852207+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
-  "bounties_scanned": 86,
+  "bounties_scanned": 87,
   "bounties_with_deadline_found": [
     {
       "bounty_id": 1062,
@@ -65,6 +65,16 @@
       "deadline_raw_text": "September 21st",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 1385,
+      "title": "Beautiful from here",
+      "issuer": "0x8dbab1f53609b3f40241557ad0bf3d76275db485",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-09-27",
+      "deadline_raw_text": "sept 27th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1385"
     },
     {
       "bounty_id": 30,
