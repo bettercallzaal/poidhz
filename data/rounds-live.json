@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T20:59:33.952450+00:00",
+  "generated_at": "2026-09-14T05:12:44.936629+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -11,7 +11,7 @@
       "url": "https://poidh.xyz/base/bounty/1151",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 26.31395,
+      "amount_usd": 26.37285,
       "claims": 11,
       "winner": {
         "claim_id": 6368,
@@ -29,7 +29,7 @@
       "url": "https://poidh.xyz/base/bounty/1166",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 26.31395,
+      "amount_usd": 26.37285,
       "claims": 8,
       "winner": {
         "claim_id": 6645,
@@ -47,7 +47,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 62.65225,
+      "amount_usd": 62.7925,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -65,7 +65,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 34.58404,
+      "amount_usd": 34.66146,
       "claims": 2,
       "winner": null,
       "offchain": true,
@@ -77,15 +77,11 @@
       "title": "R5 - Best 60s clip from the WaveWarZ Twitch stream",
       "bounty_title": "Best 60s clip from the WaveWarZ Twitch stream",
       "url": "https://poidh.xyz/base/bounty/1330",
-      "status": "WINNER SET",
+      "status": "VOTING",
       "amount_native": 0.0238,
-      "amount_usd": 59.64494,
+      "amount_usd": 59.77846,
       "claims": 9,
-      "winner": {
-        "claim_id": 7795,
-        "handle": null,
-        "wallet": "0x3f07d412da0aa3615bd92a496c73823a64370ec9"
-      },
+      "winner": null,
       "offchain": false,
       "offchain_note": null
     },

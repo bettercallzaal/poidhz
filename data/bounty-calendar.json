@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T20:59:16.459922+00:00",
+  "generated_at": "2026-09-14T05:12:31.071325+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -30,15 +30,6 @@
       "url": "https://poidh.xyz/base/bounty/1180"
     },
     {
-      "round": 4,
-      "bounty_id": 1249,
-      "title": "R4 - ZABAL Gamez open pot",
-      "deadline_iso": "2026-07-31",
-      "deadline_raw_text": "July 31, 2026",
-      "status": "closed",
-      "url": "https://poidh.xyz/base/bounty/1249"
-    },
-    {
       "round": 5,
       "bounty_id": 1330,
       "title": "R5 - Best 60s clip from the WaveWarZ Twitch stream",
@@ -46,6 +37,17 @@
       "deadline_raw_text": "August 30, 2026",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1330"
+    },
+    {
+      "round": 4,
+      "bounty_id": 1249,
+      "title": "R4 - ZABAL Gamez open pot",
+      "offchain": true,
+      "offchain_note": "Bounty accidentally canceled during closeout instead of withdrawn, closing the on-chain claim path. The 15 real builders who shipped during ZABAL Gamez July open build month were credited directly via Empire Builder instead - see offchain_credits below. bounty_id 1249 is intentionally excluded from default_bounty_ids so its stray post-cancel claims (noise, not real submissions) don't pollute on-chain scoring.",
+      "deadline_iso": null,
+      "deadline_raw_text": null,
+      "status": "fetch_failed",
+      "url": "https://poidh.xyz/base/bounty/1249"
     },
     {
       "round": 6,
