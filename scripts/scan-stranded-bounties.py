@@ -96,6 +96,35 @@ def rpc_batch(rpcs: list[str], addr: str, sel: str, ids: list[int], tries: int =
     raise RuntimeError(f"RPC batch failed after {tries} tries ({last})")
 
 
+def contract_balance(rpcs: list[str], addr: str, tries: int = 5) -> int | None:
+    """THE CHECK THIS FILE ORIGINALLY DID NOT DO, AND IT WAS THE ONLY ONE THAT MATTERED.
+
+    `bounties(uint256)` returns a RECORDED amount. It is bookkeeping written when the
+    bounty was created and never zeroed when the contract was drained. The ETH itself is
+    the contract's balance, and the two are different things.
+
+    On 2026-09-20 this scanner reported 0.606612841471201010 ETH stranded across Base and
+    Arbitrum, matching poidh-app issue #1459 to the wei. Kenny then said the v2 contracts
+    were "completely drained". He was right: both contracts hold EXACTLY ZERO, confirmed on
+    two independent RPC providers with a positive control. The struct sums and the issue
+    agreed with each other and both were wrong about the world.
+
+    So the balance is read first, and every claim this tool makes about money is measured
+    against it rather than against a field."""
+    for a in range(tries):
+        try:
+            req = urllib.request.Request(
+                rpcs[a % len(rpcs)],
+                json.dumps({"jsonrpc": "2.0", "id": 1, "method": "eth_getBalance",
+                            "params": [addr, "latest"]}).encode(),
+                {"Content-Type": "application/json", "User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=30) as f:
+                return int(json.loads(f.read())["result"], 16)
+        except Exception:
+            time.sleep(1.5 * (a + 1))
+    return None
+
+
 def words(hexstr: str) -> list[str]:
     raw = hexstr[2:]
     return [raw[i:i + 64] for i in range(0, len(raw), 64)]
@@ -126,8 +155,18 @@ def parse_claims(res: str) -> list[str]:
     return out
 
 
-def recovery_call(has_claims: bool) -> dict:
-    """What the issuer can actually do about it today. Claimants first, on purpose."""
+def recovery_call(has_claims: bool, funded_on_chain: bool = True) -> dict:
+    """What the issuer can actually do about it today. Claimants first, on purpose.
+
+    When the contract holds nothing, there is no call that pays anyone, and offering one
+    would send people to spend gas on a transaction that cannot succeed."""
+    if not funded_on_chain:
+        return {
+            "primary": None,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the "
+                              "recorded amount is a stale bookkeeping field, not money",
+            "secondary": None, "secondary_effect": None,
+        }
     if has_claims:
         return {
             "primary": "acceptClaim(bountyId, claimId)",
@@ -145,6 +184,8 @@ def recovery_call(has_claims: bool) -> dict:
 def scan() -> dict:
     chains = []
     for c in CONTRACTS:
+        balance = contract_balance(c["rpcs"], c["address"])
+        funded = bool(balance)
         stranded = {}
         ids = list(range(c["n"]))
         for s in range(0, len(ids), 60):
@@ -180,11 +221,18 @@ def scan() -> dict:
                 "created_at": datetime.fromtimestamp(b["created_at"], timezone.utc).date().isoformat()
                 if b["created_at"] else None,
                 "claim_count": len(cl), "claimants": cl,
-                "recovery": recovery_call(bool(cl)),
+                "recovery": recovery_call(bool(cl), funded),
             })
         chains.append({
             "chain": c["chain"], "chain_id": c["chain_id"], "contract": c["address"],
             "ids_read": len(ids), "stranded": len(rows), "bounties": rows,
+            # The two numbers that must never be conflated again. recorded_eth is the sum
+            # of a struct field; balance_eth is the money. On 2026-09-20 they differed by
+            # the entire amount.
+            "contract_balance_wei": None if balance is None else str(balance),
+            "contract_balance_eth": "UNKNOWN" if balance is None else str(Decimal(balance).scaleb(-18)),
+            "recorded_eth": str(Decimal(sum(int(r["amount_wei"]) for r in rows)).scaleb(-18)),
+            "funds_actually_present": funded,
         })
     return {"chains": chains, "unread": UNREAD_CHAINS}
 
@@ -194,13 +242,18 @@ def totals(data: dict) -> dict:
     wei = sum(int(b["amount_wei"]) for b in rows)
     withwork = [b for b in rows if b["claim_count"]]
     people = {a for b in rows for a in b["claimants"]}
+    balances = [c.get("contract_balance_wei") for c in data["chains"]]
+    known = [int(b) for b in balances if b is not None]
     return {
         "stranded_bounties": len(rows),
         "with_work_submitted": len(withwork),
         "total_claims": sum(b["claim_count"] for b in rows),
         "distinct_claimants": len(people),
         "distinct_issuers": len({b["issuer"] for b in rows}),
-        "eth_stranded": str(Decimal(wei).scaleb(-18)),
+        "eth_recorded_in_structs": str(Decimal(wei).scaleb(-18)),
+        "eth_actually_held_by_contracts":
+            "UNKNOWN" if len(known) != len(balances) else str(Decimal(sum(known)).scaleb(-18)),
+        "funds_present": bool(sum(known)) if len(known) == len(balances) else None,
         "eth_on_bounties_with_work":
             str(Decimal(sum(int(b["amount_wei"]) for b in withwork)).scaleb(-18)),
         "chains_unread": [u["chain"] for u in data["unread"]],
@@ -238,6 +291,10 @@ def _selftest() -> bool:
 
     check("a bounty with work offers acceptClaim FIRST",
           recovery_call(True)["primary"].startswith("acceptClaim"))
+    check("a DRAINED contract offers no call at all",
+          recovery_call(True, funded_on_chain=False)["primary"] is None)
+    check("and says the recorded amount is not money",
+          "not money" in recovery_call(True, funded_on_chain=False)["primary_effect"])
     check("and names what cancelling costs the claimants",
           "nothing" in recovery_call(True)["secondary_effect"])
     check("a bounty with no work offers only the refund",
@@ -253,6 +310,8 @@ def _selftest() -> bool:
     check("totals count distinct issuers", t["distinct_issuers"] == 1)
     check("unread chains are carried into the totals, not dropped",
           t["chains_unread"] == ["degen"])
+    check("totals never call a struct sum 'stranded ETH'",
+          "eth_stranded" not in t and "eth_recorded_in_structs" in t)
     return passed
 
 
@@ -291,8 +350,9 @@ def main() -> int:
           f"already submitted")
     print(f"{t['total_claims']} claims from {t['distinct_claimants']} people, across "
           f"{t['distinct_issuers']} issuers")
-    print(f"{t['eth_stranded']} ETH stranded, {t['eth_on_bounties_with_work']} of it on "
-          f"bounties where the work is done")
+    print(f"recorded in bounty structs: {t['eth_recorded_in_structs']} ETH")
+    print(f"ACTUALLY held by contracts : {t['eth_actually_held_by_contracts']} ETH"
+          + ("" if t["funds_present"] else "   <-- the records are stale bookkeeping, not money"))
     print(f"UNREAD: {', '.join(t['chains_unread']) or 'none'}")
     print(f"Wrote {path}")
     return 0

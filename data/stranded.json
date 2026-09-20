@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T23:21:41.158212+00:00",
+  "generated_at": "2026-09-20T23:28:29.175488+00:00",
   "note": "Funded, open bounties on poidh's pre-v3 contracts, which poidh's own app does not read. Upstream: poidh-app issue #1459. Per-wallet detail is for lookup by the wallet's owner, not for public listing.",
   "totals": {
     "stranded_bounties": 225,
@@ -7,7 +7,9 @@
     "total_claims": 542,
     "distinct_claimants": 323,
     "distinct_issuers": 100,
-    "eth_stranded": "0.606612841471201010",
+    "eth_recorded_in_structs": "0.606612841471201010",
+    "eth_actually_held_by_contracts": "0E-18",
+    "funds_present": false,
     "eth_on_bounties_with_work": "0.544829960410101000",
     "chains_unread": [
       "degen"
@@ -43,10 +45,10 @@
             "0x593b0c00078a741eb440c7b9dde999bdd40aa1f9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -66,10 +68,10 @@
             "0xfcc6c730bd73b9104d2ef3eb85b7f47bfd2aeb4b"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -86,10 +88,10 @@
             "0xaf4eea865efcfc2843a53cf78d3b78e26e761922"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -104,8 +106,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -122,8 +124,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -143,10 +145,10 @@
             "0x78a263807270dfc1b8269a63560b1a7cac81d90f"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -163,10 +165,10 @@
             "0x54ad158eec82476d2f957924d714ec7abfc3aa47"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -181,8 +183,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -213,10 +215,10 @@
             "0x9e24602a0dd40fc265ec2dffa200ce1d7a8f427e"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -239,10 +241,10 @@
             "0xf71963af306edd2caee722aac5c93c79acd71826"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -259,10 +261,10 @@
             "0x356d8dac5f0da039dcc3e22c8b42fde00e79f7e6"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -284,10 +286,10 @@
             "0x36f1dc06cf03ac88f62dd39534746e3233fdcfbc"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -302,8 +304,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -320,8 +322,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -340,10 +342,10 @@
             "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -360,10 +362,10 @@
             "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -380,10 +382,10 @@
             "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -410,10 +412,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -431,10 +433,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -453,10 +455,10 @@
             "0xb9ecfeeaf03012b3db05f7880f90aef6573327ba"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -475,10 +477,10 @@
             "0x023875c1c757953aa2ff410da001e79f2edb730d"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -497,10 +499,10 @@
             "0xfb51adffb72bdfb9bd9b6e35090ec799b0728dd6"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -517,10 +519,10 @@
             "0xfe3bee940f57e2ad63bc76438957d46954e2df09"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -535,8 +537,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -556,10 +558,10 @@
             "0xdf1f7c1e1814a2b27cc1f8b2b8e6fc4f73e89d72"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -574,8 +576,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -592,8 +594,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -610,8 +612,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -628,8 +630,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -646,8 +648,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -664,8 +666,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -684,10 +686,10 @@
             "0x2d8b0abd7980c5c9d0cb5a008a3af690c1586509"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -702,8 +704,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -722,10 +724,10 @@
             "0x75a0e3088dadb2005a251d280a0dcabb4de1eb5a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -740,8 +742,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -758,8 +760,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -776,8 +778,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -794,8 +796,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -812,8 +814,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -833,10 +835,10 @@
             "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -853,10 +855,10 @@
             "0x75a0e3088dadb2005a251d280a0dcabb4de1eb5a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -874,10 +876,10 @@
             "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -892,8 +894,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -912,10 +914,10 @@
             "0xd38f5b23f7adbed7ec2da8fb931c5a11675be844"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -930,8 +932,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -948,8 +950,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -966,8 +968,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -984,8 +986,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1002,8 +1004,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1022,10 +1024,10 @@
             "0xfe53312b2c234176622a908736ee1377de1d7f33"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1042,10 +1044,10 @@
             "0x7c0f66ae50b611ad06865a8b5e44b7bf33a47887"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1060,8 +1062,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1078,8 +1080,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1096,8 +1098,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1116,10 +1118,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1134,8 +1136,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1154,10 +1156,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1172,8 +1174,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1190,8 +1192,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1208,8 +1210,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1226,8 +1228,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1247,10 +1249,10 @@
             "0x023875c1c757953aa2ff410da001e79f2edb730d"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1265,8 +1267,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1283,8 +1285,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1301,8 +1303,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1322,10 +1324,10 @@
             "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1340,8 +1342,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1358,8 +1360,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1376,8 +1378,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1396,10 +1398,10 @@
             "0x023875c1c757953aa2ff410da001e79f2edb730d"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1414,8 +1416,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1432,8 +1434,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1454,10 +1456,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1474,10 +1476,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1494,10 +1496,10 @@
             "0x023875c1c757953aa2ff410da001e79f2edb730d"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1516,10 +1518,10 @@
             "0x023875c1c757953aa2ff410da001e79f2edb730d"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1537,10 +1539,10 @@
             "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1557,10 +1559,10 @@
             "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1577,10 +1579,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1597,10 +1599,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1615,8 +1617,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1633,8 +1635,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1651,8 +1653,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1669,8 +1671,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1687,8 +1689,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1709,10 +1711,10 @@
             "0x07bd76c8f0a6d3c5b54780f30ebd5a612527b278"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1727,8 +1729,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1745,8 +1747,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1766,10 +1768,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1784,8 +1786,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1802,8 +1804,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1820,8 +1822,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1838,8 +1840,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1858,10 +1860,10 @@
             "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1880,10 +1882,10 @@
             "0xd17ac8f0bef00bf57c3d3cf6c0f5b03f7bd2f691"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1901,10 +1903,10 @@
             "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1919,8 +1921,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -1940,10 +1942,10 @@
             "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -1964,10 +1966,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2011,10 +2013,10 @@
             "0x0695c002309d89cc8d53978d73ae1cd9b051cbdb"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2029,8 +2031,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2047,8 +2049,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2065,8 +2067,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2086,10 +2088,10 @@
             "0xf19d81bbfef338a4f8e8eafe1f1e5e0369c110a1"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2129,10 +2131,10 @@
             "0x47e37b2a03e2e09df1c12d0bf5bc0774b258c148"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2147,8 +2149,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2170,10 +2172,10 @@
             "0x8f69c8eb92ed068aa577ce1847d568b39b0d9ebf"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2191,10 +2193,10 @@
             "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2209,8 +2211,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2229,10 +2231,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2247,8 +2249,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2265,8 +2267,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2283,8 +2285,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2301,8 +2303,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2322,10 +2324,10 @@
             "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2340,8 +2342,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2362,10 +2364,10 @@
             "0x64be80bc71516ac48d8b0d9ff56de0af45c95d58"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2383,10 +2385,10 @@
             "0x6fbca91a162b0eb7a51bff173f0cdefa232df0fd"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2404,10 +2406,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2422,8 +2424,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2440,8 +2442,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2458,8 +2460,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2476,8 +2478,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2494,8 +2496,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2512,8 +2514,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2530,8 +2532,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2550,10 +2552,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2573,10 +2575,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2591,8 +2593,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2609,8 +2611,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2629,10 +2631,10 @@
             "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2649,10 +2651,10 @@
             "0x07bd76c8f0a6d3c5b54780f30ebd5a612527b278"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2667,8 +2669,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2685,8 +2687,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2715,10 +2717,10 @@
             "0x7234fbd4050fd93abf73d3c3c7ea4382d50632c0"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2743,10 +2745,10 @@
             "0x8c4fd873f04a366c5be844ae9a4ade94d8de2160"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2761,8 +2763,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2779,8 +2781,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2797,8 +2799,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2815,8 +2817,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2846,10 +2848,10 @@
             "0x0199a080786b40bac724b3b2d7c24b0e853c1eec"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2864,8 +2866,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2888,10 +2890,10 @@
             "0xeff448416a9b4025ad210ffe475028606dd95ae8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -2906,8 +2908,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2924,8 +2926,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2942,8 +2944,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2960,8 +2962,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2978,8 +2980,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -2996,8 +2998,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3014,8 +3016,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3034,10 +3036,10 @@
             "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3056,10 +3058,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3074,8 +3076,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3094,10 +3096,10 @@
             "0x553dac4270884395762952698e293afc763154ad"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3112,8 +3114,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3132,10 +3134,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3150,8 +3152,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3170,10 +3172,10 @@
             "0x772365f6d31fb72053558ebf7ffddbcd63d0072b"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3191,10 +3193,10 @@
             "0xe86aeafcf7377732be592ec7403b3791f15cec60"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3214,10 +3216,10 @@
             "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3232,8 +3234,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3250,8 +3252,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3268,8 +3270,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3286,8 +3288,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3304,8 +3306,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3322,8 +3324,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3340,8 +3342,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3358,8 +3360,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3376,8 +3378,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3394,8 +3396,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3412,8 +3414,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3432,10 +3434,10 @@
             "0x4356fea5ad657cd3708fb0232f55254dc11580ee"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3520,10 +3522,10 @@
             "0x4c70ab67fd3f8f3d3c7220da2d903892418f560e"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3545,10 +3547,10 @@
             "0x7c4c482fa99f68d6f0f9f339e0e3b146f50941e9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3565,10 +3567,10 @@
             "0x7c4c482fa99f68d6f0f9f339e0e3b146f50941e9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3588,10 +3590,10 @@
             "0xeb797bd169a4d9c9dae5fac7e32b4b23450e937c"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3606,8 +3608,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3626,10 +3628,10 @@
             "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3711,10 +3713,10 @@
             "0x9b3698caec622978dbac99a36e883d4fd452c297"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3753,10 +3755,10 @@
             "0xa75911d73baec1b75586d6ecc7972547450246d2"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3771,8 +3773,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3789,8 +3791,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -3813,10 +3815,10 @@
             "0x266676e44091391a01590ca16265e611d5efa31e"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3833,10 +3835,10 @@
             "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3854,10 +3856,10 @@
             "0xd47e69c1936e8cb56b09fd5b3cd5cc34ef895004"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3874,10 +3876,10 @@
             "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3894,10 +3896,10 @@
             "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3914,10 +3916,10 @@
             "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3934,10 +3936,10 @@
             "0x74be13619fccc6391da10f3996e67504fb47b961"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -3980,10 +3982,10 @@
             "0x9bc2a1b69172f4e4f35baa2893444963f8501bef"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4000,10 +4002,10 @@
             "0x9bc2a1b69172f4e4f35baa2893444963f8501bef"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4039,10 +4041,10 @@
             "0x5b38bf5151fa56291ddc910c712aacd54ec65460"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4067,10 +4069,10 @@
             "0xf927434ba575091b7cc8c6767e417b99b5c91dd0"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4085,8 +4087,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4103,8 +4105,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4124,10 +4126,10 @@
             "0x8dbab1f53609b3f40241557ad0bf3d76275db485"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4150,10 +4152,10 @@
             "0x2809892c26403b41e43f4fc37398b04ee230aace"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4170,10 +4172,10 @@
             "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4191,10 +4193,10 @@
             "0x342567eb63df601f55af5e287941f55d0a165d56"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4211,10 +4213,10 @@
             "0x49a2b63216cb9a57c2425a6702166a90a18ba293"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4229,13 +4231,17 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
         }
-      ]
+      ],
+      "contract_balance_wei": "0",
+      "contract_balance_eth": "0E-18",
+      "recorded_eth": "0.581754831471201010",
+      "funds_actually_present": false
     },
     {
       "chain": "arbitrum",
@@ -4259,10 +4265,10 @@
             "0x78a263807270dfc1b8269a63560b1a7cac81d90f"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4279,10 +4285,10 @@
             "0x41cb654d1f47913acab158a8199191d160dabe4a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4301,10 +4307,10 @@
             "0x3bf8d5961878f76af5f103b7cbbd7993a344eb50"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4324,10 +4330,10 @@
             "0x676607378094b78efda18ee59b3c3c2e72019706"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4342,8 +4348,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4360,8 +4366,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4380,10 +4386,10 @@
             "0x9f80825a2a234cf3c7484b6042e572f707dcb05a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4400,10 +4406,10 @@
             "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4422,10 +4428,10 @@
             "0x676607378094b78efda18ee59b3c3c2e72019706"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4440,8 +4446,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4458,8 +4464,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4476,8 +4482,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4496,10 +4502,10 @@
             "0xc4a2ecc0faa4d812161b5c19e6145825f99b9079"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4517,10 +4523,10 @@
             "0x0e467a0288a439ba2678eb7d3b0b64b01e2bbbfc"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4543,10 +4549,10 @@
             "0xea2d7f4a83f6024fea16c0bf03b60071a99a640c"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4561,8 +4567,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4579,8 +4585,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4602,10 +4608,10 @@
             "0x342567eb63df601f55af5e287941f55d0a165d56"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4622,10 +4628,10 @@
             "0x772365f6d31fb72053558ebf7ffddbcd63d0072b"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4640,8 +4646,8 @@
           "claim_count": 0,
           "claimants": [],
           "recovery": {
-            "primary": "cancelOpenBounty(bountyId)",
-            "primary_effect": "refunds you; nobody has entered this one",
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
             "secondary": null,
             "secondary_effect": null
           }
@@ -4662,10 +4668,10 @@
             "0x45fec9406476efb3e3e75dff3d95f8384fa2740c"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4682,10 +4688,10 @@
             "0x77d98d0916252925f90daaef65ed92394fa2f56a"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4713,10 +4719,10 @@
             "0x8f2d6752254fb6d25431b21469aa413a2362954e"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         },
         {
@@ -4736,13 +4742,17 @@
             "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2"
           ],
           "recovery": {
-            "primary": "acceptClaim(bountyId, claimId)",
-            "primary_effect": "pays the person who did the work",
-            "secondary": "cancelOpenBounty(bountyId)",
-            "secondary_effect": "refunds you and leaves every claimant with nothing"
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
           }
         }
-      ]
+      ],
+      "contract_balance_wei": "0",
+      "contract_balance_eth": "0E-18",
+      "recorded_eth": "0.024858010000000000",
+      "funds_actually_present": false
     }
   ]
 }
