@@ -5,7 +5,7 @@ Measured 2026-09-20. Every line is a thing someone does, with how to check it is
 **Where it is:** the Kenny bundle is SENT. The round is drafted, validated and not cast.
 `precast-check --round 8 --prize 0.0019` blocks on exactly one item.
 
-## The number, and who to thank
+## The number, and the album we post into
 
 **R8 is the 20th bounty in the `wethemmedia` album on poidh, and only BCZ's 5th.**
 
@@ -13,7 +13,15 @@ Measured from `bounties.fetchByAlbum`, album `wethemmedia`, all three statuses, 
 19 distinct bounties exist in it. Four are ours - 1151, 1166, 1180, 1330. R4 (1249) was
 canceled and is not in the album, which is why our count reads 4 rather than 5.
 
-**The other 15 are We Them Media's own**, and they are real media work, not test posts:
+**The other 15 are We Them Media's own.** We post into their album because we are another
+place making bounties in line with what they are building - support, not tutelage. An earlier
+draft of the description said we "learned how this works by watching them" and that poidhz
+"exists because they showed us what poidh was for". Zaal corrected it on 2026-09-20: *"we are
+just supporting we them media as another place that makes bounties aligned with we them media
+vision and goals."* Fixed before casting, which is the only time it could be fixed - a poidh
+description is immutable once it is on chain.
+
+Their 15:
 
 ```
 229  Is the Internet Spreading Truth or Misinformation?
