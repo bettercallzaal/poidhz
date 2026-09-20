@@ -35,7 +35,14 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-GATE_RE = re.compile(r"<!--\s*SEND-GATE:\s*round=(\d+)\s*-->", re.I)
+# The marker must be ALONE ON ITS LINE. Until 2026-09-20 this matched the marker anywhere,
+# including inside a sentence, so a draft that merely EXPLAINED the mechanism gated itself:
+# docs/outreach/kenny-poidhz-bundle.md says in prose that it deliberately carries no gate,
+# quotes the marker while saying so, and was reported BLOCKED - on the one file Zaal had
+# explicitly released. A gate that fires on a file nobody gated is an inverted alarm: it
+# reports held work that is free to go, and the fix for being wrong in that direction is not
+# to reword the prose but to stop the reader mistaking a quotation for an instruction.
+GATE_RE = re.compile(r"(?m)^[ \t]*<!--\s*SEND-GATE:\s*round=(\d+)\s*-->[ \t]*$", re.I)
 
 
 def gate_of(path: Path) -> int | None:
@@ -133,6 +140,14 @@ def _selftest() -> bool:
         check("returns None when no gate is declared", gate_of(f) is None)
         f.write_text("# note\n<!-- send-gate: ROUND=12 -->\n")
         check("gate marker is case-insensitive", gate_of(f) == 12)
+        f.write_text("# note\n  <!-- SEND-GATE: round=7 -->  \n")
+        check("indented marker on its own line still counts", gate_of(f) == 7)
+        # The real file this came from: a draft that says it carries no gate, and quotes
+        # the marker while saying so. It gated itself.
+        f.write_text("# note\nEvery other draft carries `<!-- SEND-GATE: round=5 -->`, "
+                     "which holds it until R5 closes. This one does not.\n")
+        check("a marker quoted inside a sentence does NOT gate the file",
+              gate_of(f) is None)
 
     check("R5's real ledger currently has broken promises",
           (round_state(5) or ([], ""))[0] != [])
