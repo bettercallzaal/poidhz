@@ -61,13 +61,21 @@ proposed. Entrants may request changes to poidhz.com as part of their pitch.
 - [ ] **Fund the issuer wallet.** Short 0.010763 ETH / $26.79 as of 2026-09-08; re-measure.
 - [ ] **Confirm the $5 in ETH.** `0.0019 ETH` in the description is ~$5.00 at $2,633.31,
       which is the ETH price the dashboard read on 2026-09-20. Re-price at cast time.
+- [ ] **R8 CASTS AFTER KENNY REPLIES, not just after the message is sent.** Zaal,
+      2026-09-20, asked directly whether the round waits on him: **"after"**. So a sent
+      message is not the gate clearing - his reply is. If he goes quiet for more than a
+      few days that is a decision for Zaal to make, not a timeout this repo should assume.
 - [ ] **Send the bundle to Kenny first.** Zaal: "yes we usually send our bounties to him
       always gives us good feedback we can send anything to him before we post", and on
       what to send, **"Everything at once, including the poidhz post"**. Draft at
       `docs/outreach/kenny-poidhz-bundle.md`, unsent.
-- [ ] **Set the real deadline.** The description carries Sunday October 4, 2026, 11:59pm PT,
-      with the vote result by Tuesday October 6. Both are proposals and assume a cast on or
-      before 2026-09-22.
+- [ ] **Set the real deadline, and note that waiting on Kenny may already have broken it.**
+      The description carries Sunday October 4, 2026, 11:59pm PT with the vote result by
+      Tuesday October 6. Both assume a cast on or before 2026-09-22. Now that the round
+      waits on Kenny's reply rather than on the message going out, that assumption is no
+      longer safe: **re-read both dates at cast time and move them if the cast slips past
+      2026-09-22**, or the round ships with a window shorter than the two weeks it was
+      designed for. A deadline written before an unknown wait is the classic stale number.
 - [ ] `python3 scripts/precast-check.py --round 8 --prize 0.0019`
 
 ## Status
