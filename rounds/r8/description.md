@@ -23,6 +23,8 @@ WHY THIS ROUND EXISTS
 
 Because asking you how to announce it is more honest than us guessing, and because the round itself is the demonstration. If this works, the thing that announced poidhz was made by someone outside The ZAO, paid for by a pot the community topped up, and settled on chain in public. Read how the last five rounds went, winners and unkept promises included, at https://poidhz.com/about
 
+This is the 20th bounty in the We Them Media album on poidh, and only our 5th. The other 15 are theirs: street interviews, an open reporter audition, a cultural scout bounty, testimony from Lights Out Nigeria, a jingle bounty, a pizza day. We Them Media were running bounties as real media work before we posted one, we have filed every round we have ever cast in their album since R1, and we learned how this works by watching them do it. poidhz exists because they showed us what poidh was for.
+
 
 THE BAR (these are requirements, not preferences)
 
