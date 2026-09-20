@@ -1,0 +1,91 @@
+name: PR checks
+
+# WHY THIS EXISTS, 2026-09-20.
+#
+# Until today no workflow in this repo triggered on a pull request. Both existing workflows
+# are cron plus workflow_dispatch, so the only check run on a PR commit was "Vercel Preview
+# Comments" - the bot that posts the preview link. It reports success for posting a comment.
+#
+# So every PR merged in this repo had a green tick that verified NOTHING, and the PR bodies
+# saying "14 of 14 selftests pass" rested entirely on someone's local run. A peer lane caught
+# it on PR #152, which changes scripts/send-gate.py - the gate logic itself.
+#
+# That is the same defect this repo keeps finding in its own data: a signal that looks like
+# verification and is not. A green tick nobody earned is worse than no tick, because people
+# stop looking.
+#
+# What runs here is deliberately only what must ALWAYS pass on main, offline, with no
+# secrets. Checks that legitimately exit non-zero on a healthy repo are NOT here, because a
+# job that is red for a real and known reason trains everyone to ignore red:
+#   - postclose-check.py --all exits 1 while any round owes a promise, which is the point
+#     of it. It runs on the 6h cron with continue-on-error instead.
+#   - recheck-dates.py exits 1 once a dated claim passes its date. Same reason.
+#   - precast-check.py needs network and an unfunded wallet blocks it by design.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Every script selftest
+        # Offline by construction - a --selftest that needed the network would be a bug.
+        # The guard matters: if the glob ever matches nothing this must fail rather than
+        # report "0 pass, 0 fail" and exit 0, which is a check that cannot fail.
+        run: |
+          set -o pipefail
+          found=0; pass=0; fail=0
+          for s in scripts/*.py; do
+            grep -q -- '--selftest' "$s" || continue
+            found=$((found+1))
+            if python3 "$s" --selftest > /tmp/out.txt 2>&1; then
+              pass=$((pass+1)); echo "ok   $s"
+            else
+              fail=$((fail+1)); echo "FAIL $s"; cat /tmp/out.txt
+            fi
+          done
+          echo "---"
+          echo "$found scripts carry --selftest: $pass passed, $fail failed"
+          if [ "$found" -lt 10 ]; then
+            echo "Refusing: only $found scripts matched. The glob is wrong or the tree is empty."
+            exit 1
+          fi
+          [ "$fail" -eq 0 ]
+
+      - name: The public site says nothing that stopped being true
+        # No invitation to a closed round, no liveness claim while none is open, no dead
+        # internal link or image, and no unsent draft left servable. Reads local files only.
+        run: python3 scripts/check-site-claims.py
+
+      - name: Config and data files still parse
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          bad = []
+          for p in sorted(Path("data").glob("*.json")) + [Path("org.config.json"), Path("vercel.json")]:
+              if not p.exists():
+                  bad.append(f"{p}: missing"); continue
+              try:
+                  json.loads(p.read_text())
+              except Exception as e:
+                  bad.append(f"{p}: {e}")
+          if not list(Path("data").glob("*.json")):
+              print("Refusing: data/ has no json at all, so this check proved nothing.")
+              sys.exit(1)
+          for b in bad:
+              print("FAIL " + b)
+          sys.exit(1 if bad else 0)
+          PY

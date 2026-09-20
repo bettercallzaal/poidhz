@@ -54,6 +54,12 @@
   ],
   "planned_rounds": [
     {
+      "round": 8,
+      "title": "R8 - Tell us how to announce poidhz",
+      "folder": "rounds/r8",
+      "note": "numbered 8, intended to cast FIRST; R6 and R7 keep their numbers"
+    },
+    {
       "round": 6,
       "title": "R6 - Recap my NYC trip in 60 seconds",
       "folder": "rounds/r6"
