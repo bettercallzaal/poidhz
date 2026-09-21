@@ -1,7 +1,15 @@
 # Bounty one - the 24 hours
 
-**Nothing sent.** Copy is below, ready to paste. Cast first, then work down this page in
-order; every block wants the live bounty URL in it.
+**CAST 2026-09-20. Live at https://poidh.xyz/base/bounty/1409** (onchain #423, chain 8453,
+album `wethemmedia`, OPEN, 0 claims as of 23:2x). Nothing has been SENT yet - the copy below
+is ready to paste and already carries the URL.
+
+**NO COPY HERE NAMES A DOLLAR FIGURE, AND THAT IS DELIBERATE.** It said "$25, 24 hours" in
+four outbound blocks until 2026-09-20 23:2x. The bounty actually cast at **0.004 ETH, about
+$9.84** - the wallet was funded for less than the plan assumed - so every one of those blocks
+would have promised two and a half times the real pot to people we were asking to work for
+it. Same rule as the description, for the same reason: the pot is live, it grows, and a
+figure in a post is a figure that goes stale. Point at the page.
 
 ## Why distribution is the whole job here
 
@@ -49,7 +57,7 @@ nobody sees. Farcaster /poidh first - it is the room where poidh bounties are ex
 
 **2. Reply-cast to past submitters, individually, in the same session.** 36 people, minus
 femmie. Not a mass tag in one cast - an actual reply or DM that says "you entered R5, this
-one is 24 hours and pays $25". This is the highest-leverage hour of the whole day and it is
+one is 24 hours and closes at 4pm". This is the highest-leverage hour of the whole day and it is
 the thing we have never done.
 
 **3. Maine, and this is the one that matters for the festival.** The entrants who can
@@ -60,7 +68,7 @@ placement, posted only to crypto Twitter, will get crypto Twitter answers.
 **4. X, same copy, shorter.** Lowest expected yield of the four, included because it costs
 one paste.
 
-**5. Mid-window top-up, tomorrow morning.** Add $5-10 to the pot in public and post *that*.
+**5. Mid-window top-up, tomorrow morning.** Add to the pot in public and post *that*.
 "The pot just went up, six hours left" is a second reason to post about the same bounty, and
 it is the mechanic poidhz exists to demonstrate rather than describe.
 
@@ -72,7 +80,7 @@ picked live at 5" with the link.
 ### Farcaster, /poidh channel
 
 ```
-$25, 24 hours, one job: make something that gets a stranger to ZAOstock.
+24 hours, one job: make something that gets a stranger to ZAOstock.
 
 ZAOstock is a free music festival on Franklin Street in Ellsworth, Maine on October 3. Eight
 acts, noon to six, outdoors, free. Thirteen days out and the only thing it needs is for
@@ -91,7 +99,7 @@ https://discord.thezao.com
 ### Reply to a past submitter
 
 ```
-You entered <ROUND> - this one is 24 hours and pays $25.
+You entered <ROUND> - this one is 24 hours and closes 4pm Eastern.
 
 Make something that gets someone to ZAOstock, the free festival in Ellsworth Maine on Oct 3.
 Any format, brand kit is open: zaostock.com/brand
@@ -105,7 +113,7 @@ Closes 4pm Eastern Monday, picked live on stream at 5. <BOUNTY-URL>
 Free outdoor music on Franklin Street, Ellsworth - Saturday October 3, noon to six. Eight
 independent acts, all ages, rain or shine, no ticket.
 
-We are paying $25 for the best thing anyone makes to help spread the word - a poster, a clip,
+We are paying the best thing anyone makes to help spread the word - a poster, a clip,
 or a flyer you put up somewhere local. Closes Monday 4pm. Everything you need, free to use:
 zaostock.com/brand
 
@@ -115,7 +123,7 @@ Details: zaostock.com
 ### X, short
 
 ```
-$25, 24 hours. Make something that gets a stranger to ZAOstock - free festival, Ellsworth
+24 hours. Make something that gets a stranger to ZAOstock - free festival, Ellsworth
 Maine, Oct 3. Any format. Kit is open: zaostock.com/brand
 
 Closes 4pm ET Monday, picked live at 5. <BOUNTY-URL>
@@ -142,4 +150,4 @@ remaining eleven days are run:
 - **did anyone top the pot up** without being asked.
 
 If the answer is that channel posts do nothing and direct replies do everything, that is the
-most useful thing this whole run can teach us, and it is worth more than the $25.
+most useful thing this whole run can teach us, and it is worth more than the pot.
