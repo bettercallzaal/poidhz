@@ -116,27 +116,42 @@ def render(row: dict, template: str, eth_price: Decimal, slot: str = "a") -> str
             .replace("{{CLOSE_DATE}}", f"{close.strftime('%B')} {close.day}, {close.year}"))
 
 
-# THE SHAPE EVERY DAY OF THE RUN HAS ALREADY PROMISED, IN TEXT THAT CANNOT BE EDITED.
+# THE SHAPE EVERY DAY OF THE RUN PROMISES, AND WHY IT IS NO LONGER DAY ONE'S.
 #
 # Bounty one (poidh 1409, cast 2026-09-20) says in its immutable description: "This is day one
 # of thirteen, one bounty a day until ZAOstock itself. Same shape every day: opens, closes at
-# 4pm Eastern, decided live at 5pm." That sentence is now a public commitment for days 2-13.
+# 4pm Eastern, decided live at 5pm."
 #
-# The template it was generated from still said "Submissions close 11:59pm PT" and "Winner by
-# contributor vote the following day" - a different deadline, a different time zone, and a vote
-# length that is wrong on its face: poidh's open-bounty vote runs TWO days (read from the Base
-# contract by the Zorca lane on 2026-09-21, and in our own runbook since R1). Day 2 would have
-# cast contradicting day 1, and both would have been permanent.
+# ZAAL CHANGED THAT SHAPE ON 2026-09-21, late afternoon between 16:40 and 16:52 EDT, recorded
+# in zao-vault decisions/grill-2026-09-21-seat-evening.md. His words: bounty two goes up
+# "Today", closes "5 pm tmmr", and "ill be streaming the picking the winner so people can come
+# advocate for themselves on twitch around 5 pm est".
 #
-# So every rendered day must carry these, or the generator refuses to write it.
+# So from bounty two the close is 5pm Eastern and the pick is named around 5pm on Twitch - AT
+# the close, not an hour after it. That collision was raised with him explicitly (a pick at the
+# moment entries stop is what moved bounty one to 4pm) and he ruled it deliberate: the stream is
+# where entrants argue their own case live.
+#
+# THIS GUARD NOW ENFORCES THE NEW SHAPE, NOT THE OLD ONE, AND THAT IS THE POINT OF WRITING THE
+# RULING HERE. Bounty one's text still says 4pm and cannot be edited, so days one and two
+# genuinely differ. The rule is that a day must match what is CURRENTLY promised, and that the
+# change is stated out loud rather than left for a reader to find.
+#
+# "around 5" is deliberate in the copy too: Zaal said "around 5 pm est", so no generated day
+# promises a minute-exact pick time.
 RUN_SHAPE = {
-    "Submissions close 4:00pm Eastern": "the 4pm Eastern close day one committed to",
-    "live on stream at 5": "the 5pm live pick day one committed to",
+    "Submissions close 5:00pm Eastern": "the 5pm Eastern close Zaal ruled on 2026-09-21",
+    "Twitch": "where the pick is named, per the same ruling",
     "two days to vote": "the real length of poidh's open-bounty vote",
 }
 RUN_SHAPE_FORBIDDEN = {
     "11:59pm PT": "the pre-run deadline, in the wrong time zone",
     "the following day": "a one-day vote, which poidh does not run",
+    # Both phrasings, because the template writes the close two ways: a prose line ("closes
+    # at 4pm Eastern") and the DEADLINE block ("Submissions close 4:00pm Eastern"). Banning
+    # only one let day one's shape through the test that was meant to catch it.
+    "closes at 4pm Eastern": "bounty one's close, which the 2026-09-21 ruling replaced",
+    "close 4:00pm Eastern": "bounty one's close in the DEADLINE block, same ruling",
 }
 
 
@@ -212,11 +227,17 @@ def _selftest() -> bool:
     check("the OLD template's deadline is refused",
           any("11:59pm PT" in p for p in probs))
     check("a one-day vote is refused", any("the following day" in p for p in probs))
-    check("a missing 4pm close is reported", any("4pm Eastern close" in p for p in probs))
-    good = ("Zaal names his pick live on stream at 5pm Eastern. Everyone who added to the pot "
-            "then has two days to vote on the pick.\n"
-            "Submissions close 4:00pm Eastern, Monday September 21, 2026.\n")
-    check("a day carrying the promised shape passes", check_run_shape(good) == [])
+    check("a missing 5pm close is reported", any("5pm Eastern close" in p for p in probs))
+    # Day one's own shape is now the WRONG shape for days 2-13, per the 2026-09-21 ruling.
+    day_one = ("Submissions close 4:00pm Eastern, Monday September 21, 2026.\n"
+               "Pick named live on stream at 5:00pm Eastern. Everyone who added to the pot then "
+               "has two days to vote.\n")
+    check("bounty ONE's 4pm shape is refused for a later day",
+          any("bounty one's close" in p for p in check_run_shape(day_one)))
+    good = ("Zaal names his pick live on Twitch around 5pm Eastern. Everyone who added to the "
+            "pot then has two days to vote on the pick.\n"
+            "Submissions close 5:00pm Eastern, Tuesday September 22, 2026.\n")
+    check("a day carrying the NEW promised shape passes", check_run_shape(good) == [])
     return passed
 
 

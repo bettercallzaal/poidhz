@@ -20,7 +20,7 @@ whose pot genuinely cannot move.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
-{{DAYS_OUT}} days out, and this closes at 4pm Eastern {{CLOSE_DAY}}, so make something today.
+{{DAYS_OUT}} days out, and this closes at 5pm Eastern {{CLOSE_DAY}}, so make something today.
 
 
 WHY THIS ROUND EXISTS
@@ -85,20 +85,22 @@ This bounty promises the pot and nothing else. We might run the best entries on 
 
 HOW THE WINNER IS PICKED
 
-Zaal names his pick live on stream at 5pm Eastern, the same day it closes, with the entries on screen.
+Zaal names his pick live on Twitch around 5pm Eastern, right as it closes, with the entries on screen.
+
+COME AND ARGUE FOR YOUR OWN ENTRY. That is why the pick happens live at the close rather than quietly afterwards: if you entered, you can make your case out loud while he is looking at it.
 
 This is an OPEN bounty, so it does not stop there. Everyone who added to the pot then has two days to vote on the pick before it pays out. The people who paid for it get a say.
 
-Discord is where it happens and where you can argue for your own entry: https://discord.thezao.com
+Discord: https://discord.thezao.com
 
-One bounty a day until ZAOstock itself. Same shape every day: opens, closes at 4pm Eastern, pick named live at 5pm, confirmed by the people who funded it.
+One bounty a day until ZAOstock itself. Same shape every day: opens, closes at 5pm Eastern, pick named live on Twitch around then, confirmed by the people who funded it.
 
 
 DEADLINE
 
-Submissions close 4:00pm Eastern, {{CLOSE_DAY}} {{CLOSE_DATE}}.
+Submissions close 5:00pm Eastern, {{CLOSE_DAY}} {{CLOSE_DATE}}.
 
-Pick named live on stream at 5:00pm Eastern the same day.
+Pick named live on Twitch around 5pm Eastern, right as it closes.
 
 ZAOstock is Saturday October 3. Promo that lands after it is worth nothing, which is why these close fast.
 
