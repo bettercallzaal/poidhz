@@ -1,34 +1,53 @@
-# Daily bounty template - ZAOstock ladder
+# Daily 02 - paste-ready for POIDH Title + Description
 
-Generated per day by `scripts/build-daily-bounty.py`. Do not paste this file; paste the
-generated one. Placeholders in `{{ }}` are filled from the ladder table in `../ZAOSTOCK-12.md`.
+**Title field:** `Make one piece of media for ZAOstock`
 
-**Type: OPEN.** Contributor vote. **Promises the pot and nothing else** - see the rule in
-`../README.md`. No publication commitment goes in a daily bounty, ever.
+**Type: OPEN.** The pot must be able to grow, and contributors get the confirming vote.
 
-**THE 5PM CLOSE IS RULED FOR BOUNTY TWO AND IS ONLY THE DEFAULT FOR DAYS 3-13.** Zaal ruled
-the time on 2026-09-21 for bounty two specifically (`zao-vault
-decisions/grill-2026-09-21-seat-evening.md`); he has said nothing about days three onward.
-Every file in `../generated/` is a RENDERING, not a commitment: nothing casts from it, each day
-is cast by hand from a description Zaal pastes, and `build-daily-bounty.py --all` re-renders the
-whole set in seconds when he rules a different time. Change the shape here, regenerate, and the
-guard in that script enforces whatever is current.
+**Prize:** set it in the form's REWARD field. **Never in the description** - an OPEN pot grows
+and the text is immutable, so a figure written here is wrong forever. Kenny's rule, 2026-09-20.
 
-**AND THE POT IS NEVER WRITTEN AS A NUMBER.** Kenny said so on 2026-09-20 and he is right:
-on an OPEN bounty the pot grows the moment anyone contributes, so an amount typed into the
-description is stale from the first contribution onward - and a poidh description is
-immutable, so it stays stale forever. The prize still goes in the form's **reward** field,
-where poidh renders it live. `scripts/validate-bounty-description.py` now refuses a
-description that names one; `--allow-prize-amount` is the way past it for a FIXED bounty,
-whose pot genuinely cannot move.
+**Opens:** today, Monday 21 September 2026.
+**Closes:** Tuesday 22 September 2026, **5:00pm Eastern**.
+**Pick:** named live on Twitch **around 5pm Eastern**, right as it closes.
+
+## The shape changed from day one, on purpose
+
+Bounty one closed at 4pm with the pick an hour later at 5pm, and its description - which
+cannot be edited - promised that shape for all thirteen days. **Zaal changed it on 2026-09-21,
+late afternoon between 16:40 and 16:52 EDT** (zao-vault `decisions/grill-2026-09-21-seat-evening.md`):
+
+> "ill be streaming the picking the winner so people can come advocate for themselves on
+> twitch around 5 pm est"
+
+So the pick now happens **at** the close rather than an hour after it, and that collision was
+raised with him explicitly - a decision at the moment entries stop is exactly what moved bounty
+one to 4pm. He ruled it deliberate: **the stream is where entrants argue their own case live.**
+That is why this description invites people to come and advocate, instead of hiding the change.
+
+**"Around 5pm", never a minute-exact promise** - his words were "around 5 pm est".
+
+## Before casting
+
+- **The Twitch channel URL is NOT in this description, and that is deliberate.** I could not
+  verify one: twitch.tv returns 200 for a channel that does not exist (checked with a nonsense
+  handle as a control), so an HTTP check proves nothing. If Zaal gives his channel, add it.
+  Otherwise "on Twitch" plus the Discord link is the honest version.
+- Re-price the reward in the form before casting.
+- Read the PREVIEW tab. Poidh renders markdown, and it ate three blocks of day one's text.
 
 <!-- PASTE BELOW THIS LINE -->
 
-Caption it. One line that makes the poster work
+
+Make one piece of media using the ZAOstock brand kit. That is the whole ask.
+
+A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.
+
+Same ask as yesterday, and yesterday four people entered. If you meant to and ran out of time, this is the one.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
-12 days out, and this closes at 5pm Eastern Monday, so make something today.
+11 days out, and this closes at 5pm Eastern Tuesday, so make something today.
 
 
 WHY THIS ROUND EXISTS
@@ -106,7 +125,7 @@ One bounty a day until ZAOstock itself. Same shape every day: opens, closes at 5
 
 DEADLINE
 
-Submissions close 5:00pm Eastern, Monday September 21, 2026.
+Submissions close 5:00pm Eastern, Tuesday September 22, 2026.
 
 Pick named live on Twitch around 5pm Eastern, right as it closes.
 
