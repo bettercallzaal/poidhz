@@ -99,14 +99,19 @@ def eth_for(usd: int, eth_price: Decimal) -> str:
 
 
 def render(row: dict, template: str, eth_price: Decimal, slot: str = "a") -> str:
-    """slot 'a' is the day's make, slot 'b' is the day's move. Two bounties, one day."""
+    """slot 'a' is the day's make, slot 'b' is the day's move. Two bounties, one day.
+
+    THE PRIZE IS NOT RENDERED INTO THE DESCRIPTION, DELIBERATELY. It used to be, as
+    {{PRIZE_ETH}} and {{PRIZE_USD}}. Kenny pointed out on 2026-09-20 that an OPEN bounty's
+    pot grows the moment anyone contributes, so a number typed into the description is wrong
+    from the first contribution onward - and the description is immutable, so it is wrong
+    forever. The prize still goes in the poidh form's reward field, which renders it live,
+    and `eth_for` below still computes it for that field and for the CLI summary."""
     days_out = (EVENT - row["date"]).days
     close = row["date"]
     return (template
             .replace("{{ASK}}", clean_ask(row["ask_a" if slot == "a" else "ask_b"]))
             .replace("{{DAYS_OUT}}", str(days_out))
-            .replace("{{PRIZE_ETH}}", eth_for(row["usd"], eth_price))
-            .replace("{{PRIZE_USD}}", f"{row['usd']} dollars")
             .replace("{{CLOSE_DAY}}", close.strftime("%A"))
             .replace("{{CLOSE_DATE}}", f"{close.strftime('%B')} {close.day}, {close.year}"))
 
@@ -153,8 +158,13 @@ def _selftest() -> bool:
     check("prize converts without a float divide",
           eth_for(3, Decimal("2633.31")) == "0.0011")
 
-    out = render(rows[0], "{{ASK}}|{{DAYS_OUT}}|{{CLOSE_DAY}}|{{CLOSE_DATE}}|{{PRIZE_USD}}",
+    out = render(rows[0], "{{ASK}}|{{DAYS_OUT}}|{{CLOSE_DAY}}|{{CLOSE_DATE}}",
                  Decimal("2633.31"))
+    # The prize must NOT reach the description. If someone re-adds the placeholder to the
+    # template, it survives rendering as a literal - and this is what catches that.
+    leaked = render(rows[0], "{{PRIZE_ETH}} ETH, about {{PRIZE_USD}}", Decimal("2633.31"))
+    check("the prize is NOT rendered into the description",
+          leaked == "{{PRIZE_ETH}} ETH, about {{PRIZE_USD}}")
     outb = render(rows[0], "{{ASK}}", Decimal("2633.31"), slot="b")
     check("slot b renders the day's SECOND ask", outb.strip() == "Caption it. One line")
     check("days-out is computed from the event", "|12|" in out)

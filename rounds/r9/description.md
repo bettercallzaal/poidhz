@@ -75,7 +75,7 @@ The moose mark is by attabotty. Keep the ZAOstock name visible somewhere in your
 
 THE REWARD
 
-0.0019 ETH on Base to the winner, about 5 dollars, and the pot grows in real time as others contribute. Winner takes all of it.
+Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this page says it is right now, and it grows in real time as others contribute. Read the number at the top of this page, not a number in this text.
 
 Every submitter earns $ZABAL automatically through the POIDH Submitters leaderboard on Empire Builder, and the drop scales with how many BCZ rounds you have entered in total.
 
