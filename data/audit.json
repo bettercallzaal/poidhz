@@ -3,17 +3,18 @@
     1151,
     1166,
     1180,
-    1330
+    1330,
+    1409
   ],
   "chainId": 8453,
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 36,
-  "total_claims_accepted": 33,
+  "total_claims_received": 41,
+  "total_claims_accepted": 38,
   "total_claims_rejected": 3,
-  "submitter_count": 38,
-  "total_eth_escrow": 0.0698,
+  "submitter_count": 40,
+  "total_eth_escrow": 0.0759,
   "bounties": [
     {
       "id": 1151,
@@ -66,6 +67,19 @@
       "is_voting": true,
       "is_canceled": false,
       "claims_count": 7
+    },
+    {
+      "id": 1409,
+      "chainId": 8453,
+      "title": "Make one piece of media for ZAOstock",
+      "description": "Make one piece of media using the ZAOstock brand kit. That is the whole ask.\n\nA poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.\n\nZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shin",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.0061,
+      "in_progress": true,
+      "is_voting": false,
+      "is_canceled": false,
+      "claims_count": 5
     }
   ],
   "claims": [
@@ -398,6 +412,56 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYwWx7GGgj3aHSLVYBtdqJ9oNAfaimmxh4gEMYwsRfgJh",
       "accepted": false,
       "on_chain_id": 2351
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8094,
+      "issuer": "0xd6b69e58d44e523eb58645f1b78425c96dfa648c",
+      "title": "Zaostock: the unexpected invitation ",
+      "description": "A short cinematic comedy clip where a chaotic accident leads someone straight to ZAOstock. \ud83e\udece\n\nhttps://farcaster.xyz/uniquebeing404/0xa79af442",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmeZwXrtNfgjB9TjmaH8c89VzPfvyjuKJasCNzmfsays3L",
+      "accepted": false,
+      "on_chain_id": 2778
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8093,
+      "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+      "title": "I made a design story ",
+      "description": "https://x.com/pascaline7933/status/2102124405312606343\n\nInitially wanted to turn this into a video but I was already short on time so I made this. ",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmdUZhEFEgPP6ECzPSXJn985LNwHTmzqdUYm68FfayRtVn",
+      "accepted": false,
+      "on_chain_id": 2777
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8092,
+      "issuer": "0x96e9025466a3e15dc2c3b28c1c6c71523a93f703",
+      "title": "ZAOSTOCK BANNER",
+      "description": "https://x.com/dee13____/status/2102117835065467063?s=46\n\n\nHad to submit all versions because i didn\u2019t know which one to use lol ",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmQqg7G5Ffpjx4xVAEFigt7exDfrdn1at6j3bzosqDnYZF",
+      "accepted": false,
+      "on_chain_id": 2776
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8091,
+      "issuer": "0x3fa92c59e7add64a3bf1fb5bbbf32ee0758142bb",
+      "title": "ZAOstock Oct 3 flyer, Franklin St Parklet, Ellsworth",
+      "description": "Story (1080\u00d71920) + square (1080\u00d71080) built only from the ZAOstock brand kit: primary moose by attabotty, cracked-cement texture by Candy (CandyToyBox), Paper/Ink/Red/Gold tokens, Oswald + Space Mono.\n\nSat Oct 3, Franklin Street Parklet, Ellsworth, Maine. Noon\u20136, free, all ages. All 8 acts in playing order. After-party at Black Moon next door.\n\nLive post: https://x.com/safwaan_uddin/status/2102077428260802818?s=20",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZBHLrbfT11igieUSvvbegZyTEEpqFH3W5ZXdov59UCb4",
+      "accepted": false,
+      "on_chain_id": 2775
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8086,
+      "issuer": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19",
+      "title": "https://farcaster.xyz/leoxcrane/0xccd03ab2",
+      "description": "One piece of media for ZAOstock: a poster built entirely from the CC-BY brand kit.\n\nLive post to see if it would bring an audience there from farcaster: \n\n",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
+      "accepted": false,
+      "on_chain_id": 2770
     }
   ],
   "rejected_claims": [
