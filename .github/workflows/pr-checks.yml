@@ -96,6 +96,22 @@ jobs:
           fi
           [ "$fail" -eq 0 ]
 
+      - name: No description carries a line break the renderer will eat
+        # Poidh renders MARKDOWN. Every file here said it rendered plain text until Zaal read
+        # the preview tab on 2026-09-20 and found three blocks mangled - the "this is
+        # optional" line absorbed into the requirements list, the rubric's group labels eaten
+        # by the bullet above them, and the five asset-kit links flattened onto one line.
+        # The description is immutable once cast, so the preview is the only moment to catch
+        # it, and that depends on a human reading carefully at the moment they most want to
+        # press the button.
+        run: |
+          python3 scripts/check-render-safe.py --all
+          for g in rounds/daily/generated/*.md; do
+            python3 scripts/check-render-safe.py "$g" > /dev/null || {
+              echo "FAIL $g"; python3 scripts/check-render-safe.py "$g"; exit 1; }
+          done
+          echo "generated day files: $(ls rounds/daily/generated/*.md | wc -l) checked"
+
       - name: Config and data files still parse
         run: |
           python3 - <<'PY'

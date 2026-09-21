@@ -1,7 +1,25 @@
 # Daily 01 - the first one (paste-ready for POIDH Title + Description)
 
-Strip this header before pasting. Poidh renders plain text, so keep the line breaks exactly
-as they are. Everything between the sentinel lines goes in the Description field.
+Strip this header before pasting. Everything between the sentinel lines goes in the
+Description field.
+
+**POIDH RENDERS MARKDOWN, NOT PLAIN TEXT.** This header claimed the opposite until
+2026-09-20 23:1x, when Zaal pasted the body into the form and read the preview back. Three
+blocks were mangled, and every one of them was a single newline the renderer joined:
+
+- **"Tagging @bettercallzaal ... is not required today" was absorbed into THE BAR as a fifth
+  numbered item** - so the one line saying a thing is optional rendered as a requirement.
+- **REACH, CRAFT and SUBSTANCE vanished into the bullet above them** - the preview read
+  "Someone who is not in this bounty shared it Craft".
+- **The five asset-kit links collapsed onto one line**, turning the most useful block in the
+  description into a wall.
+
+The fix is structural, not cosmetic: labels are ALL-CAPS on their own line with a blank line
+under them, every list uses real markdown bullets, and no line that must stand alone shares a
+paragraph with another. `scripts/check-render-safe.py` now refuses the shapes that joined.
+
+**Read the preview tab before casting, every time.** The description is immutable; the
+preview is the last moment anything can be fixed.
 
 **Title field:** `Make one piece of media for ZAOstock`
 
@@ -62,35 +80,43 @@ THE BAR (short, on purpose)
 3. Put ZAOstock and Saturday October 3 somewhere a reader can see them.
 4. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
-Tagging @bettercallzaal and cross-posting in /poidh helps and is not required today.
+
+OPTIONAL, AND GENUINELY OPTIONAL
+
+Tagging @bettercallzaal and cross-posting in /poidh helps. Neither is required today, and skipping both costs you nothing.
 
 
 THE RUBRIC (more boxes ticked, more weight)
 
-Reach
-+ It went where people who could actually attend will see it - Ellsworth, Bangor, Downeast, Maine groups
-+ A physical placement photographed as proof beats a post nobody saw
-+ Someone who is not in this bounty shared it
+REACH
 
-Craft
-+ Looks finished, not like a draft
-+ Vertical or square for mobile
-+ Captions if there is speech
-+ Date and place readable in three seconds, without clicking
+- It went where people who could actually attend will see it - Ellsworth, Bangor, Downeast, Maine groups
+- A physical placement photographed as proof beats a post nobody saw
+- Someone who is not in this bounty shared it
 
-Substance
-+ Specific about the day rather than "come to a festival"
-+ Names an act from the lineup
-+ Honest about what it is: small, free, outdoors, one street
+
+CRAFT
+
+- Looks finished, not like a draft
+- Vertical or square for mobile
+- Captions if there is speech
+- Date and place readable in three seconds, without clicking
+
+
+SUBSTANCE
+
+- Specific about the day rather than "come to a festival"
+- Names an act from the lineup
+- Honest about what it is: small, free, outdoors, one street
 
 
 THE ASSET KIT (use any of this, CC-BY)
 
-Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
-The brand page, each file separately: https://zaostock.com/brand
-The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
-Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
-The lineup, all eight acts: https://zaostock.com/artists
+- Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
+- The brand page, each file separately: https://zaostock.com/brand
+- The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
+- Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
+- The lineup, all eight acts: https://zaostock.com/artists
 
 The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
 
@@ -118,6 +144,7 @@ This is day one of thirteen, one bounty a day until ZAOstock itself. Same shape 
 DEADLINE
 
 Submissions close 4:00pm Eastern, Monday September 21, 2026.
+
 Winner picked live on stream at 5:00pm Eastern the same day.
 
 ZAOstock is Saturday October 3. Promo that lands after it is worth nothing, which is why these close fast.
