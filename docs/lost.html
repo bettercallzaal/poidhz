@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work nobody can pay for - poidh's drained v2 contracts</title>
+  <meta name="description" content="542 claims from 323 people sit on poidh v2 bounties whose contracts were drained. The work is on chain. The money is not. Search your wallet.">
+  <link rel="canonical" href="https://poidhz.com/lost">
+  <meta property="og:title" content="Work nobody can pay for - poidh's drained v2 contracts">
+  <meta property="og:description" content="323 people submitted work to bounties whose contracts now hold nothing. Search your wallet.">
+  <meta property="og:url" content="https://poidhz.com/lost">
+  <meta property="og:image" content="https://poidhz.com/assets/og/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/icon.png">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#070709;--surface:#111115;--surface-2:#16161c;--cyan:#00e5ff;--gold:#f5c842;
+      --pink:#ff3d6e;--zabal:#a78bfa;--text:#e4e2dd;--text-muted:#8a8895;--text-dim:#4e4c57;
+      --border:#1f1e26;--radius:8px}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+    a{color:var(--cyan);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+    .topnav{padding:1.25rem 0;border-bottom:1px solid var(--border)}
+    .topnav-inner{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .topnav .brand{font-weight:800;font-size:1.05rem;color:var(--text)}
+    .topnav nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+    .topnav nav a{color:var(--text-muted);font-size:.9rem}
+    header.hero{padding:2.5rem 0 1.5rem;border-bottom:1px solid var(--border)}
+    h1{font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15;margin-bottom:.6rem;font-weight:800}
+    h2{font-size:1.2rem;margin:2.2rem 0 .8rem;font-weight:700}
+    p.sub{color:var(--text-muted);max-width:64ch}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1.5rem 0}
+    .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center}
+    .stat .n{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--cyan);line-height:1}
+    .stat .n.gold{color:var(--gold)}
+    .stat .l{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.2px;margin-top:.45rem}
+    .note{background:rgba(245,200,66,.06);border-left:3px solid var(--gold);border-radius:var(--radius);
+      padding:1rem 1.2rem;margin:1.5rem 0;font-size:.92rem}
+    .note strong{color:var(--gold)}
+    form{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+    input[type=text]{flex:1;min-width:260px;background:var(--surface);border:1px solid var(--border);
+      border-radius:var(--radius);padding:.7rem .9rem;color:var(--text);font-family:ui-monospace,monospace;font-size:.85rem}
+    input[type=text]:focus{outline:none;border-color:var(--cyan)}
+    button{background:transparent;border:1.5px solid var(--cyan);color:var(--cyan);border-radius:var(--radius);
+      padding:.7rem 1.3rem;font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+    button:hover{background:var(--cyan);color:var(--bg)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+      padding:1.1rem 1.25rem;margin:.75rem 0}
+    .card.has-work{border-color:rgba(0,229,255,.4)}
+    .card h3{font-size:1rem;margin-bottom:.4rem}
+    .meta{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.8rem;color:var(--text-muted);margin-bottom:.6rem}
+    .meta strong{color:var(--text);font-family:ui-monospace,monospace}
+    pre{background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:.7rem .85rem;
+      overflow-x:auto;font-size:.78rem;font-family:ui-monospace,monospace;color:var(--cyan)}
+    .pays{color:#4ade80}
+    .costs{color:var(--pink)}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:3rem;color:var(--text-muted);font-size:.85rem}
+    .mono{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--text-dim)}
+  </style>
+</head>
+<body>
+  <div class="topnav"><div class="container topnav-inner">
+    <a class="brand" href="/">poidhz</a>
+    <nav>
+      <a href="/">calendar</a><a href="/hub">leaderboard</a><a href="/about">about</a>
+      <a href="/best-practices">best practices</a>
+      <a href="https://github.com/bettercallzaal/zpoidh" target="_blank" rel="noopener">repo</a>
+    </nav>
+  </div></div>
+
+  <header class="hero"><div class="container">
+    <h1>Work nobody can pay for</h1>
+    <p class="sub">225 poidh v2 bounties still read as open and funded, and <strong>the contracts
+    holding them are empty</strong>. The amount on each one is a bookkeeping field that was never
+    zeroed when the contracts were drained. On 112 of them somebody had already submitted work.
+    That work is still on chain. The money is not.</p>
+    <div class="stats" id="stats"></div>
+    <p class="mono" id="asof">reading data/stranded.json ...</p>
+  </div></header>
+
+  <main class="container">
+    <div class="note">
+      <strong>There is nothing here to claim, and this page exists to say so plainly.</strong>
+      Both v2 contracts hold exactly zero, checked against two independent RPC providers. Any
+      figure you see attached to these bounties - including in poidh-app issue #1459, which says
+      they "still hold funds" - is the sum of a struct field, not money. We published that same
+      wrong number ourselves before checking the balance, and poidh's founder corrected us.
+      <br><br>
+      <strong>So do not spend gas trying to recover it.</strong> <code>acceptClaim</code> and
+      <code>cancelOpenBounty</code> cannot move ETH out of a contract with none in it. If you are
+      an issuer, there is no refund waiting. If you entered one of these, the person who owed you
+      cannot pay you from here even if they want to.
+      <br><br>
+      <strong>What is real is the work.</strong> 542 submissions from 323 people are on chain and
+      are not going anywhere. That is the only part of this worth anyone's attention.
+    </div>
+
+    <h2>Find yours</h2>
+    <p class="sub">Paste a wallet address. Nothing is sent anywhere - the search runs in your
+    browser against a public file. We do not publish a list of who is owed; that is theirs to say,
+    not ours.</p>
+    <form onsubmit="event.preventDefault();lookup()">
+      <input type="text" id="q" placeholder="0x..." autocomplete="off" spellcheck="false">
+      <button type="submit">Search</button>
+    </form>
+    <div id="out"></div>
+
+    <h2>Where the numbers come from</h2>
+    <p class="sub">Every id on each contract is read directly with <code>bounties(uint256)</code>;
+    open means a zero claimer and funded means a nonzero amount. Claims come from
+    <code>getClaimsByBountyId</code>. The scanner is
+    <a href="https://github.com/bettercallzaal/zpoidh/blob/main/scripts/scan-stranded-bounties.py" target="_blank" rel="noopener">scan-stranded-bounties.py</a>
+    and it runs on the same 6h refresh as the rest of this site. First reported upstream as
+    <a href="https://github.com/picsoritdidnthappen/poidh-app/issues/1459" target="_blank" rel="noopener">poidh-app issue #1459</a>,
+    which says these bounties "still hold funds". We confirmed its struct sums to the wei and then
+    found that the contracts themselves hold nothing, so the issue's headline - and our first
+    version of this page - overstated what is there. <code>eth_getBalance</code> is the number that
+    settles it, and it reads zero on both.</p>
+    <p class="sub" id="unread"></p>
+  </main>
+
+  <footer><div class="container">
+    poidhz is built by <a href="https://bettercallzaal.com" target="_blank" rel="noopener">BetterCallZaal</a> / The ZAO for
+    <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>. MIT, fork it.
+    <div class="mono" id="foot"></div>
+  </div></footer>
+
+<script>
+(function(){
+  var DATA=null;
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var rows=function(d){var o=[];(d.chains||[]).forEach(function(c){(c.bounties||[]).forEach(function(b){o.push(b)})});return o};
+
+  fetch('/data/stranded.json',{cache:'no-store'}).then(function(r){
+    if(!r.ok) throw new Error('feed '+r.status); return r.json();
+  }).then(function(d){
+    DATA=d; var t=d.totals||{};
+    document.getElementById('stats').innerHTML=[
+      ['n',t.stranded_bounties,'bounties stranded'],
+      ['n gold',t.with_work_submitted,'already have work'],
+      ['n',t.distinct_claimants,'people waiting'],
+      ['n gold','0 ETH','actually in the contracts']
+    ].map(function(s){return '<div class="stat"><div class="'+s[0]+'">'+esc(s[1])+'</div><div class="l">'+s[2]+'</div></div>'}).join('');
+    document.getElementById('asof').textContent='read from chain '+new Date(d.generated_at).toLocaleString()
+      +' - '+t.total_claims+' claims across '+t.distinct_issuers+' issuers';
+    var u=(d.unread_chains||[]);
+    document.getElementById('unread').innerHTML = u.length
+      ? 'Not counted here: '+u.map(function(x){return esc(x.chain)+' ('+x.contracts+' contracts)'}).join(', ')
+        +'. '+esc(u[0].reason)+' Those bounties exist and are not in any figure on this page.'
+      : '';
+    document.getElementById('foot').textContent='data/stranded.json - regenerated every 6 hours';
+  }).catch(function(e){
+    document.getElementById('asof').textContent='Could not load data/stranded.json ('+e.message+'). Nothing on this page is showing real numbers.';
+  });
+
+  window.lookup=function(){
+    var q=(document.getElementById('q').value||'').trim().toLowerCase();
+    var out=document.getElementById('out');
+    if(!DATA){out.innerHTML='<p class="sub">Data has not loaded yet.</p>';return}
+    if(!/^0x[0-9a-f]{40}$/.test(q)){out.innerHTML='<p class="sub">That does not look like a wallet address. Paste the full 0x... form.</p>';return}
+    var all=rows(DATA);
+    var mine=all.filter(function(b){return (b.issuer||'').toLowerCase()===q});
+    var entered=all.filter(function(b){return (b.claimants||[]).some(function(a){return a.toLowerCase()===q})});
+    var h='';
+    if(mine.length){
+      h+='<h2>You issued '+mine.length+' of these</h2>';
+      mine.forEach(function(b){
+        h+='<div class="card'+(b.claim_count?' has-work':'')+'">'
+          +'<h3>Bounty '+esc(b.bounty_id)+' on '+esc(b.chain)+'</h3>'
+          +'<div class="meta"><span>recorded <strong>'+esc(b.amount_eth)+' ETH</strong> (not held)</span>'
+          +'<span><strong>'+esc(b.claim_count)+'</strong> people entered</span>'
+          +(b.created_at?'<span>posted '+esc(b.created_at)+'</span>':'')+'</div>';
+        if(!b.recovery.primary){
+          h+='<p class="sub"><span class="costs">There is no call that recovers this.</span> '
+            +esc(b.recovery.primary_effect)+'.'
+            +(b.claim_count?' '+esc(b.claim_count)+' '+(b.claim_count===1?'person':'people')
+               +' did this work and cannot be paid from this contract.':'')+'</p>';
+        } else if(b.claim_count){
+          h+='<p class="sub"><span class="pays">'+esc(b.claim_count)+' '+(b.claim_count===1?'person has':'people have')+' already done this work.</span> Paying one of them:</p>'
+            +'<pre>'+esc(b.contract)+'\n'+esc(b.recovery.primary)+'   // '+esc(b.recovery.primary_effect)+'</pre>'
+            +'<p class="sub"><span class="costs">Or take the money back</span> - '+esc(b.recovery.secondary_effect)+':</p>'
+            +'<pre>'+esc(b.recovery.secondary)+'</pre>';
+        } else {
+          h+='<p class="sub">Nobody entered this one:</p>'
+            +'<pre>'+esc(b.contract)+'\n'+esc(b.recovery.primary)+'   // '+esc(b.recovery.primary_effect)+'</pre>';
+        }
+        h+='</div>';
+      });
+    }
+    if(entered.length){
+      h+='<h2>You entered '+entered.length+' of these</h2>'
+        +'<p class="sub">Your submissions are on chain and are not going anywhere. The contracts they were made against hold nothing, so nobody can pay them from here - not the issuer, not poidh. This is a record of work done, not a queue of money owed.</p>';
+      entered.forEach(function(b){
+        h+='<div class="card"><h3>Bounty '+esc(b.bounty_id)+' on '+esc(b.chain)+'</h3>'
+          +'<div class="meta"><span>recorded <strong>'+esc(b.amount_eth)+' ETH</strong> (not held)</span>'
+          +'<span>issuer <strong>'+esc((b.issuer||'').slice(0,10))+'...</strong></span>'
+          +'<span><strong>'+esc(b.claim_count)+'</strong> entries total</span></div></div>';
+      });
+    }
+    if(!h) h='<p class="sub">Nothing stranded for that address on the contracts we can read. '
+      +'Degen is not covered - see the note below.</p>';
+    out.innerHTML=h;
+  };
+})();
+</script>
+</body>
+</html>

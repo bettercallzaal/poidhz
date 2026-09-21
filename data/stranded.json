@@ -1,0 +1,4758 @@
+{
+  "generated_at": "2026-09-20T23:28:29.175488+00:00",
+  "note": "Funded, open bounties on poidh's pre-v3 contracts, which poidh's own app does not read. Upstream: poidh-app issue #1459. Per-wallet detail is for lookup by the wallet's owner, not for public listing.",
+  "totals": {
+    "stranded_bounties": 225,
+    "with_work_submitted": 112,
+    "total_claims": 542,
+    "distinct_claimants": 323,
+    "distinct_issuers": 100,
+    "eth_recorded_in_structs": "0.606612841471201010",
+    "eth_actually_held_by_contracts": "0E-18",
+    "funds_present": false,
+    "eth_on_bounties_with_work": "0.544829960410101000",
+    "chains_unread": [
+      "degen"
+    ]
+  },
+  "unread_chains": [
+    {
+      "chain": "degen",
+      "chain_id": 666666666,
+      "contracts": 4,
+      "reason": "six public endpoints across five providers could not execute eth_call on 2026-09-20; see ZAOOS research doc business/2522-poidh-live-bounty-market"
+    }
+  ],
+  "chains": [
+    {
+      "chain": "base",
+      "chain_id": 8453,
+      "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+      "ids_read": 990,
+      "stranded": 201,
+      "bounties": [
+        {
+          "bounty_id": 4,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1330000000000000",
+          "amount_eth": "0.001330000000000000",
+          "issuer": "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf",
+          "created_at": "2024-05-28",
+          "claim_count": 1,
+          "claimants": [
+            "0x593b0c00078a741eb440c7b9dde999bdd40aa1f9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 13,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x0000000650d7c65aff5d0eaca6f345bbb6b83783",
+          "created_at": "2024-06-12",
+          "claim_count": 4,
+          "claimants": [
+            "0x43d9a5cb3c0299e3de882e10036ee9de0497f234",
+            "0x0671aec56bc2e358448162677bd110d673cd2937",
+            "0x306fdfa3428e0f7b249b9e8ed515276c9554ef01",
+            "0xfcc6c730bd73b9104d2ef3eb85b7f47bfd2aeb4b"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 15,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x0000000650d7c65aff5d0eaca6f345bbb6b83783",
+          "created_at": "2024-06-12",
+          "claim_count": 1,
+          "claimants": [
+            "0xaf4eea865efcfc2843a53cf78d3b78e26e761922"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 16,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x0000000650d7c65aff5d0eaca6f345bbb6b83783",
+          "created_at": "2024-06-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 17,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x1f8ee652526d93ce4646aecc56b950900ced2e1a",
+          "created_at": "2024-06-13",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 18,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-06-13",
+          "claim_count": 2,
+          "claimants": [
+            "0x1718cbbb004d7efcb7855b0da7bb9e3d4c999566",
+            "0x78a263807270dfc1b8269a63560b1a7cac81d90f"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 32,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xfd0771fad47ef2b48d71663414e890e489979957",
+          "created_at": "2024-06-15",
+          "claim_count": 1,
+          "claimants": [
+            "0x54ad158eec82476d2f957924d714ec7abfc3aa47"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 33,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0xfd0771fad47ef2b48d71663414e890e489979957",
+          "created_at": "2024-06-15",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 39,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "2000000000000000",
+          "amount_eth": "0.002000000000000000",
+          "issuer": "0xe21773be728c376d83dcc4c677c92bcf67d0a67f",
+          "created_at": "2024-06-19",
+          "claim_count": 13,
+          "claimants": [
+            "0x306fdfa3428e0f7b249b9e8ed515276c9554ef01",
+            "0x7231d8ccf0bcf5678db30730efe18f21d520c379",
+            "0xfdb9fd7194921c435e2999187a8627301c45da36",
+            "0x83ce8ae40f1e8d18f8b3e0c5706b4c0494257c9f",
+            "0x4d716e52b5a14465cf40518d4fe62c67840ef8bf",
+            "0xa4e24a3d339ee8891c8800acacb87fdf0b473bd6",
+            "0xb2d39905d4acec5e4b759c15b5d4a302b99af5ef",
+            "0x78a263807270dfc1b8269a63560b1a7cac81d90f",
+            "0x56201bfdbec7f58dee26edfbb2dd96b3ffc42c85",
+            "0x41ea372f432c701c777c0b632649658728184762",
+            "0x2405404d434c42056802ebcabdfa1d6991c7d17f",
+            "0xdebbeeea86dc2881f07a9f9df1a0960d4e29aa54",
+            "0x9e24602a0dd40fc265ec2dffa200ce1d7a8f427e"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 48,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "200000000000000",
+          "amount_eth": "0.000200000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-06-22",
+          "claim_count": 7,
+          "claimants": [
+            "0x54ad158eec82476d2f957924d714ec7abfc3aa47",
+            "0xa9967b931f3c8d162567704edf7d8ec1268f2b06",
+            "0x36f1dc06cf03ac88f62dd39534746e3233fdcfbc",
+            "0x36f1dc06cf03ac88f62dd39534746e3233fdcfbc",
+            "0x023875c1c757953aa2ff410da001e79f2edb730d",
+            "0x55cb851e833ad6cc44a718b56a72ee5726f7819a",
+            "0xf71963af306edd2caee722aac5c93c79acd71826"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 51,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xcc0be08b3f47f684df5b9f3bb1f7f9284ed9b3ba",
+          "created_at": "2024-06-23",
+          "claim_count": 1,
+          "claimants": [
+            "0x356d8dac5f0da039dcc3e22c8b42fde00e79f7e6"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 60,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xc29bf8c9599dd1fe52dd1a025a872ac8db173acb",
+          "created_at": "2024-06-26",
+          "claim_count": 6,
+          "claimants": [
+            "0xee0c0d565b483aaa02581841d071986e7dc00c82",
+            "0x3bf8d5961878f76af5f103b7cbbd7993a344eb50",
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217",
+            "0xfcc6c730bd73b9104d2ef3eb85b7f47bfd2aeb4b",
+            "0x356d8dac5f0da039dcc3e22c8b42fde00e79f7e6",
+            "0x36f1dc06cf03ac88f62dd39534746e3233fdcfbc"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 61,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0xbed82560c39c133a3d64516ecda82c71b72f3cd7",
+          "created_at": "2024-06-26",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 70,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xddb4938755c243a4f60a2f2f8f95df4f894c58cc",
+          "created_at": "2024-06-26",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 95,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x0fabf023b032659195f9d8590affc257412bb5d6",
+          "created_at": "2024-07-18",
+          "claim_count": 1,
+          "claimants": [
+            "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 96,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x0fabf023b032659195f9d8590affc257412bb5d6",
+          "created_at": "2024-07-20",
+          "claim_count": 1,
+          "claimants": [
+            "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 97,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x0fabf023b032659195f9d8590affc257412bb5d6",
+          "created_at": "2024-07-20",
+          "claim_count": 1,
+          "claimants": [
+            "0xcb18f71e12b85058974f181e8cca769ab5eedbbd"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 118,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "373000000000000",
+          "amount_eth": "0.000373000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-08-12",
+          "claim_count": 11,
+          "claimants": [
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0x023875c1c757953aa2ff410da001e79f2edb730d",
+            "0x0e467a0288a439ba2678eb7d3b0b64b01e2bbbfc",
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0x55cb851e833ad6cc44a718b56a72ee5726f7819a",
+            "0x177defdca55b524c3c841bd713cabcf8809109e5",
+            "0xb463c9c823a88b3bb5e4961c03598462e5aade17",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 133,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000",
+          "amount_eth": "1.00000000E-10",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2024-08-28",
+          "claim_count": 2,
+          "claimants": [
+            "0x2cd1353cf0e402770643b54011a63b546a189c44",
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 136,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-08-28",
+          "claim_count": 3,
+          "claimants": [
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0xa6df8dd47be9901ae6eb188ba24d01aebe920a9d",
+            "0xb9ecfeeaf03012b3db05f7880f90aef6573327ba"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 178,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000",
+          "amount_eth": "1.00000000E-10",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-09-22",
+          "claim_count": 3,
+          "claimants": [
+            "0x54ad158eec82476d2f957924d714ec7abfc3aa47",
+            "0xf3cace6ed5903a82bc19940af38996047a80742f",
+            "0x023875c1c757953aa2ff410da001e79f2edb730d"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 206,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x729170d38dd5449604f35f349fdfcc9ad08257cd",
+          "created_at": "2024-10-22",
+          "claim_count": 3,
+          "claimants": [
+            "0x36f1dc06cf03ac88f62dd39534746e3233fdcfbc",
+            "0xb31cf365b31b76d5f449ff79c6e2bb0ab06d968e",
+            "0xfb51adffb72bdfb9bd9b6e35090ec799b0728dd6"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 221,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x41801a2163c53144388386218c65a16e4c818674",
+          "created_at": "2024-11-07",
+          "claim_count": 1,
+          "claimants": [
+            "0xfe3bee940f57e2ad63bc76438957d46954e2df09"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 228,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1550000000000000",
+          "amount_eth": "0.001550000000000000",
+          "issuer": "0x1ae71ced9eb2104d8f4ec4f2467ad4f04d12a8c0",
+          "created_at": "2024-11-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 237,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2024-11-19",
+          "claim_count": 2,
+          "claimants": [
+            "0x2405404d434c42056802ebcabdfa1d6991c7d17f",
+            "0xdf1f7c1e1814a2b27cc1f8b2b8e6fc4f73e89d72"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 244,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 245,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 246,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xd05eca82d8573b885e4bcc4fcf677e02324e6835",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 248,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 249,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 250,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xd05eca82d8573b885e4bcc4fcf677e02324e6835",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 251,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 1,
+          "claimants": [
+            "0x2d8b0abd7980c5c9d0cb5a008a3af690c1586509"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 252,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 253,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 1,
+          "claimants": [
+            "0x75a0e3088dadb2005a251d280a0dcabb4de1eb5a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 254,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xd05eca82d8573b885e4bcc4fcf677e02324e6835",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 255,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xd05eca82d8573b885e4bcc4fcf677e02324e6835",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 256,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 257,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 258,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x95159487801bb2b6eab46502808228d94aee9844",
+          "created_at": "2024-11-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 259,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3000000000000000",
+          "amount_eth": "0.003000000000000000",
+          "issuer": "0x07bd76c8f0a6d3c5b54780f30ebd5a612527b278",
+          "created_at": "2024-11-27",
+          "claim_count": 2,
+          "claimants": [
+            "0xdf1f7c1e1814a2b27cc1f8b2b8e6fc4f73e89d72",
+            "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 261,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x925ab41117bf35322209a7bb32eededb69a5165c",
+          "created_at": "2024-11-28",
+          "claim_count": 1,
+          "claimants": [
+            "0x75a0e3088dadb2005a251d280a0dcabb4de1eb5a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 262,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x925ab41117bf35322209a7bb32eededb69a5165c",
+          "created_at": "2024-11-28",
+          "claim_count": 2,
+          "claimants": [
+            "0xdf1f7c1e1814a2b27cc1f8b2b8e6fc4f73e89d72",
+            "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 263,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x925ab41117bf35322209a7bb32eededb69a5165c",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 264,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x925ab41117bf35322209a7bb32eededb69a5165c",
+          "created_at": "2024-11-28",
+          "claim_count": 1,
+          "claimants": [
+            "0xd38f5b23f7adbed7ec2da8fb931c5a11675be844"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 265,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x925ab41117bf35322209a7bb32eededb69a5165c",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 266,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0xc0f0e1512d6a0a77ff7b9c172405d1b0d73565bf",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 267,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 268,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 269,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 270,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 1,
+          "claimants": [
+            "0xfe53312b2c234176622a908736ee1377de1d7f33"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 271,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 1,
+          "claimants": [
+            "0x7c0f66ae50b611ad06865a8b5e44b7bf33a47887"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 272,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 273,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 274,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 275,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 1,
+          "claimants": [
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 277,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 278,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 1,
+          "claimants": [
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 279,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 280,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 281,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 282,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 283,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x5e6e3d8ca04c2117e4700adc69a4fad627e8fe7b",
+          "created_at": "2024-11-30",
+          "claim_count": 2,
+          "claimants": [
+            "0x023875c1c757953aa2ff410da001e79f2edb730d",
+            "0x023875c1c757953aa2ff410da001e79f2edb730d"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 284,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x3217d103642dd12ca4230984d40df7acf9971bf6",
+          "created_at": "2024-12-03",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 286,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2024-12-04",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 292,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2024-12-04",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 297,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1169000000000000",
+          "amount_eth": "0.001169000000000000",
+          "issuer": "0xa05d122e807b28e9029df8ae61539579ea517a04",
+          "created_at": "2024-12-08",
+          "claim_count": 2,
+          "claimants": [
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a",
+            "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 302,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2024-12-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 303,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2024-12-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 319,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xd18ceccbf97a392a1cf295fdd66c61cffc0ad049",
+          "created_at": "2025-01-10",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 322,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7",
+          "created_at": "2025-01-17",
+          "claim_count": 1,
+          "claimants": [
+            "0x023875c1c757953aa2ff410da001e79f2edb730d"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 323,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "111000000000000",
+          "amount_eth": "0.000111000000000000",
+          "issuer": "0x85b565ad7754a0bbd850f5e3e21783c026d3a416",
+          "created_at": "2025-01-17",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 324,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "30000000000000",
+          "amount_eth": "0.000030000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-01-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 325,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "210010100000000",
+          "amount_eth": "0.000210010100000000",
+          "issuer": "0x85b565ad7754a0bbd850f5e3e21783c026d3a416",
+          "created_at": "2025-01-18",
+          "claim_count": 3,
+          "claimants": [
+            "0x023875c1c757953aa2ff410da001e79f2edb730d",
+            "0x122b561df0fcbead160293125fd0bcea3416c2c0",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 326,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2025-01-18",
+          "claim_count": 1,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 328,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-01-20",
+          "claim_count": 1,
+          "claimants": [
+            "0x023875c1c757953aa2ff410da001e79f2edb730d"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 330,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000",
+          "amount_eth": "1.00000000E-10",
+          "issuer": "0xe4fda686c0f168d76b98c863ed76f9c58cc8ba8a",
+          "created_at": "2025-01-20",
+          "claim_count": 3,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x023875c1c757953aa2ff410da001e79f2edb730d"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 336,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-01-25",
+          "claim_count": 2,
+          "claimants": [
+            "0x023875c1c757953aa2ff410da001e79f2edb730d",
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 341,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000",
+          "amount_eth": "1.00000E-13",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-01-30",
+          "claim_count": 1,
+          "claimants": [
+            "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 342,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-01-31",
+          "claim_count": 1,
+          "claimants": [
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 349,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-07",
+          "claim_count": 1,
+          "claimants": [
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 352,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 353,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 354,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 355,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 356,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 357,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-12",
+          "claim_count": 3,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x07bd76c8f0a6d3c5b54780f30ebd5a612527b278"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 360,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 361,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-19",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 363,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-20",
+          "claim_count": 2,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 365,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 366,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 367,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2025-02-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 368,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 369,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-02-20",
+          "claim_count": 1,
+          "claimants": [
+            "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 370,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "11000000000000",
+          "amount_eth": "0.000011000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2025-02-20",
+          "claim_count": 3,
+          "claimants": [
+            "0x55cb851e833ad6cc44a718b56a72ee5726f7819a",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0xd17ac8f0bef00bf57c3d3cf6c0f5b03f7bd2f691"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 379,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-26",
+          "claim_count": 2,
+          "claimants": [
+            "0x574da84cb149f9424fcf3dd21ebeef1e160cd2bf",
+            "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 380,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-02-26",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 397,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+          "created_at": "2025-03-05",
+          "claim_count": 2,
+          "claimants": [
+            "0x71cbbe6ecf1a9c4d8b9115757ebcc5ff45902177",
+            "0xc2b96fd7a6d5ee1cf775ea19e8ae6c852ec8db79"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 454,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x715104ca86b38864467de55dbc346584581b5087",
+          "created_at": "2025-04-17",
+          "claim_count": 5,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0x68933aad0492f5eb8715484d55ac2239c1f374fd",
+            "0x5de65272846059efe0120f93e384bd5bcb738dcd",
+            "0x2d2105891e42c5ee55f70918a6325b1a2cb77ec1",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 457,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "8000000000000000",
+          "amount_eth": "0.008000000000000000",
+          "issuer": "0xabae707638a678705bd43a8402f7a58edc247afc",
+          "created_at": "2025-04-21",
+          "claim_count": 28,
+          "claimants": [
+            "0xc633e730cf64241eb2af74bb56d67d57e54796e1",
+            "0xca78efeda896070e997bba0c82dea12a5ca7dec3",
+            "0xc4a2ecc0faa4d812161b5c19e6145825f99b9079",
+            "0x2015db0380c2b754bfbe722ad76ca58dd6bc8a52",
+            "0x340257d0b1132d3626f05d5308cadddb60c6877c",
+            "0xb8f4754b4d07e34e9725af51b7725d5b8dd0dfa7",
+            "0xbadcf0ba3a26b25c5436bc048f1032304c30b8dd",
+            "0x176d1cf118c762f2cfe555d1c7915370aeb67443",
+            "0x176d1cf118c762f2cfe555d1c7915370aeb67443",
+            "0x9e6c590252af9ebb8c97c962e1fade65e5f23901",
+            "0xdcc2bace259a3ed0a5d6d25afb2dac545b66dbed",
+            "0x1e907457e5c865c7267b418f12343a9c5311600c",
+            "0x1e907457e5c865c7267b418f12343a9c5311600c",
+            "0x9ecd4ceda75d840af1caba4203a0add61e94f63c",
+            "0xe6758121d57ec4cef7ab5b849448fe510f3eade1",
+            "0x06228749a75aab1e8ec4c7d84daaa6050898d944",
+            "0x7054b237772b77819c25c87c4310612c058d8608",
+            "0x06228749a75aab1e8ec4c7d84daaa6050898d944",
+            "0x06228749a75aab1e8ec4c7d84daaa6050898d944",
+            "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7",
+            "0xaadfcfadeaf8424b7a3d345c3131ff0e975ad09d",
+            "0x38bf7ad6f8027006bf3525d051c56f506f3a9c62",
+            "0x7efeb39ecc2b02d7c651cd8c547eed22f83c1665",
+            "0xe83303b979dad1d966b370262c0e8f16b58bb299",
+            "0xa4e2a4656fe8dc226c69ac792a220e7f2f99ef70",
+            "0xf440f21ae79f1c9c759ca014db1d38660ac5069a",
+            "0xa4e2c9a087ae95e6668c32a8080348a6d32602f4",
+            "0x0695c002309d89cc8d53978d73ae1cd9b051cbdb"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 480,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7",
+          "created_at": "2025-05-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 481,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7",
+          "created_at": "2025-05-12",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 488,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000",
+          "amount_eth": "1.00000E-13",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-05-20",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 505,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "11300000000000000",
+          "amount_eth": "0.011300000000000000",
+          "issuer": "0xf391eee70a073e9ed53ebd3b9836644fdfe1b7c6",
+          "created_at": "2025-06-06",
+          "claim_count": 2,
+          "claimants": [
+            "0x400e2d73ad34a170bc34bc5283aabcc919028102",
+            "0xf19d81bbfef338a4f8e8eafe1f1e5e0369c110a1"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 521,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "15020000000000000",
+          "amount_eth": "0.015020000000000000",
+          "issuer": "0x51f3b880207db19635702e2bf9660dc4b659bb41",
+          "created_at": "2025-06-15",
+          "claim_count": 24,
+          "claimants": [
+            "0xa26cac6a82d76936f7bff0b53d25fa26ff893706",
+            "0x29932a351633f9352420b905214b759002f2cee7",
+            "0x1b17a2656e43c16398a4a407fc38691c61f2db79",
+            "0x8677ece036c23fef88ebe018d0c0465e6497eb4b",
+            "0x59efeb609d3b88231dbb27b729a7f2a4243d1551",
+            "0x55500894b526771c20b317c969392401bc377592",
+            "0xb0a45280a68343ad8c28eb7ca1b15b64720287c7",
+            "0x5b98bf9897373c96e80b1b5e1abba1aeea5b2dc4",
+            "0xe2bf8ddf95ca3687d4beb24c1b5d760a93e64941",
+            "0x013f19b54b1ff458e2b22c1a795c803224ec29a8",
+            "0x33be45c761b50f44e966d901fa6d0528a74865e5",
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217",
+            "0x1b17a2656e43c16398a4a407fc38691c61f2db79",
+            "0xa26cac6a82d76936f7bff0b53d25fa26ff893706",
+            "0xe2abc6372dc32fd8bf588e30b8d7d789bde5ba70",
+            "0x03f6b92da0ed8fcda20c2024ec42cfde1d3e7010",
+            "0x0f921fdac6c69bb639c9882fef41ed60d9ec9f63",
+            "0xb3aa20a71326d1d627e3097427514a30894d0fa8",
+            "0x8f69c8eb92ed068aa577ce1847d568b39b0d9ebf",
+            "0x6a0c9f646461c87dc937afe4271a430676aaf334",
+            "0x1cc0be9ea98e220730e85efa1572c4c828bb0a3a",
+            "0xafc3e3b02abbda49e9a9f5992dfb117555013453",
+            "0x47513dd8abbcffab1b4640a9ec07671de2939ac3",
+            "0x47e37b2a03e2e09df1c12d0bf5bc0774b258c148"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 531,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x076220f1a4a9cf389eaa24f35aa33b0d716329ff",
+          "created_at": "2025-06-26",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 536,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "13420000000000000",
+          "amount_eth": "0.013420000000000000",
+          "issuer": "0x1acbb32e13d98a6ca81f0fc52ecf455cc0abfdbf",
+          "created_at": "2025-06-27",
+          "claim_count": 4,
+          "claimants": [
+            "0x165f1e8884a25aa7a34df8f04baff8d8c151e4f4",
+            "0x30e5a4e6a52b2d6b891454a0fd04938732c55193",
+            "0xc8115c770efaaf0de401898e4b86f3be36eb2f42",
+            "0x8f69c8eb92ed068aa577ce1847d568b39b0d9ebf"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 540,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x6535c0315b9668a3e38dfcaeee102705d0a74741",
+          "created_at": "2025-06-29",
+          "claim_count": 2,
+          "claimants": [
+            "0xc42166e9e1ed7b053781be452eebbe86a13c8cdb",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 541,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x01a2714e03973d47714d24d025a9513fdd7aa3b0",
+          "created_at": "2025-06-29",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 561,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xc5337cee97ff5b190f26c4a12341dd210f26e17c",
+          "created_at": "2025-07-18",
+          "claim_count": 1,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 562,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x7231d8ccf0bcf5678db30730efe18f21d520c379",
+          "created_at": "2025-07-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 574,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-07-22",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 575,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-07-22",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 604,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-08-03",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 605,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-08-03",
+          "claim_count": 2,
+          "claimants": [
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a",
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 610,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0xcf68f1f59db8c6e1ac568fec8ef8b76ed5025070",
+          "created_at": "2025-08-05",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 614,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "5000000000000000",
+          "amount_eth": "0.005000000000000000",
+          "issuer": "0xd3d1ea64d37542abc25c27dc72a234410b1b6211",
+          "created_at": "2025-08-07",
+          "claim_count": 3,
+          "claimants": [
+            "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+            "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+            "0x64be80bc71516ac48d8b0d9ff56de0af45c95d58"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 617,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "6555000000000000",
+          "amount_eth": "0.006555000000000000",
+          "issuer": "0x30f0aef010e5f3e33bdd2eb555d4e02377b9cad5",
+          "created_at": "2025-08-07",
+          "claim_count": 2,
+          "claimants": [
+            "0x6fbca91a162b0eb7a51bff173f0cdefa232df0fd",
+            "0x6fbca91a162b0eb7a51bff173f0cdefa232df0fd"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 624,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-08-13",
+          "claim_count": 2,
+          "claimants": [
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 626,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-13",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 627,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-13",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 635,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10",
+          "amount_eth": "1.0E-17",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 636,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 637,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000",
+          "amount_eth": "1.000000E-12",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 638,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 639,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 640,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "2000000000000",
+          "amount_eth": "0.000002000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-18",
+          "claim_count": 1,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 641,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-19",
+          "claim_count": 4,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 644,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-19",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 646,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-19",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 647,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000",
+          "amount_eth": "1.000E-15",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-19",
+          "claim_count": 1,
+          "claimants": [
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 648,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x023875c1c757953aa2ff410da001e79f2edb730d",
+          "created_at": "2025-08-19",
+          "claim_count": 1,
+          "claimants": [
+            "0x07bd76c8f0a6d3c5b54780f30ebd5a612527b278"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 670,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-08-29",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 675,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3000000000000000",
+          "amount_eth": "0.003000000000000000",
+          "issuer": "0xf0465138c7e5a41cb97fa6838e81beab549789de",
+          "created_at": "2025-09-01",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 695,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3550000000000000",
+          "amount_eth": "0.003550000000000000",
+          "issuer": "0xdd8a40a15f0fe67d4ec52adf0ee24489e8d8a58a",
+          "created_at": "2025-09-18",
+          "claim_count": 11,
+          "claimants": [
+            "0xcf26fe037743f56dab8f9ca509e9fb7f59071bf1",
+            "0x09d02d25d0d082f7f2e04b4838cefe271b2dab09",
+            "0xfb13a89515102abf2e66f6682f91f65d43dc5334",
+            "0x4473ac19c5c54381497de92d4616f1c798b2c8eb",
+            "0x356d8dac5f0da039dcc3e22c8b42fde00e79f7e6",
+            "0x1c00725a8ddec6d710294bb3c53021c1cdef85de",
+            "0x8a2283ba2de94e6adb05833711312f7454cd4dd7",
+            "0x55500894b526771c20b317c969392401bc377592",
+            "0x774a375858f34573f482148cec198e280ee31bc1",
+            "0xeff448416a9b4025ad210ffe475028606dd95ae8",
+            "0x7234fbd4050fd93abf73d3c3c7ea4382d50632c0"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 697,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3250000000000000",
+          "amount_eth": "0.003250000000000000",
+          "issuer": "0x9c631264cff95b1eadb051083ca204f1932d9c50",
+          "created_at": "2025-09-20",
+          "claim_count": 9,
+          "claimants": [
+            "0xf50e43f3376d7c10f8a181523c9a89c94d3471f1",
+            "0xf50e43f3376d7c10f8a181523c9a89c94d3471f1",
+            "0xd6b69e58d44e523eb58645f1b78425c96dfa648c",
+            "0x7dcff286f8e45b9a5c31bb990c0007d4ee5f7ec0",
+            "0xe51f0abdcadaeb97f409a2a7f2c1baff8b4fdfb6",
+            "0xa33cc67e1dd105512de3b94e86724c8876c72de6",
+            "0xd552cdd99082f9584276bc50b53b79aff5c7c381",
+            "0xaadfcfadeaf8424b7a3d345c3131ff0e975ad09d",
+            "0x8c4fd873f04a366c5be844ae9a4ade94d8de2160"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 701,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x0df91fdd816d15431d863b469de5b67698c8c4a8",
+          "created_at": "2025-09-23",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 709,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3000000000000000",
+          "amount_eth": "0.003000000000000000",
+          "issuer": "0xc1b6b99b9f01ed3bec2cbf8cdf801f3ce131e950",
+          "created_at": "2025-09-26",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 710,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x3a84a75d538841a74ad7da8afe19540ad8ceba1e",
+          "created_at": "2025-09-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 719,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "8000000000000000",
+          "amount_eth": "0.008000000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-10-01",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 725,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "26000000000000000",
+          "amount_eth": "0.026000000000000000",
+          "issuer": "0x1b324bfc7a0b93d621d8a85f3ff6375528bfae8d",
+          "created_at": "2025-10-04",
+          "claim_count": 12,
+          "claimants": [
+            "0xd3addbc52442fd2ed1b54ff48bbd3a3a6a84c13f",
+            "0xddd4b77d38a90398461151e0fa673e9f6b25a1d3",
+            "0x8d1b46ef9a23506a4aaaec5246ba05dd72968d67",
+            "0xba57a67eb9a1ea2a06274524f40017f9226b33fa",
+            "0x8ecd2060ee678ec0cea952d8d7a42531978d2241",
+            "0x5327dbd747c5c3b78070655322d639b6c6408a87",
+            "0xfc3063759b647fb610e8012b1ee8c68ad104cd74",
+            "0x4aa4f65243e2b8bc0e26e5c560bacdf51caf8526",
+            "0x54438fc59eac1fd77de0a101712d970f7d286ffc",
+            "0x4871e997175ac7861dc1aad6565f0e559243235f",
+            "0x64be80bc71516ac48d8b0d9ff56de0af45c95d58",
+            "0x0199a080786b40bac724b3b2d7c24b0e853c1eec"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 729,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000",
+          "amount_eth": "1.000000000E-9",
+          "issuer": "0xe228a4d23cbadb8ccd16a6818574d64ca431649e",
+          "created_at": "2025-10-07",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 730,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "200000000000000",
+          "amount_eth": "0.000200000000000000",
+          "issuer": "0xfb13a89515102abf2e66f6682f91f65d43dc5334",
+          "created_at": "2025-10-07",
+          "claim_count": 5,
+          "claimants": [
+            "0x8f2d6752254fb6d25431b21469aa413a2362954e",
+            "0x5837b901f180eab46f7cfe6d4edf36cb6cadbf75",
+            "0xc4a71d92aa757c2673acfce521f8a4a64b6ff1ec",
+            "0x0df91fdd816d15431d863b469de5b67698c8c4a8",
+            "0xeff448416a9b4025ad210ffe475028606dd95ae8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 777,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "320000000000000",
+          "amount_eth": "0.000320000000000000",
+          "issuer": "0xd5e24aece631b2efd85f06c64af27a0107556ebd",
+          "created_at": "2025-10-23",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 791,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "2000000000000",
+          "amount_eth": "0.000002000000000000",
+          "issuer": "0xa32b8ca2e112444b2b3469b572420e19503d5384",
+          "created_at": "2025-10-27",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 796,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10200000000000",
+          "amount_eth": "0.000010200000000000",
+          "issuer": "0x3cc4ae7e74f3d89435239799dc536b8954ea1831",
+          "created_at": "2025-10-30",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 806,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xfdda81dd8a2a6511e974b54f7cd98726de4530a5",
+          "created_at": "2025-10-31",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 810,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "5000000000000",
+          "amount_eth": "0.000005000000000000",
+          "issuer": "0x5277ff9be2c7ff8b12ed3c409280908d19773289",
+          "created_at": "2025-11-02",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 811,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xb67a54c6562c87aabd7590b2e16aa582ca9bc9aa",
+          "created_at": "2025-11-02",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 816,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "50000000000000",
+          "amount_eth": "0.000050000000000000",
+          "issuer": "0x408bfbb49057c589aaaa4444b876418d5dc2cd92",
+          "created_at": "2025-11-04",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 818,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-11-05",
+          "claim_count": 1,
+          "claimants": [
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 824,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x9fd8c28f4c5ac83ff9ad6e07fd0bb7cd4bcc6d99",
+          "created_at": "2025-11-05",
+          "claim_count": 3,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 826,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x2edc0e1bc8ad343bd27539c71547e54bd360c267",
+          "created_at": "2025-11-06",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 827,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3500000000000000",
+          "amount_eth": "0.003500000000000000",
+          "issuer": "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+          "created_at": "2025-11-06",
+          "claim_count": 1,
+          "claimants": [
+            "0x553dac4270884395762952698e293afc763154ad"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 831,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x3cc4ae7e74f3d89435239799dc536b8954ea1831",
+          "created_at": "2025-11-07",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 832,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x8efb858fc07f74c6a9d0c8487e88a5365747eaae",
+          "created_at": "2025-11-07",
+          "claim_count": 1,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 847,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "4500000000000000",
+          "amount_eth": "0.004500000000000000",
+          "issuer": "0xaffc9f6684899efb628d90323adf4d838d2ea740",
+          "created_at": "2025-11-11",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 848,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "4500000000000000",
+          "amount_eth": "0.004500000000000000",
+          "issuer": "0xaffc9f6684899efb628d90323adf4d838d2ea740",
+          "created_at": "2025-11-11",
+          "claim_count": 1,
+          "claimants": [
+            "0x772365f6d31fb72053558ebf7ffddbcd63d0072b"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 850,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x6268689797ca15256af2ce922836cd69940fa024",
+          "created_at": "2025-11-12",
+          "claim_count": 2,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0xe86aeafcf7377732be592ec7403b3791f15cec60"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 855,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a",
+          "created_at": "2025-11-13",
+          "claim_count": 4,
+          "claimants": [
+            "0xe86aeafcf7377732be592ec7403b3791f15cec60",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 861,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x0c362cef3cac395381e7b9ce9ffb2255e2ff91a9",
+          "created_at": "2025-11-14",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 862,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x0c362cef3cac395381e7b9ce9ffb2255e2ff91a9",
+          "created_at": "2025-11-14",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 868,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "16470000000000000",
+          "amount_eth": "0.016470000000000000",
+          "issuer": "0x54c8f66200855fdcbe40b48ac8c479cf55f673de",
+          "created_at": "2025-11-16",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 869,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "19670000000000000",
+          "amount_eth": "0.019670000000000000",
+          "issuer": "0x54c8f66200855fdcbe40b48ac8c479cf55f673de",
+          "created_at": "2025-11-16",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 884,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000",
+          "amount_eth": "1.0000000E-11",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 885,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 886,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 887,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 888,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 889,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 892,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-11-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 907,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0xb4d7c4abaaef7298ecc33eda7bee5659f8cc8d9b",
+          "created_at": "2025-11-23",
+          "claim_count": 1,
+          "claimants": [
+            "0x4356fea5ad657cd3708fb0232f55254dc11580ee"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 911,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "53300000000000000",
+          "amount_eth": "0.053300000000000000",
+          "issuer": "0xc42166e9e1ed7b053781be452eebbe86a13c8cdb",
+          "created_at": "2025-11-23",
+          "claim_count": 69,
+          "claimants": [
+            "0xdf087b724174a3e4ed2338c0798193932e851f1b",
+            "0x1d8659278c6439187bfdcc7aa17cbe0dbaeab21c",
+            "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+            "0x266676e44091391a01590ca16265e611d5efa31e",
+            "0x9e6c590252af9ebb8c97c962e1fade65e5f23901",
+            "0x50d1d0979a6d6948a4cf50a00d0f691728719f04",
+            "0x6a82199cbd20a6578cc014454dde1e3427bd47f9",
+            "0x7a3c8434aa55fc3d12c3e8404fb2f013de5e740c",
+            "0x0581be1a1795a4fba3a7fd65c48b96abdde8023b",
+            "0x2849565abc56a36c5be1e3f3ed5af8a53fc4abd1",
+            "0x7897ee83fe2281d8780483a6e7bfd251d3152cf7",
+            "0x5cbeeb487a6f7a65e480a38fff7b4537a8d1c874",
+            "0x93a8234aefb166669918742488a57c11e8c77621",
+            "0x0c362cef3cac395381e7b9ce9ffb2255e2ff91a9",
+            "0x0c337fd9e5a006536362b9582694a57d25a29f76",
+            "0x840753ab6211c4b45ea1feefde507e568e8228b0",
+            "0x9d480b7756050fcd198cd68b30687e15aeef056c",
+            "0x026c515168cd67420d95c616fc0c4fac88b4aa56",
+            "0x9bab0f089bdb845d778dd89cadb0eb6e1a44fa03",
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0x3b5192f4cdca384bb325b7fe83dc7a17c093ea1c",
+            "0xfae060b3d8408060dc5ef65e456430eb4bc516c4",
+            "0xfae060b3d8408060dc5ef65e456430eb4bc516c4",
+            "0xe665605221995e3282020d1e2dc9edffd17788ba",
+            "0x073bb449b3abbeae5cc2b6c017b39aacd45c1f9c",
+            "0x184945d97f068a6267b11f3187d8cac36191c932",
+            "0xad48b72a4834dc667dab3e6e5b41d629eea017df",
+            "0xf9ffa431eff3a424ee227dcf258731d48994b63f",
+            "0x463dfcbf3b88f3330646648e185475f98235c74f",
+            "0x50d1d0979a6d6948a4cf50a00d0f691728719f04",
+            "0x44c8ae890bc1f566b564e16ccb4ad6aa97c21db6",
+            "0xdde0b36e8623f14d1d8d71bd5bc5b2819008b293",
+            "0x9ecd4ceda75d840af1caba4203a0add61e94f63c",
+            "0x4e43b9b1b3548685c39100fca9d57ec7d931942e",
+            "0x88b9ab78b3b0faa8df5f8099bd1324ebf418dd7e",
+            "0x325cb7a68dcf31a6956fb3f8143ec108195f70a8",
+            "0x72b59d7d7450fa945a1a492b8a2193e7195237fe",
+            "0x47e37b2a03e2e09df1c12d0bf5bc0774b258c148",
+            "0x223720d7ee41393bfaa6292fcb2711916d855ed2",
+            "0x2af0f10e608d658469dc305e10f58919068e4188",
+            "0x13265739f1583adabcbedabbf5b9c5e4d4fbecfd",
+            "0xeff448416a9b4025ad210ffe475028606dd95ae8",
+            "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+            "0x3d98468cea24f6acc7e05bbf4c7acf21bb776035",
+            "0x4a9bbb6fc9602c53ac84d59d8a1c12c89274f7da",
+            "0x8f2d6752254fb6d25431b21469aa413a2362954e",
+            "0x9d9e905dee7b32ade06765068a29461206a3882e",
+            "0xf440f21ae79f1c9c759ca014db1d38660ac5069a",
+            "0xa4e2c9a087ae95e6668c32a8080348a6d32602f4",
+            "0xd6c51077510446bc499d98195a114a07bc867c74",
+            "0x0f790fbc12b36278dd2b2fcb6fea24a39c9fa535",
+            "0xb22417dd80e361bf471e41045768ddf07f0ef43d",
+            "0x45fec9406476efb3e3e75dff3d95f8384fa2740c",
+            "0x4f182da474f836ed298c1da696513de3b53031c7",
+            "0x7402f1c3f2f98fb850ddcc343a5a10700b63b019",
+            "0x6e9cbbc2de389e41db1fa7fed477bc1842fcf766",
+            "0xdc5c126f2ecc2add64f9a3e36880710c88ddcecf",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0x408a5800981f8d23fb6cdc104ca39ab96a69ede7",
+            "0x0a94dad510eddc67df0553fcf99a32d55b9e3fbf",
+            "0x2055c9431f790c90a82e0fcfbfe43b98773bf2d6",
+            "0x9bc2a1b69172f4e4f35baa2893444963f8501bef",
+            "0x79349de35efb4d02b2f55cbe8a76266584399462",
+            "0xb137667a853b5368eaf7237f7175f9c29134326b",
+            "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+            "0xefcb9cda2a7ab476d229836ea7d9f6df47906d82",
+            "0x4c70ab67fd3f8f3d3c7220da2d903892418f560e",
+            "0x553dac4270884395762952698e293afc763154ad",
+            "0x4c70ab67fd3f8f3d3c7220da2d903892418f560e"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 914,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10010000000000",
+          "amount_eth": "0.000010010000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-11-24",
+          "claim_count": 6,
+          "claimants": [
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+            "0x3cea279ff87ccc757f9cb4e8041598458bab0cdd",
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+            "0x7c4c482fa99f68d6f0f9f339e0e3b146f50941e9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 915,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1100000000000",
+          "amount_eth": "0.000001100000000000",
+          "issuer": "0x85b111149f4c21320849a7f16d92fcda6c1f3eec",
+          "created_at": "2025-11-24",
+          "claim_count": 1,
+          "claimants": [
+            "0x7c4c482fa99f68d6f0f9f339e0e3b146f50941e9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 921,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9",
+          "created_at": "2025-11-24",
+          "claim_count": 4,
+          "claimants": [
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+            "0x75a0e3088dadb2005a251d280a0dcabb4de1eb5a",
+            "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+            "0xeb797bd169a4d9c9dae5fac7e32b4b23450e937c"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 922,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xd9f67d0830c4fb5012faed31475075ab4b275053",
+          "created_at": "2025-11-24",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 929,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "20000000000000",
+          "amount_eth": "0.000020000000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-25",
+          "claim_count": 1,
+          "claimants": [
+            "0x78f964b96c8bf3827b9b0a20e7e53ce8f43bf0c9"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 934,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "170810000000000000",
+          "amount_eth": "0.170810000000000000",
+          "issuer": "0xed416de2d92a8df357d941bcf45f80af20f28a62",
+          "created_at": "2025-11-27",
+          "claim_count": 66,
+          "claimants": [
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0x0c362cef3cac395381e7b9ce9ffb2255e2ff91a9",
+            "0xc7e8ed82a37fca48d31cbe29a984c6aaf929329c",
+            "0x48f0a3e7193ac434cbceccde410d6544573b5c79",
+            "0x7cffb191d08cc047fa45169a2ed464490f9d7808",
+            "0x0cc2369e23d5e1d0038bdcd8458553dadbdae88a",
+            "0xbabd9fde7d50736b5bcb566c7e94c9489feeb969",
+            "0xec7477026af88b9974dd1dabc0bee1e520163d75",
+            "0xe5711d88b2a449d4425ad353fd0d9e038f71600f",
+            "0x5a25e4897635ce16045b132dffa86eb372c8e77e",
+            "0x427765ed93055fe8c5e81ce71b48c06d0e85aa07",
+            "0x97c746ec6995770830d326ffa672f08a69d02218",
+            "0x871fca7606f725508d08f2618c1aeb8b5ec5349c",
+            "0xec7477026af88b9974dd1dabc0bee1e520163d75",
+            "0xec7477026af88b9974dd1dabc0bee1e520163d75",
+            "0xec7477026af88b9974dd1dabc0bee1e520163d75",
+            "0xb1a7c817c67edc0b9671c0799113845356bc4952",
+            "0xc0bdecc0267e56024e71200c9b7edaf66e63c547",
+            "0x08f93d133922ae2a7bb9c945384196ed352b1cf2",
+            "0x2dedbeb4d2abfe4ed1d1d0ebecbfda3c6cf59d75",
+            "0xa13d127dc4e3a5552fb9a8eb10f30052579f62c5",
+            "0x0c362cef3cac395381e7b9ce9ffb2255e2ff91a9",
+            "0x26febc7dc4768e582b0b6c70a99dd603907d0833",
+            "0x91d738d03b5baa6691ec91b965a07ecccb68c210",
+            "0x26febc7dc4768e582b0b6c70a99dd603907d0833",
+            "0xd1238c6514df5d868bb66d5845c451d76adf7121",
+            "0x4c70ab67fd3f8f3d3c7220da2d903892418f560e",
+            "0x22b2bb5c74931d96286eb0e1a0e4ccb72cc7b8dc",
+            "0x413bdbcbf4ad580a3a1f8d8b5b84a73723fa6edb",
+            "0xc7e8ed82a37fca48d31cbe29a984c6aaf929329c",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0x1fc06713f308658c564ddefff3c620276c07879a",
+            "0xb13ed5caf911db90e5d0b519170010b3e7686ac2",
+            "0x4c7de4493a6b9c38cd8b7cc5148fce366ae98b3b",
+            "0x47513dd8abbcffab1b4640a9ec07671de2939ac3",
+            "0xfb21c293a49ee73b82ae9ed53bcc3670a5928412",
+            "0xcc0f1098b74eeeb436f4658e73325b2bfc4d40d6",
+            "0x1ed60ab2c38f373610b26cb7733f6cec7fad1175",
+            "0x91d738d03b5baa6691ec91b965a07ecccb68c210",
+            "0x79349de35efb4d02b2f55cbe8a76266584399462",
+            "0x8c4fd873f04a366c5be844ae9a4ade94d8de2160",
+            "0x2e44f135b4d16791866dcbf3631e953e1dd201df",
+            "0xafc3e3b02abbda49e9a9f5992dfb117555013453",
+            "0x1ed60ab2c38f373610b26cb7733f6cec7fad1175",
+            "0x1e1eeeda45ca6f42cfe1f1538fc4da254c43857e",
+            "0x2770cedea9b35024184e69fe2066796b2351f744",
+            "0x6b17d0abfaded96a382ffbc389ad46dd07634e88",
+            "0x3818f3be48afb074c582571bc403ea6af8fd0822",
+            "0x3818f3be48afb074c582571bc403ea6af8fd0822",
+            "0x74be13619fccc6391da10f3996e67504fb47b961",
+            "0xcba18cb7e7c043b378e21607fa104f1767442348",
+            "0x232832f88e98e4680a12c03d12ef1fda22ed7122",
+            "0x1b49689db12080f5fcc5dc36f990599739487566",
+            "0x2dab63ca75bc087dad2673ddc82b4742227b6d16",
+            "0x2dab63ca75bc087dad2673ddc82b4742227b6d16",
+            "0xd75219efa4ee7e73dbefefcc8084b26654933c26",
+            "0x6e45598751e63adb51d169550cca84306f527974",
+            "0xefcb9cda2a7ab476d229836ea7d9f6df47906d82",
+            "0xe5fb9bca23b8733711b8431fffbf387f40f4b718",
+            "0x98138a3d0789a8de48a1e070f0f451fedb51bb1e",
+            "0xb063a78b775312d43f1c437a066d2213fbdd7b0e",
+            "0x824962cfc9714e9d4c9896e2eb402ea205bf3823",
+            "0x266676e44091391a01590ca16265e611d5efa31e",
+            "0x15bc3d0732fe5345fff85841165a906348e84139",
+            "0x29cf509c08a0079d4d191418ae3fd698c5b17016",
+            "0x9b3698caec622978dbac99a36e883d4fd452c297"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 935,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "55000000000000000",
+          "amount_eth": "0.055000000000000000",
+          "issuer": "0xf440f21ae79f1c9c759ca014db1d38660ac5069a",
+          "created_at": "2025-11-27",
+          "claim_count": 23,
+          "claimants": [
+            "0xf9243f9f402949555b7677836efaacd48aac4958",
+            "0xcdfac6de0a03e4ae3531e9f25860bad13bb2df90",
+            "0xee721836b4bc4ba0440e19c08842594ee965719e",
+            "0x8047c627b907ec9e19307cc39dde1226c87ca934",
+            "0x406d98307642357ad6bfcb2937e07199fcda1a77",
+            "0x9ecd4ceda75d840af1caba4203a0add61e94f63c",
+            "0xb13ed5caf911db90e5d0b519170010b3e7686ac2",
+            "0xe1cfa4a5a9e30ba7c95c27773061326253772aeb",
+            "0x9efb6eb9acb144fc4a44f760148e04f3a4a4cfbc",
+            "0xd65e2323a5405035aa75af1c70e6a36b4a47480c",
+            "0x24e5c5109eafb11181be63a70b306e6a73d3deb2",
+            "0x1ed60ab2c38f373610b26cb7733f6cec7fad1175",
+            "0xdc5c126f2ecc2add64f9a3e36880710c88ddcecf",
+            "0xafc3e3b02abbda49e9a9f5992dfb117555013453",
+            "0xc8115c770efaaf0de401898e4b86f3be36eb2f42",
+            "0x792aa7373f0cef5b7df671866213c9c057edeb10",
+            "0x5ea09ff64159bbafaec6b0c0a75d2cf8eff80c93",
+            "0x64be80bc71516ac48d8b0d9ff56de0af45c95d58",
+            "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+            "0xa4e2c9a087ae95e6668c32a8080348a6d32602f4",
+            "0xa8b26a859273f65530f303cc75308f60a9f187fe",
+            "0x706f6373b39c8c429e68cd1cf8defd665302fd92",
+            "0xa75911d73baec1b75586d6ecc7972547450246d2"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 939,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x1c7caf79232309b6dc6955737360720f69fb5034",
+          "created_at": "2025-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 940,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0xcd3eb139358543788b9a0d09d3243a597163bb7d",
+          "created_at": "2025-11-28",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 942,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3000000000000000",
+          "amount_eth": "0.003000000000000000",
+          "issuer": "0x69858fe84fdc010a18b5da51d7fb8b32c113ff51",
+          "created_at": "2025-11-29",
+          "claim_count": 5,
+          "claimants": [
+            "0x9a6c3498bdc8d02c9d8946af8e0be34263c6eaae",
+            "0x9bcb53c423ac5cbf88c589a66798d66fe06fb68a",
+            "0x94652ec29ff18fc06ca4802c76d40b0f86e3eaf6",
+            "0x9f96ae34d9efa67ae1111f149b150b36f9a75cdb",
+            "0x266676e44091391a01590ca16265e611d5efa31e"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 946,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "110000000000000",
+          "amount_eth": "0.000110000000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-29",
+          "claim_count": 1,
+          "claimants": [
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 947,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "21000000000000",
+          "amount_eth": "0.000021000000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-29",
+          "claim_count": 2,
+          "claimants": [
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a",
+            "0xd47e69c1936e8cb56b09fd5b3cd5cc34ef895004"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 948,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1010000000000",
+          "amount_eth": "0.000001010000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-29",
+          "claim_count": 1,
+          "claimants": [
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 949,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "2000000000000",
+          "amount_eth": "0.000002000000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-29",
+          "claim_count": 1,
+          "claimants": [
+            "0x85b111149f4c21320849a7f16d92fcda6c1f3eec"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 950,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "2000000000000",
+          "amount_eth": "0.000002000000000000",
+          "issuer": "0x97cf924760e86c7d2644a2b500c5f1fdd7fa1b99",
+          "created_at": "2025-11-29",
+          "claim_count": 1,
+          "claimants": [
+            "0xb7d8aabfdb77f6c8e36068be5b57eddefe0a304a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 958,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "4000000000000000",
+          "amount_eth": "0.004000000000000000",
+          "issuer": "0x43b62bd1345ad34cb82e90ae2078893aa2f7f04a",
+          "created_at": "2025-12-01",
+          "claim_count": 1,
+          "claimants": [
+            "0x74be13619fccc6391da10f3996e67504fb47b961"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 965,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "7500000000000000",
+          "amount_eth": "0.007500000000000000",
+          "issuer": "0xc42166e9e1ed7b053781be452eebbe86a13c8cdb",
+          "created_at": "2025-12-03",
+          "claim_count": 27,
+          "claimants": [
+            "0xd4c3afc6adce7622400759d5194e5497b162e39d",
+            "0x17301965efd87461f2c4bc759f335375d1aa876c",
+            "0x71c1819a2282a475c7274525ca310fea9ee57da4",
+            "0xc9f67a2b9430da48d334efd7c44a65fcaf9433e9",
+            "0x0395df57f73ae2029fc27a152cd87070bcfbd4a4",
+            "0xe3214cc668b7e93ddb4307cc3b26653f142147be",
+            "0xd65e2323a5405035aa75af1c70e6a36b4a47480c",
+            "0xc7afb4a1a2f821ad160c29e7370cd73824ec5b58",
+            "0x377eefdc3b7d81482d5b02334202b51bea366ac4",
+            "0xe3214cc668b7e93ddb4307cc3b26653f142147be",
+            "0x9386ba3b90ba97183a6f409318143d6587bcebd5",
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0x097a8743514f02bbde5e2309f29f6d1e78d14ed7",
+            "0xf3b990d28b155cf8ca65c5da57c55fe08c447479",
+            "0x9efb6eb9acb144fc4a44f760148e04f3a4a4cfbc",
+            "0x9efb6eb9acb144fc4a44f760148e04f3a4a4cfbc",
+            "0x9e380567bf255a5f858292a8e0539029be723d78",
+            "0x94652ec29ff18fc06ca4802c76d40b0f86e3eaf6",
+            "0x7a090ae8135977f81a8279853bde66b32a829cca",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0xf440f21ae79f1c9c759ca014db1d38660ac5069a",
+            "0xe3214cc668b7e93ddb4307cc3b26653f142147be",
+            "0xaadfcfadeaf8424b7a3d345c3131ff0e975ad09d",
+            "0xbe00f4a360693c642d8f7d5287ea728ac05302aa",
+            "0x439356b793aa7f838f10423fa37b97d7114a792e",
+            "0x9bc2a1b69172f4e4f35baa2893444963f8501bef"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 966,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x45eed3d530a476c6fd13fd4283faf82d78e18bcf",
+          "created_at": "2025-12-03",
+          "claim_count": 1,
+          "claimants": [
+            "0x9bc2a1b69172f4e4f35baa2893444963f8501bef"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 967,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "23500000000000000",
+          "amount_eth": "0.023500000000000000",
+          "issuer": "0x43b62bd1345ad34cb82e90ae2078893aa2f7f04a",
+          "created_at": "2025-12-03",
+          "claim_count": 20,
+          "claimants": [
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0xafc3e3b02abbda49e9a9f5992dfb117555013453",
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0xf8ae7e2541cfc75914c8372d4a16d6de2cda0c40",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0xf440f21ae79f1c9c759ca014db1d38660ac5069a",
+            "0xd65e2323a5405035aa75af1c70e6a36b4a47480c",
+            "0xd1806c71bbbb107a345fe2cae3feed0eeee2240d",
+            "0xcd7a8c3c38a0db2113b2d6e1e7949b0b789cdf1e",
+            "0x74be13619fccc6391da10f3996e67504fb47b961",
+            "0x74be13619fccc6391da10f3996e67504fb47b961",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0xd07276b83ae0f1052141ce706c8cff3a36e2be13",
+            "0x94652ec29ff18fc06ca4802c76d40b0f86e3eaf6",
+            "0x47513dd8abbcffab1b4640a9ec07671de2939ac3",
+            "0x47513dd8abbcffab1b4640a9ec07671de2939ac3",
+            "0x47513dd8abbcffab1b4640a9ec07671de2939ac3",
+            "0x74be13619fccc6391da10f3996e67504fb47b961",
+            "0x5b38bf5151fa56291ddc910c712aacd54ec65460"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 970,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "13000000000000000",
+          "amount_eth": "0.013000000000000000",
+          "issuer": "0x766cff337c26bb10bd957ad82914571d9fd95109",
+          "created_at": "2025-12-04",
+          "claim_count": 9,
+          "claimants": [
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293",
+            "0x6c0917a0373daa1771467fb32e1fde28a3f7eef7",
+            "0xafc3e3b02abbda49e9a9f5992dfb117555013453",
+            "0x6c0917a0373daa1771467fb32e1fde28a3f7eef7",
+            "0x74be13619fccc6391da10f3996e67504fb47b961",
+            "0xf14c8ec35e5597313e8c5f15322a0293b7c4d647",
+            "0x4e43b9b1b3548685c39100fca9d57ec7d931942e",
+            "0x9027fa28159f5c8a4f74d818985010530fa75c52",
+            "0xf927434ba575091b7cc8c6767e417b99b5c91dd0"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 973,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "100000000000",
+          "amount_eth": "1.00000000000E-7",
+          "issuer": "0x6e45598751e63adb51d169550cca84306f527974",
+          "created_at": "2025-12-04",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 974,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x6e45598751e63adb51d169550cca84306f527974",
+          "created_at": "2025-12-04",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 975,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "20000000000000000",
+          "amount_eth": "0.020000000000000000",
+          "issuer": "0x9003e9d542c103671eb905fcfbc7831d4611f471",
+          "created_at": "2025-12-05",
+          "claim_count": 2,
+          "claimants": [
+            "0xff83b00e1a8707d4831305524cdc13ff12ddf1b2",
+            "0x8dbab1f53609b3f40241557ad0bf3d76275db485"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 979,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "53411000000000000",
+          "amount_eth": "0.053411000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-12-07",
+          "claim_count": 7,
+          "claimants": [
+            "0x198635b597108ea64198ad8f7ca861d65ee474ab",
+            "0x67a0658bdbeee8e79d3e3989c36f7863c5a0ce6e",
+            "0xfe5b9c2782e1b1f28a373953074d4da37e8c5907",
+            "0x7c886f712c20b12239b625324b7ecaf33fc99a4f",
+            "0xbaa8c1163de30d3ea0be9bafaca1d069651ddafe",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2",
+            "0x2809892c26403b41e43f4fc37398b04ee230aace"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 980,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0xb67ef46e9ea51ef537c2e50b55cd63c4b502b0f1",
+          "created_at": "2025-12-08",
+          "claim_count": 1,
+          "claimants": [
+            "0x0e7f38ee61156d57b2b8ab4baa1648b0daa40217"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 982,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "3000000000000000",
+          "amount_eth": "0.003000000000000000",
+          "issuer": "0x864405169b4abca041dda945d2a028703b70585a",
+          "created_at": "2025-12-08",
+          "claim_count": 2,
+          "claimants": [
+            "0x342567eb63df601f55af5e287941f55d0a165d56",
+            "0x342567eb63df601f55af5e287941f55d0a165d56"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 983,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "444000000000000",
+          "amount_eth": "0.000444000000000000",
+          "issuer": "0x85ce3e0f2bf7246aa3582e1f695acc328f11cfe2",
+          "created_at": "2025-12-08",
+          "claim_count": 1,
+          "claimants": [
+            "0x49a2b63216cb9a57c2425a6702166a90a18ba293"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 989,
+          "chain": "base",
+          "chain_id": 8453,
+          "contract": "0xb502c5856f7244dccdd0264a541cc25675353d39",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0xd109bddad25f60c2f9acdec2154c7a18ac1d5764",
+          "created_at": "2026-04-03",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        }
+      ],
+      "contract_balance_wei": "0",
+      "contract_balance_eth": "0E-18",
+      "recorded_eth": "0.581754831471201010",
+      "funds_actually_present": false
+    },
+    {
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+      "ids_read": 180,
+      "stranded": 24,
+      "bounties": [
+        {
+          "bounty_id": 2,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0xbed82560c39c133a3d64516ecda82c71b72f3cd7",
+          "created_at": "2024-06-03",
+          "claim_count": 2,
+          "claimants": [
+            "0x15897664b6303c820a3ea7eff4e04f4a724e7d9c",
+            "0x78a263807270dfc1b8269a63560b1a7cac81d90f"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 21,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "10000000000",
+          "amount_eth": "1.0000000000E-8",
+          "issuer": "0xe86aeafcf7377732be592ec7403b3791f15cec60",
+          "created_at": "2024-06-18",
+          "claim_count": 1,
+          "claimants": [
+            "0x41cb654d1f47913acab158a8199191d160dabe4a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 22,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "800000000000000",
+          "amount_eth": "0.000800000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-06-23",
+          "claim_count": 3,
+          "claimants": [
+            "0x9f80825a2a234cf3c7484b6042e572f707dcb05a",
+            "0x9f80825a2a234cf3c7484b6042e572f707dcb05a",
+            "0x3bf8d5961878f76af5f103b7cbbd7993a344eb50"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 25,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "200000000000000",
+          "amount_eth": "0.000200000000000000",
+          "issuer": "0x4706cf76b3860c706ec00db15b076e4d213669e7",
+          "created_at": "2024-06-23",
+          "claim_count": 4,
+          "claimants": [
+            "0x9f80825a2a234cf3c7484b6042e572f707dcb05a",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0x380c3e6c3f791717267a1e1bf45d8bb03ddde319",
+            "0x676607378094b78efda18ee59b3c3c2e72019706"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 27,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-06-23",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 28,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x495a2ff6e12ffa8951a76266cd622b1364b309c8",
+          "created_at": "2024-06-23",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 31,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x520f83fbf096123226ff07b2782431c2d1b2114f",
+          "created_at": "2024-06-24",
+          "claim_count": 1,
+          "claimants": [
+            "0x9f80825a2a234cf3c7484b6042e572f707dcb05a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 37,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x78ae986bb040fe8871405311bdd73c992391d3a1",
+          "created_at": "2024-07-11",
+          "claim_count": 1,
+          "claimants": [
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 38,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x7898f89f3fb93b6525236c9e726505f0d9762aa2",
+          "created_at": "2024-07-11",
+          "claim_count": 3,
+          "claimants": [
+            "0x96a0b12c93d0ef8d5fc5cd5758338db25cc12b57",
+            "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+            "0x676607378094b78efda18ee59b3c3c2e72019706"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 39,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0xc98f8cb7b0e83b4954f1f2b9695b8d7e46bac1d9",
+          "created_at": "2024-07-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 40,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0xc98f8cb7b0e83b4954f1f2b9695b8d7e46bac1d9",
+          "created_at": "2024-07-18",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 43,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1001000000000000",
+          "amount_eth": "0.001001000000000000",
+          "issuer": "0x026987be6b1e386604fe276320580d0a6e09cae5",
+          "created_at": "2024-07-21",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 44,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1000000000000000",
+          "amount_eth": "0.001000000000000000",
+          "issuer": "0x026987be6b1e386604fe276320580d0a6e09cae5",
+          "created_at": "2024-07-21",
+          "claim_count": 1,
+          "claimants": [
+            "0xc4a2ecc0faa4d812161b5c19e6145825f99b9079"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 64,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1000000000000",
+          "amount_eth": "0.000001000000000000",
+          "issuer": "0x2cd1353cf0e402770643b54011a63b546a189c44",
+          "created_at": "2024-08-29",
+          "claim_count": 2,
+          "claimants": [
+            "0x631046bc261e0b2e3db480b87d2b7033d9720c90",
+            "0x0e467a0288a439ba2678eb7d3b0b64b01e2bbbfc"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 79,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "690000000000000",
+          "amount_eth": "0.000690000000000000",
+          "issuer": "0x678d7fa3e0eab1d37e5eacad6f2febc7e2316b4e",
+          "created_at": "2024-11-07",
+          "claim_count": 7,
+          "claimants": [
+            "0x43d9a5cb3c0299e3de882e10036ee9de0497f234",
+            "0x576a1a02838718f0d469d39244c476f681854636",
+            "0x27ffc5351e5c8f6ccf2b4992f3181df482b33c36",
+            "0x0fbf06edddfab0946f146c0b0832943265ef25bc",
+            "0x9e24602a0dd40fc265ec2dffa200ce1d7a8f427e",
+            "0xea2d7f4a83f6024fea16c0bf03b60071a99a640c",
+            "0xea2d7f4a83f6024fea16c0bf03b60071a99a640c"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 102,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "10000000000000",
+          "amount_eth": "0.000010000000000000",
+          "issuer": "0x30ecfc0af2c322e475ee0a2be8f21fff2721b3f1",
+          "created_at": "2025-07-14",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 120,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "100000000000000",
+          "amount_eth": "0.000100000000000000",
+          "issuer": "0x86213f1cf0a501857b70df35c1cb3c2ecf112844",
+          "created_at": "2025-08-29",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 131,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1200000000000000",
+          "amount_eth": "0.001200000000000000",
+          "issuer": "0x6a19891e91a3d4d690cc8f9627290d25bfd34df6",
+          "created_at": "2025-10-01",
+          "claim_count": 4,
+          "claimants": [
+            "0xc4ba3884dbe6a9dab4ec2a6c3b6366d962f2d25c",
+            "0xa3e6b0e2b34a46c36ed20f80ddbf24250588b1e6",
+            "0x342567eb63df601f55af5e287941f55d0a165d56",
+            "0x342567eb63df601f55af5e287941f55d0a165d56"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 154,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "777000000000000",
+          "amount_eth": "0.000777000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-10-31",
+          "claim_count": 1,
+          "claimants": [
+            "0x772365f6d31fb72053558ebf7ffddbcd63d0072b"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 162,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "777000000000000",
+          "amount_eth": "0.000777000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-10-31",
+          "claim_count": 0,
+          "claimants": [],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 166,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "1900000000000000",
+          "amount_eth": "0.001900000000000000",
+          "issuer": "0xf391eee70a073e9ed53ebd3b9836644fdfe1b7c6",
+          "created_at": "2025-11-10",
+          "claim_count": 3,
+          "claimants": [
+            "0xedab95b52c481738a91912d6f66837eaa3ad3743",
+            "0xacb10c106b9ccc38c0e036b5e1a1c591cefa57e6",
+            "0x45fec9406476efb3e3e75dff3d95f8384fa2740c"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 175,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "3500000000000000",
+          "amount_eth": "0.003500000000000000",
+          "issuer": "0xaadfcfadeaf8424b7a3d345c3131ff0e975ad09d",
+          "created_at": "2025-12-03",
+          "claim_count": 1,
+          "claimants": [
+            "0x77d98d0916252925f90daaef65ed92394fa2f56a"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 176,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "7010000000000000",
+          "amount_eth": "0.007010000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-12-04",
+          "claim_count": 12,
+          "claimants": [
+            "0xdcc2bace259a3ed0a5d6d25afb2dac545b66dbed",
+            "0xe83303b979dad1d966b370262c0e8f16b58bb299",
+            "0x165f1e8884a25aa7a34df8f04baff8d8c151e4f4",
+            "0xd65e2323a5405035aa75af1c70e6a36b4a47480c",
+            "0xeff448416a9b4025ad210ffe475028606dd95ae8",
+            "0x723062d02df7f8e5c9bb86b3be9d1f9febf50f83",
+            "0xc42166e9e1ed7b053781be452eebbe86a13c8cdb",
+            "0x15bc3d0732fe5345fff85841165a906348e84139",
+            "0x3f356a894ff5f599e023864a6393d1e1c7d56c31",
+            "0x1cc0be9ea98e220730e85efa1572c4c828bb0a3a",
+            "0x45fec9406476efb3e3e75dff3d95f8384fa2740c",
+            "0x8f2d6752254fb6d25431b21469aa413a2362954e"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        },
+        {
+          "bounty_id": 178,
+          "chain": "arbitrum",
+          "chain_id": 42161,
+          "contract": "0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d",
+          "amount_wei": "5560000000000000",
+          "amount_eth": "0.005560000000000000",
+          "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+          "created_at": "2025-12-07",
+          "claim_count": 4,
+          "claimants": [
+            "0x9bc2a1b69172f4e4f35baa2893444963f8501bef",
+            "0x9e6c590252af9ebb8c97c962e1fade65e5f23901",
+            "0xaf1c69da79a71f82b9fbc1f72dca7f0ee70f8460",
+            "0xdf5a944221ca0590a70d9754bcb78e0bef9cdac2"
+          ],
+          "recovery": {
+            "primary": null,
+            "primary_effect": "nothing to recover - this contract's balance is zero, so the recorded amount is a stale bookkeeping field, not money",
+            "secondary": null,
+            "secondary_effect": null
+          }
+        }
+      ],
+      "contract_balance_wei": "0",
+      "contract_balance_eth": "0E-18",
+      "recorded_eth": "0.024858010000000000",
+      "funds_actually_present": false
+    }
+  ]
+}

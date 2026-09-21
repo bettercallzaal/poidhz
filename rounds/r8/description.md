@@ -3,35 +3,35 @@
 Strip this header before pasting. Poidh renders plain text, so keep the line breaks exactly
 as they are. Everything between the sentinel lines goes in the Description field.
 
-**Title field:** `Tell us how to announce poidhz`
+**Title field:** `Make a promo post for poidhz`
 
 **Type: OPEN.** The pot must be able to grow - ZAO members adding a dollar or two is the
 mechanic this round is demonstrating, not a side effect. Resolution is a contributor vote.
 
 <!-- PASTE BELOW THIS LINE -->
 
-We built poidhz and we do not know the best way to tell people about it. That is the bounty. Pitch us the launch, in whatever form you think actually works, and we will run the one we pick.
+Make a promo post for poidhz and put it out where people will see it. Best one wins the pot, and the pot grows as others chip in.
 
-poidhz is how The ZAO buys creative. Someone posts what they want made and funds it. Anyone makes it. The money goes straight from the person who wanted it to the person who made it, on Base, with no platform sitting in the middle taking a cut or deciding who is allowed to enter. An artist with a budget and a creator with an afternoon can transact without knowing each other or asking anyone's permission.
+poidhz is how The ZAO buys creative. Someone posts what they want made and funds it. Anyone makes it. The money goes straight from the person who wanted it to the person who made it, on Base, with no platform in the middle taking a cut or deciding who is allowed to enter. An artist with a budget and a creator with an afternoon can transact without knowing each other or asking permission.
 
-The part most people miss is the pot growing. This is an OPEN bounty, so anyone can add to it. Five dollars is the seed. If ten people each drop a dollar because they want to see the idea made, the person who makes it gets paid fifteen. That is the whole thesis in one mechanic: a community can fund the thing it wants to exist, a dollar at a time, and the creator still gets one clean payment.
+The part most people miss is the pot growing. This is an OPEN bounty, so anyone can add to it. Five dollars is the seed. If ten people each drop a dollar because they want to see the idea made, whoever makes it gets paid fifteen. A community can fund the thing it wants to exist, a dollar at a time, and the maker still gets one clean payment.
 
-So: how do we say that? You decide the format. A post we can publish as-is. A clip explaining it. A poster. A strategy for where it goes and in what order. Something none of us thought of. Go look at what BetterCallZaal has already put out and tell us what you would do differently, or ask us to change something on the site and we will change it.
+Go look at poidhz.com, then make something that makes a stranger want to click it.
 
 
 WHY THIS ROUND EXISTS
 
-Because asking you how to announce it is more honest than us guessing, and because the round itself is the demonstration. If this works, the thing that announced poidhz was made by someone outside The ZAO, paid for by a pot the community topped up, and settled on chain in public. Read how the last five rounds went, winners and unkept promises included, at https://poidhz.com/about
+Because a tool nobody has heard of is a tool nobody uses, and we would rather pay people to tell it well than write our own launch post and hope. Read how our last five rounds went, winners and unkept promises included, at https://poidhz.com/about
 
 This is the 20th bounty in the We Them Media album on poidh, and our 5th. The other 15 are theirs: street interviews, an open reporter audition, a cultural scout bounty, testimony from Lights Out Nigeria, a jingle bounty, a pizza day. We file every round we cast in that album because we are another place making bounties in line with what We Them Media is building, and we would rather add to what they have going than start a pile of our own next to it. Go look at theirs while you are here.
 
 
 THE BAR (these are requirements, not preferences)
 
-1. Submit the actual thing, not a description of it. A public URL to the post, clip, image or written pitch. If it is not claimed on this bounty page, it is not entered.
-2. If you are pitching copy we can publish, write it publish-ready. Assume we paste it with no edits.
-3. Tag @bettercallzaal when you post it publicly, and cross-post in the /poidh channel on Farcaster.
-4. No AI slop. If a language model wrote it, say so in the claim text - we do not mind, we mind being told it was you.
+1. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
+2. Any format. A clip, a poster, a thread, a meme, a screen recording, a song. Vertical or square travels furthest.
+3. Tag @bettercallzaal on X and cross-post in the /poidh channel on Farcaster.
+4. Link poidhz.com somewhere a reader can actually click.
 5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
 
@@ -39,30 +39,28 @@ THE RUBRIC (more boxes ticked, more weight)
 
 Clarity
 + Someone who has never heard of poidh understands what it does in 10 seconds
-+ It explains the pot growing, because that is the part people have to see to get it
-+ It names who it is for, rather than talking to everyone at once
++ It shows the pot growing, because that is the part people have to see to believe
++ It names who it is for instead of talking to everyone at once
 
 Craft
-+ Publish-ready, not a mockup
-+ Vertical or square if it is visual
++ Looks finished, not like a draft
 + Captions if there is speech
-+ It reads like The ZAO, not like generic crypto
++ Reads like The ZAO, not like generic crypto
 
-Substance
-+ It speaks to one of these people specifically: an artist with a budget who needs work made, a creator who wants paid work, a brand who would fund a round, or a ZAO member who would chip in two dollars
-+ It is honest about what poidhz is today rather than what it might become
+Reach
++ Cross-posted beyond the two required places
++ It got actual engagement from people who were not asked
++ Someone who is not in this bounty shared it
 
 
 THE ASSET KIT (use any of this, CC-BY)
 
 The live site: https://poidhz.com
-Every deadline on poidh, on one calendar: https://poidhz.com
 The submitter leaderboard: https://poidhz.com/hub
 How to write a good bounty: https://poidhz.com/best-practices
-The repo, every script and every round: https://github.com/bettercallzaal/zpoidh
-ZAOstock brand kit, if you want ZAO-native assets: https://zaostock.com/brand
-
-Past BCZ rounds are public and worth reading before you pitch - five of them, every judging page, every winner: https://poidhz.com/about
+Every past round and its judging page: https://poidhz.com/about
+The repo, every script: https://github.com/bettercallzaal/zpoidh
+ZAOstock brand kit if you want ZAO-native assets: https://zaostock.com/brand
 
 
 THE REWARD

@@ -62,6 +62,12 @@ jobs:
         # a diff instead of a log.
         run: python3 scripts/health-report.py
 
+      - name: Refresh the stranded-bounty scan
+        # Reads the pre-v3 contracts poidh's own app no longer reads, for /lost. Not
+        # continue-on-error: it refuses to write a zero result, so a failure here means the
+        # RPCs were unreachable and the last good file should stay rather than be replaced.
+        run: python3 scripts/scan-stranded-bounties.py
+
       - name: Check what the public site claims
         # Runs AFTER the refresh, so it reads the round states that were just written.
         # On 2026-09-08 poidhz.com/hub had been inviting submissions to bounty 1166 for 15
@@ -183,7 +189,7 @@ jobs:
 
           # Check if any data files changed
           if ! git diff --quiet data/; then
-            git add data/leaderboard.json data/claims.json data/audit.json data/health.json
+            git add data/leaderboard.json data/claims.json data/audit.json data/stranded.json data/health.json
             git commit -m "chore: auto-refresh POIDH leaderboard data (refresh-leaderboard.yml)"
             git push
           else
