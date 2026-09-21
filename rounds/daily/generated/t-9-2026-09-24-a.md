@@ -6,6 +6,14 @@ generated one. Placeholders in `{{ }}` are filled from the ladder table in `../Z
 **Type: OPEN.** Contributor vote. **Promises the pot and nothing else** - see the rule in
 `../README.md`. No publication commitment goes in a daily bounty, ever.
 
+**THE 5PM CLOSE IS RULED FOR BOUNTY TWO AND IS ONLY THE DEFAULT FOR DAYS 3-13.** Zaal ruled
+the time on 2026-09-21 for bounty two specifically (`zao-vault
+decisions/grill-2026-09-21-seat-evening.md`); he has said nothing about days three onward.
+Every file in `../generated/` is a RENDERING, not a commitment: nothing casts from it, each day
+is cast by hand from a description Zaal pastes, and `build-daily-bounty.py --all` re-renders the
+whole set in seconds when he rules a different time. Change the shape here, regenerate, and the
+guard in that script enforces whatever is current.
+
 **AND THE POT IS NEVER WRITTEN AS A NUMBER.** Kenny said so on 2026-09-20 and he is right:
 on an OPEN bounty the pot grows the moment anyone contributes, so an amount typed into the
 description is stale from the first contribution onward - and a poidh description is
