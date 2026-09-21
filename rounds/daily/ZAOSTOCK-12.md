@@ -51,8 +51,43 @@ measured entry rate for that shape: photo 68%, clip 64%, build 52%, code 43%.
 | T-2 | Thu 1 Oct | **Countdown asset.** Two days out, make the reminder | clip | 2 |
 | T-1 | Fri 2 Oct | **"I am going tomorrow."** Say it publicly, bring one person | clip/irl | 3 |
 
-**Total: $28** across twelve days. Fund it in one go or it will stop halfway, which is worse
-than never starting.
+**Total at $2-3/day: $28** across twelve days.
+
+## Zaal offered $10/day. Do not spend it as one $10 bounty.
+
+**A $10 bounty lands in the worst-performing band on poidh.** Measured across the 99 live
+bounties on 2026-09-20:
+
+| Band | With submissions |
+|---|---|
+| $2-6 - where a $3 bounty lands | **26/37 = 70%** |
+| $6-15 - where a $10 bounty lands | **7/21 = 33%** |
+
+Bounties within $2 of a $10 prize: **2 of 10 got anything**. Doubling the prize from $3 to
+$10 does not double entries - on this evidence it halves them. The full curve is not
+monotonic and some bands are thin (n=5 at $4-6), but the $6-15 dead zone rests on 21 bounties
+across two adjacent bands, which is the most solid negative signal in this dataset.
+
+**So spend $10/day as THREE asks, not one prize:**
+
+| | Per day | Why |
+|---|---|---|
+| Primary bounty | **$3** | the 70% band, the day's headline ask |
+| Second bounty | **$3** | a different shape the same day - doubles the surface, same band |
+| Public top-up | **$4** | added to whichever of the two is moving, in public |
+
+Twelve days: **$120 committed, $72 in prizes across 24 bounties, $48 in top-ups.**
+
+**Why the top-up is not just leftover money.** poidhz's whole thesis is that a pot grows
+because people want the thing made. Topping up a live bounty mid-day is a reach event in its
+own right - "this just doubled, six hours left" is a second reason to post about the same
+bounty - and it demonstrates the mechanic we are selling rather than describing it. It is the
+only line in this budget that is marketing and proof at the same time.
+
+**What this buys over one $10/day:** 24 bounties instead of 12, all in the band that measures
+best, plus 12 public top-up moments. Same money.
+
+Fund it in one go or it will stop halfway, which is worse than never starting.
 
 ## Why this order
 
@@ -82,8 +117,10 @@ ladder and the cheapest thing to do.
 
 ## What has to be true before day one
 
-- [ ] **Fund it.** $28 for the ladder, plus R8 separately. The wallet was **$4.44 short of a
-      single $5 bounty** on 2026-09-20. This is the gate, not a detail.
+- [ ] **Fund it.** At Zaal's $10/day that is **$120 for twelve days**, plus R8 separately.
+      The wallet was **$4.44 short of a single $5 bounty** on 2026-09-20, so this is the
+      gate, not a detail. Fund the full twelve up front - a ladder that stops on T-7 is
+      worse than one that never started.
 - [ ] **Decide who casts at the same time daily, and what happens the day nobody does.** A
       ladder that stops on T-7 is read as abandonment by everyone who entered T-8.
 - [ ] **Write the shared template** at `rounds/daily/_template/description.md`, pot-only, and
@@ -99,5 +136,14 @@ is in the order: the first four days are open to anyone anywhere, which is where
 audience would come from in the first place. If T-8 lands with nothing, the ladder is telling
 us something true about reach rather than failing.
 
-**Twelve bounties at $2 is not a marketing budget.** It is a way to find the three people who
-would have done this anyway, and pay them.
+**$120 is not a marketing budget either, and it should not pretend to be one.** It is a way
+to find the handful of people who would have made something anyway, and pay them properly
+rather than thanking them. If it works, the output is a reusable asset library and a few
+local placements - not a crowd. Judge it on whether anyone in Hancock County sees a flyer,
+not on impressions.
+
+**The $10/day recommendation argues against the obvious use of the money, on thin-ish data.**
+The $6-15 dead zone rests on 21 bounties and the whole dataset is uncontrolled for how long
+each bounty has been open. If the split-into-three approach produces nothing by T-8, try one
+$10 prize for a day and compare - that is a cheap experiment and this repo would rather be
+corrected by a measurement than keep an argument.
