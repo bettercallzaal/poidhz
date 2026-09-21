@@ -1,0 +1,84 @@
+# Daily bounty template - ZAOstock ladder
+
+Generated per day by `scripts/build-daily-bounty.py`. Do not paste this file; paste the
+generated one. Placeholders in `{{ }}` are filled from the ladder table in `../ZAOSTOCK-12.md`.
+
+**Type: OPEN.** Contributor vote. **Promises the pot and nothing else** - see the rule in
+`../README.md`. No publication commitment goes in a daily bounty, ever.
+
+<!-- PASTE BELOW THIS LINE -->
+
+{{ASK}}
+
+ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
+
+{{DAYS_OUT}} days out. This bounty closes in 24 hours, so make something today.
+
+
+WHY THIS ROUND EXISTS
+
+Because a free festival on one street in a small city lives or dies on whether anyone hears about it, and we would rather pay people who are good at that than shout louder ourselves. Everything you need is at https://zaostock.com - go and read it before you make anything.
+
+
+THE BAR (these are requirements, not preferences)
+
+1. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
+2. Carry the three facts someone needs to act on: ZAOstock, Saturday October 3, Ellsworth Maine.
+3. Tag @bettercallzaal on X and cross-post in the /poidh channel on Farcaster.
+4. Use the real brand assets, linked below. They are free to use.
+5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
+
+
+THE RUBRIC (more boxes ticked, more weight)
+
+Reach
++ It went where people who could actually attend will see it - Ellsworth, Bangor, Downeast, Maine groups
++ A physical placement photographed as proof beats a post nobody saw
++ Someone who is not in this bounty shared it
+
+Craft
++ Looks finished, not like a draft
++ Vertical or square for mobile
++ Captions if there is speech
++ Date and place readable in three seconds, without clicking
+
+Substance
++ Specific about the day rather than "come to a festival"
++ Names an act from the lineup
++ Honest about what it is: small, free, outdoors, one street
+
+
+THE ASSET KIT (use any of this, CC-BY)
+
+Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
+The brand page, each file separately: https://zaostock.com/brand
+The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
+Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
+The lineup, all eight acts: https://zaostock.com/artists
+
+The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
+
+
+THE REWARD
+
+{{PRIZE_ETH}} ETH on Base, about {{PRIZE_USD}}, and the pot grows in real time as others contribute. Winner takes all of it.
+
+Every submitter earns $ZABAL automatically through the POIDH Submitters leaderboard on Empire Builder, and the drop scales with how many BCZ rounds you have entered in total.
+
+Track it live: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07
+
+This is an OPEN bounty and it resolves by contributor vote, not by us picking a favourite.
+
+This bounty promises the pot and nothing else. We might run the best entries on ZAOstock's channels and we would like to, but it is not written here as a commitment - this programme has a record of making publication promises it did not keep, and you can read that record at https://poidhz.com/about
+
+
+DEADLINE
+
+Submissions close 11:59pm PT, {{CLOSE_DAY}} {{CLOSE_DATE}}.
+Winner by contributor vote the following day.
+
+ZAOstock is Saturday October 3. Promo that lands after it is worth nothing, which is why this closes tomorrow and not next week.
+
+The festival: https://zaostock.com
+
+<!-- PASTE ABOVE THIS LINE -->
