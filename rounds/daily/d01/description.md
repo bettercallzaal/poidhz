@@ -3,7 +3,7 @@
 Strip this header before pasting. Poidh renders plain text, so keep the line breaks exactly
 as they are. Everything between the sentinel lines goes in the Description field.
 
-**Title field:** `Make something that gets people to ZAOstock`
+**Title field:** `Make one piece of media for ZAOstock`
 
 **Type: OPEN.** The pot must be able to grow.
 
@@ -33,13 +33,13 @@ behind something you can edit.
 
 <!-- PASTE BELOW THIS LINE -->
 
-Make something that gets a stranger to show up at ZAOstock. Best one wins the pot, and the pot grows as others chip in.
+Make one piece of media using the ZAOstock brand kit. That is the whole ask.
+
+A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
-Thirteen days out. This one closes tomorrow afternoon and is decided live an hour later, so make something today.
-
-Take the brand kit, take the lineup, and make the thing that makes someone say "I will drive to Ellsworth on a Saturday." A poster, a clip, a reel, a flyer you actually put in a window, a 15-second pitch to camera. If you are anywhere near Downeast Maine, proof that you put something up where a human will see it is the most useful entry in this bounty.
+Thirteen days out, and this closes tomorrow afternoon. Low bar on purpose - day one is not where we find the perfect asset, it is where we find out who turns up. Twenty minutes is enough.
 
 
 WHY THIS ROUND EXISTS
@@ -47,13 +47,14 @@ WHY THIS ROUND EXISTS
 Because a free festival on one street in a small city lives or dies on whether anyone hears about it, and we would rather pay people who are good at that than shout louder ourselves. Everything you need is at https://zaostock.com - go and read it before you make anything.
 
 
-THE BAR (these are requirements, not preferences)
+THE BAR (short, on purpose)
 
-1. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
-2. Carry the three facts someone needs to act on: ZAOstock, Saturday October 3, Ellsworth Maine.
-3. Tag @bettercallzaal on X and cross-post in the /poidh channel on Farcaster.
-4. Use the real brand assets, linked below. They are free to use.
-5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
+1. Use the ZAOstock brand kit. It is linked below, it is CC-BY, there is nothing to ask permission for.
+2. Post it publicly and submit the live URL here. If it is not claimed on this page, it is not entered.
+3. Put ZAOstock and Saturday October 3 somewhere a reader can see them.
+4. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
+
+Tagging @bettercallzaal and cross-posting in /poidh helps and is not required today.
 
 
 THE RUBRIC (more boxes ticked, more weight)
