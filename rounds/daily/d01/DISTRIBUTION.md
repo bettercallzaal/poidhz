@@ -64,7 +64,8 @@ one paste.
 "The pot just went up, six hours left" is a second reason to post about the same bounty, and
 it is the mechanic poidhz exists to demonstrate rather than describe.
 
-**6. Two hours before close, one reminder.** "Closes 6pm Eastern" with the link.
+**6. Two hours before close, one reminder.** Post it at 2pm. "Closes 4pm Eastern, winner
+picked live at 5" with the link.
 
 ## The copy
 
@@ -80,8 +81,9 @@ people to know it exists.
 Poster, clip, reel, a flyer you actually put in a window - any format. Brand kit is open and
 CC-BY: zaostock.com/brand
 
-OPEN bounty, so the pot grows if anyone else chips in. Closes 6pm Eastern Monday. We pick it
-out loud in Discord that night and you can come argue for your own entry.
+OPEN bounty, so the pot grows if anyone else chips in. Closes 4pm Eastern Monday. We pick it
+out loud on stream at 5pm the same day, and you can come argue for your own entry in Discord:
+https://discord.thezao.com
 
 <BOUNTY-URL>
 ```
@@ -94,7 +96,7 @@ You entered <ROUND> - this one is 24 hours and pays $25.
 Make something that gets someone to ZAOstock, the free festival in Ellsworth Maine on Oct 3.
 Any format, brand kit is open: zaostock.com/brand
 
-Closes 6pm Eastern Monday, picked in Discord. <BOUNTY-URL>
+Closes 4pm Eastern Monday, picked live on stream at 5. <BOUNTY-URL>
 ```
 
 ### Maine-local groups
@@ -104,7 +106,7 @@ Free outdoor music on Franklin Street, Ellsworth - Saturday October 3, noon to s
 independent acts, all ages, rain or shine, no ticket.
 
 We are paying $25 for the best thing anyone makes to help spread the word - a poster, a clip,
-or a flyer you put up somewhere local. Closes Monday 6pm. Everything you need, free to use:
+or a flyer you put up somewhere local. Closes Monday 4pm. Everything you need, free to use:
 zaostock.com/brand
 
 Details: zaostock.com
@@ -116,13 +118,13 @@ Details: zaostock.com
 $25, 24 hours. Make something that gets a stranger to ZAOstock - free festival, Ellsworth
 Maine, Oct 3. Any format. Kit is open: zaostock.com/brand
 
-Closes 6pm ET Monday. <BOUNTY-URL>
+Closes 4pm ET Monday, picked live at 5. <BOUNTY-URL>
 ```
 
 ### Top-up post, tomorrow morning
 
 ```
-Pot is up to $<NEW>. Still open until 6pm Eastern.
+Pot is up to $<NEW>. Still open until 4pm Eastern.
 
 That is the whole idea of an open bounty - anyone can add to it, and the person who makes the
 thing gets paid more for the same work. <BOUNTY-URL>

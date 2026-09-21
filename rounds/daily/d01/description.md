@@ -13,9 +13,17 @@ casting** - the pot is small enough that an hour of movement shows.
 **Opens:** today, Sunday 20 September 2026.
 **Closes:** Monday 21 September 2026, 4:00pm Eastern - one hour before the 5pm stream.
 
-**Written "Eastern", not "EST", on purpose.** Zaal said 6pm EST; in September US Eastern is
-on daylight time (EDT, UTC-4), so "EST" would literally mean 7pm local. "6pm Eastern" is what
-he meant and cannot be read an hour wrong.
+**Two corrections to what was said out loud, both deliberate.** Zaal said "6pm EST".
+
+1. **"Eastern", never "EST".** In September US Eastern is on daylight time (EDT, UTC-4), so
+   "6pm EST" literally means 7pm local. "Eastern" cannot be read an hour wrong.
+2. **4:00pm, not 6:00pm.** He also said he picks the winner live on stream at 5pm the same
+   day. A bounty that closes after its own decision is decided on an incomplete field. 4pm
+   leaves an hour to read the entries.
+
+Every announcement in `DISTRIBUTION.md` says 4pm to match. **They have to**, because this
+description is immutable once cast: if the copy and the chain disagree, only the copy can be
+fixed, and by then someone has already been told the wrong time.
 
 ## The Discord link, and why the vanity URL rather than the invite
 
