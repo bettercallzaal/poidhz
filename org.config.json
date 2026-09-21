@@ -89,5 +89,6 @@
       "wallets_csv": "rounds/r4/r4-empire-builder-upload.csv",
       "note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     }
-  ]
+  ],
+  "discord_url": "https://discord.thezao.com"
 }

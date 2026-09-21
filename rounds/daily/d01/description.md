@@ -17,15 +17,19 @@ casting** - the pot is small enough that an hour of movement shows.
 on daylight time (EDT, UTC-4), so "EST" would literally mean 7pm local. "6pm Eastern" is what
 he meant and cannot be read an hour wrong.
 
-## ONE THING BLOCKS THIS AND IT IS NOT THE MONEY
+## The Discord link, and why the vanity URL rather than the invite
 
-**Zaal said the winner is decided in Discord. There is no Discord link anywhere in this
-repo** - not in `org.config.json`, not in any doc, not on the site. A bounty that says "we
-decide in Discord" without saying *which* Discord asks people to accept a decision they
-cannot watch being made.
+Zaal gave `discord.thezao.com` on 2026-09-20. Verified the same minute: it returns 200 and
+redirects to `https://discord.com/invite/ACJyYQH3BE`.
 
-**Fill in `<DISCORD-INVITE>` below before casting, or change the line to contributor vote.**
-`precast-check.py` will block on the placeholder, which is the intended behaviour.
+**The description carries the vanity URL, not the raw invite, and that is deliberate.** A
+poidh description is immutable once cast. A Discord invite can be revoked, rotated or expire,
+and if the raw code were baked in, the bounty would permanently point at a dead door with no
+way to fix it. The vanity is a redirect we control - if the invite changes, the redirect
+changes and the bounty still works.
+
+That is the same reasoning as every re-check date in this repo: put the changeable thing
+behind something you can edit.
 
 <!-- PASTE BELOW THIS LINE -->
 
@@ -95,7 +99,7 @@ This bounty promises the pot and nothing else. We might run the best entries on 
 
 HOW THE WINNER IS PICKED
 
-Out loud, in Discord, after it closes: <DISCORD-INVITE>
+Out loud, in Discord, after it closes: https://discord.thezao.com
 
 Come and argue for your own entry if you want to. This is the first of a run of daily bounties in the twelve days before the festival, so how this one gets judged is how the rest will be.
 
