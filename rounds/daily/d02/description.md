@@ -43,7 +43,7 @@ Make one piece of media using the ZAOstock brand kit. That is the whole ask.
 
 A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.
 
-Same ask as yesterday, and yesterday four people entered. If you meant to and ran out of time, this is the one.
+Same ask as yesterday, and five people entered. One of them missed the close by an hour, which is exactly why this one is here. If you meant to and ran out of time, this is the one.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
