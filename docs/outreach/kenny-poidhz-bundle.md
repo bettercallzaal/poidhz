@@ -1,5 +1,32 @@
 # To Kenny - poidhz launch bundle
 
+> ## CORRECTION, 2026-09-20. THIS MESSAGE WAS SENT AND ITS CENTRAL FIGURE WAS WRONG.
+>
+> **The message below tells Kenny that the pre-v3 contracts hold `0.606612841471201010 ETH`,
+> "matching the issue to the wei", worth about $1,597. They hold ZERO.** `eth_getBalance`
+> returns exactly zero on Base `0xb502c5856f7244dccdd0264a541cc25675353d39` and Arbitrum
+> `0x0Aa50ce0d724cc28f8F7aF4630c32377B4d5c27d`, verified on two independent providers here
+> and independently re-verified by a second lane.
+>
+> `bounties(uint256)` returns a RECORDED amount - a struct field written at creation and
+> never zeroed when the contracts were drained. Summing it and finding it matched poidh-app
+> issue #1459 exactly was agreement between two readings of the same stale field, not
+> verification against the chain.
+>
+> **Kenny corrected it himself, in one sentence, within an hour of receiving this: "the v2
+> contracts are completely drained."** He was right. He also said "degen chain is completely
+> ded", which explains the six unreachable Degen endpoints this message describes as merely
+> unreadable.
+>
+> **This file is public on GitHub and the message has already been sent**, so the wrong
+> figure is out there in two places. It is corrected here rather than deleted, because the
+> person it was sent to has already read it and a quiet edit would leave him holding a
+> version nobody else can see.
+>
+> **What in it still stands:** 225 bounty records, 542 claims, 323 distinct claimants, 100
+> issuers - all real and readable on chain. The work happened. The money did not survive.
+>
+
 **DRAFT, unsent. Outbound is Zaal's tap.** Nothing here has been sent.
 
 Zaal, 2026-09-20, on whether Kenny sees this first: *"yes we usually send our bounties to him
@@ -81,9 +108,9 @@ Re-verify before sending. All measured 2026-09-20.
 
 | Claim | Source |
 |---|---|
-| 201 open+funded, 0.581754831471201010 ETH on Base | batched `eth_call` over all 990 ids |
-| 24 open+funded, 0.024858010 ETH on Arbitrum | batched `eth_call` over all 180 ids |
-| $1,597 stranded vs $3,181 visible | at ETH $2,633.31, the price `data/bounty-dashboard.json` used the same day |
+| 201 open records on Base, `0.581754831471201010 ETH` **recorded, not held** | batched `eth_call` over all 990 ids; the contract's actual balance is zero |
+| 24 open records on Arbitrum, `0.024858010 ETH` **recorded, not held** | batched `eth_call` over all 180 ids; the contract's actual balance is zero |
+| ~~$1,597 stranded vs $3,181 visible~~ **WRONG** | the $1,597 was a sum of struct fields. `eth_getBalance` on both contracts returns zero. See the correction at the top |
 | 21 open bounties, fid 2210, 20,695 followers | `api.web3.bio` and Farcaster `fc/primary-address`, two independent sources |
 | native deadline field set on zero open bounties | `scripts/scan-poidh-deadlines.py`, `bounties_with_native_deadline: 0` of 83 scanned |
 | issue #1459 open, 0 comments, 23 days | `gh api`, 2026-09-20 |
