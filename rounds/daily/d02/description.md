@@ -43,7 +43,7 @@ Make one piece of media using the ZAOstock brand kit. That is the whole ask.
 
 A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.
 
-Same ask as yesterday, and yesterday four people entered. If you meant to and ran out of time, this is the one.
+Same ask as yesterday, and five people entered. One of them missed the close by an hour, which is exactly why this one is here. If you meant to and ran out of time, this is the one.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
@@ -63,6 +63,17 @@ THE BAR (these are requirements, not preferences)
 4. Use the real brand assets, linked below. They are free to use.
 5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
+
+WHAT MAKES IT USABLE
+
+The test: could we print it, tape it in a shop window on Franklin Street, and would someone in Ellsworth know where to be on October 3?
+
+- Use the real kit. The moose, the wordmark, the type and the colours are all at https://zaostock.com/brand. A redrawn or regenerated version of our mark is off-brand even when it looks good, because it is not the mark we use everywhere else.
+- Real over generated wherever a real thing exists. The kit has the logo, the textures and the templates, so build on those rather than on a lookalike.
+- No invented people. Do not put made-up faces or made-up bands in it. These are real artists playing a real show, and a picture of someone who is not them is the one thing we cannot run.
+- Check it small. Spelling right, the eight names right, the date readable in three seconds without zooming.
+
+Generate whatever you like to get there. We are not against the tools. Just finish it with our real assets and real details so it holds up as ours.
 
 THE RUBRIC (more boxes ticked, more weight)
 

@@ -45,6 +45,17 @@ THE BAR (these are requirements, not preferences)
 5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
 
+WHAT MAKES IT USABLE
+
+The test: could we print it, tape it in a shop window on Franklin Street, and would someone in Ellsworth know where to be on October 3?
+
+- Use the real kit. The moose, the wordmark, the type and the colours are all at https://zaostock.com/brand. A redrawn or regenerated version of our mark is off-brand even when it looks good, because it is not the mark we use everywhere else.
+- Real over generated wherever a real thing exists. The kit has the logo, the textures and the templates, so build on those rather than on a lookalike.
+- No invented people. Do not put made-up faces or made-up bands in it. These are real artists playing a real show, and a picture of someone who is not them is the one thing we cannot run.
+- Check it small. Spelling right, the eight names right, the date readable in three seconds without zooming.
+
+Generate whatever you like to get there. We are not against the tools. Just finish it with our real assets and real details so it holds up as ours.
+
 THE RUBRIC (more boxes ticked, more weight)
 
 REACH
