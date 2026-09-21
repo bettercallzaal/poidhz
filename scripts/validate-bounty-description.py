@@ -49,10 +49,31 @@ def load_description(path: Path) -> str | None:
 
     try:
         with open(path) as f:
-            return f.read()
+            text = f.read()
     except Exception as e:
         print(f"ERROR reading description: {e}")
         return None
+
+    return paste_body(text)
+
+
+PASTE_START = "<!-- PASTE BELOW THIS LINE -->"
+PASTE_END = "<!-- PASTE ABOVE THIS LINE -->"
+
+
+def paste_body(text: str) -> str:
+    """The text that actually gets cast, when the file marks it; the whole file otherwise.
+
+    These files carry an operator header above the paste sentinels - the ETH price and when
+    it was measured, why the close time is what it is, which links are redirects. That header
+    is for us and never reaches the chain. Validating it alongside the body made the new
+    prize-figure rule fail `rounds/daily/d01/description.md` for a figure in the header that
+    no submitter will ever see, and a rule that fires on the wrong surface is a rule someone
+    turns off. Read the body, and say so in the run output so nobody wonders which was read.
+    """
+    if PASTE_START in text and PASTE_END in text:
+        return text.split(PASTE_START, 1)[1].split(PASTE_END, 1)[0].strip() + "\n"
+    return text
 
 
 # What each section must CONTAIN, not merely be titled. Until 2026-09-08 this file matched
@@ -64,7 +85,16 @@ def load_description(path: Path) -> str | None:
 # Each entry is (regex the section body must match, what it is checking for).
 SECTION_MUST_CONTAIN = {
     "the_bar": (r"(?im)^\s*(\d+[.)]|[-+*])\s+\S", "at least one numbered or bulleted floor rule"),
-    "reward": (r"(?i)\b\d+(\.\d+)?\s*(ETH|USDC|DEGEN|SOL)\b", "a concrete prize amount with its token"),
+    # THIS RULE USED TO DEMAND THE OPPOSITE, AND IT WAS WRONG. It required
+    # r"\b\d+(\.\d+)?\s*(ETH|USDC|DEGEN|SOL)\b" - "a concrete prize amount with its token" -
+    # so a description that correctly left the pot out would FAIL the validator, and the
+    # validator would push the number back in. Kenny, 2026-09-20: do not put the amount in
+    # the description. On an OPEN bounty the pot grows the moment anyone contributes, and a
+    # poidh description is immutable, so a number written here is wrong forever. The REWARD
+    # section must still SAY something - that is what the header-match-alone failure below
+    # was about - so it now has to point at the live pot instead of naming a figure.
+    "reward": (r"(?i)\b(pot|winner takes|this page)\b",
+               "a pointer to the live pot (the amount belongs in the form's reward field, not here)"),
     "deadline": (r"(?i)(20\d{2}|\b\d{1,2}\s*(am|pm)\b)", "an actual date or time, not just the word DEADLINE"),
     "asset_kit": (r"https?://\S+", "at least one usable link"),
 }
@@ -144,6 +174,45 @@ def validate_floor_rules(description: str) -> tuple[bool, list]:
     return all_pass, findings
 
 
+# A prize figure, in any of the shapes this repo has actually written one in. Anchored on
+# the NUMBER so a bare mention of "ETH on Base" or "the pot" is untouched.
+PRIZE_FIGURE = re.compile(
+    r"(?ix)"
+    r"( \b\d+(?:\.\d+)? \s* (?:ETH|USDC|DEGEN|SOL)\b"      # 0.0094 ETH
+    r"| \$\s?\d+(?:\.\d+)?"                                 # $25
+    r"| \b\d+(?:\.\d+)? \s+ dollars?\b )"                   # 25 dollars
+)
+
+
+def validate_no_prize_amount(description: str, allow: bool = False) -> tuple[bool, list]:
+    """Refuse a prize figure written into the description body.
+
+    WHY THIS IS A HARD CHECK AND NOT A NOTE IN A README. Kenny, 2026-09-20: do not put the
+    amount in the description. An OPEN bounty's pot grows the moment anyone contributes, so
+    the figure is wrong from the first contribution onward - and a poidh description is
+    IMMUTABLE once cast, so it is wrong for the life of the bounty and cannot be corrected.
+    The amount belongs in the form's reward field, which poidh renders live.
+
+    This estate has measured honor-system rules at 3-40% compliance and enforced ones at
+    ~100%, and the honor-system version of this rule had already lost once: the validator
+    REQUIRED a prize amount until this change, so the correct description failed and the
+    wrong one passed.
+
+    `allow` is the documented way past it, for a FIXED bounty whose pot cannot move. A guard
+    with no escape hatch gets deleted, which is how a guard stops guarding.
+    """
+    hits = [m.group(0).strip() for m in PRIZE_FIGURE.finditer(description)]
+    if not hits:
+        return True, ["PASS: no prize figure in the description (the pot lives in the form's reward field)"]
+    if allow:
+        return True, [f"WARN: prize figure {h!r} allowed by --allow-prize-amount (FIXED bounty only)"
+                      for h in hits]
+    return False, [f"FAIL: prize figure {h!r} is written into the description. On an OPEN "
+                   f"bounty the pot grows and the description is immutable, so this is wrong "
+                   f"forever. Put it in the form's reward field. (--allow-prize-amount for a "
+                   f"FIXED bounty.)" for h in hits]
+
+
 def validate_links(description: str) -> tuple[bool, list]:
     """Check for proper links and URLs."""
     findings = []
@@ -214,13 +283,35 @@ def _selftest() -> bool:
     # The case this was built for: a REWARD section that is a header and nothing else.
     empty_reward = "THE REWARD\n\nDetails to follow.\n\nDEADLINE\n\nCloses 2026-10-01.\n"
     _, f = validate_sections(empty_reward)
-    check("fails a REWARD section with no prize amount",
+    check("fails a REWARD section that says nothing",
           any("THE REWARD" in x and x.startswith("FAIL") for x in f))
 
-    real_reward = "THE REWARD\n\nBest one wins 0.025 ETH on Base.\n\nDEADLINE\n\nCloses 2026-10-01.\n"
-    _, f = validate_sections(real_reward)
-    check("passes a REWARD section that names the prize",
+    live_reward = ("THE REWARD\n\nWinner takes the whole pot, and it grows as others "
+                   "contribute.\n\nDEADLINE\n\nCloses 2026-10-01.\n")
+    _, f = validate_sections(live_reward)
+    check("passes a REWARD section that points at the live pot, naming no figure",
           any("THE REWARD" in x and x.startswith("PASS") for x in f))
+
+    # Kenny, 2026-09-20. The rule above used to REQUIRE the figure these cases refuse.
+    for figure in ("0.0094 ETH", "$25", "about 25 dollars", "0.025 ETH on Base"):
+        ok, f = validate_no_prize_amount(f"THE REWARD\n\nBest one wins {figure}.\n")
+        check(f"refuses {figure!r} in the description", not ok and f[0].startswith("FAIL"))
+
+    ok, f = validate_no_prize_amount(
+        "THE REWARD\n\nWinner takes the whole pot. Read the number at the top of this page.\n")
+    check("passes a description with no figure at all", ok and f[0].startswith("PASS"))
+
+    # A bare mention of the chain or the pot is not a figure, and must not be caught.
+    ok, _ = validate_no_prize_amount("Paid in ETH on Base. The pot grows. Closes 4:00pm Eastern.\n")
+    check("does not fire on 'ETH on Base', 'the pot', or a clock time", ok)
+    ok, _ = validate_no_prize_amount(
+        "Track it: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07\n"
+        "ZAOstock is Saturday October 3, 2026, noon to six.\n")
+    check("does not fire on a contract address or a date", ok)
+
+    ok, f = validate_no_prize_amount("Best one wins 0.025 ETH.\n", allow=True)
+    check("--allow-prize-amount lets a FIXED bounty through, as a WARN",
+          ok and f[0].startswith("WARN"))
 
     bar_no_rules = "THE BAR\n\nDo good work.\n"
     _, f = validate_sections(bar_no_rules)
@@ -244,6 +335,20 @@ def _selftest() -> bool:
 
     check("a missing section still fails outright",
           any(x.startswith("FAIL") for x in validate_sections("nothing here at all")[1]))
+
+    # The operator header above the sentinels is not the cast text and must not be validated.
+    framed = (f"**Prize: 0.0094 ETH, about $25** at ETH $2,657.49, measured 2026-09-20.\n"
+              f"{PASTE_START}\nWinner takes the whole pot.\n{PASTE_END}\n")
+    body = paste_body(framed)
+    check("reads only the paste body when the file is framed",
+          body.strip() == "Winner takes the whole pot.")
+    check("the header's figure does NOT trip the prize rule",
+          validate_no_prize_amount(body)[0])
+    check("the same figure INSIDE the body still does trip it",
+          not validate_no_prize_amount(paste_body(
+              f"{PASTE_START}\nBest one wins 0.0094 ETH.\n{PASTE_END}\n"))[0])
+    check("an unframed file is read whole, not silently emptied",
+          paste_body("no sentinels here") == "no sentinels here")
     return passed
 
 
@@ -262,6 +367,9 @@ def main() -> int:
         help="Strict mode: warnings become failures",
     )
 
+    p.add_argument("--allow-prize-amount", action="store_true",
+                   help="permit a prize figure in the description. FIXED bounties only - an "
+                        "OPEN bounty's pot grows and the description is immutable")
     p.add_argument("--selftest", action="store_true",
                    help="offline checks of the section-content rules")
     args = p.parse_args()
@@ -280,10 +388,18 @@ def main() -> int:
     description = load_description(args.description)
     if not description:
         return 1
+    raw = args.description.read_text()
+    print(f"Surface read: {'the paste body between the sentinels' if PASTE_START in raw else 'the WHOLE FILE (no paste sentinels found)'}"
+          f" - {len(description)} of {len(raw)} chars")
 
     print("\n--- SECTION VALIDATION ---")
     sections_pass, sections_findings = validate_sections(description)
     for finding in sections_findings:
+        print(f"  {finding}")
+
+    print("\n--- PRIZE FIGURE (must NOT be in the description) ---")
+    prize_pass, prize_findings = validate_no_prize_amount(description, args.allow_prize_amount)
+    for finding in prize_findings:
         print(f"  {finding}")
 
     print("\n--- FLOOR RULES VALIDATION ---")
@@ -305,8 +421,9 @@ def main() -> int:
     # validators only ever emit WARN, never FAIL) - so --strict's documented promise
     # ("warnings become failures") has to be enforced here, from the actual finding
     # text, not from those functions' return values.
-    all_pass = sections_pass and struct_pass
-    all_findings = sections_findings + floor_findings + links_findings + struct_findings
+    all_pass = sections_pass and struct_pass and prize_pass
+    all_findings = (sections_findings + prize_findings + floor_findings
+                    + links_findings + struct_findings)
     if args.strict:
         all_pass = all_pass and not any(f.startswith("WARN:") for f in all_findings)
 
@@ -317,7 +434,8 @@ def main() -> int:
         print("- Review the description one more time in the POIDH UI")
         print("- Confirm all links work and point to correct resources")
         print("- Verify floor rules are clear to submitters")
-        print("- Check that prize amount and deadline are correct")
+        print("- Check the deadline is correct - the description is immutable once cast")
+        print("- Set the prize in the form's REWARD field, not in the description text")
         return 0
     else:
         print("VERDICT: FAIL - Description needs revision")

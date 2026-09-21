@@ -69,6 +69,49 @@ jobs:
         # internal link or image, and no unsent draft left servable. Reads local files only.
         run: python3 scripts/check-site-claims.py
 
+      - name: Every live daily round's copy states the deadline its bounty commits to
+        # Bounty one was retimed from 6pm to 4pm and SIX announcement blocks were left on
+        # 6pm. A poidh description is immutable once cast, so when the copy and the chain
+        # disagree only the copy can be fixed - after someone has been told the wrong time.
+        #
+        # Scoped to rounds/daily/d*, NOT --all. --all is red on templates (placeholder
+        # deadlines), on closed rounds (different phrasings, nothing left to post) and on
+        # drafts - red for real reasons, which is exactly why postclose-check and
+        # recheck-dates are not in this workflow either. This covers days 1 to 13, the copy
+        # that is actually going out.
+        run: |
+          set -o pipefail
+          found=0; fail=0
+          for d in rounds/daily/d*/; do
+            [ -f "$d/description.md" ] || continue
+            found=$((found+1))
+            python3 scripts/check-round-copy-agrees.py "$d" || fail=$((fail+1))
+          done
+          echo "---"
+          echo "$found daily round(s) checked, $fail with copy that disagrees"
+          if [ "$found" -eq 0 ]; then
+            echo "Refusing: matched no daily rounds. The layout changed, or the glob is wrong."
+            echo "An empty set is not a pass."
+            exit 1
+          fi
+          [ "$fail" -eq 0 ]
+
+      - name: No description carries a line break the renderer will eat
+        # Poidh renders MARKDOWN. Every file here said it rendered plain text until Zaal read
+        # the preview tab on 2026-09-20 and found three blocks mangled - the "this is
+        # optional" line absorbed into the requirements list, the rubric's group labels eaten
+        # by the bullet above them, and the five asset-kit links flattened onto one line.
+        # The description is immutable once cast, so the preview is the only moment to catch
+        # it, and that depends on a human reading carefully at the moment they most want to
+        # press the button.
+        run: |
+          python3 scripts/check-render-safe.py --all
+          for g in rounds/daily/generated/*.md; do
+            python3 scripts/check-render-safe.py "$g" > /dev/null || {
+              echo "FAIL $g"; python3 scripts/check-render-safe.py "$g"; exit 1; }
+          done
+          echo "generated day files: $(ls rounds/daily/generated/*.md | wc -l) checked"
+
       - name: Config and data files still parse
         run: |
           python3 - <<'PY'
