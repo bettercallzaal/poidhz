@@ -36,20 +36,20 @@ five that kept every promise and it is the only one whose entire commitment was 
 Escalating from cheap and online, to physical and local, to personal. Format column is the
 measured entry rate for that shape: photo 68%, clip 64%, build 52%, code 43%.
 
-| Day | Date | Ask | Format | $ |
-|---|---|---|---|---|
-| T-12 | Mon 21 Sep | **Make one poster from the kit.** Any style, must carry date and street | photo | 3 |
-| T-11 | Tue 22 Sep | **15 seconds to camera: why you would go to a free festival in Ellsworth** | clip | 2 |
-| T-10 | Wed 23 Sep | **Pick one of the eight acts and make them look unmissable** | photo/clip | 2 |
-| T-9 | Thu 24 Sep | **The moose, somewhere it does not belong.** Remix the mark | photo | 2 |
-| T-8 | Fri 25 Sep | **Print it and put it in a window.** Photograph the placement | photo + irl | 3 |
-| T-7 | Sat 26 Sep | **Franklin Street as it is today.** Photograph the empty parklet | photo + irl | 2 |
-| T-6 | Sun 27 Sep | **Tell a local group.** Post in a Maine community space, screenshot it | irl | 2 |
-| T-5 | Mon 28 Sep | **A flyer on a real noticeboard.** Library, cafe, laundromat, shop | photo + irl | 3 |
-| T-4 | Tue 29 Sep | **Invite one person by name, in public.** Tag them, say why | clip/post | 2 |
-| T-3 | Wed 30 Sep | **The one-sentence version.** Whole festival, one line, on the poster | photo | 2 |
-| T-2 | Thu 1 Oct | **Countdown asset.** Two days out, make the reminder | clip | 2 |
-| T-1 | Fri 2 Oct | **"I am going tomorrow."** Say it publicly, bring one person | clip/irl | 3 |
+| Day | Date | A - the make | B - the move | Fmt | $ ea |
+|---|---|---|---|---|---|
+| T-12 | Mon 21 Sep | **Make one poster from the kit.** Any style, must carry date and street | **Caption it.** One line that makes the poster work | photo | 3 |
+| T-11 | Tue 22 Sep | **15 seconds to camera: why you would go to a free festival in Ellsworth** | **Name your act.** Which of the eight would you drive for | clip | 2 |
+| T-10 | Wed 23 Sep | **Pick one of the eight acts and make them look unmissable** | **Two-frame before/after.** Empty street, then the day | photo/clip | 2 |
+| T-9 | Thu 24 Sep | **The moose, somewhere it does not belong.** Remix the mark | **Moose sticker mockup.** Where would it live | photo | 2 |
+| T-8 | Fri 25 Sep | **Print it and put it in a window.** Photograph the placement | **Photograph someone reading your flyer** | photo + irl | 3 |
+| T-7 | Sat 26 Sep | **Franklin Street as it is today.** Photograph the empty parklet | **A Saturday in Ellsworth.** Show the town, not the poster | photo + irl | 2 |
+| T-6 | Sun 27 Sep | **Tell a local group.** Post in a Maine community space, screenshot it | **Screenshot the reply.** Someone saying they will come | irl | 2 |
+| T-5 | Mon 28 Sep | **A flyer on a real noticeboard.** Library, cafe, laundromat, shop | **The ask, out loud.** 10 seconds, invite the camera | photo + irl | 3 |
+| T-4 | Tue 29 Sep | **Invite one person by name, in public.** Tag them, say why | **Bring-a-friend proof.** Two people, one plan | clip/post | 2 |
+| T-3 | Wed 30 Sep | **The one-sentence version.** Whole festival, one line, on the poster | **Lineup card.** All eight names, one image | photo | 2 |
+| T-2 | Thu 1 Oct | **Countdown asset.** Two days out, make the reminder | **48 hours.** Make the urgency legible | clip | 2 |
+| T-1 | Fri 2 Oct | **"I am going tomorrow."** Say it publicly, bring one person | **Set-up shot.** Anything being readied for tomorrow | clip/irl | 3 |
 
 **Total at $2-3/day: $28** across twelve days.
 

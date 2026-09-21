@@ -42,22 +42,40 @@ EVENT = dt.date(2026, 10, 3)
 MONTHS = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
           "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
 
-# The ladder rows look like:
-# | T-12 | Mon 21 Sep | **Make one poster...** rest | photo | 3 |
-ROW = re.compile(
-    r"^\|\s*(T-\d+)\s*\|\s*(\w{3})\s+(\d{1,2})\s+(\w{3})\s*\|\s*(.+?)\s*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*$",
-    re.M)
+# Columns, in order. Split on the pipe rather than matching a shape.
+#
+# THE FIRST VERSION OF THIS WAS A REGEX AND IT FAILED SILENTLY. When the ladder gained a
+# second ask per day, going from five columns to six, the non-greedy pattern backtracked and
+# swallowed BOTH asks into one field - so the generated description read "Make one poster
+# from the kit. Any style, must carry date and street | Caption it. One line that makes the
+# poster work", pipe and all, and it passed every check. The row-count guard counted twelve
+# rows and said fine, because it checked QUANTITY and the defect was SHAPE. That text was one
+# paste away from an immutable on-chain description.
+COLS = ["tag", "date", "ask_a", "ask_b", "format", "usd"]
+TAG = re.compile(r"^T-\d+$")
 
 
 def parse_ladder(text: str) -> list[dict]:
     rows = []
-    for m in ROW.finditer(text):
-        tag, wd, day, mon, ask, fmt, usd = m.groups()
+    for line in text.splitlines():
+        if not line.startswith("| T-"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) != len(COLS):
+            raise ValueError(
+                f"ladder row has {len(cells)} columns, expected {len(COLS)}: {line[:70]}")
+        r = dict(zip(COLS, cells))
+        if not TAG.match(r["tag"]):
+            continue
+        wd, day, mon = r["date"].split()
         if mon not in MONTHS:
             continue
-        date = dt.date(2026, MONTHS[mon], int(day))
-        rows.append({"tag": tag, "date": date, "stated_weekday": wd,
-                     "ask": ask, "format": fmt.strip(), "usd": int(usd)})
+        for k in ("ask_a", "ask_b"):
+            if "|" in r[k]:
+                raise ValueError(f"{r['tag']} {k} contains a pipe: {r[k][:50]}")
+        rows.append({"tag": r["tag"], "date": dt.date(2026, MONTHS[mon], int(day)),
+                     "stated_weekday": wd, "ask_a": r["ask_a"], "ask_b": r["ask_b"],
+                     "format": r["format"], "usd": int(r["usd"])})
     return rows
 
 
@@ -80,11 +98,12 @@ def eth_for(usd: int, eth_price: Decimal) -> str:
     return str((Decimal(usd) / eth_price).quantize(Decimal("0.0001")))
 
 
-def render(row: dict, template: str, eth_price: Decimal) -> str:
+def render(row: dict, template: str, eth_price: Decimal, slot: str = "a") -> str:
+    """slot 'a' is the day's make, slot 'b' is the day's move. Two bounties, one day."""
     days_out = (EVENT - row["date"]).days
     close = row["date"]
     return (template
-            .replace("{{ASK}}", clean_ask(row["ask"]))
+            .replace("{{ASK}}", clean_ask(row["ask_a" if slot == "a" else "ask_b"]))
             .replace("{{DAYS_OUT}}", str(days_out))
             .replace("{{PRIZE_ETH}}", eth_for(row["usd"], eth_price))
             .replace("{{PRIZE_USD}}", f"{row['usd']} dollars")
@@ -100,8 +119,8 @@ def _selftest() -> bool:
         print(f"  {'ok  ' if cond else 'FAIL'} {label}")
         passed = passed and bool(cond)
 
-    sample = ("| T-12 | Mon 21 Sep | **Make one poster from the kit.** Any style | photo | 3 |\n"
-              "| T-1 | Fri 2 Oct | **\"I am going tomorrow.\"** Bring one person | clip/irl | 3 |\n")
+    sample = ("| T-12 | Mon 21 Sep | **Make one poster.** Any style | **Caption it.** One line | photo | 3 |\n"
+              "| T-1 | Fri 2 Oct | **\"I am going tomorrow.\"** Bring one | **Set-up shot.** Anything | clip/irl | 3 |\n")
     rows = parse_ladder(sample)
     check("parses both ladder rows", len(rows) == 2)
     check("reads the date, not the label", rows[0]["date"] == dt.date(2026, 9, 21))
@@ -109,8 +128,25 @@ def _selftest() -> bool:
     check("crosses the month boundary", rows[1]["date"] == dt.date(2026, 10, 2))
     check("ladder weekdays agree with the calendar", check_weekdays(rows) == [])
 
-    wrong = parse_ladder("| T-12 | Tue 21 Sep | **x** y | photo | 3 |\n")
+    check("reads BOTH asks, not one merged field",
+          rows[0]["ask_a"].startswith("**Make one poster") and rows[0]["ask_b"].startswith("**Caption"))
+
+    wrong = parse_ladder("| T-12 | Tue 21 Sep | **x** y | **z** w | photo | 3 |\n")
     check("a WRONG weekday in the ladder is caught", len(check_weekdays(wrong)) == 1)
+
+    # The defect this parser replaced: a five-column row silently merging two asks.
+    try:
+        parse_ladder("| T-12 | Mon 21 Sep | **only one ask** | photo | 3 |\n")
+        merged = False
+    except ValueError:
+        merged = True
+    check("a row with the WRONG COLUMN COUNT is refused, not guessed at", merged)
+    try:
+        parse_ladder("| T-12 | Mon 21 Sep | a | b " + chr(124) + " c | photo | 3 |\n")
+        piped = False
+    except ValueError:
+        piped = True
+    check("an ask containing a pipe is refused", piped)
 
     check("bold is stripped from the ask",
           clean_ask("**Make one poster.** Any style") == "Make one poster. Any style")
@@ -119,6 +155,8 @@ def _selftest() -> bool:
 
     out = render(rows[0], "{{ASK}}|{{DAYS_OUT}}|{{CLOSE_DAY}}|{{CLOSE_DATE}}|{{PRIZE_USD}}",
                  Decimal("2633.31"))
+    outb = render(rows[0], "{{ASK}}", Decimal("2633.31"), slot="b")
+    check("slot b renders the day's SECOND ask", outb.strip() == "Caption it. One line")
     check("days-out is computed from the event", "|12|" in out)
     check("close weekday is computed, never typed", "Monday" in out)
     check("close date is spelled out", "September 21, 2026" in out)
@@ -168,13 +206,16 @@ def main() -> int:
         return 1
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    written = 0
     for r in targets:
-        body = render(r, template, price)
-        path = OUT_DIR / f"{r['tag'].lower()}-{r['date'].isoformat()}.md"
-        path.write_text(body)
-        print(f"  {r['tag']:<5} {r['date']} {r['date'].strftime('%a')}  ${r['usd']}  "
-              f"{clean_ask(r['ask'])[:44]}")
-    print(f"\nWrote {len(targets)} file(s) to {OUT_DIR.relative_to(REPO_ROOT)}")
+        for slot in ("a", "b"):
+            body = render(r, template, price, slot)
+            path = OUT_DIR / f"{r['tag'].lower()}-{r['date'].isoformat()}-{slot}.md"
+            path.write_text(body)
+            written += 1
+            print(f"  {r['tag']:<5}{slot}  {r['date']} {r['date'].strftime('%a')}  ${r['usd']}  "
+                  f"{clean_ask(r['ask_a' if slot == 'a' else 'ask_b'])[:42]}")
+    print(f"\nWrote {written} file(s) to {OUT_DIR.relative_to(REPO_ROOT)}")
     print("Each one still has to pass validate-bounty-description.py before it is cast.")
     print(f"ETH price used: ${price}. Re-measure before casting.")
     return 0
