@@ -11,7 +11,7 @@ as they are. Everything between the sentinel lines goes in the Description field
 casting** - the pot is small enough that an hour of movement shows.
 
 **Opens:** today, Sunday 20 September 2026.
-**Closes:** Monday 21 September 2026, 6:00pm Eastern.
+**Closes:** Monday 21 September 2026, 4:00pm Eastern - one hour before the 5pm stream.
 
 **Written "Eastern", not "EST", on purpose.** Zaal said 6pm EST; in September US Eastern is
 on daylight time (EDT, UTC-4), so "EST" would literally mean 7pm local. "6pm Eastern" is what
@@ -37,7 +37,7 @@ Make something that gets a stranger to show up at ZAOstock. Best one wins the po
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
-Thirteen days out. This one closes tomorrow evening, so make something today.
+Thirteen days out. This one closes tomorrow afternoon and is decided live an hour later, so make something today.
 
 Take the brand kit, take the lineup, and make the thing that makes someone say "I will drive to Ellsworth on a Saturday." A poster, a clip, a reel, a flyer you actually put in a window, a 15-second pitch to camera. If you are anywhere near Downeast Maine, proof that you put something up where a human will see it is the most useful entry in this bounty.
 
@@ -99,15 +99,17 @@ This bounty promises the pot and nothing else. We might run the best entries on 
 
 HOW THE WINNER IS PICKED
 
-Out loud, in Discord, after it closes: https://discord.thezao.com
+Live on stream at 5pm Eastern, the same day it closes. Zaal picks it out loud with the entries on screen.
 
-Come and argue for your own entry if you want to. This is the first of a run of daily bounties in the twelve days before the festival, so how this one gets judged is how the rest will be.
+Discord is where it happens and where you can argue for your own entry: https://discord.thezao.com
+
+This is day one of thirteen, one bounty a day until ZAOstock itself. Same shape every day: opens, closes at 4pm Eastern, decided live at 5pm.
 
 
 DEADLINE
 
-Submissions close 6:00pm Eastern, Monday September 21, 2026.
-Winner picked in Discord that evening.
+Submissions close 4:00pm Eastern, Monday September 21, 2026.
+Winner picked live on stream at 5:00pm Eastern the same day.
 
 ZAOstock is Saturday October 3. Promo that lands after it is worth nothing, which is why these close fast.
 
