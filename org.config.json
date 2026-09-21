@@ -54,6 +54,12 @@
   ],
   "planned_rounds": [
     {
+      "round": 9,
+      "title": "R9 - Make something that gets people to ZAOstock",
+      "folder": "rounds/r9",
+      "note": "HARD EXTERNAL DEADLINE: ZAOstock is 2026-10-03. Closes 09-29. Cast before R8 if only one can go."
+    },
+    {
       "round": 8,
       "title": "R8 - Tell us how to announce poidhz",
       "folder": "rounds/r8",
