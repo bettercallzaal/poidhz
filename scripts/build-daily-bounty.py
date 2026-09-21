@@ -116,6 +116,39 @@ def render(row: dict, template: str, eth_price: Decimal, slot: str = "a") -> str
             .replace("{{CLOSE_DATE}}", f"{close.strftime('%B')} {close.day}, {close.year}"))
 
 
+# THE SHAPE EVERY DAY OF THE RUN HAS ALREADY PROMISED, IN TEXT THAT CANNOT BE EDITED.
+#
+# Bounty one (poidh 1409, cast 2026-09-20) says in its immutable description: "This is day one
+# of thirteen, one bounty a day until ZAOstock itself. Same shape every day: opens, closes at
+# 4pm Eastern, decided live at 5pm." That sentence is now a public commitment for days 2-13.
+#
+# The template it was generated from still said "Submissions close 11:59pm PT" and "Winner by
+# contributor vote the following day" - a different deadline, a different time zone, and a vote
+# length that is wrong on its face: poidh's open-bounty vote runs TWO days (read from the Base
+# contract by the Zorca lane on 2026-09-21, and in our own runbook since R1). Day 2 would have
+# cast contradicting day 1, and both would have been permanent.
+#
+# So every rendered day must carry these, or the generator refuses to write it.
+RUN_SHAPE = {
+    "Submissions close 4:00pm Eastern": "the 4pm Eastern close day one committed to",
+    "live on stream at 5": "the 5pm live pick day one committed to",
+    "two days to vote": "the real length of poidh's open-bounty vote",
+}
+RUN_SHAPE_FORBIDDEN = {
+    "11:59pm PT": "the pre-run deadline, in the wrong time zone",
+    "the following day": "a one-day vote, which poidh does not run",
+}
+
+
+def check_run_shape(body: str) -> list[str]:
+    """What a rendered day is missing from, or contradicts in, the promised shape."""
+    problems = [f"missing {why} ({needle!r})" for needle, why in RUN_SHAPE.items()
+                if needle not in body]
+    problems += [f"contradicts the run: {why} ({needle!r})"
+                 for needle, why in RUN_SHAPE_FORBIDDEN.items() if needle in body]
+    return problems
+
+
 def _selftest() -> bool:
     passed = True
 
@@ -171,6 +204,19 @@ def _selftest() -> bool:
     check("close weekday is computed, never typed", "Monday" in out)
     check("close date is spelled out", "September 21, 2026" in out)
     check("no placeholder survives rendering", "{{" not in out)
+
+    # The 2026-09-21 defect: the template promised a different shape than day one had.
+    stale = ("Submissions close 11:59pm PT, Monday September 21, 2026.\n"
+             "Winner by contributor vote the following day.\n")
+    probs = check_run_shape(stale)
+    check("the OLD template's deadline is refused",
+          any("11:59pm PT" in p for p in probs))
+    check("a one-day vote is refused", any("the following day" in p for p in probs))
+    check("a missing 4pm close is reported", any("4pm Eastern close" in p for p in probs))
+    good = ("Zaal names his pick live on stream at 5pm Eastern. Everyone who added to the pot "
+            "then has two days to vote on the pick.\n"
+            "Submissions close 4:00pm Eastern, Monday September 21, 2026.\n")
+    check("a day carrying the promised shape passes", check_run_shape(good) == [])
     return passed
 
 
@@ -209,6 +255,17 @@ def main() -> int:
         return 1
 
     template = TEMPLATE.read_text()
+
+    # Check the TEMPLATE once, before rendering anything, so a drifted template fails loudly
+    # rather than producing 24 files that each have to be caught on their own.
+    probs = check_run_shape(template)
+    if probs:
+        print("Refusing: the template does not match the shape bounty one already promised for "
+              "all thirteen days, in text that cannot be edited.")
+        for p in probs:
+            print("  " + p)
+        return 1
+
     price = Decimal(args.eth_price)
     targets = rows if args.all else [r for r in rows if r["tag"] == args.day]
     if not targets:
