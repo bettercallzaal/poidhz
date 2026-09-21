@@ -112,6 +112,14 @@ jobs:
           done
           echo "generated day files: $(ls rounds/daily/generated/*.md | wc -l) checked"
 
+      - name: Every bounty we cast is tracked for $ZABAL
+        # Twice now a cast bounty was missing from default_bounty_ids and its entrants scored
+        # nothing: R5's nine claimants (2026-09-07) and bounty one's (2026-09-21). The refresh
+        # exits 0 either way and prints a healthy count, so nothing caught it. This reads the
+        # bounty ids the repo's own round files publish and refuses any the config omits.
+        # An exclusion is allowed, but only declared in excluded_bounty_ids WITH a reason.
+        run: python3 scripts/check-tracked-bounties.py
+
       - name: Config and data files still parse
         run: |
           python3 - <<'PY'

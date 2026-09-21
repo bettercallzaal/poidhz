@@ -10,6 +10,10 @@
   "empire_leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
   "farcaster_album": "wethemmedia",
   "farcaster_handle": "@bettercallzaal",
+  "_comment_excluded_bounty_ids": "A bounty this repo cast that is deliberately NOT aggregated into the leaderboard. Every entry needs a reason, because scripts/check-tracked-bounties.py refuses an untracked cast bounty otherwise - silence is how R5's nine claimants and bounty one's entrants both ended up scoring nothing.",
+  "excluded_bounty_ids": {
+    "1249": "R4, ZABAL Gamez open pot. Accidentally CANCELED instead of withdrawn (rounds/r4/CLOSEOUT.md), which closed off the on-chain claim path entirely. Its 15 real builders were credited a flat +1 directly instead, via offchain_credits, so aggregating this bounty would credit nobody and imply the opposite."
+  },
   "default_bounty_ids": [
     1151,
     1166,
