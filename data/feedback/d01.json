@@ -1,5 +1,5 @@
 {
-  "_comment": "Per-entrant feedback for bounty one. Rendered to /feedback/<handle> by scripts/build-feedback-pages.py. UNLISTED BY DESIGN: no index page links these and every page carries noindex. Research doc community/2536-bounty-entrant-feedback, decision 3: public per-entrant feedback improves quality but cuts participation by exposing who is ahead; private keeps the improvement. A URL only the entrant is given keeps that property while still being linkable.",
+  "_comment": "Per-entrant feedback for bounty 1409. Rendered to /feedback/<bounty_id>/<handle> by scripts/build-feedback-pages.py, with a shared index at /feedback/<bounty_id>. TIED TO THE BOUNTY, NOT TO A HANDLE: Zaal, 2026-09-22, 'its not a slug we can reuse so lets make sure its tied to bounty'. A handle enters more than one round, so /feedback/predaking would be overwritten by round three and the round-one notes would silently vanish. SHARED ON PURPOSE: same ruling, 'so they can see what feedback others got too'. This overrides the unlisted design and research doc 2536 decision 3; the ranking guard matters MORE now, because entrants will read each other's pages side by side.",
   "round": {
     "id": "d01",
     "label": "Bounty one",
@@ -16,7 +16,8 @@
       "Every fact a person needs was ON the piece, not only in the caption.",
       "It was built on the real kit rather than a lookalike.",
       "It was submitted as the actual file, not a screenshot of a post."
-    ]
+    ],
+    "bounty_id": 1409
   },
   "entrants": [
     {

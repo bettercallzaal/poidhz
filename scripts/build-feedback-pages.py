@@ -1,23 +1,29 @@
 #!/usr/bin/env python3
-"""Render one unlisted feedback page per bounty entrant, from data/feedback/<round>.json.
+"""Render a feedback page per bounty entrant, from data/feedback/<round>.json.
 
 WHY A PAGE. Zaal, 2026-09-22: "add all this to the poidhz.com website so i can just link that
 for more info so lets do one piece of feedback in message adn then rest on their subpage". The
 message carries one line and a URL; the page carries the rest.
 
-WHY UNLISTED, AND WHY THAT IS NOT THE SAME AS PUBLIC. ZAOOS research doc
-`community/2536-bounty-entrant-feedback`, decision 3, from Gross 2017: full PUBLIC feedback
-raised top-rated work and cut participation, because it shows every entrant where they stand
-against the others. Private feedback kept the improvement and lost the least, and was the best
-policy tested. So:
+WHY THE URL CARRIES THE BOUNTY ID. Zaal, same day: "its not a slug we can reuse so lets make
+sure its tied to bounty". `/feedback/predaking` is a handle slug, and a handle enters more than
+one round - building round three over it would overwrite the round-one notes in place, with no
+error and no trace, and every link already sent would quietly start showing different text. The
+path is `/feedback/<bounty_id>/<handle>`, so each round's notes are their own artifact forever.
 
-  - **No index page lists these and nothing links to them.** The entrant gets the URL in a DM.
-  - Every page carries `noindex, nofollow`.
-  - **A page names one entrant only.** It never mentions another entrant, their placing, or
-    how many people were above them.
+WHY THEY ARE SHARED RATHER THAN UNLISTED. Same ruling: "so they can see what feedback others
+got too". This OVERRIDES the first version of this script, which made every page noindex with
+no index page, on the strength of research doc `community/2536-bounty-entrant-feedback`
+decision 3 (Gross 2017: public feedback improved quality and cut participation by showing
+people where they stood). That trade was put to Zaal and he chose openness. It is his call and
+this is the record of it.
 
-That is not privacy in the cryptographic sense - anyone with a URL can read it, and anyone can
-guess a handle. It is the practical version: nobody is shown the field.
+It makes the ranking guard MORE important, not less: entrants will now read each other's pages
+side by side, so a superlative on one page is visible from the next one.
+
+AND THE INDEX IS ALPHABETICAL, WHICH IS LOAD-BEARING. Any list of people reads as a ranking to
+the people on it. The index sorts by handle and says so on the page, because an unexplained
+order invites everyone to infer one.
 
 TWO THINGS THIS REFUSES TO BUILD, because both have already gone wrong once in this programme:
 
@@ -109,11 +115,12 @@ def render(entrant: dict, rnd: dict) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notes on your {esc(rnd["label"]).lower()} entry - poidhz</title>
-<!-- UNLISTED ON PURPOSE. Nothing links here and it is not indexed. See the header comment in
-     scripts/build-feedback-pages.py for why, and research doc 2536 decision 3. -->
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Feedback on one ZAOstock bounty entry.">
+<title>@{esc(handle)} - notes on bounty {rnd["bounty_id"]} - poidhz</title>
+<!-- The path carries the BOUNTY ID, never just the handle: a handle enters more than one
+     round, so a handle-only path would be overwritten in place by the next round and every
+     link already sent would start showing different text. -->
+<link rel="canonical" href="https://poidhz.com/feedback/{rnd["bounty_id"]}/{esc(handle)}">
+<meta name="description" content="Feedback on one entry to ZAOstock bounty {rnd["bounty_id"]}.">
 <link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +140,9 @@ a{{color:var(--cyan);text-decoration:none;transition:color .15s}}
 a:hover{{color:var(--orange)}}
 .container{{max-width:680px;margin:0 auto;padding:0 1.5rem}}
 .topnav{{padding:1.25rem 0;border-bottom:1px solid var(--border)}}
+.topnav .container{{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}}
+.topnav a{{font-size:.9rem;color:var(--text-muted)}}
+.topnav a:hover{{color:var(--text)}}
 .topnav .brand{{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}}
 .hero{{padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--border)}}
 .badge{{display:inline-block;padding:.25rem .625rem;border-radius:999px;
@@ -169,7 +179,8 @@ margin-top:.5rem;line-height:1.7}}
 </style>
 </head>
 <body>
-<div class="topnav"><div class="container"><span class="brand">poidhz</span></div></div>
+<div class="topnav"><div class="container"><span class="brand">poidhz</span>
+  <a href="/feedback/{rnd["bounty_id"]}">all notes on this bounty</a></div></div>
 
 <div class="hero"><div class="container">
   <span class="badge">{esc(rnd["label"])} &middot; @{esc(handle)}</span>
@@ -200,8 +211,133 @@ margin-top:.5rem;line-height:1.7}}
     The festival: <a href="https://zaostock.com">zaostock.com</a><br>
     Discord: <a href="https://discord.thezao.com">discord.thezao.com</a>
     <div class="lifeline">
-      This page is for one person and is not linked from anywhere.<br>
-      It promises nothing. What this programme has and has not delivered is at
+      Notes on <a href="/feedback/{rnd["bounty_id"]}">every entry to this bounty</a>.<br>
+      This promises nothing. What this programme has and has not delivered is at
+      <a href="/about">poidhz.com/about</a>.
+    </div>
+  </footer>
+</div>
+</body>
+</html>
+"""
+
+
+def render_index(entrants: list[dict], rnd: dict) -> str:
+    """The shared page. Zaal: "so they can see what feedback others got too".
+
+    SORTED BY HANDLE, AND THE PAGE SAYS SO. Any list of people reads as a ranking to the people
+    on it, and this round has a winner, so an unexplained order would be read as the order they
+    came. Alphabetical is the only order here that carries no claim."""
+    rows = []
+    for e in sorted(entrants, key=lambda x: x["handle"].lower()):
+        n = len(e["items"])
+        rows.append(
+            f'<a class="card" href="/feedback/{rnd["bounty_id"]}/{esc(e["handle"])}">'
+            f'<span class="label">@{esc(e["handle"])}</span>'
+            f'<span class="desc">{esc(e["headline"])}</span>'
+            f'<span class="cnt">{n} thing{"s" if n != 1 else ""} to do next</span></a>')
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes on every entry - bounty {rnd["bounty_id"]} - poidhz</title>
+<link rel="canonical" href="https://poidhz.com/feedback/{rnd["bounty_id"]}">
+<meta name="description" content="What everyone who entered ZAOstock bounty {rnd["bounty_id"]} was told about their entry.">
+<link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{{margin:0;padding:0;box-sizing:border-box}}
+:root{{--bg:#070709;--surface:#111115;--surface-2:#16161c;--orange:#ff6b35;--cyan:#00e5ff;
+--gold:#f5c842;--zabal:#a78bfa;--text:#e4e2dd;--text-muted:#8a8895;--text-dim:#4e4c57;
+--border:#1f1e26;--radius:8px}}
+body{{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;
+-webkit-font-smoothing:antialiased;min-height:100vh}}
+body::before{{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,0.12),transparent 60%),
+radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,0.10),transparent 60%),
+radial-gradient(ellipse 600px 400px at 50% 100%,rgba(255,107,53,0.08),transparent 60%)}}
+a{{color:var(--cyan);text-decoration:none;transition:color .15s}}
+a:hover{{color:var(--orange)}}
+.container{{max-width:760px;margin:0 auto;padding:0 1.5rem}}
+.topnav{{padding:1.25rem 0;border-bottom:1px solid var(--border)}}
+.topnav .container{{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}}
+.topnav .brand{{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}}
+.topnav a{{font-size:.9rem;color:var(--text-muted)}}
+.topnav a:hover{{color:var(--text)}}
+.hero{{padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--border)}}
+.badge{{display:inline-block;padding:.25rem .625rem;border-radius:999px;
+font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;
+letter-spacing:.1em;background:rgba(167,139,250,.16);border:1px solid rgba(167,139,250,.4);
+color:var(--zabal)}}
+h1{{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,5vw,2.3rem);
+line-height:1.15;margin:.75rem 0 .5rem;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);
+-webkit-background-clip:text;background-clip:text;color:transparent}}
+p.sub{{color:var(--text-muted);max-width:620px}}
+h2{{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:2.5rem 0 .5rem}}
+.order{{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--text-dim);
+margin-bottom:1rem}}
+.grid{{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}
+.card{{padding:1.1rem 1.25rem;background:var(--surface);border:1px solid var(--border);
+border-radius:var(--radius);display:flex;flex-direction:column;gap:.35rem;color:var(--text);
+transition:all .15s}}
+.card:hover{{border-color:var(--cyan);transform:translateY(-2px);background:var(--surface-2);
+color:var(--text)}}
+.card .label{{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--cyan)}}
+.card .desc{{font-size:.9rem;color:var(--text)}}
+.card .cnt{{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-dim)}}
+.decided{{color:var(--text-muted);font-size:.93rem;padding-left:1.1rem}}
+.decided li{{margin:.35rem 0}}
+.next{{margin-top:.5rem;padding:1.25rem;background:var(--surface-2);
+border:1px solid var(--border);border-radius:var(--radius)}}
+.next .when{{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold)}}
+.next p{{margin-top:.5rem;color:var(--text-muted);font-size:.93rem}}
+footer{{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:3rem;
+color:var(--text-muted);font-size:.85rem}}
+footer .lifeline{{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-dim);
+margin-top:.5rem;line-height:1.7}}
+</style>
+</head>
+<body>
+<div class="topnav"><div class="container"><span class="brand">poidhz</span>
+  <a href="{esc(rnd["bounty_url"])}">the bounty</a></div></div>
+
+<div class="hero"><div class="container">
+  <span class="badge">{esc(rnd["label"])} &middot; bounty {rnd["bounty_id"]}</span>
+  <h1>What everyone was told</h1>
+  <p class="sub">Every person who entered got notes on their own entry. They are all here, so
+  you can see what was asked of everybody else and not only of you. Closed {esc(rnd["closed"])}.</p>
+</div></div>
+
+<div class="container">
+  <h2>The entries</h2>
+  <div class="order">Listed A to Z by handle. That is not an order of merit and there is no
+  ranking on this site.</div>
+  <div class="grid">
+    {"".join(rows)}
+  </div>
+
+  <h2>What decided it</h2>
+  <ul class="decided">
+    {"".join(f"<li>{esc(d)}</li>" for d in rnd["decided_it"])}
+  </ul>
+
+  <h2>{esc(rnd["next"]["label"])}</h2>
+  <div class="next">
+    <span class="when">Closes {esc(rnd["next"]["closes"])}</span>
+    <p>{esc(rnd["next"]["wants"])}</p>
+    <p>{esc(rnd["next"]["checkpoint"])}</p>
+  </div>
+
+  <footer>
+    The kit, free to use: <a href="https://zaostock.com/brand">zaostock.com/brand</a><br>
+    The festival: <a href="https://zaostock.com">zaostock.com</a><br>
+    Discord: <a href="https://discord.thezao.com">discord.thezao.com</a>
+    <div class="lifeline">
+      These notes promise nothing. What this programme has and has not delivered is at
       <a href="/about">poidhz.com/about</a>.
     </div>
   </footer>
@@ -216,6 +352,12 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
     rnd, entrants = data["round"], data["entrants"]
     findings: list[str] = []
     ok = True
+
+    bounty_id = rnd.get("bounty_id")
+    if not bounty_id:
+        return False, ["FAIL: the round has no bounty_id. The path must carry it - a handle "
+                       "slug is reused across rounds and would overwrite older notes in place."]
+    round_dir = OUT_DIR / str(bounty_id)
 
     if not entrants:
         return False, ["FAIL: the round has no entrants. An empty build is not a clean build."]
@@ -264,15 +406,22 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
                             f"the handle before sending the link.")
 
         if write and ok:
-            OUT_DIR.mkdir(parents=True, exist_ok=True)
-            out = OUT_DIR / f"{handle}.html"
+            round_dir.mkdir(parents=True, exist_ok=True)
+            out = round_dir / f"{handle}.html"
             out.write_text(page)
             findings.append(f"     wrote {out.relative_to(REPO_ROOT)}  ->  "
-                            f"poidhz.com/feedback/{handle}")
+                            f"poidhz.com/feedback/{bounty_id}/{handle}")
+
+    if ok and write:
+        round_dir.mkdir(parents=True, exist_ok=True)
+        idx = round_dir / "index.html"
+        idx.write_text(render_index(entrants, rnd))
+        findings.append(f"     wrote {idx.relative_to(REPO_ROOT)}  ->  "
+                        f"poidhz.com/feedback/{bounty_id}")
 
     if ok:
-        findings.append(f"PASS: {len(entrants)} page(s), no ranking word, no promise, "
-                        f"no page naming another entrant")
+        findings.append(f"PASS: {len(entrants)} page(s) + index under /feedback/{bounty_id}/, "
+                        f"no ranking word, no promise, no page naming another entrant")
     return ok, findings
 
 
@@ -285,7 +434,7 @@ def _selftest() -> bool:
         passed = passed and bool(cond)
 
     rnd = {"id": "t", "label": "Bounty one", "bounty_url": "u", "closed": "x",
-           "winner": "leoxcrane",
+           "winner": "leoxcrane", "bounty_id": 1409,
            "next": {"label": "Round three", "closes": "5pm", "wants": "w", "checkpoint": "c"},
            "decided_it": ["a"]}
 
@@ -294,8 +443,17 @@ def _selftest() -> bool:
             "items": [{"title": "Move it", "body": "Fifteen seconds."}]}
     page = render(good, rnd)
     c("renders a page", "predaking" in page and "Fifteen seconds." in page)
-    c("the page is noindex", 'content="noindex, nofollow"' in page)
+    c("the page URL carries the BOUNTY id, not just the handle",
+      "/feedback/1409/predaking" in page)
+    c("the page links back to the shared index", '/feedback/1409"' in page)
     c("the page never names the winner", "leoxcrane" not in page)
+
+    idx = render_index([good, {**good, "handle": "coolhat"}], rnd)
+    c("the index links each entrant under the bounty id",
+      "/feedback/1409/predaking" in idx and "/feedback/1409/coolhat" in idx)
+    c("the index states that its order is NOT merit", "not an order of merit" in idx)
+    c("the index is sorted A to Z, not in file order",
+      idx.index("coolhat") < idx.index("predaking"))
 
     c("escapes html in copy",
       "&lt;script&gt;" in render({**good, "headline": "<script>x</script>"}, rnd))
@@ -347,6 +505,14 @@ def _selftest() -> bool:
         ok, f = build("t", write=False)
         c("an empty entrant list FAILS rather than building nothing quietly",
           not ok and any("not a clean build" in x for x in f))
+
+        # A round with no bounty_id would build to a handle-only path and be overwritten by
+        # the next round in place, with no error. That must never happen quietly.
+        (REPO_ROOT / "data" / "feedback" / "t.json").write_text(json.dumps(
+            {"round": {k: v for k, v in rnd.items() if k != "bounty_id"},
+             "entrants": [good]}))
+        ok, f = build("t", write=False)
+        c("a round with NO bounty_id is refused", not ok and any("bounty_id" in x for x in f))
     REPO_ROOT = real_root
     OUT_DIR = REPO_ROOT / "feedback"
     return passed
