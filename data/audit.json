@@ -4,17 +4,18 @@
     1166,
     1180,
     1330,
-    1409
+    1409,
+    1410
   ],
   "chainId": 8453,
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 41,
-  "total_claims_accepted": 38,
+  "total_claims_received": 42,
+  "total_claims_accepted": 39,
   "total_claims_rejected": 3,
   "submitter_count": 40,
-  "total_eth_escrow": 0.0759,
+  "total_eth_escrow": 0.0799,
   "bounties": [
     {
       "id": 1151,
@@ -77,9 +78,22 @@
       "album": "wethemmedia",
       "amount_eth": 0.0061,
       "in_progress": true,
+      "is_voting": true,
+      "is_canceled": false,
+      "claims_count": 6
+    },
+    {
+      "id": 1410,
+      "chainId": 8453,
+      "title": "Make one piece of media for ZAOstock",
+      "description": "Make one piece of media for ZAOstock using the brand kit. Post it publicly, claim the live link here. Closes 5pm Eastern Tuesday September 22. I name my pick live on Twitch around 5pm, right as it closes, with the entries on screen, and the people who funded the pot confirm it in a two-day vote.\n\nWHAT I WANT MOST TODAY: VIDEO WITH AUDIO. Day one gave us strong posters and one moving piece, and the moving piece landed an hour late. The kit now has a 30-second ZAOstock spot and a radio interview y",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.004,
+      "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 5
+      "claims_count": 0
     }
   ],
   "claims": [
@@ -412,6 +426,16 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYwWx7GGgj3aHSLVYBtdqJ9oNAfaimmxh4gEMYwsRfgJh",
       "accepted": false,
       "on_chain_id": 2351
+    },
+    {
+      "bounty_id": 1409,
+      "claim_id": 8098,
+      "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
+      "title": "Zaostock.",
+      "description": "https://farcaster.xyz/coolhat/0x74c18de6",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmXhUiMizbjkq62qn3AuWR6zQYspKa6QE36V7EfzghMDnt",
+      "accepted": false,
+      "on_chain_id": 2782
     },
     {
       "bounty_id": 1409,
