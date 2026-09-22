@@ -87,6 +87,9 @@ THE ASSET KIT (use any of this, CC-BY)
 - The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
 - Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
 - The lineup, all eight acts: https://zaostock.com/artists
+- AUDIO - the 30-second ZAOstock spot, cut it under anything: https://zaostock.com/brand/audio/zaostock-commercial-30s.mp3
+- AUDIO - the radio interview about the festival, 7 minutes, pull any line from it: https://zaostock.com/brand/audio/zaostock-radio-interview-2026-09-10.mp3
+- VIDEO - the logo draw animation, a ready-made opener or closer: https://zaostock.com/brand/video/logo-draw-animation.mp4
 
 The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
 
