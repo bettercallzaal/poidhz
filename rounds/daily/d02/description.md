@@ -45,6 +45,8 @@ A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatev
 
 Same ask as yesterday, and five people entered. One of them missed the close by an hour, which is exactly why this one is here. If you meant to and ran out of time, this is the one.
 
+WHAT WE WANT MOST TODAY: video with audio. Day one gave us two strong posters and a flyer, and only one moving piece - and it landed an hour late. The kit now has a 30-second ZAOstock spot and a radio interview you can cut under anything. A still gets scrolled past. Fifteen seconds that moves, with sound, is the piece we would actually run.
+
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
 11 days out, and this closes at 5pm Eastern Tuesday, so make something today.
@@ -63,6 +65,10 @@ THE BAR (these are requirements, not preferences)
 4. Use the real brand assets, linked below. They are free to use.
 5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
+
+WHAT DAY ONE TAUGHT US
+
+Five entries. The ones that scored highest all did the same three things: every fact a person needs was on the piece (date, time, place, free, all eight acts), it was built on the real kit, and it was submitted as the actual file rather than a screenshot of a post. The best-looking entry of the day missed on the first of those - no date or place on it - and that is the whole difference between striking and usable.
 
 WHAT MAKES IT USABLE
 
@@ -106,6 +112,9 @@ THE ASSET KIT (use any of this, CC-BY)
 - The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
 - Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
 - The lineup, all eight acts: https://zaostock.com/artists
+- AUDIO - the 30-second ZAOstock spot, cut it under anything: https://zaostock.com/brand/audio/zaostock-commercial-30s.mp3
+- AUDIO - the radio interview about the festival, 7 minutes, pull any line from it: https://zaostock.com/brand/audio/zaostock-radio-interview-2026-09-10.mp3
+- VIDEO - the logo draw animation, a ready-made opener or closer: https://zaostock.com/brand/video/logo-draw-animation.mp4
 
 The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
 
