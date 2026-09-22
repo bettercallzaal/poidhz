@@ -120,6 +120,31 @@ jobs:
         # An exclusion is allowed, but only declared in excluded_bounty_ids WITH a reason.
         run: python3 scripts/check-tracked-bounties.py
 
+      - name: The published site matches what generates it
+        # Two site artifacts are GENERATED and committed, so they can drift from their source
+        # with nothing to notice: the per-entrant feedback pages come from
+        # data/feedback/*.json, and the shared navigation bar is injected into all fifteen
+        # pages by a script. Editing the json without rebuilding leaves the site serving older
+        # notes to the person they were written for, and neither the page nor the json looks
+        # wrong on its own.
+        run: |
+          set -o pipefail
+          fail=0
+          found=0
+          for j in data/feedback/*.json; do
+            [ -f "$j" ] || continue
+            found=$((found+1))
+            r=$(basename "$j" .json)
+            python3 scripts/build-feedback-pages.py --round "$r" --check || fail=$((fail+1))
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "Refusing: matched no data/feedback/*.json. An empty set is not a pass."
+            exit 1
+          fi
+          echo "$found round(s) of feedback checked, $fail stale"
+          python3 scripts/sync-site-nav.py --check || fail=$((fail+1))
+          [ "$fail" -eq 0 ]
+
       - name: Config and data files still parse
         run: |
           python3 - <<'PY'

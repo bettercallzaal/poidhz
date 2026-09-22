@@ -89,6 +89,20 @@ def known_claim_handles(round_id: str) -> set[str] | None:
     return raw  # substring search; the shape of claims.json varies by round
 
 
+# The site is built in two stages: this script renders a page, then sync-site-nav.py injects
+# the shared navigation bar into it. So the file ON DISK is legitimately a superset of what
+# this script renders, and comparing them raw reports every page as stale. Found by running
+# --check against the real committed pages rather than only against the selftest fixtures,
+# which is the whole reason to do that: the fixtures have no nav, so they could never have
+# shown this.
+NAV_BLOCK = re.compile(
+    r"<!-- ZN-NAV START.*?<!-- ZN-NAV END -->\s*", re.S)
+
+
+def without_nav(html_text: str) -> str:
+    return NAV_BLOCK.sub("", html_text)
+
+
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
@@ -489,9 +503,22 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
             findings.append(f"     WARN: @{handle} was not found in data/claims.json. Check "
                             f"the handle before sending the link.")
 
+        out = round_dir / f"{handle}.html"
+        if not write:
+            # STALENESS. --check used to validate the copy and never compare it to the file
+            # being served, so editing the json without rebuilding passed cleanly while the
+            # site served the old notes to the person they were written for.
+            if not out.exists():
+                ok = False
+                findings.append(f"FAIL: {out.relative_to(REPO_ROOT)} has never been built. "
+                                f"Run build-feedback-pages.py --round {round_id}.")
+            elif without_nav(out.read_text()) != without_nav(page):
+                ok = False
+                findings.append(f"FAIL: {out.relative_to(REPO_ROOT)} is STALE - it differs "
+                                f"from what {round_id}.json renders. The site is serving "
+                                f"older notes than the repo says. Rebuild it.")
         if write and ok:
             round_dir.mkdir(parents=True, exist_ok=True)
-            out = round_dir / f"{handle}.html"
             out.write_text(page)
             findings.append(f"     wrote {out.relative_to(REPO_ROOT)}  ->  "
                             f"poidhz.com/feedback/{bounty_id}/{handle}")
@@ -570,7 +597,33 @@ def _selftest() -> bool:
 
         write_round([good])
         ok, f = build("t", write=False)
-        c("a clean round passes", ok)
+        c("--check FAILS when the page was never built",
+          not ok and any("never been built" in x for x in f))
+        build("t", write=True)
+        ok, f = build("t", write=False)
+        c("a clean, freshly built round passes", ok)
+
+        # A page carrying an injected nav bar is NOT stale. This is the false positive the
+        # first version of this check produced against all five real pages.
+        built = REPO_ROOT / "feedback" / "1409" / "predaking.html"
+        target = next(REPO_ROOT.glob("feedback/*/*.html"))
+        target.write_text("<!-- ZN-NAV START x -->\nbar\n<!-- ZN-NAV END -->\n"
+                          + target.read_text())
+        ok, f = build("t", write=False)
+        c("a page with an injected nav bar is NOT reported stale", ok)
+
+        # The real drift: edit the source, do not rebuild.
+        write_round([{**good, "headline": "Changed after the build."}])
+        ok, f = build("t", write=False)
+        c("--check catches a page that is STALE against its json",
+          not ok and any("STALE" in x for x in f))
+        build("t", write=True)
+        ok, _ = build("t", write=False)
+        c("and passes again once rebuilt", ok)
+
+        write_round([good])
+        build("t", write=True)
+        ok, f = build("t", write=False)
         c("and it warns that claims.json could not be read",
           any("UNVERIFIED" in x for x in f))
 
