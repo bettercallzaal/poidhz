@@ -50,6 +50,18 @@
     {
       "source": "/zabal-gamez-brand/:file",
       "destination": "/assets/brand-kits/zabal-games/:file"
+    },
+    {
+      "source": "/create-bounty",
+      "destination": "/docs/create-bounty.html"
+    },
+    {
+      "source": "/feedback",
+      "destination": "/feedback/index.html"
+    },
+    {
+      "source": "/feedback/:bounty",
+      "destination": "/feedback/:bounty/index.html"
     }
   ],
   "headers": [
