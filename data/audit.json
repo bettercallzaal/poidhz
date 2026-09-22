@@ -15,7 +15,7 @@
   "total_claims_accepted": 39,
   "total_claims_rejected": 3,
   "submitter_count": 40,
-  "total_eth_escrow": 0.0799,
+  "total_eth_escrow": 0.0809,
   "bounties": [
     {
       "id": 1151,
@@ -89,7 +89,7 @@
       "description": "Make one piece of media for ZAOstock using the brand kit. Post it publicly, claim the live link here. Closes 5pm Eastern Tuesday September 22. I name my pick live on Twitch around 5pm, right as it closes, with the entries on screen, and the people who funded the pot confirm it in a two-day vote.\n\nWHAT I WANT MOST TODAY: VIDEO WITH AUDIO. Day one gave us strong posters and one moving piece, and the moving piece landed an hour late. The kit now has a 30-second ZAOstock spot and a radio interview y",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
-      "amount_eth": 0.004,
+      "amount_eth": 0.005,
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
