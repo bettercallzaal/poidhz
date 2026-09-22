@@ -33,6 +33,46 @@ REQUIRED_SECTIONS = [
     ("deadline", "DEADLINE - exact PT date/time + winner cast date"),
 ]
 
+# THE HEADING IS NOT THE SECTION. Measured 2026-09-22 against the description that
+# ACTUALLY CAST as bounty two on 2026-09-21: this validator returned three FAILs -
+# THE RUBRIC, THE ASSET KIT and DEADLINE - on copy that ran, drew eleven entries over
+# two rounds, and carried every one of those things. It was matching literal headers
+# that the tightened rewrite had renamed:
+#
+#     THE RUBRIC     -> WHAT EARNS WEIGHT
+#     THE ASSET KIT  -> THE KIT
+#     DEADLINE       -> no header at all; the close moved into the opening sentence
+#
+# A poidh description is IMMUTABLE once cast, so a validator that cries wolf on good
+# copy is worse than one that stays quiet: the one time it is right, it has already
+# taught its reader to cast anyway. This file's own comment block says a header match
+# alone is not evidence. The same reasoning runs the other way, and did not.
+#
+# So each section now carries the headers it has actually been written under, and a
+# section whose content can be proved without any header at all says so rather than
+# failing. Add a synonym here when the copy is renamed again; do not delete the check.
+SECTION_ALIASES = {
+    "why": ["WHY"],
+    "the_bar": ["THE BAR"],
+    "the_rubric": ["THE RUBRIC", "WHAT EARNS WEIGHT", "WHAT SCORES"],
+    "asset_kit": ["THE ASSET KIT", "THE KIT"],
+    "reward": ["THE REWARD"],
+    "deadline": ["DEADLINE", "CLOSES", "CLOSING"],
+}
+
+# A section that can be established from the whole description, header or not. The
+# deadline is the only one today: the tightened copy states the close in its first
+# sentence and never writes the word. The pattern must be specific enough that prose
+# cannot satisfy it by accident - a weekday and a clock time, or a month and a day.
+HEADERLESS_EVIDENCE = {
+    "deadline": (
+        r"(?i)\bcloses?\b[^.\n]{0,80}?"
+        r"(\b\d{1,2}\s*(?::\d{2})?\s*(?:am|pm)\b|\b(?:january|february|march|april|may|june|"
+        r"july|august|september|october|november|december)\s+\d{1,2}\b)",
+        "a stated closing time or date in the body, with no DEADLINE header",
+    ),
+}
+
 REQUIRED_FLOOR_RULES = [
     ("tag_bcz", "Tag @bettercallzaal on X"),
     ("crosspost_fc", "Cross-post in relevant Farcaster channel"),
@@ -118,15 +158,37 @@ def validate_sections(description: str) -> tuple[bool, list]:
     all_pass = True
 
     for section_id, section_label in REQUIRED_SECTIONS:
-        header = section_label.split(" - ")[0]
-        patterns = [
-            r"(?i)" + re.escape(header),
-            r"(?i)#+\s*" + re.escape(header.replace("THE ", "").replace("_", " ")),
-        ]
-        found = any(re.search(p, description) for p in patterns)
+        canonical = section_label.split(" - ")[0]
+        aliases = SECTION_ALIASES.get(section_id, [canonical])
 
-        if not found:
-            findings.append(f"FAIL: {section_label} - NOT FOUND")
+        header = None
+        for alias in aliases:
+            # ANCHORED TO A LINE START, and that is load-bearing. An unanchored
+            # case-insensitive match for a short alias like THE KIT also matches the
+            # words "the kit" in a sentence, so the section passes when it has been
+            # deleted. Measured 2026-09-22: with the whole kit section cut, an
+            # unanchored matcher still reported PASS.
+            patterns = [
+                r"(?im)^[^\S\n]*" + re.escape(alias) + r"\b",
+                r"(?im)^[^\S\n]*#+\s*" + re.escape(alias.replace("THE ", "").replace("_", " ")) + r"\b",
+                r"(?im)^[^\S\n]*\*\*" + re.escape(alias) + r"\b",
+            ]
+            if any(re.search(p, description) for p in patterns):
+                header = alias
+                break
+
+        if header is None:
+            # No header under any name it has been written under. Before failing, ask
+            # whether the thing itself is in the copy: a renamed or absent header is a
+            # style change, a missing close date is a real defect, and they are not the
+            # same finding.
+            evidence = HEADERLESS_EVIDENCE.get(section_id)
+            if evidence and re.search(evidence[0], description):
+                findings.append(f"PASS: {section_label} - {evidence[1]}")
+                continue
+            findings.append(
+                f"FAIL: {section_label} - NOT FOUND under any of: {', '.join(aliases)}"
+            )
             all_pass = False
             continue
 
