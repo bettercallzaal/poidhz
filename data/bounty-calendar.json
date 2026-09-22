@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T17:06:42.209582+00:00",
+  "generated_at": "2026-09-22T21:31:35.950620+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -49,12 +49,21 @@
     },
     {
       "round": "daily-01",
-      "bounty_id": null,
-      "title": "Daily 01 - Make something that gets people to ZAOstock",
-      "deadline_iso": null,
-      "deadline_raw_text": null,
-      "status": "not_cast",
-      "url": null
+      "bounty_id": 1409,
+      "title": "Daily 01 - Make one piece of media for ZAOstock",
+      "deadline_iso": "2026-09-21",
+      "deadline_raw_text": "September 21, 2026",
+      "status": "closed",
+      "url": "https://poidh.xyz/base/bounty/1409"
+    },
+    {
+      "round": "daily-02",
+      "bounty_id": 1410,
+      "title": "Daily 02 - Make one piece of media for ZAOstock",
+      "deadline_iso": "2026-09-22",
+      "deadline_raw_text": "September 22",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1410"
     },
     {
       "round": 9,
