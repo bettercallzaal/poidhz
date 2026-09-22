@@ -27,7 +27,12 @@ them does not exist:
 
 - `https://raw.githubusercontent.com/goldrush-gr01/assay-claims/.../claim.json` returns **404**
 - `https://goldrush-gr01.github.io/assay-claims/poidh-1410-zaostock/` returns **404**
-- `api.github.com/users/goldrush-gr01` returns **404**. There is no such GitHub account.
+- `api.github.com/users/goldrush-gr01` returns **404**, so that name does not resolve today.
+
+**Say "does not resolve", not "does not exist".** That endpoint returns 404 for a name that
+was never taken, for a deleted account and for a **renamed** one, and the three are
+indistinguishable from outside. A renamed account is still reachable, so this is not evidence
+of bad faith or of a fake entry. Caught by the Dotfiles seat, 2026-09-22.
 
 Instrument checked both ways before that was written: a known-good raw.githubusercontent URL
 returns **200** from here, so 404 is a real answer and not a blanket block; and a nonsense path

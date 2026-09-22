@@ -21,6 +21,21 @@ the thanks and the next ask, and nothing per-entrant.
 
 **@leoxcrane was posted 2026-09-22 by Zaal.** The five below are outstanding.
 
+> ## SUPERSEDED 2026-09-22 - READ `docs/feedback-that-recruits.md` FIRST
+>
+> The five notes below are correct as **craft** feedback and they are the wrong object for the
+> job. Zaal, same day: *"we need to better to give feedback on waht we want which is to get
+> them to make content for us fulltime"*. That is a hiring goal, and these were written to a
+> contest goal.
+>
+> Ten defects are itemised in `docs/feedback-that-recruits.md`. The two that matter most: **not
+> one of the six asks a question**, and **four of five end with the identical sentence**, which
+> spends the position of maximum weight on a rule.
+>
+> The sending copy is the recruiting version, on the clipboard as
+> `clip-20260922-135344-d01-feedback-recruiting`. Three of the five carry a paid-work opener
+> and two deliberately do not. **Do not send the five below as they stand.**
+
 ---
 
 ## @predaking - claim 8091
