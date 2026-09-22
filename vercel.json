@@ -53,7 +53,7 @@
     },
     {
       "source": "/create-bounty",
-      "destination": "/docs/create-bounty.html"
+      "destination": "/docs/create-bounty"
     },
     {
       "source": "/feedback",
