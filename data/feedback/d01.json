@@ -1,0 +1,118 @@
+{
+  "_comment": "Per-entrant feedback for bounty one. Rendered to /feedback/<handle> by scripts/build-feedback-pages.py. UNLISTED BY DESIGN: no index page links these and every page carries noindex. Research doc community/2536-bounty-entrant-feedback, decision 3: public per-entrant feedback improves quality but cuts participation by exposing who is ahead; private keeps the improvement. A URL only the entrant is given keeps that property while still being linkable.",
+  "round": {
+    "id": "d01",
+    "label": "Bounty one",
+    "bounty_url": "https://poidh.xyz/base/bounty/1409",
+    "closed": "2026-09-21, 4:00pm Eastern",
+    "winner": "leoxcrane",
+    "next": {
+      "label": "Round three",
+      "closes": "5pm Eastern, Wednesday 23 September",
+      "wants": "Anything except a poster. Video, audio, a meme, a comic, something physical you put up in a real place. Make the thing only you would make.",
+      "checkpoint": "Tag a draft by 12pm Eastern and you get one specific note back before 2pm. Final claim by 5pm. If two entries land in the same place, the one that took a note wins."
+    },
+    "decided_it": [
+      "Every fact a person needs was ON the piece, not only in the caption.",
+      "It was built on the real kit rather than a lookalike.",
+      "It was submitted as the actual file, not a screenshot of a post."
+    ]
+  },
+  "entrants": [
+    {
+      "handle": "predaking",
+      "claim": 8091,
+      "headline": "Make it move, and keep the facts out of the crop.",
+      "did_well": "You went and got the running order and what each act plays, and you credited attabotty and Candy without being asked.",
+      "items": [
+        {
+          "title": "It has to move next round",
+          "body": "Round three takes anything except a poster. The kit has a 30-second spot you can cut under fifteen seconds of your own edit, so you do not have to record anything.",
+          "link": "https://zaostock.com/brand/audio/zaostock-commercial-30s.mp3"
+        },
+        {
+          "title": "Keep the date and the URL out of the bottom fifth",
+          "body": "Yours is 9:16 and a feed crops that from the centre. Your bottom band went first and zaostock.com went with it. Build so the bottom fifth can be lost without losing anything that matters."
+        }
+      ]
+    },
+    {
+      "handle": "dee-13",
+      "claim": 8092,
+      "headline": "Upload the file, then make the same thing move.",
+      "did_well": "The artwork carries every fact on its own. Date, year, noon to six, free, eight acts, Franklin Street Parklet, Ellsworth Maine, on the real moose.",
+      "items": [
+        {
+          "title": "Upload the file, not a screenshot of your post",
+          "body": "What we are holding is a photo of a phone screen with the app chrome and the battery icon in it. Attach the image itself and put the link to your post in the description underneath. The art already clears the bar; only the handover did not."
+        },
+        {
+          "title": "Make it move next round",
+          "body": "Round three takes anything except a poster. Same information you already have right, fifteen seconds of it."
+        }
+      ]
+    },
+    {
+      "handle": "pascaline",
+      "claim": 8093,
+      "headline": "Real names instead of invented faces, and put the date on it.",
+      "did_well": "The composition pulls the eye straight down the page and lands on the moose, and you turned it around fast.",
+      "items": [
+        {
+          "title": "No made-up band photos",
+          "body": "The Crown Vics, OPEN X, Grass Rug and Acadia Rising are real people who will be standing on that street. We cannot put another face under their name. Set their names in the kit type instead and the piece is runnable.",
+          "link": "https://zaostock.com/artists"
+        },
+        {
+          "title": "Put the date and the place on the piece",
+          "body": "ZAOstock, Saturday October 3, Ellsworth Maine. As it stands somebody can see it and still not know when to turn up."
+        },
+        {
+          "title": "Round three is the video round you wanted",
+          "body": "You said you meant to make a video and ran out of time. Posters are out this round, so this is it."
+        }
+      ]
+    },
+    {
+      "handle": "uniquebeing404",
+      "claim": 8094,
+      "headline": "Put the facts on screen, and file before the close.",
+      "did_well": "You shot it on a real street with real flyers. Eleven entries in across two rounds and you are still the only person who has made something physical.",
+      "items": [
+        {
+          "title": "Put the facts on screen, not only in the caption",
+          "body": "Hold the last three seconds on a card: ZAOstock, Saturday October 3, Ellsworth Maine. A clip gets reposted without its caption and then it says nothing."
+        },
+        {
+          "title": "File before 5pm",
+          "body": "Yours landed 59 minutes after the close, which is the only reason it could not be judged. Nothing about the piece was the problem."
+        },
+        {
+          "title": "Upload the video file itself",
+          "body": "You claimed a screenshot of the post, so the video is a click away from the bounty page instead of on it."
+        }
+      ]
+    },
+    {
+      "handle": "coolhat",
+      "claim": 8098,
+      "headline": "Use the kit moose, and file before the close.",
+      "did_well": "Every fact plus all eight names, and it still holds together at square. That much type at 1:1 is genuinely hard.",
+      "items": [
+        {
+          "title": "Use the kit moose, not a redrawn one",
+          "body": "Yours is a good drawing and it still cannot go out, because it is not the mark that is on the site, the posters and the shirts. Drop the real file in over it.",
+          "link": "https://zaostock.com/brand/logos/zaostock26_moose.png"
+        },
+        {
+          "title": "File before the close",
+          "body": "Yours came in after 4pm, so it could not be judged."
+        },
+        {
+          "title": "Round three takes anything except a poster",
+          "body": "Same care with type, applied to something that moves or makes a sound."
+        }
+      ]
+    }
+  ]
+}

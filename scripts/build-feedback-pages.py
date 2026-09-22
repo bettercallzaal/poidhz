@@ -1,0 +1,376 @@
+#!/usr/bin/env python3
+"""Render one unlisted feedback page per bounty entrant, from data/feedback/<round>.json.
+
+WHY A PAGE. Zaal, 2026-09-22: "add all this to the poidhz.com website so i can just link that
+for more info so lets do one piece of feedback in message adn then rest on their subpage". The
+message carries one line and a URL; the page carries the rest.
+
+WHY UNLISTED, AND WHY THAT IS NOT THE SAME AS PUBLIC. ZAOOS research doc
+`community/2536-bounty-entrant-feedback`, decision 3, from Gross 2017: full PUBLIC feedback
+raised top-rated work and cut participation, because it shows every entrant where they stand
+against the others. Private feedback kept the improvement and lost the least, and was the best
+policy tested. So:
+
+  - **No index page lists these and nothing links to them.** The entrant gets the URL in a DM.
+  - Every page carries `noindex, nofollow`.
+  - **A page names one entrant only.** It never mentions another entrant, their placing, or
+    how many people were above them.
+
+That is not privacy in the cryptographic sense - anyone with a URL can read it, and anyone can
+guess a handle. It is the practical version: nobody is shown the field.
+
+TWO THINGS THIS REFUSES TO BUILD, because both have already gone wrong once in this programme:
+
+  1. **A ranking word anywhere in the copy.** Zaal, 2026-09-22: "you cant say that most complete
+     entrie didnt win". A superlative on a losing entrant's page says the pick was wrong.
+  2. **A page for a handle that filed no claim.** The handles are checked against the round's
+     real claim list where one is available, so a typo becomes a build failure rather than a
+     page addressed to nobody.
+
+    python3 scripts/build-feedback-pages.py --round d01
+    python3 scripts/build-feedback-pages.py --round d01 --check
+    python3 scripts/build-feedback-pages.py --selftest
+"""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import re
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+OUT_DIR = REPO_ROOT / "feedback"
+
+# A superlative on a page belonging to somebody who did not win reads either as "the pick was
+# wrong" or as empty words. Checked against the rendered copy, not the source, so it cannot be
+# smuggled in through a field this script does not know about.
+RANKING_WORDS = re.compile(
+    r"(?i)\b(best|strongest|cleanest|most complete|the only one who|"
+    r"better than|beat (?:the |every )?other|top entry|second place|runner.?up|"
+    r"ranked?|first place|won it)\b")
+
+# Phrases that would turn feedback into a promise. This programme's PROMISE-AUDIT records five
+# rounds of promising distribution and delivering money instead.
+PROMISE_WORDS = re.compile(
+    r"(?i)\b(we will (?:run|post|repost|pin|feature)|will be pinned|guaranteed|"
+    r"we promise)\b")
+
+
+def load(round_id: str) -> dict:
+    p = REPO_ROOT / "data" / "feedback" / f"{round_id}.json"
+    if not p.exists():
+        raise SystemExit(f"FAIL: {p} does not exist. Nothing to build.")
+    return json.loads(p.read_text())
+
+
+def known_claim_handles(round_id: str) -> set[str] | None:
+    """Handles that really filed a claim on this round, from data/claims.json.
+
+    Returns None when the file cannot answer - a MISSING answer, never an empty set, because
+    an empty set here would silently fail every handle and read as 'nobody entered'."""
+    p = REPO_ROOT / "data" / "claims.json"
+    if not p.exists():
+        return None
+    try:
+        blob = json.loads(p.read_text())
+    except json.JSONDecodeError:
+        return None
+    raw = json.dumps(blob).lower()
+    if not raw.strip():
+        return None
+    return raw  # substring search; the shape of claims.json varies by round
+
+
+def esc(s: str) -> str:
+    return html.escape(s, quote=True)
+
+
+def render(entrant: dict, rnd: dict) -> str:
+    handle = entrant["handle"]
+    nxt = rnd["next"]
+    items = entrant["items"]
+    if not 1 <= len(items) <= 3:
+        raise SystemExit(f"FAIL: @{handle} has {len(items)} items. Zaal asked for 1 to 3: "
+                         f"'just give liek 1-3 thigns they could do better to win the next one'.")
+
+    lis = []
+    for i, it in enumerate(items, 1):
+        link = ""
+        if it.get("link"):
+            link = (f'<a class="itemlink" href="{esc(it["link"])}">{esc(it["link"])}</a>')
+        lis.append(
+            f'<li><span class="n">{i}</span><div><h3>{esc(it["title"])}</h3>'
+            f'<p>{esc(it["body"])}</p>{link}</div></li>')
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes on your {esc(rnd["label"]).lower()} entry - poidhz</title>
+<!-- UNLISTED ON PURPOSE. Nothing links here and it is not indexed. See the header comment in
+     scripts/build-feedback-pages.py for why, and research doc 2536 decision 3. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Feedback on one ZAOstock bounty entry.">
+<link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{{margin:0;padding:0;box-sizing:border-box}}
+:root{{--bg:#070709;--surface:#111115;--surface-2:#16161c;--orange:#ff6b35;--cyan:#00e5ff;
+--gold:#f5c842;--zabal:#a78bfa;--text:#e4e2dd;--text-muted:#8a8895;--text-dim:#4e4c57;
+--border:#1f1e26;--radius:8px}}
+body{{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;
+-webkit-font-smoothing:antialiased;min-height:100vh}}
+body::before{{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,0.12),transparent 60%),
+radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,0.10),transparent 60%),
+radial-gradient(ellipse 600px 400px at 50% 100%,rgba(255,107,53,0.08),transparent 60%)}}
+a{{color:var(--cyan);text-decoration:none;transition:color .15s}}
+a:hover{{color:var(--orange)}}
+.container{{max-width:680px;margin:0 auto;padding:0 1.5rem}}
+.topnav{{padding:1.25rem 0;border-bottom:1px solid var(--border)}}
+.topnav .brand{{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}}
+.hero{{padding:2.5rem 0 1.75rem;border-bottom:1px solid var(--border)}}
+.badge{{display:inline-block;padding:.25rem .625rem;border-radius:999px;
+font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;
+letter-spacing:.1em;background:rgba(167,139,250,.16);border:1px solid rgba(167,139,250,.4);
+color:var(--zabal)}}
+h1{{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,5vw,2.3rem);
+line-height:1.15;margin:.75rem 0 .5rem;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);
+-webkit-background-clip:text;background-clip:text;color:transparent}}
+.did{{margin:1.5rem 0 0;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);
+border-left:3px solid var(--gold);border-radius:var(--radius);color:var(--text)}}
+.did .lab{{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;
+letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.35rem}}
+h2{{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:2.5rem 0 1rem}}
+ol.items{{list-style:none;display:flex;flex-direction:column;gap:.75rem}}
+ol.items li{{display:flex;gap:.9rem;padding:1.1rem 1.25rem;background:var(--surface);
+border:1px solid var(--border);border-radius:var(--radius)}}
+ol.items .n{{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--cyan);
+flex:0 0 1.5rem;line-height:1.7}}
+ol.items h3{{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.3rem}}
+ol.items p{{color:var(--text-muted);font-size:.93rem}}
+.itemlink{{display:inline-block;margin-top:.5rem;font-family:'JetBrains Mono',monospace;
+font-size:.76rem;word-break:break-all}}
+.next{{margin-top:1rem;padding:1.25rem;background:var(--surface-2);border:1px solid var(--border);
+border-radius:var(--radius)}}
+.next .when{{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold)}}
+.next p{{margin-top:.5rem;color:var(--text-muted);font-size:.93rem}}
+.decided{{color:var(--text-muted);font-size:.93rem;padding-left:1.1rem}}
+.decided li{{margin:.35rem 0}}
+footer{{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:3rem;
+color:var(--text-muted);font-size:.85rem}}
+footer .lifeline{{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-dim);
+margin-top:.5rem;line-height:1.7}}
+</style>
+</head>
+<body>
+<div class="topnav"><div class="container"><span class="brand">poidhz</span></div></div>
+
+<div class="hero"><div class="container">
+  <span class="badge">{esc(rnd["label"])} &middot; @{esc(handle)}</span>
+  <h1>{esc(entrant["headline"])}</h1>
+  <div class="did"><span class="lab">What this entry did</span>{esc(entrant["did_well"])}</div>
+</div></div>
+
+<div class="container">
+  <h2>To win the next one</h2>
+  <ol class="items">
+    {"".join(lis)}
+  </ol>
+
+  <h2>{esc(nxt["label"])}</h2>
+  <div class="next">
+    <span class="when">Closes {esc(nxt["closes"])}</span>
+    <p>{esc(nxt["wants"])}</p>
+    <p>{esc(nxt["checkpoint"])}</p>
+  </div>
+
+  <h2>What decided {esc(rnd["label"]).lower()}</h2>
+  <ul class="decided">
+    {"".join(f"<li>{esc(d)}</li>" for d in rnd["decided_it"])}
+  </ul>
+
+  <footer>
+    The kit, free to use: <a href="https://zaostock.com/brand">zaostock.com/brand</a><br>
+    The festival: <a href="https://zaostock.com">zaostock.com</a><br>
+    Discord: <a href="https://discord.thezao.com">discord.thezao.com</a>
+    <div class="lifeline">
+      This page is for one person and is not linked from anywhere.<br>
+      It promises nothing. What this programme has and has not delivered is at
+      <a href="/about">poidhz.com/about</a>.
+    </div>
+  </footer>
+</div>
+</body>
+</html>
+"""
+
+
+def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
+    data = load(round_id)
+    rnd, entrants = data["round"], data["entrants"]
+    findings: list[str] = []
+    ok = True
+
+    if not entrants:
+        return False, ["FAIL: the round has no entrants. An empty build is not a clean build."]
+
+    claims_blob = known_claim_handles(round_id)
+    if claims_blob is None:
+        findings.append("     WARN: data/claims.json could not be read, so handles were NOT "
+                        "checked against real claims. UNVERIFIED, not verified.")
+
+    for e in entrants:
+        handle = e["handle"]
+        page = render(e, rnd)
+
+        # Guards run on the RENDERED page, so nothing slips through a field this script does
+        # not individually inspect.
+        body_text = re.sub(r"<[^>]+>", " ", page)
+        body_text = re.sub(r"\s+", " ", html.unescape(body_text))
+        # The style block and this file's own prose are not entrant copy.
+        checkable = " ".join(
+            esc(v) and str(v) for k, v in e.items() if k != "handle" and isinstance(v, str))
+        checkable += " " + " ".join(
+            f"{i.get('title','')} {i.get('body','')}" for i in e["items"])
+
+        if m := RANKING_WORDS.search(checkable):
+            ok = False
+            findings.append(
+                f"FAIL: @{handle}'s copy contains the ranking word '{m.group(0)}'. "
+                f"@{rnd['winner']} won this round. A superlative on anybody else's page says "
+                f"either that the pick was wrong or that the words are empty.")
+        if m := PROMISE_WORDS.search(checkable):
+            ok = False
+            findings.append(
+                f"FAIL: @{handle}'s copy promises something ('{m.group(0)}'). See "
+                f"docs/PROMISE-AUDIT.md - five rounds promised distribution and delivered "
+                f"money. Feedback promises nothing.")
+
+        for other in entrants:
+            if other["handle"] != handle and other["handle"].lower() in checkable.lower():
+                ok = False
+                findings.append(f"FAIL: @{handle}'s page names another entrant "
+                                f"(@{other['handle']}). A page shows one person their own "
+                                f"work and never the field.")
+
+        if claims_blob is not None and handle.lower() not in claims_blob:
+            findings.append(f"     WARN: @{handle} was not found in data/claims.json. Check "
+                            f"the handle before sending the link.")
+
+        if write and ok:
+            OUT_DIR.mkdir(parents=True, exist_ok=True)
+            out = OUT_DIR / f"{handle}.html"
+            out.write_text(page)
+            findings.append(f"     wrote {out.relative_to(REPO_ROOT)}  ->  "
+                            f"poidhz.com/feedback/{handle}")
+
+    if ok:
+        findings.append(f"PASS: {len(entrants)} page(s), no ranking word, no promise, "
+                        f"no page naming another entrant")
+    return ok, findings
+
+
+def _selftest() -> bool:
+    passed = True
+
+    def c(label, cond):
+        nonlocal passed
+        print(f"  {'ok  ' if cond else 'FAIL'} {label}")
+        passed = passed and bool(cond)
+
+    rnd = {"id": "t", "label": "Bounty one", "bounty_url": "u", "closed": "x",
+           "winner": "leoxcrane",
+           "next": {"label": "Round three", "closes": "5pm", "wants": "w", "checkpoint": "c"},
+           "decided_it": ["a"]}
+
+    good = {"handle": "predaking", "claim": 1, "headline": "Make it move.",
+            "did_well": "You got the running order.",
+            "items": [{"title": "Move it", "body": "Fifteen seconds."}]}
+    page = render(good, rnd)
+    c("renders a page", "predaking" in page and "Fifteen seconds." in page)
+    c("the page is noindex", 'content="noindex, nofollow"' in page)
+    c("the page never names the winner", "leoxcrane" not in page)
+
+    c("escapes html in copy",
+      "&lt;script&gt;" in render({**good, "headline": "<script>x</script>"}, rnd))
+
+    # 1 to 3 items, per Zaal.
+    for n, should_raise in ((0, True), (1, False), (3, False), (4, True)):
+        items = [{"title": "t", "body": "b"}] * n
+        try:
+            render({**good, "items": items}, rnd)
+            raised = False
+        except SystemExit:
+            raised = True
+        c(f"{n} items {'refused' if should_raise else 'accepted'}", raised == should_raise)
+
+    import tempfile
+    global REPO_ROOT, OUT_DIR
+    real_root = REPO_ROOT
+    with tempfile.TemporaryDirectory() as d:
+        REPO_ROOT = Path(d)
+        OUT_DIR = REPO_ROOT / "feedback"
+        (REPO_ROOT / "data" / "feedback").mkdir(parents=True)
+
+        def write_round(entrants):
+            (REPO_ROOT / "data" / "feedback" / "t.json").write_text(
+                json.dumps({"round": rnd, "entrants": entrants}))
+
+        write_round([good])
+        ok, f = build("t", write=False)
+        c("a clean round passes", ok)
+        c("and it warns that claims.json could not be read",
+          any("UNVERIFIED" in x for x in f))
+
+        write_round([{**good, "did_well": "The best entry of the round."}])
+        ok, f = build("t", write=False)
+        c("a RANKING word is refused", not ok and any("ranking word" in x for x in f))
+
+        write_round([{**good,
+                      "items": [{"title": "t", "body": "We will run this on our channels."}]}])
+        ok, f = build("t", write=False)
+        c("a PROMISE is refused", not ok and any("promises something" in x for x in f))
+
+        write_round([good, {**good, "handle": "coolhat",
+                            "did_well": "Better than predaking's."}])
+        ok, f = build("t", write=False)
+        c("a page naming ANOTHER entrant is refused",
+          not ok and any("names another entrant" in x for x in f))
+
+        write_round([])
+        ok, f = build("t", write=False)
+        c("an empty entrant list FAILS rather than building nothing quietly",
+          not ok and any("not a clean build" in x for x in f))
+    REPO_ROOT = real_root
+    OUT_DIR = REPO_ROOT / "feedback"
+    return passed
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--round", default="d01")
+    ap.add_argument("--check", action="store_true", help="validate without writing")
+    ap.add_argument("--selftest", action="store_true")
+    args = ap.parse_args()
+
+    if args.selftest:
+        print("build-feedback-pages selftest")
+        ok = _selftest()
+        print("selftest:", "passed" if ok else "FAILED")
+        return 0 if ok else 1
+
+    ok, findings = build(args.round, write=not args.check)
+    for f in findings:
+        print(f"  {f}")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
