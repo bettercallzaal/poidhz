@@ -43,9 +43,9 @@ Make one piece of media using the ZAOstock brand kit. That is the whole ask.
 
 A poster, a clip, a story, a meme, a flyer, a 15-second pitch to camera - whatever you want. Post it publicly, drop the link here. Best one wins the pot, and the pot grows as others chip in.
 
-Same ask as yesterday, and five people entered. One of them missed the close by an hour, which is exactly why this one is here. If you meant to and ran out of time, this is the one.
+Same ask as yesterday, and six people entered. Two of them arrived after the close, which is exactly why this one is here. If you meant to and ran out of time, this is the one.
 
-WHAT WE WANT MOST TODAY: video with audio. Day one gave us two strong posters and a flyer, and only one moving piece - and it landed an hour late. The kit now has a 30-second ZAOstock spot and a radio interview you can cut under anything. A still gets scrolled past. Fifteen seconds that moves, with sound, is the piece we would actually run.
+WHAT WE WANT MOST TODAY: video with audio. Day one gave us strong posters and a flyer, and only one moving piece - and it landed an hour late. The kit now has a 30-second ZAOstock spot and a radio interview you can cut under anything. A still gets scrolled past. Fifteen seconds that moves, with sound, is the piece we would actually run.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine.
 
@@ -68,7 +68,7 @@ THE BAR (these are requirements, not preferences)
 
 WHAT DAY ONE TAUGHT US
 
-Five entries. The ones that scored highest all did the same three things: every fact a person needs was on the piece (date, time, place, free, all eight acts), it was built on the real kit, and it was submitted as the actual file rather than a screenshot of a post. The best-looking entry of the day missed on the first of those - no date or place on it - and that is the whole difference between striking and usable.
+Six entries. The ones that scored highest all did the same three things: every fact a person needs was on the piece (date, time, place, free, all eight acts), it was built on the real kit, and it was submitted as the actual file rather than a screenshot of a post. The best-looking entry of the day missed on the first of those - no date or place on it - and that is the whole difference between striking and usable.
 
 WHAT MAKES IT USABLE
 
