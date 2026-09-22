@@ -184,6 +184,31 @@ PRIZE_FIGURE = re.compile(
 )
 
 
+LICENCE_CLAIM = re.compile(r"(?i)\bCC[- ]?BY\b|\bcreative commons\b|\bpublic domain\b|\bCC0\b")
+
+
+def validate_no_licence_claim(description: str) -> tuple[bool, list]:
+    """Refuse a licence claim about the brand kit in cast text.
+
+    MEASURED 2026-09-21. Bounty one's immutable description says the ZAOstock kit is "CC-BY,
+    there is nothing to ask permission for". Nothing licenses it that way: not
+    zaostock.com/brand, not /design, and the kit zip contains no licence file at all. The line
+    came from this repo's May scaffold, written for BCZ's own kits, and was copied in
+    unchecked. One entrant has already repeated "the CC-BY brand kit" in their own public
+    description. It was then copied AGAIN into bounty two's draft and the daily template, and
+    was minutes from being cast a second time.
+
+    A licence is a legal claim about someone else's work - attabotty's and Candy's. Inviting
+    people to use the kit for their entry is ours to give; a licence is not. If a real notice
+    ever goes on the brand page, delete this check in the same commit that cites it."""
+    hits = [m.group(0) for m in LICENCE_CLAIM.finditer(description)]
+    if not hits:
+        return True, ["PASS: no licence claim about the kit"]
+    return False, [f"FAIL: {h!r} is a licence claim. Nothing on zaostock.com or in the kit "
+                   f"licenses it. Say 'use any of this for your entry' - permission is ours to "
+                   f"give, a licence is not." for h in hits]
+
+
 def validate_no_prize_amount(description: str, allow: bool = False) -> tuple[bool, list]:
     """Refuse a prize figure written into the description body.
 
@@ -309,6 +334,13 @@ def _selftest() -> bool:
         "ZAOstock is Saturday October 3, 2026, noon to six.\n")
     check("does not fire on a contract address or a date", ok)
 
+    # 2026-09-21: the kit is not CC-BY, and the claim was about to be cast a second time.
+    for phrase in ("use any of this, CC-BY", "the CC BY brand kit", "Creative Commons licensed"):
+        ok, f = validate_no_licence_claim(f"THE ASSET KIT ({phrase})\n")
+        check(f"refuses the licence claim {phrase!r}", not ok and f[0].startswith("FAIL"))
+    ok, _ = validate_no_licence_claim("THE ASSET KIT (use any of this for your entry)\nThe moose mark is by attabotty.\n")
+    check("passes an invitation to use the kit, which is ours to give", ok)
+
     ok, f = validate_no_prize_amount("Best one wins 0.025 ETH.\n", allow=True)
     check("--allow-prize-amount lets a FIXED bounty through, as a WARN",
           ok and f[0].startswith("WARN"))
@@ -402,6 +434,11 @@ def main() -> int:
     for finding in prize_findings:
         print(f"  {finding}")
 
+    print("\n--- LICENCE CLAIM (must NOT be in the description) ---")
+    lic_pass, lic_findings = validate_no_licence_claim(description)
+    for finding in lic_findings:
+        print(f"  {finding}")
+
     print("\n--- FLOOR RULES VALIDATION ---")
     floor_pass, floor_findings = validate_floor_rules(description)
     for finding in floor_findings:
@@ -421,8 +458,8 @@ def main() -> int:
     # validators only ever emit WARN, never FAIL) - so --strict's documented promise
     # ("warnings become failures") has to be enforced here, from the actual finding
     # text, not from those functions' return values.
-    all_pass = sections_pass and struct_pass and prize_pass
-    all_findings = (sections_findings + prize_findings + floor_findings
+    all_pass = sections_pass and struct_pass and prize_pass and lic_pass
+    all_findings = (sections_findings + prize_findings + lic_findings + floor_findings
                     + links_findings + struct_findings)
     if args.strict:
         all_pass = all_pass and not any(f.startswith("WARN:") for f in all_findings)

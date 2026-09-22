@@ -80,7 +80,7 @@ SUBSTANCE
 - Honest about what it is: small, free, outdoors, one street
 
 
-THE ASSET KIT (use any of this, CC-BY)
+THE ASSET KIT (use any of this for your entry)
 
 - Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
 - The brand page, each file separately: https://zaostock.com/brand
