@@ -38,11 +38,23 @@ Because a free festival on one street in a small city lives or dies on whether a
 
 THE BAR (these are requirements, not preferences)
 
-1. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
-2. Carry the three facts someone needs to act on: ZAOstock, Saturday October 3, Ellsworth Maine.
-3. Tag @bettercallzaal on X and cross-post in the /poidh channel on Farcaster.
-4. Use the real brand assets, linked below. They are free to use.
-5. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
+1. UPLOAD THE FILE ITSELF. A screenshot of your post is not the piece. Attach the video, the audio, the image, and put the link to your public post underneath it.
+2. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
+3. Carry the three facts someone needs to act on: ZAOstock, Saturday October 3, Ellsworth Maine.
+4. No editor watermark. CapCut, an AI tool's corner mark, a template stamp. It puts another brand on ours in every repost.
+5. Tag @bettercallzaal on X and cross-post in the /poidh channel on Farcaster.
+6. Use the real brand assets, linked below. They are free to use.
+7. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
+
+
+TAG A DRAFT BY NOON AND GET NOTES BACK
+
+1. By 12:00pm Eastern, post whatever you have publicly and tag @bettercallzaal. Rough is fine. It is not a claim yet.
+2. Between 12 and 2pm I reply to every tagged draft with one specific thing to change.
+3. By 5:00pm Eastern, file your final claim here. If you already claimed, claim again; the later one is the one judged.
+4. A DRAFT THAT WAS TAGGED AND THEN REVISED BEATS AN EQUAL ENTRY THAT WAS NOT. If two pieces land in the same place, the one that took a note wins.
+
+COMMENT ON ONE OTHER ENTRY. Say one useful thing on somebody else's claim or their post. I take it into account. Nobody has to, and it takes a minute.
 
 
 WHAT MAKES IT USABLE
@@ -106,6 +118,8 @@ This bounty promises the pot and nothing else. We might run the best entries on 
 
 
 HOW THE WINNER IS PICKED
+
+Everyone who enters gets a note back on their piece, win or lose, the same evening. One thing it did and one thing to do better.
 
 Zaal names his pick live on Twitch around 5pm Eastern, right as it closes, with the entries on screen.
 
