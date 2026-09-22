@@ -93,7 +93,7 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
 <a class="zn-l" href="/hub">hub</a>
 <a class="zn-l" href="/leaderboard">leaderboard</a>
 <a class="zn-l" href="/create-bounty">create a bounty</a>
-<a class="zn-l zn-spacer" href="https://github.com/bettercallzaal/zpoidh">repo</a>
+<a class="zn-l zn-spacer" href="https://github.com/bettercallzaal/poidhz">repo</a>
 <a class="zn-l" href="https://poidh.xyz">poidh</a>
 </div></div>
 <!-- ZN-NAV END -->
@@ -124,7 +124,7 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
       <thead><tr><th>Round</th><th>Bounty</th><th>Ask</th><th>Prize</th><th>State</th><th>Winner</th><th>Claims</th></tr></thead>
       <tbody id="rounds-body"><tr><td colspan="7" style="color:var(--text-muted)">loading live state from data/rounds-live.json</td></tr></tbody>
     </table>
-    <p class="mono" style="font-size:0.72rem;color:var(--text-muted)">State is read live from poidh on every 6h refresh, not hand-edited. R4 shows CANCELED because it was; the builders were credited off-chain, see <a href="https://github.com/bettercallzaal/zpoidh/blob/main/rounds/r4/CLOSEOUT.md">CLOSEOUT.md</a>.</p>
+    <p class="mono" style="font-size:0.72rem;color:var(--text-muted)">State is read live from poidh on every 6h refresh, not hand-edited. R4 shows CANCELED because it was; the builders were credited off-chain, see <a href="https://github.com/bettercallzaal/poidhz/blob/main/rounds/r4/CLOSEOUT.md">CLOSEOUT.md</a>.</p>
 
     <h2>Resources</h2>
     <div class="grid">
@@ -132,7 +132,7 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
         <span class="label">docs/bounty-best-practices.html</span>
         <span class="desc">The canonical bar. Cite this from every bounty cast. Floor rules + rubric + audio rule + binaural beat sources.</span>
       </a>
-      <a class="card" href="https://github.com/bettercallzaal/zpoidh/blob/main/docs/how-to-draft-next-bounty.md" target="_blank" rel="noopener">
+      <a class="card" href="https://github.com/bettercallzaal/poidhz/blob/main/docs/how-to-draft-next-bounty.md" target="_blank" rel="noopener">
         <span class="label">docs/how-to-draft-next-bounty.md</span>
         <span class="desc">11-step playbook for the next round. Prereqs, basics, description, cast, judging, on-chain finalize, gotchas.</span>
       </a>
@@ -140,7 +140,7 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
         <span class="label">assets/brand-kits/zabal-games/</span>
         <span class="desc">CC-BY brand kit: arcade logo, palette + arcade palette, official 50s promo MP3, phrases + glossary, asset inventory, embed cards.</span>
       </a>
-      <a class="card" href="https://github.com/bettercallzaal/zpoidh/tree/main/rounds/_template" target="_blank" rel="noopener">
+      <a class="card" href="https://github.com/bettercallzaal/poidhz/tree/main/rounds/_template" target="_blank" rel="noopener">
         <span class="label">rounds/_template/</span>
         <span class="desc">Starter files for the next round: description, promo cast, cast templates for winner + catalytic DMs.</span>
       </a>
@@ -194,7 +194,7 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
       var prize=r.amount_native!=null?(r.amount_native.toFixed(4).replace(/0+$/,'').replace(/\.$/,'')+' ETH'+(r.amount_usd?' <span style="color:var(--text-muted)">(~$'+Math.round(r.amount_usd)+')</span>':'')):'-';
       var winner=r.winner?'@'+esc(r.winner.handle||r.winner.wallet.slice(0,8))+' <span style="color:var(--text-muted)">(claim '+r.winner.claim_id+')</span>':(r.offchain?'<span style="color:var(--text-muted)">15 builders, off-chain credit</span>':'-');
       var folder=r.folder||('rounds/r'+r.round);
-      return '<tr><td><a href="https://github.com/bettercallzaal/zpoidh/tree/main/'+esc(folder)+'" target="_blank" rel="noopener">'+esc(r.label||('R'+r.round))+'</a></td><td>'+bounty+'</td><td>'+ask+'</td><td>'+prize+'</td><td>'+pill(r.status)+'</td><td>'+winner+'</td><td>'+(r.claims!=null?r.claims:'-')+'</td></tr>';
+      return '<tr><td><a href="https://github.com/bettercallzaal/poidhz/tree/main/'+esc(folder)+'" target="_blank" rel="noopener">'+esc(r.label||('R'+r.round))+'</a></td><td>'+bounty+'</td><td>'+ask+'</td><td>'+prize+'</td><td>'+pill(r.status)+'</td><td>'+winner+'</td><td>'+(r.claims!=null?r.claims:'-')+'</td></tr>';
     }).join('');
   }).catch(function(){document.getElementById('rounds-body').innerHTML='<tr><td colspan="7" style="color:var(--pink)">could not load data/rounds-live.json</td></tr>'});
 })();

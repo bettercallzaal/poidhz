@@ -440,7 +440,7 @@ One of the 4 fork subagents was instructed "find only, do not edit any files" an
 ## Resume prompt (paste into next session)
 
 ```
-Reading github.com/bettercallzaal/zpoidh/docs/RECAP.md to bootstrap context.
+Reading github.com/bettercallzaal/poidhz/blob/main/docs/RECAP.md to bootstrap context.
 We are picking up BCZ POIDH bounty ops (repo now branded "poidhz"). Active state:
 R1-R4 all closed and paid/credited. R5 (WaveWarZ Twitch clip bounty, bounty 1330,
 poidh.xyz/base/bounty/1330) is LIVE as of 2026-08-21, deadline Sun Aug 30 11:59pm PT,

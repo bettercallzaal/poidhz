@@ -87,7 +87,7 @@ def nav_html(here: str) -> str:
     for label, href in LINKS:
         cur = ' aria-current="page"' if href == here else ""
         out.append(f'<a class="zn-l" href="{href}"{cur}>{label}</a>')
-    out.append('<a class="zn-l zn-spacer" href="https://github.com/bettercallzaal/zpoidh">repo</a>')
+    out.append('<a class="zn-l zn-spacer" href="https://github.com/bettercallzaal/poidhz">repo</a>')
     out.append('<a class="zn-l" href="https://poidh.xyz">poidh</a>')
     out.append("</div></div>")
     out.append(END)
