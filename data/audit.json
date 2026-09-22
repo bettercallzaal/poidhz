@@ -11,10 +11,10 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 44,
-  "total_claims_accepted": 41,
+  "total_claims_received": 47,
+  "total_claims_accepted": 44,
   "total_claims_rejected": 3,
-  "submitter_count": 42,
+  "submitter_count": 43,
   "total_eth_escrow": 0.0809,
   "bounties": [
     {
@@ -93,7 +93,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 2
+      "claims_count": 5
     }
   ],
   "claims": [
@@ -486,6 +486,36 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
       "accepted": false,
       "on_chain_id": 2770
+    },
+    {
+      "bounty_id": 1410,
+      "claim_id": 8105,
+      "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
+      "title": "ZAOSTOCK",
+      "description": "https://x.com/i/status/2102419610402214274\nhttps://farcaster.xyz/joeyofdeus/0xc332fd6b\n\nZAOstock \n8 acts, Saturday, October 3, 2026, Franklin Street Parklet, Ellsworth, Maine. Free to attend.\nMoose mark by attabotty ",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/Qmf6B7oStfcsb4fpQSAoTdz2kjmHEVgTXRv8wkwpQGtv6z",
+      "accepted": false,
+      "on_chain_id": 2789
+    },
+    {
+      "bounty_id": 1410,
+      "claim_id": 8104,
+      "issuer": "0xb464fc1dff21a6d48b78955298af0f979ce2b8c3",
+      "title": "ZAOSTOCK ",
+      "description": "More details here\nhttps://x.com/0xcryt29/status/2102367081295405536\nhttps://farcaster.xyz/taku0x/0x14c0519b",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmRTKTJpKVXVTkXX8Y1Pvkb3DL2bavhnnzEHszYqQjdEi8",
+      "accepted": false,
+      "on_chain_id": 2788
+    },
+    {
+      "bounty_id": 1410,
+      "claim_id": 8103,
+      "issuer": "0x45c94696330e6f730c59f378821e19e6a0730932",
+      "title": "Make one piece of media for ZAOstock",
+      "description": "ZAOstock is taking over downtown on Saturday, October 3rd! Join us at Franklin Street Parklet from Noon to 6 PM for pure live independent music, then the party moves to Black Moon Public House till 10 PM!\nhttps://farcaster.xyz/barsam/0x0986bfb0\nhttps://x.com/SkyCrypto58/status/2102354894187307176",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmUFrio2pze24YvDomXZR6nkdYcVPqaezNCHqkPAA99M2j",
+      "accepted": false,
+      "on_chain_id": 2787
     },
     {
       "bounty_id": 1410,
