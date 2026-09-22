@@ -2,10 +2,13 @@
 # Bounty two - the full field
 
 Bounty 1410, onchain #424. **8 claims from 6 wallets**, read 2026-09-22 18:35 EDT
-(`scripts/claim-report.py --bounty 1410`). Past its 5:00pm Eastern close. Pot **0.005 ETH,
-about $13.73** at read time, up from the 0.004 it cast at - **somebody topped it up unasked**,
-which is the mechanic this whole programme exists to demonstrate and the first time it has
-happened in the daily run.
+(`scripts/claim-report.py --bounty 1410`). Past its 5:00pm Eastern close. Pot **0.005 ETH, about $13.76** at read time.
+
+**Its growth is UNKNOWN, not zero.** No file in this repo records what 1410 cast at, so the
+"up from 0.004" an earlier version of this document claimed was an assumed baseline, not a
+measurement. Bounty ONE's growth *is* measured: 0.004 ETH at cast
+(`rounds/daily/d01/README.md`) to 0.0061 ETH, about $16.79, while in its vote - up 52%. Write
+the reward figure down at cast time from round three on.
 
 **Every claimed file was downloaded and identified by its bytes**, not by its title and not by
 the claim's own description. Where it was a video, `ffprobe` confirmed duration and the
@@ -29,12 +32,12 @@ is floor rule one in round three rather than a line of advice.
 | Claim | Who | What was actually filed | Playable on poidh |
 |---|---|---|---|
 | 8115 | @pascaline | JPEG, 113 KB - screenshot of an X post | no |
-| 8111 | @!3351620 | **MP4, 1080x1920, 31.5s, with audio** | **yes** |
-| 8107 | @!3351620 | **MP4, 1080x1920, 15.0s, with audio** | **yes** |
+| 8111 | @assay | **MP4, 1080x1920, 31.5s, with audio** | **yes** |
+| 8107 | @assay | **MP4, 1080x1920, 15.0s, with audio** | **yes** |
 | 8105 | @joeyofdeus | JPEG, 46 KB - the piece itself | still only |
 | 8104 | @taku0x | JPEG, 67 KB - screenshot of an X post | no |
 | 8103 | @barsam | JPEG, 135 KB - screenshot of a Farcaster post | no |
-| 8100 | @!3351620 | dead link, superseded by 8107 | no |
+| 8100 | @assay | dead link, superseded by 8107 | no |
 | 8099 | @mfa | JPEG, 90 KB - screenshot of a phone gallery | no |
 
 ## The entrant who fixed their own entry mid-round
@@ -48,9 +51,11 @@ That is exactly the tag-a-draft-and-revise behaviour round three is being built 
 happened before the rule existed. It is also the reason not to score a broken link as bad
 faith.
 
-Note their handle still does not resolve - poidh reports the wallet as `@!3351620`, an fid with
-no username. **There is no way to credit or pay this person by handle**, which needs solving
-before they can win anything.
+**The handle is solved.** poidh reports the wallet as `@!3351620`, an fid with no username,
+but claim 8107's own description carries its Farcaster links: the account is **@assay**.
+Confirmed against the fname registry, which maps `assay` to fid 3351620 while a nonsense name
+returns nothing - farcaster.xyz itself returns 200 for any username, so a status check proves
+nothing there.
 
 ## Entry by entry
 
@@ -126,16 +131,49 @@ a different brand, which is a harder miss than a stock graphic would be. A tool 
 reading "Music Festival Event" sits across the word Festival, and the claim is a phone
 screenshot with Share, Favorite, Edit, Delete and More along the bottom.
 
+## The thing that changes the recommendation, found by reading the claims verbatim
+
+**@assay declares in all three of its claims that it is an autonomous AI agent**, and it
+declares in the same breath that it cannot meet one of the floor rules:
+
+> "Made by Assay, an autonomous AI agent."
+> "I have no X account, so the X tag is the one line of the bar I could not meet, said plainly."
+
+Bounty two's immutable text reads **"THE BAR. Requirements, not preferences. Miss one and it is
+not entered"**, and rule 6 is *"Tag @bettercallzaal on X and cross-post in the /poidh channel on
+Farcaster."*
+
+**So by the bar as written, 8107 and 8111 are not entered.** The entrant said so itself, before
+anyone checked, and did it in the claim rather than hoping nobody noticed.
+
+That is two separate decisions, and both are Zaal's:
+
+1. **Is an autonomous agent eligible to win at all?** Nothing in any description addresses it.
+   The rules cover invented people and generated imagery, not an agent entering on its own
+   behalf. This will recur - it has entered three times in one round already.
+2. **Does an entrant who cannot meet a floor rule, and says so, get judged anyway?** The rule
+   exists for reach. An entrant with no X account cannot buy reach on X at any effort level,
+   which is different from an entrant who did not bother.
+
+**Whatever is decided has to be decided out loud**, because the other seven entrants read the
+same bar and two of them did the X cross-post specifically to meet it.
+
 ## Recommendation
 
-**8107 as the pick.** It is the only entry with nothing wrong on it, it is exactly the format
-the round asked for, and it plays on the page.
+**If the bar is enforced as written:** neither 8107 nor 8111 is entered, and the pick comes
+from the rest. On the remaining field @joeyofdeus (8105) is the strongest - the piece itself
+rather than a screenshot, the real mark, credits attabotty unprompted - with the caveat that it
+is missing "free" and the venue.
 
-**8111 is better work carrying one error.** If the 6-to-10 can be corrected before anything is
-run publicly, it is the stronger piece and the better advertisement for what the kit can do.
+**If the X rule is waived for an entrant who has no X account:** 8107 is the pick. It is the
+only entry in the round with nothing else wrong on it and it is exactly the format asked for.
+8111 is better work but states a Black Moon closing time we have not published.
 
-Whichever wins, **the handle problem has to be solved first**: `@!3351620` resolves to no
-username on any platform, so there is currently no way to announce or credit them.
+**Do not let the waiver happen silently by just picking 8107.** Say which rule was set aside
+and why, or the bar stops meaning anything for the eleven days that follow.
+
+The handle is no longer a blocker: the wallet is **@assay** on Farcaster, confirmed against the
+fname registry (fid 3351620).
 
 ## What this round changes for round three
 
