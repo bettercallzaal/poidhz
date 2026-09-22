@@ -1,3 +1,4 @@
+<!-- NOT-ANNOUNCEMENT-COPY: post-close feedback. Written after bounty one closed at 4pm and points entrants at the NEXT round, which closes at 5pm. It is not copy that tells anyone when to submit to 1409. -->
 # Bounty one - feedback to every entrant who did not win
 
 Bounty 1409. Six claims, read back from poidh 2026-09-22 13:42 EDT with

@@ -1,3 +1,4 @@
+<!-- NOT-ANNOUNCEMENT-COPY: internal review of what was claimed on 1410. Never posted, tells nobody when to submit. It passed the deadline check by coincidence before this marker existed, purely because bounty two also closes at 5pm. -->
 # Bounty two - what came in
 
 Bounty 1410, onchain #424. **Five claims, read 2026-09-22 13:42 EDT**
@@ -23,7 +24,7 @@ private feedback.
 ## The broken one
 
 **Claim 8100 cannot be judged as filed.** Both URLs it carries are dead and the account behind
-them does not exist:
+them does not resolve:
 
 - `https://raw.githubusercontent.com/goldrush-gr01/assay-claims/.../claim.json` returns **404**
 - `https://goldrush-gr01.github.io/assay-claims/poidh-1410-zaostock/` returns **404**
