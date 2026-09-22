@@ -1,0 +1,107 @@
+<!-- NOT-ANNOUNCEMENT-COPY: cross-round analysis of who entered and what they made. Internal, never posted, names no deadline anyone submits to. -->
+# The daily run, rounds one and two together
+
+Measured 2026-09-22 18:40 EDT from poidh (`scripts/claim-report.py`, both bounties) and
+`data/leaderboard.json`. Every media file was downloaded and identified by its bytes.
+
+| | Round 1 (1409) | Round 2 (1410) |
+|---|---|---|
+| Claims | 6 | 8 |
+| Distinct wallets | 6 | 6 |
+| Playable video on poidh | 1 | 2 |
+| Filed the work rather than a screenshot | 4 | 3 |
+| Pot | ~$9.84 | **$13.73**, topped up unasked |
+
+## The number that should decide round three
+
+**Retention is 1 of 6.** Exactly one round-one entrant came back for round two:
+**@pascaline**. The other five did not, **including the winner, @leoxcrane**.
+
+Round two's field was 5 new wallets and 1 returner. The two rounds share almost nobody, so
+"fourteen entries over two days" is really **eleven different people entering once each**.
+
+**The obvious explanation is the one that has not been tested yet.** Nobody received any
+feedback until the afternoon of 2026-09-22, which is *after* round two had already closed. So
+round two was asked for with no feedback having been given to anyone, and the thesis in ZAOOS
+research doc `community/2536-bounty-entrant-feedback` - that same-day directed feedback is what
+makes an entrant enter again - has not yet had a round in which to work.
+
+**Round three is the first honest test of it.** The five round-one notes went out today, they
+point at round three, and each person has a page. If retention does not move, the thesis is
+wrong here and the programme needs a different lever. That is a real prediction with a real
+way to be wrong, and it should be written down before the result rather than after.
+
+A winner not returning is the sharper half of this. Somebody was paid and did not come back the
+next day.
+
+## Format moved hard, and the honest caveat
+
+| | Posters / stills | Video |
+|---|---|---|
+| Round 1 | 5 | 1 |
+| Round 2 | 2 | 5 |
+
+Round two's description asked for **VIDEO WITH AUDIO** in capitals and linked the kit's
+30-second spot and radio interview. The format flipped.
+
+**But the field also turned over almost completely**, so this cannot be read as "the ask
+persuaded people". Five of round two's six wallets had never entered before and were never
+asked for a poster. The change may be composition rather than persuasion, and there is no way
+to separate them from this data. **UNRESOLVED.** Round three bans posters outright, which will
+at least make the next reading unambiguous.
+
+## The one failure that dominates everything
+
+**Filing a screenshot of a post instead of the work.**
+
+- Round 1: 2 of 6
+- Round 2: **4 of 7** judgeable claims
+
+It is the most common miss, it got **worse** after round one's description mentioned it in
+passing, and it is the only miss that makes a good piece unusable rather than merely weaker.
+taku0x, barsam and pascaline all made video in round two, and none of it can be watched from
+the bounty page.
+
+Every other defect is a one-off by comparison: one wrong logo, two editor watermarks, one set
+of invented people, two entrants inventing the same closing time.
+
+**This is why it is floor rule one in round three rather than a line of advice**, and it is the
+single change most likely to raise the usable-entry count without asking anyone to work harder.
+
+## Two entrants invented the same fact
+
+Both claim 8111 and @barsam state Black Moon runs "to 10". Black Moon is real and is on
+zaostock.com as "the evening, and the official after-party" - **the site publishes no end
+time**.
+
+Two independent people guessing the same number is not two mistakes, it is a gap in our own
+copy being filled in the same way twice. **The fix is on zaostock.com**, not in feedback.
+
+## What is working
+
+- **Everyone is getting paid.** All 11 daily-run wallets appear in `data/leaderboard.json`, so
+  every entrant scores $ZABAL. That is the failure this repo hit twice before and the
+  `check-tracked-bounties` guard now prevents.
+- **The pot grew unasked**, 0.004 to 0.005 ETH. First time in the daily run and the mechanic
+  the whole programme exists to demonstrate.
+- **An entrant self-corrected mid-round.** Claim 8100's host went offline; they noticed and
+  re-filed twice on a host that plays. That is the revise behaviour round three's checkpoint is
+  designed to produce, happening before the rule existed.
+
+## What is not measured, and must not be written as zero
+
+- **Whether any entry reached a single person in Maine.** Fourteen entries, and **not one is a
+  photograph of something physically placed in a real location** - the thing the rubric rewards
+  most. No post reach was checked on any platform.
+- **Claim timestamps.** Neither poidh endpoint carries one. Round one's two late entries were
+  established by reading chain logs; that has not been run for round two, so no round-two entry
+  is described as late.
+- **Whether the two round-two videos were watched by anyone.**
+- **Why five of six did not return.** The feedback timing above is a hypothesis, not a finding.
+  Nobody has been asked.
+
+## The next thing worth doing
+
+Ask the five who did not come back. Eleven people have now made something for this festival and
+ten of them made exactly one thing. That is a one-question DM, and it is worth more than another
+round of guessing from claim data.
