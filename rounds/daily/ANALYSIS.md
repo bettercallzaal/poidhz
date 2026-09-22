@@ -10,7 +10,8 @@ Measured 2026-09-22 18:40 EDT from poidh (`scripts/claim-report.py`, both bounti
 | Distinct wallets | 6 | 6 |
 | Playable video on poidh | 1 | 2 |
 | Filed the work rather than a screenshot | 4 | 3 |
-| Pot | ~$9.84 | **$13.73**, topped up unasked |
+| Pot at cast | 0.004 ETH (~$9.84) | **UNRECORDED** |
+| Pot at 19:29 on 09-22 | **0.0061 ETH (~$16.79)** | 0.005 ETH (~$13.76) |
 
 ## The number that should decide round three
 
@@ -82,11 +83,74 @@ copy being filled in the same way twice. **The fix is on zaostock.com**, not in 
 - **Everyone is getting paid.** All 11 daily-run wallets appear in `data/leaderboard.json`, so
   every entrant scores $ZABAL. That is the failure this repo hit twice before and the
   `check-tracked-bounties` guard now prevents.
-- **The pot grew unasked**, 0.004 to 0.005 ETH. First time in the daily run and the mechanic
-  the whole programme exists to demonstrate.
+- **Both pots grew unasked, and 1409's grew most.** Bounty one cast at 0.004 ETH
+  (`rounds/daily/d01/README.md`) and read **0.0061 ETH, about $16.79** at 19:29 on 2026-09-22 -
+  **up 52% while in its contributor vote**, so @leoxcrane wins more than was on the table when
+  anyone entered. This is the mechanic the whole programme exists to demonstrate and it is now
+  measured rather than hoped for.
+
+  **Bounty two's growth is NOT established.** It reads 0.005 ETH now, and **no file in this
+  repo records what it cast at** - an earlier draft of this document said "0.004 to 0.005"
+  and that baseline was assumed, not measured. Record the reward figure at cast time from
+  round three onward, or this number stays unknowable after the fact.
+
+  **Who contributed is not measured either.** The /data endpoint was not read for
+  contributions, so no claim is made about who topped either pot up.
 - **An entrant self-corrected mid-round.** Claim 8100's host went offline; they noticed and
   re-filed twice on a host that plays. That is the revise behaviour round three's checkpoint is
   designed to produce, happening before the rule existed.
+
+## Per-entrant, across everything they have filed
+
+Eleven people, fourteen claims. Only two have filed in more than one round or more than once,
+so this is mostly a list of first impressions - which is itself the finding.
+
+| Who | Claims | What they proved they can do | What stopped it |
+|---|---|---|---|
+| **@!3351620** | 3 (8100, 8107, 8111) | The only person who has filed a real playable video on poidh, twice, both 1080x1920 with audio. Used the kit's radio interview cut to nine captioned passages. | Handle does not resolve, so they cannot be credited or announced. One entry states a closing time we have not published. |
+| **@pascaline** | 2 (8093, 8115) | Turned round one around fast, then switched format to video unprompted for round two. The only returner. | Round one used invented band photos and carried no date or place. Round two filed as a screenshot; whether the person on camera is real is UNVERIFIED. |
+| **@leoxcrane** | 1 (8086) | Won round one. | Did not return. |
+| **@predaking** | 1 (8091) | Went and got the running order and genres, credited attabotty and Candy unprompted, filed the actual file. Production discipline. | Did not return. |
+| **@dee-13** | 1 (8092) | Artwork carried every fact on its own; worked in multiple versions. | Filed a screenshot. Did not return. |
+| **@uniquebeing404** | 1 (8094) | The only physical-world piece anyone has made: shot on a real street with real flyers. | Facts only in the caption, filed a screenshot, landed 59 minutes late. Did not return. |
+| **@coolhat** | 1 (8098) | Heavy typesetting held together at square with all eight names. | Redrawn moose, filed after the close. Did not return. |
+| **@joeyofdeus** | 1 (8105) | Filed the piece itself rather than a photo of a post - one of only three people who have. Credited attabotty unprompted. | Missing "free" and the venue. Stray export artifact. |
+| **@taku0x** | 1 (8104) | The most complete post copy anyone has written, and tagged correctly. | CapCut watermark burned in. Filed a screenshot. |
+| **@barsam** | 1 (8103) | Cross-posted to both platforms unprompted. | Filed a screenshot. States an unpublished closing time. |
+| **@mfa** | 1 (8099) | Strongest fact set on any still - readable across a room. | Used the ZABAL Gamez logo instead of the ZAOstock moose. Tool watermark. Filed a screenshot. |
+
+### The two trajectories we actually have
+
+**@!3351620 improved inside a single round, twice.** 8100 pointed at a host that went offline.
+They noticed without being told, re-filed as 8107 explaining exactly what had happened, then
+filed 8111 as a second, different piece. Three claims, each better than the last, all in one
+day. **Nobody gave them feedback to cause this.**
+
+**@pascaline changed format between rounds, unprompted.** Round one was a poster with invented
+band photos. Round two was a video with a real-looking person on a real street, with the facts
+in the caption and the right tag. She moved toward exactly what round two asked for - and
+**her feedback did not reach her until after round two closed**, so nothing we did caused it
+either.
+
+**Both improvements happened with zero feedback.** That is worth sitting with before concluding
+round three's retention result means anything about feedback: the two most improved entrants
+here improved on their own, which means improvement and return are different things and this
+programme has so far only demonstrated the first.
+
+### What this says about a standing brief
+
+On evidence rather than impression, three people have shown something that is hard to teach:
+
+1. **@!3351620** - produces finished, spec-correct video repeatedly and fixes their own errors
+   without being asked. Blocked on an unresolvable handle, which is a problem to solve rather
+   than a reason to pass.
+2. **@predaking** - research and production discipline, credits sources unprompted, files
+   correctly. Did not return, so the question is whether he would.
+3. **@uniquebeing404** - the only person who has made anything physical, which is the rarest
+   and most valuable thing in the pool and the thing the rubric rewards most.
+
+@pascaline is the only proven returner, which is its own kind of valuable, and the invented
+people in round one is a brief-following question rather than a craft one.
 
 ## What is not measured, and must not be written as zero
 
