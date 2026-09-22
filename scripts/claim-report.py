@@ -24,6 +24,7 @@ detail gets published:
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import datetime as dt
 import json
 import re
@@ -60,6 +61,31 @@ def guess_type(title: str, description: str) -> str:
         if word in hay:
             return label
     return "UNKNOWN"
+
+
+# WHICH PLATFORM THE ENTRANT POSTED ON. Asked for by the ZAO-on-Paragraph seat, 2026-09-22:
+# it is the only measurement anyone has of which channel actually produces entries, and the
+# alternative was writing the socials on nothing. Committed to reporting it every round, so it
+# lives here rather than in whatever a session happens to remember how to do.
+#
+# It counts what the entrant LINKED - scanning the title, description and post url - not what
+# they said they did. "Both" means a link to each platform. "Neither" is real and is not a gap:
+# on bounty 1410 three claims carried a bare video file or no post link at all, and an entry
+# posted nowhere earns nothing from a rubric that rewards reach.
+X_LINK = re.compile(r"(?i)(?:^|[^\w.])(?:x\.com|twitter\.com)/")
+FC_LINK = re.compile(r"(?i)farcaster\.xyz/|warpcast\.com/")
+
+
+def platform_of(claim: dict) -> str:
+    blob = " ".join(str(claim.get(k) or "") for k in ("title", "description", "public_post"))
+    x, fc = bool(X_LINK.search(blob)), bool(FC_LINK.search(blob))
+    if x and fc:
+        return "both"
+    if x:
+        return "X"
+    if fc:
+        return "Farcaster"
+    return "neither"
 
 
 def public_post(claim: dict) -> str | None:
@@ -101,6 +127,20 @@ def handles_for(bounty_id: int, chain: int) -> dict:
     return out
 
 
+def _platform_cases() -> list[tuple[dict, str]]:
+    """The real claims this was built from, so a refactor cannot quietly change the answer."""
+    return [
+        ({"description": "https://x.com/pascaline7933/status/2102483061955014871"}, "X"),
+        ({"public_post": "https://farcaster.xyz/coolhat/0x74c18de6"}, "Farcaster"),
+        ({"description": "https://x.com/i/status/21024196\nhttps://farcaster.xyz/joe/0xc3"},
+         "both"),
+        ({"description": "The file: https://files.catbox.moe/x5x219.mp4"}, "neither"),
+        ({"title": "ZAOstock", "description": "Saturday October 3"}, "neither"),
+        # A bare mention of a platform NAME is not a link to a post on it.
+        ({"description": "cross-posted on farcaster and X"}, "neither"),
+    ]
+
+
 def _selftest() -> bool:
     passed = True
 
@@ -121,6 +161,12 @@ def _selftest() -> bool:
     check("a real post link IS found",
           public_post({"title": "https://farcaster.xyz/leoxcrane/0xccd0",
                        "description": ""}) == "https://farcaster.xyz/leoxcrane/0xccd0")
+
+    for claim, want in _platform_cases():
+        got = platform_of(claim)
+        label = f"platform_of({(claim.get('description') or claim.get('public_post') or claim.get('title') or '')[:38]!r}) == {want}"
+        print(f"  {'ok  ' if got == want else 'FAIL'} {label}" + ("" if got == want else f"  got {got}"))
+        passed = passed and got == want
     return passed
 
 
@@ -162,6 +208,7 @@ def main() -> int:
             "media_url": c.get("url"),
             "is_accepted": c.get("isAccepted"),
         })
+        rows[-1]["platform_LINKED"] = platform_of(rows[-1])
 
     if args.json:
         print(json.dumps({"bounty": args.bounty, "chain": args.chain, "read_at": stamp,
@@ -177,7 +224,18 @@ def main() -> int:
         print(f"   desc:   {(r['description'] or '')[:160]}")
         print(f"   type?:  {r['media_type_INFERRED']}")
         print(f"   post:   {r['public_post'] or 'none carried in the claim'}")
+        print(f"   where:  {r['platform_LINKED']}")
         print(f"   media:  {r['media_url']}")
+
+    tally = Counter(r["platform_LINKED"] for r in rows)
+    total = sum(tally.values())
+    assert total == len(rows), "platform tally does not account for every claim"
+    print(f"\nWHERE THEY POSTED, from what each claim links ({total} claim(s)):")
+    for k in ("X", "Farcaster", "both", "neither"):
+        print(f"   {k:10s} {tally.get(k, 0)}")
+    if tally.get("neither"):
+        print("   'neither' is not a gap in the data - those claims link no public post at "
+              "all, and an entry posted nowhere earns nothing from a rubric that rewards reach.")
     return 0
 
 
