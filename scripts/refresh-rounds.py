@@ -56,6 +56,12 @@ def main() -> int:
             # here, a daily round renders as "Rdaily-01".
             "label": r.get("label"),
             "folder": r.get("folder"),
+            # poidh has NO on-chain deadline - that is the premise of this whole site. A
+            # daily bounty states its close in its immutable description, so on-chain it
+            # reads inProgress long after it has closed. Without this the homepage strip
+            # invites people into a bounty that shut hours ago, which is the exact failure
+            # check-site-claims.py exists to catch.
+            "closes_at": r.get("closes_at"),
             "bounty_id": r["bounty_id"],
             "title": r["title"],
             "bounty_title": b["title"],

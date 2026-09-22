@@ -62,14 +62,16 @@
       "label": "Daily 1",
       "bounty_id": 1409,
       "title": "Daily 01 - Make one piece of media for ZAOstock",
-      "folder": "rounds/daily/d01"
+      "folder": "rounds/daily/d01",
+      "closes_at": "2026-09-21T16:00:00-04:00"
     },
     {
       "round": "daily-02",
       "label": "Daily 2",
       "bounty_id": 1410,
       "title": "Daily 02 - Make one piece of media for ZAOstock",
-      "folder": "rounds/daily/d02"
+      "folder": "rounds/daily/d02",
+      "closes_at": "2026-09-22T17:00:00-04:00"
     }
   ],
   "planned_rounds": [
