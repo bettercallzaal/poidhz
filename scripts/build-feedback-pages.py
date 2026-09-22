@@ -179,11 +179,9 @@ margin-top:.5rem;line-height:1.7}}
 </style>
 </head>
 <body>
-<div class="topnav"><div class="container"><span class="brand">poidhz</span>
-  <a href="/feedback/{rnd["bounty_id"]}">all notes on this bounty</a></div></div>
-
 <div class="hero"><div class="container">
   <span class="badge">{esc(rnd["label"])} &middot; @{esc(handle)}</span>
+  <p style="margin-top:.4rem"><a href="/feedback/{rnd["bounty_id"]}">Notes on every entry to this bounty</a></p>
   <h1>{esc(entrant["headline"])}</h1>
   <div class="did"><span class="lab">What this entry did</span>{esc(entrant["did_well"])}</div>
 </div></div>
@@ -302,12 +300,10 @@ margin-top:.5rem;line-height:1.7}}
 </style>
 </head>
 <body>
-<div class="topnav"><div class="container"><span class="brand">poidhz</span>
-  <a href="{esc(rnd["bounty_url"])}">the bounty</a></div></div>
-
 <div class="hero"><div class="container">
   <span class="badge">{esc(rnd["label"])} &middot; bounty {rnd["bounty_id"]}</span>
   <h1>What everyone was told</h1>
+  <p style="margin-bottom:.4rem"><a href="{esc(rnd["bounty_url"])}">The bounty on poidh</a></p>
   <p class="sub">Every person who entered got notes on their own entry. They are all here, so
   you can see what was asked of everybody else and not only of you. Closed {esc(rnd["closed"])}.</p>
 </div></div>

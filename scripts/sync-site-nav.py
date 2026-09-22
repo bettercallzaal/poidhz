@@ -18,9 +18,14 @@ the dashboard is at a dead end, and nothing anywhere linked to /feedback.
 HOW IT AVOIDS BREAKING THE PAGES IT EDITS. The bar is written between sentinels and carries its
 own scoped styles under `.zn-*` class names, so it never depends on a page's own CSS and never
 collides with it. Re-running replaces what is between the sentinels, so this is idempotent and
-a nav change is one edit here rather than eight by hand. A page that already had its own
-`.topnav` keeps it directly beneath - those bars carry page-specific links worth keeping, and
-removing them automatically would be a guess about someone else's design.
+a nav change is one edit here rather than eight by hand. STRIPPING THE OLD BARS. The first version of this left each page's own `.topnav` in place,
+reasoning that those bars carried page-specific links and removing them would be a guess about
+someone else's design. On the live site that produced TWO stacked navigation bars on every
+page, which is worse than the drift it replaced. Zaal, 2026-09-22, looking at it: "clean this
+up". So the old `.topnav` is now removed, and the handful of destinations that were ONLY
+reachable from one of those bars were checked link by link first and either added to the
+canonical bar (/hub) or moved into that page's footer (bettercallzaal.com, Nexus, R2 judging,
+ZABAL Gamez). Nothing was dropped silently.
 
     python3 scripts/sync-site-nav.py
     python3 scripts/sync-site-nav.py --check
@@ -44,6 +49,7 @@ LINKS = [
     ("rounds", "/about"),
     ("feedback", "/feedback"),
     ("the bar", "/best-practices"),
+    ("hub", "/hub"),
     ("leaderboard", "/leaderboard"),
     ("create a bounty", "/create-bounty"),
 ]
