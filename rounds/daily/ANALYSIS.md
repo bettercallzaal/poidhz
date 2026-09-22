@@ -69,14 +69,25 @@ of invented people, two entrants inventing the same closing time.
 **This is why it is floor rule one in round three rather than a line of advice**, and it is the
 single change most likely to raise the usable-entry count without asking anyone to work harder.
 
-## Two entrants invented the same fact
+## Two entrants repeated a number we hedge, and they were right to find it
 
-Both claim 8111 and @barsam state Black Moon runs "to 10". Black Moon is real and is on
-zaostock.com as "the evening, and the official after-party" - **the site publishes no end
-time**.
+Both claim 8111 and @barsam state Black Moon runs "to 10".
 
-Two independent people guessing the same number is not two mistakes, it is a gap in our own
-copy being filled in the same way twice. **The fix is on zaostock.com**, not in feedback.
+**They did not invent it.** `zaostock.com/program` says "The ZAOstock after-party at Black Moon
+Public House next door, with a DJ, run by Steve, from six **(poster: 6 to 10 PM)**", and adds
+"Close. Approximate. Black Moon keeps its own hours."
+
+**An earlier version of this document called it invented, on the grounds that "the site
+publishes no end time". That was wrong: I read the HOMEPAGE, which says only "from six", and
+wrote "the site".** Caught by the ZAO-on-Paragraph seat and re-verified here. Naming the
+surface you actually read, in the sentence carrying the claim, is the rule this broke.
+
+The finding is better than the wrong version of it. We print the number hedged three ways - a
+parenthetical, attributed to "poster:", and under "approximate" - and two independent entrants
+have now repeated it in public as a flat fact. **That is our own copy leaking a number we will
+not stand behind.** The fix is on zaostock.com: stand behind the 10 unhedged, or do not print
+it. Nothing about it belongs in feedback to either entrant, who did the right thing by reading
+our pages.
 
 ## What is working
 

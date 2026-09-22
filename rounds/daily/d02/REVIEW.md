@@ -75,11 +75,21 @@ word, with an act-by-act running order and a progress bar through the eight acts
 attabotty for the moose and Star 97 for the audio in the footer. This is the best use anybody
 has made of the kit.
 
-**But it says "THEN BLACK MOON PUBLIC HOUSE, 6 TO 10".** Black Moon is real and is on
-zaostock.com as "the evening, and the official after-party" - **the site publishes no end
-time**. barsam's entry carries the same invented 10 PM. Two entrants inventing the same
-detail suggests it is being guessed from the shape of the sentence on the site, which is worth
-fixing on the site rather than only in feedback.
+It says "THEN BLACK MOON PUBLIC HOUSE, 6 TO 10", and **that is not invented - they read it off
+our own page.** Corrected 2026-09-22 by the ZAO-on-Paragraph seat, and re-verified here:
+**zaostock.com/program** says "The ZAOstock after-party at Black Moon Public House next door,
+with a DJ, run by Steve, from six **(poster: 6 to 10 PM)**", twice, and adds "Close.
+Approximate. Black Moon keeps its own hours."
+
+**An earlier version of this file said "the site publishes no end time". That was wrong, and
+wrong in a specific way worth naming: I read the HOMEPAGE and wrote "the site".** The homepage
+says only "from six". The program page carries the 10.
+
+The finding survives and is sharper. We publish the number hedged three ways - as a
+parenthetical, attributed to "poster:", and under "approximate" - and entrants are repeating
+it publicly as a flat fact. @barsam did the same thing independently. **That is our copy
+leaking a number we will not stand behind**, and the fix is on zaostock.com: either stand
+behind the 10 unhedged or do not print it.
 
 ### 8115 - @pascaline
 
