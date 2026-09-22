@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T22:05:19.670357+00:00",
+  "generated_at": "2026-09-22T05:12:21.240240+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -37,23 +37,13 @@
       "url": "https://poidh.xyz/base/bounty/1333"
     },
     {
-      "bounty_id": 1409,
-      "title": "Make one piece of media for ZAOstock",
-      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.0061,
-      "deadline_iso": "2026-09-21",
-      "deadline_raw_text": "September 21, 2026",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1409"
-    },
-    {
       "bounty_id": 1401,
       "title": "Shootris Tagline",
       "issuer": "0xd3d1ea64d37542abc25c27dc72a234410b1b6211",
       "amount_eth": 0.0061,
       "deadline_iso": "2026-09-21",
       "deadline_raw_text": "September 21st, 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1401"
     },
     {
@@ -63,8 +53,18 @@
       "amount_eth": 0.0065,
       "deadline_iso": "2026-09-21",
       "deadline_raw_text": "September 21st",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/329"
+    },
+    {
+      "bounty_id": 1410,
+      "title": "Make one piece of media for ZAOstock",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "amount_eth": 0.005,
+      "deadline_iso": "2026-09-22",
+      "deadline_raw_text": "September 22",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1410"
     },
     {
       "bounty_id": 1404,
