@@ -51,6 +51,11 @@ def main() -> int:
         winner = next((c for c in b["claims"] if c.get("isAccepted")), None)
         entry = {
             "round": r["round"],
+            # Round ids stopped being integers when the daily run started, so /about renders
+            # `label` when it is set and falls back to "R<n>". Without carrying it through
+            # here, a daily round renders as "Rdaily-01".
+            "label": r.get("label"),
+            "folder": r.get("folder"),
             "bounty_id": r["bounty_id"],
             "title": r["title"],
             "bounty_title": b["title"],

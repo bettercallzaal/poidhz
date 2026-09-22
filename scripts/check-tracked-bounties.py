@@ -53,6 +53,53 @@ def cast_bounty_ids(root: Path = REPO_ROOT) -> dict[int, list[str]]:
     return found
 
 
+def check_cast_rounds_are_live(cfg: dict, cast: dict[int, list[str]]) -> list[str]:
+    """A round whose folder holds a cast bounty must be in `rounds`, not `planned_rounds`.
+
+    WHY, MEASURED 2026-09-22. `refresh-rounds.py` walks `rounds` and asks poidh for live state.
+    It walks `planned_rounds` separately and writes status DRAFT with no bounty_id, because a
+    planned round has nothing to look up. Bounty one was cast on 2026-09-20 and its config
+    entry was never moved, so the feed carried a daily-01 row with every field null, and
+    /about rendered "No round is open right now" FOR TWO DAYS while a bounty was open and
+    another was in its contributor vote.
+
+    That is the worst shape of this bug: the page was not stale, it was faithfully rendering a
+    feed that did not know the round existed, so every check of the page and of the feed agreed
+    with each other and all of them were wrong.
+
+    The stale row also carried a note reading "$25, ... closes Mon 2026-09-21 6pm Eastern,
+    decided in Discord". The pot was about $9.84, it closed at 4pm, and it was decided on
+    Twitch. Three wrong facts nobody re-read, because a DRAFT row is not something anyone
+    thinks to check.
+
+    Eleven more daily rounds are coming, so this is a mechanism rather than a note."""
+    findings = []
+    planned = {str(r.get("round")): r for r in (cfg.get("planned_rounds") or [])}
+    live_folders = {r.get("folder") for r in (cfg.get("rounds") or []) if r.get("folder")}
+    # A bounty already owned by a live round is not evidence that some OTHER folder cast it.
+    # Caught by this guard failing on its first real run: rounds/r7 mentions bounty 1330
+    # because its files discuss R5's winner and a retainer offer to them, and 1330 is R5's.
+    # Without this, every folder that merely DISCUSSES another round gets flagged, which is a
+    # guard that cries wolf - and a guard that cries wolf gets switched off.
+    owned = {r.get("bounty_id") for r in (cfg.get("rounds") or []) if r.get("bounty_id")}
+
+    for bid, files in sorted(cast.items()):
+        if bid in owned:
+            continue
+        folders = {str(Path(f).parent) for f in files}
+        for folder in folders:
+            if folder in live_folders:
+                continue
+            hit = next((k for k, r in planned.items() if r.get("folder") == folder), None)
+            if hit:
+                findings.append(
+                    f"FAIL: {folder} has cast bounty {bid}, but config still lists it under "
+                    f"planned_rounds as '{hit}'. refresh-rounds.py writes DRAFT with no "
+                    f"bounty_id for a planned round, so /about will say no round is open while "
+                    f"this one is. Move it to `rounds` with its bounty_id and a label.")
+    return findings
+
+
 def check(root: Path = REPO_ROOT) -> tuple[bool, list[str]]:
     cfg_path = root / "org.config.json"
     if not cfg_path.exists():
@@ -85,9 +132,13 @@ def check(root: Path = REPO_ROOT) -> tuple[bool, list[str]]:
             f"FAIL: bounty {b} is cast and written into {where}, but is NOT in "
             f"default_bounty_ids. Its entrants score nothing and receive no $ZABAL, and the "
             f"leaderboard refresh will still exit 0 while ignoring them.")
-    if not missing:
-        findings.append("PASS: every bounty this repo has cast is tracked")
-    return not missing, findings
+    stale = check_cast_rounds_are_live(cfg, cast)
+    findings.extend(stale)
+
+    if not missing and not stale:
+        findings.append("PASS: every bounty this repo has cast is tracked, and every cast "
+                        "round is in `rounds` rather than `planned_rounds`")
+    return (not missing and not stale), findings
 
 
 def _selftest() -> bool:
@@ -137,6 +188,51 @@ def _selftest() -> bool:
             {"default_bounty_ids": [1151], "excluded_bounty_ids": {"1409": "  "}}))
         ok, _ = check(root)
         c("an exclusion with a BLANK reason still fails", not ok)
+
+        # --- the planned-vs-cast guard, added 2026-09-22 ---
+        # This is the EXACT shape the config was in while /about said no round was open.
+        prefix = {"default_bounty_ids": [1151, 1409],
+                  "rounds": [{"round": 1, "bounty_id": 1151, "folder": "rounds/r1"}],
+                  "planned_rounds": [{"round": "daily-01", "folder": "rounds/daily/d01"}]}
+        (root / "org.config.json").write_text(json.dumps(prefix))
+        ok, f = check(root)
+        c("catches a CAST round still sitting in planned_rounds",
+          not ok and any("still lists it under planned_rounds" in x for x in f))
+        c("and the finding names the bounty and the folder",
+          any("1409" in x and "rounds/daily/d01" in x for x in f))
+
+        fixed = {"default_bounty_ids": [1151, 1409],
+                 "rounds": [{"round": 1, "bounty_id": 1151, "folder": "rounds/r1"},
+                            {"round": "daily-01", "bounty_id": 1409,
+                             "folder": "rounds/daily/d01"}],
+                 "planned_rounds": []}
+        (root / "org.config.json").write_text(json.dumps(fixed))
+        ok, f = check(root)
+        c("passes once the cast round is moved into `rounds`", ok)
+
+        # The real false positive this guard produced on its first run: a folder that merely
+        # DISCUSSES another round's bounty must not be treated as having cast it.
+        discuss = {"default_bounty_ids": [1151, 1409],
+                   "rounds": [{"round": 1, "bounty_id": 1151, "folder": "rounds/r1"},
+                              {"round": "daily-01", "bounty_id": 1409,
+                               "folder": "rounds/daily/d01"}],
+                   "planned_rounds": [{"round": 7, "folder": "rounds/r7"}]}
+        (root / "rounds" / "r7").mkdir(parents=True, exist_ok=True)
+        (root / "rounds" / "r7" / "outreach.md").write_text(
+            "offer the R1 winner (https://poidh.xyz/base/bounty/1151) a retainer\n")
+        (root / "org.config.json").write_text(json.dumps(discuss))
+        ok, f = check(root)
+        c("a folder that merely DISCUSSES another round's bounty is not flagged",
+          ok and not any("rounds/r7" in x for x in f))
+        import shutil as _sh
+        _sh.rmtree(root / "rounds" / "r7")
+
+        # A round that is genuinely planned and has cast nothing must NOT be flagged.
+        planned_only = dict(fixed)
+        planned_only["planned_rounds"] = [{"round": 9, "folder": "rounds/r9"}]
+        (root / "org.config.json").write_text(json.dumps(planned_only))
+        ok, _ = check(root)
+        c("a genuinely planned round with no cast bounty is left alone", ok)
 
         # An empty search must fail rather than pass silently.
         import shutil

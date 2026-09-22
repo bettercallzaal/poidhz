@@ -56,15 +56,23 @@
       "round": 5,
       "bounty_id": 1330,
       "title": "R5 - Best 60s clip from the WaveWarZ Twitch stream"
+    },
+    {
+      "round": "daily-01",
+      "label": "Daily 1",
+      "bounty_id": 1409,
+      "title": "Daily 01 - Make one piece of media for ZAOstock",
+      "folder": "rounds/daily/d01"
+    },
+    {
+      "round": "daily-02",
+      "label": "Daily 2",
+      "bounty_id": 1410,
+      "title": "Daily 02 - Make one piece of media for ZAOstock",
+      "folder": "rounds/daily/d02"
     }
   ],
   "planned_rounds": [
-    {
-      "round": "daily-01",
-      "title": "Daily 01 - Make something that gets people to ZAOstock",
-      "folder": "rounds/daily/d01",
-      "note": "$25, opens 2026-09-20, closes Mon 2026-09-21 6pm Eastern, decided in Discord. First of the 12-day ZAOstock run."
-    },
     {
       "round": 9,
       "title": "R9 - Make something that gets people to ZAOstock",
