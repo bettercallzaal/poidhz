@@ -107,7 +107,7 @@ so this is mostly a list of first impressions - which is itself the finding.
 
 | Who | Claims | What they proved they can do | What stopped it |
 |---|---|---|---|
-| **@!3351620** | 3 (8100, 8107, 8111) | The only person who has filed a real playable video on poidh, twice, both 1080x1920 with audio. Used the kit's radio interview cut to nine captioned passages. | Handle does not resolve, so they cannot be credited or announced. One entry states a closing time we have not published. |
+| **@assay** (poidh shows `@!3351620`) | 3 (8100, 8107, 8111) | The only person who has filed a real playable video on poidh, twice, both 1080x1920 with audio. Used the kit's radio interview cut to nine captioned passages. | One entry states a closing time we have not published. (Handle SOLVED, see below.) |
 | **@pascaline** | 2 (8093, 8115) | Turned round one around fast, then switched format to video unprompted for round two. The only returner. | Round one used invented band photos and carried no date or place. Round two filed as a screenshot; whether the person on camera is real is UNVERIFIED. |
 | **@leoxcrane** | 1 (8086) | Won round one. | Did not return. |
 | **@predaking** | 1 (8091) | Went and got the running order and genres, credited attabotty and Candy unprompted, filed the actual file. Production discipline. | Did not return. |
@@ -121,7 +121,7 @@ so this is mostly a list of first impressions - which is itself the finding.
 
 ### The two trajectories we actually have
 
-**@!3351620 improved inside a single round, twice.** 8100 pointed at a host that went offline.
+**@assay improved inside a single round, twice.** 8100 pointed at a host that went offline.
 They noticed without being told, re-filed as 8107 explaining exactly what had happened, then
 filed 8111 as a second, different piece. Three claims, each better than the last, all in one
 day. **Nobody gave them feedback to cause this.**
@@ -141,9 +141,8 @@ programme has so far only demonstrated the first.
 
 On evidence rather than impression, three people have shown something that is hard to teach:
 
-1. **@!3351620** - produces finished, spec-correct video repeatedly and fixes their own errors
-   without being asked. Blocked on an unresolvable handle, which is a problem to solve rather
-   than a reason to pass.
+1. **@assay** - produces finished, spec-correct video repeatedly and fixes their own errors
+   without being asked.
 2. **@predaking** - research and production discipline, credits sources unprompted, files
    correctly. Did not return, so the question is whether he would.
 3. **@uniquebeing404** - the only person who has made anything physical, which is the rarest
@@ -151,6 +150,40 @@ On evidence rather than impression, three people have shown something that is ha
 
 @pascaline is the only proven returner, which is its own kind of valuable, and the invented
 people in round one is a brief-following question rather than a craft one.
+
+## Which platform the entries came from
+
+Measured from each claim's title, description and post URL - what the entrant actually linked,
+not what they said.
+
+| | X only | Farcaster only | Both | Neither |
+|---|---|---|---|---|
+| Round 1 (6) | 3 | 3 | 0 | 0 |
+| Round 2 (8) | 1 | 1 | 3 | 3 |
+
+**Both channels produce.** The socials are not being written on nothing.
+
+**On round one, every late entry came from Farcaster and every X entry was on time.**
+@coolhat and @uniquebeing404 were the two that missed the 4pm close and both posted on
+Farcaster; @predaking, @dee-13 and @pascaline were on X and all made it. Two cases is a
+pattern to watch, not a finding.
+
+The round-two "neither" three are two catbox.moe video files and one claim carrying no post
+link at all - an entrant can file a video here without posting it anywhere, which the rubric
+rewards nothing for.
+
+### The handle that would not resolve is @assay
+
+poidh reports that wallet as `@!3351620`, an fid with no username, and it owns the only two
+playable videos in the run. **Claim 8107's description carries Farcaster post links**, which
+name the account.
+
+Confirmed properly rather than by eye: `farcaster.xyz` returns **200 for a username that
+cannot exist**, so an HTTP check proves nothing about a Farcaster handle. The fname registry
+can answer - `fnames.farcaster.xyz/transfers?name=assay` returns one record mapping **assay to
+fid 3351620**, and a nonsense name returns zero records.
+
+So they can be credited, announced and paid by name.
 
 ## What is not measured, and must not be written as zero
 
