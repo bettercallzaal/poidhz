@@ -38,6 +38,25 @@ PASTE_END = "<!-- PASTE ABOVE THIS LINE -->"
 # bare "13 days out" or a date is never mistaken for a deadline.
 CLOCK = re.compile(r"(?i)\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b")
 
+# A round directory holds two different kinds of markdown and this check only governs one.
+# ANNOUNCEMENT COPY is written BEFORE the close and tells a reader when to submit; if it names
+# the wrong time, people submit late to a closed bounty. A RETROSPECTIVE - feedback written
+# after the close, a review of what came in - is written afterwards and points at the NEXT
+# round, so it names the next round's time on purpose.
+#
+# Found 2026-09-22: d01/FEEDBACK.md failed this check for saying 5pm when bounty one closed at
+# 4pm. The copy was right. Feedback for round one exists to point people at round two, and
+# round two closes at 5pm. Meanwhile d02/REVIEW.md PASSED, purely because bounty two also
+# closes at 5pm - a retrospective satisfying an announcement check by coincidence, which is the
+# same defect wearing a pass.
+#
+# The exemption is a marker INSIDE the file rather than a list of filenames here, because a
+# filename blocklist is defeated by the next new filename and nobody would notice: both
+# FEEDBACK.md and REVIEW.md were invented this week. It needs a non-blank reason for the same
+# reason `excluded_bounty_ids` does in check-tracked-bounties.py - an exemption with no stated
+# reason is indistinguishable from the bug this file exists to catch.
+NOT_ANNOUNCEMENT = re.compile(r"<!--\s*NOT-ANNOUNCEMENT-COPY:\s*(.*?)\s*-->", re.S)
+
 
 def paste_body(text: str) -> str:
     """The text that actually gets cast, when the file marks it; the whole file otherwise."""
@@ -76,13 +95,29 @@ def check_round(round_dir: Path) -> tuple[bool, list[str]]:
         return False, [f"FAIL: {desc} - 'Submissions close {deadline_line}' names no clock time"]
     findings.append(f"     description commits to: {sorted(committed)} ({deadline_line})")
 
-    copy_files = sorted(p for p in round_dir.glob("*.md")
+    candidates = sorted(p for p in round_dir.glob("*.md")
                         if p.name not in {"description.md", "README.md"})
+
+    # Split declared retrospectives out, and SAY which ones, so an exemption is visible in the
+    # output rather than being a silent absence.
+    copy_files = []
+    for p in candidates:
+        m = NOT_ANNOUNCEMENT.search(p.read_text())
+        if m and m.group(1).strip():
+            findings.append(f"     {p.name} exempt, not announcement copy: "
+                            f"{m.group(1).strip()[:80]}")
+        else:
+            # A marker with a BLANK reason does not exempt anything. Falls through on purpose.
+            copy_files.append(p)
+
     if not copy_files:
         # An empty set is not a pass. Say so rather than printing a clean bill of health.
+        why = ("every candidate file declared itself NOT announcement copy"
+               if candidates else "only description.md and README.md")
         return False, findings + [
-            f"FAIL: {round_dir} has no announcement copy to check (only description.md and "
-            f"README.md). If this round genuinely has no copy, that is the finding."]
+            f"FAIL: {round_dir} has no announcement copy to check ({why}). If this round "
+            f"genuinely has no copy, that is the finding. Exempting every file is NOT a pass: "
+            f"a round that is about to be cast needs copy that states its deadline."]
 
     ok = True
     for cf in copy_files:
@@ -144,6 +179,38 @@ def _selftest() -> bool:
         ok, f = check_round(r)
         check("a description with no close line fails, it does not silently pass",
               not ok and any("no 'Submissions close" in x for x in f))
+
+        # --- the retrospective exemption, added 2026-09-22 ---
+        r.joinpath("description.md").write_text(desc)
+        r.joinpath("DISTRIBUTION.md").write_text("Closes 4pm Eastern Monday.\n")
+
+        # Feedback for THIS round points at the NEXT round's time, and that is correct.
+        fb = r / "FEEDBACK.md"
+        fb.write_text("Round three closes 5:00pm Eastern Wednesday.\n")
+        ok, f = check_round(r)
+        check("an undeclared retrospective still FAILS (the marker is what exempts, not the "
+              "filename)", not ok)
+
+        fb.write_text("<!-- NOT-ANNOUNCEMENT-COPY: post-close feedback, points at round two -->\n"
+                      "Round three closes 5:00pm Eastern Wednesday.\n")
+        ok, f = check_round(r)
+        check("a DECLARED retrospective is exempt", ok)
+        check("and the exemption is reported, not silent",
+              any("exempt, not announcement copy" in x for x in f))
+
+        fb.write_text("<!-- NOT-ANNOUNCEMENT-COPY:   -->\nCloses 5:00pm Wednesday.\n")
+        ok, _ = check_round(r)
+        check("a marker with a BLANK reason does NOT exempt", not ok)
+
+        # Exempting everything must not become a clean bill of health.
+        fb.write_text("<!-- NOT-ANNOUNCEMENT-COPY: feedback -->\n5:00pm\n")
+        r.joinpath("DISTRIBUTION.md").write_text(
+            "<!-- NOT-ANNOUNCEMENT-COPY: also a retrospective -->\n5:00pm\n")
+        ok, f = check_round(r)
+        check("exempting EVERY file still fails rather than passing vacuously",
+              not ok and any("no announcement copy" in x for x in f))
+        check("and it says the files were exempted, not that none existed",
+              any("declared itself NOT announcement copy" in x for x in f))
     return passed
 
 
