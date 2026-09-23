@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T04:56:38.101962+00:00",
+  "generated_at": "2026-09-23T11:54:07.265380+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -64,6 +64,15 @@
       "deadline_raw_text": "September 22",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1410"
+    },
+    {
+      "round": "daily-03",
+      "bounty_id": 1412,
+      "title": "Daily 03 - Anything but a poster",
+      "deadline_iso": "2026-09-23",
+      "deadline_raw_text": "September 23",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1412"
     },
     {
       "round": 9,
