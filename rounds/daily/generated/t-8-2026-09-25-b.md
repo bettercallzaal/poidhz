@@ -38,7 +38,7 @@ Because a free festival on one street in a small city lives or dies on whether a
 
 THE BAR (these are requirements, not preferences)
 
-1. UPLOAD THE FILE ITSELF. A screenshot of your post is not the piece. Attach the video, the audio, the image, and put the link to your public post underneath it.
+1. IF IT IS A STILL, UPLOAD THE FILE ITSELF. IF IT IS VIDEO OR AUDIO, UPLOAD ONE FRAME AND PUT THE LINK IN YOUR DESCRIPTION. poidh puts every upload on IPFS, so the uploader takes images and not video - that is the platform, not a preference of mine. A screenshot of your post is still the weakest thing you can file, because it shows your post instead of your work; a frame from the piece is better, and the link is what I actually watch.
 2. Post it publicly and submit the live URL on this bounty page. If it is not claimed here, it is not entered.
 3. Carry the three facts someone needs to act on: ZAOstock, Saturday October 3, Ellsworth Maine.
 4. No editor watermark. CapCut, an AI tool's corner mark, a template stamp. It puts another brand on ours in every repost.
