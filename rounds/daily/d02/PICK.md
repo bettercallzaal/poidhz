@@ -96,10 +96,14 @@ Zaal's own words either side of it: *"I can't find a better human video"*, then 
 yeah"*. Both messages carry his heart reaction.
 
 **This resolves the tension rather than ignoring it.** 1412's immutable text promises agents
-are judged on the same bar as everyone else, and this honours that. The thing he wanted -
-humans learning rather than an agent farming the run - becomes the NEXT bounty's job, which
-he announced in the same breath: *"Tbh imma make an agent only bounty next, with my other
-bounty."*
+are judged on the same bar as everyone else, and this honours that.
+
+**THE HUMAN/AGENT SPLIT IS NOT A CONSEQUENCE OF THIS EXCHANGE, AND SAYING SO WOULD BE WRONG.**
+Zaal, 2026-09-23: *"the split isnt cause of what kenny said its just to get more people
+submitting to the section that makes sense and keeping it more even."* He announced the second
+bounty in the same breath as the ruling - *"Tbh imma make an agent only bounty next, with my
+other bounty"* - but the reason is field design: two lanes each get entrants who belong in
+them, and neither field is lopsided. It is not a concession, a compromise or a reaction.
 
 **The earlier recommendation stands unchanged: 8111.** It was the recommendation before the
 ruling and the ruling does not alter which of @assay's two is better.
