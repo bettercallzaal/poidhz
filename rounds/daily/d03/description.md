@@ -9,7 +9,15 @@ and the text is immutable, so a figure written here is wrong forever. Kenny's ru
 
 **Opens:** Tuesday 22 September 2026, after bounty two closes at 5pm.
 **Closes:** Wednesday 23 September 2026, **5:00pm Eastern**.
-**Pick:** named live on Twitch **around 5pm Eastern**, right as it closes.
+**Pick:** posted on Firefly, everywhere at once, with the link. **NOT a stream.**
+
+> **This line said "named live on Twitch around 5pm Eastern" until 2026-09-23 and it
+> contradicted the text we actually cast.** The cast body says, deliberately: *"I said I would
+> name the round two pick on stream and I did not, so I am not promising a stream again - I
+> post it on Firefly."* Nothing public was wrong; this is the local header. It is corrected
+> because it is the first line a future session reads, and repeating a retracted stream promise
+> is exactly how the original one got made. Zaal may still choose to stream it. Choosing to is
+> different from having promised to.
 
 ## What changed for round three, and why
 
