@@ -20,7 +20,7 @@ today, and it is worthless if only the bounty page mentions it.
 ```
 Bounty three: anything but a poster.
 
-Eleven entries in, nearly all posters. So today it is off the table. Video, audio, a meme, something on a real wall. Make the thing only you would make.
+Round one was five posters out of six. So today it is off the table. Video, audio, a meme, something on a real wall. Make the thing only you would make.
 
 Tag a draft by noon ET, I send notes back.
 
@@ -40,7 +40,7 @@ is where the deadline and the URL are. Count it, never estimate it.
 ```
 Bounty three is up and it has one new rule: no posters.
 
-Eleven entries have come in over two rounds and almost all of them were a still image with type on it. They were good. But the kit makes a poster easy, which is exactly why everybody made one, and a feed full of the same rectangle stops working.
+Round one was five posters out of six. They were good. But the kit makes a poster easy, which is exactly why nearly everybody made one, and a feed full of the same rectangle stops working. Round two asked for video and got five out of eight, so you have already proved you can do it.
 
 So today: anything else. Fifteen seconds that moves with sound. A jingle or a thirty-second spot in your own voice. A meme that is actually funny and still carries the date. A photo of something physical you put up in a real place. A comic, a loop, a sticker sheet. Something nobody on this list thought of.
 
@@ -48,7 +48,7 @@ Make the thing only you would make. Not the best version of the obvious idea.
 
 NEW: tag a draft by 12pm Eastern and I will send you one specific note back before 2pm. Rough is fine, it is not a claim yet. Final claim by 5pm. If two entries land in the same place, the one that took a note wins.
 
-One more thing, and it is the biggest fix available to most of you: upload the FILE, not a screenshot of your post. Four of five claims yesterday were a photo of a phone screen with the battery icon in it.
+One more thing, and it is the biggest fix available to most of you: upload the FILE, not a screenshot of your post. Four of the eight claims yesterday were a photo of a phone screen with the battery icon in it, and only three were the file.
 
 Closes 5pm Eastern Wednesday. I name the pick live on Twitch right as it closes, so come and argue for your own.
 
@@ -69,7 +69,7 @@ Closes 5pm Eastern Wednesday. <BOUNTY-URL>
 
 ## The Maine-local post
 
-**Still nobody's job, and eleven entries in, not one is a photograph of something physically
+**Still nobody's job, and fourteen entries in, not one is a photograph of something physically
 placed in a real location.** This block is the one that could change that, and it is the only
 block here aimed at people who can actually walk to the festival.
 
@@ -78,7 +78,7 @@ ZAOstock is a free music festival on Franklin Street in Ellsworth on Saturday Oc
 
 We are paying people to help get the word out. Today's brief is anything except a poster: a short video, a clip on your phone, or a photo of a flyer you put up somewhere real in Ellsworth or Bangor.
 
-That last one is wide open. Eleven people have entered so far and not one has photographed a flyer in an actual window.
+That last one is wide open. Eleven people have entered so far, fourteen entries between them, and not one has photographed a flyer in an actual window.
 
 Closes 5pm Eastern Wednesday: <BOUNTY-URL>
 Everything about the festival: https://zaostock.com
