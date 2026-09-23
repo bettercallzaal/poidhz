@@ -142,8 +142,9 @@ judgement we have been making**:
 
 **"They filed a screenshot instead of the piece" has been treated as a defect since round one.
 It is not one.** Uploading a still and linking the video is the only thing the uploader allows.
-Across rounds two and three, nine of the twelve claims did exactly that because it is the
-correct behaviour, and round two's review marked several of them down for it.
+Across rounds two and three, **ten of the thirteen claims** went to IPFS as a still because it
+is the correct behaviour, and round two's review marked several of them down for it. Measured,
+not estimated: the three exceptions are all @assay's.
 
 **But video CAN appear on a bounty page, and one entrant worked out how.** @assay's round-two
 claims carry a media url that is not IPFS at all:
