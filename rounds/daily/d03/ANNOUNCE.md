@@ -20,15 +20,16 @@ today, and it is worthless if only the bounty page mentions it.
 ```
 Bounty three: anything but a poster.
 
-Round one was five posters out of six. So today it is off the table. Video, audio, a meme, something on a real wall. Make the thing only you would make.
+Round one was five posters out of six. Today it is off the table. Video, audio, a meme, something on a real wall. Make the thing only you would make.
 
-Tag a draft by noon ET, I send notes back.
+Tag a draft by noon, I send notes back.
 
-Closes 5pm ET. <BOUNTY-URL>
+Closes 5pm ET. https://poidh.xyz/base/bounty/1412
 ```
 
-**273 characters** with a 22-character URL, counted in python, not estimated. Recount if the
-live URL is longer than 22.
+**279 characters** with the LIVE url in place, counted in python AFTER substitution rather
+than against the placeholder. The real url is 37 characters and the placeholder was 22, which
+pushed this block to 285 and over the limit the moment it became real.
 
 This block took three goes. The first draft was 329 characters and this file claimed "279"
 underneath it, a number nobody had measured; the second was 292. Firefly counts against X's
@@ -54,7 +55,7 @@ Closes 5pm Eastern Wednesday. I name the pick live on Twitch right as it closes,
 
 Kit, free to use: https://zaostock.com/brand
 Discord: https://discord.thezao.com
-The bounty: <BOUNTY-URL>
+The bounty: https://poidh.xyz/base/bounty/1412
 ```
 
 ## Reply to everyone who entered round one or two
@@ -64,7 +65,7 @@ Round three is up and it is the one you have been building toward: no posters, a
 
 You have entered before, so the thing worth knowing is the new checkpoint. Tag a draft by 12pm Eastern and I send you one specific note back before 2pm, then you file the final by 5pm. Nobody has had that before.
 
-Closes 5pm Eastern Wednesday. <BOUNTY-URL>
+Closes 5pm Eastern Wednesday. https://poidh.xyz/base/bounty/1412
 ```
 
 ## The Maine-local post
@@ -80,7 +81,7 @@ We are paying people to help get the word out. Today's brief is anything except 
 
 That last one is wide open. Eleven people have entered so far, fourteen entries between them, and not one has photographed a flyer in an actual window.
 
-Closes 5pm Eastern Wednesday: <BOUNTY-URL>
+Closes 5pm Eastern Wednesday: https://poidh.xyz/base/bounty/1412
 Everything about the festival: https://zaostock.com
 ```
 
@@ -91,12 +92,12 @@ Two hours on bounty three. No posters. Anything else.
 
 If you tagged a draft this morning you have my notes, file the final. If you did not, there is still time to make something short.
 
-Closes 5pm Eastern: <BOUNTY-URL>
+Closes 5pm Eastern: https://poidh.xyz/base/bounty/1412
 ```
 
 ## Before posting any of these
 
-- Replace every `<BOUNTY-URL>` with the live URL. `grep -c "<BOUNTY-URL>" ANNOUNCE.md` should
+- Replace every `https://poidh.xyz/base/bounty/1412` with the live URL. `grep -c "https://poidh.xyz/base/bounty/1412" ANNOUNCE.md` should
   return 0 once it is cast.
 - **No prize figure in any block.** The pot is OPEN and grows; the number lives on the page.
 - The Twitch channel URL is still not supplied, so these say "on Twitch" and nothing more. A
