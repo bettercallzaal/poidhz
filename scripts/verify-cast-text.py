@@ -45,6 +45,15 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 OPEN_MARKER = "<!-- PASTE BELOW THIS LINE -->"
 CLOSE_MARKER = "<!-- PASTE ABOVE THIS LINE -->"
 
+# A file with no markers normally claims nothing and is skipped. But the OLDER round files
+# predate the marker convention and use prose instead - r3's header says "This is exactly what
+# was posted to POIDH bounty 1180", and r5's says "Paste everything between the sentinel
+# lines". Skipping those as if they claimed nothing is the instrument being generous: they make
+# exactly the claim this script exists to test, and they were passing without being read.
+CLAIMS_CAST_TEXT = re.compile(
+    r"(?i)exactly what was posted|paste-ready|paste everything between|text as cast|"
+    r"as cast\b|read back from|sentinel lines")
+
 
 def paste_body(text: str) -> str | None:
     """The cast text a round file holds, or None when the file has no paste block.
@@ -91,10 +100,18 @@ def compare(round_dir: Path, bounty_id: int) -> tuple[bool, list[str]]:
         return False, [f"FAIL: {f} does not exist. A round with no description file cannot "
                        f"have its cast text verified, and that is not a pass."]
 
-    local = paste_body(f.read_text())
+    raw = f.read_text()
+    local = paste_body(raw)
     if local is None:
-        return True, [f"     SKIP {round_dir.name}: no paste markers, so this file makes no "
-                      f"claim about cast text"]
+        if CLAIMS_CAST_TEXT.search(raw):
+            m = CLAIMS_CAST_TEXT.search(raw)
+            return False, [
+                f"FAIL: {round_dir.name}/description.md CLAIMS to hold cast text "
+                f"(\"{m.group(0)}\") but has no paste markers, so nothing can be compared "
+                f"against bounty {bounty_id}. Wrap the cast body in {OPEN_MARKER} and "
+                f"{CLOSE_MARKER}. An unverifiable claim is not a passing one."]
+        return True, [f"     SKIP {round_dir.name}: no paste markers and no claim to hold "
+                      f"cast text, so there is nothing to verify"]
     if not local:
         return False, [f"FAIL: {f} has paste markers with nothing between them."]
 
@@ -168,6 +185,15 @@ def _selftest() -> bool:
         ok, out = compare(r, 1412)
         c("no markers is a SKIP and a pass, because it claims nothing",
           ok and any("SKIP" in x for x in out))
+
+        # r3's real header. It claims to hold cast text in prose and has no markers, and it
+        # was passing as a clean SKIP.
+        (r / "description.md").write_text(
+            "# R3 description - paste-ready (v8 final)\n\n"
+            "This is exactly what was posted to POIDH bounty 1180 on 2026-05-31.\n")
+        ok, out = compare(r, 1412)
+        c("a file CLAIMING to be cast text with no markers FAILS instead of skipping",
+          not ok and any("CLAIMS to hold cast text" in x for x in out))
 
     # The network half, against the real bounty this was written for.
     live = live_description(1412)

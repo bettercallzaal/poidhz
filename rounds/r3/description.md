@@ -4,6 +4,8 @@ This is exactly what was posted to POIDH bounty 1180 on 2026-05-31.
 
 ---
 
+<!-- PASTE BELOW THIS LINE -->
+
 Make the best ad for ZABAL Gamez. Any format. Best one wins 0.0125 ETH on Base and we run it.
 
 ZABAL Gamez is The ZAO's 3-month Build-A-Thon. June workshops, July open build month, August Finals. Free to join. Anyone welcome. Three tracks - artist, builder, creator - so anyone can step in. The 100+ member ZAO community is your real audience. Build for a real community, not a weekend you forget. This is a build event, not a video-game contest.
@@ -97,3 +99,5 @@ Submissions close 11:59pm PT, Sunday June 14, 2026.
 Winner cast by end of day Monday June 15, 2026.
 
 Site: zabalgamez.com
+
+<!-- PASTE ABOVE THIS LINE -->

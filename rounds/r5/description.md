@@ -12,6 +12,14 @@ Description:
 
 ----- BEGIN POIDH DESCRIPTION -----
 
+> **THE BODY BELOW WAS REPLACED WITH THE TEXT ACTUALLY ON CHAIN, 2026-09-23.** The copy that
+> sat here differed from bounty 1330 in one place that matters: it gave the Clippers group as
+> `t.me/wavewarzclipshq`, and **what was actually cast is `https://t.me/+U4ZaQ69Qr44wMzRh`**.
+> Anyone reading this file to answer "where do I drop the clip" would have given entrants a
+> link nobody was sent. Found by `scripts/verify-cast-text.py`.
+
+<!-- PASTE BELOW THIS LINE -->
+
 Go through the WaveWarZ Twitch stream and cut the best clip. 20 to 90 seconds, 60 is the sweet spot. The pot starts at 0.0125 ETH and grows as people add to it. Winner takes all of it, and WaveWarZ runs your clip on its official channels with your name on it.
 
 WaveWarZ is live music battles. Song vs. song, traded in real time, artists paid on the spot. 1,419 battles so far, 900+ SOL traded, 13.9 SOL paid straight to artists, as of Aug 20. The battle stream runs most weeknights from about 9:30 pm ET at twitch.tv/wavewarzofficial. Somewhere in those hours is the moment that makes a stranger stop scrolling. Find it.
@@ -34,7 +42,9 @@ By entering you are saying WaveWarZ and The ZAO can repost your clip on our offi
 
 One winner, chosen using poidh consensus. Deadline to enter: 11:59 pm PT, Sunday, August 30, 2026. Winner paid here within 48 hours, and the clip goes up on @wavewarz with your name on it.
 
-Already in the WaveWarZ Clippers group? This stacks with your points. Drop the same clip in t.me/wavewarzclipshq too.
+Already in the WaveWarZ Clippers group? This stacks with your points. Drop the same clip in https://t.me/+U4ZaQ69Qr44wMzRh too.
+
+<!-- PASTE ABOVE THIS LINE -->
 
 ----- END POIDH DESCRIPTION -----
 
