@@ -1,118 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>poidhz - poidh deadlines calendar</title>
-  <meta name="description" content="Every open poidh bounty with a stated deadline, on a calendar, with countdowns and a subscribable .ics feed. Plus every open bounty without one.">
-  <link rel="canonical" href="https://poidhz.com/">
-  <meta property="og:title" content="poidhz - poidh deadlines">
-  <meta property="og:description" content="Every open poidh bounty with a stated deadline, on a calendar. Refreshes every 6 hours.">
-  <meta property="og:url" content="https://poidhz.com/">
-  <meta property="og:image" content="https://poidhz.com/assets/og/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://poidhz.com/assets/og/og.png">
-  <link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --bg:#070709;--surface:#111115;--surface-2:#16161c;
-      --orange:#ff6b35;--cyan:#00e5ff;--gold:#f5c842;--pink:#ff3d6e;--zabal:#a78bfa;--green:#4ade80;
-      --text:#e4e2dd;--text-muted:#8a8895;--text-dim:#4e4c57;
-      --border:#1f1e26;--border-hover:#2f2d3a;--radius:8px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{--bg:#f7f6f3;--surface:#ffffff;--surface-2:#f0eee9;--text:#17161c;--text-muted:#5d5b66;--text-dim:#9a98a3;--border:#e2e0da;--border-hover:#cfcdc6;--cyan:#0077a8;--gold:#a87a00;--green:#15803d}
-    }
-    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
-    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,0.12),transparent 60%),radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,0.10),transparent 60%)}
-    a{color:var(--cyan);text-decoration:none}
-    a:hover{color:var(--orange)}
-    .container{max-width:1080px;margin:0 auto;padding:0 1.25rem}
-    .topnav{padding:1.1rem 0;border-bottom:1px solid var(--border)}
-    .topnav-inner{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--text)}
-    .topnav nav{display:flex;gap:1.1rem;flex-wrap:wrap}
-    .topnav nav a{color:var(--text-muted);font-size:0.88rem}
-    .topnav nav a:hover{color:var(--text)}
-    .mono{font-family:'JetBrains Mono',monospace}
-    .hero{padding:2.25rem 0 1.25rem}
-    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.1;margin:0.25rem 0 0.5rem;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .sub{color:var(--text-muted);max-width:680px;font-size:0.98rem}
-    .stats{display:flex;gap:0.75rem;flex-wrap:wrap;margin:1.25rem 0 0.5rem}
-    .stat{flex:1 1 140px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:0.7rem 0.9rem}
-    .stat b{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;line-height:1.1}
-    .stat span{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
-    .stat.hot b{color:var(--gold)}
-    .stat.stale b{color:var(--text-muted)}
-    .toolbar{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:1rem 0;position:sticky;top:0;z-index:5;background:var(--bg);padding:0.6rem 0;border-bottom:1px solid var(--border)}
-    .toolbar label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace}
-    select,input[type=number]{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.55rem;font:inherit;font-size:0.85rem}
-    input[type=number]{width:90px}
-    .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.45rem 0.8rem;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:0.85rem;cursor:pointer;font:inherit}
-    .btn:hover{border-color:var(--cyan);color:var(--text)}
-    .btn.primary{border-color:rgba(0,229,255,0.5);color:var(--cyan)}
-    .spacer{flex:1}
-    h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:1.75rem 0 0.75rem}
-    h2 small{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:0.72rem;color:var(--text-muted);margin-left:0.5rem}
-    /* calendar */
-    .cal-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.5rem}
-    .cal-head h3{font-family:'Syne',sans-serif;font-size:1.05rem}
-    .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-    .dow{background:var(--surface-2);padding:0.35rem;text-align:center;font-size:0.68rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
-    .day{background:var(--surface);min-height:84px;padding:0.3rem 0.35rem;font-size:0.78rem;display:flex;flex-direction:column;gap:0.2rem}
-    .day.out{opacity:0.38}
-    .day.today{outline:2px solid var(--cyan);outline-offset:-2px}
-    .day.past .chip{opacity:0.45}
-    .day .n{color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:0.7rem}
-    .day.today .n{color:var(--cyan);font-weight:600}
-    .chip{display:block;padding:0.15rem 0.35rem;border-radius:4px;background:rgba(0,229,255,0.12);border:1px solid rgba(0,229,255,0.3);color:var(--text);font-size:0.7rem;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .chip:hover{border-color:var(--orange);color:var(--text)}
-    .chip b{font-family:'JetBrains Mono',monospace;color:var(--gold);font-weight:500;margin-right:0.25rem}
-    .chip.more{background:transparent;border-style:dashed;color:var(--text-muted);text-align:center}
-    @media (max-width:640px){
-      .day{min-height:58px;padding:0.2rem}
-      .chip{font-size:0.6rem;padding:0.1rem 0.2rem}
-      .chip .t{display:none}
-    }
-    /* agenda */
-    .row{display:grid;grid-template-columns:110px 1fr auto;gap:0.75rem;align-items:center;padding:0.7rem 0.9rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:0.5rem}
-    .row:hover{border-color:var(--border-hover)}
-    .row.past{opacity:0.5}
-    .row .when{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-muted);line-height:1.3}
-    .row .when b{display:block;color:var(--gold);font-weight:500;font-size:0.85rem}
-    .row.soon .when b{color:var(--orange)}
-    .row .what a.title{color:var(--text);font-weight:500}
-    .row .what a.title:hover{color:var(--cyan)}
-    .row .meta{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.25rem}
-    .tag{font-family:'JetBrains Mono',monospace;font-size:0.66rem;padding:0.1rem 0.45rem;border-radius:999px;border:1px solid var(--border);color:var(--text-muted)}
-    .tag.chain-8453{color:#7aa8ff;border-color:rgba(122,168,255,0.4)}
-    .tag.chain-42161{color:#6fd0ff;border-color:rgba(111,208,255,0.4)}
-    .tag.chain-1{color:#c9c9d6;border-color:rgba(201,201,214,0.4)}
-    .tag.chain-666666666{color:var(--zabal);border-color:rgba(167,139,250,0.4)}
-    .tag.type{color:var(--text)}
-    .row .amt{text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.85rem}
-    .row .amt b{display:block;color:var(--green);font-weight:500}
-    .row .amt small{color:var(--text-muted);font-size:0.7rem}
-    .row .amt a{display:block;font-size:0.7rem;margin-top:0.2rem}
-    @media (max-width:640px){.row{grid-template-columns:1fr;gap:0.35rem}.row .amt{text-align:left}}
-    .empty{padding:1.25rem;border:1px dashed var(--border);border-radius:var(--radius);color:var(--text-muted);text-align:center;font-size:0.9rem}
-    details{margin-top:1.5rem}
-    summary{cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;list-style:none;display:flex;align-items:center;gap:0.5rem}
-    summary::before{content:'+';font-family:'JetBrains Mono',monospace;color:var(--cyan);width:1.2rem}
-    details[open] summary::before{content:'-'}
-    summary small{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:0.72rem;color:var(--text-muted)}
-    .note{font-size:0.85rem;color:var(--text-muted);margin:0.5rem 0 1rem}
-    .note code{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text)}
-    footer{padding:2rem 0;border-top:1px solid var(--border);margin-top:3rem;color:var(--text-muted);font-size:0.82rem}
-    footer p{margin-bottom:0.4rem}
-    .err{padding:1rem;border:1px solid var(--pink);border-radius:var(--radius);color:var(--pink);font-family:'JetBrains Mono',monospace;font-size:0.85rem}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>poidhz - every ZAO bounty, live</title>
+<!--
+  THIS PAGE REPLACED THE POIDH-WIDE DEADLINE CALENDAR AS THE HOMEPAGE, 2026-09-23.
+
+  WHY. Zaal's ask: "each time we post we just link the site instead of everything, and it
+  being front and center to review all zao poidh bounties." Before this, linking poidhz.com
+  from a cast landed a reader on a calendar of OTHER PEOPLE'S bounties across the whole
+  platform - a genuinely useful tool, and not the thing they came for. The round they had
+  just read about was two clicks away on a page titled "rounds, judging, bounty bar".
+
+  The calendar is not deleted and no link to it dies: it lives at /calendar, served from
+  calendar.html by cleanUrls, and is linked from the nav and from the foot of this page.
+
+  EVERYTHING HERE RENDERS FROM data/rounds-live.json AND data/claims.json - the same feeds
+  /about reads, regenerated every 6h. Nothing on this page is hand-written state, because
+  the one time round state WAS hand-written it sat marked LIVE for six weeks after the
+  bounty was canceled, and on 2026-09-22 /about hard-coded "No round is open right now"
+  above a table that said otherwise.
+
+  A round whose STATED close has passed is not open here, whatever the chain says. poidh has
+  no on-chain deadline - that is what the calendar at /calendar exists to document - so
+  inProgress stays true long after a description's close. Without that check this page
+  invites people into a bounty that shut hours ago.
+-->
+<meta name="description" content="Every bounty The ZAO has issued on poidh: what is open right now, what people made, who won, and the notes every entrant got back.">
+<link rel="canonical" href="https://poidhz.com/">
+<meta property="og:title" content="poidhz - every ZAO bounty, live">
+<meta property="og:description" content="What is open right now, what people made, who won, and the notes every entrant got.">
+<meta property="og:url" content="https://poidhz.com/">
+<meta property="og:image" content="https://poidhz.com/assets/og/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://poidhz.com/assets/og/og.png">
+<link rel="icon" type="image/png" href="/assets/brand-kits/zabal-games/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070709;--surface:#111115;--surface-2:#16161c;--orange:#ff6b35;--cyan:#00e5ff;
+--gold:#f5c842;--pink:#ff3d6e;--zabal:#a78bfa;--green:#4ade80;--text:#e4e2dd;
+--text-muted:#8a8895;--text-dim:#4e4c57;--border:#1f1e26;--radius:10px}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;
+-webkit-font-smoothing:antialiased;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,.12),transparent 60%),
+radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,.10),transparent 60%),
+radial-gradient(ellipse 600px 400px at 50% 100%,rgba(255,107,53,.08),transparent 60%)}
+a{color:var(--cyan);text-decoration:none;transition:color .15s}
+a:hover{color:var(--orange)}
+.container{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+.hero{padding:2.5rem 0 1.5rem}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.9rem,6vw,3rem);
+line-height:1.05;margin:.5rem 0;background:linear-gradient(135deg,#ff6b35,#ff3d6e,#00e5ff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;
+letter-spacing:.12em;color:var(--zabal)}
+p.sub{color:var(--text-muted);max-width:640px}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.35rem;margin:2.75rem 0 .35rem}
+.note{color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:.72rem;
+margin-bottom:1rem}
+/* the live round */
+.live{margin:1.5rem 0;padding:1.5rem;border:1px solid rgba(245,200,66,.45);border-radius:var(--radius);
+background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(255,107,53,.05))}
+.live.none{border-color:var(--border);background:var(--surface)}
+.live .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;
+text-transform:uppercase;letter-spacing:.1em;padding:.2rem .6rem;border-radius:999px;
+background:rgba(245,200,66,.16);border:1px solid rgba(245,200,66,.5);color:var(--gold)}
+.live h3{font-family:'Syne',sans-serif;font-size:clamp(1.2rem,3.5vw,1.7rem);margin:.6rem 0 .3rem}
+.live .meta{color:var(--text-muted);font-size:.95rem}
+.live .row{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem}
+.clock{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--gold);font-weight:500}
+.clock small{display:block;font-size:.62rem;color:var(--text-dim);text-transform:uppercase;
+letter-spacing:.1em}
+.cta{display:inline-block;padding:.7rem 1.4rem;border-radius:8px;font-weight:600;
+background:var(--orange);color:#0b0b0f;font-size:.98rem}
+.cta:hover{background:var(--gold);color:#0b0b0f}
+.cta.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.cta.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+/* stats */
+.stats{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:1rem 0}
+.stat{padding:.9rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.stat b{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;color:var(--text)}
+.stat span{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;
+letter-spacing:.08em;color:var(--text-muted)}
+/* rounds */
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{padding:.6rem .7rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;
+letter-spacing:.06em;color:var(--text-muted)}
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:999px;
+font-family:'JetBrains Mono',monospace;font-size:.68rem;white-space:nowrap}
+.p-open{background:rgba(74,222,128,.14);color:var(--green);border:1px solid rgba(74,222,128,.35)}
+.p-vote{background:rgba(245,200,66,.14);color:var(--gold);border:1px solid rgba(245,200,66,.35)}
+.p-done{background:rgba(138,136,149,.12);color:var(--text-muted);border:1px solid var(--border)}
+.p-dead{background:rgba(255,61,110,.12);color:var(--pink);border:1px solid rgba(255,61,110,.3)}
+.cards{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:.5rem 0}
+.card{padding:1rem 1.15rem;background:var(--surface);border:1px solid var(--border);
+border-radius:var(--radius);color:var(--text);display:flex;flex-direction:column;gap:.3rem}
+.card:hover{border-color:var(--cyan);background:var(--surface-2);color:var(--text)}
+.card .l{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--cyan)}
+.card .d{font-size:.88rem;color:var(--text-muted)}
+footer{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:3rem;
+color:var(--text-muted);font-size:.86rem}
+footer .lifeline{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-dim);
+margin-top:.6rem;line-height:1.7}
+@media(max-width:640px){.clock{font-size:1.2rem}th:nth-child(4),td:nth-child(4){display:none}}
+</style>
 </head>
 <body>
 <!-- ZN-NAV START - generated by scripts/sync-site-nav.py, do not hand-edit -->
@@ -144,223 +141,151 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
 <a class="zn-l" href="https://poidh.xyz">poidh</a>
 </div></div>
 <!-- ZN-NAV END -->
-<!-- ZN-RUNNING START - generated by scripts/sync-site-nav.py, do not hand-edit -->
-<style>
-.zn-run{display:none;background:linear-gradient(90deg,rgba(255,107,53,.14),rgba(167,139,250,.10));
-border-bottom:1px solid #2a2530;font-family:'Outfit',system-ui,sans-serif}
-.zn-run-in{max-width:1100px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;
-gap:.9rem;flex-wrap:wrap}
-.zn-run-tag{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.68rem;
-text-transform:uppercase;letter-spacing:.1em;color:#f5c842;border:1px solid rgba(245,200,66,.45);
-border-radius:999px;padding:.15rem .55rem;white-space:nowrap}
-.zn-run-txt{color:#e4e2dd;font-size:.92rem}
-.zn-run-txt b{font-weight:600}
-.zn-run a.zn-run-cta{margin-left:auto;font-size:.88rem;color:#00e5ff;text-decoration:none;
-white-space:nowrap}
-.zn-run a.zn-run-cta:hover{color:#ff6b35}
-@media(max-width:640px){.zn-run a.zn-run-cta{margin-left:0}}
-</style>
-<div class="zn-run" id="zn-run"><div class="zn-run-in" id="zn-run-in"></div></div>
+
+
+<div class="hero"><div class="container">
+  <span class="kicker">every bounty The ZAO has issued on poidh</span>
+  <h1 id="headline">Loading the live state</h1>
+  <p class="sub">What is open right now, what people made, who won, and the notes every
+  entrant got back. Read from the chain every six hours, never typed by hand.</p>
+</div></div>
+
+<div class="container">
+  <div class="live none" id="live"><div class="meta">reading data/rounds-live.json...</div></div>
+
+  <div class="stats" id="stats"></div>
+
+  <h2>Every round</h2>
+  <div class="note" id="gen">live state from data/rounds-live.json</div>
+  <table>
+    <thead><tr><th>Round</th><th>Status</th><th>Entries</th><th>Pot</th><th>Winner</th></tr></thead>
+    <tbody id="rounds"><tr><td colspan="5" style="color:var(--text-muted)">loading...</td></tr></tbody>
+  </table>
+
+  <h2>What entrants were told</h2>
+  <div class="note">Everyone who enters gets written notes on their own piece, win or lose. They are public.</div>
+  <div class="cards">
+    <a class="card" href="/feedback"><span class="l">Notes on every entry</span>
+      <span class="d">One page per entrant, per round. No ranking is ever published.</span></a>
+    <a class="card" href="/best-practices"><span class="l">The bar</span>
+      <span class="d">What every entry is judged against, and how to write a bounty worth entering.</span></a>
+    <a class="card" href="/about"><span class="l">Rounds, judging and the record</span>
+      <span class="d">Every round's folder, its judging page, and what this programme has and has not delivered.</span></a>
+  </div>
+
+  <h2>The rest of poidh</h2>
+  <div class="cards">
+    <a class="card" href="/calendar"><span class="l">Deadline calendar</span>
+      <span class="d">Every OPEN bounty on poidh by deadline, platform-wide. poidh has no on-chain deadline, so this reads them out of the descriptions.</span></a>
+    <a class="card" href="/dashboard"><span class="l">Bounty dashboard</span>
+      <span class="d">Every live bounty with amounts, chain and task type.</span></a>
+    <a class="card" href="/hub"><span class="l">$ZABAL leaderboard</span>
+      <span class="d">Every submitter to a BCZ bounty, and what they have earned.</span></a>
+    <a class="card" href="/create-bounty"><span class="l">Create a bounty</span>
+      <span class="d">Standalone tool, any browser wallet.</span></a>
+  </div>
+
+  <footer>
+    Built by BetterCallZaal / The ZAO for <a href="https://poidh.xyz">poidh</a>. MIT, fork it:
+    <a href="https://github.com/bettercallzaal/poidhz">github.com/bettercallzaal/poidhz</a>
+    <div class="lifeline">
+      Nothing on this page is hand-written state. Round status, entry counts and pots are read
+      from poidh every six hours into <a href="/data/rounds-live.json">rounds-live.json</a>.<br>
+      A round whose stated close has passed is not shown as open here, whatever the chain says -
+      poidh has no on-chain deadline, which is what <a href="/calendar">the calendar</a> exists to document.
+    </div>
+  </footer>
+</div>
+
 <script>
-/* Renders ONLY from data/rounds-live.json, the same feed /about reads, so the two pages
-   cannot disagree. Hidden by default and shown only when the feed says something is OPEN or
-   VOTING - on 2026-09-22 /about hard-coded "No round is open right now" beneath a table that
-   said otherwise, and the hand-written half was the half people read. Nothing here is
-   hand-written, so there is no half to go stale. A fetch failure leaves the strip hidden,
-   which is the honest default: silence rather than a claim we could not check. */
 (function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function pill(st){
+    var m={'OPEN':'p-open','VOTING':'p-vote','WINNER SET':'p-done','CLOSED':'p-done',
+           'CANCELED':'p-dead','DRAFT':'p-done','UNKNOWN':'p-dead'};
+    return '<span class="pill '+(m[st]||'p-done')+'">'+esc((st||'?').toLowerCase())+'</span>';}
+  function eth(n){return n==null?'-':(+n).toFixed(4).replace(/0+$/,'').replace(/\.$/,'')+' ETH';}
+
   fetch('/data/rounds-live.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
     var now=Date.now();
-    /* A round whose STATED close has passed is not open, whatever the chain says. poidh has
-       no on-chain deadline, so inProgress stays true long after the description's close. */
-    function shut(r){return r.closes_at&&Date.parse(r.closes_at)<=now}
-    var live=(d.rounds||[]).filter(function(r){
-      return (r.status==='OPEN'&&!shut(r))||r.status==='VOTING'});
-    if(!live.length) return;
-    var open=live.filter(function(r){return r.status==='OPEN'});
-    var r=open[0]||live[0];
-    var n=r.claims!=null?r.claims:0;
-    var word=r.status==='OPEN'?'open now':'in its contributor vote';
-    var txt=document.createElement('span');
-    txt.className='zn-run-txt';
-    txt.innerHTML='<b>ZAOstock daily bounty</b> - '+(r.label||('R'+r.round))+' is '+word+
-      ', '+n+' entr'+(n===1?'y':'ies')+' so far. A free festival in Ellsworth, Maine on Saturday October 3.';
-    var tag=document.createElement('span');
-    tag.className='zn-run-tag'; tag.textContent=r.status==='OPEN'?'live':'voting';
-    var cta=document.createElement('a');
-    cta.className='zn-run-cta'; cta.target='_blank'; cta.rel='noopener';
-    cta.href=r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id);
-    cta.textContent=(r.status==='OPEN'?'enter it':'see the entries')+' \u2192';
-    var box=document.getElementById('zn-run-in');
-    box.appendChild(tag); box.appendChild(txt); box.appendChild(cta);
-    document.getElementById('zn-run').style.display='block';
-  }).catch(function(){});
-})();
-</script>
-<!-- ZN-RUNNING END -->
+    function shut(r){return r.closes_at && Date.parse(r.closes_at)<=now;}
+    var rounds=d.rounds||[];
 
-  <header class="hero container">
-    <span class="mono" style="font-size:0.7rem;color:var(--zabal);text-transform:uppercase;letter-spacing:0.1em">every open poidh bounty, by deadline</span>
-    <h1>poidh deadlines</h1>
-    <p class="sub">poidh has no on-chain deadline, so bounties state one in their description, or do not. This page reads every open bounty, pulls the date out of the text, and puts it on a calendar. Refreshes every 6 hours from <a href="https://github.com/bettercallzaal/poidhz" target="_blank" rel="noopener">open scripts</a>.</p>
-    <div class="stats" id="stats"></div>
-  </header>
+    /* THE LIVE BLOCK. Only a round that is OPEN and whose stated close has NOT passed counts
+       as enterable. A voting round is shown as the fallback because it is still live state
+       people care about, but it never says "enter". */
+    var open=rounds.filter(function(r){return r.status==='OPEN' && !shut(r);});
+    var voting=rounds.filter(function(r){return r.status==='VOTING';});
+    var el=document.getElementById('live');
+    var head=document.getElementById('headline');
 
-  <main class="container">
-    <div class="toolbar">
-      <label>type</label><select id="f-type"><option value="">all</option></select>
-      <label>chain</label><select id="f-chain"><option value="">all</option></select>
-      <label>min $</label><input id="f-usd" type="number" min="0" step="5" placeholder="0">
-      <span class="spacer"></span>
-      <a class="btn primary" id="ics" href="/data/poidh-deadlines.ics" download>subscribe .ics</a>
-      <button class="btn" id="copy-link" type="button">copy link</button>
-    </div>
-
-    <h2>Calendar <small id="cal-range"></small></h2>
-    <div class="cal-head">
-      <button class="btn" id="prev" type="button" aria-label="previous month">&larr;</button>
-      <h3 id="cal-title"></h3>
-      <button class="btn" id="next" type="button" aria-label="next month">&rarr;</button>
-    </div>
-    <div class="cal" id="cal"></div>
-
-    <h2>Agenda <small id="agenda-count"></small></h2>
-    <div id="agenda"></div>
-
-    <details id="undated-wrap">
-      <summary>Open bounties with no stated deadline <small id="undated-count"></small></summary>
-      <p class="note">These are open right now but the description never says when they close. Newest first. If you issue bounties: write the date and a timezone in the description, it is the only place anyone can read it.</p>
-      <div id="undated"></div>
-    </details>
-
-    <h2>How it works</h2>
-    <p class="note">
-      <code>scripts/scan-poidh-deadlines.py</code> pages through poidh's live bounty feed and parses dates like "August 24, 2026" or "11:59 pm PT Sun Jun 14" out of each description. <code>build-bounty-dashboard.py</code> adds amounts, USD, chain, and a task-type guess. Nothing here is read from a structured deadline field, because almost no bounty sets one - the current count is <code>bounties_with_native_deadline</code> in <a href="/data/poidh-deadlines-global.json">poidh-deadlines-global.json</a>, regenerated every 6h. <!-- Said "none set one" until 2026-09-08. Two scans an hour apart that day returned 1 and then 0, so it was an absolute claim about a moving number - true most days, wrong on the days it matters. The count now lives in a field rather than only inside a prose note, so it can be read rather than asserted. --> poidhz is built by <a href="https://bettercallzaal.com" target="_blank" rel="noopener">BetterCallZaal</a> / The ZAO for <a href="https://poidh.xyz" target="_blank" rel="noopener">poidh</a>. MIT, fork it.
-    </p>
-  </main>
-
-  <footer><div class="container">
-    <p>Data: <a href="/data/bounty-dashboard.json">bounty-dashboard.json</a> (6h refresh), <a href="/data/poidh-deadlines.ics">poidh-deadlines.ics</a>. Last refresh: <span id="generated" class="mono">loading</span>.</p>
-    <p>Our own rounds, judging pages, and the canonical bounty bar: <a href="/about">/about</a>. Not affiliated with poidh; we just issue bounties there and wanted a calendar.</p>
-  </div></footer>
-
-<script>
-(function(){
-  var CHAINS={8453:'Base',42161:'Arbitrum',1:'Ethereum',666666666:'Degen'};
-  var state={type:'',chain:'',usd:0,month:null,data:null};
-  var $=function(id){return document.getElementById(id)};
-  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-  var DAY=86400000;
-
-  function readHash(){
-    var h=location.hash.replace(/^#/,''); if(!h) return;
-    h.split('&').forEach(function(kv){var p=kv.split('=');var k=decodeURIComponent(p[0]),v=decodeURIComponent(p[1]||'');
-      if(k==='type')state.type=v; if(k==='chain')state.chain=v; if(k==='usd')state.usd=+v||0; if(k==='m')state.month=v;});
-  }
-  function writeHash(){
-    var parts=[]; if(state.type)parts.push('type='+state.type); if(state.chain)parts.push('chain='+state.chain); if(state.usd)parts.push('usd='+state.usd);
-    if(state.month)parts.push('m='+state.month);
-    history.replaceState(null,'','#'+parts.join('&'));
-  }
-  function localDate(iso){ var p=iso.split('-'); return new Date(+p[0],+p[1]-1,+p[2],23,59,59); }
-  function fmtMoney(n){ return n==null?'':'$'+(n>=100?Math.round(n):n.toFixed(n>=10?0:2)); }
-  function countdown(iso){
-    var ms=localDate(iso)-Date.now(); var past=ms<0; ms=Math.abs(ms);
-    var d=Math.floor(ms/DAY), h=Math.floor(ms%DAY/3600000);
-    var s=d>0?d+'d '+h+'h':h>0?h+'h '+Math.floor(ms%3600000/60000)+'m':Math.floor(ms/60000)+'m';
-    return past?'closed '+s+' ago':'closes in '+s;
-  }
-  function gcal(b){
-    var d=b.deadline_iso.replace(/-/g,''); var nx=new Date(localDate(b.deadline_iso).getTime()+DAY); var d2=nx.getFullYear()+String(nx.getMonth()+1).padStart(2,'0')+String(nx.getDate()).padStart(2,'0');
-    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('poidh deadline: '+b.title)+'&dates='+d+'/'+d2+'&details='+encodeURIComponent(b.url+'\n'+(b.amount_native||'')+' '+(b.amount_token_symbol||'')+' on '+(CHAINS[b.chain_id]||b.chain_id)+'\nStated: '+(b.deadline_raw_text||''));
-  }
-  function filtered(){
-    return state.data.bounties.filter(function(b){
-      if(state.type && (b.task_type||'unclassified')!==state.type) return false;
-      if(state.chain && String(b.chain_id)!==state.chain) return false;
-      if(state.usd && (b.amount_usd||0)<state.usd) return false;
-      return true;
-    });
-  }
-  function renderStats(all,dated){
-    var now=Date.now(), week=now+7*DAY;
-    var soon=dated.filter(function(b){var t=localDate(b.deadline_iso).getTime();return t>=now&&t<=week}).length;
-    var stale=dated.filter(function(b){return localDate(b.deadline_iso).getTime()<now}).length;
-    var usd=all.reduce(function(s,b){return s+(b.amount_usd||0)},0);
-    $('stats').innerHTML=
-      '<div class="stat"><b>'+all.length+'</b><span>open bounties</span></div>'+
-      '<div class="stat"><b>'+dated.length+'</b><span>state a deadline</span></div>'+
-      '<div class="stat hot"><b>'+soon+'</b><span>close in 7 days</span></div>'+
-      '<div class="stat"><b>'+fmtMoney(usd)+'</b><span>open prize money</span></div>'+
-      (stale?'<div class="stat stale"><b>'+stale+'</b><span>past deadline, still open</span></div>':'');
-  }
-  function renderCal(dated){
-    var m=state.month?new Date(+state.month.slice(0,4),+state.month.slice(5,7)-1,1):new Date(); m.setDate(1);
-    state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');
-    $('cal-title').textContent=m.toLocaleString(undefined,{month:'long',year:'numeric'});
-    var byDay={}; dated.forEach(function(b){(byDay[b.deadline_iso]=byDay[b.deadline_iso]||[]).push(b)});
-    var todayIso=new Date().toLocaleDateString('sv');
-    var first=new Date(m); first.setDate(1-first.getDay());
-    var html=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(function(d){return '<div class="dow">'+d+'</div>'}).join('');
-    for(var i=0;i<42;i++){
-      var d=new Date(first.getTime()+i*DAY); var iso=d.toLocaleDateString('sv');
-      var cls='day'+(d.getMonth()!==m.getMonth()?' out':'')+(iso===todayIso?' today':'')+(iso<todayIso?' past':'');
-      var items=(byDay[iso]||[]).sort(function(a,b){return (b.amount_usd||0)-(a.amount_usd||0)});
-      var chips=items.slice(0,3).map(function(b){return '<a class="chip" href="'+esc(b.url)+'" target="_blank" rel="noopener" title="'+esc(b.title)+'"><b>'+fmtMoney(b.amount_usd)+'</b><span class="t">'+esc(b.title)+'</span></a>'}).join('');
-      if(items.length>3) chips+='<span class="chip more">+'+(items.length-3)+' more</span>';
-      html+='<div class="'+cls+'"><span class="n">'+d.getDate()+'</span>'+chips+'</div>';
-      if(i>=34 && new Date(first.getTime()+(i+1)*DAY).getMonth()!==m.getMonth() && d.getMonth()!==m.getMonth()) break;
+    if(open.length){
+      var r=open[0], n=r.claims||0;
+      head.textContent='A bounty is open right now';
+      el.className='live';
+      var url=r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id);
+      el.innerHTML='<span class="tag">open now</span>'+
+        '<h3>'+esc(r.bounty_title||r.title||('Round '+(r.label||r.round)))+'</h3>'+
+        '<div class="meta">'+esc(r.label||('R'+r.round))+' &middot; '+n+' entr'+(n===1?'y':'ies')+
+        ' so far &middot; pot '+eth(r.amount_native)+(r.amount_usd?' (~$'+Math.round(r.amount_usd)+')':'')+'</div>'+
+        '<div class="row"><div class="clock" id="cd">--<small>left to enter</small></div>'+
+        '<a class="cta" href="'+esc(url)+'" target="_blank" rel="noopener">Enter this bounty</a>'+
+        '<a class="cta ghost" href="/feedback">See what past entrants were told</a></div>';
+      if(r.closes_at){
+        var end=Date.parse(r.closes_at);
+        (function tick(){
+          var ms=end-Date.now(), c=document.getElementById('cd');
+          if(!c) return;
+          if(ms<=0){c.innerHTML='closed<small>waiting on the pick</small>';return;}
+          var h=Math.floor(ms/3.6e6), m=Math.floor(ms%3.6e6/6e4);
+          c.innerHTML=h+'h '+m+'m<small>left to enter</small>';
+          setTimeout(tick,30000);
+        })();
+      }
+    } else if(voting.length){
+      var v=voting[0];
+      head.textContent='A pick is in its contributor vote';
+      el.className='live';
+      el.innerHTML='<span class="tag">voting</span><h3>'+esc(v.bounty_title||v.title||'')+'</h3>'+
+        '<div class="meta">'+esc(v.label||('R'+v.round))+' &middot; '+(v.claims||0)+
+        ' entries &middot; everyone who funded the pot has two days to confirm the pick</div>'+
+        '<div class="row"><a class="cta ghost" href="'+esc(v.url||('https://poidh.xyz/base/bounty/'+v.bounty_id))+
+        '" target="_blank" rel="noopener">See the entries</a>'+
+        '<a class="cta ghost" href="/feedback">Read the notes</a></div>';
+    } else {
+      head.textContent='No bounty is open right now';
+      el.className='live none';
+      el.innerHTML='<div class="meta">Nothing is taking entries at this moment. Every round we have '+
+        'run is in the table below, and every entrant’s notes are at <a href="/feedback">/feedback</a>.</div>';
     }
-    $('cal').innerHTML=html;
-  }
-  function row(b,withWhen){
-    var t=localDate(b.deadline_iso||'2100-01-01').getTime(); var past=t<Date.now(); var soon=!past&&t-Date.now()<3*DAY;
-    var when=withWhen?'<div class="when"><b>'+esc(b.deadline_iso)+'</b>'+countdown(b.deadline_iso)+(b.deadline_raw_text?'<br><span title="as written in the description">"'+esc(b.deadline_raw_text)+'"</span>':'')+'</div>':'<div class="when">'+(b.created_at?'posted '+new Date(b.created_at*1000).toLocaleDateString():'')+'</div>';
-    var meta='<span class="tag chain-'+b.chain_id+'">'+esc(CHAINS[b.chain_id]||b.chain_id)+'</span><span class="tag type">'+esc(b.task_type||'unclassified')+'</span>'+(b.is_multiplayer?'<span class="tag">open pot</span>':'')+(b.has_submissions?'<span class="tag">has claims</span>':'')+(b.is_voting?'<span class="tag">voting</span>':'')+(withWhen&&past?'<span class="tag" title="deadline passed but the bounty is still open on poidh">stale</span>':'');
-    return '<div class="row'+(past&&withWhen?' past':'')+(soon?' soon':'')+'">'+when+
-      '<div class="what"><a class="title" href="'+esc(b.url)+'" target="_blank" rel="noopener">'+esc(b.title||('bounty '+b.bounty_id))+'</a><div class="meta">'+meta+'</div></div>'+
-      '<div class="amt"><b>'+fmtMoney(b.amount_usd)+'</b><small>'+esc(b.amount_native)+' '+esc(b.amount_token_symbol||'')+'</small>'+(withWhen&&!past?'<a href="'+gcal(b)+'" target="_blank" rel="noopener">+ google calendar</a>':'')+'</div></div>';
-  }
-  function renderAgenda(dated){
-    var now=Date.now();
-    var up=dated.filter(function(b){return localDate(b.deadline_iso)>=now}).sort(function(a,b){return a.deadline_iso<b.deadline_iso?-1:1});
-    var past=dated.filter(function(b){return localDate(b.deadline_iso)<now}).sort(function(a,b){return a.deadline_iso>b.deadline_iso?-1:1});
-    $('agenda-count').textContent=up.length+' upcoming'+(past.length?', '+past.length+' past deadline but still open':'');
-    $('agenda').innerHTML=(up.length?up.map(function(b){return row(b,true)}).join(''):'<div class="empty">No upcoming bounty states a deadline with the current filters.</div>')+past.map(function(b){return row(b,true)}).join('');
-  }
-  function renderUndated(list){
-    list=list.slice().sort(function(a,b){return (b.created_at||0)-(a.created_at||0)});
-    $('undated-count').textContent=list.length;
-    $('undated').innerHTML=list.length?list.map(function(b){return row(b,false)}).join(''):'<div class="empty">None with the current filters.</div>';
-  }
-  function render(){
-    var all=filtered();
-    var dated=all.filter(function(b){return b.deadline_iso}); var undated=all.filter(function(b){return !b.deadline_iso});
-    renderStats(all,dated); renderCal(dated); renderAgenda(dated); renderUndated(undated);
-    var isos=dated.map(function(b){return b.deadline_iso}).sort(); $('cal-range').textContent=isos.length?isos[0]+' to '+isos[isos.length-1]:'';
-    writeHash();
-  }
-  function fillFilters(data){
-    var types={},chains={};
-    data.bounties.forEach(function(b){types[b.task_type||'unclassified']=(types[b.task_type||'unclassified']||0)+1; chains[b.chain_id]=(chains[b.chain_id]||0)+1});
-    Object.keys(types).sort().forEach(function(t){var o=document.createElement('option');o.value=t;o.textContent=t+' ('+types[t]+')';$('f-type').appendChild(o)});
-    Object.keys(chains).sort(function(a,b){return chains[b]-chains[a]}).forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=(CHAINS[c]||c)+' ('+chains[c]+')';$('f-chain').appendChild(o)});
-    $('f-type').value=state.type; $('f-chain').value=state.chain; if(state.usd)$('f-usd').value=state.usd;
-  }
-  readHash();
-  fetch('/data/bounty-dashboard.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(data){
-    state.data=data; fillFilters(data);
-    $('generated').textContent=data.generated_at?new Date(data.generated_at).toLocaleString():'unknown';
-    render();
-    $('f-type').onchange=function(){state.type=this.value;render()};
-    $('f-chain').onchange=function(){state.chain=this.value;render()};
-    $('f-usd').oninput=function(){state.usd=+this.value||0;render()};
-    $('prev').onclick=function(){var m=new Date(+state.month.slice(0,4),+state.month.slice(5,7)-2,1);state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');render()};
-    $('next').onclick=function(){var m=new Date(+state.month.slice(0,4),+state.month.slice(5,7),1);state.month=m.getFullYear()+'-'+String(m.getMonth()+1).padStart(2,'0');render()};
-    $('copy-link').onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='copied';var b=this;setTimeout(function(){b.textContent='copy link'},1200)};
-    setInterval(function(){renderAgenda(filtered().filter(function(b){return b.deadline_iso}))},60000);
-  }).catch(function(e){
-    $('stats').innerHTML='<div class="err">Could not load /data/bounty-dashboard.json ('+esc(e.message)+'). Run scripts/build-bounty-dashboard.py.</div>';
+
+    document.getElementById('gen').textContent=
+      'live from data/rounds-live.json, read '+new Date(d.generated_at).toLocaleString();
+
+    var cast=rounds.filter(function(r){return r.bounty_id;});
+    var entries=cast.reduce(function(a,r){return a+(r.claims||0);},0);
+    var pot=cast.reduce(function(a,r){return a+(r.amount_native||0);},0);
+    document.getElementById('stats').innerHTML=
+      '<div class="stat"><b>'+cast.length+'</b><span>rounds run</span></div>'+
+      '<div class="stat"><b>'+entries+'</b><span>entries</span></div>'+
+      '<div class="stat"><b>'+eth(pot)+'</b><span>in pots</span></div>'+
+      '<div class="stat"><b>'+cast.filter(function(r){return r.winner;}).length+'</b><span>winners paid</span></div>';
+
+    document.getElementById('rounds').innerHTML=cast.map(function(r){
+      var url=r.url||('https://poidh.xyz/base/bounty/'+r.bounty_id);
+      var st=(r.status==='OPEN'&&shut(r))?'CLOSED':r.status;
+      var w=r.winner?('@'+esc(r.winner.handle||(r.winner.wallet||'').slice(0,8))):
+            (r.offchain?'<span style="color:var(--text-muted)">credited off-chain</span>':
+             '<span style="color:var(--text-dim)">-</span>');
+      return '<tr><td><a href="'+esc(url)+'" target="_blank" rel="noopener">'+
+        esc(r.label||('R'+r.round))+'</a></td><td>'+pill(st)+'</td><td>'+(r.claims!=null?r.claims:'-')+
+        '</td><td>'+eth(r.amount_native)+'</td><td>'+w+'</td></tr>';
+    }).join('');
+  }).catch(function(){
+    document.getElementById('live').innerHTML=
+      '<div class="meta" style="color:var(--pink)">Could not load data/rounds-live.json. '+
+      'Nothing is claimed here rather than showing a state we could not read.</div>';
   });
 })();
 </script>

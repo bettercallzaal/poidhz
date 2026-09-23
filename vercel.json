@@ -28,10 +28,6 @@
       "destination": "/docs/bounty-dashboard"
     },
     {
-      "source": "/calendar",
-      "destination": "/index"
-    },
-    {
       "source": "/about",
       "destination": "/docs/about"
     },
