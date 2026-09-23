@@ -20,7 +20,8 @@
     1180,
     1330,
     1409,
-    1410
+    1410,
+    1412
   ],
   "default_chain_id": 8453,
   "site_url": "https://poidhz.com",
@@ -72,6 +73,14 @@
       "title": "Daily 02 - Make one piece of media for ZAOstock",
       "folder": "rounds/daily/d02",
       "closes_at": "2026-09-22T17:00:00-04:00"
+    },
+    {
+      "round": "daily-03",
+      "label": "Daily 3",
+      "bounty_id": 1412,
+      "title": "Daily 03 - Anything but a poster",
+      "folder": "rounds/daily/d03",
+      "closes_at": "2026-09-23T17:00:00-04:00"
     }
   ],
   "planned_rounds": [

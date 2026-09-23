@@ -116,3 +116,35 @@ and makes a human tick it off.
 Run against the real rounds it reproduces this audit: R2 blocks on having no announcement
 copy, R4 blocks as canceled, R5 flags that its winning wallet has no linked handle so it
 cannot be credited by name from chain data alone.
+
+## 2026-09-23 - THE $ZABAL PROMISE WAS KEPT, FOR THE FIRST TIME
+
+Every round from R2 onward promised $ZABAL through the Empire Builder leaderboard and
+delivered the ETH but not that. R3's winner announcement is still unsent. R5's winner was
+paid 0.0238 ETH in early September and held **zero** $ZABAL seventeen days later.
+
+On 2026-09-23 Zaal ran a distribution to **all 43 addresses on the leaderboard feed**.
+
+**Transaction:** `0x4b795c5ea5b34da9f44613b81603a3893edc2d7fe9d48f503480be29699ede76`
+(Base, block 51686953, status SUCCESS)
+
+Decoded from the receipt rather than taken on trust:
+
+- **43 ERC-20 Transfer events, 43 distinct recipients**, all of them $ZABAL
+  (`0xbb48f19b...`)
+- **111,012,370.81 $ZABAL** total
+- **Four distinct amounts**, so the leaderboard score scaling applied rather than a flat split
+- Reconciled against `data/leaderboard.json`: **43 on the feed, 43 paid, zero missed, zero
+  extra**
+- The five who were absent from Empire Builder's own list entirely - @leoxcrane, @predaking,
+  @barsam, @assay, @mfa - **were all paid.** That set includes round one's winner and both of
+  the only playable videos in round two.
+
+**What this changes.** R1 is no longer the only round that kept every promise it made. It
+also makes the line now cast into bounty 1412's immutable text true and checkable: "Every
+submitter is added to the POIDH Submitters leaderboard on Empire Builder, which is how $ZABAL
+has been distributed to this programme's entrants."
+
+**Still owed, and not fixed by this:** R3's winner announcement (femmie, unsent since June)
+and R5's (unsent 17 days). Money is not the same as credit, and those were promised
+separately.

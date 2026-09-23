@@ -5,7 +5,8 @@
     1180,
     1330,
     1409,
-    1410
+    1410,
+    1412
   ],
   "chainId": 8453,
   "issuers": [
@@ -15,7 +16,7 @@
   "total_claims_accepted": 45,
   "total_claims_rejected": 5,
   "submitter_count": 43,
-  "total_eth_escrow": 0.0809,
+  "total_eth_escrow": 0.0849,
   "bounties": [
     {
       "id": 1151,
@@ -94,6 +95,19 @@
       "is_voting": false,
       "is_canceled": false,
       "claims_count": 6
+    },
+    {
+      "id": 1412,
+      "chainId": 8453,
+      "title": "ZAOstock Round 3 - Anything But A Poster",
+      "description": "ANYTHING BUT A POSTER. Make one piece of media for ZAOstock that is not a still image with type on it. Post it publicly, claim it here. Closes 5pm Eastern Wednesday September 23.\n\nWHY THE BAN. Round one was five posters out of six. They were good. The kit makes a poster easy, which is why nearly everyone made one, and a feed full of the same rectangle stops working. Round two asked for video and got five out of eight, so you have already proved you can do it. Today the poster is off the table en",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.004,
+      "in_progress": true,
+      "is_voting": false,
+      "is_canceled": false,
+      "claims_count": 0
     }
   ],
   "claims": [
