@@ -196,6 +196,62 @@ fid 3351620**, and a nonsense name returns zero records.
 
 So they can be credited, announced and paid by name.
 
+## The bar excludes five of eight, and only one entrant noticed
+
+This bears directly on the @assay ruling, and it makes that ruling bigger than one entrant.
+
+**Round one, rule text:** *"Tagging @bettercallzaal and cross-posting in /poidh helps. Neither
+is required today, and skipping both costs you nothing."* Optional, in writing.
+
+**Round two, rule text:** floor rule 6, *"Tag @bettercallzaal on X and cross-post in the /poidh
+channel on Farcaster"*, under a heading that reads **"THE BAR. Requirements, not preferences.
+Miss one and it is not entered."** Mandatory, and it requires **both** platforms, not either.
+
+Measured from what each claim links:
+
+| | Linked both platforms | Did not |
+|---|---|---|
+| Round 1, when it was optional | **0 of 6** | 6 |
+| Round 2, when it became a floor rule | **3 of 8** | **5** |
+
+**So the rule moved behaviour - 0% to 38% - and still excludes five of eight entries.**
+
+The five are @pascaline (X only), @mfa (no post link at all), and all three @assay claims
+(Farcaster only, or a bare file). **@assay is the only one of the five who noticed and said
+so**, in every claim: *"I have no X account, so the X tag is the one line of the bar I could
+not meet, said plainly."*
+
+### The caveat that matters, and it does not rescue the rule
+
+This measures **what the claim links**, not what the entrant did. Somebody could have
+cross-posted and linked only one. So the honest statement is *"cannot be shown from the claim
+to meet rule 6"*, not *"violated rule 6"*.
+
+**That distinction is itself the problem.** If compliance cannot be established from the claim,
+the rule cannot be enforced consistently - and it has already been enforced inconsistently,
+because nobody applied it to anyone until @assay volunteered that it had missed.
+
+### What this means for the ruling
+
+The question is not "is @assay a special case". Five of eight are in the same position and one
+of them is the round's most likely pick on craft. The real options:
+
+1. **Enforce it.** Five of eight entries are out, including the only two playable videos, and
+   the round is decided among @joeyofdeus, @taku0x and @barsam. Defensible, and it makes the
+   bar mean something for the eleven days left.
+2. **Waive it for this round and say so.** Cheapest, and it costs the three entrants who did
+   the cross-post specifically to comply - so they should be told it was waived and why.
+3. **Change the rule for round three.** Require *one* public post plus the claim, and make
+   cross-posting a rubric item that earns weight rather than a floor rule that voids an entry.
+   This is what the round-one text effectively did, and round one lost nobody to it.
+
+**Option 3 is the one the data supports**, because the rule's purpose is reach, and an entrant
+with no account on a platform cannot buy reach there at any effort level. A floor rule should
+be something every honest entrant can clear.
+
+Whatever is chosen, it should be said out loud in round three's text rather than applied
+silently, because the same five people will read it.
+
 ## What is not measured, and must not be written as zero
 
 - **Whether any entry reached a single person in Maine.** Fourteen entries, and **not one is a
