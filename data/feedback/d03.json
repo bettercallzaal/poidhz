@@ -1,0 +1,93 @@
+{
+  "_comment": "Per-entrant feedback for bounty 1412, round three. Rendered to /feedback/1412/<handle>. WRITTEN 2026-09-24, BEFORE THE ROUND HAS A RESULT, and the pages say so - 'winner' is deliberately empty and the builder renders 'What bounty three was judged on' rather than 'What decided it'. Bounty 1412's text promises everyone written notes; poidh puts a two-day contributor vote between the close and the winner, so the notes are owed days before the result exists. Every entry was resolved to its actual video and watched - all five uploaded a still to poidh because the uploader is images-only, which Kenny confirmed on 2026-09-23, so that is not held against anyone. @pascaline has two claims on this round and one page, which is the shape of the URL; her page addresses both.",
+  "round": {
+    "id": "d03",
+    "label": "Bounty three",
+    "bounty_url": "https://poidh.xyz/base/bounty/1412",
+    "closed": "2026-09-23, 5:00pm Eastern",
+    "winner": "",
+    "bounty_id": 1412,
+    "decided_it": [
+      "Not a poster. The one hard rule was anything except a still image with type on it, and everyone who was competing cleared it.",
+      "Something only you could have made. Not the best-executed version of the obvious idea.",
+      "The facts on the piece rather than in the caption, because a repost does not carry the caption.",
+      "Free, the venue and the time all present. A viewer who knows the day and the town still cannot find the stage."
+    ],
+    "next": {
+      "label": "What is coming next",
+      "closes": "two bounties, dates announced when each is cast",
+      "wants": "One for people: make an ad for ZAOstock. One for agents only, running to the day of the festival, with unlimited resubmissions.",
+      "checkpoint": "The agent round is built around revision. Submit, get told what is weak, fix it, submit again, as many times as you want. Nothing here is cast yet, so nothing here is a commitment - watch poidhz.com."
+    }
+  },
+  "entrants": [
+    {
+      "handle": "pascaline",
+      "claim": 8149,
+      "headline": "You went and got footage of the actual place. Nobody else has that.",
+      "did_well": "Drone footage of Franklin Street Parklet with THE ACTUAL PARKLET stamped on the corner, opening on \"THIS IS THE VENUE. Not a rendering. This is Ellsworth.\" Then the street closing, the stage opening, eight acts back to back, and \"NO FENCE. NO GATE. JUST SHOW UP.\" - which answers the question a stranger actually has. Free, all ages, noon to six, rain or shine, zaostock.com on the end card, and a bar on every single frame so any screenshot of it still works. Across three rounds you have gone from invented band photos to this, and you are the only person who has entered all three.",
+      "items": [
+        {
+          "title": "You filed two claims and the newer piece went in first",
+          "body": "The bounty text says that if you claim twice, the later claim is the one judged. Your later claim points at the video you entered in round two. Read literally, your round three entry is last round's film and this one does not count. That rule exists so people can revise, not to catch anyone out, so it is being read the way it was meant - but file the piece you want judged LAST and the question never comes up.",
+          "link": "https://poidh.xyz/base/bounty/1412"
+        },
+        {
+          "title": "Sixteen seconds of real footage is worth more than you are charging for it",
+          "body": "This is the kind of thing a festival pays for, and you shot it on spec for a day-long bounty. When the ad round opens, that footage is an asset you already own and nobody else can get. Build the next one around what only you can shoot rather than around what the brief literally says."
+        }
+      ]
+    },
+    {
+      "handle": "joeyofdeus",
+      "claim": 8147,
+      "headline": "You fixed one of your two notes before anyone gave it to you.",
+      "did_well": "Sixteen seconds of animated type on the kit's own palette, with all eight acts named in running order - The Crown Vics, OPEN X, Grass Rug, Acadia Rising, Michael Anderson, DCoop, LyonsDen, Tom Fellenz - plus from noon to 6, one stage, Franklin Street Parklet, zaostock.com, and a bar on every frame. You credit attabotty for the moose again, unprompted, which is now three entries in a row. The venue was one of the two things your last note was going to say, and it is in this one twice.",
+      "items": [
+        {
+          "title": "The word free is still not anywhere in it",
+          "body": "Twelve frames sampled across the whole sixteen seconds and there is no price and no free. It was the other half of your last note. It is also the single fact that turns a person who is curious into a person who turns up, and it costs you one word in a piece that already has room for it.",
+          "link": "https://poidhz.com/feedback/1410/joeyofdeus"
+        },
+        {
+          "title": "Landscape puts your type in a third of the screen",
+          "body": "This is 1280 by 720. It will be watched in a vertical feed, where a wide frame gets letterboxed and your typography - which is the whole piece - shrinks. The same animation at 1080 by 1920 would fill the screen and every act name would be twice the size."
+        }
+      ]
+    },
+    {
+      "handle": "taku0x",
+      "claim": 8145,
+      "headline": "The idea lands in ten seconds and the end card carries more facts than most.",
+      "did_well": "A phone, ANOTHER WEEKEND?, then a moose on guitar, a moose on drums, a herd running down a street, THE MOOSE KNOW. It is a real idea, the look holds together, and the end card uses the real ZAOstock mark with October 3, Ellsworth Maine, FREE, ALL AGES and RAIN OR SHINE on it. You also heard that your last entry had an editor watermark, removed it, and re-posted the clean version the same day without being asked twice.",
+      "items": [
+        {
+          "title": "Nobody watching this can find the stage",
+          "body": "There is no venue, no time and no URL anywhere in it. A viewer comes away knowing the day and the town and still cannot work out where to stand or when to arrive. Franklin Street Parklet and noon to six are two short lines on the card you already built.",
+          "link": "https://zaostock.com/brand"
+        },
+        {
+          "title": "Generated footage has to earn the thing only footage can do",
+          "body": "The brief asked for the piece only you would make, and a generated moose is available to everyone who types the same prompt. Where your work has actually stood out is the writing and the discipline - your captions carried the whole event when other entries did not. A generated shot works hardest when it does something a camera cannot, rather than standing in for one."
+        }
+      ]
+    },
+    {
+      "handle": "kmacb.eth",
+      "claim": 8153,
+      "headline": "You built the platform, entered at the buzzer, and made the case for the next bounty for free.",
+      "did_well": "You posted unsupervised agent output, labelled it honestly in the claim itself, and said in writing that the rules were the agent's job to read and it had not read them. That is a cleaner demonstration of why the agent round needs a revision loop than any argument for it.",
+      "items": [
+        {
+          "title": "The agent made a poster in the round that banned posters",
+          "body": "A still image with type on it was the one thing ruled out, and it produced exactly that. It also set a football stadium in a round about a street closing in a small Maine town - it got the date and the place into the caption and then illustrated somewhere else entirely. Everything an agent needs to avoid both was in the first paragraph of the bounty.",
+          "link": "https://poidh.xyz/base/bounty/1412"
+        },
+        {
+          "title": "Send it back through with the brief actually read",
+          "body": "The interesting version of this is the same agent, same tool, having been told what was wrong, producing a second attempt. That loop is the whole point of the agents-only round, and you already have the before."
+        }
+      ]
+    }
+  ]
+}

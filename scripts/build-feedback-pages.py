@@ -64,6 +64,27 @@ PROMISE_WORDS = re.compile(
     r"we promise)\b")
 
 
+def is_decided(rnd: dict) -> bool:
+    """Whether this round has a result yet.
+
+    FEEDBACK AND THE RESULT ARE DIFFERENT THINGS AND THEY ARRIVE AT DIFFERENT TIMES. Bounty
+    1412's text promises everyone written notes, and poidh's own flow puts a two-day contributor
+    vote between the close and the winner. So there is a real, normal window - days long - where
+    the notes are owed and ready and the round genuinely has no winner.
+
+    This file used to assume every round had one. It printed "What decided round three" above
+    criteria for a round nobody had decided, and the index sorted alphabetically while
+    explaining that it did so "because this round has a winner". Both were claims the data
+    could not support, on a public page, addressed to the people waiting for the result.
+    """
+    return bool((rnd.get("winner") or "").strip())
+
+
+def decided_heading(rnd: dict) -> str:
+    return (f"What decided {rnd['label'].lower()}" if is_decided(rnd)
+            else f"What {rnd['label'].lower()} was judged on")
+
+
 def load(round_id: str) -> dict:
     p = REPO_ROOT / "data" / "feedback" / f"{round_id}.json"
     if not p.exists():
@@ -213,7 +234,7 @@ margin-top:.5rem;line-height:1.7}}
     <p>{esc(nxt["checkpoint"])}</p>
   </div>
 
-  <h2>What decided {esc(rnd["label"]).lower()}</h2>
+  <h2>{esc(decided_heading(rnd))}</h2>
   <ul class="decided">
     {"".join(f"<li>{esc(d)}</li>" for d in rnd["decided_it"])}
   </ul>
@@ -238,8 +259,8 @@ def render_index(entrants: list[dict], rnd: dict) -> str:
     """The shared page. Zaal: "so they can see what feedback others got too".
 
     SORTED BY HANDLE, AND THE PAGE SAYS SO. Any list of people reads as a ranking to the people
-    on it, and this round has a winner, so an unexplained order would be read as the order they
-    came. Alphabetical is the only order here that carries no claim."""
+    on it - as the order they came, or as a shortlist. Alphabetical is the only order here that
+    carries no claim, and it is used whether or not the round has been decided yet."""
     rows = []
     for e in sorted(entrants, key=lambda x: x["handle"].lower()):
         n = len(e["items"])
@@ -330,7 +351,7 @@ margin-top:.5rem;line-height:1.7}}
     {"".join(rows)}
   </div>
 
-  <h2>What decided it</h2>
+  <h2>{esc("What decided it" if is_decided(rnd) else "What it was judged on")}</h2>
   <ul class="decided">
     {"".join(f"<li>{esc(d)}</li>" for d in rnd["decided_it"])}
   </ul>
@@ -483,8 +504,11 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
             ok = False
             findings.append(
                 f"FAIL: @{handle}'s copy contains the ranking word '{m.group(0)}'. "
-                f"@{rnd['winner']} won this round. A superlative on anybody else's page says "
-                f"either that the pick was wrong or that the words are empty.")
+                + (f"@{rnd['winner']} won this round. A superlative on anybody else's page "
+                   f"says either that the pick was wrong or that the words are empty."
+                   if is_decided(rnd) else
+                   "This round has no result yet, so a superlative here announces one that "
+                   "has not been decided - to the people waiting for it."))
         if m := PROMISE_WORDS.search(checkable):
             ok = False
             findings.append(
@@ -562,6 +586,20 @@ def _selftest() -> bool:
       "/feedback/1409/predaking" in page)
     c("the page links back to the shared index", '/feedback/1409"' in page)
     c("the page never names the winner", "leoxcrane" not in page)
+    c("a decided round says what DECIDED it", "What decided" in page)
+
+    # A round whose notes are owed before its vote resolves. Bounty 1412 is exactly this for
+    # two days after it closes, and the page used to announce a decision that had not happened.
+    undecided = {**rnd, "winner": ""}
+    upage = render(good, undecided)
+    c("an undecided round says what it was JUDGED ON, not what decided it",
+      "was judged on" in upage and "What decided" not in upage)
+    uidx = render_index([good], undecided)
+    c("the index of an undecided round makes no decision claim either",
+      "What decided" not in uidx and "judged on" in uidx)
+    c("a missing winner key behaves the same as an empty one",
+      not is_decided({k: v for k, v in rnd.items() if k != "winner"}))
+    c("a whitespace-only winner is not a winner", not is_decided({**rnd, "winner": "   "}))
 
     idx = render_index([good, {**good, "handle": "coolhat"}], rnd)
     c("the index links each entrant under the bounty id",
