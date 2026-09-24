@@ -58,6 +58,10 @@
     {
       "source": "/feedback/:bounty",
       "destination": "/feedback/:bounty/index.html"
+    },
+    {
+      "source": "/people",
+      "destination": "/people.html"
     }
   ],
   "headers": [

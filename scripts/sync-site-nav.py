@@ -44,10 +44,17 @@ END = "<!-- ZN-NAV END -->"
 
 # label, href. Order is the order a visitor most likely needs it.
 LINKS = [
-    ("calendar", "/"),
+    # "calendar" USED TO POINT AT "/" AND THAT WAS TWO BUGS AT ONCE, found 2026-09-24.
+    # "/" has been the bounty HUB since the homepage was rebuilt, so this label sent people
+    # somewhere that is not a calendar, AND it made the nav carry two separate links to the
+    # same page (the brand mark is already "/"). Meanwhile the real calendar at /calendar was
+    # in no nav on any page, while index.html's own header comment said it "is linked from
+    # the nav". It was not.
+    ("calendar", "/calendar"),
     ("dashboard", "/dashboard"),
     ("rounds", "/about"),
     ("feedback", "/feedback"),
+    ("people", "/people"),
     ("the bar", "/best-practices"),
     ("hub", "/hub"),
     ("leaderboard", "/leaderboard"),
@@ -83,7 +90,14 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
 
 def nav_html(here: str) -> str:
     out = [START, NAV_CSS, '<div class="zn-nav"><div class="zn-nav-in">',
-           '<a class="zn-brand" href="/">poidhz</a>']
+           # THE BRAND MARK CARRIES aria-current ON THE HOMEPAGE. It used to be that
+           # ("calendar", "/") did that by accident; when that entry was corrected to point
+           # at the real calendar, "/" left the link list entirely and the homepage silently
+           # stopped being marked as the current page for screen readers. Caught by this
+           # file's own selftest, which is what it is for.
+           '<a class="zn-brand" href="/"'
+           + (' aria-current="page"' if here == "/" else "")
+           + '>poidhz</a>']
     for label, href in LINKS:
         cur = ' aria-current="page"' if href == here else ""
         out.append(f'<a class="zn-l" href="{href}"{cur}>{label}</a>')
