@@ -92,7 +92,7 @@
       "album": "wethemmedia",
       "amount_eth": 0.005,
       "in_progress": true,
-      "is_voting": false,
+      "is_voting": true,
       "is_canceled": false,
       "claims_count": 6
     },
