@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T20:44:31.549678+00:00",
+  "generated_at": "2026-09-24T23:55:51.413778+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -14,7 +14,7 @@
       "url": "https://poidh.xyz/base/bounty/1151",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 28.29183,
+      "amount_usd": 28.18841,
       "claims": 11,
       "winner": {
         "claim_id": 6368,
@@ -35,7 +35,7 @@
       "url": "https://poidh.xyz/base/bounty/1166",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 28.29183,
+      "amount_usd": 28.18841,
       "claims": 8,
       "winner": {
         "claim_id": 6645,
@@ -56,7 +56,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 67.3615,
+      "amount_usd": 67.11525,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -77,7 +77,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 37.18355,
+      "amount_usd": 37.04762,
       "claims": 2,
       "winner": null,
       "offchain": true,
@@ -94,7 +94,7 @@
       "url": "https://poidh.xyz/base/bounty/1330",
       "status": "WINNER SET",
       "amount_native": 0.0238,
-      "amount_usd": 64.12815,
+      "amount_usd": 63.89372,
       "claims": 9,
       "winner": {
         "claim_id": 7795,
@@ -115,7 +115,7 @@
       "url": "https://poidh.xyz/base/bounty/1409",
       "status": "WINNER SET",
       "amount_native": 0.0061,
-      "amount_usd": 16.43621,
+      "amount_usd": 16.37612,
       "claims": 6,
       "winner": {
         "claim_id": 8086,
@@ -136,7 +136,7 @@
       "url": "https://poidh.xyz/base/bounty/1410",
       "status": "VOTING",
       "amount_native": 0.005,
-      "amount_usd": 13.4723,
+      "amount_usd": 13.42305,
       "claims": 8,
       "winner": null,
       "offchain": false,
@@ -153,7 +153,7 @@
       "url": "https://poidh.xyz/base/bounty/1412",
       "status": "VOTING",
       "amount_native": 0.005,
-      "amount_usd": 13.4723,
+      "amount_usd": 13.42305,
       "claims": 5,
       "winner": null,
       "offchain": false,
