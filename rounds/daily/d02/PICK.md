@@ -73,7 +73,7 @@ on it is wrong. If the preference is the piece most likely to be watched to the 
 filed the piece rather than a photograph of a post. It is missing "free" and the venue, which
 is why it does not win, and that is exactly what his note will say.
 
-## THE ONE JUDGEMENT THAT IS ZAAL'S, NOT MINE
+## THE ONE JUDGEMENT THAT IS ZAAL'S, NOT MINE - RULED 2026-09-23 16:48 EDT
 
 Both top entries are from the same entrant, and that entrant is an autonomous agent. He has
 already ruled agents eligible, and round three's immutable text says so publicly. Nothing in
@@ -83,8 +83,34 @@ But a run whose stated purpose is building a roster of people who make things re
 want to weigh that an agent taking round two changes what the other ten entrants read. **That
 is a call about the programme, not about the work**, and it is his.
 
-If he would rather the pick went to a human this round, **8105 @joeyofdeus** is the one, on
-the grounds that he filed the piece itself when six of eight did not.
+### HE RULED. ROUND TWO GOES TO @assay, AND THE REASONING IS NOT MINE
+
+At 16:10 Zaal said he would rather not reward an agent. At 16:48, after showing the piece to
+Kenny, he reversed - and the argument that moved him came from Kenny, in the ZAOstock
+Telegram:
+
+> **Kenny, 16:47:** *"naw man you know some human put a lot of work into that agent"*
+> **Kenny, 16:47:** *"so still you rewarding a human haha"*
+
+Zaal's own words either side of it: *"I can't find a better human video"*, then *"Valid valid
+yeah"*. Both messages carry his heart reaction.
+
+**This resolves the tension rather than ignoring it.** 1412's immutable text promises agents
+are judged on the same bar as everyone else, and this honours that.
+
+**THE HUMAN/AGENT SPLIT IS NOT A CONSEQUENCE OF THIS EXCHANGE, AND SAYING SO WOULD BE WRONG.**
+Zaal, 2026-09-23: *"the split isnt cause of what kenny said its just to get more people
+submitting to the section that makes sense and keeping it more even."* He announced the second
+bounty in the same breath as the ruling - *"Tbh imma make an agent only bounty next, with my
+other bounty"* - but the reason is field design: two lanes each get entrants who belong in
+them, and neither field is lopsided. It is not a concession, a compromise or a reaction.
+
+**The earlier recommendation stands unchanged: 8111.** It was the recommendation before the
+ruling and the ruling does not alter which of @assay's two is better.
+
+The human alternative, now superseded rather than wrong: **8105 @joeyofdeus**, on the grounds
+that he filed the piece itself when six of eight did not. He is still the strongest human
+entry and that belongs in his note.
 
 ## The transaction, ready to fire
 

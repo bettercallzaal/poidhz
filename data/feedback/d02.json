@@ -1,0 +1,131 @@
+{
+  "_comment": "Per-entrant feedback for bounty 1410, round two. Rendered to /feedback/1410/<handle> by scripts/build-feedback-pages.py. TIED TO THE BOUNTY, NOT TO A HANDLE (Zaal, 2026-09-22). WRITTEN 2026-09-24 AGAINST THE ACTUAL FILES, not against the review doc: every claim was resolved to its real media and looked at, because this round's earlier review rated one entrant on a screenshot rather than the video. IT ALSO DOES NOT REPEAT THE SCREENSHOT ERROR: Kenny confirmed on 2026-09-23 that poidh's uploader is images-only because everything goes to IPFS, so uploading a still for a video is the only thing the platform allows and is not a defect. What IS a fair note is uploading a photo of your POST or your GALLERY rather than a frame of your WORK - the bounty page then shows app chrome instead of the piece. The 'winner' field below is the claim submitted for contributor vote on 2026-09-24, not a resolved result; the vote runs to 2026-09-26 and the field is never rendered on any page.",
+  "round": {
+    "id": "d02",
+    "label": "Bounty two",
+    "bounty_url": "https://poidh.xyz/base/bounty/1410",
+    "closed": "2026-09-22, 5:00pm Eastern",
+    "winner": "assay",
+    "bounty_id": 1410,
+    "decided_it": [
+      "The facts were ON the piece, so they survived being reposted without the caption.",
+      "It was watchable from the bounty page rather than only from somewhere else.",
+      "It used the kit's own material - the mark, the type, the radio audio - rather than a lookalike.",
+      "Whoever made it credited attabotty for the moose without being asked."
+    ],
+    "next": {
+      "label": "What is coming next",
+      "closes": "two bounties, dates announced when each is cast",
+      "wants": "One for people: make an ad for ZAOstock. One for agents only, running to the day of the festival, where you can resubmit as many times as you like and the condition of entry is that you take the notes and come back with a new version.",
+      "checkpoint": "The agent round is built around revision on purpose. Submit, get told what is weak, fix it, submit again. Nothing here is cast yet, so nothing here is a commitment - watch poidhz.com."
+    }
+  },
+  "entrants": [
+    {
+      "handle": "assay",
+      "claim": 8111,
+      "headline": "You used the one thing in the kit nobody else opened.",
+      "did_well": "You took the Star 97 radio interview out of the asset kit and cut it to nine passages, captioned word by word, with the eight acts in running order and a rail showing 01 through 08. A bar across the bottom of every single frame carries Saturday October 3, Ellsworth Maine, Franklin Street Parklet, free, all ages, rain or shine - so a screenshot of any frame still sells the show. attabotty and Star 97 are both credited in the footer. And when your first claim's host went offline mid-round you noticed it yourself and re-filed twice, without being asked to.",
+      "items": [
+        {
+          "title": "Host it where you control how long it lives",
+          "body": "Claim 8100 pointed at a host that went dark and both URLs returned nothing, which made finished work unjudgeable until you re-filed. The catbox links on your later claims are still serving the files today. A piece that cannot be opened scores the same as a piece that was never made.",
+          "link": "https://poidh.xyz/base/bounty/1410"
+        },
+        {
+          "title": "The voice is the asset. Use more of it and cover less ground.",
+          "body": "Thirty-one seconds spread across nine passages gives every act a moment and gives none of them a hook. Fifteen seconds of a real person talking about his own festival would travel further than a full tour of the lineup. You already have the material to cut both versions out of one interview."
+        }
+      ]
+    },
+    {
+      "handle": "pascaline",
+      "claim": 8115,
+      "headline": "You went and filmed something. Almost nobody does.",
+      "did_well": "You cast it, shot it on a real Ellsworth street, put a ZAOstock hoodie on camera and captioned the whole thing. Fifty-five seconds with two people and a script is a production, not a post, and it is the hardest thing anyone attempted this round.",
+      "items": [
+        {
+          "title": "Put the facts on the screen, not only in the dialogue",
+          "body": "The day and the street arrive through what the actors say. Someone watching with the sound off, or joining halfway, gets neither. A small bar that stays on every frame - Franklin Street Parklet, noon to six, free, all ages - costs you nothing and means any moment of it can be screenshotted and still work.",
+          "link": "https://poidh.xyz/base/bounty/1410"
+        },
+        {
+          "title": "Shoot it tall",
+          "body": "This is 1280 by 720, landscape. It will be watched in a vertical feed, where landscape means the picture occupies a third of the screen and the captions get small. Shooting the same scene vertically costs nothing at the time and cannot be fixed afterwards."
+        }
+      ]
+    },
+    {
+      "handle": "joeyofdeus",
+      "claim": 8105,
+      "headline": "You filed the artwork itself, and it is built on the real kit.",
+      "did_well": "Vertical, the real moose mark, the kit's type and colours, and you credited attabotty in your claim without being asked. Your claim text also carries the whole fact set - eight acts, Saturday October 3 2026, Franklin Street Parklet, Ellsworth Maine, free to attend.",
+      "items": [
+        {
+          "title": "The two facts that decide whether someone comes are not on the piece",
+          "body": "The artwork says ZAOstock returns to Ellsworth, Maine, Saturday, October 3, 2026. It does not say FREE and it does not say Franklin Street Parklet. Both are sitting in your claim text, where a repost will not carry them. A reader knows the day and the town and still does not know it costs nothing or where to stand.",
+          "link": "https://poidh.xyz/base/bounty/1410"
+        },
+        {
+          "title": "There is a text cursor still in the export",
+          "body": "A thin blinking bar sits right after 2026, left over from the editor. Also worth a look: Ellsworth is capitalised and maine on the next line is not. Both are one export away and both are the kind of thing a client notices before they notice the design."
+        }
+      ]
+    },
+    {
+      "handle": "taku0x",
+      "claim": 8104,
+      "headline": "Your post copy was complete and you fixed the flaw before anyone asked you to.",
+      "did_well": "The caption carried everything a reader needed and you tagged correctly on both platforms. Then you heard that the editor watermark was a problem, removed it, and re-posted the clean version the same day without being asked. That is the part of this that is hardest to teach.",
+      "items": [
+        {
+          "title": "Export without the editor's mark",
+          "body": "The CapCut corner stamp was burned into the frame. It puts somebody else's brand on our festival in every repost, and on a free tier it is usually one export setting or a few seconds of trim away.",
+          "link": "https://poidh.xyz/base/bounty/1410"
+        },
+        {
+          "title": "Upload a frame of the piece rather than a picture of the post",
+          "body": "poidh only takes images, so a still is the right thing to upload for a video - but the still it received was a photo of your X post, complete with the view count and the reply box. A frame from the video itself shows the work. The link in your description is what gets watched either way."
+        }
+      ]
+    },
+    {
+      "handle": "barsam",
+      "claim": 8103,
+      "headline": "Your writing carries the whole day. It is just in the wrong place.",
+      "did_well": "You cross-posted to both platforms without being asked. The caption carries the whole day - Franklin Street Parklet from noon to 6 PM, then Black Moon Public House till 10 PM - and tags both @zaofestivals and @bettercallzaal. Every fact in it checks out against what the festival publishes.",
+      "items": [
+        {
+          "title": "Everything you wrote lives in the caption, and a repost strips the caption",
+          "body": "Put the day, the street and the word free into the frame itself. The piece then works when somebody screenshots it, saves it, or shares it somewhere your words do not follow. Your caption proves you already know exactly which facts matter.",
+          "link": "https://poidh.xyz/base/bounty/1410"
+        },
+        {
+          "title": "What arrived here is a picture of a post quoting another post",
+          "body": "Your video is a thumbnail inside a quoted post inside a screenshot - three layers from the work. poidh only accepts images, so uploading a still for a video is right; make that still a frame from the video. Right now the page shows your post rather than your piece."
+        }
+      ]
+    },
+    {
+      "handle": "mfa",
+      "claim": 8099,
+      "headline": "Your type is readable from across a street, which is the hard part.",
+      "did_well": "Big, confident, high-contrast typesetting carrying ZAOstock, Saturday October 3, Ellsworth Maine, Free Music Festival, Noon to 6 PM. Somebody could act on this from a distance and without stopping, which is what a promo has to do.",
+      "items": [
+        {
+          "title": "That logo belongs to a different brand",
+          "body": "The pixel Z arcade mark is ZABAL Gamez, which is a separate thing from ZAOstock. The ZAOstock mark is the moose, and it is in the asset kit as a transparent PNG. Right now the piece advertises the wrong name in the one place a reader looks first.",
+          "link": "https://zaostock.com/brand"
+        },
+        {
+          "title": "There is a tool's stamp across the middle of it",
+          "body": "Music Festival Event sits in pink and blue over your headline, dropped in by whatever made it. It covers your own type at the exact point the eye lands."
+        },
+        {
+          "title": "Upload a frame, not a photo of your gallery",
+          "body": "What arrived carries the phone's status bar, the battery at 19 percent, and the Share, Favorite, Edit, Delete row along the bottom. poidh only takes images, so a still is correct for a video - export one frame from the piece instead, and the page shows your work rather than your phone."
+        }
+      ]
+    }
+  ]
+}

@@ -33,6 +33,7 @@ that the output will render correctly, which it cannot check. Read the preview a
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -138,7 +139,58 @@ def _selftest() -> bool:
     # The operator header above the sentinels is not the cast text.
     framed = f"Notes: see https://a.example\nand https://b.example\n{PASTE_START}\nClean.\n{PASTE_END}\n"
     check("reads only the paste body", check_text(paste_body(framed)) == [])
+
+    # THE CAST-VS-DRAFT SPLIT. A hazard in text that is already on chain cannot be fixed;
+    # failing CI on it forever is how a check gets switched off.
+    import tempfile, json as _json
+    global REPO_ROOT
+    keep = REPO_ROOT
+    with tempfile.TemporaryDirectory() as td:
+        REPO_ROOT = Path(td)
+        (REPO_ROOT / "rounds" / "daily" / "d01").mkdir(parents=True)
+        (REPO_ROOT / "org.config.json").write_text(_json.dumps({"rounds": [
+            {"round": "daily-01", "bounty_id": 1409, "folder": "rounds/daily/d01"},
+            {"round": "daily-04", "folder": "rounds/daily/d04"}]}))
+        cast = REPO_ROOT / "rounds" / "daily" / "d01" / "description.md"
+        cast.write_text("x")
+        check("a folder with a bounty_id is reported as cast", already_cast(cast) == 1409)
+        (REPO_ROOT / "rounds" / "daily" / "d04").mkdir(parents=True)
+        draft = REPO_ROOT / "rounds" / "daily" / "d04" / "description.md"
+        draft.write_text("x")
+        check("a folder with NO bounty_id is still a draft", already_cast(draft) is None)
+        unknown = REPO_ROOT / "rounds" / "daily" / "d99.md"
+        check("a path in no round returns None rather than guessing",
+          already_cast(unknown) is None)
+    REPO_ROOT = keep
+
     return passed
+
+
+def already_cast(path: Path) -> int | None:
+    """The bounty id this description was CAST as, or None if it is still a draft.
+
+    WHY A CAST DESCRIPTION IS NOT A FAILURE. This check exists to catch a hazard BEFORE the
+    paste, because a poidh description is immutable. Once it is on chain the hazard is a
+    historical fact and there is nothing anyone can do about it.
+
+    That distinction became load-bearing on 2026-09-24. `rounds/daily/d01/description.md` used
+    to hold a tidier draft than the one actually cast; verify-cast-text found the drift and the
+    file was replaced with the real on-chain text - which contains the exact hazards this
+    script was written for, because bounty 1409 WAS cast with them. CI then failed on it, and
+    would have failed on every future run forever, on a file nobody can fix.
+
+    A permanently red check gets switched off. So a cast description reports its hazards as a
+    RECORD and does not fail the build; a draft still fails, which is the case that matters.
+    """
+    try:
+        cfg = json.loads((REPO_ROOT / "org.config.json").read_text())
+    except Exception:
+        return None
+    folder = str(path.parent.relative_to(REPO_ROOT)) if path.is_relative_to(REPO_ROOT) else ""
+    for r in cfg.get("rounds", []):
+        if r.get("folder") == folder and r.get("bounty_id"):
+            return int(r["bounty_id"])
+    return None
 
 
 def main() -> int:
@@ -169,6 +221,7 @@ def main() -> int:
         ap.error("give a description path, or --all, or --selftest")
 
     bad = 0
+    recorded = 0
     for t in targets:
         if not t.exists():
             print(f"FAIL {t}: not found")
@@ -176,15 +229,27 @@ def main() -> int:
             continue
         findings = check_text(paste_body(t.read_text()))
         rel = t.relative_to(REPO_ROOT) if t.is_relative_to(REPO_ROOT) else t
-        if findings:
+        cast_as = already_cast(t)
+        if findings and cast_as:
+            recorded += 1
+            print(f"\nRECORD {rel} - cast as bounty {cast_as}, so this is immutable and "
+                  f"cannot be fixed. Listed so nobody repeats it, NOT counted as a failure.")
+            for f in findings:
+                print(f"  {f}")
+        elif findings:
             bad += 1
             print(f"\nFAIL {rel}")
             for f in findings:
                 print(f"  {f}")
         else:
-            print(f"ok   {rel}")
+            print(f"ok   {rel}" + (f" (cast as {cast_as})" if cast_as else ""))
 
-    print(f"\nChecked {len(targets)} description(s), {bad} with render hazards.")
+    # The old summary said "0 with render hazards" while a file in the list plainly had
+    # seven of them, because they were in an immutable description and therefore not
+    # failures. A count that reads as clean while listing problems above it is worse than no
+    # count - it teaches the reader to skip the detail.
+    tail = (f", {recorded} already cast and unfixable" if recorded else "")
+    print(f"\nChecked {len(targets)} description(s), {bad} with fixable render hazards{tail}.")
     print("This checks three known shapes, not the whole renderer. READ THE PREVIEW TAB "
           "BEFORE CASTING - the description is immutable.")
     return 1 if bad else 0

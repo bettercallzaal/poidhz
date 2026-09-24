@@ -10,6 +10,10 @@ Measured 2026-09-22 18:40 EDT from poidh (`scripts/claim-report.py`, both bounti
 | Distinct wallets | 6 | 6 |
 | Playable video on poidh | 1 | 2 |
 | Filed the work rather than a screenshot | 4 | 3 |
+
+> **That last row is a bad metric and it is kept only so the correction has something to point
+> at.** It counts entrants who uploaded a still as having missed, and for a video that is the
+> only thing poidh's uploader allows. Read the corrected section below before using it.
 | Pot at cast | 0.004 ETH (~$9.84) | **UNRECORDED** |
 | Pot at 19:29 on 09-22 | **0.0061 ETH (~$16.79)** | 0.005 ETH (~$13.76) |
 
@@ -51,23 +55,51 @@ asked for a poster. The change may be composition rather than persuasion, and th
 to separate them from this data. **UNRESOLVED.** Round three bans posters outright, which will
 at least make the next reading unambiguous.
 
-## The one failure that dominates everything
+## THE FAILURE THAT DOMINATED EVERYTHING WAS MOSTLY OURS
 
-**Filing a screenshot of a post instead of the work.**
+**Corrected 2026-09-23, on Kenny's answer.** This section used to read: *"Filing a screenshot of
+a post instead of the work. Round 1: 2 of 6. Round 2: 4 of 7 judgeable claims. It is the most
+common miss."* It then made that the round-three bar's first requirement.
 
-- Round 1: 2 of 6
-- Round 2: **4 of 7** judgeable claims
+**Most of those were not misses.** Asked directly whether poidh's uploader takes video, Kenny
+answered: *"yee man all media is uploaded to ipfs it would suck if we took videos lol"*. The
+uploader is **images-only by design**, because every upload goes to IPFS. So for anyone
+entering with a video, uploading a still and linking the piece is **the only thing the platform
+allows** - and rounds two and three both asked for video.
 
-It is the most common miss, it got **worse** after round one's description mentioned it in
-passing, and it is the only miss that makes a good piece unusable rather than merely weaker.
-taku0x, barsam and pascaline all made video in round two, and none of it can be watched from
-the bounty page.
+Re-derived against what each entrant actually made, rather than against what they uploaded:
 
-Every other defect is a one-off by comparison: one wrong logo, two editor watermarks, one set
-of invented people, two entrants inventing the same closing time.
+| Round | Entered with a still and photographed a screen instead of uploading it | Entered with video and uploaded a still |
+|---|---|---|
+| One - posters were the ask | **2 of 6.** A real miss, and the advice stands | n/a |
+| Two - video was the ask | **1** (@mfa, a photo of a phone gallery) | **3** (@taku0x, @barsam, @pascaline) - not a miss |
+| Three - anything but a poster | 0 | **4 of 4** competing entries - not a miss |
 
-**This is why it is floor rule one in round three rather than a line of advice**, and it is the
-single change most likely to raise the usable-entry count without asking anyone to work harder.
+**What survives the correction, and it is much smaller.** A screenshot of your POST is still
+worse than a FRAME of your piece. The ones filed in rounds two and three carry app chrome,
+battery icons, view counts and reply boxes, and that is what the bounty page shows a visitor.
+That is a presentation note worth one line in someone's feedback. It is not a floor rule, it is
+not "the failure that dominates everything", and it never was.
+
+**One entrant got video onto a bounty page anyway.** @assay's claims point their media field at
+a direct external mp4 rather than uploading - `files.catbox.moe/2ypwkq.mp4`, verified live at
+13,398,991 bytes, h264 1080x1920 with audio. Two of fifty-four claims are watchable in place
+and both are its. **UNVERIFIED** whether a person using poidh's web form can do the same or
+whether it needs a direct contract call; that is the next question for Kenny, and until it is
+answered it must not go into bounty text.
+
+**What this cost.** Round three's cast text carries the impossible version of the rule and
+cannot be edited. Twenty-four generated drafts carried it too and have been fixed
+(`rounds/daily/_template/description.md`). Round two's review marked entries down for it. The
+notes owed to those entrants must not repeat it.
+
+Every other defect is genuinely a one-off: one wrong logo, two editor watermarks, one set of
+invented people, two entrants repeating a closing time that **our own site publishes**.
+
+**The lesson under the lesson:** we measured what entrants did, found a near-universal pattern,
+and concluded it was a discipline problem in them. A near-universal result is almost always the
+instrument. One question to the person who built the platform would have settled it before it
+became a requirement, and nobody asked for three rounds.
 
 ## Two entrants repeated a number we hedge, and they were right to find it
 
@@ -118,17 +150,27 @@ so this is mostly a list of first impressions - which is itself the finding.
 
 | Who | Claims | What they proved they can do | What stopped it |
 |---|---|---|---|
-| **@assay** (poidh shows `@!3351620`) | 3 (8100, 8107, 8111) | The only person who has filed a real playable video on poidh, twice, both 1080x1920 with audio. Used the kit's radio interview cut to nine captioned passages. | One entry states a closing time we have not published. (Handle SOLVED, see below.) |
-| **@pascaline** | 2 (8093, 8115) | Turned round one around fast, then switched format to video unprompted for round two. The only returner. | Round one used invented band photos and carried no date or place. Round two filed as a screenshot; whether the person on camera is real is UNVERIFIED. |
+**Two corrections applied to this table on 2026-09-23, both of which had marked people down
+for something that was not their fault.** "Filed a screenshot" is removed wherever the entrant
+made video, because poidh's uploader cannot take video (see the corrected section above).
+"States an unpublished closing time" is removed entirely, because `zaostock.com/program`
+**does** publish it - *"from six (poster: 6 to 10 PM)"*, re-verified on the live page today.
+Two entrants were marked down for reading our own site.
+
+| Who | Claims | What they proved they can do | What stopped it |
+|---|---|---|---|
+| **@assay** (poidh shows `@!3351620`) | 3 (8100, 8107, 8111) | The only entrant who has got a playable video onto a poidh page, twice, both 1080x1920 with audio - by pointing the claim at an external mp4 instead of uploading. Used the kit's radio interview cut to nine captioned passages. | Nothing disqualifying. Declared itself an agent in every claim, unprompted. (Handle SOLVED, see below.) |
+| **@pascaline** | 4 (8093, 8115, 8149, 8150) | **The only entrant in all three rounds.** Round one to round three she went from invented band photos to drone footage of the real parklet with every fact correct. Switched to video unprompted before anyone asked. | Round one used invented band photos and carried no date or place. In round three she claimed twice and the later claim pointed at round two's video. |
 | **@leoxcrane** | 1 (8086) | Won round one. | Did not return. |
 | **@predaking** | 1 (8091) | Went and got the running order and genres, credited attabotty and Candy unprompted, filed the actual file. Production discipline. | Did not return. |
-| **@dee-13** | 1 (8092) | Artwork carried every fact on its own; worked in multiple versions. | Filed a screenshot. Did not return. |
-| **@uniquebeing404** | 1 (8094) | The only physical-world piece anyone has made: shot on a real street with real flyers. | Facts only in the caption, filed a screenshot, landed 59 minutes late. Did not return. |
+| **@dee-13** | 1 (8092) | Artwork carried every fact on its own; worked in multiple versions. | Photographed a phone screen rather than uploading the artwork - a real miss, because a still CAN be uploaded. Did not return. |
+| **@uniquebeing404** | 1 (8094) | The only physical-world piece anyone has made: shot on a real street with real flyers. | Facts only in the caption, photographed a screen rather than uploading the still, landed 59 minutes late. Did not return. |
 | **@coolhat** | 1 (8098) | Heavy typesetting held together at square with all eight names. | Redrawn moose, filed after the close. Did not return. |
-| **@joeyofdeus** | 1 (8105) | Filed the piece itself rather than a photo of a post - one of only three people who have. Credited attabotty unprompted. | Missing "free" and the venue. Stray export artifact. |
-| **@taku0x** | 1 (8104) | The most complete post copy anyone has written, and tagged correctly. | CapCut watermark burned in. Filed a screenshot. |
-| **@barsam** | 1 (8103) | Cross-posted to both platforms unprompted. | Filed a screenshot. States an unpublished closing time. |
-| **@mfa** | 1 (8099) | Strongest fact set on any still - readable across a room. | Used the ZABAL Gamez logo instead of the ZAOstock moose. Tool watermark. Filed a screenshot. |
+| **@joeyofdeus** | 2 (8105, 8147) | Returned for round three and **fixed one of his two notes before being given it** - the venue is now in the piece, twice. Credits attabotty unprompted, every time. | Missing "free" in round two and **still missing "free" in round three**, across twelve frames sampled. Stray export artifact in round two. |
+| **@taku0x** | 2 (8104, 8145) | Most complete post copy anyone has written, tagged correctly, and **removed a watermark and re-posted clean without being asked** once he heard it was a problem. | Round two carried a CapCut watermark. Round three is AI-generated throughout and carries no venue, time or URL. |
+| **@barsam** | 1 (8103) | Cross-posted to both platforms unprompted. | Facts sit in the post rather than on the piece. |
+| **@mfa** | 1 (8099) | Strongest fact set on any still - readable across a room. | Used the ZABAL Gamez logo instead of the ZAOstock moose. Tool watermark. Photographed a phone gallery rather than uploading the still. |
+| **@kmacb.eth** | 1 (8153) | Runs poidh. Entered round three at the buzzer with deliberately unsupervised agent output to make a point. | A still with type on it, in the round that banned exactly that. Says so himself: *"It's shite."* Not competing. |
 
 ### The two trajectories we actually have
 

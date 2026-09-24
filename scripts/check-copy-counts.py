@@ -93,10 +93,34 @@ def live_counts() -> dict[int, int] | None:
     return out or None
 
 
+def valid_totals(counts: dict[int, int]) -> set[int]:
+    """Every count a true sentence could legitimately cite.
+
+    THIS USED TO BE `per-bounty counts, plus the grand total`, AND IT CRIED WOLF TWICE THE
+    DAY IT FIRST MATTERED. Round copy almost never describes all the bounties or exactly one
+    of them - it describes THE ONES BEFORE THIS ONE. Round three's cast text says "Fourteen
+    entries from eleven people", which is rounds one and two added up; round three's pick doc
+    says "ten of the thirteen claims", which is rounds two and three. Both are correct English
+    about real numbers, and both were refused because neither is a single bounty nor the whole
+    set.
+
+    Worse, the grand total MOVES as the current round takes claims, so a sentence about
+    earlier rounds starts failing the moment anyone enters the new one. Bounty 1412 going
+    from four claims to five turned one passing line into a failure without a word changing.
+
+    So: every subset sum. With a handful of bounties that is a few dozen numbers, and it is
+    the set a true sentence can actually draw from.
+    """
+    sums = {0}
+    for n in counts.values():
+        sums |= {s + n for s in sums}
+    return sums - {0}
+
+
 def check_round(round_dir: Path, counts: dict[int, int]) -> tuple[bool, list[str]]:
     findings = []
     ok = True
-    valid = set(counts.values()) | {sum(counts.values())}
+    valid = valid_totals(counts)
     findings.append(f"     live: " + ", ".join(f"bounty {b}={n}" for b, n in sorted(counts.items()))
                     + f"; total {sum(counts.values())}")
 
@@ -202,6 +226,25 @@ def _selftest() -> bool:
         f.write_text("ten of four claims\n")
         ok, fnd = check_round(r, counts)
         c("part bigger than total is caught", not ok)
+
+        # THE TWO REAL FALSE POSITIVES OF 2026-09-23, with the three-bounty field that
+        # produced them. A sentence about SOME of the rounds is the normal case, not the
+        # exception, and the grand total moves under it while the current round is open.
+        three = {1409: 6, 1410: 8, 1412: 5}
+        c("subset sums are what a true sentence can cite",
+          valid_totals(three) == {5, 6, 8, 11, 13, 14, 19})
+
+        f.write_text("Fourteen entries from eleven people.\n")
+        ok, fnd = check_round(r, three)
+        c("'fourteen' (rounds one plus two) passes while round three is open", ok)
+
+        f.write_text("Ten of the thirteen claims went to IPFS as a still.\n")
+        ok, fnd = check_round(r, three)
+        c("'thirteen' (rounds two plus three) passes", ok)
+
+        f.write_text("Twelve claims have come in.\n")
+        ok, fnd = check_round(r, three)
+        c("a number matching no subset (12) is still caught", not ok)
 
         for p in r.glob("*.md"):
             p.unlink()

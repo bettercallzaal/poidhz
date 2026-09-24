@@ -61,6 +61,22 @@ PROMISE_PATTERNS = [
     (r"(?i)airdrop|\$ZABAL\b|earns? \$?ZABAL|leaderboard", "a token or leaderboard drop"),
     (r"(?i)split (?:equally|the pot|this pot)|equal slices?", "a pot split"),
     (r"(?i)paid (?:here )?within|winner paid|takes? the (?:full )?pot", "the prize payout"),
+    # ADDED 2026-09-23. The five patterns above were written from R2 to R5, whose promises were
+    # about pins, publishing and tokens. The DAILY run breaks a different kind, and this file
+    # could not see any of them. Run against bounty 1409 it reported exactly ONE promise, while
+    # the live text said "Live on stream at 5pm Eastern, the same day it closes. Zaal picks it
+    # out loud with the entries on screen." That stream did not happen, and bounty 1412's cast
+    # text apologises for it in writing - so the one promise this programme is on record for
+    # breaking was invisible to the script built to catch broken promises.
+    (r"(?i)\b(?:live on stream|on stream|on twitch|livestream|on a stream)\b", "a stream"),
+    (r"(?i)\bI (?:will|am going to|promise to|post|send|reply|review|record|name|pick|give)\b",
+     "something said in the first person, which is the shape this run breaks most"),
+    (r"(?i)written notes|notes back|feedback|one thing to (?:do )?better",
+     "feedback owed to entrants"),
+    (r"(?i)post (?:both )?(?:the )?results|results (?:go up|are posted|at the same time)",
+     "posting results"),
+    (r"(?i)every(?:one|body) who (?:enters|submits|files|claims)",
+     "something promised to every entrant, not just the winner"),
 ]
 
 BLOCKING: list[str] = []
@@ -217,6 +233,41 @@ def check_scoring(cfg: dict, bounty_id: int) -> None:
                  f"R5 until 2026-09-06.")
 
 
+def round_folder_for(cfg: dict, bounty_id: int, round_arg) -> Path | None:
+    """The folder that actually holds this bounty's round, or None when there is nothing to check.
+
+    WHY THIS IS NOT `rounds/r{n}`. It used to be, and the daily run broke it silently. Passing
+    `--bounty 1409 --round 1` read bounty 1409 from the chain - which is **daily-01**, in
+    `rounds/daily/d01` - and then went looking for announcement copy in `rounds/r1`, which is a
+    DIFFERENT round entirely (bounty 1151, cast in May). It reported "no winner-announce copy
+    anywhere in r1/" as if that were a finding about round one of the daily run.
+
+    A check that reads the wrong directory and prints a confident answer is worse than no check.
+    So the bounty id, which is unambiguous, now decides the folder, and `--round` is only a
+    fallback for rounds that predate `folder` being recorded in the config.
+    """
+    for r in cfg.get("rounds", []):
+        if r.get("bounty_id") and int(r["bounty_id"]) == int(bounty_id):
+            if r.get("folder"):
+                p = REPO_ROOT / r["folder"]
+                if p.is_dir():
+                    return p
+                warn(f"org.config.json points bounty {bounty_id} at {r['folder']}, "
+                     f"which does not exist. Nothing was checked for copy.")
+                return None
+            if r.get("round") is not None:
+                p = REPO_ROOT / "rounds" / f"r{r['round']}"
+                if p.is_dir():
+                    return p
+    if round_arg:
+        p = REPO_ROOT / "rounds" / f"r{round_arg}"
+        if p.is_dir():
+            return p
+        warn(f"no folder recorded for bounty {bounty_id} and rounds/r{round_arg} does not "
+             f"exist. Copy was NOT checked - this is UNKNOWN, not clean.")
+    return None
+
+
 def check_copy(round_dir: Path) -> None:
     print("\n[3/4] ANNOUNCEMENT COPY - does it even exist, automatic")
     if not round_dir.is_dir():
@@ -279,6 +330,54 @@ def _selftest() -> bool:
 
     dup = "The winner gets credited. The winner gets credited."
     check("does not report the same sentence twice", len(find_promises(dup)) == 1)
+
+    # THE PROMISE THIS PROGRAMME ACTUALLY BROKE, and which this script could not see until
+    # 2026-09-23. Verbatim from bounty 1409's live description.
+    stream = ("Live on stream at 5pm Eastern, the same day it closes. Zaal picks it out loud "
+              "with the entries on screen.")
+    check("catches the REAL stream promise from bounty 1409",
+          any("stream" in l for _, ls in find_promises(stream) for l in ls))
+
+    joint = ("I review ROUND TWO AND ROUND THREE TOGETHER later today and post both results "
+             "at the same time.")
+    check("catches 'post both results at the same time' from bounty 1412",
+          find_promises(joint) != [])
+
+    notes = ("Everyone who enters gets written notes on their own piece, win or lose. One "
+             "thing it did and one thing to do better.")
+    p_notes = find_promises(notes)
+    check("catches written notes owed to every entrant", p_notes != [])
+    check("and labels it as owed to everyone, not only the winner",
+          any("every entrant" in l for _, ls in p_notes for l in ls))
+
+    # It must still not flag ordinary description prose, or the checklist becomes noise.
+    plain = ("ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, "
+             "Maine. Franklin Street closes to traffic and eight acts play.")
+    check("does NOT flag a plain factual sentence", find_promises(plain) == [])
+    # The deliberately-hedged line from bounty 1412. It names a thing we MIGHT do and then
+    # says in the same breath that it is not a commitment. It must NOT enter the checklist:
+    # a sign-off list that contains things nobody promised is a list people stop reading, and
+    # this repo has already watched one guard get ignored for crying wolf.
+    hedged = ("This bounty promises the pot and nothing else. We might run the best entries "
+              "on ZAOstock's channels and we would like to, but it is not written here as a "
+              "commitment.")
+    check("a sentence that explicitly disclaims a commitment is NOT put on the checklist",
+          find_promises(hedged) == [])
+
+    # THE WRONG-FOLDER BUG. `--bounty 1409 --round 1` used to read rounds/r1, which is a
+    # different round with a different bounty, and print a confident finding about it.
+    cfg_fake = {"rounds": [
+        {"round": 1, "bounty_id": 1151},
+        {"round": "daily-01", "bounty_id": 1409, "folder": "rounds/daily/d01"},
+    ]}
+    f1409 = round_folder_for(cfg_fake, 1409, 1)
+    check("bounty 1409 resolves to the DAILY folder even when --round 1 is passed",
+          f1409 is not None and f1409.name == "d01")
+    f1151 = round_folder_for(cfg_fake, 1151, 1)
+    check("an old round with no folder recorded still resolves to rounds/rN",
+          f1151 is not None and f1151.name == "r1")
+    check("a bounty in no config and no rounds/rN folder returns None rather than a guess",
+          round_folder_for({"rounds": []}, 9999, 9999) is None)
 
     # Banner checks. Each case is a banner this repo actually carried at some point.
     check("a round owing promises may not call itself fully resolved",
@@ -558,9 +657,11 @@ def main() -> int:
         return scaffold_closeout(a.bounty, a.round, data.get("description") or "")
 
     check_money(data, a.bounty, a.chain)
-    check_scoring(load_org_config(), a.bounty)
-    if a.round:
-        check_copy(REPO_ROOT / "rounds" / f"r{a.round}")
+    cfg = load_org_config()
+    check_scoring(cfg, a.bounty)
+    folder = round_folder_for(cfg, a.bounty, a.round)
+    if folder is not None:
+        check_copy(folder)
     check_promises(data.get("description") or "")
 
     print("\n" + "=" * 62)

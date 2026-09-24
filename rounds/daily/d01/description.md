@@ -57,6 +57,18 @@ changes and the bounty still works.
 That is the same reasoning as every re-check date in this repo: put the changeable thing
 behind something you can edit.
 
+
+> **THE BLOCK BELOW WAS REPLACED WITH THE TEXT ACTUALLY ON CHAIN, 2026-09-23.** What sat here
+> was a LATER, better-worded draft - it added an "OPTIONAL, AND GENUINELY OPTIONAL" heading and
+> extra paragraph breaks that bounty 1409 does not have. The improvements were real and were
+> made after casting, which means this file was quietly claiming that entrants read something
+> they never saw. A poidh description is immutable; the file is the thing that has to move.
+>
+> Found by `scripts/verify-cast-text.py --all`, which diffs each round's paste body against
+> what poidh serves. The wording that was here has not been thrown away - it is in git history
+> at commit `9ea5539^` and the lesson it encodes, that an optional line needs its own labelled
+> block or the renderer swallows it, is already in the daily template.
+
 <!-- PASTE BELOW THIS LINE -->
 
 Make one piece of media using the ZAOstock brand kit. That is the whole ask.
@@ -67,11 +79,9 @@ ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Mai
 
 Thirteen days out, and this closes tomorrow afternoon. Low bar on purpose - day one is not where we find the perfect asset, it is where we find out who turns up. Twenty minutes is enough.
 
-
 WHY THIS ROUND EXISTS
 
 Because a free festival on one street in a small city lives or dies on whether anyone hears about it, and we would rather pay people who are good at that than shout louder ourselves. Everything you need is at https://zaostock.com - go and read it before you make anything.
-
 
 THE BAR (short, on purpose)
 
@@ -80,46 +90,35 @@ THE BAR (short, on purpose)
 3. Put ZAOstock and Saturday October 3 somewhere a reader can see them.
 4. AUDIO: if there is audio, use original or one clear instrumental that does not compete with speech. Library music over dialog is a floor fail.
 
-
-OPTIONAL, AND GENUINELY OPTIONAL
-
-Tagging @bettercallzaal and cross-posting in /poidh helps. Neither is required today, and skipping both costs you nothing.
-
+Tagging @bettercallzaal and cross-posting in /poidh helps and is not required today.
 
 THE RUBRIC (more boxes ticked, more weight)
 
-REACH
+Reach
++ It went where people who could actually attend will see it - Ellsworth, Bangor, Downeast, Maine groups
++ A physical placement photographed as proof beats a post nobody saw
++ Someone who is not in this bounty shared it
 
-- It went where people who could actually attend will see it - Ellsworth, Bangor, Downeast, Maine groups
-- A physical placement photographed as proof beats a post nobody saw
-- Someone who is not in this bounty shared it
+Craft
++ Looks finished, not like a draft
++ Vertical or square for mobile
++ Captions if there is speech
++ Date and place readable in three seconds, without clicking
 
-
-CRAFT
-
-- Looks finished, not like a draft
-- Vertical or square for mobile
-- Captions if there is speech
-- Date and place readable in three seconds, without clicking
-
-
-SUBSTANCE
-
-- Specific about the day rather than "come to a festival"
-- Names an act from the lineup
-- Honest about what it is: small, free, outdoors, one street
-
+Substance
++ Specific about the day rather than "come to a festival"
++ Names an act from the lineup
++ Honest about what it is: small, free, outdoors, one street
 
 THE ASSET KIT (use any of this, CC-BY)
 
-- Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
-- The brand page, each file separately: https://zaostock.com/brand
-- The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
-- Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
-- The lineup, all eight acts: https://zaostock.com/artists
+Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
+The brand page, each file separately: https://zaostock.com/brand
+The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
+Poster reference: https://zaostock.com/brand/posters/moose-cracked-cement-red-1024.png
+The lineup, all eight acts: https://zaostock.com/artists
 
 The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
-
 
 THE REWARD
 
@@ -131,7 +130,6 @@ Track it live: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc20
 
 This bounty promises the pot and nothing else. We might run the best entries on ZAOstock's own channels and we would like to, but it is not written here as a commitment - this programme has a record of making publication promises it did not keep, and you can read that record at https://poidhz.com/about
 
-
 HOW THE WINNER IS PICKED
 
 Live on stream at 5pm Eastern, the same day it closes. Zaal picks it out loud with the entries on screen.
@@ -140,11 +138,9 @@ Discord is where it happens and where you can argue for your own entry: https://
 
 This is day one of thirteen, one bounty a day until ZAOstock itself. Same shape every day: opens, closes at 4pm Eastern, decided live at 5pm.
 
-
 DEADLINE
 
 Submissions close 4:00pm Eastern, Monday September 21, 2026.
-
 Winner picked live on stream at 5:00pm Eastern the same day.
 
 ZAOstock is Saturday October 3. Promo that lands after it is worth nothing, which is why these close fast.

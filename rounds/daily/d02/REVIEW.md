@@ -68,7 +68,7 @@ from any editor.
 
 Nothing on it is wrong. It is the safe pick.
 
-### 8111 - 31 seconds, more ambitious, one fact we have not published
+### 8111 - 31 seconds, the most ambitious thing in the round
 
 Uses **the kit's own Star 97 radio interview**, cut to nine passages and captioned word by
 word, with an act-by-act running order and a progress bar through the eight acts. Credits
@@ -177,7 +177,12 @@ is missing "free" and the venue.
 
 **If the X rule is waived for an entrant who has no X account:** 8107 is the pick. It is the
 only entry in the round with nothing else wrong on it and it is exactly the format asked for.
-8111 is better work but states a Black Moon closing time we have not published.
+
+**This line used to end "8111 is better work but states a Black Moon closing time we have not
+published." That was wrong and it is struck.** zaostock.com/program publishes exactly that
+time, so there is no objection standing against 8111 and it is the recommendation. The
+correction is kept visible rather than deleted because this document was read by other seats
+while it said the opposite.
 
 **Do not let the waiver happen silently by just picking 8107.** Say which rule was set aside
 and why, or the bar stops meaning anything for the eleven days that follow.
