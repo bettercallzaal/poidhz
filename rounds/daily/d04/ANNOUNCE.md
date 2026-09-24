@@ -7,7 +7,10 @@ check-copy-counts.
 
 ## Replace `<BOUNTY-URL>` before posting, and re-count the short block after you do
 
-A real poidh bounty URL is **34 characters** (`https://poidh.xyz/base/bounty/1413`). The
+A real poidh bounty URL is **34 characters** - `https://poidh.xyz/base/bounty/` is 30 and a
+four-digit id makes 34. **No example id is written here on purpose:** an earlier draft used a
+plausible-looking one and it turned out to be a real, live bounty belonging to a stranger,
+which check-tracked-bounties caught by treating it as a bounty we had cast. The
 placeholder below is 12. **Every length in this file was measured against the real 34, not
 against the placeholder** - the 280-character block was got wrong four separate times in this
 programme by counting against a placeholder and shipping something over the limit.
