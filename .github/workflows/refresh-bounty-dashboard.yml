@@ -56,6 +56,17 @@ jobs:
       - name: Refresh live round state
         run: python3 scripts/refresh-rounds.py
 
+      - name: Bake the round state into index.html
+        # Added 2026-09-24. Without this the homepage served ZERO round data - measured:
+        # `curl https://poidhz.com/` returned 17,546 bytes with no occurrence of 1412, 1410,
+        # 1409, leoxcrane or 0.005, while a control search for "poidhz" in the same bytes
+        # returned 10. Everything a visitor came for arrived only after a second request.
+        # This also regenerates og:description so the share card carries live numbers instead
+        # of the same fixed sentence it had in week one. Research doc 2548 has the argument.
+        # The page's JavaScript still fetches the feed and overwrites this, so the baked copy
+        # is the floor and not the ceiling.
+        run: python3 scripts/bake-homepage.py
+
       - name: Guard against degenerate data
         # Second line of defence. build-bounty-dashboard.py now exits non-zero
         # rather than writing an empty list, but any future path that produces a
@@ -97,7 +108,11 @@ jobs:
           # -I ignores lines matching the regex, so a run where ONLY
           # generated_at (or the prices-source note) changed does not commit,
           # does not push, and does not trigger a Vercel build.
-          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json"
+          # index.html is here because the round table and og:description are baked into it
+          # (see the bake step above). It carries no generated_at, so any diff in it is a real
+          # change by construction - leaving it out of this list would mean the bake ran every
+          # hour and shipped nothing.
+          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html"
           if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' -I '^DTSTAMP' -- $FILES; then
             git add $FILES
             git commit -m "chore: auto-refresh bounty dashboard + deadline calendar data (refresh-bounty-dashboard.yml)"
