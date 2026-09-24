@@ -12,11 +12,11 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 50,
-  "total_claims_accepted": 45,
-  "total_claims_rejected": 5,
-  "submitter_count": 43,
-  "total_eth_escrow": 0.0849,
+  "total_claims_received": 55,
+  "total_claims_accepted": 49,
+  "total_claims_rejected": 6,
+  "submitter_count": 44,
+  "total_eth_escrow": 0.0859,
   "bounties": [
     {
       "id": 1151,
@@ -78,7 +78,7 @@
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
       "amount_eth": 0.0061,
-      "in_progress": true,
+      "in_progress": false,
       "is_voting": true,
       "is_canceled": false,
       "claims_count": 6
@@ -92,7 +92,7 @@
       "album": "wethemmedia",
       "amount_eth": 0.005,
       "in_progress": true,
-      "is_voting": false,
+      "is_voting": true,
       "is_canceled": false,
       "claims_count": 6
     },
@@ -103,11 +103,11 @@
       "description": "ANYTHING BUT A POSTER. Make one piece of media for ZAOstock that is not a still image with type on it. Post it publicly, claim it here. Closes 5pm Eastern Wednesday September 23.\n\nWHY THE BAN. Round one was five posters out of six. They were good. The kit makes a poster easy, which is why nearly everyone made one, and a feed full of the same rectangle stops working. Round two asked for video and got five out of eight, so you have already proved you can do it. Today the poster is off the table en",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
-      "amount_eth": 0.004,
+      "amount_eth": 0.005,
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 0
+      "claims_count": 4
     }
   ],
   "claims": [
@@ -443,6 +443,16 @@
     },
     {
       "bounty_id": 1409,
+      "claim_id": 8086,
+      "issuer": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19",
+      "title": "https://farcaster.xyz/leoxcrane/0xccd03ab2",
+      "description": "One piece of media for ZAOstock: a poster built entirely from the CC-BY brand kit.\n\nLive post to see if it would bring an audience there from farcaster: \n\n",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
+      "accepted": true,
+      "on_chain_id": 2770
+    },
+    {
+      "bounty_id": 1409,
       "claim_id": 8098,
       "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
       "title": "Zaostock.",
@@ -490,16 +500,6 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZBHLrbfT11igieUSvvbegZyTEEpqFH3W5ZXdov59UCb4",
       "accepted": false,
       "on_chain_id": 2775
-    },
-    {
-      "bounty_id": 1409,
-      "claim_id": 8086,
-      "issuer": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19",
-      "title": "https://farcaster.xyz/leoxcrane/0xccd03ab2",
-      "description": "One piece of media for ZAOstock: a poster built entirely from the CC-BY brand kit.\n\nLive post to see if it would bring an audience there from farcaster: \n\n",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
-      "accepted": false,
-      "on_chain_id": 2770
     },
     {
       "bounty_id": 1410,
@@ -560,6 +560,46 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmUnt54xU7V3AahA56YdLPnmDRtGSBhK6T5gyD2yGN1xp5",
       "accepted": false,
       "on_chain_id": 2783
+    },
+    {
+      "bounty_id": 1412,
+      "claim_id": 8153,
+      "issuer": "0x59733c7cd78d08dab90368ad2cc09c8c81f097c0",
+      "title": "Zaostock wont be this bad will it?",
+      "description": "Agent tried to get Split & Peel to create claim & this is what they produced. To safe the agent's repuation they asked me to post this claim for them. It's shite. https://farcaster.xyz/kmacb.eth/0xb03eaf06 \n\nI haven't read the submission rules. That was thier job.",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZTDaHwB4ax7FSpw2uaoMwmRRDvsvq6A3SNW6JVB9QCWs",
+      "accepted": false,
+      "on_chain_id": 2837
+    },
+    {
+      "bounty_id": 1412,
+      "claim_id": 8150,
+      "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+      "title": "My Zaostock video submission ",
+      "description": "https://x.com/pascaline7933/status/2102483061955014871",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmQxnasj976nYSuKYSppTeD7fZd68qvWR3JH8zDRo4GZCR",
+      "accepted": false,
+      "on_chain_id": 2834
+    },
+    {
+      "bounty_id": 1412,
+      "claim_id": 8147,
+      "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
+      "title": "Zaostock",
+      "description": "Made a simple animated text piece for ZAOstock\nhttps://x.com/i/status/2102841361883906189\nhttps://farcaster.xyz/joeyofdeus/0x9088d76c",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmRacWrS8QTA5FgNRFAj5oxB58k2FZpiygZjHFGy9qZseR",
+      "accepted": false,
+      "on_chain_id": 2831
+    },
+    {
+      "bounty_id": 1412,
+      "claim_id": 8145,
+      "issuer": "0xb464fc1dff21a6d48b78955298af0f979ce2b8c3",
+      "title": "ZAOstock ",
+      "description": "Hope you enjoy zaal\nhttps://farcaster.xyz/taku0x/0xddeb25f3\nhttps://x.com/0xcryt29/status/2102832852299858285",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZftBkZbGnhSLNAkmoM2vi6E4HBLWn86FWwicc8LpBt6o",
+      "accepted": false,
+      "on_chain_id": 2829
     }
   ],
   "rejected_claims": [
@@ -591,6 +631,12 @@
       "claim_id": 8100,
       "bounty_id": 1410,
       "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
+      "reason": "duplicate submission to same bounty"
+    },
+    {
+      "claim_id": 8149,
+      "bounty_id": 1412,
+      "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
       "reason": "duplicate submission to same bounty"
     }
   ]
