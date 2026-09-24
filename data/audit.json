@@ -78,7 +78,7 @@
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
       "amount_eth": 0.0061,
-      "in_progress": true,
+      "in_progress": false,
       "is_voting": true,
       "is_canceled": false,
       "claims_count": 6
@@ -443,6 +443,16 @@
     },
     {
       "bounty_id": 1409,
+      "claim_id": 8086,
+      "issuer": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19",
+      "title": "https://farcaster.xyz/leoxcrane/0xccd03ab2",
+      "description": "One piece of media for ZAOstock: a poster built entirely from the CC-BY brand kit.\n\nLive post to see if it would bring an audience there from farcaster: \n\n",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
+      "accepted": true,
+      "on_chain_id": 2770
+    },
+    {
+      "bounty_id": 1409,
       "claim_id": 8098,
       "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
       "title": "Zaostock.",
@@ -490,16 +500,6 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZBHLrbfT11igieUSvvbegZyTEEpqFH3W5ZXdov59UCb4",
       "accepted": false,
       "on_chain_id": 2775
-    },
-    {
-      "bounty_id": 1409,
-      "claim_id": 8086,
-      "issuer": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19",
-      "title": "https://farcaster.xyz/leoxcrane/0xccd03ab2",
-      "description": "One piece of media for ZAOstock: a poster built entirely from the CC-BY brand kit.\n\nLive post to see if it would bring an audience there from farcaster: \n\n",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYVmubZm48bkFYjt4XiFirTxLDoJpJCqUS6HDa164nz5R",
-      "accepted": false,
-      "on_chain_id": 2770
     },
     {
       "bounty_id": 1410,
