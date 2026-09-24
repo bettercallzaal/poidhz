@@ -85,6 +85,13 @@
   ],
   "planned_rounds": [
     {
+      "round": "daily-04",
+      "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
+      "folder": "rounds/daily/d04",
+      "closes_at": "2026-09-27T17:00:00-04:00",
+      "note": "THREE-DAY ROUND, the one-day shape ends here. Drafted 2026-09-24, NOT CAST - no bounty_id yet, which is why it sits in planned_rounds. Move it into `rounds` the moment it is cast or /about will say no round is open."
+    },
+    {
       "round": 9,
       "title": "R9 - Make something that gets people to ZAOstock",
       "folder": "rounds/r9",

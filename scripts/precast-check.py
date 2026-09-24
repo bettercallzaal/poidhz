@@ -202,24 +202,102 @@ def check_deadline(round_dir: Path, cast_date: dt.date) -> None:
         warn(f"description.md does not name the weekday, or names the wrong one - "
              f"{deadline:%B %-d, %Y} is a {weekday}")
 
+    # THESE THRESHOLDS WERE WRITTEN FOR THE WEEKLY ROUNDS AND WENT STALE, AND THE STALE
+    # VERSION MADE A FALSE CLAIM. It blocked a 3-day window with "shorter than any round this
+    # repo has run" on 2026-09-24 - while daily-01, daily-02 and daily-03 had each run for a
+    # SINGLE day and all three filled. It also printed a note about the Twitch archive
+    # self-deleting after 7 days, which has nothing to do with a ZAOstock promo round and was
+    # printed under every short window regardless of what the round asked for.
+    #
+    # A short window is now a WARNING that states the real trade-off, not a block. The thing
+    # that actually makes a window too short is the EVENT, and that is checked separately
+    # below.
     if window < 0:
         blocking(f"the stated deadline is {abs(window)} days in the PAST")
     elif window == 0:
         blocking("the stated deadline is today")
-    elif window <= 5:
-        blocking(f"a {window}-day window is shorter than any round this repo has run")
+    elif window <= 2:
+        warn(f"a {window}-day window is very short. The daily rounds ran one day each and "
+             f"filled, so this is possible - but it leaves no room for a draft checkpoint "
+             f"and no room for anyone who sees the post late.")
     elif window <= 9:
-        warn(f"a {window}-day window is shorter than intended. Either re-date "
-             f"description.md or accept the shorter round on purpose.")
+        ok(f"{window}-day window - in line with this run, whose rounds have been 1 to 3 days")
     else:
         ok(f"{window}-day window")
 
-    if window < 8:
-        print("         (the Twitch archive self-deletes after 7 days, so a window this")
-        print("          short means entrants who arrive late have almost nothing to clip)")
+    # The only deadline that cannot move. A promo round that closes after the thing it
+    # promotes is worth nothing, and this repo has an event with a fixed date.
+    event = dt.date(2026, 10, 3)
+    if deadline > event:
+        blocking(f"the stated deadline is AFTER ZAOstock ({event:%B %-d}). Promo that lands "
+                 f"after the festival is worth nothing.")
+    elif deadline == event:
+        warn("the round closes ON the day of the festival - there is no time to use the work")
+    else:
+        ok(f"closes {(event - deadline).days} days before ZAOstock, leaving time to use it")
 
 
-def check_config(cfg: dict, round_num: int) -> None:
+def round_sort_key(n) -> tuple:
+    """Order round ids that are NOT all the same type.
+
+    THIS FUNCTION EXISTS BECAUSE THIS FILE CRASHED. `org.config.json` carries integer rounds
+    (1..5) and string rounds ("daily-01".."daily-04") since the ZAOstock ladder started, and
+    `sorted(rounds.items())` raised
+
+        TypeError: '<' not supported between instances of 'str' and 'int'
+
+    which took the whole pre-cast gate down with it - measured 2026-09-24 while checking the
+    round-four draft. A gate that crashes does not gate anything, and it crashed at step 3 of
+    5, so the two checks after it never ran either.
+    """
+    return (0, n, "") if isinstance(n, int) else (1, 0, str(n))
+
+
+def coerce_round(v):
+    """"6" becomes 6; "daily-04" stays a string. Keeps integer rounds comparing as numbers."""
+    if v is None:
+        return None
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return v
+
+
+def precedes(n, round_num) -> bool:
+    """Whether round `n` comes before the one being cast, across both id styles.
+
+    Integers compare to integers. A "daily-NN" string compares to another "daily-NN". Comparing
+    one to the other is meaningless - daily-02 is not "before" R5 in any sense that matters to
+    the leaderboard - so it returns False rather than guessing, which is the behaviour the old
+    `n >= round_num` had by accident for ints and by crashing for strings.
+    """
+    if isinstance(n, int) and isinstance(round_num, int):
+        return n < round_num
+    if isinstance(n, str) and isinstance(round_num, str):
+        return n < round_num
+    return False
+
+
+def round_folder(cfg: dict, round_arg) -> Path:
+    """The directory that really holds this round, from org.config.json.
+
+    Accepts either style of round id: `--round 6` for rounds/r6, or `--round daily-04` for
+    whatever `folder` the config records. Falls back to rounds/r<arg> only when the config has
+    nothing, and that fallback is visible in the output rather than silent.
+    """
+    for r in cfg.get("rounds", []) + cfg.get("planned_rounds", []):
+        if str(r.get("round")) == str(round_arg) and r.get("folder"):
+            return REPO_ROOT / r["folder"]
+    guess = REPO_ROOT / "rounds" / f"r{round_arg}"
+    if not guess.is_dir():
+        for cand in (REPO_ROOT / "rounds" / "daily" / f"d{str(round_arg).zfill(2)}",
+                     REPO_ROOT / "rounds" / "daily" / str(round_arg).replace("daily-", "d")):
+            if cand.is_dir():
+                return cand
+    return guess
+
+
+def check_config(cfg: dict, round_num) -> None:
     """Every previous round must be in default_bounty_ids or its entrants score zero.
     R5 sat outside it after closing, so nine claims earned nobody anything."""
     print("\n[3/5] CONFIG")
@@ -227,8 +305,8 @@ def check_config(cfg: dict, round_num: int) -> None:
     rounds = {r.get("round"): r for r in cfg.get("rounds") or []}
 
     missing = []
-    for n, r in sorted(rounds.items()):
-        if n >= round_num:
+    for n, r in sorted(rounds.items(), key=lambda kv: round_sort_key(kv[0])):
+        if not precedes(n, round_num):
             continue
         bid = r.get("bounty_id")
         if r.get("offchain"):
@@ -413,7 +491,7 @@ def check_data_freshness(max_age_hours: int = 12) -> None:
         when = when.replace(tzinfo=dt.timezone.utc)
     age = (dt.datetime.now(dt.timezone.utc) - when).total_seconds() / 3600
     if age > max_age_hours:
-        warn(f"dashboard data is {age:.1f}h old (cron runs every 6h) - is the workflow green?")
+        warn(f"dashboard data is {age:.1f}h old (cron runs hourly) - is the workflow green?")
     else:
         ok(f"dashboard data is {age:.1f}h old")
 
@@ -560,7 +638,9 @@ def _selftest() -> bool:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--round", type=int, help="round number, e.g. 6")
+    # NOT type=int. org.config.json has carried string round ids ("daily-01") since the
+    # ZAOstock ladder started, and argparse rejected them before any check could run.
+    ap.add_argument("--round", help="round id: 6, or daily-04")
     ap.add_argument("--prize", type=float, default=0.0128,
                     help="ETH to fund, fee-adjusted (default 0.0128)")
     ap.add_argument("--cast-date", help="YYYY-MM-DD you intend to cast (default: today)")
@@ -578,7 +658,13 @@ def main() -> int:
 
     cast_date = (dt.date.fromisoformat(args.cast_date) if args.cast_date
                  else dt.date.today())
-    round_dir = REPO_ROOT / "rounds" / f"r{args.round}"
+    # THE FOLDER COMES FROM THE CONFIG, NOT FROM f"r{round}". Passing --round 4 used to read
+    # rounds/r4 - the ZABAL Gamez open pot from July, whose stated deadline is 2026-07-31 - and
+    # then BLOCK with "the stated deadline is 55 days in the PAST", which is a true statement
+    # about a completely different round. The same shape was fixed in postclose-check.py on
+    # 2026-09-23. A check that reads the wrong directory and answers confidently is worse than
+    # no check.
+    round_dir = round_folder(load_org_config(), args.round)
     if not round_dir.is_dir():
         print(f"ERROR: {round_dir.relative_to(REPO_ROOT)} does not exist")
         return 1
@@ -588,7 +674,7 @@ def main() -> int:
 
     check_wallet(cfg, args.prize)
     check_deadline(round_dir, cast_date)
-    check_config(cfg, args.round)
+    check_config(cfg, coerce_round(args.round))
     check_description(round_dir)
     check_known_bad(round_dir)
     check_recheck_dates(round_dir, cast_date)
