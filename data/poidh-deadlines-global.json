@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-24T05:06:56.597577+00:00",
+  "generated_at": "2026-09-24T12:01:45.143322+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
-  "bounties_scanned": 99,
+  "bounties_scanned": 98,
   "bounties_with_deadline_found": [
     {
       "bounty_id": 1062,
@@ -55,16 +55,6 @@
       "deadline_raw_text": "September 21st",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/329"
-    },
-    {
-      "bounty_id": 1410,
-      "title": "Make one piece of media for ZAOstock",
-      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.005,
-      "deadline_iso": "2026-09-22",
-      "deadline_raw_text": "September 22",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1410"
     },
     {
       "bounty_id": 1412,
@@ -210,7 +200,7 @@
       "bounty_id": 1377,
       "title": "That Poetry Guy Fights Cancer",
       "issuer": "0x4a90f5a9401158a70f5f307aa13ff0b0e62c7b51",
-      "amount_eth": 0.20285,
+      "amount_eth": 0.24285,
       "deadline_iso": "2026-10-15",
       "deadline_raw_text": "15 October",
       "deadline_status": "upcoming",
