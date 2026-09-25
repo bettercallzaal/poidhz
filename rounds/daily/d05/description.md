@@ -117,7 +117,7 @@ THE REWARD
 
 Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this page says it is right now, and anyone can add to it while the round runs.
 
-Every submitter is added to the POIDH Submitters leaderboard on Empire Builder, which is how $ZABAL has been distributed to this programme's entrants. On September 23 that went out to all 43 addresses on the feed in one transaction, scaled by score, with nobody missed.
+Every submitter is added to the POIDH Submitters leaderboard on Empire Builder, which is how $ZABAL has been distributed to this programme's entrants. It has now gone out twice in two days, on September 23 and September 24, each time in a single transaction to every address on the feed, scaled by score, with nobody missed. The second one paid 44 of 44, including everyone who had entered since the first.
 
 Track it: https://www.empirebuilder.world/empire/0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07
 
