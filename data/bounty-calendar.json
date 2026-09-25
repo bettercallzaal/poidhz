@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:19:49.555848+00:00",
+  "generated_at": "2026-09-25T15:22:06.652188+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -73,6 +73,15 @@
       "deadline_raw_text": "September 23",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1412"
+    },
+    {
+      "round": "daily-05",
+      "bounty_id": null,
+      "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
+      "deadline_iso": null,
+      "deadline_raw_text": null,
+      "status": "not_cast",
+      "url": null
     },
     {
       "round": "daily-04",
