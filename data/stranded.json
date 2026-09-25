@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T21:25:23.847167+00:00",
+  "generated_at": "2026-09-25T04:35:07.649962+00:00",
   "note": "Funded, open bounties on poidh's pre-v3 contracts, which poidh's own app does not read. Upstream: poidh-app issue #1459. Per-wallet detail is for lookup by the wallet's owner, not for public listing.",
   "totals": {
     "stranded_bounties": 225,
