@@ -73,6 +73,37 @@ HEADERLESS_EVIDENCE = {
     ),
 }
 
+# A CODE ROUND IS A DIFFERENT SHAPE AND THE SKELETON ABOVE IS A MEDIA ROUND'S.
+#
+# Every round until 2026-09-25 asked for a piece of media, so the required sections encode
+# that: a brand kit to build from, a rubric about craft and distribution. Round five asks for
+# a PULL REQUEST against ZAODEVZ/ZAOstock. Run against it, this validator demanded THE ASSET
+# KIT - a brand-kit download link - on a bounty about TypeScript, and demanded a rubric
+# grouped by Distribution and Craft for work that is judged by whether CI passes.
+#
+# The wrong fix is to bolt a brand-kit section onto a code bounty so the checker goes quiet.
+# That is how a validator starts shaping the work instead of checking it. A code round has
+# its own equally strict skeleton, and the thing that plays the asset kit's part is THE REPO:
+# the one link without which nobody can start.
+#
+# Pass --kind=code to use it. The default is unchanged, so every existing round validates
+# exactly as before.
+CODE_REQUIRED_SECTIONS = [
+    ("why", "WHY - what this round is for and who it is aimed at"),
+    ("the_repo", "THE REPO - the repository link, without which nobody can start"),
+    ("what_counts", "WHAT COUNTS - what makes an entry complete, numbered"),
+    ("reward", "THE REWARD - prize + EB ZABAL trail"),
+    ("deadline", "DEADLINE - exact date/time"),
+]
+
+CODE_SECTION_ALIASES = {
+    "why": ["WHY", "THIS ONE IS WRITTEN FOR", "WHY THIS ROUND"],
+    "the_repo": ["THE REPO", "THE REPOSITORY", "THE CODEBASE"],
+    "what_counts": ["WHAT COUNTS", "THE BAR", "WHAT I AM LOOKING FOR"],
+    "reward": ["THE REWARD"],
+    "deadline": ["DEADLINE", "CLOSES", "CLOSING"],
+}
+
 REQUIRED_FLOOR_RULES = [
     ("tag_bcz", "Tag @bettercallzaal on X"),
     ("crosspost_fc", "Cross-post in relevant Farcaster channel"),
@@ -150,16 +181,23 @@ def _section_body(description: str, header: str) -> str | None:
     return rest[:nxt.start()] if nxt else rest
 
 
-def validate_sections(description: str) -> tuple[bool, list]:
+def validate_sections(description: str, kind: str = "media") -> tuple[bool, list]:
     """Check each required section is present AND says something.
 
-    A header match alone is not evidence. See SECTION_MUST_CONTAIN above for why."""
+    A header match alone is not evidence. See SECTION_MUST_CONTAIN above for why.
+
+    `kind` selects the skeleton. "media" is every round through four and is the default, so
+    nothing that validated before changes. "code" is a round that asks for a pull request,
+    where a brand-kit link is meaningless and THE REPO is the section nobody can start
+    without."""
+    required = CODE_REQUIRED_SECTIONS if kind == "code" else REQUIRED_SECTIONS
+    alias_map = CODE_SECTION_ALIASES if kind == "code" else SECTION_ALIASES
     findings = []
     all_pass = True
 
-    for section_id, section_label in REQUIRED_SECTIONS:
+    for section_id, section_label in required:
         canonical = section_label.split(" - ")[0]
-        aliases = SECTION_ALIASES.get(section_id, [canonical])
+        aliases = alias_map.get(section_id, [canonical])
 
         header = None
         for alias in aliases:
@@ -430,6 +468,31 @@ def _selftest() -> bool:
     check("a missing section still fails outright",
           any(x.startswith("FAIL") for x in validate_sections("nothing here at all")[1]))
 
+    # THE CODE SKELETON. Round five asks for a pull request, so a brand-kit link is
+    # meaningless and THE REPO is the section nobody can start without. The controls run both
+    # ways on purpose: a flag that never changes an outcome is decoration.
+    code_round = (
+        "SHIP CODE, NOT A POSTER. Closes 5:00pm Eastern, Sunday October 4.\n\n"
+        "THIS ONE IS WRITTEN FOR AGENTS\n\nBecause an agent that can read a codebase is "
+        "doing the thing this programme wants to pay for.\n\n"
+        "THE REPO\n\nhttps://github.com/ZAODEVZ/ZAOstock\n\n"
+        "WHAT COUNTS\n\n1. It visibly changes something.\n2. It passes CI.\n"
+        "3. It explains itself.\n\n"
+        "THE REWARD\n\nWinner takes the whole pot. Every submitter is added to the POIDH "
+        "Submitters leaderboard on Empire Builder for $ZABAL: "
+        "https://www.empirebuilder.world/empire/0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07\n")
+    ok_code, f_code = validate_sections(code_round, "code")
+    check("a code round PASSES the code skeleton",
+          ok_code or not [x for x in f_code if x.startswith("FAIL")])
+    _, f_as_media = validate_sections(code_round, "media")
+    check("the SAME code round FAILS the media skeleton, so the flag really switches",
+          any("ASSET KIT" in x for x in f_as_media if x.startswith("FAIL")))
+    media_round = ("WHY\n\nBecause.\n\nTHE KIT\n\nhttps://zaostock.com/brand\n\n"
+                   "THE BAR\n\n1. One.\n2. Two.\n3. Three.\n")
+    _, f_media_as_code = validate_sections(media_round, "code")
+    check("a media round FAILS the code skeleton for want of THE REPO",
+          any("THE REPO" in x for x in f_media_as_code if x.startswith("FAIL")))
+
     # The operator header above the sentinels is not the cast text and must not be validated.
     framed = (f"**Prize: 0.0094 ETH, about $25** at ETH $2,657.49, measured 2026-09-20.\n"
               f"{PASTE_START}\nWinner takes the whole pot.\n{PASTE_END}\n")
@@ -461,6 +524,9 @@ def main() -> int:
         help="Strict mode: warnings become failures",
     )
 
+    p.add_argument("--kind", choices=("media", "code"), default="media",
+                   help="which skeleton to require: a media round (default) or a round that "
+                        "asks for a pull request")
     p.add_argument("--allow-prize-amount", action="store_true",
                    help="permit a prize figure in the description. FIXED bounties only - an "
                         "OPEN bounty's pot grows and the description is immutable")
@@ -487,7 +553,7 @@ def main() -> int:
           f" - {len(description)} of {len(raw)} chars")
 
     print("\n--- SECTION VALIDATION ---")
-    sections_pass, sections_findings = validate_sections(description)
+    sections_pass, sections_findings = validate_sections(description, args.kind)
     for finding in sections_findings:
         print(f"  {finding}")
 

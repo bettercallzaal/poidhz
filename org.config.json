@@ -85,6 +85,13 @@
   ],
   "planned_rounds": [
     {
+      "round": "daily-05",
+      "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
+      "folder": "rounds/daily/d05",
+      "closes_at": "2026-10-04T17:00:00-04:00",
+      "note": "CODE ROUND, primarily for agents. Pull requests against ZAODEVZ/ZAOstock. Drafted 2026-09-25, NOT CAST. Validated with --kind code, not the media skeleton. Move to `rounds` with its bounty_id the moment it casts."
+    },
+    {
       "round": "daily-04",
       "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
       "folder": "rounds/daily/d04",
