@@ -87,11 +87,11 @@ If you live around here, you will make a better one than anybody online has. You
 
 ## Block 5 - reply to everyone who entered before
 
-> **DO NOT SEND THIS UNTIL PR #172 IS MERGED.** It points people at
-> https://poidhz.com/feedback for their own notes. Round one's pages are live; **rounds two
-> and three return 404** because they sit on an unmerged branch. Measured 2026-09-24:
-> `/feedback/1409` 200, `/feedback/1410` 404, `/feedback/1412` 404. Sending someone to read
-> their notes and handing them a 404 is worse than not mentioning it.
+> **GATE LIFTED 2026-09-25.** This block was held because it points people at
+> https://poidhz.com/feedback for their own notes, and on 2026-09-24 rounds two and three
+> returned a clean 404 - written, committed, pushed, and sitting on an unmerged branch. PR #172
+> merged at 20:51 that evening. **Re-measured this morning by fetching every page
+> individually: 19 of 19 feedback URLs return 200.** Safe to send.
 
 Send as a reply under each entrant's last entry, so it lands in their notifications. Handles
 verified from their own claims: @pascaline (X `pascaline7933`), @joeyofdeus (X `joey_of_deus`,
