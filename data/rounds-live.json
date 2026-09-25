@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T22:34:12.194986+00:00",
+  "generated_at": "2026-09-25T22:55:07.369062+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [

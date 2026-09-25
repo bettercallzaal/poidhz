@@ -218,3 +218,57 @@ when fifteen were live; by the time it cast on the 25th there were **19**, measu
 Nothing can edit it. It is recorded here rather than quietly forgotten, because the rule this
 repo keeps relearning is that a hand-carried count goes stale between drafting and casting -
 three hand-counted lengths were wrong in the session that wrote this round.
+
+## 2026-09-25 17:1x - THE $ZABAL FORK IS MOOT. IT WENT OUT AGAIN ON THE 24th.
+
+This lane spent the session holding a decision for Zaal: top up 7,400,824.72 $ZABAL to 4
+addresses, or send the full 118,413,195.53 to all 44. **Neither is needed. A second distribution
+already happened**, and nobody in this repo knew until the chain was read.
+
+Zaal's own words, relayed by the Dotfiles lane: *"we did one this morning i think"*. **The chain
+says 2026-09-24 at 14:02 EDT**, which is the afternoon of the day before. His recollection was
+right about the event and about 27 hours out on the timing, which is exactly why this was
+measured instead of believed.
+
+**Transaction:** `0x4467274beeb910643d2a2e767a84860a77521979e36acfaf94b4096337b714c2`
+(Base, block 51741806)
+
+Found by scanning **48 hours of $ZABAL Transfer logs from the distributing address**
+`0xe0faa499d6711870211505bd9ae2105206af1462`, in 1,000-block chunks, blocks 51704413 to
+51790813. The scan completed; a failed chunk would have made this UNKNOWN rather than "one
+transaction".
+
+| | 2026-09-23 | 2026-09-24 |
+|---|---|---|
+| Recipients | 43 | **44** |
+| Total $ZABAL | 111,012,370.81 | **112,185,930.16** |
+| Points on the feed | 60 | **64** |
+| Per point | 1,850,206.18 | **1,752,905.16** |
+
+**Is it the same mechanism as this repo's?** Yes, and the evidence is exact rather than
+circumstantial:
+
+- **44 of 44 addresses on `data/leaderboard.json` were paid. Zero missed, zero extra.**
+- **Strictly proportional to score**: the per-point rate is identical across all 44 addresses -
+  minimum, median and maximum are all 1,752,905.16, so max/min is 1.000000. Five distinct
+  amounts for five distinct scores (1, 2, 3, 5, 6). That is `build-distribution.py --full`'s
+  method, `total / sum(scores)`, arrived at independently.
+
+**The four who earned since the 23rd were all paid in full.** Derived from the two transactions
+rather than from the feed: three addresses went up a point (`0x5dc697f2` 5 to 6, `0x6dce11cc`
+4 to 5, `0xb464fc1d` 2 to 3) and one address is new (`0x59733c7c`, @defifa, who claimed on
+bounty 1412). 60 points plus 4 is 64. **That set of four is exactly the top-up this lane was
+holding**, and it settled a day before anybody chose.
+
+**The pot was smaller, not the method different.** The proposed full used the 09-23 rate carried
+forward, 1,850,206.18 per point; the real one used 1,752,905.16. A pot chosen per distribution,
+scaled pro-rata - which is his call to make and needs no reconciliation.
+
+**What is still UNKNOWN and is not needed for this conclusion:** the dollar figures in the
+ZABAL app's history (weighted $10.06 one day ago, $10.22 two days ago). The only DEX pair for
+this token returns zero price and zero liquidity, so no USD conversion is quoted here. The rows
+line up with these two transactions by count and by day; that is a match on shape, not a proof,
+and nothing above rests on it.
+
+**What this changes in the ledger:** the $ZABAL fork closes as ANSWERED BY ACTION, not by
+decision. It is the third promise this programme has kept, and the first one it kept twice.

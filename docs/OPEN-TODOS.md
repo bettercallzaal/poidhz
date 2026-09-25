@@ -261,3 +261,16 @@ notes for the winner would contradict the ones he already has.
 `git push origin main` was **denied in this session**. Commit `3365024` carries all of the
 above and is local, one ahead of origin. It is not on origin, the site has not redeployed, and
 nothing here routes around that.
+
+### 2026-09-25 17:1x - the $ZABAL fork is CLOSED, and nobody in this repo chose it
+
+It went out again on **2026-09-24 at 14:02 EDT**, tx
+`0x4467274beeb910643d2a2e767a84860a77521979e36acfaf94b4096337b714c2`: **44 of 44 addresses on
+the feed, 112,185,930.16 $ZABAL, strictly pro-rata** (per-point rate identical across all 44,
+max/min 1.000000). **The four who had earned since the 23rd were paid in full** - the exact set
+the top-up option was for. Full reconciliation in `docs/PROMISE-AUDIT.md`.
+
+**The lesson is the lesson this repo keeps paying for.** A decision was held open for a day and
+a half while the thing it decided had already happened. Nothing in this repo watches the token
+contract, so a distribution is invisible here until somebody scans the chain. **Both CSVs this
+lane built were correct and both were obsolete before they were offered.**

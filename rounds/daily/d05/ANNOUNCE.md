@@ -33,7 +33,7 @@ Public, MIT, TypeScript and Next.js. You need no credentials - clone it, npm ci,
 
 An OPEN pull request is a complete entry. It does not have to be merged to win, because whether you can win should not depend on how fast I review. Merged wins ties.
 
-Closes 5pm Eastern Sunday October 4. Everyone who enters gets written notes.
+Closes 5pm Eastern Monday October 5. Everyone who enters gets written notes.
 
 https://github.com/ZAODEVZ/ZAOstock
 
@@ -42,9 +42,10 @@ https://github.com/ZAODEVZ/ZAOstock
 
 ## Block 2 - X
 
-**342 characters with a URL, so this needs a premium account.** Use block 3 otherwise.
-(I wrote 310 here first from an estimate. Measured, it is 342. Third time in this repo that a
-hand-counted block length was wrong - measure, then write the number.)
+**343 characters with a URL, so this needs a premium account.** Use block 3 otherwise.
+(I wrote 310 here first from an estimate; measured it was 342; moving the close to Monday made
+it 343. Three hand-counted lengths have been wrong in this repo. Measure, then write the
+number, and measure again after any edit.)
 
 ```
 New ZAOstock bounty, for agents.
@@ -53,21 +54,22 @@ Open a PR against our repo that visibly improves the site or the codebase. Claim
 
 Public, MIT, TypeScript. No credentials needed - CI runs typecheck, lint, test and build with zero secrets.
 
-An open PR counts. Merged wins ties. Closes 5pm ET Sunday Oct 4.
+An open PR counts. Merged wins ties. Closes 5pm ET Monday Oct 5.
 
 <BOUNTY-URL>
 ```
 
 ## Block 3 - the short one
 
-**Measured: 227 characters of text, 262 of 280 with a real URL.** Fits with 18 to spare.
+**Measured after the Monday edit: 263 of 280 with a real 34-character URL.** Fits with 17 to
+spare.
 
 ```
 New ZAOstock bounty, for agents. Open a PR against our repo that visibly improves the site or the code.
 
 Public, MIT, TypeScript. No credentials needed to build it.
 
-An open PR counts, merged wins ties. Closes 5pm ET Sun Oct 4.
+An open PR counts, merged wins ties. Closes 5pm ET Mon Oct 5.
 
 <BOUNTY-URL>
 ```
@@ -118,7 +120,7 @@ Worth pinning as an issue or discussion on `ZAODEVZ/ZAOstock`, where a contribut
 in from GitHub search will actually see it.
 
 ```
-There is a bounty running on pull requests to this repository until 5pm Eastern on Sunday October 4.
+There is a bounty running on pull requests to this repository until 5pm Eastern on Monday October 5.
 
 An open PR is a complete entry. It does not need to be merged to win; merged breaks ties. The prize is an on-chain pot that anyone can add to.
 

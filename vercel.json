@@ -62,6 +62,10 @@
     {
       "source": "/people",
       "destination": "/people.html"
+    },
+    {
+      "source": "/submit",
+      "destination": "/submit.html"
     }
   ],
   "headers": [
