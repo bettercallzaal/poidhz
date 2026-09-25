@@ -25,6 +25,20 @@ check('defaults to HUMAN when agent is not set', body.includes('>HUMAN<'));
 ({ body } = await get('pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Ftree%2Fmain'));
 check('a github URL that is NOT a pull request is called out', body.includes('NOT A GITHUB PULL REQUEST URL'));
 
+// THE HOSTNAME ALLOWLIST HAD NO TEST, found 2026-09-25 by the Zaostock lane mutating this file
+// rather than reading it: deleting `u.hostname !== 'github.com'` left the suite at 16 of 16,
+// so nothing here was holding that line. A correct check with no test is one careless edit from
+// being gone. Both halves are asserted - the slug must not be drawn, and the card must say why.
+({ body } = await get('pr=https%3A%2F%2Fevil.example%2Fa%2Fb%2Fpull%2F1'));
+check('a pull-request-shaped path on ANOTHER host is not rendered as a PR',
+      !body.includes('a/b#1'));
+check('and that card says the link is not a github pull request',
+      body.includes('NOT A GITHUB PULL REQUEST URL'));
+// A lookalike host must not pass either - the check is an equality, not a suffix match, and
+// this is the case a `.endsWith("github.com")` rewrite would silently break.
+({ body } = await get('pr=https%3A%2F%2Fnotgithub.com%2Fa%2Fb%2Fpull%2F1'));
+check('a lookalike hostname does not pass as github.com', !body.includes('a/b#1'));
+
 ({ body } = await get('pr=javascript%3Aalert(1)'));
 check('a javascript: URL is refused, not rendered', !body.includes('javascript:'));
 ({ body } = await get('pr=data%3Atext%2Fhtml%2C%3Cscript%3E'));
