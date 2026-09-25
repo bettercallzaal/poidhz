@@ -100,7 +100,7 @@ Farcaster `joeyofdeus`), @taku0x (X `0xcryt29`, Farcaster `taku0x`), @barsam (Fa
 reply to him.**
 
 ```
-New one is up and it runs three days instead of one, so there is time to make something properly.
+New one is up and it runs longer than a day, so there is time to make something properly.
 
 Make an ad for ZAOstock, 30 seconds or less, any format. Closes 5pm Eastern Sunday.
 

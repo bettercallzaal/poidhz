@@ -148,3 +148,40 @@ has been distributed to this programme's entrants."
 **Still owed, and not fixed by this:** R3's winner announcement (femmie, unsent since June)
 and R5's (unsent 17 days). Money is not the same as credit, and those were promised
 separately.
+
+## 2026-09-25 - THE FEEDBACK PROMISE WAS KEPT, AND IT IS THE SECOND ONE EVER
+
+Bounty 1412's immutable text promises, in the round that is still in its contributor vote as
+this is written:
+
+> *"Everyone who enters gets written notes on their own piece, win or lose. One thing it did
+> and one thing to do better. They all go up at https://poidhz.com/feedback - every entrant
+> gets their own page, and they are public so you can read what was asked of everybody else
+> and not only of you."*
+
+**That is now true.** Measured by HTTP at 06:5x on 2026-09-25, every page fetched individually:
+**19 of 19 feedback URLs return 200**, covering all fifteen entrant pages across three rounds
+plus the per-round indexes.
+
+| Round | Bounty | Entrant pages live |
+|---|---|---|
+| One | 1409 | 5 |
+| Two | 1410 | 6 |
+| Three | 1412 | 4 |
+
+**It was not true for most of a day, and the gap is the point.** Round two's and round three's
+eleven pages were written, committed and pushed on 2026-09-24 - and returned a clean **404**
+until PR #172 merged at 20:51 EDT that evening, because poidhz.com deploys from `main` and the
+work sat on a branch. Written is not published. The check that caught it was fetching the URL,
+not looking in the repo, and nothing in this repo had been doing that.
+
+**What this makes two.** The $ZABAL distribution on 2026-09-23 was the first promise this
+programme kept after five rounds of not keeping them. This is the second, and unlike the first
+it is a promise about **attention** rather than money - the exact class the audit above says
+rots quietest, because nothing enforces it and nobody is out of pocket when it lapses.
+
+**Still owed, unchanged by this:** R3's winner announcement (femmie, unsent since June), R5's
+(unsent), and **round one of the daily run has no winner announcement copy in any form** while
+its winner has been paid since 2026-09-23. `postclose-check.py --bounty 1409` blocks on it.
+Round one's cast text also promised, twice, *"Live on stream at 5pm Eastern, the same day it
+closes."* That stream did not happen and is not yet answered publicly.

@@ -3,11 +3,14 @@
 **DRAFT, NOT CAST.** Strip this header before pasting. Everything between the sentinel lines
 goes in the Description field.
 
-**THIS ONE RUNS THREE DAYS, NOT ONE.** It lives in `rounds/daily/` because the tooling globs
+**THIS ONE RUNS LONGER THAN A DAY.** Drafted on 24 September for a three-day window; not cast
+that day because the issuer wallet was short, so casting on the 25th makes it **two days**.
+The close never moved and the cast body names no opening day, so nothing in the immutable text
+is affected. It lives in `rounds/daily/` because the tooling globs
 `rounds/daily/d*` and because it is the same ZAOstock ladder, but the one-day shape ends here.
 Zaal, 2026-09-23: *"lets make the next one a 3 day one and say make an ad for zaostock"*.
 
-**Opens:** Thursday 24 September 2026.
+**Opens:** whenever it is cast. Drafted 24 September, still uncast at 06:56 on the 25th.
 **Closes:** Sunday 27 September 2026, **5:00pm Eastern** - the same clock time every round in
 this run has used.
 **Pick:** announced next week, during the week. **No date and no venue are named on purpose.**
