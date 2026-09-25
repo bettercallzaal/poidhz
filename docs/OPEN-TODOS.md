@@ -188,3 +188,76 @@ so preferring a human there is a live option rather than a broken promise.
   Discord, or luma, whose page I could not read at all.
 - Whether 1412's extra 0.001 ETH is a contribution or a mis-recorded cast amount.
 - Whether @leoxcrane's missing feedback page was a decision or an omission.
+
+## 2026-09-25 15:0x EDT - re-measured after round four cast
+
+**Everything above was measured on 09-23 and parts of it are now stale.** This section does not
+rewrite it; it says what has moved, with the command that measured each line.
+
+### The clock, which is all that matters now
+
+| When | What | Whose hand |
+|---|---|---|
+| **Sat 26 Sep 04:45 EDT** | `resolveVote(424)` unlocks - round two, claim 8111 @assay | Zaal |
+| **Sat 26 Sep 14:08 EDT** | `resolveVote(426)` unlocks - round three, claim 8149 @pascaline | Zaal |
+| **Sun 27 Sep 17:00 EDT** | round four closes as cast | nobody - it just passes |
+| **Sun 4 Oct 17:00 EDT** | round five closes, if it is cast | Zaal casts |
+
+`claim-report.py --bounty 1410` and `--bounty 1412`, read 2026-09-25 14:48: **8 and 5 claims,
+`accepted` None on both.** Neither round pays anybody until both votes are fired.
+
+### Round four is CAST and is no longer a draft
+
+`query-bounty.py --bounty 1418`: **bounty 1418, on-chain 432, OPEN, 0.005 ETH**, issuer
+`0x7234c36a71`, **2 claims** (8240 @coolhat, 8239 @assay), neither accepted.
+`verify-cast-text.py --round rounds/daily/d04 --bounty 1418` returns **PASS at 6,720
+characters**, so the immutable body is the drafted one exactly. Tracked in `rounds`, in
+`default_bounty_ids`, pot recorded in the round file, homepage rebaked.
+
+**One number in it is wrong forever and it understates us:** the body says *"Fifteen pages are
+up there now"* - drafted on the 24th, when fifteen were live. Nineteen were live when it cast.
+Nothing can edit it.
+
+### Round five is READY TO CAST, with nothing blocking and no warnings
+
+`precast-check.py --round d05 --prize 0.005`: wallet covers it with **0.001756 ETH spare**,
+9-day window, `--kind code` validation passes, and the October 4 close is now recorded as
+deliberate rather than blocked. It was reporting two blockers this morning and **both were the
+checks being wrong about a code round**, not the round.
+
+### Every daily round now has a promise ledger, and the number is worse than the old one
+
+`postclose-check.py --scaffold` for 1409, 1410, 1412 and 1418, then each status set by hand with
+its evidence. `health-report.py` reads them - which it could not do before, because it globbed
+`rounds/r*/closeout.json` and the daily ladder lives a level deeper.
+
+| | kept | broken | na | unrecorded |
+|---|---|---|---|---|
+| **All rounds** | **12** | **14** | 6 | **17** |
+
+**31 still owed.** Five d03 rows are unrecorded on purpose: they turn on Farcaster tags and
+Telegram DMs this seat cannot read. Each one names where it was searched and says Zaal is the
+only person who can close it. That is a missing measurement, not a clean row.
+
+### The @leoxcrane question is now answered as far as it can be, and it has a consequence
+
+It was listed above as "deliberate or dropped, unrecorded either way". `d01/FEEDBACK.md` says
+**"@leoxcrane was posted 2026-09-22 by Zaal"** - his notes were delivered before the pages
+existed, which is why there are five pages for six entrants. **It is an omission with a reason,
+not a decision to exclude him.**
+
+The consequence nobody had noticed: round one's unsent winner announcement told him *"Your
+notes are at https://poidhz.com/feedback/1409/leoxcrane"*. **That URL returns 404**, measured
+directly, with `/feedback/1409/coolhat` returning 200 as the control. Two other sentences said
+all six entries have public notes. All three corrected in
+`rounds/daily/d01/winner-announce.md`, which has still never been sent.
+
+**Still unknown, and only Zaal can answer:** whether he wants a public page for @leoxcrane too.
+Not written here, because what he sent on the 22nd is not in this repo and inventing different
+notes for the winner would contradict the ones he already has.
+
+### BLOCKED
+
+`git push origin main` was **denied in this session**. Commit `3365024` carries all of the
+above and is local, one ahead of origin. It is not on origin, the site has not redeployed, and
+nothing here routes around that.
