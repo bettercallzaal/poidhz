@@ -40,7 +40,7 @@ The pot was 0.004 ETH when it was cast and 0.0061 ETH when it paid out. It grew 
 
 I owe everyone an apology on this one. The bounty text said the winner would be named live on stream at 5pm the day it closed. There was no stream, and instead of saying so I said nothing for four days while the winner was already paid. That is the second time this programme has promised a stream and not run one, so I am going to stop writing it into bounties until I have actually done it once.
 
-All six entries got written notes and they are public: https://poidhz.com/feedback/1409
+Every entry got written notes. Five of them are public pages: https://poidhz.com/feedback/1409
 
 https://poidh.xyz/base/bounty/1409
 ```
@@ -54,19 +54,20 @@ This won round one and the 0.0061 ETH is already in your wallet.
 
 It is still the most complete piece anyone has made for ZAOstock - every fact on the poster, all eight acts named, nothing a reader has to go and look up.
 
-Your notes are at https://poidhz.com/feedback/1409/leoxcrane if you want them. There is another round coming and I would like you in it.
+The notes I sent you on September 22 still stand. There is another round coming and I would like you in it.
 ```
 
 ## Block 3 - the short one
 
-Measured: **232 characters of text**, 267 of 280 with a 34-character URL. Fits with 13 to spare.
+Measured after the feedback-count correction below: **234 characters of text**, 270 of 280 with
+a 34-character URL. Fits with 10 to spare.
 
 ```
 ZAOstock bounty one is settled. @leoxcrane won with a poster carrying every fact - all eight acts, free, noon to six, the street, the date.
 
 Pot grew 53% while it was open, 0.004 to 0.0061 ETH.
 
-Notes for all six entries are public.
+Every entry got notes. Five are public.
 ```
 
 ## What this deliberately does not do
@@ -76,9 +77,30 @@ Notes for all six entries are public.
 - **It does not name a date for anything.**
 - **It does not say the stream is coming.** It says the opposite: no more stream promises until
   one has actually happened. That is the only version of this that is not a sixth promise.
-- **It does not say round four is open**, because it is not cast. An earlier draft of block 2
-  did. A winner announcement that points at a bounty nobody can enter is the same class of
-  error as the rest of this file - saying a thing before it is true.
+- **It does not say round four is open.** It was written while round four was uncast, and an
+  earlier draft of block 2 named it anyway - a winner announcement pointing at a bounty nobody
+  can enter is the same class of error as the rest of this file. **Round four is now CAST
+  (bounty 1418, cast 2026-09-25, closes Sun 27 Sep 5pm)**, so that line is true today and the
+  copy still leaves it out. Add it if you want the announcement to recruit; leave it out if you
+  want the apology to stand on its own. Do not add it after Sunday 5pm.
+
+## Corrected 2026-09-25, before it was ever sent
+
+Three sentences in this file were checkable and wrong, and all three were about the feedback
+pages - the promise this programme has actually been keeping.
+
+- Block 2 told the winner *"Your notes are at https://poidhz.com/feedback/1409/leoxcrane"*.
+  **That URL returns 404**, measured directly, with `/feedback/1409/coolhat` returning 200 as
+  the control so the check itself is known to work. `rounds/daily/d01/FEEDBACK.md` records why:
+  *"@leoxcrane was posted 2026-09-22 by Zaal"* - his notes were delivered before the pages
+  existed, so he is the one entrant of six without one. The line now refers to what was
+  actually sent.
+- Blocks 1 and 3 said notes for **all six** entries are public. **Five pages exist**
+  (coolhat, dee-13, pascaline, predaking, uniquebeing404), measured by listing the directory
+  and confirmed against `data/feedback/d01.json`. Both now say five.
+- **The open question this leaves for Zaal:** do you want a public page for @leoxcrane too? It
+  is not written here, because what you sent him on the 22nd is not in this repo and inventing
+  a different set of notes for the winner would contradict the ones he already has.
 - **It does not use the winner's reply to point at other entrants' mistakes.** The first draft
   noted that people are still leaving the word FREE off, which is true, and putting it in a
   congratulation makes the message about somebody else. That belongs in their own notes, where

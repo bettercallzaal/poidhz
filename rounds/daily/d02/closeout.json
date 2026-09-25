@@ -1,0 +1,53 @@
+{
+  "bounty_id": 1410,
+  "round": "daily-02",
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "I name my pick live on Twitch around 5pm, right as it closes, with the entries on screen, and the people who funded the pot confirm it in a two-day vote.",
+      "commits_to": [
+        "a stream",
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "broken",
+      "evidence": "No stream. Round two is still in its contributor vote as this is written, with accepted=None measured on bounty 1410.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "The moose mark is by attabotty; credit on the piece is asked for.",
+      "commits_to": [
+        "crediting the entrant"
+      ],
+      "status": "na",
+      "evidence": "This asks the ENTRANT for credit; it commits us to nothing. Left as na rather than kept so it is not counted as a promise we delivered.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Every submitter also earns $ZABAL through the POIDH Submitters leaderboard on Empire Builder, scaled by how many BCZ rounds you have entered: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "kept",
+      "evidence": "Same distribution, tx 0x4b795c5ea5b34da9f44613b81603a3893edc2d7fe9d48f503480be29699ede76. @assay, @barsam and @mfa were absent from Empire Builder's own list and were paid anyway.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Live on Twitch around 5pm Eastern, right as it closes, entries on screen.",
+      "commits_to": [
+        "a stream"
+      ],
+      "status": "broken",
+      "evidence": "No stream ran for round two.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Same shape every day: opens, closes at 5pm Eastern, pick named live on Twitch around then, confirmed by the people who funded it.",
+      "commits_to": [
+        "a stream"
+      ],
+      "status": "broken",
+      "evidence": "The pick was not named live on any day of the run. Round four deliberately promises no stream at all, which is the correction.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    }
+  ]
+}

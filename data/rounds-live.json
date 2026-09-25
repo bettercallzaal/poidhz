@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T19:22:23.332787+00:00",
+  "generated_at": "2026-09-25T19:24:51.937141+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -160,16 +160,27 @@
       "offchain_note": null
     },
     {
+      "round": "daily-04",
+      "label": "Daily 4",
+      "folder": "rounds/daily/d04",
+      "closes_at": "2026-09-27T17:00:00-04:00",
+      "bounty_id": 1418,
+      "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
+      "bounty_title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
+      "url": "https://poidh.xyz/base/bounty/1418",
+      "status": "OPEN",
+      "amount_native": 0.005,
+      "amount_usd": 13.4515,
+      "claims": 2,
+      "winner": null,
+      "offchain": false,
+      "offchain_note": null
+    },
+    {
       "round": "daily-05",
       "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
       "status": "DRAFT",
       "folder": "rounds/daily/d05"
-    },
-    {
-      "round": "daily-04",
-      "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
-      "status": "DRAFT",
-      "folder": "rounds/daily/d04"
     },
     {
       "round": 9,

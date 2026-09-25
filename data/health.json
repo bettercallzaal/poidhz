@@ -1,8 +1,26 @@
 {
-  "generated_at": "2026-09-14T04:33:29.581956+00:00",
+  "generated_at": "2026-09-25T19:10:41.185457+00:00",
   "note": "Findings from the advisory cron checks. They run continue-on-error so a human-only problem does not red-build every six hours - which means their output would otherwise live only in logs nobody opens. This file is the half that stays visible.",
   "promises": {
     "by_round": {
+      "d01": {
+        "kept": 1,
+        "broken": 2
+      },
+      "d02": {
+        "broken": 3,
+        "na": 1,
+        "kept": 1
+      },
+      "d03": {
+        "kept": 5,
+        "unrecorded": 5,
+        "na": 3,
+        "broken": 2
+      },
+      "d04": {
+        "unrecorded": 11
+      },
       "r1": {
         "kept": 1
       },
@@ -22,12 +40,12 @@
       }
     },
     "totals": {
-      "kept": 5,
-      "broken": 7,
-      "na": 2,
-      "unrecorded": 1
+      "kept": 12,
+      "broken": 14,
+      "na": 6,
+      "unrecorded": 17
     },
-    "still_owed": 8
+    "still_owed": 31
   },
   "recheck_dates": {
     "total": 3,

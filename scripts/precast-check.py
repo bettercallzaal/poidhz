@@ -171,9 +171,17 @@ MONTHS = {m: i for i, m in enumerate(
      "august", "september", "october", "november", "december"], start=1)}
 
 
-def check_deadline(round_dir: Path, cast_date: dt.date) -> None:
+def check_deadline(round_dir: Path, cast_date: dt.date, kind: str = "media",
+                   after_event_reason: str = "") -> None:
     """The date in description.md is plain hardcoded text. It does not move when the
-    cast slips, which is how a '14-day window' quietly becomes a 7-day one."""
+    cast slips, which is how a '14-day window' quietly becomes a 7-day one.
+
+    `kind` exists because the festival deadline is not universal. Every promo round is worth
+    nothing after October 3, so closing later is a hard block. A CODE round is not promo: round
+    five asks for pull requests against the repo, which outlives the event, and it closes on
+    October 4 on purpose. Before this argument existed the check blocked that round with a
+    sentence about promo - a true rule applied to a round it was never written for.
+    """
     print("\n[2/5] DEADLINE")
     desc = round_dir / "description.md"
     if not desc.exists():
@@ -228,9 +236,16 @@ def check_deadline(round_dir: Path, cast_date: dt.date) -> None:
     # The only deadline that cannot move. A promo round that closes after the thing it
     # promotes is worth nothing, and this repo has an event with a fixed date.
     event = dt.date(2026, 10, 3)
-    if deadline > event:
+    if deadline > event and kind == "code":
+        reason = after_event_reason or ("a code round is not promo - the repository outlives "
+                                       "the festival")
+        ok(f"closes {(deadline - event).days} day(s) AFTER ZAOstock, and for a code round that "
+           f"is deliberate: {reason}")
+    elif deadline > event:
         blocking(f"the stated deadline is AFTER ZAOstock ({event:%B %-d}). Promo that lands "
-                 f"after the festival is worth nothing.")
+                 f"after the festival is worth nothing. If this round is not promo, record "
+                 f"its kind in org.config.json (e.g. \"kind\": \"code\") rather than "
+                 f"silencing the check.")
     elif deadline == event:
         warn("the round closes ON the day of the festival - there is no time to use the work")
     else:
@@ -278,6 +293,43 @@ def precedes(n, round_num) -> bool:
     return False
 
 
+def resolve_round_id(cfg: dict, round_arg):
+    """The config's own id for a round, given any spelling a human types on the CLI.
+
+    `--round d04` is the folder's name and reads naturally, but the config key is `daily-04`.
+    Before this existed the two halves of the check disagreed: `round_folder` found
+    rounds/daily/d04 through its fallback, while `check_config` compared the literal string
+    "d04" against the config keys, missed, and printed "Rd04 is in neither `rounds` nor
+    `planned_rounds`" - about a round that was sitting in `planned_rounds` the whole time.
+    Measured 2026-09-25 on d04. A warning that is false trains you to skip warnings.
+
+    Returns the config's id (coerced), or the argument unchanged when nothing matches - a
+    round genuinely absent from the config must still reach `check_config` and warn.
+    """
+    for r in cfg.get("rounds", []) + (cfg.get("planned_rounds") or []):
+        names = {str(r.get("round"))}
+        folder = r.get("folder")
+        if folder:
+            names.add(Path(folder).name)
+        if str(round_arg) in names:
+            return coerce_round(r.get("round"))
+    return coerce_round(round_arg)
+
+
+def round_meta(cfg: dict, round_id) -> dict:
+    """The config entry for a round, from either list. Empty dict when it has none."""
+    for r in cfg.get("rounds", []) + (cfg.get("planned_rounds") or []):
+        if str(r.get("round")) == str(round_id):
+            return r
+    return {}
+
+
+def round_kind(cfg: dict, round_id) -> str:
+    """"media" unless the config says otherwise. The default is the strict one on purpose:
+    an unlabelled round gets the promo rules, including the hard October 3 deadline."""
+    return str(round_meta(cfg, round_id).get("kind") or "media")
+
+
 def round_folder(cfg: dict, round_arg) -> Path:
     """The directory that really holds this round, from org.config.json.
 
@@ -285,7 +337,8 @@ def round_folder(cfg: dict, round_arg) -> Path:
     whatever `folder` the config records. Falls back to rounds/r<arg> only when the config has
     nothing, and that fallback is visible in the output rather than silent.
     """
-    for r in cfg.get("rounds", []) + cfg.get("planned_rounds", []):
+    round_arg = resolve_round_id(cfg, round_arg)
+    for r in cfg.get("rounds", []) + (cfg.get("planned_rounds") or []):
         if str(r.get("round")) == str(round_arg) and r.get("folder"):
             return REPO_ROOT / r["folder"]
     guess = REPO_ROOT / "rounds" / f"r{round_arg}"
@@ -372,6 +425,18 @@ VALIDATOR_CAVEAT = (
     " actually offer. Read the description yourself too.)"
 )
 
+# A code round's skeleton is WHY / THE REPO / WHAT COUNTS / THE REWARD / DEADLINE, and only two
+# of those five have a body rule - the other three are matched by their header alone. Saying so
+# is the point: the media caveat above would otherwise be printed under a code round and name
+# sections that round does not have.
+CODE_VALIDATOR_CAVEAT = (
+    "(code skeleton: WHY, THE REPO, WHAT COUNTS, THE REWARD, DEADLINE. Only\n"
+    " THE REWARD and DEADLINE have their BODIES read - a pointer to the live\n"
+    " pot, and a real date or time. WHY, THE REPO and WHAT COUNTS are matched\n"
+    " by their headers alone, so a PASS does not mean the repo link resolves\n"
+    " or that WHAT COUNTS says anything. Read the description yourself too.)"
+)
+
 
 def validator_sections() -> list[str]:
     """The section ids validate-bounty-description.py inspects the body of.
@@ -441,7 +506,7 @@ def check_recheck_dates(round_dir: Path, today: dt.date) -> None:
              f"re-verify the claim beside it before casting, then move the date")
 
 
-def check_description(round_dir: Path) -> None:
+def check_description(round_dir: Path, kind: str = "media") -> None:
     print("\n[4/5] DESCRIPTION")
     desc = round_dir / "description.md"
     if not desc.exists():
@@ -458,14 +523,19 @@ def check_description(round_dir: Path) -> None:
         warn("validate-bounty-description.py not found, skipped")
         return
 
-    r = subprocess.run(
-        [sys.executable, str(validator), "--description", str(desc)],
-        capture_output=True, text=True,
-    )
+    # A code round has its own skeleton. Running the media validator against it reports FAIL on
+    # sections a code bounty is not supposed to have, which is how round five looked broken
+    # while being correct. The kind comes from org.config.json, so the two checks cannot drift.
+    cmd = [sys.executable, str(validator), "--description", str(desc)]
+    if kind == "code":
+        cmd += ["--kind", "code"]
+    r = subprocess.run(cmd, capture_output=True, text=True)
     verdict = [ln for ln in r.stdout.splitlines() if "VERDICT" in ln]
     if any("PASS" in v for v in verdict):
-        ok("validate-bounty-description.py PASSes")
-        for line in VALIDATOR_CAVEAT.splitlines():
+        ok(f"validate-bounty-description.py PASSes"
+           f"{' (--kind code)' if kind == 'code' else ''}")
+        caveat = CODE_VALIDATOR_CAVEAT if kind == "code" else VALIDATOR_CAVEAT
+        for line in caveat.splitlines():
             print(f"         {line}")
     else:
         for ln in r.stdout.splitlines():
@@ -562,6 +632,51 @@ def _selftest() -> bool:
     )
     check("does NOT flag a deliberately offchain round",
           not any("R2" in b for b in BLOCKING))
+
+    # The alias bug, captured. `--round d04` is the folder name; `daily-04` is the config key.
+    alias_cfg = {"default_bounty_ids": [], "rounds": [],
+                 "planned_rounds": [{"round": "daily-04", "folder": "rounds/daily/d04"}]}
+    check("folder-style d04 resolves to the config key daily-04",
+          resolve_round_id(alias_cfg, "d04") == "daily-04")
+    check("the config key itself still resolves to itself",
+          resolve_round_id(alias_cfg, "daily-04") == "daily-04")
+    check("an integer round is unchanged and stays an int",
+          resolve_round_id(alias_cfg, "6") == 6)
+    check("a round absent from the config is returned unchanged, so it can still warn",
+          resolve_round_id(alias_cfg, "d09") == "d09")
+
+    BLOCKING, WARNINGS, NOTES = [], [], []
+    check_config(alias_cfg, resolve_round_id(alias_cfg, "d04"))
+    check("d04 no longer warns that it is missing from the config",
+          not any("neither" in w for w in WARNINGS))
+
+    # kind: the default must stay strict, and a code round must not be blocked by the promo rule
+    kind_cfg = {"rounds": [{"round": "daily-04", "folder": "rounds/daily/d04"}],
+                "planned_rounds": [{"round": "daily-05", "folder": "rounds/daily/d05",
+                                    "kind": "code"}]}
+    check("a round with no kind is treated as media", round_kind(kind_cfg, "daily-04") == "media")
+    check("a code round reports its kind", round_kind(kind_cfg, "daily-05") == "code")
+    check("a round absent from the config is still media",
+          round_kind(kind_cfg, "daily-99") == "media")
+
+    import tempfile as _tf
+    def _deadline(kind: str, closes: str) -> tuple[list, list]:
+        global BLOCKING, WARNINGS, NOTES
+        BLOCKING, WARNINGS, NOTES = [], [], []
+        with _tf.TemporaryDirectory() as d:
+            rd = pathlib.Path(d)
+            (rd / "description.md").write_text(f"Submissions close 5:00pm Eastern, {closes}.\n")
+            check_deadline(rd, dt.date(2026, 9, 25), kind)
+        return BLOCKING, WARNINGS
+
+    b, _ = _deadline("media", "Sunday, October 4, 2026")
+    check("a MEDIA round closing after the festival is still blocked",
+          any("AFTER ZAOstock" in x for x in b))
+    b, _ = _deadline("code", "Sunday, October 4, 2026")
+    check("a CODE round closing after the festival is not blocked", not b)
+    b, _ = _deadline("code", "Thursday, September 3, 2026")
+    check("a CODE round with a deadline in the past is still blocked",
+          any("PAST" in x for x in b))
 
     BLOCKING, WARNINGS, NOTES = [], [], []
     import tempfile
@@ -670,12 +785,17 @@ def main() -> int:
         return 1
 
     cfg = load_org_config()
-    print(f"Pre-cast check - R{args.round}, prize {args.prize} ETH, casting {cast_date}")
+    round_id = resolve_round_id(cfg, args.round)
+    kind = round_kind(cfg, round_id)
+    typed = f" (you typed {args.round})" if str(round_id) != str(args.round) else ""
+    print(f"Pre-cast check - R{round_id}{typed}, kind {kind}, "
+          f"prize {args.prize} ETH, casting {cast_date}")
 
     check_wallet(cfg, args.prize)
-    check_deadline(round_dir, cast_date)
-    check_config(cfg, coerce_round(args.round))
-    check_description(round_dir)
+    check_deadline(round_dir, cast_date, kind,
+                   round_meta(cfg, round_id).get("closes_after_event_on_purpose", ""))
+    check_config(cfg, round_id)
+    check_description(round_dir, kind)
     check_known_bad(round_dir)
     check_recheck_dates(round_dir, cast_date)
     check_data_freshness()

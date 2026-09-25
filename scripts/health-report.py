@@ -39,7 +39,13 @@ OUT = REPO_ROOT / "data" / "health.json"
 def promises() -> dict:
     """Per-round promise state, read straight from the ledgers."""
     rounds, totals = {}, {"kept": 0, "broken": 0, "na": 0, "unrecorded": 0}
-    for p in sorted(REPO_ROOT.glob("rounds/r*/closeout.json")):
+    # BOTH TREES. `rounds/r*/closeout.json` is one level deep and the daily ladder lives at
+    # `rounds/daily/dNN/`, so this sweep silently covered the five weekly rounds and none of
+    # the daily ones - a promise ledger for daily-04 would have counted for nothing while the
+    # report said "still_owed" with a straight face. Measured 2026-09-25.
+    ledgers = sorted(set(REPO_ROOT.glob("rounds/*/closeout.json"))
+                     | set(REPO_ROOT.glob("rounds/*/*/closeout.json")))
+    for p in ledgers:
         try:
             rows = json.loads(p.read_text()).get("promises", [])
         except Exception:

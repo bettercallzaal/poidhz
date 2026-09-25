@@ -1,7 +1,20 @@
-# Daily 04 - Make An Ad (paste-ready for POIDH Title + Description)
+# Daily 04 - Make An Ad (CAST)
 
-**DRAFT, NOT CAST.** Strip this header before pasting. Everything between the sentinel lines
-goes in the Description field.
+**CAST 2026-09-25 by Zaal** - *"its posted"*, 14:46, relayed by the Dotfiles lane and then
+measured rather than believed.
+
+- **Bounty <https://poidh.xyz/base/bounty/1418>**, on-chain id **432**, chain 8453, type OPEN.
+- **Pot at cast: 0.005 ETH** (~$13.43 at read time), issuer
+  `0x7234c36a71ec237c2ae7698e8916e0735001e9af`. Recorded here because bounty two's was not, and
+  its pot growth is permanently unknowable as a result.
+- **Cast text verified:** `verify-cast-text.py --round rounds/daily/d04 --bounty 1418` returns
+  PASS at **6,720 characters** - the body below is what is on chain, character for character.
+- First read after cast, 2026-09-25 14:5x: **2 claims** (8240 @coolhat, 8239 @assay), neither
+  accepted.
+
+Everything between the sentinel lines is what went in the Description field. **It is immutable
+now** - corrections go in a claim reply or an announcement, never by editing this file to match
+a wish.
 
 **THIS ONE RUNS LONGER THAN A DAY.** Drafted on 24 September for a three-day window; not cast
 that day because the issuer wallet was short, so casting on the 25th makes it **two days**.
@@ -10,9 +23,10 @@ is affected. It lives in `rounds/daily/` because the tooling globs
 `rounds/daily/d*` and because it is the same ZAOstock ladder, but the one-day shape ends here.
 Zaal, 2026-09-23: *"lets make the next one a 3 day one and say make an ad for zaostock"*.
 
-**Opens:** whenever it is cast. Drafted 24 September, still uncast at 06:56 on the 25th.
+**Opened:** 2026-09-25, cast by Zaal. Drafted 24 September.
 **Closes:** Sunday 27 September 2026, **5:00pm Eastern** - the same clock time every round in
-this run has used.
+this run has used. **That is a two-day window**, one short of the three Zaal asked for, because
+the cast slipped a day; the close never moved and the immutable body names no opening day.
 **Pick:** announced next week, during the week. **No date and no venue are named on purpose.**
 
 ## The four rulings this text is built on, so nobody re-litigates them

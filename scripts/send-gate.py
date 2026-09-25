@@ -42,21 +42,58 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # explicitly released. A gate that fires on a file nobody gated is an inverted alarm: it
 # reports held work that is free to go, and the fix for being wrong in that direction is not
 # to reword the prose but to stop the reader mistaking a quotation for an instruction.
-GATE_RE = re.compile(r"(?m)^[ \t]*<!--\s*SEND-GATE:\s*round=(\d+)\s*-->[ \t]*$", re.I)
+#
+# The round id accepts letters and hyphens, not only digits. `round=(\d+)` could not express
+# the daily ladder at all: a file gated on `round=daily-04` did not match, so it read as
+# UNGATED and sendable - the failure direction that actually costs something, since the whole
+# point of the gate is to hold copy until its round is closed out.
+GATE_RE = re.compile(r"(?m)^[ \t]*<!--\s*SEND-GATE:\s*round=([A-Za-z0-9_-]+)\s*-->[ \t]*$",
+                     re.I)
 
 
-def gate_of(path: Path) -> int | None:
+def gate_of(path: Path):
+    """The round id a file is gated on: an int for the weekly rounds, a string for daily-NN."""
     try:
         m = GATE_RE.search(path.read_text())
     except Exception:
         return None
-    return int(m.group(1)) if m else None
+    if not m:
+        return None
+    raw = m.group(1)
+    try:
+        return int(raw)
+    except ValueError:
+        return raw
 
 
-def round_state(round_num: int) -> tuple[list[dict], str] | None:
+def ledger_for(round_num) -> Path | None:
+    """The closeout ledger for a round id, in whichever tree that round lives in.
+
+    A gate may name 5 or daily-04. Only `rounds/rN/closeout.json` was ever looked for, so a
+    gate naming a daily round was reported as "no closeout.json" - which reads as a missing
+    ledger and is really a missing lookup.
+    """
+    candidates = [REPO_ROOT / "rounds" / f"r{round_num}" / "closeout.json"]
+    try:
+        cfg = json.loads((REPO_ROOT / "org.config.json").read_text())
+        for r in cfg.get("rounds", []) + (cfg.get("planned_rounds") or []):
+            names = {str(r.get("round"))}
+            if r.get("folder"):
+                names.add(Path(r["folder"]).name)
+            if str(round_num) in names and r.get("folder"):
+                candidates.insert(0, REPO_ROOT / r["folder"] / "closeout.json")
+    except Exception:
+        pass
+    for c in candidates:
+        if c.exists():
+            return c
+    return None
+
+
+def round_state(round_num) -> tuple[list[dict], str] | None:
     """(broken_rows, reason) or None if the round has no ledger."""
-    p = REPO_ROOT / "rounds" / f"r{round_num}" / "closeout.json"
-    if not p.exists():
+    p = ledger_for(round_num)
+    if p is None:
         return None
     try:
         rows = json.loads(p.read_text()).get("promises", [])
@@ -148,11 +185,19 @@ def _selftest() -> bool:
                      "which holds it until R5 closes. This one does not.\n")
         check("a marker quoted inside a sentence does NOT gate the file",
               gate_of(f) is None)
+        # The daily ladder. `round=(\d+)` read this as ungated, which is the dangerous way to
+        # be wrong: it would have let round-four copy go out with nothing closed out.
+        f.write_text("# note\n<!-- SEND-GATE: round=daily-04 -->\nbody\n")
+        check("a daily round id gates the file", gate_of(f) == "daily-04")
 
     check("R5's real ledger currently has broken promises",
           (round_state(5) or ([], ""))[0] != [])
     check("R1's real ledger is clean", (round_state(1) or (None, ""))[0] == [])
     check("an unknown round reports no ledger", round_state(99) is None)
+    check("a daily round with no ledger yet reports none rather than crashing",
+          round_state("daily-99") is None)
+    check("the weekly ledger path is still found for R1",
+          ledger_for(1) == REPO_ROOT / "rounds" / "r1" / "closeout.json")
     return passed
 
 

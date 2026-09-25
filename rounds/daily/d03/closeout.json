@@ -1,0 +1,145 @@
+{
+  "bounty_id": 1412,
+  "round": "daily-03",
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "poidhz.com, where these bounties and everybody's feedback live: https://github.com/bettercallzaal/poidhz",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "kept",
+      "evidence": "https://poidhz.com/feedback returns 200 and lists every round.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "If your piece needs 30 to 60 seconds of me saying something, tag me on Farcaster with the script and send me your Telegram in a DM - I send the voice note there, so do not post your handle in the open.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "UNRECORDED, not clean. This depends on whether anyone tagged a draft on Farcaster or sent a Telegram DM, and this seat can read neither. Places searched: the repo, the on-chain claim list, poidhz.com. Not searched: Zaal's Farcaster mentions and his DMs - he is the only one who can close this row.",
+      "recorded_at": "2026-09-25 15:10 EDT"
+    },
+    {
+      "text": "If there is time before the close I will record it and get it back to you.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "UNRECORDED, not clean. This depends on whether anyone tagged a draft on Farcaster or sent a Telegram DM, and this seat can read neither. Places searched: the repo, the on-chain claim list, poidhz.com. Not searched: Zaal's Farcaster mentions and his DMs - he is the only one who can close this row.",
+      "recorded_at": "2026-09-25 15:10 EDT"
+    },
+    {
+      "text": "A clip gets reposted without its caption.",
+      "commits_to": [
+        "publishing the winning work"
+      ],
+      "status": "na",
+      "evidence": "A statement of fact inside a rule, not a commitment by us.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "It puts another brand on ours in every repost and it is an automatic no.",
+      "commits_to": [
+        "publishing the winning work"
+      ],
+      "status": "na",
+      "evidence": "Part of a rule addressed to entrants.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "NEW TODAY: TAG A DRAFT BY NOON AND GET NOTES BACK.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "UNRECORDED, not clean. This depends on whether anyone tagged a draft on Farcaster or sent a Telegram DM, and this seat can read neither. Places searched: the repo, the on-chain claim list, poidhz.com. Not searched: Zaal's Farcaster mentions and his DMs - he is the only one who can close this row.",
+      "recorded_at": "2026-09-25 15:10 EDT"
+    },
+    {
+      "text": "Through the early afternoon I reply to every tagged draft with one specific thing to change.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "UNRECORDED, not clean. This depends on whether anyone tagged a draft on Farcaster or sent a Telegram DM, and this seat can read neither. Places searched: the repo, the on-chain claim list, poidhz.com. Not searched: Zaal's Farcaster mentions and his DMs - he is the only one who can close this row.",
+      "recorded_at": "2026-09-25 15:10 EDT"
+    },
+    {
+      "text": "The moose mark is by attabotty; credit in your caption is asked for.",
+      "commits_to": [
+        "crediting the entrant"
+      ],
+      "status": "na",
+      "evidence": "Asks the entrant for credit.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Every submitter is added to the POIDH Submitters leaderboard on Empire Builder, which is how $ZABAL has been distributed to this programme's entrants: https://www.empirebuilder.world/empire/0xbb48f19b0494ff7c1fe5dc2032aeee14312f0b07",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "kept",
+      "evidence": "tx 0x4b795c5ea5b34da9f44613b81603a3893edc2d7fe9d48f503480be29699ede76, 43 of 43. This is the sentence the 2026-09-23 distribution made true.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "I review ROUND TWO AND ROUND THREE TOGETHER later today and post both results at the same time.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most",
+        "posting results"
+      ],
+      "status": "broken",
+      "evidence": "Said on 2026-09-23. Neither result has been posted. Both bounties still read accepted=None, measured 2026-09-25 14:48.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "I said I would name the round two pick on stream and I did not, so I am not promising a stream again - I post it on Firefly, everywhere at once, with the link.",
+      "commits_to": [
+        "a stream",
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "broken",
+      "evidence": "The replacement promise - post the results instead - is also unkept as of 2026-09-25.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Everyone who enters gets written notes on their own piece, win or lose.",
+      "commits_to": [
+        "feedback owed to entrants",
+        "something promised to every entrant, not just the winner"
+      ],
+      "status": "kept",
+      "evidence": "4 distinct entrants on bounty 1412 (measured with claim-report.py: @defifa, @joeyofdeus, @pascaline, @taku0x) and 4 entrant pages under feedback/1412. 19 of 19 feedback URLs returned 200 on 2026-09-25.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "One thing it did and one thing to do better.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "kept",
+      "evidence": "Every page in data/feedback/d03.json carries a did_well and at least one item.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "They all go up at https://poidhz.com/feedback - every entrant gets their own page, and they are public so you can read what was asked of everybody else and not only of you.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "kept",
+      "evidence": "Live since PR #172 merged 2026-09-24 20:51 EDT. Before that the pages were committed on a branch and returned 404 - written is not published.",
+      "recorded_at": "2026-09-25 15:07 EDT"
+    },
+    {
+      "text": "Drafts tagged around noon get notes back.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "UNRECORDED, not clean. This depends on whether anyone tagged a draft on Farcaster or sent a Telegram DM, and this seat can read neither. Places searched: the repo, the on-chain claim list, poidhz.com. Not searched: Zaal's Farcaster mentions and his DMs - he is the only one who can close this row.",
+      "recorded_at": "2026-09-25 15:10 EDT"
+    }
+  ]
+}
