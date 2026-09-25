@@ -102,7 +102,7 @@
       "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
       "folder": "rounds/daily/d05",
       "kind": "code",
-      "closes_at": "2026-10-04T17:00:00-04:00",
+      "closes_at": "2026-10-05T17:00:00-04:00",
       "closes_after_event_on_purpose": "The repo outlives the festival. Every other round is promo and must close before October 3; this one is deliberately after it, so the pre-cast event check reads this field instead of blocking.",
       "note": "CODE ROUND, primarily for agents. Pull requests against ZAODEVZ/ZAOstock. Drafted 2026-09-25, NOT CAST. Validated with --kind code, not the media skeleton. Move to `rounds` with its bounty_id the moment it casts."
     },

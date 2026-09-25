@@ -4,10 +4,11 @@
 goes in the Description field.
 
 **Opens:** whenever it is cast. Drafted 2026-09-25.
-**Closes:** **Sunday 4 October 2026, 5:00pm Eastern** - the same clock time every round in this
-run has used. Note this is the day AFTER the festival, on purpose: the repo outlives the event.
-**Pick:** the week of Monday 5 October. **No date is named**, per Zaal's standing ruling on
-announcement dates.
+**Closes:** **Monday 5 October 2026, 5:00pm Eastern** - the same clock time every round in this
+run has used, on the day Zaal named. Two days AFTER the festival, on purpose: the repo outlives
+the event.
+**Pick:** the week it closes, after Monday 5 October. **No date is named**, per Zaal's standing
+ruling on announcement dates.
 
 ## Zaal's rulings, 2026-09-25, with his words
 
@@ -21,8 +22,9 @@ announcement dates.
    nobody could win unless Zaal reviewed in time, and this programme's audit records five
    rounds of promises that lapsed for exactly that kind of reason. A quality open PR is a
    complete entry on its own.
-4. **"on the 5th"** - October 5 2026 is a **Monday**. He was told, and chose PRs by Sunday the
-   4th with the pick in the week of the 5th.
+4. **"on the 5th"** - October 5 2026 is a **Monday**. Told that, he first chose Sunday the 4th,
+   then on 2026-09-25 before casting ruled it back: *"it should be set for monday next week"*.
+   **Closes Monday 5 October, 5:00pm Eastern.** The pick is the same week, undated.
 
 ## The repo, verified 2026-09-25
 
@@ -56,7 +58,7 @@ Before casting: `check-copy-counts.py rounds/daily/d05`, `validate-bounty-descri
 
 <!-- PASTE BELOW THIS LINE -->
 
-SHIP CODE, NOT A POSTER. Open a pull request against the ZAOstock repository that makes the site visibly better, or makes the repository itself better to work in. Claim it here with the link to your PR. Closes 5:00pm Eastern, Sunday October 4.
+SHIP CODE, NOT A POSTER. Open a pull request against the ZAOstock repository that makes the site visibly better, or makes the repository itself better to work in. Claim it here with the link to your PR. Closes 5:00pm Eastern, Monday October 5.
 
 THIS ONE IS WRITTEN FOR AGENTS.
 
@@ -116,15 +118,7 @@ IF YOU ARE AN AGENT, SAY SO
 
 Declare it in the claim. One agent has entered these rounds before and declared itself every time, unprompted, including the one rule it could not meet. That is the standard and it did that agent no harm at all.
 
-THE REWARD
-
-Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this page says it is right now, and anyone can add to it while the round runs.
-
-Every submitter is added to the POIDH Submitters leaderboard on Empire Builder, which is how $ZABAL has been distributed to this programme's entrants. It has now gone out twice in two days, on September 23 and September 24, each time in a single transaction to every address on the feed, scaled by score, with nobody missed. The second one paid 44 of 44, including everyone who had entered since the first.
-
-Track it: https://www.empirebuilder.world/empire/0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07
-
-This bounty promises the pot and nothing else. It does not promise that your PR gets merged. It does not promise a review by any particular day. What this programme has and has not delivered is written down at https://poidhz.com/about and you should read it before you trust any of this.
+WHAT THIS PROGRAMME HAS AND HAS NOT DELIVERED is written down at https://poidhz.com/about and you should read it before you trust any of this.
 
 EVERYONE WHO ENTERS GETS WRITTEN NOTES
 
@@ -134,8 +128,8 @@ No ranking is ever published on those pages.
 
 HOW THE WINNER IS PICKED
 
-I read every pull request after the close and pick the one that did the most valuable thing for this repository. I post it the week of October 5, on Firefly, with the link. I am not naming a day, because this programme has twice named one and missed it.
+I read every pull request after the close and pick the one that did the most valuable thing for this repository. I post it that week, on Firefly, with the link. I am not naming a day, because this programme has twice named one and missed it.
 
-Submissions close 5:00pm Eastern, Sunday October 4, 2026. That is the day after the festival, on purpose - the site outlives the event and the repo is what carries it to the next one.
+Submissions close 5:00pm Eastern, Monday October 5, 2026. That is two days after the festival, on purpose - the site outlives the event and the repo is what carries it to the next one.
 
 <!-- PASTE ABOVE THIS LINE -->

@@ -88,11 +88,24 @@ HEADERLESS_EVIDENCE = {
 #
 # Pass --kind=code to use it. The default is unchanged, so every existing round validates
 # exactly as before.
+# THE REWARD IS NOT REQUIRED ON AN OPEN BOUNTY, BY ZAAL'S RULING 2026-09-25, MINUTES BEFORE
+# ROUND FIVE CAST: "stop including the reward in the description its gonna changed based on it
+# being open".
+#
+# He is right and the rule below was arguing with reality. On an OPEN bounty the pot changes
+# the moment anyone contributes, and poidh's own page renders the live amount above the
+# description. The description restating it is a second copy of a moving number, written in
+# text that cannot be edited - the exact failure this file exists to prevent, one level up.
+# The earlier fix only stopped the FIGURE being written; this stops the section being demanded
+# at all.
+#
+# It stays REQUIRED for a media round. Those carry a rubric an entrant is scored against and
+# the reward section is where the terms sit; nobody has asked to remove it there, and a rule
+# is not extended to a case nobody ruled on.
 CODE_REQUIRED_SECTIONS = [
     ("why", "WHY - what this round is for and who it is aimed at"),
     ("the_repo", "THE REPO - the repository link, without which nobody can start"),
     ("what_counts", "WHAT COUNTS - what makes an entry complete, numbered"),
-    ("reward", "THE REWARD - prize + EB ZABAL trail"),
     ("deadline", "DEADLINE - exact date/time"),
 ]
 
@@ -487,8 +500,19 @@ def _selftest() -> bool:
     _, f_as_media = validate_sections(code_round, "media")
     check("the SAME code round FAILS the media skeleton, so the flag really switches",
           any("ASSET KIT" in x for x in f_as_media if x.startswith("FAIL")))
+    # Zaal's 2026-09-25 ruling, pinned: an OPEN code round need not carry THE REWARD at all,
+    # because the pot moves and poidh renders it above the description anyway.
+    code_no_reward = code_round.split("THE REWARD")[0]
+    ok_nr, f_nr = validate_sections(code_no_reward, "code")
+    check("a code round with NO reward section passes",
+          ok_nr or not [x for x in f_nr if x.startswith("FAIL")])
+
     media_round = ("WHY\n\nBecause.\n\nTHE KIT\n\nhttps://zaostock.com/brand\n\n"
                    "THE BAR\n\n1. One.\n2. Two.\n3. Three.\n")
+    # The control for the rule above: dropping THE REWARD is allowed ONLY for a code round.
+    _, f_media_nr = validate_sections(media_round, "media")
+    check("a media round with no reward section still FAILS, so the rule was not widened",
+          any("REWARD" in x for x in f_media_nr if x.startswith("FAIL")))
     _, f_media_as_code = validate_sections(media_round, "code")
     check("a media round FAILS the code skeleton for want of THE REPO",
           any("THE REPO" in x for x in f_media_as_code if x.startswith("FAIL")))
