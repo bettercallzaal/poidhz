@@ -26,7 +26,29 @@ npm run test and npm run build all work with no secrets at all."* Run on a clean
 **Under a minute from clone to a verified build, with nothing to ask anyone for.** That is the
 strongest thing this repo has to offer an agent, and it is now measured rather than asserted.
 
-## 1. `check:review` reports PASS after reviewing ZERO files
+## 1. `check:review` reports PASS after reviewing ZERO files - FIXED IN PR #311, NOT YET MERGED
+
+> **Status 2026-09-25, later the same day.** The ZAOstock lane re-derived this independently
+> rather than taking the table below, and fixed it in **`ZAODEVZ/ZAOstock` PR #311** (one file,
+> +34/-7, open and mergeable). **This seat then verified their fix on two fresh clones rather
+> than trusting the report**, and it holds:
+>
+> | Scenario | Result |
+> |---|---|
+> | Clean shallow clone | audits the real diff versus `origin/main` |
+> | 4-commit branch | **4 files audited where the old range saw 1** |
+> | Credential planted in the OLDEST commit, a later commit on top | **FAIL, exit 1** - the old range would have read only the newest file and missed it entirely |
+> | `origin/main` unreachable, ref deleted | **UNKNOWN, exit 2** - never PASS |
+> | Branch stale behind a main that carries a finding | PASS - the audit reads the working tree, so a contributor does not inherit an upstream failure |
+>
+> The planted-credential case is the one that matters: it proves the fix on exactly the shape
+> the old range could not see. **Round five's cast text no longer names this specific defect**,
+> because it is being fixed while the round is still uncast and an immutable description naming
+> a fixed bug would send entrants at work that is already done.
+>
+> Everything below is kept as the record of what was found and how.
+
+
 
 **The highest-value target in the repo, because it is a check that cannot fail on the thing it
 exists to catch.** On a clean clone:
