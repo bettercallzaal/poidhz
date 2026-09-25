@@ -185,3 +185,36 @@ rots quietest, because nothing enforces it and nobody is out of pocket when it l
 its winner has been paid since 2026-09-23. `postclose-check.py --bounty 1409` blocks on it.
 Round one's cast text also promised, twice, *"Live on stream at 5pm Eastern, the same day it
 closes."* That stream did not happen and is not yet answered publicly.
+
+**Correction, later the same day:** round one's copy now exists, at
+`rounds/daily/d01/winner-announce.md`, and it answers the missed stream head on rather than
+omitting it. **It is written and unsent, which is exactly the state R3's copy has been in since
+June.** Written is not posted, and this audit's whole point is that the two get confused.
+
+## 2026-09-25 - ROUND FOUR IS CAST (1418), AND WHAT IT COMMITS US TO
+
+Cast by Zaal at 14:46 EDT. **Bounty <https://poidh.xyz/base/bounty/1418>**, on-chain 432, OPEN,
+**0.005 ETH at cast**. Verified against the chain with
+`verify-cast-text.py --round rounds/daily/d04 --bounty 1418`: PASS at 6,720 characters, so the
+promises below are quoted from text that is now immutable.
+
+| Promise in the cast text | How it can be checked | Status |
+|---|---|---|
+| "Winner takes the whole pot" | the payout transaction | OPEN - closes Sun 27 Sep 5pm ET |
+| "EVERYONE WHO ENTERS GETS WRITTEN NOTES... They go up at https://poidhz.com/feedback" | fetch each entrant URL and read the status code, per the 404 lesson above | OPEN |
+| "I review every entry after the close and post the pick next week, during the week, on Firefly, everywhere at once, with the link" | a public post | OPEN, and deliberately undated - see below |
+| "Every submitter is added to the POIDH Submitters leaderboard on Empire Builder" | the leaderboard feed against the claim list | OPEN, and the mechanism exists as of 2026-09-23 |
+| "If your piece needs thirty to sixty seconds of me saying something... If there is time before the close I will record it" | conditional on being asked | OPEN, nobody has asked in two rounds |
+
+**The announcement promise is soft on purpose and that is a trade, not a win.** Zaal, 2026-09-24:
+*"dont say an annoucmenet date just say next week during the week"*. This audit's own finding is
+that a dated promise is checkable and an undated one rots quietly. R2 and R3 broke dated
+announcement promises; this one cannot be broken the same way, and it also cannot be held to.
+His call, made knowing that.
+
+**One number in the immutable text is already wrong, and it understates us.** The body says
+*"Fifteen pages are up there now, covering all three rounds so far."* It was drafted on 09-24
+when fifteen were live; by the time it cast on the 25th there were **19**, measured by HTTP.
+Nothing can edit it. It is recorded here rather than quietly forgotten, because the rule this
+repo keeps relearning is that a hand-carried count goes stale between drafting and casting -
+three hand-counted lengths were wrong in the session that wrote this round.

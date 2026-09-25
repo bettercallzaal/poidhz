@@ -260,11 +260,23 @@ def round_folder_for(cfg: dict, bounty_id: int, round_arg) -> Path | None:
                 if p.is_dir():
                     return p
     if round_arg:
-        p = REPO_ROOT / "rounds" / f"r{round_arg}"
-        if p.is_dir():
-            return p
-        warn(f"no folder recorded for bounty {bounty_id} and rounds/r{round_arg} does not "
-             f"exist. Copy was NOT checked - this is UNKNOWN, not clean.")
+        # `--round` accepts what a human types: 4, daily-04, or the folder's own name d04. The
+        # config's `folder` is tried first so a recorded round is never guessed at.
+        for r in cfg.get("rounds", []) + (cfg.get("planned_rounds") or []):
+            names = {str(r.get("round"))}
+            if r.get("folder"):
+                names.add(Path(r["folder"]).name)
+            if str(round_arg) in names and r.get("folder"):
+                p = REPO_ROOT / r["folder"]
+                if p.is_dir():
+                    return p
+        for cand in (REPO_ROOT / "rounds" / f"r{round_arg}",
+                     REPO_ROOT / "rounds" / "daily" / str(round_arg).replace("daily-", "d"),
+                     REPO_ROOT / "rounds" / "daily" / str(round_arg)):
+            if cand.is_dir():
+                return cand
+        warn(f"no folder recorded for bounty {bounty_id} and nothing matches "
+             f"--round {round_arg}. Copy was NOT checked - this is UNKNOWN, not clean.")
     return None
 
 
@@ -408,18 +420,28 @@ def _selftest() -> bool:
 CLOSEOUT_NAME = "closeout.json"
 
 
-def closeout_path(round_num: int) -> Path:
+def closeout_path(round_num, folder: Path | None = None) -> Path:
+    """Where this round's promise ledger lives - beside the round, whichever tree it is in.
+
+    `rounds/r{n}` was hardcoded, and for the daily ladder that is not where the round is. A
+    scaffold for daily-04 would have created a brand new `rounds/rdaily-04/` next to the real
+    `rounds/daily/d04/`, and the ledger would have sat in a directory nothing else reads.
+    Pass the folder the round actually occupies; the old shape is only the fallback.
+    """
+    if folder is not None:
+        return folder / CLOSEOUT_NAME
     return REPO_ROOT / "rounds" / f"r{round_num}" / CLOSEOUT_NAME
 
 
-def scaffold_closeout(bounty_id: int, round_num: int, description: str) -> int:
+def scaffold_closeout(bounty_id: int, round_num, description: str,
+                      folder: Path | None = None) -> int:
     """Write a promise ledger for this round, one row per promise, all unrecorded.
 
     A printed checklist is read once and forgotten; four of five rounds were paid and left
     owing something, and nothing in the repo carried that state. This turns the checklist
     into a file the 6h cron reads, so a promise nobody kept stays visible instead of
     depending on someone remembering to look."""
-    path = closeout_path(round_num)
+    path = closeout_path(round_num, folder)
     existing = {}
     if path.exists():
         try:
@@ -617,7 +639,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--bounty", type=int)
-    ap.add_argument("--round", type=int)
+    # NOT type=int. The daily ladder's round ids are strings in org.config.json ("daily-04"),
+    # and argparse rejected them before any check could run: `--round daily-04` died with
+    # "invalid int value" - measured 2026-09-25, the same shape precast-check.py had. The
+    # bounty id decides the folder anyway, so this is only a fallback for pre-`folder` rounds.
+    ap.add_argument("--round", help="round id: 4, or daily-04 (optional; --bounty is enough)")
     ap.add_argument("--chain", type=int, default=8453)
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--scaffold", action="store_true",
@@ -654,7 +680,10 @@ def main() -> int:
     if a.scaffold:
         if a.round is None:
             ap.error("--scaffold needs --round")
-        return scaffold_closeout(a.bounty, a.round, data.get("description") or "")
+        # The bounty id decides the folder, exactly as it does for the copy check, so a
+        # daily round's ledger lands in rounds/daily/dNN and not in an invented rounds/rNN.
+        return scaffold_closeout(a.bounty, a.round, data.get("description") or "",
+                                 round_folder_for(load_org_config(), a.bounty, a.round))
 
     check_money(data, a.bounty, a.chain)
     cfg = load_org_config()
