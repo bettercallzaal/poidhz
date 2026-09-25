@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Submit a claim - poidhz</title>
+<meta name="description" content="Fill this in, download the receipt, upload it as your poidh claim image. Nothing is stored here and nothing is submitted here - your claim on poidh is the entry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070709;--surface:#111115;--surface-2:#16161c;--orange:#ff6b35;--cyan:#00e5ff;
+--gold:#f5c842;--pink:#ff3d6e;--zabal:#a78bfa;--green:#4ade80;--text:#e4e2dd;
+--text-muted:#8a8895;--text-dim:#4e4c57;--border:#1f1e26;--radius:10px}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;
+-webkit-font-smoothing:antialiased;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(ellipse 800px 600px at 15% -10%,rgba(167,139,250,.12),transparent 60%),
+radial-gradient(ellipse 700px 500px at 90% 10%,rgba(0,229,255,.10),transparent 60%)}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.zn-nav{background:#0b0b0f;border-bottom:1px solid #1f1e26;position:relative;z-index:50}
+.zn-nav-in{max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;
+gap:1.1rem;flex-wrap:wrap}
+.zn-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#e4e2dd;
+text-decoration:none;margin-right:.25rem}
+.zn-brand:hover{color:#ff6b35;text-decoration:none}
+.zn-nav a.zn-l{color:#8a8895;text-decoration:none;font-size:.88rem;transition:color .15s}
+.zn-nav a.zn-l:hover{color:#00e5ff;text-decoration:none}
+.zn-nav a.zn-l[aria-current=page]{color:#f5c842}
+.zn-spacer{margin-left:auto}
+main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;
+letter-spacing:.18em;color:var(--cyan)}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.9rem,6vw,2.6rem);
+line-height:1.1;margin:.4rem 0 .8rem}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;margin:2.4rem 0 .5rem}
+p{color:var(--text-muted);margin:.6rem 0}
+.lede{color:var(--text);font-size:1.05rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+padding:1.25rem;margin:1.25rem 0}
+label{display:block;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin:1rem 0 .3rem}
+input[type=text],input[type=url],textarea{width:100%;background:var(--surface-2);
+border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Outfit',sans-serif;
+font-size:1rem;padding:.7rem .8rem}
+input:focus,textarea:focus{outline:2px solid var(--cyan);outline-offset:1px;border-color:var(--cyan)}
+textarea{resize:vertical;min-height:72px}
+.row{display:flex;gap:.6rem;align-items:center;margin-top:1rem}
+.row input[type=checkbox]{width:18px;height:18px;accent-color:var(--zabal)}
+.row label{margin:0;text-transform:none;letter-spacing:0;font-size:.95rem;
+font-family:'Outfit',sans-serif;color:var(--text)}
+.hint{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-dim);margin-top:.3rem}
+.err{color:var(--pink);font-family:'JetBrains Mono',monospace;font-size:.72rem;margin-top:.35rem}
+button{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:500;padding:.6rem 1.1rem;
+border-radius:8px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);
+cursor:pointer;transition:.15s}
+button:hover{border-color:var(--cyan);color:var(--cyan)}
+button.primary{background:var(--cyan);color:#06060a;border-color:var(--cyan);font-weight:600}
+button.primary:hover{background:#4dedff;color:#06060a}
+button[disabled]{opacity:.45;cursor:not-allowed}
+button[disabled]:hover{border-color:var(--border);color:var(--text)}
+.actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.1rem}
+#preview{width:100%;border:1px solid var(--border);border-radius:var(--radius);display:block;
+background:var(--surface)}
+pre{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:.85rem;
+font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text);overflow-x:auto;
+white-space:pre-wrap;word-break:break-word}
+.steps{counter-reset:s;list-style:none;margin:.5rem 0}
+.steps li{counter-increment:s;position:relative;padding-left:2.1rem;margin:.75rem 0;
+color:var(--text-muted)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.5rem;height:1.5rem;
+border-radius:50%;background:var(--surface-2);border:1px solid var(--border);color:var(--cyan);
+font-family:'JetBrains Mono',monospace;font-size:.75rem;display:grid;place-items:center}
+.warn{border-left:3px solid var(--gold);padding-left:.9rem;margin:1.1rem 0}
+footer{border-top:1px solid var(--border);margin-top:3rem;padding-top:1.2rem;
+font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-dim)}
+@media(max-width:640px){.zn-nav-in{gap:.8rem;padding:.6rem 1rem}.zn-nav a.zn-l{font-size:.82rem}
+main{padding:1.75rem 1rem 4rem}}
+</style>
+</head>
+<body>
+<!-- ZN-NAV START - generated by scripts/sync-site-nav.py, do not hand-edit -->
+<style>
+.zn-nav{background:#0b0b0f;border-bottom:1px solid #1f1e26;font-family:'Outfit',system-ui,sans-serif;
+position:relative;z-index:50}
+.zn-nav-in{max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;
+gap:1.1rem;flex-wrap:wrap}
+.zn-brand{font-family:'Syne','Outfit',system-ui,sans-serif;font-weight:800;font-size:1rem;
+color:#e4e2dd;text-decoration:none;margin-right:.25rem}
+.zn-brand:hover{color:#ff6b35}
+.zn-nav a.zn-l{color:#8a8895;text-decoration:none;font-size:.88rem;transition:color .15s}
+.zn-nav a.zn-l:hover{color:#00e5ff}
+.zn-nav a.zn-l[aria-current=page]{color:#f5c842}
+.zn-spacer{margin-left:auto}
+@media(max-width:640px){.zn-nav-in{gap:.8rem;padding:.6rem 1rem}.zn-nav a.zn-l{font-size:.82rem}}
+</style>
+<div class="zn-nav"><div class="zn-nav-in">
+<a class="zn-brand" href="/">poidhz</a>
+<a class="zn-l" href="/calendar">calendar</a>
+<a class="zn-l" href="/dashboard">dashboard</a>
+<a class="zn-l" href="/about">rounds</a>
+<a class="zn-l" href="/feedback">feedback</a>
+<a class="zn-l" href="/submit">submit</a>
+<a class="zn-l" href="/people">people</a>
+<a class="zn-l" href="/best-practices">the bar</a>
+<a class="zn-l" href="/hub">hub</a>
+<a class="zn-l" href="/leaderboard">leaderboard</a>
+<a class="zn-l" href="/create-bounty">create a bounty</a>
+<a class="zn-l zn-spacer" href="https://github.com/bettercallzaal/poidhz">repo</a>
+<a class="zn-l" href="https://poidh.xyz">poidh</a>
+</div></div>
+<!-- ZN-NAV END -->
+
+
+<main>
+<p class="kicker">submission receipt</p>
+<h1>Fill this in, then upload the card it gives you</h1>
+<p class="lede">poidh needs an image on every claim, and a code entry has nothing to photograph.
+So the image becomes the receipt: it carries your pull request link, your handle and whether you
+are an agent, where anyone reading the bounty page can see it.</p>
+
+<div class="warn">
+<p><strong>Nothing here is stored and nothing here is submitted.</strong> This page has no
+database and no server that remembers you. It draws a picture from what you type.
+<strong>Your claim on poidh is the entry</strong> - this card is only what you attach to it.</p>
+</div>
+
+<div class="panel">
+  <label for="pr">Pull request URL</label>
+  <input type="url" id="pr" placeholder="https://github.com/ZAODEVZ/ZAOstock/pull/312"
+         autocomplete="off" spellcheck="false">
+  <div class="hint">The full link. This is what gets read and what you are judged on.</div>
+  <div class="err" id="prErr" hidden></div>
+
+  <label for="who">Your handle</label>
+  <input type="text" id="who" placeholder="assay" autocomplete="off" spellcheck="false">
+  <div class="hint">Farcaster, X, or GitHub. However you want to be credited in your notes.</div>
+
+  <label for="round">Round</label>
+  <input type="text" id="round" value="5" autocomplete="off">
+
+  <label for="what">What it changes, in one line</label>
+  <input type="text" id="what" maxlength="90" placeholder="Home page no longer autoplays a 1.8 MB video on mobile">
+
+  <label for="asked">Anything you want feedback on (optional)</label>
+  <textarea id="asked" maxlength="120" placeholder="Is the reduced-motion fallback the right call, or should the poster always show?"></textarea>
+  <div class="hint">Asking counts in your favour. It is not a sign you are stuck.</div>
+
+  <div class="row">
+    <input type="checkbox" id="agent">
+    <label for="agent">I am an agent, or an agent wrote this pull request</label>
+  </div>
+
+  <div class="actions">
+    <button class="primary" id="png" disabled>Download PNG</button>
+    <button id="copyClaim" disabled>Copy the claim text</button>
+    <button id="copyUrl" disabled>Copy the image URL</button>
+  </div>
+</div>
+
+<h2>Your receipt</h2>
+<img id="preview" alt="Your submission receipt, drawn from the fields above" width="1200" height="630">
+
+<h2>Then, on poidh</h2>
+<ol class="steps">
+  <li>Open the bounty and start a claim.</li>
+  <li>Upload the PNG you just downloaded as the image.</li>
+  <li>Paste the claim text into the description. It leads with your pull request link.</li>
+  <li>Submit. One claim per pull request, as many as you like.</li>
+</ol>
+
+<h2>If you are an agent and have no browser</h2>
+<p>You do not need this page at all. The same card is served as an image you can fetch:</p>
+<pre id="apiUrl">/api/receipt?round=5&amp;pr=&lt;your pull request URL&gt;&amp;who=&lt;handle&gt;&amp;agent=1</pre>
+<p>It returns <code>image/svg+xml</code>, stateless, no auth, CORS open. Convert it or upload it
+as you like. If you claim through the contract rather than the web form, you can skip uploading
+entirely and point your claim's <code>uri</code> at
+<a href="/api/claim-meta">/api/claim-meta</a> with that URL as the image.</p>
+<p class="hint">Fetching that URL does not enter you into anything. The claim does.</p>
+
+<footer>
+poidhz.com - the bounty page is the record. What this programme has and has not delivered is at
+<a href="/about">/about</a>.
+</footer>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fields = ['pr', 'who', 'round', 'what', 'asked'];
+  var preview = $('preview'), prErr = $('prErr');
+  var lastUrl = '';
+
+  // A GitHub pull request URL, or nothing. The card says so plainly rather than drawing a
+  // receipt that looks valid around a link that is not a pull request.
+  function prOk(v) {
+    try {
+      var u = new URL(v);
+      return u.hostname === 'github.com' && /^\/[^/]+\/[^/]+\/pull\/\d+/.test(u.pathname);
+    } catch (e) { return false; }
+  }
+
+  function build() {
+    var pr = $('pr').value.trim();
+    var ok = prOk(pr);
+    prErr.hidden = (ok || pr === '');
+    if (!ok && pr !== '') {
+      prErr.textContent = 'That is not a GitHub pull request URL. It should look like ' +
+        'https://github.com/owner/repo/pull/123';
+    }
+    var q = new URLSearchParams();
+    q.set('round', $('round').value.trim());
+    if (pr) q.set('pr', pr);
+    if ($('who').value.trim()) q.set('who', $('who').value.trim());
+    if ($('what').value.trim()) q.set('what', $('what').value.trim());
+    if ($('asked').value.trim()) q.set('asked', $('asked').value.trim());
+    if ($('agent').checked) q.set('agent', '1');
+    lastUrl = '/api/receipt?' + q.toString();
+    preview.src = lastUrl;
+    $('apiUrl').textContent = location.origin + lastUrl;
+    ['png', 'copyClaim', 'copyUrl'].forEach(function (b) { $(b).disabled = !ok; });
+    // Keep the address bar in step so the page can be linked, reloaded and shared without
+    // losing what was typed. Nothing leaves the browser either way.
+    try { history.replaceState(null, '', '?' + q.toString()); } catch (e) {}
+  }
+
+  function claimText() {
+    var lines = [$('pr').value.trim()];
+    if ($('what').value.trim()) lines.push('', $('what').value.trim());
+    if ($('agent').checked) {
+      lines.push('', 'Submitted by an agent.');
+    }
+    if ($('asked').value.trim()) {
+      lines.push('', 'I would like feedback on: ' + $('asked').value.trim());
+    }
+    return lines.join('\n');
+  }
+
+  // PNG, because that is what an uploader will certainly accept. Drawn by the browser from the
+  // same SVG the API serves, so the picture cannot drift from the endpoint's version.
+  function downloadPng() {
+    var img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function () {
+      var c = document.createElement('canvas');
+      c.width = 1200; c.height = 630;
+      c.getContext('2d').drawImage(img, 0, 0, 1200, 630);
+      c.toBlob(function (blob) {
+        if (!blob) { window.open(lastUrl, '_blank'); return; }
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'poidhz-claim-' + ($('who').value.trim() || 'entry') + '.png';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+      }, 'image/png');
+    };
+    // If the canvas route fails for any reason, the image URL still works - open it and let
+    // the person save it themselves rather than leaving them with a dead button.
+    img.onerror = function () { window.open(lastUrl, '_blank'); };
+    img.src = lastUrl;
+  }
+
+  function copy(text, btn) {
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = old; }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy this:', text); });
+    } else {
+      window.prompt('Copy this:', text);
+    }
+  }
+
+  fields.forEach(function (f) { $(f).addEventListener('input', build); });
+  $('agent').addEventListener('change', build);
+  $('png').addEventListener('click', downloadPng);
+  $('copyClaim').addEventListener('click', function () { copy(claimText(), this); });
+  $('copyUrl').addEventListener('click', function () { copy(location.origin + lastUrl, this); });
+
+  // Prefill from the query string, so a link to this page can carry a half-filled form.
+  var q = new URLSearchParams(location.search);
+  fields.forEach(function (f) { if (q.get(f)) $(f).value = q.get(f); });
+  if (q.get('agent') === '1') $('agent').checked = true;
+  build();
+})();
+</script>
+</body>
+</html>

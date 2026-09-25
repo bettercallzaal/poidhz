@@ -212,10 +212,19 @@ def rewrite_matchers(vercel: dict) -> list[re.Pattern]:
 
 
 def resolves(path: str, matchers: list[re.Pattern], exists) -> bool:
-    """cleanUrls is on, so /docs/about is served from docs/about.html."""
+    """cleanUrls is on, so /docs/about is served from docs/about.html.
+
+    `/api/<name>` is a Vercel serverless function at `api/<name>.mjs`, not a page. Before this
+    branch existed the checker called every one of them a dead link, because it only looked for
+    .html, /index.html and .md - so linking a working endpoint from a page was reported as
+    something an entrant would hit a 404 on. Measured 2026-09-25 on /api/claim-meta, which has
+    been live and in use for weeks.
+    """
     if any(p.match(path) for p in matchers):
         return True
     rel = path.lstrip("/")
+    if rel.startswith("api/") and exists(rel + ".mjs"):
+        return True
     return any(exists(c) for c in (rel, rel + ".html", rel + "/index.html", rel + ".md"))
 
 

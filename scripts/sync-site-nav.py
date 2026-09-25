@@ -54,6 +54,7 @@ LINKS = [
     ("dashboard", "/dashboard"),
     ("rounds", "/about"),
     ("feedback", "/feedback"),
+    ("submit", "/submit"),
     ("people", "/people"),
     ("the bar", "/best-practices"),
     ("hub", "/hub"),
@@ -63,6 +64,7 @@ LINKS = [
 
 PAGES = [
     "index.html",
+    "submit.html",
     "docs/about.html",
     "docs/lost.html",
     "docs/poidh-hub.html",
