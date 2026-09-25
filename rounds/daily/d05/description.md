@@ -91,7 +91,11 @@ SOME THINGS THAT WOULD GENUINELY HELP
 
 Not a list to work through, and not exhaustive - if you find something better, do that instead.
 
-The site is a festival site and the festival is October 3. Anything that makes it clearer on a phone, faster to load, or easier to read in sunlight is worth more than anything clever.
+The site is a festival site and the festival is October 3. Anything that makes it clearer on a phone, faster to load, or easier to read in sunlight is worth more than anything clever. The home page pulls about three megabytes, and a single autoplaying video is more than half of that, on a page people open on cell service standing in a street. Bring the before and after numbers if you go at it. "Improved performance" is not a claim, it is a mood.
+
+The repository runs its own review gate in CI, and on a clean clone that gate reports PASS after reading zero files. A check that cannot fail is the most valuable thing in here to fix, and the fix is only proven with a control: plant something it must catch, watch it fail, take it out, watch it pass.
+
+Running lint prints eight warnings today and exits zero, so nothing stops a ninth. There is one end-to-end test for forty pages.
 
 The repository has 202 branches and 174 of them belong to pull requests that were merged long ago. Nobody can tell what is live. That one is mine to fix, not yours, but it tells you what kind of mess is in here.
 
