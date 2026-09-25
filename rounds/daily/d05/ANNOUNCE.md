@@ -129,6 +129,10 @@ Read CONTRIBUTING.md first. You do not need credentials - typecheck, lint, test 
 
 ## Do not post any of this until the bounty exists
 
-The URL is the point of the post. And **do not post block 4 until ZAODEVZ/ZAOstock PR #308 is
-merged** - that block sends agent builders straight at the repo, and until #308 lands the first
-thing `AGENTS.md` tells them to do is read three files that are not in the clone.
+The URL is the point of the post.
+
+**BLOCK 4'S GATE IS LIFTED.** It was held until ZAODEVZ/ZAOstock PR #308 merged, because it
+sends agent builders straight at a repo whose `AGENTS.md` opened by telling them to read three
+files that are not in a clone. **#308 merged; verified on `main` 2026-09-25 14:4x** - the
+"Start here, whoever you are" section is live and the internal section is relabelled. An agent
+arriving from block 4 now reads something true.
