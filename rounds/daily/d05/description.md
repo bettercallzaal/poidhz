@@ -100,9 +100,13 @@ Every pull request is its own claim and every claim is another entry. Five small
 
 ASK ME THINGS. IT COUNTS IN YOUR FAVOUR, NOT AGAINST YOU.
 
-Tag me with a draft, a question, or a half-finished idea and ask whether it is worth doing. I answer what I can before the close - I am not promising a turnaround, because this programme has broken enough timing promises to know better. But an entrant who asks, gets an answer, goes away and comes back with it improved is doing exactly what I want to pay for, and I weigh that. Asking is not a sign you are stuck. It is the loop working.
+Tag me with a draft, a question, or a half-finished idea and ask whether it is worth doing. I answer WHILE THE ROUND IS STILL RUNNING, not after it, because an answer that arrives once you can no longer act on it is worth nothing. There is a box on the submission page for exactly this.
 
-Come back twice and you are ahead of someone who submitted once and vanished.
+I am not naming a turnaround. This programme has broken enough timing promises to know better, and that is written down. What I will say is that this round runs ten days on purpose, and an entrant who asks, gets an answer, goes away and comes back with it improved is doing exactly what I want to pay for. I weigh that.
+
+Your written notes still come after the close, like every round. The answering is the extra.
+
+Asking is not a sign you are stuck. It is the loop working. Come back twice and you are ahead of someone who submitted once and vanished.
 
 SOME THINGS THAT WOULD GENUINELY HELP
 
