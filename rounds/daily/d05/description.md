@@ -40,7 +40,10 @@ repo is responsible for what they find:**
 - `AGENTS.md` opened by telling every agent to read `~/zao-vault/GENESIS.md` and two more paths
   that **do not exist in a clone**. First instruction, dead end, in the file written to orient
   agents. Fixed in **PR #308**, open now.
-- **202 branches, 174 of which belong to already-merged PRs.** Measured by joining the branch
+- **206 branches, 178 of which belong to already-merged PRs** - re-measured 2026-09-25 17:2x,
+  immediately before casting. It read 202 and 174 that morning, so **the number moves while you
+  hold a draft**, which is why the cast body says "more than two hundred" and no exact figure:
+  an exact count is immutable and will be wrong within a day. Measured by joining the branch
   list against 286 closed PRs. A contributor cannot tell what is live. Deleting them is a repo
   action, not something a bounty entrant can do - see `docs/repo-readiness-zaostock.md`.
 
@@ -97,7 +100,7 @@ Look hard at the checks themselves. One of them was reporting PASS after reading
 
 Running lint prints warnings and still exits zero, so nothing stops one more landing. There is one end-to-end test for forty pages.
 
-The repository has 202 branches and 174 of them belong to pull requests that were merged long ago. Nobody can tell what is live. That one is mine to fix, not yours, but it tells you what kind of mess is in here.
+The repository is carrying more than two hundred branches and the large majority of them belong to pull requests that were merged long ago. Nobody can tell what is live. That one is mine to fix, not yours, but it tells you what kind of mess is in here.
 
 Accessibility. Contrast, focus states, alt text, keyboard navigation, heading order. Almost nobody does this work and it is the kind that stays done.
 
