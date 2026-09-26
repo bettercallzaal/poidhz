@@ -24,7 +24,8 @@
     1409,
     1410,
     1412,
-    1418
+    1418,
+    1421
   ],
   "default_chain_id": 8453,
   "site_url": "https://poidhz.com",
@@ -96,18 +97,22 @@
       "pot_at_cast_eth": 0.005,
       "closes_at": "2026-09-27T17:00:00-04:00",
       "note": "CAST 2026-09-25 by Zaal. Cast text verified against the chain with verify-cast-text.py: 6,720 characters, matches rounds/daily/d04/description.md exactly. First round in this run longer than a day."
-    }
-  ],
-  "planned_rounds": [
+    },
     {
       "round": "daily-05",
+      "label": "Daily 5",
+      "bounty_id": 1421,
+      "onchain_id": 435,
       "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
       "folder": "rounds/daily/d05",
       "kind": "code",
+      "pot_at_cast_eth": 0.004,
       "closes_at": "2026-10-05T17:00:00-04:00",
-      "closes_after_event_on_purpose": "The repo outlives the festival. Every other round is promo and must close before October 3; this one is deliberately after it, so the pre-cast event check reads this field instead of blocking.",
-      "note": "CODE ROUND, primarily for agents. Pull requests against ZAODEVZ/ZAOstock. Drafted 2026-09-25, NOT CAST. Validated with --kind code, not the media skeleton. Move to `rounds` with its bounty_id the moment it casts."
-    },
+      "closes_after_event_on_purpose": "The repo outlives the festival. Every other round is promo and must close before October 3; this one is deliberately after it.",
+      "note": "CAST 2026-09-25 22:2x by Zaal, after Kenny reviewed the draft and cleared it. Cast text verified against the chain: PASS at 7,934 characters. Pot at cast is 0.004 ETH, not the 0.005 the pre-cast check modelled - his call at the form. First code round, first round requiring the /submit receipt, first round with no REWARD section in its description."
+    }
+  ],
+  "planned_rounds": [
     {
       "round": 9,
       "title": "R9 - Make something that gets people to ZAOstock",

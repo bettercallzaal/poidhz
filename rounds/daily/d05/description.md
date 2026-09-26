@@ -1,7 +1,22 @@
-# Daily 05 - ZAOstock Round 5, the repo round (paste-ready)
+# Daily 05 - ZAOstock Round 5, the repo round (CAST)
 
-**DRAFT, NOT CAST.** Strip this header before pasting. Everything between the sentinel lines
-goes in the Description field.
+**CAST 2026-09-25 22:2x by Zaal**, after Kenny read the draft and cleared it: *"it looks good
+to me"*, *"very well thought out"*, 22:13.
+
+- **Bounty <https://poidh.xyz/base/bounty/1421>**, on-chain **435**, chain 8453, type OPEN.
+- **Pot at cast: 0.004 ETH** (~$10.67 at read time). The pre-cast check modelled 0.005; he set
+  0.004 at the form, which is his call and is recorded here rather than left to be inferred.
+  Round two's pot was never recorded and its growth is permanently unknowable.
+- **Cast text verified:** `verify-cast-text.py --round rounds/daily/d05 --bounty 1421` returns
+  **PASS at 7,934 characters**. What is on chain is the body below, character for character.
+- First read after cast, 22:29: **0 claims**.
+
+**THREE FIRSTS.** First code round. First round whose claim requires the poidhz.com/submit
+receipt. First round whose description names no pot, no token and no leaderboard at all.
+
+Everything between the sentinel lines is what went into the Description field. **It is immutable
+now** - a correction goes in a reply or an announcement, never by editing this file to match a
+wish.
 
 **Opens:** whenever it is cast. Drafted 2026-09-25.
 **Closes:** **Monday 5 October 2026, 5:00pm Eastern** - the same clock time every round in this

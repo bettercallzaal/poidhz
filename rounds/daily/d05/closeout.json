@@ -1,0 +1,71 @@
+{
+  "bounty_id": 1421,
+  "round": "daily-05",
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "If merging were the bar, then whether you can win would depend on how fast I review, and I am not going to put a prize behind my own inbox.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "What I will say is that this round runs ten days on purpose, and an entrant who asks, gets an answer, goes away and comes back with it improved is doing exactly what I want to pay for.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "Your written notes still come after the close, like every round.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "EVERYONE WHO ENTERS GETS WRITTEN NOTES",
+      "commits_to": [
+        "feedback owed to entrants",
+        "something promised to every entrant, not just the winner"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "One thing your work did and one thing to do better, win or lose.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "They go up at https://poidhz.com/feedback - every entrant gets their own page, tied to the bounty so it is never overwritten, and they are public so you can read what was asked of everybody else.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "I post it that week, on Firefly, with the link.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    }
+  ]
+}
