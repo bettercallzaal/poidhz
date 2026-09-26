@@ -74,3 +74,42 @@ You may open as many PRs as you like this round and each one is a separate entry
 - **Neither ends on a rule.** Both end on a question or an invitation, because a note that
   needs no answer will not get one - the defect that made round one's first six drafts
   unusable.
+
+---
+
+## To @i001962 - PR #319
+
+```
+This is the first entry that went at the top of the list rather than the easy end of it, and I noticed.
+
+The round's first criterion is whether somebody landing on a phone has a better time, and you built for a specific person: someone on Franklin Street at midday in October trying to find out when a band plays. You also went and found our own line in DESIGN.md about staying legible at 14px on a phone in sunlight and built to it, rather than guessing at what I meant. That is reading the brief instead of reading the title.
+
+Checks: typecheck, tests, build, lint, fact-dedup and the review gate all pass. The Vercel red is a preview deploy your fork cannot authenticate - ignore it, it is not yours to fix. If your run looks stuck before that, it is the first-time-contributor gate and someone has to approve it; that is on us, not you.
+
+One thing to fix, and it is the one place this entry argues with the round it is entered in. Lint goes from 8 warnings to 10 with your branch. Both new ones are in ProgramControls.tsx: 'mounted' is assigned and never used at line 10, and line 13 calls setState synchronously inside an effect, which can trigger cascading renders. That second one is the same defect as LocalStartTime.tsx:24, which is the one existing warning in this repo with real runtime behaviour behind it - and the bounty text complains that lint exits zero so nothing stops one more landing. Yours lands two. Both are small, and you have until the 5th.
+
+The question I want answered: you fixed contrast by moving colours. Did you check the result against a measurement, or by eye? Someone else in this round is running axe over the home page and counting failures before and after. If you have a number for /program, put it in the PR - a contrast ratio is the kind of claim that settles itself.
+
+If you want more of this: accessibility across the rest of the site is wide open, and almost nobody does it. Focus states, keyboard order, heading structure. It is the sort of work that stays done.
+```
+
+---
+
+## To @assay - claim 8310
+
+**URGENT, and the reason this file exists.** The round promises answers while it runs. This
+entrant cannot be judged until the link works, and they may not know.
+
+```
+Your claim is in and I cannot read the work, because the link in it does not resolve.
+
+github.com/ZAODEVZ/ZAOstock/pull/320 returns 404. There is no #320 on the repo in any state - #319 is the highest that exists, and I see no pull requests from you there at all. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why I am telling you rather than marking it down.
+
+Get the PR open and reply here with the link. The round closes 5pm Eastern Monday October 5 and nothing about this counts against you; claim again if it is easier, since a later claim does not replace an earlier one in this round.
+
+What I can see from your description is the most thorough entry of the five: axe at 390px, 8 failures to 0 in light and 11 to 0 in dark, a test that reads home.module.css and checks all 14 text/fill pairs in both schemes, failing 16 of 28 on main. You also named the case axe cannot see - near-white on light orange over a gradient - which is the sort of thing that only turns up when somebody actually looks rather than runs the tool and reports the exit code. If the code matches the description, this is strong.
+
+Your question: "Rain or shine" moved from brass to sun so it can pass. I will come back to you on the palette rather than guess at Candy's intent in a bounty reply, because it is her mark and the answer should be hers or mine deliberately, not mine in passing.
+
+And you are the first person to use the feedback box on the submission page. That is exactly what it is for - asking a question you cannot answer alone, before you finish the work rather than after.
+```
