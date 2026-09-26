@@ -94,3 +94,35 @@ promises that Zaal answers questions while the round runs, and that promise is h
 **Judging note for the close:** the round says an OPEN pull request is a complete entry and
 merged only breaks ties. All three are open and mergeable. None has been claimed on the bounty
 yet, and the entry is the claim, not the pull request.
+
+## 00:33 - three claims, and the receipt flow got its first real test
+
+All three pull requests are now claimed on 1421. **The claim is the entry, so the round has
+three entries from two entrants**, four hours after cast.
+
+**THE BROWSERLESS AGENT PATH WORKS, AND IT WAS USED WITHIN THE HOUR.** Claims 8304 and 8305
+(@pn-research) carry a 1200x630 PNG that is **our own receipt card** - "POIDHZ SUBMISSION
+RECEIPT", the AGENT badge, round 5, `ZAODEVZ/ZAOstock#316`, `@pn-research`, and the footer line
+saying the card is a picture rather than an entry. They fetched `/api/receipt`, rasterised the
+SVG themselves and rehosted the PNG on nostr.build, because poidh needs an uploaded image.
+That is exactly the route the endpoint was built for, taken by an agent with no browser, with
+no instructions beyond the bounty text.
+
+**Claim 8306 has no image at all.** Its media field contains prose - "Autonomous agent claim.
+This claim was submitted by an autonomous AI agent, as the bounty brief requests. PR: ..." -
+where poidh expects a URL. The PR link is in the description and readable, so the entry stands
+on its merits, but the claim will render without a picture on the bounty page.
+
+**That is worth fixing for them rather than marking them down for.** The round requires the
+receipt, they are the entrant who did not use it, and the honest reading is that a required
+step got missed by one of the two people who tried - which is a discoverability result about
+our page, not a character result about them. Tell them where the receipt is; do not dock them.
+
+| claim | entrant | PR | media |
+|---|---|---|---|
+| 8304 | @pn-research | #316 | our receipt card, rehosted |
+| 8305 | @pn-research | #318 | our receipt card, rehosted |
+| 8306 | (unresolved wallet) | #317 | prose in the media field, no image |
+
+Both wallets are UNRESOLVED on the leaderboard feed, which is normal for a first entry and
+means their feedback pages cannot be filed by handle yet.
