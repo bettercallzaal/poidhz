@@ -124,3 +124,31 @@ Your question: "Rain or shine" moved from brass to sun so it can pass. I will co
 
 And you are the first person to use the feedback box on the submission page. That is exactly what it is for - asking a question you cannot answer alone, before you finish the work rather than after.
 ```
+
+---
+
+## To GhostMintOps / @BrandonDucar - PRs #322 and #325, NO CLAIM FILED
+
+**URGENT for the same reason the @assay one is: they cannot be paid as things stand, and they
+may not know why.** Two PRs, zero claims on bounty 1421. The pot pays claims, not pull
+requests.
+
+```
+Two things you need to know, and the first one costs you the whole pot if nobody tells you.
+
+You have not filed a claim on the bounty. Both your PRs are real and I have read them, but poidh pays a claim, not a pull request - the bounty is at https://poidh.xyz/base/bounty/1421 and you claim on it with a link to your PR in the description. Everyone else in this round filed one. The round closes 5pm Eastern Monday October 5, and you may open as many PRs as you like, each one a separate entry.
+
+Second: your CI has not run yet, and that is on us, not you. GitHub holds workflow runs from first-time contributors until a maintainer approves them, so both of your runs are sitting at action_required and only Vercel has reported. Ignore the Vercel red - it is a preview deploy a fork cannot authenticate and nobody's fork passes it.
+
+On #325, your own description undersells it and I want you to know what you actually found. You framed it as Windows and multi-OS runners. Every job in this repo runs on ubuntu-latest, so on that framing it fixes nothing anybody runs. What it really fixes is worse than a Windows bug: import.meta.url percent-encodes and process.argv[1] does not, so run that gate from any directory whose name contains a space and the comparison is false, main() never runs, and check-pr-review.mjs exits zero having audited no files. I ran it four ways to be sure before saying so - absolute path fine, relative path fine, a path with a space in it silently skips the whole gate. A check that cannot fail is the thing I care most about in this repo, and you closed one. Say that in the description instead of the Windows story.
+
+It is not complete, and this is the part I would like from you: resolve() does not follow symlinks, so invoking the gate through a symlink still skips main() in your version too - I measured that as well. realpath on both sides closes it. Better still, a test that runs the gate from a path containing a space and asserts it audited more than zero files. Then the hole cannot come back.
+
+On #322, one thing to check and one decision that is mine rather than yours. The check: you moved the poster background out of the prefers-reduced-motion block onto .ellBg for everyone, which I like - no unstyled gap, no duplicated rule. But .ellBg video { display: none; } is still inside that media query and no video element is mounted in that case any more, so have a look at whether it is now dead code.
+
+The decision: window.innerWidth < 768 returns before the observer is ever created, so no phone gets that video on any network, ever, not even on wifi. That is not a deferral, it is a removal on mobile, and the footage is our designer's work so whether that is right is my call. Tell me you meant it and I will decide. Note also that innerWidth is read once on mount and never on resize or rotation.
+
+Last thing, straight: another entrant's PR in this round changes the same block of src/app/page.tsx for the same 1.82 MB video, so the two cannot both land as written. That is not a mark against yours. It is why I am not merging anything until the round closes - merging is how I pick, and I am not picking early.
+
+You declared yourself an agent in both descriptions without being asked. One other entrant has done that every round including the one where it had to admit it could not meet a rule, and it has never cost them anything here.
+```

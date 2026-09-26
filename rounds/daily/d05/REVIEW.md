@@ -252,3 +252,115 @@ that would actually catch it has to assert a computed style, not the presence of
 
 **Not a disqualification and not CI-blocking.** It passed four jobs honestly; no job in this
 repo evaluates CSS. It is the single most useful piece of feedback this round has produced.
+
+---
+
+# The round five entry ledger, measured 2026-09-26 14:46 EDT
+
+**Every row below was read from the chain and from GitHub in the same sitting, not carried
+forward.** The ledger exists because this round has two populations that do not line up: five
+claims on bounty 1421, and six candidate pull requests on ZAODEVZ/ZAOstock. **A PR is not an
+entry until a claim points at it.**
+
+| Claim | Entrant | PR | What it changes | Checks | Verdict |
+|---|---|---|---|---|---|
+| 8304 | pn-research | **#316** | defers the 1.82 MB Ellsworth video until visible; never on Save-Data or 2g | 4 pass, Vercel fail | MERGE |
+| 8305 | pn-research | **#318** | gates the 4.5 MB hero frame preload on Data Saver and 2g | 4 pass, Vercel fail | MERGE |
+| 8306 | testies1234321-afk | **#317** | removes one unused `SITE` import; lint 8 warnings to 7 | 4 pass, Vercel fail | MERGE |
+| 8309 | i001962 | **#319** | sunlight contrast mode and stage jump controls on /program | 4 pass, Vercel fail | CHANGES REQUESTED |
+| 8310 | assay | **#320** | cannot be read | none | BLOCKED, link 404s |
+| none | GhostMintOps (BrandonDucar) | **#322** | second answer to the same 1.82 MB video | **held at the first-time gate** | NOT AN ENTRY YET |
+| none | GhostMintOps (BrandonDucar) | **#325** | cross-platform path handling in two check scripts | **held at the first-time gate** | NOT AN ENTRY YET, and undersold |
+
+**The four verdicts in rows one to four are the ZAOstock lane's, from its own review this
+morning, with its own measurements.** The CHANGES REQUESTED on #319 is not a claim in a
+message: `gh api repos/ZAODEVZ/ZAOstock/pulls/319/reviews` reads
+`bettercallzaal CHANGES_REQUESTED 2026-09-26T13:56:53Z`, so it is on the PR and the entrant
+can see it.
+
+**Vercel fails on all six and it is nobody's fault.** It is a preview deploy a fork cannot
+authenticate. Every other job passes on the four that have been allowed to run.
+
+**Nothing is merged, and that is deliberate.** This round's own text says open PRs count and
+**merged wins ties**, so merging an entry mid-round is not housekeeping, it is judging. That is
+Zaal's hand, not a lane's.
+
+## The two claim-less PRs, and why that is urgent rather than tidy
+
+`GhostMintOps` declared itself an autonomous agent in both descriptions, unprompted, which is
+the third entity in this round to do that without being asked. It opened **#322 at 12:43 EDT
+and #325 at 13:08 EDT**, and **filed no claim on bounty 1421**. Measured: the five claims cite
+PRs 320, 319, 318, 317 and 316, and nothing cites 322 or 325.
+
+**So the most active contributor of the afternoon is currently in line for nothing.** The pot
+pays claims, not pull requests. They may simply not know, exactly as @assay may not know their
+link is dead, and the round closes 5pm Monday.
+
+**Their CI has not run at all.** Both runs sit at `action_required`
+(`fix/windows-cross-platform-check-scripts` and `perf/defer-ellsworth-video-mobile`), the
+same first-time-contributor gate the other entrants hit. Only Vercel has reported, and it
+fails for forks. **Somebody has to approve those two runs before either can be judged.**
+
+## #322 against #316: one defect, two answers, and they cannot both land
+
+Both defer the same 1,819,337-byte `ellsworth.mp4`, and both edit the same block of
+`src/app/page.tsx`. A merge conflict is certain.
+
+| | #316 | #322 |
+|---|---|---|
+| Where the decision lives | `src/lib/should-autoplay-bg-video.ts`, a pure function | inline in the component's `useEffect` |
+| Test | **yes**, 4 unit tests, no DOM needed | **none** |
+| Skips the video on | Save-Data, `slow-2g`, `2g`, reduced motion | Save-Data, reduced motion, **and every viewport under 768px** |
+| Poster | left in the reduced-motion media query | moved onto `.ellBg` unconditionally |
+| Re-checks on resize | n/a, connection-based | **no**, `innerWidth` is read once on mount |
+
+**The difference that is a product decision, not a technique:** #322 gives **no phone the video
+at any time, on any network**, because `window.innerWidth < 768` returns before the observer
+is ever created. #316 still plays it on a phone on wifi once the section scrolls in. The video
+is Candy's look, so which of those is correct is Zaal's call and not a reviewer's.
+
+**One thing #322 does better:** it moves the poster background out of the
+`prefers-reduced-motion` block and onto `.ellBg` for everyone, so there is no unstyled gap
+before the video mounts and the rule stops being duplicated. **It also leaves
+`.ellBg video { display: none; }` inside that media query, which is now dead** - on reduced
+motion no video element is mounted at all for it to hide. Same question already put to #318:
+is the CSS branch still doing its part, or has it quietly become dead code.
+
+## #325 is described as a Windows fix. It is bigger than that, and it is provable.
+
+The entrant's own framing is "Windows developer environments and multi-OS CI matrix runners".
+**All four ZAOstock CI jobs run on `ubuntu-latest`**, so on that framing the PR fixes nothing
+anybody runs. That undersells it badly.
+
+The real defect is in the entrypoint guard of the security review gate:
+
+```js
+if (import.meta.url === `file://${process.argv[1]}`)   // before
+```
+
+`import.meta.url` is a URL and percent-encodes; `process.argv[1]` is a path and does not.
+**Run from any directory whose name contains a space and the comparison is false, `main()`
+never runs, and `check-pr-review.mjs` exits 0 having audited zero files.** A green gate that
+measured nothing - the exact defect this round's own bounty text complains about.
+
+Measured here, Node v23.3.0, four invocations of the same probe file:
+
+| Invocation | `import.meta.url` vs `argv[1]` | old guard ran | new guard ran |
+|---|---|---|---|
+| absolute path | identical | **true** | true |
+| relative path | Node absolutises `argv[1]` | **true** | true |
+| **path containing a space** | `guard%20test` vs `guard test` | **FALSE** | **true** |
+| via a symlink | link path vs real path | FALSE | **FALSE** |
+
+So the relative-path worry is unfounded and the space one is real. **The fix is correct and it
+is not cosmetic.** It is also not complete: row four shows `resolve()` does not follow
+symlinks, so invoking the gate through a symlink still skips `main()` silently in both
+versions. `realpath` on both sides would close that too, and it is the better thing to ask
+them for than a Windows story.
+
+The `check-fact-dedup.mjs` half is a plain correctness fix: `EXCLUDED_FILES` holds POSIX
+paths, so on a backslash platform the exclusion never matches and the deliberate venue mention
+in `src/app/error.tsx` gets flagged. Nothing in this repo's CI hits it today.
+
+**What to ask for, in one line each:** a test that runs the gate from a path with a space and
+asserts it audited more than zero files, and `realpath` on both sides of the comparison.
