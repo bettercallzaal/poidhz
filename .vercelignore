@@ -21,9 +21,28 @@
 # or declaring itself unsent is not matched here. Verified in production after deploying -
 # the paths 404 rather than 200.
 
+# ONE LEVEL DEEP WAS NOT ENOUGH, found live 2026-09-26. `rounds/*/winner-announce.md` matched
+# rounds/r5/ and did NOT match rounds/daily/d01/, because the daily ladder is one directory
+# further down. Measured: rounds/daily/d01/winner-announce.md returned 200 on poidhz.com - an
+# unsent announcement naming a winner, servable - while rounds/r5/winner-announce.md correctly
+# 404d. Same shallow-glob shape as the closeout sweep fixed the same night. Both depths are
+# listed now rather than one pattern trusted to cover a tree that grew.
 rounds/*/cast-templates/
+rounds/*/*/cast-templates/
 rounds/*/promo-cast.md
+rounds/*/*/promo-cast.md
 rounds/*/winner-announce.md
+rounds/*/*/winner-announce.md
+
+# ANNOUNCE.md and FEEDBACK.md are outbound copy too - the promo blocks for a round and the
+# drafted replies to its entrants. Neither shape existed when this file was written, and both
+# were servable: d04 and d05's ANNOUNCE.md both returned 200.
+rounds/*/ANNOUNCE.md
+rounds/*/*/ANNOUNCE.md
+rounds/*/FEEDBACK.md
+rounds/*/*/FEEDBACK.md
+rounds/*/REVIEW.md
+rounds/*/*/REVIEW.md
 rounds/r6/kenny-note.md
 rounds/r7/retainer-outreach.md
 docs/owed-credit.md
