@@ -140,7 +140,29 @@ ARCHIVE_MARKER = re.compile(
 # must not be servable. Found 2026-09-09: docs/owed-credit.md and rounds/r5/winner-announce.md
 # were both returning 200 on poidhz.com - a draft naming a winner who had not been told yet.
 UNSENT_MARKER = re.compile(
-    r"(?im)^<!--\s*SEND-GATE:|\bDRAFT, unsent\b|\bunsent\b.*\bOutbound is")
+    r"(?im)^<!--\s*SEND-GATE:|\bDRAFT, unsent\b|\bunsent\b.*\bOutbound is"
+    # A file can be plainly unsent without using either of the two phrases above.
+    # rounds/daily/d01/winner-announce.md opens "NOTHING HERE HAS BEEN POSTED" and was
+    # SERVING 200 on poidhz.com - an unsent announcement naming a paid winner, public, and
+    # this checker said nothing because it was matching wording rather than meaning.
+    #
+    # THE ADDED PHRASES ARE ANCHORED TO A HEADING OR A BOLD OPENING, and the first draft of
+    # them was not. Unanchored, they flagged rounds/r3/README.md and rounds/r5/README.md,
+    # which are records that MENTION unsent copy ("Copy is written and unsent at ...") rather
+    # than being unsent copy. A rule that fires on a file correctly describing the problem is
+    # the shape that gets checks switched off.
+    r"|^#[^\n]*\bUNSENT\b"
+    r"|^\W{0,4}\*\*[^*\n]{0,80}\bNOTHING HERE HAS BEEN POSTED\b"
+    r"|^\W{0,4}\*\*[^*\n]{0,80}\bhas not been (?:sent|posted)\b")
+
+# AND BY SHAPE, NOT ONLY BY WHAT THE FILE SAYS ABOUT ITSELF. .vercelignore's own header says
+# the rule is by shape "so a draft written next week is covered the moment it is created
+# rather than when someone remembers to add it" - but nothing enforced that, so the enforcement
+# depended on the author remembering to write a marker. These filenames are outbound copy
+# whatever is inside them, and a servable one is a finding.
+OUTBOUND_NAMES = frozenset({
+    "winner-announce.md", "promo-cast.md", "ANNOUNCE.md", "FEEDBACK.md", "REVIEW.md",
+})
 
 
 def vercelignore_patterns() -> list[str]:
@@ -345,6 +367,21 @@ def _selftest() -> bool:
           is_unsent_draft("<!-- SEND-GATE: round=5 -->\n# copy\n"))
     check("a DRAFT, unsent file is recognised",
           is_unsent_draft("# R5 winner announcement\n\n**DRAFT, unsent.** Outbound is Zaal's tap.\n"))
+    # THE REAL LEAK, pinned. rounds/daily/d01/winner-announce.md opened "NOTHING HERE HAS
+    # BEEN POSTED" and served 200 because neither the marker nor .vercelignore reached it.
+    check("a file whose bold opening says nothing has been posted IS a draft",
+          is_unsent_draft("# Round one - winner announcement, UNSENT\n\n"
+                          "**NOTHING HERE HAS BEEN POSTED.** Zaal posts.\n"))
+    check("UNSENT in the title alone is enough",
+          is_unsent_draft("# Round one - winner announcement, UNSENT\n\nbody\n"))
+    # AND THE FALSE POSITIVE THAT COST A PASS, pinned the other way: a record that MENTIONS
+    # unsent copy is not unsent copy, and the first version of the rule above flagged two.
+    check("a record that merely mentions unsent copy is NOT a draft",
+          not is_unsent_draft("# R5\n\nCopy is written and unsent at winner-announce.md; "
+                              "it has not gone out.\n"))
+    check("outbound copy is recognised by filename whatever it says inside",
+          "winner-announce.md" in OUTBOUND_NAMES and "ANNOUNCE.md" in OUTBOUND_NAMES
+          and "README.md" not in OUTBOUND_NAMES)
     check("an ordinary doc is not treated as a draft",
           not is_unsent_draft("# Promise audit\n\nR1 kept every promise.\n"))
     check("a directory entry covers files beneath it",
@@ -413,8 +450,11 @@ def main() -> int:
     for p in docs:
         text = p.read_text()
         rel_s = str(p.relative_to(REPO_ROOT))
-        if is_unsent_draft(text) and not is_unserved(rel_s, ignore):
-            print(f"  PUBLIC {rel_s}: unsent draft is servable - add it to .vercelignore")
+        outbound_by_shape = p.name in OUTBOUND_NAMES
+        if (is_unsent_draft(text) or outbound_by_shape) and not is_unserved(rel_s, ignore):
+            why = ("outbound copy by filename" if outbound_by_shape and not is_unsent_draft(text)
+                   else "unsent draft")
+            print(f"  PUBLIC {rel_s}: {why} is servable - add it to .vercelignore")
             problems += 1
         if is_archived_copy(text):
             skipped += 1
