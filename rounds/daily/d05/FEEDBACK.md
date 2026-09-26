@@ -88,6 +88,17 @@ Checks: typecheck, tests, build, lint, fact-dedup and the review gate all pass. 
 
 One thing to fix, and it is the one place this entry argues with the round it is entered in. Lint goes from 8 warnings to 10 with your branch. Both new ones are in ProgramControls.tsx: 'mounted' is assigned and never used at line 10, and line 13 calls setState synchronously inside an effect, which can trigger cascading renders. That second one is the same defect as LocalStartTime.tsx:24, which is the one existing warning in this repo with real runtime behaviour behind it - and the bounty text complains that lint exits zero so nothing stops one more landing. Yours lands two. Both are small, and you have until the 5th.
 
+THE ONE THAT MATTERS, and I am sorry to be the one to find it: the sunlight mode does not currently apply. In globals.css you have
+
+  .site #program-schedule-container.sunlight-active,
+  @media (prefers-contrast: more) {
+
+That comma makes the at-rule the second member of a selector list, and an invalid member invalidates the whole list. I did not want to tell you that off the spec alone, so I ran it in Chromium against a control: as written, the browser keeps ZERO rules from that block and the custom property never lands; split into a plain rule plus a separate @media block, it keeps both and applies. So your toggle is putting a class on an element that has no matching style, and prefers-contrast never fires either. The feature reads complete in the diff and does nothing on the page.
+
+The fix is two lines - close the .sunlight-active rule, then open the media query on its own.
+
+And the thing I would actually like you to take from it: your test says expect(cssSrc).toContain("@media (prefers-contrast: more)"). It reads the CSS as TEXT, so it passes because the broken string is present. A test that could have caught this has to assert a computed style - render it, toggle the class, read getComputedStyle. This repo has Playwright already wired and exactly one e2e spec for forty pages, so there is room. Do that and you will have fixed the feature and closed the hole that hid it, which is worth more to me than the feature was.
+
 The question I want answered: you fixed contrast by moving colours. Did you check the result against a measurement, or by eye? Someone else in this round is running axe over the home page and counting failures before and after. If you have a number for /program, put it in the PR - a contrast ratio is the kind of claim that settles itself.
 
 If you want more of this: accessibility across the rest of the site is wide open, and almost nobody does it. Focus states, keyboard order, heading structure. It is the sort of work that stays done.

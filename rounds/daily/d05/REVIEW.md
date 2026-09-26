@@ -203,3 +203,52 @@ pass. Does that sit right with Candy's palette, or would you rather have a darke
 
 That is an entrant asking a brand question they cannot answer alone, which is precisely what
 the mechanic was for. **It needs Zaal, and it needs him before they finish the work.**
+
+## 02:0x - #319's headline feature does not work, confirmed in a browser
+
+The Zaostock lane spotted this at parse level and said plainly they had not run it in a
+browser. **I have now, and they are right.**
+
+`src/app/globals.css` in PR #319:
+
+```css
+.site #program-schedule-container.sunlight-active,
+@media (prefers-contrast: more) {
+  .site #program-schedule-container { ... }
+}
+```
+
+The comma puts an at-rule where the second member of a selector list should be. **postcss parses
+it as ONE rule with a two-member selector list**, the second member being the literal string
+`@media (prefers-contrast: more)`. Per the Selectors spec an invalid member invalidates the
+entire list, and this is not one of the forgiving `:is()` / `:where()` forms.
+
+**Measured in Chromium, with a control, rather than argued from the spec:**
+
+| | rules the browser kept | computed colour | custom property |
+|---|---|---|---|
+| #319 as written | **0** | default | empty, rule never applied |
+| the same CSS split correctly | **2** | applied | applied |
+
+So the entry's headline feature - the sunlight mode the whole PR is named for - **is dropped
+entirely by the browser**, both the manual `.sunlight-active` toggle and the automatic
+`prefers-contrast` path. The React toggle flips a class onto an element that has no matching
+rule.
+
+**Their own test cannot see it**, and this is the part worth keeping:
+
+```js
+expect(cssSrc).toContain("@media (prefers-contrast: more)");
+```
+
+It string-matches the CSS **source text**. The broken text contains that string, so the test
+passes *because* of the defect it should have caught. That is the same shape as the review gate
+that returned PASS after reading zero files, and the same shape as a hostname allowlist with no
+test - a green check measuring something other than the thing.
+
+**The fix is two lines**: close the `.sunlight-active` rule, then open the `@media` block
+separately. Nine days left, and the entrant should hear it now rather than at the close. A test
+that would actually catch it has to assert a computed style, not the presence of a string.
+
+**Not a disqualification and not CI-blocking.** It passed four jobs honestly; no job in this
+repo evaluates CSS. It is the single most useful piece of feedback this round has produced.
