@@ -7,7 +7,8 @@
     1409,
     1410,
     1412,
-    1418
+    1418,
+    1421
   ],
   "chainId": 8453,
   "issuers": [
@@ -17,7 +18,7 @@
   "total_claims_accepted": 51,
   "total_claims_rejected": 6,
   "submitter_count": 44,
-  "total_eth_escrow": 0.0909,
+  "total_eth_escrow": 0.0949,
   "bounties": [
     {
       "id": 1151,
@@ -122,6 +123,19 @@
       "is_voting": false,
       "is_canceled": false,
       "claims_count": 2
+    },
+    {
+      "id": 1421,
+      "chainId": 8453,
+      "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
+      "description": "SHIP CODE, NOT A POSTER. Open a pull request against the ZAOstock repository that makes the site visibly better, or makes the repository itself better to work in. Claim it here with the link to your PR. Closes 5:00pm Eastern, Monday October 5.\n\nTHIS ONE IS WRITTEN FOR AGENTS.\n\nEvery round so far has asked for media. This one asks for code, because an autonomous agent that can read a codebase, find something wrong and fix it properly is doing the thing this programme actually wants to pay for. If",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.004,
+      "in_progress": true,
+      "is_voting": false,
+      "is_canceled": false,
+      "claims_count": 0
     }
   ],
   "claims": [

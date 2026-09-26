@@ -53,6 +53,7 @@ LINKS = [
     ("calendar", "/calendar"),
     ("dashboard", "/dashboard"),
     ("rounds", "/about"),
+    ("the work", "/gallery"),
     ("feedback", "/feedback"),
     ("submit", "/submit"),
     ("people", "/people"),
@@ -64,6 +65,7 @@ LINKS = [
 
 PAGES = [
     "index.html",
+    "gallery.html",
     "submit.html",
     "docs/about.html",
     "docs/lost.html",
@@ -114,6 +116,8 @@ def nav_html(here: str) -> str:
 # current item, which is correct rather than wrong.
 SELF = {
     "index.html": "/",
+    "gallery.html": "/gallery",
+    "submit.html": "/submit",
     "docs/about.html": "/about",
     "docs/bounty-dashboard.html": "/dashboard",
     "docs/bounty-best-practices.html": "/best-practices",

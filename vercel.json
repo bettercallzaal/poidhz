@@ -66,6 +66,10 @@
     {
       "source": "/submit",
       "destination": "/submit.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.html"
     }
   ],
   "headers": [

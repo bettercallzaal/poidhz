@@ -128,7 +128,16 @@ def render_og(feed: dict, now: dt.datetime) -> str:
     t = totals(feed)
     live = [r for r in cast_rounds(feed) if r.get("status") == "OPEN" and not shut(r, now)]
     voting = [r for r in cast_rounds(feed) if r.get("status") == "VOTING"]
-    if live:
+    if len(live) > 1:
+        # TWO ROUNDS CAN RUN AT ONCE AND THIS SENTENCE COULD NOT SAY SO. From 2026-09-25 the
+        # ad round (1418) and the code round (1421) overlap on purpose - one closes Sunday,
+        # the other the Monday after the festival. `live[0]` would have described one of them
+        # and silently hidden the other, on the share card, which is the surface most people
+        # see before they see the site.
+        n = sum(r.get("claims") or 0 for r in live)
+        head = (f"{len(live)} bounties are open right now, with {n} "
+                f"{'entry' if n == 1 else 'entries'} between them.")
+    elif live:
         n = live[0].get("claims") or 0
         head = (f"A bounty is open now with {n} "
                 f"{'entry' if n == 1 else 'entries'} in it.")
@@ -255,6 +264,22 @@ def _selftest() -> bool:
     og_live = render_og(live_feed, now)
     c("og description leads with the OPEN bounty when one is enterable",
       og_live.startswith("A bounty is open now with 5 entries"))
+
+    # TWO OPEN AT ONCE, which is the real state from 2026-09-25 and was unrepresentable.
+    two = {"rounds": [
+        dict(feed["rounds"][2], bounty_id=1418, claims=2, closes_at="2026-12-31T17:00:00-05:00"),
+        dict(feed["rounds"][2], bounty_id=1421, claims=0, closes_at="2026-12-31T17:00:00-05:00"),
+    ]}
+    og_two = render_og(two, now)
+    c("og description counts BOTH open bounties rather than describing one",
+      og_two.startswith("2 bounties are open right now, with 2 entries between them."))
+    three = {"rounds": [dict(feed["rounds"][2], bounty_id=i, claims=1,
+                             closes_at="2026-12-31T17:00:00-05:00") for i in (1, 2, 3)]}
+    c("and it scales past two", render_og(three, now).startswith("3 bounties are open right now, with 3 entries"))
+    c("one open bounty still reads in the singular form",
+      render_og({"rounds": [dict(feed["rounds"][2], claims=2,
+                                 closes_at="2026-12-31T17:00:00-05:00")]}, now)
+      .startswith("A bounty is open now with 2 entries"))
 
     one = {"rounds": [dict(feed["rounds"][2], claims=1, closes_at="2026-12-31T17:00:00-05:00")]}
     c("one entry is singular", "with 1 entry in it" in render_og(one, now))
