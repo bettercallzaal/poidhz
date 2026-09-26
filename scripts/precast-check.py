@@ -131,9 +131,15 @@ def eth_usd() -> float | None:
 
 def check_wallet(cfg: dict, prize_eth: float) -> None:
     print("\n[1/5] WALLET")
-    addr = cfg.get("treasury_wallet")
+    # THE ISSUER, NOT THE TREASURY. They are the same EOA today and they are different roles:
+    # the treasury holds funds, the issuer is whoever poidh records as having created the
+    # bounty and therefore whose balance has to cover this cast. Reading treasury_wallet
+    # worked only by coincidence, and the day they diverge it would have checked the wrong
+    # balance and said READY. Falls back to treasury_wallet so an older config still runs.
+    addr = cfg.get("issuer_wallet") or cfg.get("treasury_wallet")
     if not addr:
-        blocking("org.config.json has no treasury_wallet - cannot check funding")
+        blocking("org.config.json has neither issuer_wallet nor treasury_wallet - "
+                 "cannot check funding")
         return
 
     need = prize_eth + GAS_HEADROOM_ETH
