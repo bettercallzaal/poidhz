@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T02:34:20.943954+00:00",
+  "generated_at": "2026-09-26T02:34:36.455439+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -186,8 +186,8 @@
       "bounty_title": "ZAOstock Round 5 - Ship Code, Not A Poster",
       "url": "https://poidh.xyz/base/bounty/1421",
       "status": "OPEN",
-      "amount_native": 0.004,
-      "amount_usd": 10.66736,
+      "amount_native": 0.005,
+      "amount_usd": 13.3342,
       "claims": 0,
       "winner": null,
       "offchain": false,
