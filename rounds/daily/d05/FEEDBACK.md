@@ -79,6 +79,21 @@ You may open as many PRs as you like this round and each one is a separate entry
 
 ## To @i001962 - PR #319
 
+**STALE AS WRITTEN. DO NOT POST IT WHOLE.** Measured 2026-09-26 16:59: a review from Zaal's own
+account already sits on #319 - `bettercallzaal CHANGES_REQUESTED 2026-09-26T13:56:53Z` - and it
+carries **the same sunlight-CSS finding**, worked through `lightningcss` from `node_modules`
+with the `Invalid empty selector` warning quoted. The entrant has had it for three hours.
+
+**So the paragraph below beginning "THE ONE THAT MATTERS" is already delivered**, and posting it
+again would tell somebody a thing they have already been told, in the voice of telling them
+first. What is NOT said anywhere yet: the two new lint warnings this branch adds, the question
+about whether the contrast was measured or eyeballed, and the invitation to the rest of the
+site's accessibility. **Post only those**, and open by referring back to the review rather than
+by discovering the bug.
+
+This is the second time in one day a draft in this file has decayed before it was sent. The
+first was the CI paragraph at the top. A drafted reply is a claim with a timestamp on it.
+
 ```
 This is the first entry that went at the top of the list rather than the easy end of it, and I noticed.
 
@@ -114,7 +129,7 @@ entrant cannot be judged until the link works, and they may not know.
 ```
 Your claim is in and I cannot read the work, because the link in it does not resolve.
 
-github.com/ZAODEVZ/ZAOstock/pull/320 returns 404. There is no #320 on the repo in any state - #319 is the highest that exists, and I see no pull requests from you there at all. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why I am telling you rather than marking it down.
+github.com/ZAODEVZ/ZAOstock/pull/320 returns 404, and it has done on every check since your claim went up. The numbering has moved well past it since - #329 is the newest on the repo - so 320 is a specific gap rather than a number we have not reached yet, and I see no pull requests from you there at all. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why I am telling you rather than marking it down.
 
 Get the PR open and reply here with the link. The round closes 5pm Eastern Monday October 5 and nothing about this counts against you; claim again if it is easier, since a later claim does not replace an earlier one in this round.
 
