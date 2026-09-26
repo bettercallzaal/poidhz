@@ -107,15 +107,27 @@ def http_status(url: str, timeout: int = 15) -> int | None:
         return None
 
 
-def pr_links_in(bounty: dict) -> list[str]:
-    out: list[str] = []
+def pr_links_with_claims(bounty: dict) -> list[tuple[str, str, str]]:
+    """(url, pr number, claim id) for every github PR link inside a claim on this bounty.
+
+    This is what decides whether a pull request is an ENTRY. A PR nobody claimed is repo
+    traffic: the pot pays claims, not pull requests.
+    """
+    out: list[tuple[str, str, str]] = []
+    seen: set[str] = set()
     for c in bounty.get("claims") or []:
         hay = f"{c.get('title') or ''} {c.get('description') or ''} {c.get('url') or ''}"
         for m in PR_LINK_RE.finditer(hay):
             url = f"https://github.com/{m.group(1)}/{m.group(2)}/pull/{m.group(3)}"
-            if url not in out:
-                out.append(url)
+            if url in seen:
+                continue
+            seen.add(url)
+            out.append((url, m.group(3), str(c.get("claimId"))))
     return out
+
+
+def pr_links_in(bounty: dict) -> list[str]:
+    return [u for u, _, _ in pr_links_with_claims(bounty)]
 
 
 def open_prs(repo: str) -> dict[str, str] | None:
@@ -156,13 +168,19 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
             "claims": sorted(str(c.get("claimId")) for c in b.get("claims") or []),
             "title": b.get("title"),
         }
-        if check_links:
-            for url in pr_links_in(b):
+        for url, prnum, cid in pr_links_with_claims(b):
+            snap.setdefault("entry_prs", {})[prnum] = f"bounty {bid} claim {cid}"
+            if check_links:
                 code = http_status(url)
                 if code is None:
                     failures.append(f"link {url}: unreachable")
                 else:
                     snap["links"][url] = code
+
+    # Measured-and-empty is not the same as unmeasured. If any bounty was read, the entry
+    # set was established even when it turns out nothing cites a PR, so record the {}.
+    if snap["bounties"]:
+        snap.setdefault("entry_prs", {})
 
     prs = open_prs(repo)
     if prs is None:
@@ -240,14 +258,28 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
             events.append(f"LINK-DEAD {url} -> {code} - a new claim points at nothing readable.")
         merged["links"][url] = code
 
+    # An ENTRY is a pull request some claim points at. Everything else on that repo is the
+    # maintainer's own traffic. Measured 2026-09-26: the first six PR events this watcher
+    # produced were all housekeeping PRs by the repo's own owner, and every one of them was
+    # labelled a judging fact. A watcher that calls everything important is read as noise, and
+    # the one line that mattered would have been skipped with the rest.
+    entry_prs = new.get("entry_prs", old.get("entry_prs") or {})
+    merged["entry_prs"] = entry_prs
     if "prs" in new:
         prev_prs = old.get("prs") or {}
         for num, label in new["prs"].items():
             if num not in prev_prs and not first_run:
-                events.append(f"PR-NEW #{num} {label}")
+                if num in entry_prs:
+                    events.append(f"ENTRY-NEW #{num} {label} - cited by {entry_prs[num]}")
+                else:
+                    events.append(f"PR-NEW #{num} {label} - no claim cites it, so not an entry yet")
         for num, label in prev_prs.items():
             if num not in new["prs"]:
-                events.append(f"PR-GONE #{num} {label} - merged or closed. Merged wins ties, so this is a judging fact.")
+                if num in entry_prs:
+                    events.append(f"ENTRY-MERGED #{num} {label} - cited by {entry_prs[num]}. "
+                                  "Merged wins ties, so this is a judging fact.")
+                else:
+                    events.append(f"PR-GONE #{num} {label} - merged or closed, no claim cited it")
         merged["prs"] = new["prs"]
 
     return events, merged
@@ -266,7 +298,16 @@ def summarize(snap: dict, now: float) -> list[str]:
     lines.append(f"  claim PR links: {len(snap.get('links') or {})} checked, {len(dead)} dead"
                  + (f" - {', '.join(dead)}" if dead else ""))
     if "prs" in snap:
-        lines.append(f"  open PRs on the code repo: {len(snap['prs'])}")
+        entries = snap.get("entry_prs") or {}
+        cited_open = sorted(n for n in snap["prs"] if n in entries)
+        uncited = sorted(n for n in snap["prs"] if n not in entries)
+        lines.append(f"  open PRs on the code repo: {len(snap['prs'])}"
+                     f" - {len(cited_open)} cited by a claim ({', '.join('#' + n for n in cited_open) or 'none'}),"
+                     f" {len(uncited)} not an entry ({', '.join('#' + n for n in uncited) or 'none'})")
+        orphan = sorted(n for n in entries if n not in snap["prs"])
+        if orphan:
+            lines.append(f"  claimed PRs that are NOT open: {', '.join('#' + n for n in orphan)}"
+                         " - merged, closed, or never existed")
     return lines
 
 
@@ -334,11 +375,39 @@ def _selftest() -> int:
     prs = json.loads(json.dumps(base))
     prs["prs"] = {"316": "alice one", "322": "ghost two"}
     ev, _ = diff(base, prs, now)
-    checks.append(("a new PR is an event", any(e.startswith("PR-NEW #322") for e in ev)))
+    checks.append(("a new PR is an event", any("#322" in e for e in ev)))
     gone = json.loads(json.dumps(base))
     gone["prs"] = {}
     ev, _ = diff(base, gone, now)
-    checks.append(("a merged PR is an event", any(e.startswith("PR-GONE #316") for e in ev)))
+    checks.append(("a merged PR is an event", any("#316" in e for e in ev)))
+
+    # An entry is a PR a claim cites. Everything else is the maintainer's own traffic, and
+    # calling that a judging fact is how the one line that matters gets skipped. Both
+    # directions, because a label that fires on everything carries no information.
+    cited = {"bounties": base["bounties"], "links": {}, "prs": {"316": "alice one"},
+             "entry_prs": {"316": "bounty 1421 claim 8304"}}
+    ev, _ = diff(cited, {**cited, "prs": {}}, now)
+    checks.append(("a CLAIMED pr merging is a judging fact",
+                   any(e.startswith("ENTRY-MERGED #316") and "judging fact" in e for e in ev)))
+    uncited = {"bounties": base["bounties"], "links": {}, "prs": {"327": "owner housekeeping"},
+               "entry_prs": {"316": "bounty 1421 claim 8304"}}
+    ev, _ = diff(uncited, {**uncited, "prs": {}}, now)
+    checks.append(("an UNCLAIMED pr merging is NOT called a judging fact",
+                   any(e.startswith("PR-GONE #327") for e in ev) and not any("judging fact" in e for e in ev)))
+    ev, _ = diff(uncited, {**uncited, "prs": {"327": "owner housekeeping", "330": "someone new"}}, now)
+    checks.append(("a new pr no claim cites says so", any("not an entry yet" in e for e in ev)))
+    entry_new = {**cited, "entry_prs": {"316": "bounty 1421 claim 8304", "318": "bounty 1421 claim 8305"}}
+    ev, _ = diff(cited, {**entry_new, "prs": {"316": "alice one", "318": "alice two"}}, now)
+    checks.append(("a new pr a claim DOES cite is an ENTRY-NEW",
+                   any(e.startswith("ENTRY-NEW #318") and "claim 8305" in e for e in ev)))
+
+    # The entry set must survive a sweep that could not read the bounties, like every other key.
+    _, st = diff(cited, {"prs": {"316": "alice one"}}, now)
+    checks.append(("an unmeasured sweep keeps the entry set", st.get("entry_prs") == {"316": "bounty 1421 claim 8304"}))
+
+    # pr_links_with_claims ties a PR number to the claim that cites it, not just to a url.
+    trip = pr_links_with_claims({"claims": [{"claimId": 8304, "title": "https://github.com/o/r/pull/316"}]})
+    checks.append(("a PR link carries its claim id", trip == [("https://github.com/o/r/pull/316", "316", "8304")]))
 
     # First run must not shout the whole world as news.
     ev, _ = diff({}, base, now)
