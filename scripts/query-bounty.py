@@ -118,27 +118,39 @@ def fetch_bounty_merged(bounty_id: int, chain_id: int) -> dict | None:
         "isVoting": data.get("isVoting"),
         "priceUsd": data.get("priceUsd"),
         "url": data.get("url"),
+        # The ONE field /data is authoritative for. For a bounty in VOTING it is when the
+        # contributor vote closes, which is when resolveVote(<onChainId>) becomes callable.
+        # Never read acceptance from /data - it does not carry isAccepted at all.
+        "deadline": data.get("deadline"),
         "album": (data.get("extra") or {}).get("album"),
         "claims": merged_claims,
     }
 
 
-def format_bounty(b: dict) -> str:
-    winner = next((c for c in b["claims"] if c.get("isAccepted")), None)
-    # Precedence matters: isVoting can stay true on-chain even after a winner is
-    # already accepted (confirmed against real bounty 1180 - femmie won, isVoting is
-    # still true) - a resolved winner must win over a stale voting flag, not the
-    # reverse, or a fully-settled bounty misreports as still "VOTING".
+def status_of(b: dict) -> str:
+    """CANCELED / WINNER SET / VOTING / OPEN / CLOSED for a merged bounty.
+
+    Precedence matters: isVoting can stay true on-chain even after a winner is
+    already accepted (confirmed against real bounty 1180 - femmie won, isVoting is
+    still true) - a resolved winner must win over a stale voting flag, not the
+    reverse, or a fully-settled bounty misreports as still "VOTING".
+
+    Extracted from format_bounty so watch-rounds.py cannot drift from it. Two copies of
+    this precedence is two answers to "is it settled", and the wrong one gets reported.
+    """
     if b["isCanceled"]:
-        status = "CANCELED"
-    elif winner:
-        status = "WINNER SET"
-    elif b["isVoting"]:
-        status = "VOTING"
-    elif b["inProgress"]:
-        status = "OPEN"
-    else:
-        status = "CLOSED"
+        return "CANCELED"
+    if next((c for c in b["claims"] if c.get("isAccepted")), None):
+        return "WINNER SET"
+    if b["isVoting"]:
+        return "VOTING"
+    if b["inProgress"]:
+        return "OPEN"
+    return "CLOSED"
+
+
+def format_bounty(b: dict) -> str:
+    status = status_of(b)
     amount_native = int(b["amount_wei"] or 0) / 1e18
     lines = [
         f"Bounty {b['id']} (onchain #{b['onChainId']}, chain {b['chainId']}) - {status}",
@@ -204,6 +216,16 @@ def _selftest() -> int:
     checks.append(("formatter marks the accepted claim as WINNER", "WINNER" in formatted and "claim   101" in formatted))
     checks.append(("formatter shows resolved handle not raw address", "@alice" in formatted))
     checks.append(("winner takes precedence over a stale isVoting=True flag", "WINNER SET" in formatted and "VOTING\n" not in formatted))
+
+    # status_of is what watch-rounds.py reads. Pin it directly, both ways, so the
+    # extraction cannot quietly change the answer for either shape.
+    checks.append(("status_of agrees with the formatter on a settled bounty", status_of(fake_bounty) == "WINNER SET"))
+    no_winner = {**fake_bounty, "claims": [{**merged, "isAccepted": False}]}
+    checks.append(("status_of says VOTING when no claim is accepted", status_of(no_winner) == "VOTING"))
+    checks.append(("status_of says OPEN when not voting but in progress",
+                   status_of({**no_winner, "isVoting": False, "inProgress": True}) == "OPEN"))
+    checks.append(("status_of says CANCELED over everything else",
+                   status_of({**fake_bounty, "isCanceled": True}) == "CANCELED"))
 
     fails = 0
     for label, ok in checks:
