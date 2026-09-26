@@ -19,7 +19,7 @@ about 100 minutes of the cast, and all three are working targets named in the bo
 | [#316](https://github.com/ZAODEVZ/ZAOstock/pull/316) | pn-research | defers the 1.8 MB background video | PASS | PASS | PASS | PASS |
 | [#318](https://github.com/ZAODEVZ/ZAOstock/pull/318) | pn-research | skips a 4.5 MB hero preload on Data Saver | PASS | PASS | PASS | PASS |
 
-## THE BLOCKER, and it is ours rather than theirs
+## THE BLOCKER - CLEARED AT 00:5x, kept here because the judging rule it created still holds
 
 **GitHub reports `action_required` on the CI run for all three pull requests.** That is the
 first-time-contributor gate: a maintainer has to press "Approve and run" before any workflow
@@ -126,3 +126,29 @@ our page, not a character result about them. Tell them where the receipt is; do 
 
 Both wallets are UNRESOLVED on the leaderboard feed, which is normal for a first entry and
 means their feedback pages cannot be filed by handle yet.
+
+## 00:59 - the gate is lifted and every entry is genuinely green
+
+The ZAOstock lane read all three diffs by hand, confirmed none of them touch a workflow file or
+reach a secret, and approved the runs. **Verified here rather than taken from their message:**
+
+| PR | typecheck/tests/build | lint | fact-dedup | review gate | Vercel |
+|---|---|---|---|---|---|
+| #316 | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAILURE |
+| #317 | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAILURE |
+| #318 | SUCCESS | SUCCESS | SUCCESS | SUCCESS | FAILURE |
+
+**Vercel is the only red and it stays red.** It is a preview deploy a fork cannot authenticate.
+That is a permanent condition of every outside entry in this round, so "it passes CI" means the
+four workflow jobs, and an entrant must not be marked down for the preview.
+
+**They are keeping the first-time-contributor gate on**, deliberately: it is the reason each
+diff got read before it ran. Every future entry needs the same check-then-approve pass, from
+them or from Dotfiles. That is a cost worth paying and it is worth knowing about in advance -
+if entries arrive while nobody is awake, they will sit.
+
+**AND IT MADE MY OWN DRAFT WRONG WITHIN THE HOUR.** The replies in `FEEDBACK.md` said "your CI
+has not run yet". Posting that after the gate lifted would have told two entrants their checks
+were stuck while a green tick sat on their pull request. Rewritten at 00:59. This is the same
+lesson as the resolveVote timing four hours earlier: a drafted claim about a live system decays,
+and the fix is to re-read it in the same breath as sending it.

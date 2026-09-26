@@ -9,9 +9,15 @@ is four hours old.
 ask a real question, and close with what is needed next rather than with a rule. Every
 technical claim below was verified by running it on a clean clone.
 
-**Say the CI thing first, in both.** Every entrant currently sees a red mark on their pull
-request and it is not theirs - it is the first-time-contributor gate plus a Vercel preview.
-Leaving that unexplained tells a careful person they failed a bar they cannot reach.
+**THE CI PARAGRAPH WAS REWRITTEN AT 00:59 AND THE FIRST VERSION IS NOW FALSE.** When these
+were drafted, all three runs sat at `action_required` and both replies said "your CI has not
+run yet". The ZAOstock lane read each diff by hand and approved all three at about 00:5x, and
+**every job now passes: typecheck/tests/build, lint, fact-dedup and the review gate**, verified
+here rather than taken from their message. Only the Vercel preview still fails, which a fork
+cannot authenticate.
+
+Posting the earlier wording would have told two entrants their checks had not run while a green
+tick sat on their pull request. A drafted claim decays; this one decayed in under an hour.
 
 ---
 
@@ -20,7 +26,7 @@ Leaving that unexplained tells a careful person they failed a bar they cannot re
 ```
 Both of these are in, and they are the two I would have picked myself.
 
-First, the red mark on your PRs is ours, not yours. GitHub holds workflow runs from first-time contributors until a maintainer approves them, so your CI has not run yet - it says action_required, not failed. The Vercel line is a preview deploy that forks cannot authenticate. I ran the real thing locally on a clean clone with no env file: typecheck, lint, test and build all pass on both branches, and your four new tests pass in each.
+On the checks: both of yours are green now. There was a delay because GitHub holds workflow runs from first-time contributors until a maintainer approves them - that is the first-time gate, not anything you did, and somebody read your diffs and approved them. typecheck, tests, build, lint, fact-dedup and the security review gate all pass on both PRs. The one red line left is Vercel, which is a preview deploy a fork cannot authenticate; ignore it, it is not yours to fix. I had also run the four commands locally on a clean clone before the gate lifted, and your four new tests pass in each branch.
 
 What you did that most people do not: you made the policy a pure function in its own file and unit-tested it, instead of burying an if-statement in a component. This repo has no jsdom, and rather than adding one you moved the decision somewhere it could be tested without a DOM. That is the instinct I want on this codebase.
 
@@ -40,7 +46,7 @@ The festival is October 3 and this round runs to the 5th, so there is time. If y
 ```
 This is in, and thank you for declaring the agent in the description without being asked. One agent has entered every round of this programme and declared itself every time, including the one rule it could not meet, and it has never cost them anything.
 
-First, the red mark on your PR is ours, not yours. GitHub holds workflow runs from first-time contributors until a maintainer approves them - your CI says action_required, it did not fail. The Vercel line is a preview deploy that a fork cannot authenticate. I ran the checks by hand on a clean clone: typecheck, lint, test and build all pass, and I confirmed the specific thing you claimed. Main lints at 8 warnings, your branch at 7, and the one that disappears is the SITE warning. You said what was wrong, how you knew, and what you ran, and every part of it held up when I checked it. That is rarer than it should be.
+On the checks: yours is green now. There was a delay because GitHub holds workflow runs from first-time contributors until a maintainer approves them - the first-time gate, not anything you did. typecheck, tests, build, lint, fact-dedup and the security review gate all pass. The one red line left is Vercel, a preview deploy a fork cannot authenticate; ignore it. I had also checked the specific thing you claimed, by hand and by control: main lints at 8 warnings, your branch at 7, and the one that disappears is the SITE warning. You said what was wrong, how you knew, and what you ran, and every part of it held up. That is rarer than it should be.
 
 What it is: the smallest correct change, cleanly argued. What it is not, yet, is something a visitor would notice - and this round's first criterion is whether somebody landing on a phone has a better time. A lint fix is real work and it sits low on that particular ladder, which is about the ladder rather than about you.
 
