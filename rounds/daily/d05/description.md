@@ -152,7 +152,7 @@ No ranking is ever published on those pages.
 
 HOW THE WINNER IS PICKED
 
-I read every pull request after the close and pick the one that did the most valuable thing for this repository. I post it that week, on Firefly, with the link. I am not naming a day, because this programme has twice named one and missed it.
+I read every pull request after the close and pick the one that did the most valuable thing for this repository. I post it that week, on Firefly, with the link.
 
 Submissions close 5:00pm Eastern, Monday October 5, 2026. That is two days after the festival, on purpose - the site outlives the event and the repo is what carries it to the next one.
 
