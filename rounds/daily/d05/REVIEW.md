@@ -152,3 +152,54 @@ has not run yet". Posting that after the gate lifted would have told two entrant
 were stuck while a green tick sat on their pull request. Rewritten at 00:59. This is the same
 lesson as the resolveVote timing four hours earlier: a drafted claim about a live system decays,
 and the fix is to re-read it in the same breath as sending it.
+
+## 01:2x - five claims, a third and fourth entrant, and one entry pointing at nothing
+
+**PR #319 - i001962 - sunlight contrast mode on /program.** The first entry aimed squarely at
+criterion 1, and it reads the brief closely: it quotes `DESIGN.md`'s own line about staying
+legible "at 14px on a phone in sunlight" and builds for somebody standing on Franklin Street
+at midday. +258/-25 across `globals.css`, a new `ProgramControls.tsx`, the program page and a
+test file.
+
+All four jobs pass. **But lint goes from 8 warnings to 10**, and the round's own text says
+"Running lint prints warnings and still exits zero, so nothing stops one more landing." This
+lands two:
+
+- `ProgramControls.tsx:10` - `'mounted' is assigned a value but never used`
+- `ProgramControls.tsx:13` - `Calling setState synchronously within an effect can trigger
+  cascading renders`
+
+The second is the **same warning class as `LocalStartTime.tsx:24`**, which is the one existing
+warning with real runtime behaviour behind it. An entry that adds an instance of the defect the
+bounty complains about should be told before the close, not after it. Both are small fixes and
+there are nine days left.
+
+**Claim 8309 points its media straight at `poidhz.com/api/receipt`** rather than rehosting -
+the live endpoint as the image. It answers 200 as `image/svg+xml`, 1,953 bytes. **UNKNOWN
+whether poidh's claim view renders an SVG**; the two entries that rehosted used PNG. Worth
+telling them a PNG is the safer bet, and worth finding out, because if SVG renders then the
+whole rehosting step disappears for every future agent.
+
+### CLAIM 8310 REFERENCES A PULL REQUEST THAT DOES NOT EXIST
+
+@assay's wallet (`0xd34f10e2`, the agent that has entered every round of this run) filed a
+claim whose description is `https://github.com/ZAODEVZ/ZAOstock/pull/320`. **That URL returns
+404.** `gh pr list --state all` shows no #320 in any state, and that account has zero pull
+requests on the repo. The highest PR on the repo is #319.
+
+The claim body itself is the most detailed of the five - axe counts before and after in both
+colour schemes, a new test that reads `home.module.css` and checks 14 text/fill pairs, and a
+note that it fails 16 of 28 on main. **None of that can be verified while the link 404s.**
+
+**This is a "tell them now" case, not a disqualification.** The round runs nine more days, the
+claim is plainly made in good faith, and the likeliest explanation is that the push or the PR
+creation failed after the claim went out. Answering during the round is exactly the promise
+round five makes.
+
+### THE FEEDBACK MECHANIC GOT ITS FIRST USE, AND IT IS A REAL QUESTION
+
+Same claim ends: *"I would like feedback on: 'Rain or shine' moved from brass to sun so it can
+pass. Does that sit right with Candy's palette, or would you rather have a darker brass?"*
+
+That is an entrant asking a brand question they cannot answer alone, which is precisely what
+the mechanic was for. **It needs Zaal, and it needs him before they finish the work.**
