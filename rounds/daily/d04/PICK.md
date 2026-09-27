@@ -147,3 +147,27 @@ listing is the thing that sentence was written about. **8239 still picks one ide
 
 **The recommendation is unchanged: 8239, @assay.** The field is now five and every one of them
 put FREE on the piece.
+
+## RULED: claim 8332 is inside the rule. 2026-09-27 09:48 EDT
+
+**Zaal ruled at 10:0x EDT that 8332 counts.** The option he took read: *"X re-encodes every
+upload... holding it out enforces the limit against the encoder, not the entrant."*
+
+**So the field is five and it is settled for tonight.** 8332's measured 30.046621s stands in the
+record - the number does not change, only what it means. **The rule now has a stated edge:
+a duration measured on a platform's re-encode is not evidence the entrant exported over the
+limit**, and this is the first time that has had to be decided.
+
+**Worth carrying into the next round that sets a length limit:** say which file the limit applies
+to. *"Thirty seconds or less"* is unambiguous until two files exist - the export and what the
+platform serves - and they differ by about a frame. A line saying the limit is judged on the
+piece as posted, with a tolerance of one second for re-encoding, would have made this
+arithmetic rather than a judgement.
+
+**The pick recommendation is unchanged: 8239, @assay.** 8332 being eligible does not alter the
+reasoning against it, which was never about its length: the brief warns that entries try to
+carry the whole festival when an advert picks one thing and lands it, and 8332 carries
+come-through, the date, the place, the lineup by name and the after-party.
+
+**Not yet decided, and both are tonight's:** which entry wins, and whether he watches before
+picking. Both are on the board as #250 and #239.
