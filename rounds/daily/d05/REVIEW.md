@@ -515,3 +515,36 @@ note rather than a similar one.
 #341 was opened at 12:49:40Z, **ten minutes after the first four reminders went out**, by a
 contributor who had therefore never been told. Five PRs have now been reminded: #322, #325,
 #330, #336, #341.
+
+## The four held runs were approved and all four are green. 2026-09-27 09:44 EDT
+
+Zaal ruled the seat approves them and it is done. **`action_required` on ZAODEVZ/ZAOstock is
+now 0.** Conclusions read from the runs API rather than from the report of them, job by job
+rather than as an aggregate word:
+
+| PR | run | typecheck/tests/build | lint | fact-dedup | review gate |
+|---|---|---|---|---|---|
+| **#334** | 36291982968 | **success** | **success** | **success** | **success** |
+| #336 | 36312416260 | success | success | success | success |
+| #341 | 36320287359 | success | success | success | success |
+| #343 | 36321417524 | success | success | success | success |
+
+**Sixteen of sixteen jobs passed. Nothing went red, so nothing is red for a reason on our side
+of the fence** - which was the thing worth checking, since the hold itself had been ours.
+
+**#334 is the one that mattered and it is now judgeable.** Claim 8329 names it, its four jobs
+pass, and the only red left anywhere is Vercel, which no fork can authenticate. An entrant who
+did everything the round asked can now be assessed on the same evidence as everybody else.
+
+**#336, #341 and #343 are green but still uncited.** Passing CI is not an entry; the pot pays
+claims. All three carry the reminder.
+
+## Round five, as it stands
+
+**8 claims, 11 open pull requests, 6 of them cited by a claim.**
+
+| cited | uncited |
+|---|---|
+| #316, #317, #318, #319, #330, #334 | #322, #325, #336, #341, #343 |
+
+`#320` is still claimed by 8310 and still 404s, now for over a day.
