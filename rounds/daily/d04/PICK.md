@@ -103,3 +103,47 @@ Accept on **bounty 1418, on-chain 432**.
 poidh claim id and the on-chain id differ, and this file will be hours old by 5pm.
 
 A two-day contributor vote follows, then `resolveVote(432)`.
+
+---
+
+## A fifth entry landed, and it is 47 milliseconds over the limit. 2026-09-27 08:55 EDT
+
+**Claim 8332, @taku0x** - a returning entrant, who also entered round three as claim 8145.
+Posted to **both** Farcaster and X, 12:41:10Z today, and claimed 13 minutes later.
+
+```
+duration   30.046621 s        720x1280, h264 + audio
+the rule   "THIRTY SECONDS OR LESS if it moves"
+over by    0.046621 s
+```
+
+**State the number, then the caveat, and let the ruling be Zaal's.** 47 milliseconds is smaller
+than the jitter a platform re-encode introduces: this is the file **as X serves it**, not as it
+was exported, and a piece authored at exactly 30.000 routinely lands a frame or two long after
+upload. **Nobody can tell from here whether the entrant exported it over.** Treating 47ms as a
+disqualification would be enforcing a limit against an artefact of Twitter's encoder; ignoring
+the measurement entirely would be pretending the rule has no edge. It has an edge, this landed
+on it, and it is a judgement rather than an arithmetic result.
+
+**On the brief's hard content rule it does well.** A locked footer runs on every frame sampled:
+*SATURDAY, OCTOBER 3 - ELLSWORTH, MAINE / Franklin Street Parklet - Free - All ages - Rain or
+shine*. So date, place, FREE and the parklet travel with any repost. **The festival's name is
+not in that banner** - ZAOSTOCK appears in the tiled watermark and on the closing card, so a
+frame grabbed from the middle carries everything except what the event is called.
+
+It credits **logo by attabotty**, carries zaostock.com, names four of the acts by name, and is
+captioned throughout.
+
+**Reach: 1 view.** Posted 13 minutes before it was claimed.
+
+### It does not change the pick, and the reason is the brief's own warning
+
+Round four's text says: *"Most entries so far have tried to carry the whole festival - eight
+acts, the street, the times, the after-party. An advert picks one thing and lands it."*
+
+**8332 carries the whole festival** - come through, the date, the place, the lineup by name, and
+the after-party at Black Moon Public House. It is a good, complete, well-built listing, and a
+listing is the thing that sentence was written about. **8239 still picks one idea and lands it.**
+
+**The recommendation is unchanged: 8239, @assay.** The field is now five and every one of them
+put FREE on the piece.

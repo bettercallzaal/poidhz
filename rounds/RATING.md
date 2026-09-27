@@ -89,3 +89,45 @@ not intuition - it is the measured shape of this platform.
 | Draft R9 ZAOstock off the /brand kit, clip and poster led, real deadline - `rounds/r9/description.md` passes `validate-bounty-description.py` | @Zaal | PR | 2026-09-27 |
 | Re-measure the Twitch archive window and fix R7's `<DAY>` placeholder, or change the source - `precast-check --round 7` clean | @Zaal | PR | 2026-10-04 |
 | Close R2, R3 and R5's promise ledgers before starting anything recurring - `postclose-check.py --all` reports 0 rounds owing | @Zaal | Outbound | 2026-10-11 |
+
+---
+
+## The code round recruits strangers. Measured 2026-09-27 08:55 EDT, and it cuts against the 43% above.
+
+**The format table rates code the worst thing we can cast: 43% entry rate, against 68% for
+photo and 64% for clip.** Round five is a code round and the entry count agrees - 7 claims,
+where the media rounds ran 8 to 11. **But the table counts claims, and claims are not the only
+thing a code round produces.**
+
+**Six of the nine people who have worked on round five had never entered this programme
+before.** Measured against `data/claims.json`, with controls that prove the filter works:
+
+| round five contributor | prior mentions in claims.json |
+|---|---|
+| assay | 6 |
+| coolhat *(control, media rounds)* | 6 |
+| pascaline *(control)* | 7 |
+| leoxcrane *(control)* | 5 |
+| pn-research | 1 |
+| ghostmintops | 1 |
+| **testies1234321-afk, i001962, brandonducar, metismuse, opdevio, 0xnuminous** | **0 each** |
+
+**Five media rounds drew largely from one returning pool. One code round pulled in six people
+who had never touched it.** Two of those six arrived on the same day, 27 September, with no
+prompting from any post.
+
+**So the 43% is measuring the wrong thing for our purposes.** A photo round gets more claims
+from people we already have. A code round gets fewer claims and more *new* people, and the
+artifact it leaves behind is merged into a repo rather than posted once. If the goal is entries
+per round, the table is right. If the goal is the thing `docs/community-plan.md` measured -
+**10 of 35 entrants ever return** - then the format that brings strangers is worth more than
+its entry rate suggests.
+
+**The cost is a step every one of them missed.** All six new contributors filed code with either
+no claim or a claim that did not name the pull request, because a code contributor's instinct
+is that opening the PR *is* the submission. **The pot pays claims.** Five reminder comments had
+to be posted by hand on 27 September to close that gap, and a PR-template line is going in so
+the next stranger reads it before opening the PR rather than after.
+
+**For round six:** if it is a code round, the claim instruction belongs in the repo the
+contributor is already looking at, not only in the bounty text they may never read.
