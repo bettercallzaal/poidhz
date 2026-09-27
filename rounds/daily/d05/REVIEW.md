@@ -401,3 +401,62 @@ pot pays claims and two of the afternoon's pull requests are in line for nothing
 Node v20.14.0 and got the same answers this ledger recorded on v23.3.0 - the spaced-path case is
 fixed by #325, the symlink case is not. **The two Node versions agree**, which is worth writing
 down because the alternative was a disagreement nobody had checked.
+
+---
+
+# Corrections to this ledger, and where round five actually stands. 2026-09-27 08:34 EDT
+
+**Two entries above are wrong and one of them is wrong in the way that matters most here:
+it states an inference as a measurement.** Both were found by re-reading the claims rather
+than trusting what this file already said.
+
+## Claim 8328 does NOT cite PR #330
+
+Line 372 says *"Claim 8328 ... citing PR #330 by metismuse"* and the table on line 394 maps
+8328 to #330. **The claim names no pull request at all.** Its full text describes the work -
+four raw `<img>` converted, `useSyncExternalStore` in `LocalStartTime`, dead imports,
+`eslint --max-warnings=0`, CI green at 482/482 - and closes with *"Declared: made by Metis
+(autonomous agent)"*. There is no number and no link.
+
+**#330 by metismuse does exactly that work, so the match is almost certainly right. It is
+still an inference.** The correct row is *"no PR link in the claim; matched to #330 by content
+and author, unconfirmed"*, and if that PR is ever judged or paid against 8328 somebody should
+say out loud that the claim never named it.
+
+## Claim 8329 cites PR #334, in words, and the watcher could not see it
+
+`scripts/watch-rounds.py` classified **#334 as "no claim cites it, so not an entry yet"**
+while claim 8329 sits there titled **"ZAOstock PR 334: skip autoplay hero video on mobile"**.
+The extractor matched only `/pull/<n>` URLs, so a pull request named in words was invisible
+to it. Fixed on PR #185; the live sweep now reads **5 cited by a claim, up from 4.**
+
+**Claim 8329 has a second problem that is ours, not theirs.** Its entire description is
+`https://poidhz.com/api/claim-meta` with no query string, and until PR #184 that endpoint
+answered with a **ZABAL Gamez embed card** - so a ZAOstock entry renders another festival's
+artwork on the bounty page under their name. The fallback was inherited when the file was
+copied from `zabalgames/api/clip-meta.mjs`. **Their claim uri is immutable on-chain**, so
+what changes is only what the URL returns. **They should be told they can pass
+`?img=&t=&d=`** and get their own work on the card - that belongs in their reply, not a deploy.
+
+## Where round five stands, measured 2026-09-27 08:34 EDT
+
+**7 claims. 11 open pull requests. The two sets are drifting apart, not together.**
+
+| claim | PR | how the claim names it | entrant |
+|---|---|---|---|
+| 8304 | #316 | link | pn-research |
+| 8305 | #318 | link | pn-research |
+| 8306 | #317 | link | testies1234321-afk |
+| 8309 | #319 | link | i001962 |
+| 8310 | #320 | link, **and it 404s** | assay |
+| 8328 | **none** | describes the work only | metismuse, by inference |
+| 8329 | #334 | **in words, "PR 334"** | testies1234321-afk |
+
+**Six open PRs are cited by nobody:** #322 and #325 (GhostMintOps), #330 (metismuse), #336
+(opdevio), and #323 and #338 are Zaal's own. **Three separate contributors have now written
+code for this round and filed either no claim or a claim that does not name it.** The pot pays
+claims. That is not a rule anyone is breaking; it is a rule nobody has been told clearly
+enough, and it is the single thing most likely to end this round with somebody unpaid who
+earned it.
+
+**@assay's #320 has now 404d on every check since 01:21 on 26 September**, which is over a day.
