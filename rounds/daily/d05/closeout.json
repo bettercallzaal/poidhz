@@ -37,8 +37,8 @@
         "something promised to every entrant, not just the winner"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "OWED AFTER THE 5 OCT CLOSE, NOT BROKEN NOW. This round's own text says written notes come after the close, so a claim without notes before then is the promise working, not failing. scripts/check-feedback-promises.py --round d05 --bounty 1421 exits 1 today and will keep exiting 1 until every claim in the field has a row, and scripts/mark-promise-kept.py refuses to write 'kept' while it does. That is the intended state until 5 October. AS OF 2026-09-27 the field is 9 claims - 8304, 8305, 8306, 8309, 8310, 8328, 8329, 8334, 8338 - of which 5 have notes and FOUR DO NOT: 8305, 8328, 8329, 8338. THAT LIST IS A STARTING POINT, NOT THE WORK. It is eight days out from the close and the field will grow: round four went from five claims to six 21 minutes before its deadline, and a rehearsal recorded at 15:4x that day said 'the field at the close is exactly those 5' - correct when measured, wrong an hour later. So on 5 October, re-run the gate and work its list, do not work this one. This line exists so nobody starts from zero, not so anybody starts from four. Written by hand. No script marks a forward-looking note - mark-promise-kept.py only writes on a passing gate, and saying otherwise is the error this ledger recorded earlier today.",
+      "recorded_at": "2026-09-27T21:29:16Z"
     },
     {
       "text": "One thing your work did and one thing to do better, win or lose.",
