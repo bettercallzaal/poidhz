@@ -101,7 +101,20 @@ def fetch_page(url, timeout=30):
 
 
 def visible_text(page):
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(page)))
+    """Strip tags FIRST, unescape SECOND. The order is the whole function.
+
+    Unescaping first turns `&lt;img&gt;` into `<img>`, which the tag-stripper then
+    deletes as though it were markup. On 2026-09-27 that made this script report
+    "metismuse: page is up but does not print did_well" about a page that printed it
+    perfectly - the entrant's copy discusses converting four raw <img> tags to
+    next/image, so the very subject of their work was what made it invisible.
+
+    A false BROKEN is not a safe failure here: this gate decides whether a promise
+    can be marked kept, so an extractor that eats escaped markup blocks a true
+    promise and, on a page where the missing text happens to sit beside an entity,
+    could pass a false one.
+    """
+    return html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", page)))
 
 
 def both_halves(entrant):
@@ -212,6 +225,13 @@ def selftest():
     ok("items counted", both_halves({"did_well": "x", "items": [{}, {}]})[1] == 2)
 
     ok("tags stripped from html", "hello" in visible_text("<p>hello</p>"))
+    # THE ORDERING BUG. Escaped markup in an entrant's copy must survive extraction.
+    ok("escaped markup survives and is not eaten as a tag",
+       "raw <img> converted" in visible_text("<p>four raw &lt;img&gt; converted</p>"))
+    ok("an escaped tag pair survives too",
+       "<div></div>" in visible_text("<p>&lt;div&gt;&lt;/div&gt;</p>"))
+    ok("real markup is still removed",
+       "hidden" not in visible_text("<p class='hidden'>x</p>").replace("x", ""))
     ok("entities unescaped", "it's" in visible_text("<p>it&#39;s</p>"))
     ok("whitespace collapsed", visible_text("<p>a\n\n  b</p>").strip() == "a b")
 
