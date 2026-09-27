@@ -302,15 +302,39 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
             # A close is now only reported when this watcher was watching before it: the
             # previous sweep must predate the close. Anything older is reported as NOT
             # OBSERVED, which is the true statement.
+            # AND BEING ALIVE BEFORE THE CLOSE IS NOT ENOUGH EITHER. The previous version
+            # certified whenever the watcher had swept at ANY point before the close, without
+            # asking how late the CURRENT reading is. Last sweep at close minus three hours, a
+            # claim landing three minutes after the close, this sweep seven minutes after: it
+            # printed that claim as part of "the field at the close". Same false certainty, one
+            # layer down, found by an independent reviewer driving diff() with a fixed clock.
+            #
+            # The fix needs no time threshold, because the snapshots already carry the answer.
+            # Claims present in the PREVIOUS snapshot were seen at prev_sweep, which is before
+            # the close, so they were definitely in. Claims that are new in THIS snapshot
+            # appeared somewhere in (prev_sweep, now], a window containing the close, so their
+            # side is unknowable - which is exactly round three's claim 8153. So the report
+            # states both sets and the width of the window rather than picking a cutoff and
+            # calling everything inside it certain.
             prev_sweep = old.get("swept_at")
             if when is not None and now >= when:
                 if prev_sweep is not None and prev_sweep < when:
-                    events.append(
-                        f"ROUND-CLOSED bounty {bid} reached its stated close ({ca}). "
-                        f"FIELD AT THE CLOSE: {len(cur['claims'])} claim(s) - "
-                        f"{', '.join(cur['claims']) or 'none'}. Anything arriving after this "
-                        f"line arrived after the close, which is the only way to tell."
-                    )
+                    confirmed = [c for c in cur["claims"] if c in prev["claims"]]
+                    ambiguous = [c for c in cur["claims"] if c not in prev["claims"]]
+                    gap = (now - prev_sweep) / 60.0
+                    msg = (f"ROUND-CLOSED bounty {bid} reached its stated close ({ca}). "
+                           f"CONFIRMED IN: {len(confirmed)} claim(s) seen before the close - "
+                           f"{', '.join(confirmed) or 'none'}.")
+                    if ambiguous:
+                        msg += (f" AMBIGUOUS: {len(ambiguous)} claim(s) first seen on this sweep "
+                                f"- {', '.join(ambiguous)} - which appeared somewhere in the "
+                                f"{gap:.1f} minutes spanning the close, so whether they beat it "
+                                f"is UNKNOWN from here. poidh exposes no claim timestamp.")
+                    else:
+                        msg += (f" Nothing new appeared in the {gap:.1f} minutes spanning the "
+                                f"close, so the field at the close is exactly those "
+                                f"{len(confirmed)}.")
+                    events.append(msg)
                 else:
                     events.append(
                         f"CLOSE-NOT-OBSERVED bounty {bid} closed at {ca}, before this watcher "
@@ -463,6 +487,33 @@ def _selftest() -> int:
                    any(e.startswith("ROUND-CLOSED bounty 1418") for e in ev)))
     checks.append(("and it names the count and the claim ids",
                    any("3 claim(s)" in e and "1, 2, 3" in e for e in ev)))
+
+    # THE REVIEWER'S SCENARIO, which the first fix still got wrong: alive before the close is
+    # not the same as having looked recently. Last sweep three hours before, this sweep seven
+    # minutes after, a claim that appeared somewhere in between.
+    late_prev = {"bounties": {"1418": {"onchain": 432, "status": "OPEN", "deadline": None,
+                                       "closes_at": _close, "claims": ["1", "2", "3"], "title": "R4"}},
+                 "links": {}, "prs": {}, "swept_at": _at - 3 * 3600}
+    late_now = json.loads(json.dumps(late_prev))
+    late_now["bounties"]["1418"]["claims"] = ["1", "2", "3", "4"]
+    ev, _ = diff(late_prev, late_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("a claim first seen after the close is NOT counted as in the field",
+                   bool(closed) and "CONFIRMED IN: 3 claim(s)" in closed[0]))
+    checks.append(("it is named as ambiguous instead",
+                   bool(closed) and "AMBIGUOUS: 1 claim(s)" in closed[0] and "- 4 -" in closed[0]))
+    checks.append(("and the width of the unobserved window is stated",
+                   bool(closed) and "187.0 minutes" in closed[0]))
+    checks.append(("the ambiguous case says UNKNOWN rather than implying certainty",
+                   bool(closed) and "UNKNOWN" in closed[0]))
+
+    # And when nothing new arrived in that window, the field IS exactly what was confirmed.
+    quiet_now = json.loads(json.dumps(late_prev))
+    ev, _ = diff(late_prev, quiet_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("with nothing new in the window, the field is stated exactly",
+                   bool(closed) and "is exactly those 3" in closed[0]
+                   and "AMBIGUOUS" not in closed[0]))
 
     # THE BUG THE FIRST LIVE SWEEP FOUND. A close that passed before this watcher existed must
     # NOT be reported as an observed field - it fired for three settled rounds and printed
