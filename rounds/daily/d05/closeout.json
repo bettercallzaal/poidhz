@@ -55,8 +55,8 @@
         "feedback owed to entrants"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "PUBLISHED COPY EDITED AFTER THE FACT, 2026-09-27, recorded here because editing notes people may already have read needs a reason on the record. An independent reviewer found that the ranking guard catches superlatives but not comparisons, and that a LIVE page (coolhat, d04) carried the headline 'This travelled further than anything else in the round, by a distance' - ranking one entrant against the field publicly, during judging, before any result. A scan of all five rounds found seven such phrases. The rule exists to stop ranking BEFORE a result, so three were rewritten and two deliberately left. REWRITTEN: d04 coolhat's headline; d04 assay, which also stated another entrant's view count on assay's own page (round four is closed but undecided); d05 metismuse (round five is open); d03 taku0x, a non-winner ranked against the field. Each keeps the fact and drops the comparison. LEFT ALONE: d02 assay 'the one thing in the kit nobody else opened' and d03 pascaline 'Nobody else has that' / 'nobody else can get'. Both rounds are decided and both describe the winner's own edge, so no result is being pre-announced - and rewriting a winner's published notes after the fact is its own problem. NOT ENFORCED BY THE GUARD: all five of these still pass COMPARISON_PHRASES, which is deliberately narrow because a broad version also refused a d03 kmacb.eth line that compares a demonstration to arguments rather than to entrants. Ruling from the Dotfiles lane; reverse it and the three rewrites revert with it.",
+      "recorded_at": "2026-09-27T21:17:35Z"
     },
     {
       "text": "I post it that week, on Firefly, with the link.",
