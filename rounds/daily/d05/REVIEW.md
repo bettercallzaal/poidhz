@@ -819,3 +819,39 @@ my head, a count taken from reading rather than from `grep -c`, and two rows cal
 checking them against the pull request they overlap.
 
 **Round five now stands at 9 claims, 14 open PRs, 7 cited.**
+
+## PR #353, the re-encode nobody claimed - measured 2026-09-27 15:1x EDT
+
+**#353 is not cited by any of the nine claims.** It was split out of #352 on maintainer
+feedback ("the re-encode changes a designer asset and waits on her sign-off"), and the claim
+that cites #352, claim 8338, does not mention it. So the work exists, is open, and is
+currently outside the judging set. That is the entrant's to fix, not ours to assume.
+
+**Every byte claim in it is exact.** `public/brand/home/ellsworth.mp4` goes 1,819,337 ->
+1,136,654 bytes: **-0.683 MB, -37.5%**, against a body claiming "-37.5%" and "~0.68 MB".
+Downloaded both blobs at the PR's own base and head SHAs (`922c30b0`, `f70836f3`) rather
+than trusting the diff, which reports `0+/0-` for a binary.
+
+**The invariance claim holds and the numbers in it do not.** ffprobe on both files: h264,
+**24/1 fps, 13.000000 s, 312 frames counted, zero audio streams, moov before mdat** - all
+identical before and after. But the body says "Same 1280x720" and **both files are 960x540**.
+And it credits itself with "audio stripped (it is a silent background loop)" when **the
+original already carries zero audio streams**, so nothing was stripped. Two wrong facts in a
+verification section, in a PR whose whole case is that it measured rather than guessed.
+
+**SSIM is right, including the part that is easy to get wrong.** All: **0.960092** against a
+body claiming "SSIM 0.96 overall". The body also says the loss "concentrates in luma detail",
+and it does: **Y 0.945944 against U 0.987984 and V 0.988792**. PSNR y 35.0 dB, min 32.9.
+A self-comparison control scored **1.000000**, so the filter was reading frames.
+
+**One suspicion recorded because it was wrong.** Claim 8338's title is "hero video payload
+-38% (PR #352)", and -38% sits close enough to #353's -37.5% that it read as the re-encode
+credited to the wrong PR - especially since #352's file list carries **no mp4 at all**, only
+`HeroVideo.tsx`, its test, `home.module.css` and `page.tsx`. The claim's description settles
+it: "1.8 MB no longer fetched for constrained mobile/reduced-motion visitors". That is the
+deferral, which is what #352 does. **No misattribution. The number was checked before the
+accusation was written down, which is the only reason it is not in this file as a finding.**
+
+**Wallet 0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b now holds 3 of the 9 claims on 1421**,
+and #353 would be a fourth piece of work from it if claimed. Counted from `issuerAddress` on
+`fetchBountyClaims`, not from GitHub handles.
