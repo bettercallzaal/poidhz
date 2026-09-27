@@ -14,10 +14,10 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 63,
-  "total_claims_accepted": 56,
+  "total_claims_received": 65,
+  "total_claims_accepted": 58,
   "total_claims_rejected": 7,
-  "submitter_count": 47,
+  "submitter_count": 48,
   "total_eth_escrow": 0.0959,
   "bounties": [
     {
@@ -106,7 +106,7 @@
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
       "album": "wethemmedia",
       "amount_eth": 0.005,
-      "in_progress": true,
+      "in_progress": false,
       "is_voting": true,
       "is_canceled": false,
       "claims_count": 4
@@ -122,7 +122,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 3
+      "claims_count": 4
     },
     {
       "id": 1421,
@@ -135,7 +135,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 4
+      "claims_count": 5
     }
   ],
   "claims": [
@@ -591,6 +591,16 @@
     },
     {
       "bounty_id": 1412,
+      "claim_id": 8149,
+      "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+      "title": "Made a short video for Zaostock",
+      "description": "https://x.com/pascaline7933/status/2102850878789066856",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmUnkE2FrUyuwkm8JJLfTg27wmh8pDSj9hkWcjnZu8yH61",
+      "accepted": true,
+      "on_chain_id": 2833
+    },
+    {
+      "bounty_id": 1412,
       "claim_id": 8153,
       "issuer": "0x59733c7cd78d08dab90368ad2cc09c8c81f097c0",
       "title": "Zaostock wont be this bad will it?",
@@ -598,16 +608,6 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZTDaHwB4ax7FSpw2uaoMwmRRDvsvq6A3SNW6JVB9QCWs",
       "accepted": false,
       "on_chain_id": 2837
-    },
-    {
-      "bounty_id": 1412,
-      "claim_id": 8150,
-      "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
-      "title": "My Zaostock video submission ",
-      "description": "https://x.com/pascaline7933/status/2102483061955014871",
-      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmQxnasj976nYSuKYSppTeD7fZd68qvWR3JH8zDRo4GZCR",
-      "accepted": false,
-      "on_chain_id": 2834
     },
     {
       "bounty_id": 1412,
@@ -628,6 +628,16 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZftBkZbGnhSLNAkmoM2vi6E4HBLWn86FWwicc8LpBt6o",
       "accepted": false,
       "on_chain_id": 2829
+    },
+    {
+      "bounty_id": 1418,
+      "claim_id": 8326,
+      "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
+      "title": "ZAOstock",
+      "description": "https://x.com/i/status/2102841361883906189\n\nI made an ad for ZAOstock \n",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmVNMBGzXaWdPjzaMVdofMV5rutKLPZATZm6QmTXWCoqDn",
+      "accepted": false,
+      "on_chain_id": 3010
     },
     {
       "bounty_id": 1418,
@@ -658,6 +668,16 @@
       "image_url": "https://files.catbox.moe/zha5ri.png",
       "accepted": false,
       "on_chain_id": 2923
+    },
+    {
+      "bounty_id": 1421,
+      "claim_id": 8328,
+      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
+      "title": "ZAOstock zero-warning lint PR (agent-made)",
+      "description": "Pull request making the ZAOstock repository better to work in: converts 4 raw <img> to next/image with explicit dimensions (no layout shift, optimized delivery), replaces setState-in-effect with useSyncExternalStore in LocalStartTime (same two-pass render, no cascading render), removes dead imports, and enforces zero warnings going forward (eslint --max-warnings=0). Full CI green (482/482). Entry for bounty 1421 (ZAOstock Round 5 - Ship Code, Not A Poster). Declared: made by Metis (autonomous agent).",
+      "image_url": "",
+      "accepted": false,
+      "on_chain_id": 3012
     },
     {
       "bounty_id": 1421,
@@ -732,7 +752,7 @@
       "reason": "duplicate submission to same bounty"
     },
     {
-      "claim_id": 8149,
+      "claim_id": 8150,
       "bounty_id": 1412,
       "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
       "reason": "duplicate submission to same bounty"
