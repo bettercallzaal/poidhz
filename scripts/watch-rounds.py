@@ -88,6 +88,26 @@ def load_config() -> dict:
         return {}
 
 
+def closes_at_by_bounty() -> dict[int, str]:
+    """bounty id -> the round's STATED close, from data/rounds-live.json.
+
+    Not from the chain: poidh returns deadline null for an open bounty and only sets it when a
+    vote starts, so a round's advertised close exists in its cast text and in this feed and
+    nowhere else. That is exactly why it needs recording - nothing on chain marks the moment.
+    """
+    p = REPO_ROOT / "data" / "rounds-live.json"
+    try:
+        feed = json.loads(p.read_text())
+    except Exception:
+        return {}
+    out: dict[int, str] = {}
+    for r in feed.get("rounds", []):
+        bid, ca = r.get("bounty_id"), r.get("closes_at")
+        if isinstance(bid, int) and ca:
+            out[bid] = ca
+    return out
+
+
 def watched_bounties(cfg: dict) -> list[int]:
     """Every bounty that can still change: an open round, or one in VOTING awaiting a
     resolveVote. Reads org.config.json's rounds so adding a round to the config is enough."""
@@ -173,6 +193,7 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
     NOT measured this sweep, which is different from measured-as-empty."""
     snap: dict = {"bounties": {}, "links": {}}
     failures: list[str] = []
+    closes = closes_at_by_bounty()
 
     for bid in bounty_ids:
         try:
@@ -187,6 +208,7 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
             "onchain": b.get("onChainId"),
             "status": status_of(b),
             "deadline": b.get("deadline"),
+            "closes_at": closes.get(bid),
             "claims": sorted(str(c.get("claimId")) for c in b.get("claims") or []),
             "title": b.get("title"),
         }
@@ -255,6 +277,27 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
         added = [c for c in cur["claims"] if c not in prev["claims"]]
         if added:
             events.append(f"CLAIM bounty {bid} new claim(s) {', '.join(added)} - now {len(cur['claims'])} total")
+
+        # THE CLOSE IS A MOMENT AND NOTHING ON CHAIN MARKS IT. Round three has a claim whose
+        # in-or-out status is permanently UNKNOWN because the field was never counted at the
+        # boundary - poidh exposes no claim timestamp, so once the moment passes it cannot be
+        # reconstructed. This records it while it is still recordable, and once only.
+        ca = cur.get("closes_at")
+        if ca and not prev.get("close_recorded"):
+            try:
+                when = dt.datetime.fromisoformat(ca).timestamp()
+            except Exception:
+                when = None
+            if when is not None and now >= when:
+                events.append(
+                    f"ROUND-CLOSED bounty {bid} reached its stated close ({ca}). "
+                    f"FIELD AT THE CLOSE: {len(cur['claims'])} claim(s) - "
+                    f"{', '.join(cur['claims']) or 'none'}. Anything arriving after this line "
+                    f"arrived after the close, which is the only way to tell."
+                )
+                cur = {**cur, "close_recorded": True}
+        elif prev.get("close_recorded"):
+            cur = {**cur, "close_recorded": True}
 
         # The unlock is a crossing, not a state: emit once, when it happens.
         dl = cur.get("deadline")
@@ -380,6 +423,36 @@ def _selftest() -> int:
     checks.append(("the vote unlock does not repeat every tick", not any(e.startswith("VOTE-UNLOCK") for e in ev2)))
     ev3, _ = diff(base, json.loads(json.dumps(base)), now)
     checks.append(("the vote unlock stays quiet before it crosses", not any(e.startswith("VOTE-UNLOCK") for e in ev3)))
+
+    # THE CLOSE BOUNDARY, both directions. This is the one measurement that cannot be taken
+    # late: poidh exposes no claim timestamp, so a field counted at 17:07 cannot be separated
+    # from the field at 17:00.
+    _close = "2026-09-27T17:00:00-04:00"
+    _at = dt.datetime.fromisoformat(_close).timestamp()
+    closing = {"bounties": {"1418": {"onchain": 432, "status": "OPEN", "deadline": None,
+                                     "closes_at": _close, "claims": ["1", "2", "3"], "title": "R4"}},
+               "links": {}, "prs": {}}
+    ev, st = diff(closing, json.loads(json.dumps(closing)), _at - 1)
+    checks.append(("a minute before the close, nothing is recorded",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    ev, st = diff(closing, json.loads(json.dumps(closing)), _at)
+    checks.append(("at the stated close the field is recorded",
+                   any(e.startswith("ROUND-CLOSED bounty 1418") for e in ev)))
+    checks.append(("and it names the count and the claim ids",
+                   any("3 claim(s)" in e and "1, 2, 3" in e for e in ev)))
+    ev2, _ = diff(st, json.loads(json.dumps(closing)), _at + 3600)
+    checks.append(("it is recorded once, not on every later sweep",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev2)))
+    no_ca = json.loads(json.dumps(closing))
+    del no_ca["bounties"]["1418"]["closes_at"]
+    ev, _ = diff(no_ca, json.loads(json.dumps(no_ca)), _at + 3600)
+    checks.append(("a round with no stated close records nothing rather than guessing",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    bad = json.loads(json.dumps(closing))
+    bad["bounties"]["1418"]["closes_at"] = "not a date"
+    ev, _ = diff(bad, json.loads(json.dumps(bad)), _at + 3600)
+    checks.append(("an unparseable close does not raise and records nothing",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
 
     # Claims, links, PRs.
     more = json.loads(json.dumps(base))
