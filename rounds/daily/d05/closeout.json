@@ -18,8 +18,8 @@
         "something said in the first person, which is the shape this run breaks most"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "PARTIAL, AND THE ENTRANT DID NOT ASK. A COMMENT review went on ZAOstock #363 at 2026-09-27T20:26:37Z (pullrequestreview-5331913360), 8 days before this round closes: a real zone bug confirmed, the test file credited, and one specific change asked for, with React's own error text from a running build of head c44cfaab5db9c3d26b160a275a9463c757e94cf2. So the 'goes away and comes back with it improved' path is open and has time to run. But this promise is worded around an entrant WHO ASKS, and nobody asked - the review was volunteered. Status stays unrecorded because the promise as written has not been tested yet: it is kept the first time an entrant asks a question and gets an answer, not the first time we offer one unprompted.",
+      "recorded_at": "2026-09-27T20:27:30Z"
     },
     {
       "text": "Your written notes still come after the close, like every round.",
@@ -27,8 +27,8 @@
         "feedback owed to entrants"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "WATCH THIS ONE, it is now in tension with what we just did. This promise says the written notes come AFTER the close. On 2026-09-27 a substantive review went on one entrant's PR (#363) BEFORE the close, with a measurement behind it. A PR review and the written notes at poidhz.com/feedback are different artifacts and the promise is about the latter, so it is not broken. But an entrant who watched one competitor get detailed mid-round feedback can fairly ask why they did not, and 'that was a code review, not your notes' is a distinction that reads as a technicality from the outside. Either every entrant's PR gets the same treatment before the close, or none do. Recorded so the choice is made deliberately rather than by who happened to open a PR on a quiet afternoon.",
+      "recorded_at": "2026-09-27T20:27:30Z"
     },
     {
       "text": "EVERYONE WHO ENTERS GETS WRITTEN NOTES",
