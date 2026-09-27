@@ -871,9 +871,19 @@ zone." line the component exists to suppress. The fix compares the festival inst
 in the viewer's zone against the same instant formatted in `America/New_York` and returns null
 when they are identical. That is semantic rather than name-based and it is the right shape.
 
-**Its test file is the best of any entry this round.** Five zones that must be suppressed,
-including all four the old check missed, plus Europe/London and Asia/Kolkata as controls that
-must still convert. A test that only asserted the happy path would have proved nothing here.
+**Its test file can fail, which is more than most suites manage.** `easternZones` holds
+**six** entries, counted with a command and not read off a grep window: America/New_York,
+US/Eastern, America/Toronto, America/Detroit, America/Kentucky/Louisville and
+America/Indiana/Indianapolis. **Two of those the old substring check already matched; four it
+missed**, and those four are the bug. Europe/London and Asia/Kolkata sit alongside as controls
+that must still convert. A suite that only asserted the happy path would have proved nothing
+here.
+
+**This section first said "five", and no ranking belongs in it.** The count came from reading a
+`grep -A3 -B1` window that cut off the first array entry, which is the same defect as the
+count-from-reading on #201. It also called this the best test file of the round - a ranking I
+had deliberately kept out of the public comment and then left in the record, which is the
+inconsistency that matters more than the adjective. Both found by an independent reviewer.
 
 **AND THE SAME DIFF MOVES THE COMPUTATION INTO A `useState` INITIALIZER, WHICH IS A
 HYDRATION MISMATCH.** The old code did the work in `useEffect`, so the first client render
