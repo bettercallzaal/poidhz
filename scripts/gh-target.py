@@ -1,26 +1,35 @@
 #!/usr/bin/env python3
 """Resolve a GitHub target before any count or SHA is reported from it.
 
-WHY THIS EXISTS. On 2026-09-27 this lane reported "zero open PRs" from
-`repos/bettercallzaal/zpoidh/pulls?state=open`. The repo is
-`bettercallzaal/poidhz`; `zpoidh` is only the local directory name. The lane
-then fed the filter a control - `state=all` on the same wrong repo - which
-returned 5, and read that as proof the query worked.
+WHY THIS EXISTS, and the first version of this paragraph had it wrong.
 
-It was proof the endpoint answers. `bettercallzaal/zpoidh` is a real repo with
-real pull requests, so a non-empty control is exactly what a working query
-against the wrong object looks like. The conclusion happened to hold, which is
-worse than if it had broken: a control that cannot fail teaches you to trust
-the next one.
+On 2026-09-27 this lane reported "zero open PRs" from
+`repos/bettercallzaal/zpoidh/pulls?state=open`, noticed the repo is really
+`bettercallzaal/poidhz`, and wrote that it had counted a different repo by
+mistake. That explanation was never measured. `bettercallzaal/zpoidh` is
+**this repo's former name**: `gh api repos/bettercallzaal/zpoidh` answers
+`full_name: bettercallzaal/poidhz`, `id: 1255383001`, the same id as `poidhz`.
+GitHub follows the rename redirect and serves the same repo. So the count of 0
+was CORRECT, and the control's "5" was `per_page=5` truncating a list that
+returns 100 at `per_page=100` on either name.
 
-The same day, a SHA guard reported `f70836f3` as a commit that "does not
-resolve anywhere" after searching ~90 local checkouts and two of this org's
-repos. It resolves - it is the head of a pull request in ZAODEVZ/ZAOstock, the
-repo the message was entirely about, and the one place the search never looked.
+The real defect is worse than the one first written down. **A stale name
+returns entirely correct data, and nothing in the response says the name is
+stale.** There is no failing call to notice, no wrong number to catch, and no
+control that can fail - the query works, against the right repo, under a name
+nobody should still be using. The only thing that distinguishes it from a slug
+that hit an unrelated repo is the numeric id, which is why this script carries
+ids and not just names.
 
-Both failures are one shape: the instrument was fine and the target was never
-established. So this script never lets a number or a SHA be printed without the
-repo it came from, and it refuses rather than guesses.
+The same afternoon a SHA guard reported `f70836f3` as a commit that "does not
+resolve anywhere", after searching ~90 local checkouts and two of this org's
+repos and never `ZAODEVZ/ZAOstock` - the repo the message was entirely about.
+It resolves. That one IS the shape first claimed here: the instrument was fine
+and the target was never established.
+
+So this script never lets a number or a SHA be printed without the repo it came
+from, it carries numeric ids so a rename can be told from a wrong target, and it
+refuses rather than guesses.
 
 EXIT CODES follow the house rule: 0 the claim holds, 1 it fails, 2 the check
 could not run - which is the value that stops a typo'd repo becoming a clean
@@ -115,6 +124,23 @@ def resolve_entry(config):
     return declared
 
 
+def declared_id(config, which):
+    """The numeric id stored beside a slug, or None when it is absent.
+
+    None is a degraded mode that says so, never a silent pass. A non-integer is
+    a refusal: an id that is a string in the config is an id nobody can compare.
+    """
+    key = f"{which}_repo_id"
+    if key not in config:
+        return None
+    raw = config[key]
+    if isinstance(raw, bool) or not isinstance(raw, int):
+        raise CannotRun(f"{key} is {raw!r}, which is not an integer repo id")
+    if raw <= 0:
+        raise CannotRun(f"{key} is {raw}, which is not a positive repo id")
+    return raw
+
+
 def gh_json(path, args=None):
     cmd = ["gh", "api", path] + list(args or [])
     try:
@@ -131,25 +157,79 @@ def gh_json(path, args=None):
         raise CannotRun(f"gh api {path} returned unparseable json: {e}")
 
 
-def open_prs(slug):
-    """Open PR count, reported with the full_name GitHub itself echoes back.
+def check_target(slug, expected_id, meta=None):
+    """Confirm a slug still names the repo we mean, using its numeric id.
 
-    The count and its target come from the same pair of calls, so the number can
-    never be copied out of a line that does not say what it counted.
+    THE NAME IS NOT THE IDENTITY, AND A RENAME PROVES IT FROM BOTH SIDES.
+    `bettercallzaal/zpoidh` is this repo's former name. GitHub follows the
+    rename redirect and serves the same repo, id 1255383001, so a stale slug
+    returns entirely correct data and NOTHING in the response says the name is
+    out of date. That is the failure this script was written for, and the first
+    version of it described the cause wrongly - it assumed a second, unrelated
+    repo. The id is what tells the two apart.
+
+    Four outcomes, and only the first is a pass:
+
+    1. name matches and id matches - the target is what we meant
+    2. name matches and id does NOT - the slug now points at a DIFFERENT repo,
+       because the old name was freed and retaken, or our stored id is stale.
+       The most dangerous case: nothing in the name looks wrong.
+    3. name differs and id matches - a rename. Exit 2 with both names and the
+       one-line config fix, because a rename is a real event and a bare refusal
+       on it is how a check gets bypassed.
+    4. name differs and id does not - refuse plainly.
     """
-    meta = gh_json(f"repos/{slug}")
+    meta = meta if meta is not None else gh_json(f"repos/{slug}")
     echoed = meta.get("full_name")
     if not echoed:
         raise CannotRun(f"gh api repos/{slug} returned no full_name")
-    if echoed.lower() != slug.lower():
+    actual_id = meta.get("id")
+    same_name = echoed.lower() == slug.lower()
+
+    if expected_id is None or actual_id is None:
+        # Degraded, and it says so rather than implying the id agreed.
+        why = "no id is declared in org.config.json" if expected_id is None else "GitHub returned no id"
+        if not same_name:
+            raise CannotRun(
+                f"asked for {slug} and GitHub answered as {echoed}, and {why}, "
+                "so a rename cannot be told from an unrelated repo. Settle it before reporting anything."
+            )
+        return echoed, actual_id, f"name matches; id unchecked because {why}"
+
+    if same_name and actual_id == expected_id:
+        return echoed, actual_id, "name and id both match"
+
+    if same_name and actual_id != expected_id:
         raise CannotRun(
-            f"asked for {slug} and GitHub answered as {echoed} - a redirect or a rename. "
-            "Report the number against the name GitHub gave, not the one you typed."
+            f"{slug} still answers to that name but its id is {actual_id}, not the {expected_id} "
+            "declared in org.config.json. Either the name was freed and taken by another repo, or "
+            "the stored id is stale. Nothing in the name looks wrong, which is why this is checked."
         )
+
+    if actual_id == expected_id:
+        raise CannotRun(
+            f"{slug} is a RENAME of the repo we mean: same id {actual_id}, now named {echoed}. "
+            f"The redirect means every count taken through {slug} was correct and silently stale. "
+            f"Fix: set the relevant *_repo in org.config.json to {echoed}."
+        )
+
+    raise CannotRun(
+        f"asked for {slug}, GitHub answered as {echoed} with id {actual_id} against a declared "
+        f"{expected_id}. Different name and different repo, so this is not a rename."
+    )
+
+
+def open_prs(slug, expected_id=None):
+    """Open PR count, reported with the full_name GitHub itself echoes back.
+
+    The count and its target come from the same calls, so the number can never
+    be copied out of a line that does not say what it counted.
+    """
+    echoed, actual_id, note = check_target(slug, expected_id)
     prs = gh_json(f"repos/{slug}/pulls?state=open&per_page=100")
     if not isinstance(prs, list):
         raise CannotRun(f"pulls for {slug} was not a list")
-    return echoed, prs
+    return echoed, prs, note
 
 
 def verify_sha(slug, sha):
@@ -213,10 +293,20 @@ def selftest():
 
     # resolve_self: the refusal is the feature.
     def raises(fn, needle):
+        """True only when fn refuses with CannotRun carrying `needle`.
+
+        Any OTHER exception returns False rather than propagating. Before this,
+        deleting the missing-self_repo guard made the whole suite die with a raw
+        TypeError - no FAIL line, no summary, no count. A guard whose removal
+        crashes the harness is not covered by the harness: it is covered by luck,
+        and a crash and a clean run are told apart by a human reading stderr.
+        """
         try:
             fn()
         except CannotRun as e:
             return needle in str(e)
+        except Exception:
+            return False
         return False
 
     ok("missing self_repo refuses",
@@ -248,6 +338,75 @@ def selftest():
     ok("missing config file refuses",
        raises(lambda: load_config("/nonexistent/org.config.json"), "is missing"))
 
+    # --- check_target, the four outcomes. meta is injected so these are offline. ---
+    SELF = "bettercallzaal/poidhz"
+    OLD = "bettercallzaal/zpoidh"
+    RID = 1255383001
+
+    def ct(slug, expected, full_name, rid):
+        meta = {"full_name": full_name}
+        if rid is not None:
+            meta["id"] = rid
+        return check_target(slug, expected, meta=meta)
+
+    ok("1. name and id both match passes",
+       ct(SELF, RID, SELF, RID)[0] == SELF)
+    ok("1. the passing case says the id was checked",
+       "id both match" in ct(SELF, RID, SELF, RID)[2])
+
+    # THE MOST DANGEROUS CASE: the name looks entirely right.
+    ok("2. same name, different id refuses",
+       raises(lambda: ct(SELF, RID, SELF, 999), "not the 1255383001"))
+    ok("2. it says the name looks fine, since that is the whole trap",
+       raises(lambda: ct(SELF, RID, SELF, 999), "Nothing in the name looks wrong"))
+
+    # THE REAL CASE FROM THIS REPO: zpoidh is poidhz's former name, same id.
+    ok("3. a rename is named as a rename, not as a wrong repo",
+       raises(lambda: ct(OLD, RID, SELF, RID), "is a RENAME"))
+    ok("3. a rename prints BOTH names",
+       raises(lambda: ct(OLD, RID, SELF, RID), OLD) and
+       raises(lambda: ct(OLD, RID, SELF, RID), SELF))
+    ok("3. a rename carries the one-line config fix",
+       raises(lambda: ct(OLD, RID, SELF, RID), "set the relevant *_repo in org.config.json"))
+    ok("3. a rename says the stale counts were CORRECT, which is why it was invisible",
+       raises(lambda: ct(OLD, RID, SELF, RID), "correct and silently stale"))
+
+    ok("4. different name and different id is not called a rename",
+       raises(lambda: ct(OLD, RID, "someone/else", 777), "not a rename"))
+
+    # Degraded modes announce themselves rather than implying agreement.
+    ok("no declared id, name matches: passes but says the id was unchecked",
+       "id unchecked" in ct(SELF, None, SELF, RID)[2])
+    ok("no declared id, name differs: refuses because rename is indistinguishable",
+       raises(lambda: ct(OLD, None, SELF, RID), "cannot be told from an unrelated repo"))
+    ok("github returned no id, name differs: refuses",
+       raises(lambda: ct(OLD, RID, SELF, None), "GitHub returned no id"))
+    ok("no full_name at all refuses",
+       raises(lambda: ct(SELF, RID, None, RID), "no full_name"))
+
+    # --- declared_id ---
+    ok("absent id is None, not an error", declared_id({}, "self") is None)
+    ok("integer id returns", declared_id({"self_repo_id": RID}, "self") == RID)
+    ok("string id refuses", raises(lambda: declared_id({"self_repo_id": "1255383001"}, "self"), "not an integer"))
+    ok("bool id refuses", raises(lambda: declared_id({"self_repo_id": True}, "self"), "not an integer"))
+    ok("zero id refuses", raises(lambda: declared_id({"self_repo_id": 0}, "self"), "not a positive"))
+    ok("negative id refuses", raises(lambda: declared_id({"self_repo_id": -1}, "self"), "not a positive"))
+
+    # raises() itself: finding 1. A non-CannotRun exception must FAIL a check,
+    # never take the suite down with it.
+    def boom():
+        raise TypeError("expected string or bytes-like object, got 'NoneType'")
+    ok("a TypeError inside a check returns False instead of killing the run",
+       raises(boom, "anything") is False)
+
+    # The live config must carry both ids, or finding 2 is decoration.
+    try:
+        cfg2 = load_config()
+        ok("live config declares self_repo_id", isinstance(declared_id(cfg2, "self"), int))
+        ok("live config declares entry_repo_id", isinstance(declared_id(cfg2, "entry"), int))
+    except CannotRun as e:
+        ok(f"live config ids readable ({e})", False)
+
     width = max(len(n) for n, _ in checks)
     for name, passed in checks:
         print(f"  {'ok  ' if passed else 'FAIL'} {name.ljust(width)}")
@@ -272,16 +431,17 @@ def main():
         config = load_config()
 
         def target(which):
-            return resolve_self(config, git_origin()) if which == "self" else resolve_entry(config)
+            slug = resolve_self(config, git_origin()) if which == "self" else resolve_entry(config)
+            return slug, declared_id(config, which)
 
         if args.which:
-            print(target(args.which))
+            print(target(args.which)[0])
             return 0
 
         if args.open_prs:
-            slug = target(args.open_prs)
-            echoed, prs = open_prs(slug)
-            print(f"{echoed}: {len(prs)} open pull request(s)")
+            slug, expected_id = target(args.open_prs)
+            echoed, prs, note = open_prs(slug, expected_id)
+            print(f"{echoed}: {len(prs)} open pull request(s)  [{note}]")
             for pr in prs:
                 print(f"  #{pr['number']} {pr['user']['login']} {pr['title'][:62]}")
             return 0
