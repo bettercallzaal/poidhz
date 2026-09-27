@@ -67,6 +67,19 @@ jobs:
         # is the floor and not the ceiling.
         run: python3 scripts/bake-homepage.py
 
+      - name: Rebuild the gallery from the round state just refreshed
+        # Added 2026-09-26, the day it cost something. build-gallery.py reads
+        # data/rounds-live.json for each round's status, and THIS WORKFLOW REFRESHED THAT FILE
+        # AND LEFT THE PAGE ALONE. So the gallery lagged its own input by however long it took
+        # a human to notice, which is unbounded - no other workflow references
+        # build-gallery.py or gallery.html at all.
+        #
+        # Measured the night resolveVote(426) landed: within the hour,
+        # check-site-claims.py read "STALE gallery.html: bounty 1412 is WINNER SET but the page
+        # says 'OPEN NOW' beside it". A settled round advertised as open, on a live page, to
+        # entrants. Rebuilding here makes the page and its data move in one commit.
+        run: python3 scripts/build-gallery.py
+
       - name: Guard against degenerate data
         # Second line of defence. build-bounty-dashboard.py now exits non-zero
         # rather than writing an empty list, but any future path that produces a
@@ -112,7 +125,12 @@ jobs:
           # (see the bake step above). It carries no generated_at, so any diff in it is a real
           # change by construction - leaving it out of this list would mean the bake ran every
           # hour and shipped nothing.
-          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html"
+          # gallery.html is here for the same reason index.html is: it is baked from the round
+          # state this workflow just refreshed, and it carries no generated_at, so any diff in
+          # it is a real change. Leaving it out would mean the rebuild step above runs every
+          # hour and ships nothing, which is how the page came to advertise a settled round as
+          # OPEN NOW.
+          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html gallery.html"
           if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' -I '^DTSTAMP' -- $FILES; then
             git add $FILES
             git commit -m "chore: auto-refresh bounty dashboard + deadline calendar data (refresh-bounty-dashboard.yml)"
