@@ -72,27 +72,27 @@
         "feedback owed to entrants",
         "something promised to every entrant, not just the winner"
       ],
-      "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "status": "kept",
+      "evidence": "KEPT. The field at the close was recorded at the close, not reconstructed: the watcher printed 'ROUND-CLOSED bounty 1418 reached its stated close (2026-09-27T17:00:00-04:00). CONFIRMED IN: 6 claim(s) seen before the close - 8239, 8240, 8312, 8326, 8332, 8341.' All six have notes. The sixth, 8341, arrived 21 minutes before the deadline and scripts/check-feedback-promises.py caught that d04.json covered five of six; without it this round would have shipped with an entrant who submitted and got nothing back.",
+      "recorded_at": "2026-09-27T21:20:45Z"
     },
     {
       "text": "One thing your piece did and one thing to do better.",
       "commits_to": [
         "feedback owed to entrants"
       ],
-      "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "status": "kept",
+      "evidence": "KEPT. Every one of the six carries a did_well and at least one item, and the live pages print both halves - checked against the rendered html, not the json, because a field present in the data does not mean the page shows it.",
+      "recorded_at": "2026-09-27T21:20:45Z"
     },
     {
       "text": "They go up at https://poidhz.com/feedback - every entrant gets their own page, tied to the bounty so it is never overwritten, and they are public so you can read what was asked of everybody else and not only of you.",
       "commits_to": [
         "feedback owed to entrants"
       ],
-      "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "status": "kept",
+      "evidence": "KEPT. All six pages live at poidhz.com/feedback/1418/<handle>, plus the round index. Verified by the gate, which reports 'all 6 page(s) live and printing both halves'. That wording is itself a fix from today: the line used to print the entrant count rather than the number of pages that answered, and so read '6 page(s) live' directly above a 404.",
+      "recorded_at": "2026-09-27T21:20:45Z"
     },
     {
       "text": "I review every entry after the close and post the pick next week, during the week, on Firefly, everywhere at once, with the link.",
