@@ -1,0 +1,125 @@
+{
+  "_comment": "Per-entrant feedback for bounty 1421, round five, the code round. Rendered to /feedback/1421/<handle>. WRITTEN 2026-09-27 WHILE THE ROUND IS STILL OPEN - it closes 5pm Eastern Monday 5 October - so 'winner' is deliberately empty and nothing here ranks anyone. Handles are resolved through the pull request each claim cites, because poidh left most of these wallets unresolved: claim text gives the PR, GitHub gives the PR's author. Both halves are measured; the wallet is recorded beside each so the chain can be rechecked. HANDLE PROVENANCE, measured 2026-09-27: of the five, only assay and pn-research appear in data/claims.json at all (6 and 1 mentions, against a control of 7 for pascaline). testies1234321-afk, i001962 and metismuse return zero there, and build-feedback-pages.py warns about exactly that. Their handles are GITHUB handles taken from the author of the pull request their claim cites, because poidh left those wallets unresolved. That makes these URLs different in kind from earlier rounds', which used poidh or Farcaster handles - right for a code round, where an entrant knows themselves by their GitHub name, but worth stating rather than leaving for someone to notice when a link looks unfamiliar.",
+  "round": {
+    "id": "d05",
+    "label": "Bounty five",
+    "bounty_url": "https://poidh.xyz/base/bounty/1421",
+    "closed": "2026-10-05, 5:00pm Eastern",
+    "winner": "",
+    "bounty_id": 1421,
+    "decided_it": [
+      "Does somebody landing on the site from a phone have a better time than they did before.",
+      "Did you ask for feedback and use it. The round text promised answers while it was running, and that promise is the reason these notes exist before the close rather than after.",
+      "Could it ship this week. Nothing here is graded on ambition it cannot finish.",
+      "Open pull requests count as complete entries, and merged wins ties. Nothing has been merged, on purpose - merging an entry mid-round would be picking a winner quietly."
+    ],
+    "next": {
+      "label": "How this round pays, and it is the thing people keep missing",
+      "closes": "5pm Eastern, Monday 5 October",
+      "wants": "The pot pays CLAIMS on the bounty, not pull requests. If you wrote code for this round and have not filed a claim that cites your PR by its URL, you are not in line for anything yet.",
+      "checkpoint": "A later claim does not replace an earlier one, so a second claim naming your PR is fine and costs nothing. One entrant did exactly that and it took them about thirty-four minutes."
+    }
+  },
+  "entrants": [
+    {
+      "handle": "assay",
+      "claim": 8310,
+      "headline": "I cannot read your work, and the reason is one broken link.",
+      "did_well": "From your claim description this is the most thorough entry of the round: axe at 390px, 8 failures to 0 in light and 11 to 0 in dark, a test that reads home.module.css and checks all 14 text and fill pairs in both schemes, failing 16 of 28 on main. You also named the case axe cannot see - near-white on light orange over a gradient - which is the kind of thing that only turns up when somebody actually looks instead of running the tool and reporting the exit code. If the code matches the description this is strong.",
+      "items": [
+        {
+          "title": "github.com/ZAODEVZ/ZAOstock/pull/320 returns 404, and it has since 01:21 on 26 September",
+          "body": "That is over a day of every check. The numbering has moved well past it - the repo is in the 340s now - so 320 is a specific gap rather than a number nobody has reached yet, and there are no pull requests from you on the repo in any state. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why this is being said rather than marked down. Open the PR and file a second claim citing its URL. A later claim does not replace an earlier one in this round, and the round runs to 5pm Eastern on Monday 5 October."
+        },
+        {
+          "title": "Your palette question is still owed an answer",
+          "body": "You asked whether 'Rain or shine' moving from brass to sun sits right with Candy's palette. It has not been forgotten and it is not being dodged: it is her mark, so the answer should be hers or Zaal's deliberately, not a reviewer's in passing. You were the first person to use the feedback box on the submission page, which is exactly what it is for - asking something you cannot answer alone, before you finish rather than after."
+        },
+        {
+          "title": "You have declared yourself an agent in every round you have entered",
+          "body": "Including the one where you had to say you could not meet a rule. It has never cost you anything here, and two more entrants have since done the same thing unprompted."
+        }
+      ]
+    },
+    {
+      "handle": "pn-research",
+      "claim": 8304,
+      "headline": "You made the policy a pure function and unit-tested it, instead of burying an if-statement in a component.",
+      "did_well": "Two entries, #316 and #318. This repo has no jsdom, and rather than adding one you moved the decision into src/lib/should-autoplay-bg-video.ts where it could be tested without a DOM, then wrote four tests over it. All four jobs pass on both branches - typecheck/tests/build, lint, fact-dedup and the security review gate - and the only red is Vercel, which no fork can authenticate.",
+      "items": [
+        {
+          "title": "Three specifics that are the same habit",
+          "body": "navigator.connection is read through optional chaining, so Safari - which does not implement it - is not broken by it. IntersectionObserver being undefined loads the video immediately rather than leaving a permanently blank section, which is the failure mode a lazy-load usually ships with. And in #318 the default when there is no Network Information API is to keep existing behaviour, so an unknown connection is never quietly degraded. All three are the guard failing toward the visitor."
+        },
+        {
+          "title": "One thing to check, and it is a question rather than a fault",
+          "body": "The comment you replaced said reduced motion was already handled in home.module.css, and you now also check prefers-reduced-motion in JavaScript. Two guards for one rule is safe, but it is worth knowing whether the CSS branch is still doing its part or has quietly become dead code. Somebody else's entry hit exactly this: it moved the poster out of the reduced-motion block and left a rule inside it that nothing can now match."
+        },
+        {
+          "title": "The question actually worth answering",
+          "body": "You found the 1.8 MB video and the 4.5 MB frame preload in about an hour. What else did you see in there that you did not open a PR for, and what stopped you - scope, or not knowing whether we wanted it? If you want a harder one: this repo ran a review gate in CI that reported PASS after reading zero files until somebody actually read it. Checks that cannot fail are worth more here than features."
+        }
+      ]
+    },
+    {
+      "handle": "testies1234321-afk",
+      "claim": 8306,
+      "headline": "You said what was wrong, how you knew, and what you ran, and every part of it held up.",
+      "did_well": "#317 was checked by hand and by control: main lints at 8 warnings, your branch at 7, and the one that disappears is the SITE warning. You then entered again with #334, which skips the autoplay hero video on mobile viewports and shows the poster instead - and you filed a claim naming it. All four jobs pass on both.",
+      "items": [
+        {
+          "title": "Your second claim named its PR in words, and it exposed a bug in our own tooling",
+          "body": "Claim 8329 is titled 'ZAOstock PR 334' with no link, and the watcher that decides which pull requests are entries only recognised /pull/<number> URLs. So it announced that no claim cited #334 while your claim plainly did. That was our defect, not yours, and it is fixed - the matcher now reads PR 334, PR #334 and pull request 334, with tests pinning that a price, a byte count and a year are not mistaken for one."
+        },
+        {
+          "title": "The next rung up got taken while this was being written",
+          "body": "LocalStartTime.tsx:24 calls setState synchronously inside an effect, and that was the obvious step up from a lint fix - a change with real runtime behaviour behind it. Another entrant claimed it the same night with useSyncExternalStore. That is the round working rather than a reason to be discouraged. What is still open and still not cosmetic: nothing in this repo stops the next warning landing, because lint exits zero however many there are."
+        },
+        {
+          "title": "One practical thing about your first claim",
+          "body": "The media field on claim 8306 has your explanation in it rather than an image URL, so the claim shows on the bounty page with no picture. poidh needs a link to an actual image there. Your entry counts either way - the PR link in the description is what gets read - this is only so the work has a face on the page."
+        }
+      ]
+    },
+    {
+      "handle": "i001962",
+      "claim": 8309,
+      "headline": "You went at the top of the list rather than the easy end of it, and you built for a specific person.",
+      "did_well": "Somebody on Franklin Street at midday in October trying to find out when a band plays. You also went and found our own line in DESIGN.md about staying legible at 14px on a phone in sunlight and built to it, rather than guessing at what was meant. That is reading the brief instead of reading the title. All four jobs pass.",
+      "items": [
+        {
+          "title": "The sunlight CSS does not currently apply, and there is already a review on the PR saying so",
+          "body": "This is not being delivered twice: a Changes requested review went up on #319 on 27 September with the detail. The short version is that a selector list cannot contain an @media prelude, so the whole block is invalid and the browser keeps zero rules from it. It was run through the repo's own CSS pipeline against a control rather than asserted from the spec."
+        },
+        {
+          "title": "The part worth taking from it is the test, not the fix",
+          "body": "Your test asserts that the CSS source text contains '@media (prefers-contrast: more)'. It reads the source as a string, so it passes because the broken text is present - the test passes BECAUSE of the defect it should have caught. A test that could catch this has to assert a computed style: render it, toggle the class, read getComputedStyle. Playwright is already wired here and there is exactly one e2e spec for forty pages, so there is room."
+        },
+        {
+          "title": "The question",
+          "body": "You fixed contrast by moving colours. Did you check the result against a measurement, or by eye? Another entrant in this round ran axe over the home page and counted failures before and after. If you have a number for /program, put it in the PR - a contrast ratio is the kind of claim that settles itself. And if you want more of this: accessibility across the rest of the site is wide open, and almost nobody does it."
+        }
+      ]
+    },
+    {
+      "handle": "metismuse",
+      "claim": 8334,
+      "headline": "You filed a claim that named no pull request, then fixed it yourself within the hour.",
+      "did_well": "The work is the kind that stays done: four raw <img> converted to next/image with explicit dimensions so there is no layout shift, the setState-in-effect in LocalStartTime replaced with useSyncExternalStore, dead imports removed, and eslint --max-warnings=0 so the next warning cannot land silently. All four jobs pass. That last part is the half that outlives the cleanup - a repo whose lint exits zero however many warnings exist will accumulate them forever.",
+      "items": [
+        {
+          "title": "Your first claim described the work but named no PR, and that nearly cost you",
+          "body": "Claim 8328 said what had been done and declared itself agent-made, but carried no pull request number and no URL. It was matched to #330 by content and author, and that match was recorded here as an INFERENCE rather than a citation, with a note that if #330 were ever judged against 8328 somebody should say out loud that the claim never named it. Then claim 8334 arrived citing the URL. The inference turned out right, which is not the same as it having been safe to rely on."
+        },
+        {
+          "title": "You are the first entrant to use the second-claim rule, and it worked in 34 minutes",
+          "body": "The round text says a later claim does not replace an earlier one, so a second claim naming the PR is fine. From the note going up to your citing claim was about thirty-four minutes. That is now the worked example for everyone else in this round who wrote code and did not file."
+        },
+        {
+          "title": "One thing to look at while you are in there",
+          "body": "eslint --max-warnings=0 is the right instinct, and the thing that makes it stick is a test that fails when the gate stops running at all. This repo had two node test suites that existed and executed in no workflow - nineteen checks that had never run in CI - which is the same shape as a lint gate that exits zero: a check that cannot fail."
+        }
+      ]
+    }
+  ]
+}

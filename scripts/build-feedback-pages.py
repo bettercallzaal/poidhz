@@ -40,6 +40,7 @@ TWO THINGS THIS REFUSES TO BUILD, because both have already gone wrong once in t
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import html
 import json
 import re
@@ -122,6 +123,41 @@ NAV_BLOCK = re.compile(
 
 def without_nav(html_text: str) -> str:
     return NAV_BLOCK.sub("", html_text)
+
+
+def has_nav(html_text: str) -> bool:
+    """A rendered page is only half-built until sync-site-nav.py has injected the bar.
+
+    THE TWO-STAGE BUILD CAN BE SKIPPED SILENTLY, and on 2026-09-27 it was: round five's six
+    pages were rendered, committed and sent for merge with no navigation at all, because the
+    build ran and the nav sync did not. Nothing complained - the page is valid HTML, the
+    builder's own PASS line still printed, and the defect was only caught by a human reading
+    the diff. So the builder now refuses to call a page done without the marker.
+    """
+    return "ZN-NAV START" in html_text and "ZN-NAV END" in html_text
+
+
+# "closed 2026-10-05" printed on a round that has not closed is a false statement on a public
+# page, and it was one: round five's card read "closed closes 2026-10-05", two verbs, because
+# the template supplies "closed" and the data had been given a verb of its own.
+#
+# The verb is DERIVED FROM THE DATE rather than from a flag, so it cannot go stale. A flag
+# would have to be flipped by hand the moment the round closed, and nobody would, which is the
+# same staleness this repo keeps finding on generated pages.
+_DATE_AT_START = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})")
+
+
+def closed_verb(closed_field: str, today: dt.date | None = None) -> str:
+    """"closes" while the date is still ahead, "closed" once it is not.
+
+    Falls back to "closed" when the field does not start with an ISO date, which is what every
+    round before five looks like after the fact, so existing pages are unchanged.
+    """
+    m = _DATE_AT_START.match(closed_field or "")
+    if not m:
+        return "closed"
+    when = dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    return "closes" if when >= (today or dt.date.today()) else "closed"
 
 
 def esc(s: str) -> str:
@@ -340,7 +376,7 @@ margin-top:.5rem;line-height:1.7}}
   <h1>What everyone was told</h1>
   <p style="margin-bottom:.4rem"><a href="{esc(rnd["bounty_url"])}">The bounty on poidh</a></p>
   <p class="sub">Every person who entered got notes on their own entry. They are all here, so
-  you can see what was asked of everybody else and not only of you. Closed {esc(rnd["closed"])}.</p>
+  you can see what was asked of everybody else and not only of you. {closed_verb(rnd["closed"]).capitalize()} {esc(rnd["closed"])}.</p>
 </div></div>
 
 <div class="container">
@@ -397,7 +433,7 @@ def render_top_index() -> str:
     cards = "".join(
         f'<a class="card" href="/feedback/{r["bounty_id"]}">'
         f'<span class="label">Bounty {r["bounty_id"]}</span>'
-        f'<span class="desc">{esc(r["label"])} &middot; closed {esc(r["closed"])}</span>'
+        f'<span class="desc">{esc(r["label"])} &middot; {closed_verb(r["closed"])} {esc(r["closed"])}</span>'
         f'<span class="cnt">notes for {n} entrant{"s" if n != 1 else ""}</span></a>'
         for r, n in rounds)
 
@@ -541,6 +577,12 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
                 findings.append(f"FAIL: {out.relative_to(REPO_ROOT)} is STALE - it differs "
                                 f"from what {round_id}.json renders. The site is serving "
                                 f"older notes than the repo says. Rebuild it.")
+            elif not has_nav(out.read_text()):
+                ok = False
+                findings.append(f"FAIL: {out.relative_to(REPO_ROOT)} has NO NAVIGATION. It was "
+                                f"rendered but sync-site-nav.py never ran over it, so the page "
+                                f"would ship with no way off it. Run "
+                                f"`python3 scripts/sync-site-nav.py`.")
         if write and ok:
             round_dir.mkdir(parents=True, exist_ok=True)
             out.write_text(page)
@@ -558,6 +600,17 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
         findings.append(f"     wrote {top_idx.relative_to(REPO_ROOT)}  ->  "
                         f"poidhz.com/feedback")
 
+    if ok and write:
+        # Stage two is a separate script, and on 2026-09-27 it was simply forgotten: six pages
+        # were rendered, committed and sent for merge with no navigation on any of them. The
+        # build cannot run it (that script owns every page on the site, not just these), so it
+        # says so instead of leaving a half-built page looking finished.
+        missing = [f for f in sorted(round_dir.glob("*.html")) if not has_nav(f.read_text())]
+        if missing:
+            findings.append(
+                f"     NEXT: {len(missing)} page(s) have no navigation yet. Run "
+                f"`python3 scripts/sync-site-nav.py` - the build is stage one of two.")
+
     if ok:
         findings.append(f"PASS: {len(entrants)} page(s) + index under /feedback/{bounty_id}/, "
                         f"no ranking word, no promise, no page naming another entrant")
@@ -571,6 +624,29 @@ def _selftest() -> bool:
         nonlocal passed
         print(f"  {'ok  ' if cond else 'FAIL'} {label}")
         passed = passed and bool(cond)
+
+    # THE TWO DEFECTS OF 2026-09-27, pinned. Six pages shipped for merge with no navigation,
+    # and an open round's card read "closed closes 2026-10-05" because the template supplies
+    # the verb and the data had been given one too.
+    c("a page carrying the nav markers is recognised",
+      has_nav("<!-- ZN-NAV START x -->bar<!-- ZN-NAV END -->"))
+    c("a page with NO nav is caught, which is the bug that shipped",
+      not has_nav("<html><body>notes</body></html>"))
+    c("half a nav block is not a nav block",
+      not has_nav("<!-- ZN-NAV START x -->bar"))
+
+    _today = dt.date(2026, 9, 27)
+    c("a round whose date is still ahead reads 'closes'",
+      closed_verb("2026-10-05, 5:00pm Eastern", _today) == "closes")
+    c("a round closing today still reads 'closes'",
+      closed_verb("2026-09-27, 5:00pm Eastern", _today) == "closes")
+    c("a round whose date has passed reads 'closed'",
+      closed_verb("2026-09-23, 5:00pm Eastern", _today) == "closed")
+    c("a field with no ISO date falls back to 'closed', so older rounds are untouched",
+      closed_verb("last Tuesday", _today) == "closed")
+    c("an empty field does not raise", closed_verb("", _today) == "closed")
+    c("the verb is never doubled up with the data's own word",
+      closed_verb("closes 2026-10-05", _today) == "closed")
 
     rnd = {"id": "t", "label": "Bounty one", "bounty_url": "u", "closed": "x",
            "winner": "leoxcrane", "bounty_id": 1409,
@@ -633,13 +709,26 @@ def _selftest() -> bool:
             (REPO_ROOT / "data" / "feedback" / "t.json").write_text(
                 json.dumps({"round": rnd, "entrants": entrants}))
 
+        def inject_nav():
+            """Stage two, which sync-site-nav.py does on the real site. The fixtures used to
+            skip it, and the file's own comment said that was why a missing nav could never be
+            caught here. Now it is caught, so the fixture has to model both stages."""
+            for f in REPO_ROOT.glob("feedback/*/*.html"):
+                if not has_nav(f.read_text()):
+                    f.write_text("<!-- ZN-NAV START x -->\nbar\n<!-- ZN-NAV END -->\n"
+                                 + f.read_text())
+
         write_round([good])
         ok, f = build("t", write=False)
         c("--check FAILS when the page was never built",
           not ok and any("never been built" in x for x in f))
         build("t", write=True)
         ok, f = build("t", write=False)
-        c("a clean, freshly built round passes", ok)
+        c("a freshly built round with NO nav yet is refused", not ok
+          and any("NO NAVIGATION" in x for x in f))
+        inject_nav()
+        ok, f = build("t", write=False)
+        c("a clean, freshly built round passes once the nav is injected", ok)
 
         # A page carrying an injected nav bar is NOT stale. This is the false positive the
         # first version of this check produced against all five real pages.
@@ -656,11 +745,13 @@ def _selftest() -> bool:
         c("--check catches a page that is STALE against its json",
           not ok and any("STALE" in x for x in f))
         build("t", write=True)
+        inject_nav()
         ok, _ = build("t", write=False)
         c("and passes again once rebuilt", ok)
 
         write_round([good])
         build("t", write=True)
+        inject_nav()
         ok, f = build("t", write=False)
         c("and it warns that claims.json could not be read",
           any("UNVERIFIED" in x for x in f))
@@ -700,7 +791,12 @@ def _selftest() -> bool:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--round", default="d01")
+    # No default. A bare --check used to validate d01 ALONE and print PASS, which reads as
+    # "the feedback pages are fine" when four other rounds were never opened. Measured
+    # 2026-09-27: --check missed a round-five page with no navigation entirely, because it
+    # never looked at round five.
+    ap.add_argument("--round", default=None,
+                    help="one round id; --check with no --round checks EVERY round")
     ap.add_argument("--check", action="store_true", help="validate without writing")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()
@@ -711,7 +807,23 @@ def main() -> int:
         print("selftest:", "passed" if ok else "FAILED")
         return 0 if ok else 1
 
-    ok, findings = build(args.round, write=not args.check)
+    if args.check and not args.round:
+        rounds = sorted(p.stem for p in (REPO_ROOT / "data" / "feedback").glob("*.json"))
+        if len(rounds) < 2:
+            print(f"  FAIL: only {len(rounds)} round file(s) matched data/feedback/*.json. "
+                  f"An almost-empty sweep is not a clean result.")
+            return 1
+        all_ok = True
+        for r in rounds:
+            ok, findings = build(r, write=False)
+            print(f"  --- {r} ---")
+            for f in findings:
+                print(f"  {f}")
+            all_ok = all_ok and ok
+        print(f"  {len(rounds)} round(s) checked: {'all pass' if all_ok else 'FAILURES above'}")
+        return 0 if all_ok else 1
+
+    ok, findings = build(args.round or "d01", write=not args.check)
     for f in findings:
         print(f"  {f}")
     return 0 if ok else 1
