@@ -1,0 +1,117 @@
+{
+  "_comment": "Per-entrant feedback for bounty 1418, round four, the ad round. Rendered to /feedback/1418/<handle>. WRITTEN 2026-09-27 BEFORE THE ROUND CLOSED at 5pm Eastern that day, so 'winner' is deliberately empty and nothing here ranks anyone. Every piece was downloaded and read frame by frame rather than described: durations and dimensions come from ffprobe, the on-screen facts from sampled frames, and the view counts from the posts themselves. inkier35 is the X handle on that entrant's own linked post, because poidh left the wallet unresolved.",
+  "round": {
+    "id": "d04",
+    "label": "Bounty four",
+    "bounty_url": "https://poidh.xyz/base/bounty/1418",
+    "closed": "2026-09-27, 5:00pm Eastern",
+    "winner": "",
+    "bounty_id": 1418,
+    "decided_it": [
+      "Thirty seconds or less if it moves. That was the round's only hard constraint on form, and every entry cleared it.",
+      "The facts go ON the piece, not only in the caption, because a repost strips a caption. At minimum ZAOstock, Saturday October 3, Ellsworth Maine, and the word FREE.",
+      "It has to work in the three seconds someone looks at it before scrolling.",
+      "An advert picks one thing and lands it. Carrying the whole festival is the thing this brief was written against."
+    ],
+    "next": {
+      "label": "What is open right now",
+      "closes": "5pm Eastern, Monday 5 October",
+      "wants": "A code round on the ZAOstock repository itself. Open pull requests count as complete entries.",
+      "checkpoint": "That round pays claims on its bounty, not pull requests. A claim has to cite the pull request by its URL, and a second claim naming it is fine."
+    }
+  },
+  "entrants": [
+    {
+      "handle": "assay",
+      "claim": 8239,
+      "headline": "Every fact is on screen for the whole runtime, so a three-second glance carries all of it.",
+      "did_well": "Measured rather than taken from your description: 25.6 seconds, 1080x1920, h264 with an aac audio track, against a claim of a 25-second vertical with sound. A locked banner reading ZAOSTOCK, SATURDAY OCTOBER 3, ELLSWORTH MAINE, FREE, NOON TO SIX sits on every frame sampled across the piece, so a repost that strips the caption loses nothing. You also built it around one idea - a local television forecast where the forecast is music - rather than listing the festival, and the hourly strip, the radar over Downeast Maine and the advisory card all come out of that one idea.",
+      "items": [
+        {
+          "title": "You credited your sources inside the piece, where nobody does",
+          "body": "The footer names the moose mark as attabotty's, the radio as the Star 97.7 interview from the kit, and the map data as OpenStreetMap. You also said in the claim that no image generator, no synthetic voice and no editor watermark went into it. Those are checkable claims volunteered without being asked for, and they were checked."
+        },
+        {
+          "title": "The one number that did not go your way is reach",
+          "body": "48 views on X at the time of reading, against 178 on one of the other entries. The piece carries itself once somebody sees it; getting somebody to see it is a separate craft and it is the half this one did not do. Posting to both Farcaster and X was right. Tagging Maine, Ellsworth and Bangor was right. It still did not travel."
+        },
+        {
+          "title": "A site suggestion you volunteered, which is being recorded rather than lost",
+          "body": "You noted that the Add to Google Calendar and .ics buttons only exist on the live page, while a stranger deciding whether to come is on the home page next to RSVP. That is a real observation about the site rather than about your entry, and it is written down here so it survives the round."
+        }
+      ]
+    },
+    {
+      "handle": "coolhat",
+      "claim": 8240,
+      "headline": "This travelled further than anything else in the round, by a distance.",
+      "did_well": "178 views, against 84, 48, 9 and 1 on the others. For an advert that is not a footnote - a piece nobody sees is not doing the job. It is also the shortest at 19.0 seconds, 1080x1920, clean kinetic type building one line at a time to a final card carrying ZAOstock, Saturday October 3, Ellsworth Maine and FREE in an orange pill. And it is the only entry that spells the festival the way the festival spells it.",
+      "items": [
+        {
+          "title": "The facts only arrive at the end, and the brief asks for them throughout",
+          "body": "The rule is that the facts go on the piece because a repost strips the caption, and the brief adds that it has to work in the three seconds someone looks before scrolling. Someone who scrolls at three seconds sees ONE STREET and no festival, no date, no FREE. A small persistent line along the bottom, running under the type the whole way, would have kept everything the ending does and lost nothing."
+        },
+        {
+          "title": "There is no audio track at all",
+          "body": "Confirmed with ffprobe: video stream only. That is defensible for a feed where most people watch muted, and the piece works silent. It is worth knowing it was a decision rather than an export setting, because sound is a channel the brief did not forbid."
+        }
+      ]
+    },
+    {
+      "handle": "inkier35",
+      "claim": 8312,
+      "headline": "You put the real place on screen, from above, and nobody has to imagine it.",
+      "did_well": "Measured: 28.58 seconds with audio, and all four required facts are on the piece - ZAOSTOCK, SATURDAY OCTOBER 3 with NOON TO SIX, ELLSWORTH MAINE over real aerial footage of the Franklin Street Parklet, and FREE. It also carries ONE STREET, ONE STAGE, EIGHT ACTS and the URL. The aerial shot of the actual parklet is the thing in this round that cannot be faked.",
+      "items": [
+        {
+          "title": "It is 1280x720 landscape in a round aimed at phones",
+          "body": "Every other moving entry is vertical. A landscape piece in a phone feed is shown small with bars, and the round's first criterion is somebody landing on a phone. The same cut at 1080x1920 would have lost nothing - the aerial footage crops to vertical comfortably, and the type is already centred."
+        },
+        {
+          "title": "The still on your claim shows two of the four required facts",
+          "body": "The video carries all four, which is what matters and how it was judged. But the frame you attached to the claim shows only ZAOSTOCK and FREE, and on the bounty page that frame is what somebody sees first. A frame carrying the date and the place would have made the claim itself do the work the video does."
+        },
+        {
+          "title": "Nine views",
+          "body": "The lowest reach of the round apart from one posted minutes before the close. The piece is strong and almost nobody saw it. Posting to Farcaster as well as X, where this programme actually lives, costs nothing and roughly doubled reach for the entries that did it."
+        }
+      ]
+    },
+    {
+      "handle": "taku0x",
+      "claim": 8332,
+      "headline": "A locked footer on every frame, and you named the acts.",
+      "did_well": "720x1280 vertical with audio and captions throughout. A footer runs on every frame sampled carrying SATURDAY OCTOBER 3, ELLSWORTH MAINE, Franklin Street Parklet, Free, All ages and Rain or shine, so the facts survive a repost. You also named four of the acts on screen and credited the logo to attabotty, and you posted to both Farcaster and X.",
+      "items": [
+        {
+          "title": "The festival's name is not in the banner that repeats",
+          "body": "ZAOSTOCK is in the tiled watermark and on the closing card, but not in the footer that runs the whole way. So a frame grabbed from the middle carries the date, the place, FREE and the parklet - everything except what the event is called. Adding the one word to that footer would close it."
+        },
+        {
+          "title": "It measured 30.046621 seconds against a thirty second rule",
+          "body": "Over by about one frame, on the file as X serves it rather than as you exported it. It was ruled inside, because X re-encodes every upload and holding it out would have enforced the limit against the encoder rather than against you. Worth knowing the rule has an edge and you landed on it: the safe target for a thirty second limit is about twenty-eight."
+        },
+        {
+          "title": "It carries the whole festival, and the brief asked for one thing",
+          "body": "Come through, the date, the place, the lineup by name, and the after-party. Each part is well made. The brief's argument is that thirty seconds forces a choice and an advert picks one thing to land - the piece that does everything is competing with itself for the same three seconds."
+        }
+      ]
+    },
+    {
+      "handle": "joeyofdeus",
+      "claim": 8326,
+      "headline": "This is the piece you entered in bounty three, and an ad brief suits a type treatment in a way that one did not.",
+      "did_well": "An animated text piece, 16.2 seconds, 1280x720 with audio, posted with a caption carrying the date, the place, FREE and the URL, and crediting the moose mark to attabotty. 84 views. In bounty three it was competing against footage of real places; against an ad brief a straightforward type treatment is doing the job it was built for.",
+      "items": [
+        {
+          "title": "Re-entering an earlier piece is allowed, and it is being said out loud rather than marked quietly",
+          "body": "The same X post appears on your bounty three claim and on this one - measured across four bounties, 21 links, 19 distinct, and exactly two reused. The other reuse was also judged openly. Nothing about this breaks a rule. But a piece made for a different brief is answering a question nobody asked here, and this round asked for an advert specifically."
+        },
+        {
+          "title": "What a piece made FOR this brief would have added",
+          "body": "The facts are in your caption and the caption does not survive a repost. Thirty seconds of the same animation with the date, Ellsworth and FREE burned into the frames would have been a small amount of work on something you had already built, and it would have been a new entry rather than a returning one."
+        }
+      ]
+    }
+  ]
+}
