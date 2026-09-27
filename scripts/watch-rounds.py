@@ -88,6 +88,26 @@ def load_config() -> dict:
         return {}
 
 
+def closes_at_by_bounty() -> dict[int, str]:
+    """bounty id -> the round's STATED close, from data/rounds-live.json.
+
+    Not from the chain: poidh returns deadline null for an open bounty and only sets it when a
+    vote starts, so a round's advertised close exists in its cast text and in this feed and
+    nowhere else. That is exactly why it needs recording - nothing on chain marks the moment.
+    """
+    p = REPO_ROOT / "data" / "rounds-live.json"
+    try:
+        feed = json.loads(p.read_text())
+    except Exception:
+        return {}
+    out: dict[int, str] = {}
+    for r in feed.get("rounds", []):
+        bid, ca = r.get("bounty_id"), r.get("closes_at")
+        if isinstance(bid, int) and ca:
+            out[bid] = ca
+    return out
+
+
 def watched_bounties(cfg: dict) -> list[int]:
     """Every bounty that can still change: an open round, or one in VOTING awaiting a
     resolveVote. Reads org.config.json's rounds so adding a round to the config is enough."""
@@ -173,6 +193,7 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
     NOT measured this sweep, which is different from measured-as-empty."""
     snap: dict = {"bounties": {}, "links": {}}
     failures: list[str] = []
+    closes = closes_at_by_bounty()
 
     for bid in bounty_ids:
         try:
@@ -187,6 +208,7 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
             "onchain": b.get("onChainId"),
             "status": status_of(b),
             "deadline": b.get("deadline"),
+            "closes_at": closes.get(bid),
             "claims": sorted(str(c.get("claimId")) for c in b.get("claims") or []),
             "title": b.get("title"),
         }
@@ -205,6 +227,10 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
     # set was established even when it turns out nothing cites a PR, so record the {}.
     if snap["bounties"]:
         snap.setdefault("entry_prs", {})
+    # WHEN this sweep happened, so a later sweep can answer "were we watching before that
+    # close?" - without it, a close that passed before the watcher existed is indistinguishable
+    # from one it actually observed.
+    snap["swept_at"] = time.time()
 
     prs = open_prs(repo)
     if prs is None:
@@ -229,6 +255,14 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
     """
     events: list[str] = []
     merged = json.loads(json.dumps(old)) if old else {"bounties": {}, "links": {}, "prs": {}}
+    # CARRY THIS SWEEP'S TIME INTO THE PERSISTED STATE. merged starts as a copy of `old`, so
+    # without this the stamp never advanced past whatever was first written - and on a fresh
+    # state it was never written at all. Every close would then have read as NOT OBSERVED
+    # forever, because prev_sweep was permanently None: the mechanism would have been silently
+    # inert in production while every selftest passed, since the tests set swept_at by hand.
+    # Found by a test asserting the one-sweep delay, not by one aimed at this.
+    if new.get("swept_at") is not None:
+        merged["swept_at"] = new["swept_at"]
     merged.setdefault("bounties", {})
     merged.setdefault("links", {})
     merged.setdefault("prs", {})
@@ -255,6 +289,82 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
         added = [c for c in cur["claims"] if c not in prev["claims"]]
         if added:
             events.append(f"CLAIM bounty {bid} new claim(s) {', '.join(added)} - now {len(cur['claims'])} total")
+
+        # THE CLOSE IS A MOMENT AND NOTHING ON CHAIN MARKS IT. Round three has a claim whose
+        # in-or-out status is permanently UNKNOWN because the field was never counted at the
+        # boundary - poidh exposes no claim timestamp, so once the moment passes it cannot be
+        # reconstructed. This records it while it is still recordable, and once only.
+        ca = cur.get("closes_at")
+        if ca and not prev.get("close_recorded"):
+            try:
+                when = dt.datetime.fromisoformat(ca).timestamp()
+            except Exception:
+                when = None
+            # THE FIRST VERSION REPORTED TODAY'S FIELD AS THE FIELD AT A CLOSE DAYS PAST.
+            # On its first live sweep it fired for 1409, 1410 and 1412 - closed 21, 22 and 23
+            # September - printing CURRENT claim counts under "FIELD AT THE CLOSE". For 1412
+            # that asserted five claims at the boundary, when the known fact about that round
+            # is that claim 8153 landed ACROSS it and whether it was inside is UNKNOWN. The
+            # feature invented the exact false certainty it exists to prevent.
+            #
+            # A close is now only reported when this watcher was watching before it: the
+            # previous sweep must predate the close. Anything older is reported as NOT
+            # OBSERVED, which is the true statement.
+            # AND BEING ALIVE BEFORE THE CLOSE IS NOT ENOUGH EITHER. The previous version
+            # certified whenever the watcher had swept at ANY point before the close, without
+            # asking how late the CURRENT reading is. Last sweep at close minus three hours, a
+            # claim landing three minutes after the close, this sweep seven minutes after: it
+            # printed that claim as part of "the field at the close". Same false certainty, one
+            # layer down, found by an independent reviewer driving diff() with a fixed clock.
+            #
+            # The fix needs no time threshold, because the snapshots already carry the answer.
+            # Claims present in the PREVIOUS snapshot were seen at prev_sweep, which is before
+            # the close, so they were definitely in. Claims that are new in THIS snapshot
+            # appeared somewhere in (prev_sweep, now], a window containing the close, so their
+            # side is unknowable - which is exactly round three's claim 8153. So the report
+            # states both sets and the width of the window rather than picking a cutoff and
+            # calling everything inside it certain.
+            prev_sweep = old.get("swept_at")
+            if when is not None and now >= when:
+                if prev_sweep is not None and prev_sweep < when:
+                    # BOTH SETS WERE BUILT FROM cur ALONE, so a claim seen before the close
+                    # and missing from this reading vanished from the report entirely - and the
+                    # message then said the field was "exactly" the ones that remained. It was
+                    # verifiably in and it disappeared from the count. Claims do not normally
+                    # vanish, but this watcher already treats a partial API answer as unmeasured
+                    # rather than as a change, and the same care belongs here.
+                    still_here = [c for c in cur["claims"] if c in prev["claims"]]
+                    removed = [c for c in prev["claims"] if c not in cur["claims"]]
+                    confirmed = still_here + removed
+                    ambiguous = [c for c in cur["claims"] if c not in prev["claims"]]
+                    gap = (now - prev_sweep) / 60.0
+                    msg = (f"ROUND-CLOSED bounty {bid} reached its stated close ({ca}). "
+                           f"CONFIRMED IN: {len(confirmed)} claim(s) seen before the close - "
+                           f"{', '.join(confirmed) or 'none'}.")
+                    if removed:
+                        msg += (f" OF THOSE, {len(removed)} are missing from this reading - "
+                                f"{', '.join(removed)} - withdrawn, or simply not returned by "
+                                f"the API this time. They were in before the close either way.")
+                    if ambiguous:
+                        msg += (f" AMBIGUOUS: {len(ambiguous)} claim(s) first seen on this sweep "
+                                f"- {', '.join(ambiguous)} - which appeared somewhere in the "
+                                f"{gap:.1f} minutes spanning the close, so whether they beat it "
+                                f"is UNKNOWN from here. poidh exposes no claim timestamp.")
+                    if not ambiguous and not removed:
+                        msg += (f" Nothing new appeared in the {gap:.1f} minutes spanning the "
+                                f"close, so the field at the close is exactly those "
+                                f"{len(confirmed)}.")
+                    events.append(msg)
+                else:
+                    events.append(
+                        f"CLOSE-NOT-OBSERVED bounty {bid} closed at {ca}, before this watcher "
+                        f"was recording. The field at that moment is UNKNOWN from here and "
+                        f"cannot be reconstructed - poidh exposes no claim timestamp. It has "
+                        f"{len(cur['claims'])} claim(s) NOW, which is a different statement."
+                    )
+                cur = {**cur, "close_recorded": True}
+        elif prev.get("close_recorded"):
+            cur = {**cur, "close_recorded": True}
 
         # The unlock is a crossing, not a state: emit once, when it happens.
         dl = cur.get("deadline")
@@ -381,6 +491,109 @@ def _selftest() -> int:
     ev3, _ = diff(base, json.loads(json.dumps(base)), now)
     checks.append(("the vote unlock stays quiet before it crosses", not any(e.startswith("VOTE-UNLOCK") for e in ev3)))
 
+    # THE CLOSE BOUNDARY, both directions. This is the one measurement that cannot be taken
+    # late: poidh exposes no claim timestamp, so a field counted at 17:07 cannot be separated
+    # from the field at 17:00.
+    _close = "2026-09-27T17:00:00-04:00"
+    _at = dt.datetime.fromisoformat(_close).timestamp()
+    closing = {"bounties": {"1418": {"onchain": 432, "status": "OPEN", "deadline": None,
+                                     "closes_at": _close, "claims": ["1", "2", "3"], "title": "R4"}},
+               "links": {}, "prs": {}, "swept_at": _at - 600}
+    ev, st = diff(closing, json.loads(json.dumps(closing)), _at - 1)
+    checks.append(("a minute before the close, nothing is recorded",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    ev, st = diff(closing, json.loads(json.dumps(closing)), _at)
+    checks.append(("at the stated close the field is recorded",
+                   any(e.startswith("ROUND-CLOSED bounty 1418") for e in ev)))
+    checks.append(("and it names the count and the claim ids",
+                   any("3 claim(s)" in e and "1, 2, 3" in e for e in ev)))
+
+    # THE REVIEWER'S SCENARIO, which the first fix still got wrong: alive before the close is
+    # not the same as having looked recently. Last sweep three hours before, this sweep seven
+    # minutes after, a claim that appeared somewhere in between.
+    late_prev = {"bounties": {"1418": {"onchain": 432, "status": "OPEN", "deadline": None,
+                                       "closes_at": _close, "claims": ["1", "2", "3"], "title": "R4"}},
+                 "links": {}, "prs": {}, "swept_at": _at - 3 * 3600}
+    late_now = json.loads(json.dumps(late_prev))
+    late_now["bounties"]["1418"]["claims"] = ["1", "2", "3", "4"]
+    ev, _ = diff(late_prev, late_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("a claim first seen after the close is NOT counted as in the field",
+                   bool(closed) and "CONFIRMED IN: 3 claim(s)" in closed[0]))
+    checks.append(("it is named as ambiguous instead",
+                   bool(closed) and "AMBIGUOUS: 1 claim(s)" in closed[0] and "- 4 -" in closed[0]))
+    checks.append(("and the width of the unobserved window is stated",
+                   bool(closed) and "187.0 minutes" in closed[0]))
+    checks.append(("the ambiguous case says UNKNOWN rather than implying certainty",
+                   bool(closed) and "UNKNOWN" in closed[0]))
+
+    # A CLAIM SEEN BEFORE THE CLOSE AND MISSING NOW MUST NOT VANISH FROM THE COUNT. Found by
+    # the reviewer: both sets were built from the current reading alone, so it disappeared and
+    # the message still said "exactly".
+    gone_now = json.loads(json.dumps(late_prev))
+    gone_now["bounties"]["1418"]["claims"] = ["1", "2"]          # 3 was there before, not now
+    ev, _ = diff(late_prev, gone_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("a claim seen before the close still counts when it is missing now",
+                   bool(closed) and "CONFIRMED IN: 3 claim(s)" in closed[0]))
+    checks.append(("and it is named as missing rather than silently dropped",
+                   bool(closed) and "missing from this reading" in closed[0] and "- 3 -" in closed[0]))
+    checks.append(("the word exactly is withheld when something went missing",
+                   bool(closed) and "exactly" not in closed[0]))
+
+    # A bounty this watcher has never seen, whose close already passed, is a BASELINE on its
+    # first sweep and reports on the second. Documented rather than special-cased: emitting on
+    # a baseline would contradict the rule that a first sweep is not nine events.
+    unseen = {"bounties": {}, "links": {}, "prs": {}, "swept_at": _at - 3600}
+    first = json.loads(json.dumps(late_prev)); first["swept_at"] = _at + 60
+    ev, st_first = diff(unseen, first, _at + 7 * 60)
+    checks.append(("a bounty seen for the first time after its close reports nothing yet",
+                   not any(e.startswith("ROUND-CLOSED") or e.startswith("CLOSE-NOT-OBSERVED")
+                           for e in ev)))
+    ev2, _ = diff(st_first, json.loads(json.dumps(first)), _at + 14 * 60)
+    checks.append(("and it reports on the very next sweep, one sweep late",
+                   any(e.startswith("CLOSE-NOT-OBSERVED") for e in ev2)))
+
+    # And when nothing new arrived in that window, the field IS exactly what was confirmed.
+    quiet_now = json.loads(json.dumps(late_prev))
+    ev, _ = diff(late_prev, quiet_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("with nothing new in the window, the field is stated exactly",
+                   bool(closed) and "is exactly those 3" in closed[0]
+                   and "AMBIGUOUS" not in closed[0]))
+
+    # THE BUG THE FIRST LIVE SWEEP FOUND. A close that passed before this watcher existed must
+    # NOT be reported as an observed field - it fired for three settled rounds and printed
+    # today's counts under "FIELD AT THE CLOSE".
+    never_watched = {k: v for k, v in closing.items() if k != "swept_at"}
+    ev, st2 = diff(never_watched, json.loads(json.dumps(never_watched)), _at + 86400)
+    checks.append(("a close that passed before this watcher ran is NOT reported as observed",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    checks.append(("it is reported as NOT OBSERVED instead, which is the true statement",
+                   any(e.startswith("CLOSE-NOT-OBSERVED bounty 1418") for e in ev)))
+    checks.append(("and that message says the field then is UNKNOWN",
+                   any("UNKNOWN" in e for e in ev if e.startswith("CLOSE-NOT-OBSERVED"))))
+    checks.append(("the not-observed notice also fires only once",
+                   not any(e.startswith("CLOSE-NOT-OBSERVED")
+                           for e in diff(st2, json.loads(json.dumps(never_watched)), _at + 90000)[0])))
+    stale = {**json.loads(json.dumps(closing)), "swept_at": _at + 10}
+    ev, _ = diff(stale, json.loads(json.dumps(stale)), _at + 86400)
+    checks.append(("a sweep that only started AFTER the close does not claim to have seen it",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    ev2, _ = diff(st, json.loads(json.dumps(closing)), _at + 3600)
+    checks.append(("it is recorded once, not on every later sweep",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev2)))
+    no_ca = json.loads(json.dumps(closing))
+    del no_ca["bounties"]["1418"]["closes_at"]
+    ev, _ = diff(no_ca, json.loads(json.dumps(no_ca)), _at + 3600)
+    checks.append(("a round with no stated close records nothing rather than guessing",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+    bad = json.loads(json.dumps(closing))
+    bad["bounties"]["1418"]["closes_at"] = "not a date"
+    ev, _ = diff(bad, json.loads(json.dumps(bad)), _at + 3600)
+    checks.append(("an unparseable close does not raise and records nothing",
+                   not any(e.startswith("ROUND-CLOSED") for e in ev)))
+
     # Claims, links, PRs.
     more = json.loads(json.dumps(base))
     more["bounties"]["1412"]["claims"] = ["1", "2", "3"]
@@ -428,6 +641,27 @@ def _selftest() -> int:
     # The entry set must survive a sweep that could not read the bounties, like every other key.
     _, st = diff(cited, {"prs": {"316": "alice one"}}, now)
     checks.append(("an unmeasured sweep keeps the entry set", st.get("entry_prs") == {"316": "bounty 1421 claim 8304"}))
+
+    # SWEEP ITSELF MUST STAMP THE TIME, and nothing tested that. Every check above builds a
+    # snapshot by hand, so deleting the line that writes swept_at left the suite green while
+    # silently disabling close reporting entirely - a mutation found exactly that. This calls
+    # the real sweep() with the network stubbed out.
+    import builtins as _b
+    _real_fetch, _real_prs = globals()["fetch_bounty_merged"], globals()["open_prs"]
+    try:
+        globals()["fetch_bounty_merged"] = lambda bid, chain: {
+            "onChainId": 1, "isCanceled": False, "inProgress": True, "isVoting": False,
+            "deadline": None, "title": "T", "claims": [{"claimId": 1, "isAccepted": False}],
+        }
+        globals()["open_prs"] = lambda repo: {}
+        snap, fails = sweep([1418], "o/r", 8453, check_links=False)
+        checks.append(("sweep stamps swept_at, so a close can be judged against it",
+                       isinstance(snap.get("swept_at"), (int, float))))
+        checks.append(("and that stamp is a real clock reading, not a placeholder",
+                       abs(snap.get("swept_at", 0) - time.time()) < 60))
+        checks.append(("sweep records the bounty it was given", "1418" in snap.get("bounties", {})))
+    finally:
+        globals()["fetch_bounty_merged"], globals()["open_prs"] = _real_fetch, _real_prs
 
     # pr_links_with_claims ties a PR number to the claim that cites it, not just to a url.
     trip = pr_links_with_claims({"claims": [{"claimId": 8304, "title": "https://github.com/o/r/pull/316"}]})
