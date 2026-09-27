@@ -145,19 +145,54 @@ def has_nav(html_text: str) -> bool:
 # would have to be flipped by hand the moment the round closed, and nobody would, which is the
 # same staleness this repo keeps finding on generated pages.
 _DATE_AT_START = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})")
+# "2026-09-27, 5:00pm Eastern" - the hour matters, see below.
+_TIME_AFTER = re.compile(r"(?i)(\d{1,2})(?::(\d{2}))?\s*([ap])m\b")
+EASTERN = "America/New_York"
 
 
-def closed_verb(closed_field: str, today: dt.date | None = None) -> str:
-    """"closes" while the date is still ahead, "closed" once it is not.
+def closed_verb(closed_field: str, now: "dt.datetime | dt.date | None" = None) -> str:
+    """"closes" while the deadline is still ahead, "closed" once it is not.
 
-    Falls back to "closed" when the field does not start with an ISO date, which is what every
-    round before five looks like after the fact, so existing pages are unchanged.
+    DATE GRANULARITY WAS NOT ENOUGH AND IT WOULD HAVE BEEN WRONG TODAY. Round four closed at
+    5pm Eastern on 2026-09-27. Comparing dates alone, the page would have read "closes
+    2026-09-27, 5:00pm Eastern" for the SEVEN HOURS between the close and midnight - present
+    tense about a round that had shut, on a public page, to the people who had just entered it.
+
+    So when the field carries a clock time it is used. "2026-09-27, 5:00pm Eastern" resolves to
+    17:00 America/New_York. A field with only a date keeps the old behaviour and flips at
+    midnight, and anything unparseable falls back to "closed", so every round before this one
+    renders exactly as it did.
+
+    `now` accepts a date or a datetime so the tests can pin both sides of a single afternoon.
     """
     m = _DATE_AT_START.match(closed_field or "")
     if not m:
         return "closed"
-    when = dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-    return "closes" if when >= (today or dt.date.today()) else "closed"
+    day = dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+
+    tm = _TIME_AFTER.search(closed_field[m.end():])
+    if tm is None:
+        today = now.date() if isinstance(now, dt.datetime) else (now or dt.date.today())
+        return "closes" if day >= today else "closed"
+
+    hour = int(tm.group(1)) % 12 + (12 if tm.group(3).lower() == "p" else 0)
+    minute = int(tm.group(2) or 0)
+    try:
+        from zoneinfo import ZoneInfo
+        tz = ZoneInfo(EASTERN)
+    except Exception:  # no tz database: fall back to the date comparison rather than guessing
+        today = now.date() if isinstance(now, dt.datetime) else (now or dt.date.today())
+        return "closes" if day >= today else "closed"
+
+    deadline = dt.datetime(day.year, day.month, day.day, hour, minute, tzinfo=tz)
+    if isinstance(now, dt.datetime):
+        current = now if now.tzinfo else now.replace(tzinfo=tz)
+    elif isinstance(now, dt.date):
+        # A bare date given for a field that has a time: treat it as the start of that day.
+        current = dt.datetime(now.year, now.month, now.day, tzinfo=tz)
+    else:
+        current = dt.datetime.now(tz)
+    return "closes" if deadline > current else "closed"
 
 
 def esc(s: str) -> str:
@@ -640,6 +675,35 @@ def _selftest() -> bool:
       closed_verb("2026-10-05, 5:00pm Eastern", _today) == "closes")
     c("a round closing today still reads 'closes'",
       closed_verb("2026-09-27, 5:00pm Eastern", _today) == "closes")
+
+    # THE SEVEN HOURS THAT WOULD HAVE BEEN WRONG. Round four closed at 5pm Eastern on
+    # 2026-09-27; comparing dates alone left the page reading "closes" until midnight.
+    from zoneinfo import ZoneInfo
+    _et = ZoneInfo("America/New_York")
+    _field = "2026-09-27, 5:00pm Eastern"
+    c("at 16:59 on the day, it still reads 'closes'",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 16, 59, tzinfo=_et)) == "closes")
+    c("at 17:01 on the SAME DAY it reads 'closed', not at midnight",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 17, 1, tzinfo=_et)) == "closed")
+    c("at 23:30 the same evening it still reads 'closed'",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 23, 30, tzinfo=_et)) == "closed")
+    # The exact instant. "Submissions close 5:00pm" means 5:00:00 is shut, not the last second
+    # open - a mutation flipping > to >= slipped through until this pinned it.
+    c("at exactly 17:00:00 it reads 'closed', because the deadline has arrived",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 17, 0, 0, tzinfo=_et)) == "closed")
+    c("one second before, it still reads 'closes'",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 16, 59, 59, tzinfo=_et)) == "closes")
+    c("a midnight deadline is read as 12am, not 12pm",
+      closed_verb("2026-09-27, 12:00am Eastern",
+                  dt.datetime(2026, 9, 27, 1, 0, tzinfo=_et)) == "closed")
+    c("a noon deadline is read as 12pm, not 12am",
+      closed_verb("2026-09-27, 12:00pm Eastern",
+                  dt.datetime(2026, 9, 27, 1, 0, tzinfo=_et)) == "closes")
+    c("a naive datetime is treated as Eastern rather than raising",
+      closed_verb(_field, dt.datetime(2026, 9, 27, 17, 1)) == "closed")
+    c("a field with a DATE ONLY still flips at midnight, so older rounds are untouched",
+      closed_verb("2026-09-27", dt.date(2026, 9, 27)) == "closes"
+      and closed_verb("2026-09-27", dt.date(2026, 9, 28)) == "closed")
     c("a round whose date has passed reads 'closed'",
       closed_verb("2026-09-23, 5:00pm Eastern", _today) == "closed")
     c("a field with no ISO date falls back to 'closed', so older rounds are untouched",

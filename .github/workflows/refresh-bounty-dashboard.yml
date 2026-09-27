@@ -80,6 +80,22 @@ jobs:
         # entrants. Rebuilding here makes the page and its data move in one commit.
         run: python3 scripts/build-gallery.py
 
+      - name: Rebuild the feedback pages, whose wording depends on the clock
+        # Added 2026-09-27, for a reason that only shows up at a specific hour. Each round's
+        # card says "closes" or "closed" and that verb is DERIVED FROM THE DEADLINE AT BUILD
+        # TIME. Round four closed at 5pm Eastern; without a rebuild the committed HTML keeps
+        # saying "closes" until a human happens to run the builder, which is the same defect
+        # gallery.html had - correct logic behind a page nobody regenerates.
+        #
+        # Cheap and idempotent: the pages only change when their json or the verb changes, and
+        # the commit step below discards a no-op diff.
+        run: |
+          for j in data/feedback/*.json; do
+            [ -f "$j" ] || continue
+            python3 scripts/build-feedback-pages.py --round "$(basename "$j" .json)"
+          done
+          python3 scripts/sync-site-nav.py
+
       - name: Guard against degenerate data
         # Second line of defence. build-bounty-dashboard.py now exits non-zero
         # rather than writing an empty list, but any future path that produces a
@@ -130,7 +146,7 @@ jobs:
           # it is a real change. Leaving it out would mean the rebuild step above runs every
           # hour and ships nothing, which is how the page came to advertise a settled round as
           # OPEN NOW.
-          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html gallery.html"
+          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html gallery.html feedback"
           if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' -I '^DTSTAMP' -- $FILES; then
             git add $FILES
             git commit -m "chore: auto-refresh bounty dashboard + deadline calendar data (refresh-bounty-dashboard.yml)"
