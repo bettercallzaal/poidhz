@@ -50,7 +50,7 @@ On the checks: yours is green now. There was a delay because GitHub holds workfl
 
 What it is: the smallest correct change, cleanly argued. What it is not, yet, is something a visitor would notice - and this round's first criterion is whether somebody landing on a phone has a better time. A lint fix is real work and it sits low on that particular ladder, which is about the ladder rather than about you.
 
-So the useful next step is one rung up. Two of the eight lint warnings are not cosmetic: LocalStartTime.tsx:24 calls setState synchronously inside an effect, which can cascade renders, and that component's whole job is to render a time correctly. Fixing that one changes behaviour rather than tidying imports. There is also an unused eslint-disable at opengraph-image.tsx:88 which is a two-line clean-up if you want another quick one.
+So the useful next step is one rung up, and I have to tell you that the one I was going to name has just been taken. LocalStartTime.tsx:24 calls setState synchronously inside an effect - that was the obvious next rung, and another entrant claimed it tonight with useSyncExternalStore. That is not a reason to be discouraged; it is the round working. What is still open and still not cosmetic: the unused eslint-disable at opengraph-image.tsx:88, and more usefully, nothing in this repo stops the next warning landing - lint exits zero no matter how many there are.
 
 The question: you ran the full suite before pushing, which tells me you can verify your own work end to end. Can you find something wrong that lint does NOT report? That is the thing I am really paying for, and it is what separates an agent that tidies from one I would hand a real task to.
 
@@ -78,6 +78,21 @@ You may open as many PRs as you like this round and each one is a separate entry
 ---
 
 ## To @i001962 - PR #319
+
+**STALE AS WRITTEN. DO NOT POST IT WHOLE.** Measured 2026-09-26 16:59: a review from Zaal's own
+account already sits on #319 - `bettercallzaal CHANGES_REQUESTED 2026-09-26T13:56:53Z` - and it
+carries **the same sunlight-CSS finding**, worked through `lightningcss` from `node_modules`
+with the `Invalid empty selector` warning quoted. The entrant has had it for three hours.
+
+**So the paragraph below beginning "THE ONE THAT MATTERS" is already delivered**, and posting it
+again would tell somebody a thing they have already been told, in the voice of telling them
+first. What is NOT said anywhere yet: the two new lint warnings this branch adds, the question
+about whether the contrast was measured or eyeballed, and the invitation to the rest of the
+site's accessibility. **Post only those**, and open by referring back to the review rather than
+by discovering the bug.
+
+This is the second time in one day a draft in this file has decayed before it was sent. The
+first was the CI paragraph at the top. A drafted reply is a claim with a timestamp on it.
 
 ```
 This is the first entry that went at the top of the list rather than the easy end of it, and I noticed.
@@ -114,7 +129,7 @@ entrant cannot be judged until the link works, and they may not know.
 ```
 Your claim is in and I cannot read the work, because the link in it does not resolve.
 
-github.com/ZAODEVZ/ZAOstock/pull/320 returns 404. There is no #320 on the repo in any state - #319 is the highest that exists, and I see no pull requests from you there at all. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why I am telling you rather than marking it down.
+github.com/ZAODEVZ/ZAOstock/pull/320 returns 404, and it has done on every check since your claim went up. The numbering has moved well past it since - #329 is the newest on the repo - so 320 is a specific gap rather than a number we have not reached yet, and I see no pull requests from you there at all. My guess is the push or the PR creation failed after you filed the claim. Nothing about the claim looks careless, which is why I am telling you rather than marking it down.
 
 Get the PR open and reply here with the link. The round closes 5pm Eastern Monday October 5 and nothing about this counts against you; claim again if it is easier, since a later claim does not replace an earlier one in this round.
 
@@ -123,4 +138,32 @@ What I can see from your description is the most thorough entry of the five: axe
 Your question: "Rain or shine" moved from brass to sun so it can pass. I will come back to you on the palette rather than guess at Candy's intent in a bounty reply, because it is her mark and the answer should be hers or mine deliberately, not mine in passing.
 
 And you are the first person to use the feedback box on the submission page. That is exactly what it is for - asking a question you cannot answer alone, before you finish the work rather than after.
+```
+
+---
+
+## To GhostMintOps / @BrandonDucar - PRs #322 and #325, NO CLAIM FILED
+
+**URGENT for the same reason the @assay one is: they cannot be paid as things stand, and they
+may not know why.** Two PRs, zero claims on bounty 1421. The pot pays claims, not pull
+requests.
+
+```
+Two things you need to know, and the first one costs you the whole pot if nobody tells you.
+
+You have not filed a claim on the bounty. Both your PRs are real and I have read them, but poidh pays a claim, not a pull request - the bounty is at https://poidh.xyz/base/bounty/1421 and you claim on it with a link to your PR in the description. Everyone else in this round filed one. The round closes 5pm Eastern Monday October 5, and you may open as many PRs as you like, each one a separate entry.
+
+Second: your CI has not run yet, and that is on us, not you. GitHub holds workflow runs from first-time contributors until a maintainer approves them, so both of your runs are sitting at action_required and only Vercel has reported. Ignore the Vercel red - it is a preview deploy a fork cannot authenticate and nobody's fork passes it.
+
+On #325, your own description undersells it and I want you to know what you actually found. You framed it as Windows and multi-OS runners. Every job in this repo runs on ubuntu-latest, so on that framing it fixes nothing anybody runs. What it really fixes is worse than a Windows bug: import.meta.url percent-encodes and process.argv[1] does not, so run that gate from any directory whose name contains a space and the comparison is false, main() never runs, and check-pr-review.mjs exits zero having audited no files. I ran it four ways to be sure before saying so - absolute path fine, relative path fine, a path with a space in it silently skips the whole gate. A check that cannot fail is the thing I care most about in this repo, and you closed one. Say that in the description instead of the Windows story.
+
+It is not complete, and this is the part I would like from you: resolve() does not follow symlinks, so invoking the gate through a symlink still skips main() in your version too - I measured that as well. realpath on both sides closes it. Better still, a test that runs the gate from a path containing a space and asserts it audited more than zero files. Then the hole cannot come back.
+
+On #322, one thing to check and one decision that is mine rather than yours. The check: you moved the poster background out of the prefers-reduced-motion block onto .ellBg for everyone, which I like - no unstyled gap, no duplicated rule. But .ellBg video { display: none; } is still inside that media query and no video element is mounted in that case any more, so have a look at whether it is now dead code.
+
+The decision: window.innerWidth < 768 returns before the observer is ever created, so no phone gets that video on any network, ever, not even on wifi. That is not a deferral, it is a removal on mobile, and the footage is our designer's work so whether that is right is my call. Tell me you meant it and I will decide. Note also that innerWidth is read once on mount and never on resize or rotation.
+
+Last thing, straight: another entrant's PR in this round changes the same block of src/app/page.tsx for the same 1.82 MB video, so the two cannot both land as written. That is not a mark against yours. It is why I am not merging anything until the round closes - merging is how I pick, and I am not picking early.
+
+You declared yourself an agent in both descriptions without being asked. One other entrant has done that every round including the one where it had to admit it could not meet a rule, and it has never cost them anything here.
 ```
