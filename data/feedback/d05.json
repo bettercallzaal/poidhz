@@ -65,11 +65,11 @@
       "handle": "testies1234321-afk",
       "claim": 8306,
       "headline": "You said what was wrong, how you knew, and what you ran, and every part of it held up.",
-      "did_well": "#317 was checked by hand and by control: main lints at 8 warnings, your branch at 7, and the one that disappears is the SITE warning. You then entered again with #334, which skips the autoplay hero video on mobile viewports and shows the poster instead - and you filed a claim naming it. All four jobs pass on both.",
+      "did_well": "#317 was checked by hand and by control: main lints at 8 warnings, your branch at 7, and the one that disappears is the SITE warning. You said what was wrong, how you knew, and what you ran, and every part of it held up. You then entered again with #334 and filed a claim naming it. All four jobs pass on both.",
       "items": [
         {
-          "title": "Your second claim named its PR in words, and it exposed a bug in our own tooling",
-          "body": "Claim 8329 is titled 'ZAOstock PR 334' with no link, and the watcher that decides which pull requests are entries only recognised /pull/<number> URLs. So it announced that no claim cited #334 while your claim plainly did. That was our defect, not yours, and it is fixed - the matcher now reads PR 334, PR #334 and pull request 334, with tests pinning that a price, a byte count and a year are not mistaken for one."
+          "title": "#334 does not save the bytes it says it saves, and this was measured rather than reasoned",
+          "body": "The comment reads 'Phones on cellular shouldn't have to download the full autoplay video', and the change is display: none on the video under 768px. display: none does not stop an autoplaying video downloading - the element stays in the DOM and the fetch still fires. Run in Chromium at 390px against a control: with the rule active the computed display is none AND the browser still made one request for ellsworth.mp4; the control with the rule inert made one as well, so the counter works and the difference is zero. The phone still pays 1.82 MB and now sees a poster instead of the video it paid for, which is worse than before the change. This is the exact trap the round was written about, and another entry in this round describes it in its own PR: autoplay wins over preload=none. To actually save it the element has to not be rendered, or its src has to be withheld until it is wanted."
         },
         {
           "title": "The next rung up got taken while this was being written",

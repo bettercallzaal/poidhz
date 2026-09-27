@@ -549,3 +549,100 @@ open PRs on the code repo: 11 - 6 cited by a claim (#316, #317, #318, #319, #330
 and is queued for the same note.
 
 **Round five is now at 8 claims.**
+
+## Sixth reminder, and a blocker on our side that matters more. 2026-09-27 09:25 EDT
+
+**#343 has the note.** `bettercallzaal` at **2026-09-27T13:13:33Z**, comment id 5856177117,
+body byte-identical to #322's - both bodies hash to
+digest: 5ac5ab8145748b15b4e3565a1aca7962b02467a2. Six PRs reminded: #322, #325, #330, #336,
+#341, #343.
+
+**No second note is needed anywhere.** The one on #330 produced a citing claim in 34 minutes,
+so the note works when it is read, and repeating it within hours would be nagging a round that
+runs to 5 October.
+
+### FOUR WORKFLOW RUNS ARE HELD, AND ONE OF THEM BELONGS TO A CLAIMED ENTRY
+
+The first-time-contributor gate is still holding runs, and the list has moved since this
+morning:
+
+| PR | branch | CI | cited by a claim? |
+|---|---|---|---|
+| #322 | - | **4 jobs pass** | no |
+| #325 | - | **4 jobs pass** | no |
+| **#334** | `fix/mobile-video-autoplay` | **HELD - only Vercel has reported** | **YES, claim 8329** |
+| #336 | `docs/stale-claims-r5-v2` | HELD | no |
+| #341 | `feat/home-running-order-cta` | HELD | no |
+| #343 | `codex/fix-tablet-nav-overflow` | HELD | no |
+
+**#322 and #325 were approved since this morning and are green.** The four above are not.
+
+**#334 is the one that matters.** It is a real entry - claim 8329 names it, in words, which is
+the claim that exposed the extractor gap - and **its CI has never run.** Nothing but Vercel has
+reported on it, and Vercel fails for every fork. So an entrant who did everything asked of
+them, including filing a claim that names the PR, **cannot be judged on checks, and the reason
+is on our side of the fence.**
+
+**Approving those four runs is worth more than any further reminder.** A reminder asks the
+entrant to act; this one asks us to.
+
+## The four held runs were approved and all four are green. 2026-09-27 09:44 EDT
+
+Zaal ruled the seat approves them and it is done. **`action_required` on ZAODEVZ/ZAOstock is
+now 0.** Conclusions read from the runs API rather than from the report of them, job by job
+rather than as an aggregate word:
+
+| PR | run | typecheck/tests/build | lint | fact-dedup | review gate |
+|---|---|---|---|---|---|
+| **#334** | 36291982968 | **success** | **success** | **success** | **success** |
+| #336 | 36312416260 | success | success | success | success |
+| #341 | 36320287359 | success | success | success | success |
+| #343 | 36321417524 | success | success | success | success |
+
+**Sixteen of sixteen jobs passed. Nothing went red, so nothing is red for a reason on our side
+of the fence** - which was the thing worth checking, since the hold itself had been ours.
+
+**#334 is the one that mattered and it is now judgeable.** Claim 8329 names it, its four jobs
+pass, and the only red left anywhere is Vercel, which no fork can authenticate. An entrant who
+did everything the round asked can now be assessed on the same evidence as everybody else.
+
+**#336, #341 and #343 are green but still uncited.** Passing CI is not an entry; the pot pays
+claims. All three carry the reminder.
+
+## Round five, as it stands
+
+**8 claims, 11 open pull requests, 6 of them cited by a claim.**
+
+| cited | uncited |
+|---|---|
+| #316, #317, #318, #319, #330, #334 | #322, #325, #336, #341, #343 |
+
+`#320` is still claimed by 8310 and still 404s, now for over a day.
+
+## Measured: PR #334 does not save the bytes it claims. 2026-09-27 10:11 EDT
+
+**The change is +5/-0 in `home.module.css`**, adding `display: none` on the video under
+768px, with the comment *"Phones on cellular shouldn't have to download the full autoplay
+video"*.
+
+**display: none does not stop an autoplaying video downloading.** Run in Chromium at 390x844
+against a control, both pages loading the real `ellsworth.mp4` from zaostock.com:
+
+| page | computed display on the video | .mp4 requests |
+|---|---|---|
+| the #334 rule active | **none** | **1** |
+| control, same page, rule inert | block | 1 |
+
+**The control held** - the visible version also made one request, so the counter works and the
+difference between them is **zero**. The element stays in the DOM, autoplay fires the fetch,
+and the phone pays the full 1.82 MB. **It now pays for a video it is then not shown**, which is
+worse than before the change.
+
+**This is the exact trap the round was written about**, and another entry in the same round
+spells it out in its own PR description: *"autoplay wins over preload='none' - the browser
+fetched the 1.8 MB mp4 on first load"*. To save the bytes the element has to not be rendered,
+or its `src` has to be withheld until it is wanted.
+
+**Recorded before it reached the entrant**, because the first version of this finding was
+reasoned from the mechanism rather than measured, and a reasoned finding is how somebody gets
+told something wrong with confidence. The trace is what makes it sayable.
