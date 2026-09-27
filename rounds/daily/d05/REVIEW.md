@@ -504,3 +504,14 @@ Zaal accepts Monday 28 September. A two-day contributor vote puts `resolveVote(4
 entries properly costs nothing here, and saying otherwise put pressure on a decision that did
 not need it. The genuine deadline is that the ad should be *posted* while it can still bring
 somebody to the festival, which is a separate thing from when the winner is paid.
+
+## The reminder now also went to #341. 2026-09-27 08:55 EDT
+
+Zaal ruled the same note goes on any new unclaimed PR this week. Verified from the API:
+**`bettercallzaal` on #341 at 2026-09-27T12:53:17Z**, and its body is **byte-identical** to
+the one on #322 - both hash to `5ac5ab8145748b15b4e3565a1aca7962b02467a2`, so it is the same
+note rather than a similar one.
+
+#341 was opened at 12:49:40Z, **ten minutes after the first four reminders went out**, by a
+contributor who had therefore never been told. Five PRs have now been reminded: #322, #325,
+#330, #336, #341.
