@@ -13,7 +13,7 @@
   },
   {
     "address": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
-    "score": 5
+    "score": 6
   },
   {
     "address": "0xaa2483130cb248c3e679c404a3dccdd5b03dea00",
@@ -132,11 +132,15 @@
     "score": 2
   },
   {
-    "address": "0xa21e61165a97cba8e02558ece645da45ae4eaf0a",
+    "address": "0xb55fe1340a553ade0c4d96f058505aef05f0c1ce",
     "score": 1
   },
   {
-    "address": "0xb55fe1340a553ade0c4d96f058505aef05f0c1ce",
+    "address": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
+    "score": 1
+  },
+  {
+    "address": "0xa21e61165a97cba8e02558ece645da45ae4eaf0a",
     "score": 1
   },
   {
