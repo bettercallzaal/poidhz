@@ -696,17 +696,37 @@ def _selftest() -> bool:
         c(f"comparison is refused: {phrase[:34]!r}", COMPARISON_PHRASES.search(phrase) is not None)
     c("the refusal names the comparison, not a ranking word",
       COMPARISON_PHRASES.search("by a distance") is not None)
-    # AND IT MUST NOT SWEEP UP SHIPPED COPY. Each of these is real text from a
-    # published page; a guard that refuses them is one somebody turns off.
-    for ok_phrase in ("the one thing in the kit nobody else opened",
-                      "Nobody else has that.",
-                      "carries more facts than most",
+    # AND IT MUST NOT SWEEP UP LEGITIMATE COPY. A guard that refuses real writing is
+    # one somebody turns off, so the narrowness is pinned here rather than assumed.
+    #
+    # THE PROVENANCE OF EACH LINE IS STATED, because an earlier version of this comment
+    # said all of them were "real text from a published page" and one was invented for
+    # the test. A fixture list that overstates where it came from is the same defect as
+    # a count read off a grep window.
+    #
+    # Still live on a published page:
+    for ok_phrase in ("the one thing in the kit nobody else opened",          # d02 assay
+                      "Nobody else has that.",                                 # d03 pascaline
+                      "nobody else can get",                                   # d03 pascaline
                       "a cleaner demonstration of why the agent round needs a revision "
-                      "loop than any argument for it",
-                      "against 178 on one of the other entries",
-                      "the worked example for everyone else in this round",
-                      "longer than thirty seconds"):
-        c(f"not swept up: {ok_phrase[:34]!r}", COMPARISON_PHRASES.search(ok_phrase) is None)
+                      "loop than any argument for it"):                        # d03 kmacb.eth
+        c(f"not swept up, live copy: {ok_phrase[:30]!r}",
+          COMPARISON_PHRASES.search(ok_phrase) is None)
+    # WAS shipped, rewritten on 2026-09-27 because it ranked before a result. Kept as
+    # regression cases: the guard must still not be what refuses them, since it is
+    # deliberately too narrow to catch this shape and a human found them by scanning.
+    for was_shipped in ("against 178 on one of the other entries",            # d04 assay
+                        "the worked example for everyone else in this round",  # d05 metismuse
+                        "carries more facts than most"):                       # d03 taku0x
+        c(f"not swept up, since-rewritten: {was_shipped[:30]!r}",
+          COMPARISON_PHRASES.search(was_shipped) is None)
+    # SYNTHETIC. Never appeared in any page - an ordinary comparative against a number
+    # rather than against the field, which is the false positive most likely to appear
+    # in copy somebody writes next week.
+    for synthetic in ("longer than thirty seconds",
+                      "the last card does more than the first"):
+        c(f"not swept up, synthetic: {synthetic[:30]!r}",
+          COMPARISON_PHRASES.search(synthetic) is None)
 
     # THE TWO DEFECTS OF 2026-09-27, pinned. Six pages shipped for merge with no navigation,
     # and an open round's card read "closed closes 2026-10-05" because the template supplies
