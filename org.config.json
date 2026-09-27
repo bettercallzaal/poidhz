@@ -12,6 +12,13 @@
   "empire_leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
   "farcaster_album": "wethemmedia",
   "farcaster_handle": "@bettercallzaal",
+  "self_repo": "bettercallzaal/poidhz",
+  "_comment_self_repo": "The GitHub repo THIS checkout pushes to. It is NOT the local directory name: the directory is zpoidh and bettercallzaal/zpoidh is a different, real repo with its own pull requests. On 2026-09-27 a count taken from that wrong repo passed a non-empty control and was reported as fact. scripts/gh-target.py refuses when this key and git origin disagree.",
+  "self_repo_id": 1255383001,
+  "_comment_self_repo_id": "GitHub numeric id, which the name is not. bettercallzaal/zpoidh is this repo former name and GitHub follows the rename redirect silently: the old slug serves this same repo, id 1255383001, so a stale name returns entirely correct data and nothing in the response says it is stale. The id is what tells a rename from a different repo that took a freed name.",
+  "entry_repo": "ZAODEVZ/ZAOstock",
+  "_comment_entry_repo": "The repo entrants open their bounty pull requests against. Kept here so a SHA or a PR count cited from it can be resolved against a declared target rather than a search of local checkouts - the failure that made a real commit read as a fabrication.",
+  "entry_repo_id": 1268591323,
   "_comment_excluded_bounty_ids": "A bounty this repo cast that is deliberately NOT aggregated into the leaderboard. Every entry needs a reason, because scripts/check-tracked-bounties.py refuses an untracked cast bounty otherwise - silence is how R5's nine claimants and bounty one's entrants both ended up scoring nothing.",
   "excluded_bounty_ids": {
     "1249": "R4, ZABAL Gamez open pot. Accidentally CANCELED instead of withdrawn (rounds/r4/CLOSEOUT.md), which closed off the on-chain claim path entirely. Its 15 real builders were credited a flat +1 directly instead, via offchain_credits, so aggregating this bounty would credit nobody and imply the opposite."
