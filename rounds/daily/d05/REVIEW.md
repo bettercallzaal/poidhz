@@ -855,3 +855,73 @@ accusation was written down, which is the only reason it is not in this file as 
 **Wallet 0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b now holds 3 of the 9 claims on 1421**,
 and #353 would be a fourth piece of work from it if claimed. Counted from `issuerAddress` on
 `fetchBountyClaims`, not from GitHub handles.
+
+## PR #363 - the zone bug is real and well tested, the refactor riding with it is not
+
+**Measured 2026-09-27 16:0x EDT, nine minutes after it opened.** #363 from
+`testies1234321-afk`, head `c44cfaab`, two files, +66/-15. No claim cites it yet, so it is
+not an entry - and its body already carries the round's claim reminder, so the entrant has
+been told.
+
+**The bug it names is real.** The old check was
+`zone.includes('New_York') || zone.includes('Eastern')`. **America/Toronto, America/Detroit,
+America/Kentucky/Louisville and America/Indiana/Indianapolis are all Eastern time and match
+neither substring**, so viewers there were shown the redundant "That's 12 PM EDT in your time
+zone." line the component exists to suppress. The fix compares the festival instant formatted
+in the viewer's zone against the same instant formatted in `America/New_York` and returns null
+when they are identical. That is semantic rather than name-based and it is the right shape.
+
+**Its test file can fail, which is more than most suites manage.** `easternZones` holds
+**six** entries, counted with a command and not read off a grep window: America/New_York,
+US/Eastern, America/Toronto, America/Detroit, America/Kentucky/Louisville and
+America/Indiana/Indianapolis. **Two of those the old substring check already matched; four it
+missed**, and those four are the bug. Europe/London and Asia/Kolkata sit alongside as controls
+that must still convert. A suite that only asserted the happy path would have proved nothing
+here.
+
+**This section first said "five", and no ranking belongs in it.** The count came from reading a
+`grep -A3 -B1` window that cut off the first array entry, which is the same defect as the
+count-from-reading on #201. It also called this the best test file of the round - a ranking I
+had deliberately kept out of the public comment and then left in the record, which is the
+inconsistency that matters more than the adjective. Both found by an independent reviewer.
+
+**AND THE SAME DIFF MOVES THE COMPUTATION INTO A `useState` INITIALIZER, WHICH IS A
+HYDRATION MISMATCH.** The old code did the work in `useEffect`, so the first client render
+returned null exactly as the server had, and the text appeared after mount. The new code runs
+`useState(() => { if (typeof window === 'undefined') return null; ... })`, so:
+
+- **Server:** `typeof window === 'undefined'` is true, returns null, and the component emits
+  no `<p>` at all.
+- **Client, first render:** the initializer runs, computes the text, and the component emits
+  a `<p>`.
+
+`src/app/live/page.tsx` has **no `'use client'`**, so it is a server component and
+`<LocalStartTime />` is server-rendered into the HTML. Server HTML has no element where the
+client's first render has one, which is the definition of a hydration mismatch. **Nothing in
+the test file can see this** - `hydrat`, `useState` and `render` each appear 0 times in it,
+because it tests `localStartTimeText`, a pure function, and the defect is in the component.
+
+**The two changes are separable, which is what makes this worth saying rather than just
+scoring.** `localStartTimeText` is a good export and the zone fix needs none of the render
+change; keeping `useEffect` and calling the new function from inside it fixes the bug with no
+hydration risk. Recommendation is to ask for that split rather than to fail the entry.
+
+**MEASURED ON A RUNNING BUILD, and the prediction that it would be zone-dependent held.**
+The Zaostock lane built this head in a scratch worktree on `next dev` and loaded `/live`
+through Playwright with `timezoneId` set. In **Europe/London**, React throws: *"Hydration
+failed because the server rendered HTML didn't match the client. As a result this tree will
+be regenerated on the client."* - and **its first listed cause is "A server/client branch
+`if (typeof window !== undefined)`"**, which is the `useState` initializer, named by React
+itself. In **America/Toronto**, zero `Hydration failed` hits.
+
+**Toronto is silent for the same reason the fix is correct**, and that is worth stating
+because it is what makes the bug easy to ship. On Eastern the new code returns null on the
+client, which matches the null the server rendered, so nothing mismatches. The warning only
+appears for a viewer the component actually has something to say to - which is every viewer
+the feature exists for, and none of the ones the diff was written to fix. **A developer on
+Eastern time testing their own Eastern-zone fix sees a clean console.**
+
+**So the measurement changed nothing about the finding and everything about its standing.**
+It was an inference from the client/server boundary and the diff when this section was first
+written, and it said so; it is now React's own error text from a running build, with the zone
+that produces it and the zone that hides it both named.
