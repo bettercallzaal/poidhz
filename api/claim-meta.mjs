@@ -14,7 +14,11 @@
 
 export const config = { runtime: 'edge' };
 
-const FALLBACK_IMAGE = 'https://poidhz.com/assets/brand-kits/zabal-games/embed-card-gamez.png';
+// poidhz's OWN card. It used to be a ZABAL Gamez embed card, inherited when this file was
+// copied from ZAODEVZ/zabalgames api/clip-meta.mjs, and on 2026-09-27 a round five entrant's
+// claim (8329 on bounty 1421) rendered that other brand's artwork on the poidh bounty page
+// under their name, because they called this endpoint with no query string at all.
+const FALLBACK_IMAGE = 'https://poidhz.com/assets/og/og.png';
 
 function json(body) {
   return new Response(JSON.stringify(body), {

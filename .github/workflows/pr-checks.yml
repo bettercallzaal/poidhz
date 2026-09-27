@@ -64,6 +64,34 @@ jobs:
           fi
           [ "$fail" -eq 0 ]
 
+      - name: Every endpoint selftest
+        # The node suites existed and RAN NOWHERE. Measured 2026-09-27: no workflow in this
+        # repo mentioned .mjs at all, so scripts/receipt-selftest.mjs and its 19 checks had
+        # never executed in CI - a suite that cannot fail, which is the same defect this
+        # repo keeps finding in other people's code.
+        #
+        # Same refusal-on-empty guard as the python step above, for the same reason: if the
+        # glob stops matching, that must be a failure and not a silent "0 of 0 passed".
+        run: |
+          set -o pipefail
+          found=0; pass=0; fail=0
+          for s in scripts/*-selftest.mjs; do
+            [ -e "$s" ] || continue
+            found=$((found+1))
+            if node "$s" > /tmp/node-out.txt 2>&1; then
+              pass=$((pass+1)); echo "ok   $s"
+            else
+              fail=$((fail+1)); echo "FAIL $s"; cat /tmp/node-out.txt
+            fi
+          done
+          echo "---"
+          echo "$found endpoint selftest(s): $pass passed, $fail failed"
+          if [ "$found" -lt 2 ]; then
+            echo "Refusing: only $found matched scripts/*-selftest.mjs. The glob is wrong or the tree is empty."
+            exit 1
+          fi
+          [ "$fail" -eq 0 ]
+
       - name: The public site says nothing that stopped being true
         # No invitation to a closed round, no liveness claim while none is open, no dead
         # internal link or image, and no unsent draft left servable. Reads local files only.
