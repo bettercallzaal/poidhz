@@ -896,6 +896,22 @@ scoring.** `localStartTimeText` is a good export and the zone fix needs none of 
 change; keeping `useEffect` and calling the new function from inside it fixes the bug with no
 hydration risk. Recommendation is to ask for that split rather than to fail the entry.
 
-**Not measured:** I did not run the page and read a console warning. The finding is from the
-client/server boundary and the diff, and it should be confirmed against a running build
-before it is put to the entrant as fact.
+**MEASURED ON A RUNNING BUILD, and the prediction that it would be zone-dependent held.**
+The Zaostock lane built this head in a scratch worktree on `next dev` and loaded `/live`
+through Playwright with `timezoneId` set. In **Europe/London**, React throws: *"Hydration
+failed because the server rendered HTML didn't match the client. As a result this tree will
+be regenerated on the client."* - and **its first listed cause is "A server/client branch
+`if (typeof window !== undefined)`"**, which is the `useState` initializer, named by React
+itself. In **America/Toronto**, zero `Hydration failed` hits.
+
+**Toronto is silent for the same reason the fix is correct**, and that is worth stating
+because it is what makes the bug easy to ship. On Eastern the new code returns null on the
+client, which matches the null the server rendered, so nothing mismatches. The warning only
+appears for a viewer the component actually has something to say to - which is every viewer
+the feature exists for, and none of the ones the diff was written to fix. **A developer on
+Eastern time testing their own Eastern-zone fix sees a clean console.**
+
+**So the measurement changed nothing about the finding and everything about its standing.**
+It was an inference from the client/server boundary and the diff when this section was first
+written, and it said so; it is now React's own error text from a running build, with the zone
+that produces it and the zone that hides it both named.
