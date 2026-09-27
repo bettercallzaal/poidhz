@@ -58,6 +58,27 @@ RANKING_WORDS = re.compile(
     r"better than|beat (?:the |every )?other|top entry|second place|runner.?up|"
     r"ranked?|first place|won it)\b")
 
+# A COMPARISON DOES NOT NEED A SUPERLATIVE TO RANK SOMEBODY. Found 2026-09-27 by an
+# independent reviewer: RANKING_WORDS passed both "All four facts are there, which is more
+# than some entries managed" and, on a page that was already LIVE, the headline "This
+# travelled further than anything else in the round, by a distance." Neither contains a word
+# in RANKING_WORDS, and both tell one entrant where they placed against the others - the
+# second one on a public page, during judging, before any result.
+#
+# DELIBERATELY NARROW. A broad version of this refused seven phrases across five rounds of
+# shipped copy, one of them a false positive ("a cleaner demonstration of why the agent round
+# needs a revision loop than any argument for it" compares a demo to arguments, not to
+# entrants). A guard that refuses legitimate published writing is a guard somebody switches
+# off, so this matches only comparisons whose object IS the field: "than <quantifier> else",
+# "than <quantifier> entries", and the bare margin idioms. The wider set is reported rather
+# than enforced - see rounds/daily/d05/REVIEW.md.
+COMPARISON_PHRASES = re.compile(
+    r"(?i)("
+    r"than (?:any|some|most|all|every)\s+(?:other\s+)?(?:entries|entrants|submissions|pieces)\b"
+    r"|than (?:anything|anyone|anybody|everyone|everybody)\s+else\b"
+    r"|\bby a (?:distance|mile|country mile)\b"
+    r")")
+
 # Phrases that would turn feedback into a promise. This programme's PROMISE-AUDIT records five
 # rounds of promising distribution and delivering money instead.
 PROMISE_WORDS = re.compile(
@@ -571,6 +592,14 @@ def build(round_id: str, write: bool = True) -> tuple[bool, list[str]]:
         checkable += " " + " ".join(
             f"{i.get('title','')} {i.get('body','')}" for i in e["items"])
 
+        if m := COMPARISON_PHRASES.search(checkable):
+            ok = False
+            findings.append(
+                f"FAIL: @{handle}'s copy compares them to the other entrants: '{m.group(0)}'. "
+                "It carries no superlative, so the ranking-word check passes it, and it still "
+                "tells this entrant where they placed. Say what their piece did; the field is "
+                "not theirs to be measured against here."
+            )
         if m := RANKING_WORDS.search(checkable):
             ok = False
             findings.append(
@@ -659,6 +688,25 @@ def _selftest() -> bool:
         nonlocal passed
         print(f"  {'ok  ' if cond else 'FAIL'} {label}")
         passed = passed and bool(cond)
+
+    # A COMPARISON WITHOUT A SUPERLATIVE. Both of these passed RANKING_WORDS on
+    # 2026-09-27; the second was live on coolhat's page at the time.
+    for phrase in ("All four facts are there, which is more than some entries managed.",
+                   "This travelled further than anything else in the round, by a distance."):
+        c(f"comparison is refused: {phrase[:34]!r}", COMPARISON_PHRASES.search(phrase) is not None)
+    c("the refusal names the comparison, not a ranking word",
+      COMPARISON_PHRASES.search("by a distance") is not None)
+    # AND IT MUST NOT SWEEP UP SHIPPED COPY. Each of these is real text from a
+    # published page; a guard that refuses them is one somebody turns off.
+    for ok_phrase in ("the one thing in the kit nobody else opened",
+                      "Nobody else has that.",
+                      "carries more facts than most",
+                      "a cleaner demonstration of why the agent round needs a revision "
+                      "loop than any argument for it",
+                      "against 178 on one of the other entries",
+                      "the worked example for everyone else in this round",
+                      "longer than thirty seconds"):
+        c(f"not swept up: {ok_phrase[:34]!r}", COMPARISON_PHRASES.search(ok_phrase) is None)
 
     # THE TWO DEFECTS OF 2026-09-27, pinned. Six pages shipped for merge with no navigation,
     # and an open round's card read "closed closes 2026-10-05" because the template supplies
@@ -823,6 +871,21 @@ def _selftest() -> bool:
         write_round([{**good, "did_well": "The best entry of the round."}])
         ok, f = build("t", write=False)
         c("a RANKING word is refused", not ok and any("ranking word" in x for x in f))
+
+        # THE GUARD MUST BE CALLED, NOT MERELY CORRECT. Unwiring
+        # COMPARISON_PHRASES from the check left every regex test above green on
+        # 2026-09-27 - the pattern was perfect and never invoked, which is the same
+        # shape as a sweep stamp that is computed and never persisted. These two go
+        # through the real build so the wiring is what is under test.
+        write_round([{**good, "did_well": "It travelled further than anything else, by a distance."}])
+        ok, f = build("t", write=False)
+        c("a COMPARISON reaches the build and is refused there",
+          not ok and any("compares them to the other entrants" in x for x in f))
+        write_round([{**good, "headline": "More than some entries managed that."}])
+        ok, f = build("t", write=False)
+        c("a comparison in the HEADLINE is refused too",
+          not ok and any("compares them to the other entrants" in x for x in f))
+
 
         write_round([{**good,
                       "items": [{"title": "t", "body": "We will run this on our channels."}]}])
