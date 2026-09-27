@@ -515,3 +515,39 @@ note rather than a similar one.
 #341 was opened at 12:49:40Z, **ten minutes after the first four reminders went out**, by a
 contributor who had therefore never been told. Five PRs have now been reminded: #322, #325,
 #330, #336, #341.
+
+## Sixth reminder, and a blocker on our side that matters more. 2026-09-27 09:25 EDT
+
+**#343 has the note.** `bettercallzaal` at **2026-09-27T13:13:33Z**, comment id 5856177117,
+body byte-identical to #322's - both bodies hash to
+digest: 5ac5ab8145748b15b4e3565a1aca7962b02467a2. Six PRs reminded: #322, #325, #330, #336,
+#341, #343.
+
+**No second note is needed anywhere.** The one on #330 produced a citing claim in 34 minutes,
+so the note works when it is read, and repeating it within hours would be nagging a round that
+runs to 5 October.
+
+### FOUR WORKFLOW RUNS ARE HELD, AND ONE OF THEM BELONGS TO A CLAIMED ENTRY
+
+The first-time-contributor gate is still holding runs, and the list has moved since this
+morning:
+
+| PR | branch | CI | cited by a claim? |
+|---|---|---|---|
+| #322 | - | **4 jobs pass** | no |
+| #325 | - | **4 jobs pass** | no |
+| **#334** | `fix/mobile-video-autoplay` | **HELD - only Vercel has reported** | **YES, claim 8329** |
+| #336 | `docs/stale-claims-r5-v2` | HELD | no |
+| #341 | `feat/home-running-order-cta` | HELD | no |
+| #343 | `codex/fix-tablet-nav-overflow` | HELD | no |
+
+**#322 and #325 were approved since this morning and are green.** The four above are not.
+
+**#334 is the one that matters.** It is a real entry - claim 8329 names it, in words, which is
+the claim that exposed the extractor gap - and **its CI has never run.** Nothing but Vercel has
+reported on it, and Vercel fails for every fork. So an entrant who did everything asked of
+them, including filing a claim that names the PR, **cannot be judged on checks, and the reason
+is on our side of the fence.**
+
+**Approving those four runs is worth more than any further reminder.** A reminder asks the
+entrant to act; this one asks us to.
