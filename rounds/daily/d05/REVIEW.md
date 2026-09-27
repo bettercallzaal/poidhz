@@ -715,3 +715,44 @@ which is exactly the six npm commands they now list, where the old text listed f
 total, 5 under the retired `/team`, leaving 35** - the number they wrote. One small thing to
 check: they describe the code-gated backstage sheet as one entrypoint and there are **two**
 `page.tsx` files under that path, so either one is an index or the sentence undercounts by one.
+
+## PR #352, the fix #334 attempted, and a decision that belongs to Candy. 2026-09-27 12:59 EDT
+
+**`kepler-ops-maker`, opened 2026-09-27T16:57:17Z**, another contributor new to the
+programme - "kepler" returns 0 mentions in `data/claims.json` against a control of 7 for
+"pascaline". No claim cites it.
+
+**The code half is the fix #334 attempted and missed**, arrived at independently. It extracts
+`shouldLoadVideo` as a pure function with its own tests and renders a still `<img>` rather
+than a hidden `<video>`, so the mp4 is never fetched. Their comment says it outright:
+*"CSS alone hid the video but still downloaded it."*
+
+**The other half re-encodes the hero video, and that is not a reviewer's call.** Measured, with
+a control that scored a video against itself at SSIM 1.000000 before anything else was trusted:
+
+| | main | #352 |
+|---|---|---|
+| bytes | 1,819,337 | **1,136,654** (-37.5%) |
+| resolution | 960x540 | 960x540 |
+| frame rate, frames, duration | 24fps, 312, 13.000s | **identical** |
+| bitrate | 1,119,592 | 699,479 |
+| SSIM against the original | - | **0.960** (luma 0.946, chroma 0.988) |
+| PSNR | - | **36.6 dB** avg, 32.9 min |
+
+So it is a pure re-encode: nothing dropped, nothing resized. The quality cost is real but mild
+and lands almost entirely in luma detail, **which matters less here than almost anywhere else
+because `.ellBgFade` lays a gradient plus `rgba(0,0,0,0.32)` over the whole thing.** The
+artifacts sit under a 32 percent black wash.
+
+**It looks like a good trade and it is Candy's asset, so the question went to Vault rather than
+being answered here.** The PR also bundles both changes, so the component fix cannot be taken
+without the re-encode - the review suggested splitting the video into its own PR.
+
+**Posted from Zaal's account, both verified from the API:** the reminder at
+**16:59:02Z** (comment id 5857891326), body byte-identical to the first one by shasum, and a
+**COMMENTED** review at **16:59:04Z** - not Changes requested, because nothing in it is wrong.
+
+## Seven open PRs now carry the reminder, counted rather than tallied
+
+Checked every open PR on the repo for a first maintainer comment matching the reminder's
+digest: **#322, #325, #330, #336, #341, #343, #352**. Seven.
