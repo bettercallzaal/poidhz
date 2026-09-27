@@ -63,6 +63,15 @@ status_of = _qb.status_of
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_STATE = Path(os.environ.get("POIDHZ_WATCH_STATE", Path.home() / ".zao" / "poidhz-watch-state.json"))
 PR_LINK_RE = re.compile(r"https?://github\.com/([\w.-]+)/([\w.-]+)/pull/(\d+)")
+# A claim may name its pull request in WORDS rather than as a link, and one did: claim 8329
+# on bounty 1421 is titled "ZAOstock PR 334: skip autoplay hero video on mobile" and carries
+# no URL at all. The URL-only matcher above read that as "no claim cites #334" while a claim
+# plainly did, which is the entry classification getting the answer backwards.
+#
+# Deliberately narrow. It wants the literal token PR or "pull request" immediately before the
+# number, so a bare figure in prose - a price, a byte count, a year - cannot become an entry.
+# \b before PR stops APR and EXPR matching.
+PR_WORD_RE = re.compile(r"(?i)\b(?:pr|pull\s+request)\s*#?\s*(\d{1,6})\b")
 # Forward-only. A status may advance along this order or jump to CANCELED; going back up it
 # means the read was half-broken, not that the chain moved backwards.
 STATUS_ORDER = ["CLOSED", "OPEN", "VOTING", "WINNER SET"]
@@ -113,21 +122,34 @@ def pr_links_with_claims(bounty: dict) -> list[tuple[str, str, str]]:
     This is what decides whether a pull request is an ENTRY. A PR nobody claimed is repo
     traffic: the pot pays claims, not pull requests.
     """
-    out: list[tuple[str, str, str]] = []
-    seen: set[str] = set()
+    out: list[tuple[str | None, str, str]] = []
+    seen: set[tuple[str, str]] = set()
     for c in bounty.get("claims") or []:
+        cid = str(c.get("claimId"))
         hay = f"{c.get('title') or ''} {c.get('description') or ''} {c.get('url') or ''}"
+        numbered: set[str] = set()
         for m in PR_LINK_RE.finditer(hay):
             url = f"https://github.com/{m.group(1)}/{m.group(2)}/pull/{m.group(3)}"
-            if url in seen:
+            key = (url, cid)
+            if key in seen:
                 continue
-            seen.add(url)
-            out.append((url, m.group(3), str(c.get("claimId"))))
+            seen.add(key)
+            numbered.add(m.group(3))
+            out.append((url, m.group(3), cid))
+        # A bare "PR 334" makes it an ENTRY but gives nothing to health-check, so its url is
+        # None. A number already found as a link is not added twice.
+        for m in PR_WORD_RE.finditer(hay):
+            num = m.group(1)
+            if num in numbered:
+                continue
+            numbered.add(num)
+            out.append((None, num, cid))
     return out
 
 
 def pr_links_in(bounty: dict) -> list[str]:
-    return [u for u, _, _ in pr_links_with_claims(bounty)]
+    """Only the real URLs - a PR named in words has nothing to fetch."""
+    return [u for u, _, _ in pr_links_with_claims(bounty) if u]
 
 
 def open_prs(repo: str) -> dict[str, str] | None:
@@ -170,6 +192,8 @@ def sweep(bounty_ids: list[int], repo: str, chain: int, check_links: bool = True
         }
         for url, prnum, cid in pr_links_with_claims(b):
             snap.setdefault("entry_prs", {})[prnum] = f"bounty {bid} claim {cid}"
+            if url is None:
+                continue
             if check_links:
                 code = http_status(url)
                 if code is None:
@@ -408,6 +432,46 @@ def _selftest() -> int:
     # pr_links_with_claims ties a PR number to the claim that cites it, not just to a url.
     trip = pr_links_with_claims({"claims": [{"claimId": 8304, "title": "https://github.com/o/r/pull/316"}]})
     checks.append(("a PR link carries its claim id", trip == [("https://github.com/o/r/pull/316", "316", "8304")]))
+
+    # THE REAL CLAIM THAT THE URL-ONLY MATCHER MISSED, verbatim. Claim 8329 on bounty 1421
+    # names its pull request in words and carries no link, and the watcher reported
+    # "PR-NEW #334 ... no claim cites it" while this claim cited it.
+    real = pr_links_with_claims({"claims": [
+        {"claimId": 8329, "title": "ZAOstock PR 334: skip autoplay hero video on mobile",
+         "description": "https://poidhz.com/api/claim-meta"}]})
+    # Indexed through a guard, not real[0]: when this regresses the list is EMPTY, and
+    # real[0] would raise IndexError and hide every check after it. A crash tells you less
+    # than a FAIL, which this suite learned the hard way on 2026-09-26.
+    checks.append(("a PR named in words is found", [n for _, n, _ in real] == ["334"]))
+    checks.append(("a PR named in words has no url to health-check",
+                   bool(real) and real[0][0] is None))
+    checks.append(("and it still carries its claim id", bool(real) and real[0][2] == "8329"))
+    checks.append(("pr_links_in skips it, because there is nothing to fetch",
+                   pr_links_in({"claims": [{"claimId": 8329, "title": "ZAOstock PR 334: x"}]}) == []))
+
+    for text in ("PR #334", "pr 334", "Pull Request 334", "pull request #334"):
+        got = [n for _, n, _ in pr_links_with_claims({"claims": [{"claimId": 1, "title": text}]})]
+        checks.append((f"{text!r} is read as PR 334", got == ["334"]))
+
+    # FALSE POSITIVES ARE THE WHOLE RISK OF WIDENING THIS. A bare number in prose must not
+    # make some unrelated pull request an entry.
+    for text in ("the pot is 334 dollars", "1,334 bytes saved", "in 2026 we shipped",
+                 "APR 334", "EXPR 334", "PRs are welcome"):
+        got = [n for _, n, _ in pr_links_with_claims({"claims": [{"claimId": 1, "title": text}]})]
+        checks.append((f"{text!r} is NOT read as a PR reference", got == []))
+
+    # A claim that gives both the link and the words counts the PR once.
+    both = pr_links_with_claims({"claims": [
+        {"claimId": 7, "title": "PR 316", "description": "https://github.com/o/r/pull/316"}]})
+    checks.append(("a PR given as both a link and words is counted once", len(both) == 1))
+    checks.append(("and the link form wins, so it can still be health-checked", both[0][0] is not None))
+
+    # Two claims citing the same PR each keep their own row.
+    two_claims = pr_links_with_claims({"claims": [
+        {"claimId": 1, "title": "https://github.com/o/r/pull/316"},
+        {"claimId": 2, "title": "https://github.com/o/r/pull/316"}]})
+    checks.append(("two claims citing one PR keep both claim ids",
+                   sorted(c for _, _, c in two_claims) == ["1", "2"]))
 
     # First run must not shout the whole world as news.
     ev, _ = diff({}, base, now)
