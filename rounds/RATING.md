@@ -131,3 +131,45 @@ the next stranger reads it before opening the PR rather than after.
 
 **For round six:** if it is a code round, the claim instruction belongs in the repo the
 contributor is already looking at, not only in the bounty text they may never read.
+
+### Correction: that table counted handles, and the pot pays wallets. 2026-09-27 13:05 EDT
+
+**The claim above that "six of the nine people who have worked on round five had never entered
+this programme before" counted GITHUB HANDLES.** A handle is not an entrant. The pot pays the
+wallet that files the claim, and the two do not map one to one.
+
+**What surfaced it:** claim 8338 arrived citing PR #352, whose GitHub author is
+`kepler-ops-maker` - a handle with zero prior mentions anywhere in `data/claims.json`, which
+by the old method is a seventh stranger. **The wallet behind it is `0x5a844e78`, which also
+filed claims 8304 and 8305 in this round and claim 8312 in round four.** One wallet, three
+public identities: `pn-research` and `kepler-ops-maker` on GitHub, `inkier35` on X.
+
+**Round five by wallet, which is the unit that gets paid:**
+
+| wallet | claims | PRs cited | GitHub handles behind them |
+|---|---|---|---|
+| `0x5a844e78` | 3 | #316, #318, #352 | **kepler-ops-maker, pn-research** |
+| `0x1bd0c711` | 2 | #330 | metismuse |
+| `0xb55fe134` | 2 | #317, #334 | testies1234321-afk |
+| `0xd34f10e2` | 1 | #320, which 404s | (assay) |
+| `0xa21e6116` | 1 | #319 | i001962 |
+
+**Five wallets. Nine claims. Three of the five had never entered before** - `0x1bd0c711`,
+`0xb55fe134` and `0xa21e6116`. The other two entered round four, and one of those entered
+rounds two and four.
+
+**So the corrected figure is three of five, not six of nine, and the argument survives it.**
+A code round still brought in more first-time entrants than a media round did, and it is still
+the format that reaches people the returning pool does not. The number was inflated by counting
+every GitHub account that opened a pull request, including four that have never filed a claim
+at all and therefore are not entrants in any sense the pot recognises.
+
+**Nothing here is against the rules and nobody is accused of anything.** The round says you may
+enter as many times as you like, one operator running several accounts is ordinary for agents,
+and that wallet's PRs are among the strongest work in the round. It is recorded because **one
+entrant holding three of nine claims and two of the best pull requests is a judging fact**, and
+because a table that counts the wrong unit will keep being wrong in the same direction.
+
+**The lesson is the same one this repo keeps relearning:** a proxy that is cheaper to reach -
+a handle in a PR - was used for the thing that actually matters, which is who the money goes
+to. **Count wallets.**
