@@ -646,3 +646,72 @@ or its `src` has to be withheld until it is wanted.
 **Recorded before it reached the entrant**, because the first version of this finding was
 reasoned from the mechanism rather than measured, and a reasoned finding is how somebody gets
 told something wrong with confidence. The trace is what makes it sayable.
+
+## Three green PRs nobody had reviewed. 2026-09-27 10:34 EDT
+
+#336, #341 and #343 have had four passing jobs since the held runs were approved and **no
+technical review at all**. None is cited by a claim, so none is an entry yet - all three carry
+the reminder. Reviewed anyway, because the round promises answers while it runs and because a
+green tick is not a review.
+
+### #343 Ariyachan - the overflow is real, and worse than the description says
+
+The change is `sm:flex` to `lg:flex` on the nav and `sm:hidden` to `lg:hidden` on the
+hamburger, five lines. **They also rewrote the comment their change invalidated** - the old one
+said the hamburger appears under 640px, which their own diff makes false. That is the habit this
+repo keeps asking for.
+
+**Measured on the live site rather than taken from the description**, Chromium against
+zaostock.com/program:
+
+| viewport | document width | overflow | the RSVP control |
+|---|---|---|---|
+| 390px | 390 | 0 | inside |
+| 640px | **822** | **182px** | **OUTSIDE, right edge at 822** |
+| 768px | **828** | **60px** | **OUTSIDE, right edge at 828** |
+| 820px | 831 | 11px | OUTSIDE |
+| **840px** | 840 | **0** | inside |
+| 1024px | 1024 | 0 | inside |
+
+**The site-wide primary action is off-screen between 640 and about 832 pixels.** That is worse
+than a cosmetic overflow and it is exactly what they said, so the entry is sound.
+
+**One number in their description does not match.** They report 845px at a 640px viewport; it
+measures **822**. The 768px figure of 828 is exact. Either the page changed under them or that
+one was noted rather than read - worth saying because everything else they wrote held.
+
+**And the fix is correct but wider than the defect.** The overflow clears at **840px**, and
+`lg` is 1024, so the nav is hidden across roughly 184px of viewport where it fits fine.
+Tailwind ships nothing between `md` at 768 and `lg` at 1024, so `lg` is the nearest stock
+answer and the choice is defensible. An arbitrary variant - `min-[840px]:flex` - would hide
+the nav only where it actually breaks.
+
+### #341 0xnuminous - careful, and it reads like someone who has done this before
+
+A second action beside RSVP in the hero, linking to /program. Twelve lines. **Every detail that
+usually gets skipped is present:** a 48px minimum height, which is the touch-target floor; a
+`focus-visible` outline so it is reachable by keyboard; `flex-wrap` so it wraps rather than
+overflowing on narrow screens; the palette taken from the existing CSS variables so it follows
+both colour schemes; and `Link` rather than an anchor, so it uses client routing like the rest
+of the app.
+
+**Reading it beside #343 turned up something about the repo, not about either entry.** The
+header comment says the RSVP button deliberately points at /tickets rather than straight at
+`FESTIVAL.rsvpUrl`, because the site-wide primary action used to skip past the ticket page.
+**The hero's RSVP still goes direct to `FESTIVAL.rsvpUrl`.** So the decision recorded in the
+header was never applied to the larger button on the home page. That is on main, neither
+entrant put it there, and it is the kind of thing only visible when two PRs are read together.
+
+### #336 opdevio - documentation correctness, and the numbers check out
+
+Three files. It adds `check:facts` and `check:review` to the list of commands CONTRIBUTING
+tells you to run, corrects the public surface count, and deletes the retired `/team` section.
+
+**Verified independently rather than trusted.** The CI job list measured from the workflow this
+morning is typecheck/tests/build, lint, fact-dedup and the security and database review gate -
+which is exactly the six npm commands they now list, where the old text listed four.
+
+**Their route count is exact.** Counting `page.tsx` entrypoints on a current checkout: **40
+total, 5 under the retired `/team`, leaving 35** - the number they wrote. One small thing to
+check: they describe the code-gated backstage sheet as one entrypoint and there are **two**
+`page.tsx` files under that path, so either one is an index or the sentence undercounts by one.
