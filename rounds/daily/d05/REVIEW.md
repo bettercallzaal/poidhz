@@ -515,3 +515,31 @@ note rather than a similar one.
 #341 was opened at 12:49:40Z, **ten minutes after the first four reminders went out**, by a
 contributor who had therefore never been told. Five PRs have now been reminded: #322, #325,
 #330, #336, #341.
+
+## Measured: PR #334 does not save the bytes it claims. 2026-09-27 10:11 EDT
+
+**The change is +5/-0 in `home.module.css`**, adding `display: none` on the video under
+768px, with the comment *"Phones on cellular shouldn't have to download the full autoplay
+video"*.
+
+**display: none does not stop an autoplaying video downloading.** Run in Chromium at 390x844
+against a control, both pages loading the real `ellsworth.mp4` from zaostock.com:
+
+| page | computed display on the video | .mp4 requests |
+|---|---|---|
+| the #334 rule active | **none** | **1** |
+| control, same page, rule inert | block | 1 |
+
+**The control held** - the visible version also made one request, so the counter works and the
+difference between them is **zero**. The element stays in the DOM, autoplay fires the fetch,
+and the phone pays the full 1.82 MB. **It now pays for a video it is then not shown**, which is
+worse than before the change.
+
+**This is the exact trap the round was written about**, and another entry in the same round
+spells it out in its own PR description: *"autoplay wins over preload='none' - the browser
+fetched the 1.8 MB mp4 on first load"*. To save the bytes the element has to not be rendered,
+or its `src` has to be withheld until it is wanted.
+
+**Recorded before it reached the entrant**, because the first version of this finding was
+reasoned from the mechanism rather than measured, and a reasoned finding is how somebody gets
+told something wrong with confidence. The trace is what makes it sayable.
