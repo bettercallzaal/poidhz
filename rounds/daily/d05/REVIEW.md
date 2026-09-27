@@ -460,3 +460,47 @@ enough, and it is the single thing most likely to end this round with somebody u
 earned it.
 
 **@assay's #320 has now 404d on every check since 01:21 on 26 September**, which is over a day.
+
+---
+
+## The reminder went out. 2026-09-27 08:40 EDT
+
+**Zaal ruled on the unclaimed-PR problem and the comments are posted**, one on each of the four
+pull requests whose authors had written code with no claim naming it. Verified from the API
+rather than from the report of it - `bettercallzaal` on ZAODEVZ/ZAOstock:
+
+| PR | author | comment posted |
+|---|---|---|
+| #322 | GhostMintOps | **2026-09-27T12:39:38Z** |
+| #325 | GhostMintOps | **2026-09-27T12:39:39Z** |
+| #330 | metismuse | **2026-09-27T12:39:40Z** |
+| #336 | opdevio | **2026-09-27T12:39:41Z** |
+
+Each says the round pays claims on bounty 1421 rather than pull requests, that the claim must
+cite the PR URL before 5pm Eastern on Monday 5 October, and that a second claim naming the PR
+is fine.
+
+**The record now shows they were told, and when.** If any of these four goes unpaid it is
+because they chose not to file, not because nobody said so - which is the thing this ledger
+existed to prevent, and the reason the timestamp is in it rather than just the fact.
+
+## A correction to my own warning about round four's clock
+
+**I wrote that if the round four winner were not accepted on Sunday, "the ads it bought never
+run" and the ad would be "paid after the festival it was advertising". That was overstated and
+the arithmetic says so.**
+
+Zaal accepts Monday 28 September. A two-day contributor vote puts `resolveVote(432)` on
+**Wednesday 30 September**, and the festival is **Saturday 3 October** - **three days clear.**
+
+| | |
+|---|---|
+| accepts | Mon 28 Sep |
+| vote ends, resolveVote callable | **Wed 30 Sep** |
+| festival | Sat 3 Oct |
+| margin | **3 days, before** |
+
+**The urgency was real and the consequence I attached to it was not.** Holding to watch the
+entries properly costs nothing here, and saying otherwise put pressure on a decision that did
+not need it. The genuine deadline is that the ad should be *posted* while it can still bring
+somebody to the festival, which is a separate thing from when the winner is paid.
