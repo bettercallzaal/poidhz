@@ -88,3 +88,45 @@ joined up nowhere. It is the strongest argument yet for the per-person page bein
 
 Recorded here rather than acted on: this is an observation about the field, and it changes
 nothing about how either round is judged.
+
+---
+
+## A fourth claim landed, and it is a piece already entered in round three. 2026-09-26 20:59 EDT
+
+Claim **8326**, wallet `0x6dce11cc` - **@joeyofdeus** - titled "ZAOstock", description
+*"I made an ad for ZAOstock"* over a link to
+`x.com/i/status/2102841361883906189`.
+
+**That is the same X post as claim 8147 on bounty 1412**, round three, where it was described as
+*"a simple animated text piece for ZAOstock"* and where `PICK.md` calls it the closest thing to
+a runner-up. Same wallet, same URL, two rounds.
+
+**Measured with a denominator rather than spotted.** Every X and Farcaster link in every claim
+across bounties 1410, 1412, 1418 and 1421 was extracted and grouped: **21 links, 19 distinct
+URLs, and exactly 2 reused across rounds.**
+
+| URL | first round | second round |
+|---|---|---|
+| `x.com/pascaline7933/status/2102483061955014871` | 1410 claim 8115 | 1412 claim 8150 |
+| `x.com/i/status/2102841361883906189` | **1412 claim 8147** | **1418 claim 8326** |
+
+So this is not a new behaviour and **the programme has already ruled on it once.** @pascaline did
+the same thing into round three, and round three's PICK.md handled it by judging the piece it
+wanted and **saying out loud that the rule and the pick disagreed**, rather than marking the
+entrant down quietly. That precedent is the one to follow, not a fresh decision.
+
+**What is genuinely different here:** round three asked for *anything but a poster* and round
+four asks for an **ad**. A piece can honestly serve both briefs, and an animated text piece is
+much closer to an ad than a drone shot is. **Re-entering it is not obviously recycling** - it may
+be the entrant reading round four's brief and noticing their existing piece fits it. The
+description says "I made an ad", present tense, about a piece made three days ago.
+
+**This is Zaal's call and it is due tomorrow.** Round four closes **5pm Sunday**. The two things
+worth deciding before then:
+
+1. Does a piece already entered in an earlier round count as an entry here - and if it does, is
+   it judged against the others on the work alone or discounted for not being new?
+2. Whichever way it goes, **say it in the announcement rather than in the scoring.** That is what
+   round three did and it is why nobody had to guess.
+
+**Round four now has 4 claims**, and the video on claim 8312 is still unwatched.
