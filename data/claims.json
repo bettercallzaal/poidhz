@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T11:50:31Z",
+  "generated_at": "2026-09-27T16:48:59Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
@@ -12,7 +12,7 @@
   },
   "totals": {
     "bounties": 9,
-    "claims": 66,
+    "claims": 68,
     "unique_submitters": 48,
     "total_eth_escrow": 0.0959,
     "total_zabal_distributed": 68.2343
@@ -120,7 +120,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 4
+      "claims_count": 5
     },
     {
       "id": 1421,
@@ -195,7 +195,7 @@
     },
     {
       "address": "0xb464fc1dff21a6d48b78955298af0f979ce2b8c3",
-      "score": 3,
+      "score": 4,
       "rank": 4,
       "farcaster_username": "taku0x",
       "displayName": "taku0x.eth",
@@ -726,14 +726,14 @@
       "score": 1,
       "rank": 37,
       "farcaster_username": "taydexfun",
-      "displayName": null,
-      "avatar": null,
-      "twitter_handle": null,
-      "twitter_url": null,
-      "fid": null,
+      "displayName": "taydexfun",
+      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/b413ee04-bbd5-437e-4cca-d95c94c65100/original",
+      "twitter_handle": "taydexfun",
+      "twitter_url": "https://x.com/taydexfun",
+      "fid": 3342367,
       "boost": 1,
       "totalRewards": 0.32758013132465247,
-      "follower": null,
+      "follower": 5,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -742,14 +742,14 @@
       "score": 1,
       "rank": 38,
       "farcaster_username": "ghostmintops",
-      "displayName": null,
-      "avatar": null,
-      "twitter_handle": null,
-      "twitter_url": null,
-      "fid": null,
+      "displayName": "ghostmintops",
+      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/dc02c711-9086-4577-c151-eda7b9b02c00/original",
+      "twitter_handle": "ghostminto71217",
+      "twitter_url": "https://x.com/ghostminto71217",
+      "fid": 1477142,
       "boost": 1,
       "totalRewards": 0.32758013132465247,
-      "follower": null,
+      "follower": 1502,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -757,15 +757,15 @@
       "address": "0x258772bbc43845a43df7187f53624605366e0138",
       "score": 1,
       "rank": 39,
-      "farcaster_username": null,
-      "displayName": null,
+      "farcaster_username": "0x258772bbc43845a43df7187f53624605366e0138",
+      "displayName": "0x2587...0138",
       "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
       "fid": null,
       "boost": 1,
       "totalRewards": 0.32758013132465247,
-      "follower": null,
+      "follower": 0,
       "offchain_credit": 1,
       "offchain_note": "R4 (ZABAL Gamez open pot, bounty 1249) was accidentally canceled instead of withdrawn - see rounds/r4/CLOSEOUT.md. These 15 wallets are the real July open-build-month builders, credited a flat +1 leaderboard score directly (not derived from an on-chain POIDH claim, since the cancel closed that path off)."
     },
@@ -853,15 +853,15 @@
       "address": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
       "score": 1,
       "rank": null,
-      "farcaster_username": null,
-      "displayName": null,
+      "farcaster_username": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
+      "displayName": "0x1bd0...1ffd",
       "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
       "fid": null,
       "boost": null,
       "totalRewards": null,
-      "follower": null,
+      "follower": 0,
       "offchain_credit": null,
       "offchain_note": null
     },
@@ -1407,6 +1407,16 @@
     },
     {
       "bounty_id": 1418,
+      "claim_id": 8332,
+      "issuer": "0xb464fc1dff21a6d48b78955298af0f979ce2b8c3",
+      "title": "ZAOstock ",
+      "description": "An ad for ZAOstock, \nhttps://farcaster.xyz/taku0x/0xfe874bc4\nhttps://x.com/0xcryt29/status/2104189606929265129\n\nInterested in the bounty suggestions, get seen in Maine is to incentivize folks nearby to attend and for the music one it's for folks like me that can't make it to Maine to at least listen to your artists",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZazhSanNYjyftgo84gcLi7CoTtdC5MdBmwksTgKL9Pqk",
+      "accepted": false,
+      "on_chain_id": 3016
+    },
+    {
+      "bounty_id": 1418,
       "claim_id": 8326,
       "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
       "title": "ZAOstock",
@@ -1447,6 +1457,16 @@
     },
     {
       "bounty_id": 1421,
+      "claim_id": 8334,
+      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
+      "title": "ZAOstock zero-warning lint - PR #330 (agent-made)",
+      "description": "Entry for bounty 1421 (ZAOstock Round 5). PR: https://github.com/ZAODEVZ/ZAOstock/pull/330 - zero-warning lint (4x next/image, useSyncExternalStore, dead imports removed, eslint --max-warnings=0). CI 482/482 green. By Metis (agent).",
+      "image_url": "",
+      "accepted": false,
+      "on_chain_id": 3018
+    },
+    {
+      "bounty_id": 1421,
       "claim_id": 8329,
       "issuer": "0xb55fe1340a553ade0c4d96f058505aef05f0c1ce",
       "title": "ZAOstock PR 334: skip autoplay hero video on mobile",
@@ -1454,16 +1474,6 @@
       "image_url": "",
       "accepted": false,
       "on_chain_id": 3013
-    },
-    {
-      "bounty_id": 1421,
-      "claim_id": 8328,
-      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
-      "title": "ZAOstock zero-warning lint PR (agent-made)",
-      "description": "Pull request making the ZAOstock repository better to work in: converts 4 raw <img> to next/image with explicit dimensions (no layout shift, optimized delivery), replaces setState-in-effect with useSyncExternalStore in LocalStartTime (same two-pass render, no cascading render), removes dead imports, and enforces zero warnings going forward (eslint --max-warnings=0). Full CI green (482/482). Entry for bounty 1421 (ZAOstock Round 5 - Ship Code, Not A Poster). Declared: made by Metis (autonomous agent).",
-      "image_url": "",
-      "accepted": false,
-      "on_chain_id": 3012
     },
     {
       "bounty_id": 1421,

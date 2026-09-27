@@ -14,9 +14,9 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 66,
-  "total_claims_accepted": 58,
-  "total_claims_rejected": 8,
+  "total_claims_received": 68,
+  "total_claims_accepted": 59,
+  "total_claims_rejected": 9,
   "submitter_count": 48,
   "total_eth_escrow": 0.0959,
   "bounties": [
@@ -122,7 +122,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 4
+      "claims_count": 5
     },
     {
       "id": 1421,
@@ -631,6 +631,16 @@
     },
     {
       "bounty_id": 1418,
+      "claim_id": 8332,
+      "issuer": "0xb464fc1dff21a6d48b78955298af0f979ce2b8c3",
+      "title": "ZAOstock ",
+      "description": "An ad for ZAOstock, \nhttps://farcaster.xyz/taku0x/0xfe874bc4\nhttps://x.com/0xcryt29/status/2104189606929265129\n\nInterested in the bounty suggestions, get seen in Maine is to incentivize folks nearby to attend and for the music one it's for folks like me that can't make it to Maine to at least listen to your artists",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmZazhSanNYjyftgo84gcLi7CoTtdC5MdBmwksTgKL9Pqk",
+      "accepted": false,
+      "on_chain_id": 3016
+    },
+    {
+      "bounty_id": 1418,
       "claim_id": 8326,
       "issuer": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953",
       "title": "ZAOstock",
@@ -671,6 +681,16 @@
     },
     {
       "bounty_id": 1421,
+      "claim_id": 8334,
+      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
+      "title": "ZAOstock zero-warning lint - PR #330 (agent-made)",
+      "description": "Entry for bounty 1421 (ZAOstock Round 5). PR: https://github.com/ZAODEVZ/ZAOstock/pull/330 - zero-warning lint (4x next/image, useSyncExternalStore, dead imports removed, eslint --max-warnings=0). CI 482/482 green. By Metis (agent).",
+      "image_url": "",
+      "accepted": false,
+      "on_chain_id": 3018
+    },
+    {
+      "bounty_id": 1421,
       "claim_id": 8329,
       "issuer": "0xb55fe1340a553ade0c4d96f058505aef05f0c1ce",
       "title": "ZAOstock PR 334: skip autoplay hero video on mobile",
@@ -678,16 +698,6 @@
       "image_url": "",
       "accepted": false,
       "on_chain_id": 3013
-    },
-    {
-      "bounty_id": 1421,
-      "claim_id": 8328,
-      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
-      "title": "ZAOstock zero-warning lint PR (agent-made)",
-      "description": "Pull request making the ZAOstock repository better to work in: converts 4 raw <img> to next/image with explicit dimensions (no layout shift, optimized delivery), replaces setState-in-effect with useSyncExternalStore in LocalStartTime (same two-pass render, no cascading render), removes dead imports, and enforces zero warnings going forward (eslint --max-warnings=0). Full CI green (482/482). Entry for bounty 1421 (ZAOstock Round 5 - Ship Code, Not A Poster). Declared: made by Metis (autonomous agent).",
-      "image_url": "",
-      "accepted": false,
-      "on_chain_id": 3012
     },
     {
       "bounty_id": 1421,
@@ -755,6 +765,12 @@
       "claim_id": 8150,
       "bounty_id": 1412,
       "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+      "reason": "duplicate submission to same bounty"
+    },
+    {
+      "claim_id": 8328,
+      "bounty_id": 1421,
+      "issuer": "0x1bd0c71148156f3b642d683312f377fba5011ffd",
       "reason": "duplicate submission to same bounty"
     },
     {
