@@ -18,8 +18,8 @@
         "something said in the first person, which is the shape this run breaks most"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "PARTIAL, AND THE ENTRANT DID NOT ASK. A COMMENT review went on ZAOstock #363 at 2026-09-27T20:26:37Z (pullrequestreview-5331913360), 8 days before this round closes: a real zone bug confirmed, the test file credited, and one specific change asked for, with React's own error text from a running build of head c44cfaab5db9c3d26b160a275a9463c757e94cf2. So the 'goes away and comes back with it improved' path is open and has time to run. But this promise is worded around an entrant WHO ASKS, and nobody asked - the review was volunteered. Status stays unrecorded because the promise as written has not been tested yet: it is kept the first time an entrant asks a question and gets an answer, not the first time we offer one unprompted.",
+      "recorded_at": "2026-09-27T20:27:30Z"
     },
     {
       "text": "Your written notes still come after the close, like every round.",
@@ -27,8 +27,8 @@
         "feedback owed to entrants"
       ],
       "status": "unrecorded",
-      "evidence": "",
-      "recorded_at": ""
+      "evidence": "DECIDED: all of them, not none. The tension recorded earlier today was that one entrant got a measured mid-round review while others had not. The answer, from the Dotfiles lane citing Zaal's standing ruling of 2026-09-27 'always give feedback': every entry PR gets a measured review before the close, the same way. It was never a one-off - reviews had been going out under his grant since that morning. THE FIRST VERSION OF THIS ROW SAID THAT WAS DONE AT 20:46Z. IT WAS NOT. I counted any comment from the account as a review, which treated the claim reminder - payout logistics, posted on several PRs - as feedback on the code. The true state at 2026-09-27T20:46:25Z was 10 of 15, not 11 of 15: #322, #330, #336, #341 and #343 carried only the reminder. Caught by an independent reviewer reading every comment, not by me. The remaining five were posted as COMMENT reviews between 21:47:48Z and 21:50:52Z, and only then did every entry PR carry one. Re-verified by reading each pull request's REVIEWS rather than counting its comments: 15 entry PRs, 15 covered - 14 by a formal review and #353 by a substantive comment - 0 without. 10 at or before 20:46:59Z, 5 after. 16 open PRs, 1 ours and excluded, 15 entry PRs. This promise is about the WRITTEN NOTES at poidhz.com/feedback, which still come after the close, so it is not kept or broken by any of the above - the fairness problem the reviews created is what is settled here, and it is settled by doing all of them. If Vault or Zaal rules otherwise, it stops. SUPERSEDES an earlier draft of this row, written at 20:27Z the same afternoon, which recorded the same facts as an open watch and said the call was neither mine nor the reviewing lane's. It was answered within the hour, so only the answer reaches this file - but the row was a question first, and that is worth knowing if the answer is ever revisited.",
+      "recorded_at": "2026-09-27T20:47:07Z"
     },
     {
       "text": "EVERYONE WHO ENTERS GETS WRITTEN NOTES",
