@@ -255,6 +255,14 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
     """
     events: list[str] = []
     merged = json.loads(json.dumps(old)) if old else {"bounties": {}, "links": {}, "prs": {}}
+    # CARRY THIS SWEEP'S TIME INTO THE PERSISTED STATE. merged starts as a copy of `old`, so
+    # without this the stamp never advanced past whatever was first written - and on a fresh
+    # state it was never written at all. Every close would then have read as NOT OBSERVED
+    # forever, because prev_sweep was permanently None: the mechanism would have been silently
+    # inert in production while every selftest passed, since the tests set swept_at by hand.
+    # Found by a test asserting the one-sweep delay, not by one aimed at this.
+    if new.get("swept_at") is not None:
+        merged["swept_at"] = new["swept_at"]
     merged.setdefault("bounties", {})
     merged.setdefault("links", {})
     merged.setdefault("prs", {})
@@ -319,18 +327,30 @@ def diff(old: dict, new: dict, now: float) -> tuple[list[str], dict]:
             prev_sweep = old.get("swept_at")
             if when is not None and now >= when:
                 if prev_sweep is not None and prev_sweep < when:
-                    confirmed = [c for c in cur["claims"] if c in prev["claims"]]
+                    # BOTH SETS WERE BUILT FROM cur ALONE, so a claim seen before the close
+                    # and missing from this reading vanished from the report entirely - and the
+                    # message then said the field was "exactly" the ones that remained. It was
+                    # verifiably in and it disappeared from the count. Claims do not normally
+                    # vanish, but this watcher already treats a partial API answer as unmeasured
+                    # rather than as a change, and the same care belongs here.
+                    still_here = [c for c in cur["claims"] if c in prev["claims"]]
+                    removed = [c for c in prev["claims"] if c not in cur["claims"]]
+                    confirmed = still_here + removed
                     ambiguous = [c for c in cur["claims"] if c not in prev["claims"]]
                     gap = (now - prev_sweep) / 60.0
                     msg = (f"ROUND-CLOSED bounty {bid} reached its stated close ({ca}). "
                            f"CONFIRMED IN: {len(confirmed)} claim(s) seen before the close - "
                            f"{', '.join(confirmed) or 'none'}.")
+                    if removed:
+                        msg += (f" OF THOSE, {len(removed)} are missing from this reading - "
+                                f"{', '.join(removed)} - withdrawn, or simply not returned by "
+                                f"the API this time. They were in before the close either way.")
                     if ambiguous:
                         msg += (f" AMBIGUOUS: {len(ambiguous)} claim(s) first seen on this sweep "
                                 f"- {', '.join(ambiguous)} - which appeared somewhere in the "
                                 f"{gap:.1f} minutes spanning the close, so whether they beat it "
                                 f"is UNKNOWN from here. poidh exposes no claim timestamp.")
-                    else:
+                    if not ambiguous and not removed:
                         msg += (f" Nothing new appeared in the {gap:.1f} minutes spanning the "
                                 f"close, so the field at the close is exactly those "
                                 f"{len(confirmed)}.")
@@ -506,6 +526,33 @@ def _selftest() -> int:
                    bool(closed) and "187.0 minutes" in closed[0]))
     checks.append(("the ambiguous case says UNKNOWN rather than implying certainty",
                    bool(closed) and "UNKNOWN" in closed[0]))
+
+    # A CLAIM SEEN BEFORE THE CLOSE AND MISSING NOW MUST NOT VANISH FROM THE COUNT. Found by
+    # the reviewer: both sets were built from the current reading alone, so it disappeared and
+    # the message still said "exactly".
+    gone_now = json.loads(json.dumps(late_prev))
+    gone_now["bounties"]["1418"]["claims"] = ["1", "2"]          # 3 was there before, not now
+    ev, _ = diff(late_prev, gone_now, _at + 7 * 60)
+    closed = [e for e in ev if e.startswith("ROUND-CLOSED")]
+    checks.append(("a claim seen before the close still counts when it is missing now",
+                   bool(closed) and "CONFIRMED IN: 3 claim(s)" in closed[0]))
+    checks.append(("and it is named as missing rather than silently dropped",
+                   bool(closed) and "missing from this reading" in closed[0] and "- 3 -" in closed[0]))
+    checks.append(("the word exactly is withheld when something went missing",
+                   bool(closed) and "exactly" not in closed[0]))
+
+    # A bounty this watcher has never seen, whose close already passed, is a BASELINE on its
+    # first sweep and reports on the second. Documented rather than special-cased: emitting on
+    # a baseline would contradict the rule that a first sweep is not nine events.
+    unseen = {"bounties": {}, "links": {}, "prs": {}, "swept_at": _at - 3600}
+    first = json.loads(json.dumps(late_prev)); first["swept_at"] = _at + 60
+    ev, st_first = diff(unseen, first, _at + 7 * 60)
+    checks.append(("a bounty seen for the first time after its close reports nothing yet",
+                   not any(e.startswith("ROUND-CLOSED") or e.startswith("CLOSE-NOT-OBSERVED")
+                           for e in ev)))
+    ev2, _ = diff(st_first, json.loads(json.dumps(first)), _at + 14 * 60)
+    checks.append(("and it reports on the very next sweep, one sweep late",
+                   any(e.startswith("CLOSE-NOT-OBSERVED") for e in ev2)))
 
     # And when nothing new arrived in that window, the field IS exactly what was confirmed.
     quiet_now = json.loads(json.dumps(late_prev))
