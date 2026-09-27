@@ -112,6 +112,22 @@
           "body": "The facts are in your caption and the caption does not survive a repost. Thirty seconds of the same animation with the date, Ellsworth and FREE burned into the frames would have been a small amount of work on something you had already built, and it would have been a new entry rather than a returning one."
         }
       ]
+    },
+    {
+      "handle": "dee-13",
+      "claim": 8341,
+      "headline": "Every fact is on screen, and none of them are on screen together.",
+      "did_well": "You used real photographs of the actual place. The three cards under the search bar at nine seconds are the Franklin Street Parklet as it actually looks - the green umbrellas, the picnic tables, the Parklet's own painted sign with its hours on it - next to the 2026 poster. Nothing generated, nothing stock, nothing that could be any town. Somebody who lives in Ellsworth recognises that corner before they read a word, and somebody who does not can see it is a real place rather than a graphic. The search-bar conceit carries it: typing zaostock.com and letting the results answer the question is a cleaner way into an ad than a title card, and it earns the photos instead of just showing them.",
+      "items": [
+        {
+          "title": "The facts arrive one at a time and never share a frame",
+          "body": "Measured across the whole 24 seconds: the name and the URL are up around nine seconds, the venue at thirteen, the date at sixteen, and free to attend at twenty-three. All four facts are there, which is more than some entries managed. But no two of them are ever on screen at the same moment, so the ad only works for somebody who watches all of it in order. On a feed that autoplays muted and gets scrolled past, a viewer who lands at twenty seconds sees a spinning record and the words FREE TO ATTEND, and has no idea what is free, where, or when. A small persistent line in a corner - ZAOstock, Oct 3, Ellsworth - costs you nothing visually and means any single frame of this is still an ad."
+        },
+        {
+          "title": "The last card is the one people screenshot, and it is the emptiest",
+          "body": "It ends on FREE TO ATTEND! alone on white. That is the frame that sits on screen when the video stops, the one a still preview is taken from, and the one somebody screenshots to send to a friend - and it carries no date, no venue and no name. The strongest thing you have is that the event is free AND it is on a specific Saturday in a specific place; splitting those across twenty seconds spends the ending on half a sentence. Put the date and the Parklet on that final card with the price and the last frame does the whole job on its own."
+        }
+      ]
     }
   ]
 }
