@@ -9,7 +9,12 @@ to me"*, *"very well thought out"*, 22:13.
   Round two's pot was never recorded and its growth is permanently unknowable.
 - **Cast text verified:** `verify-cast-text.py --round rounds/daily/d05 --bounty 1421` returns
   **PASS at 7,934 characters**. What is on chain is the body below, character for character.
-- First read after cast, 22:29: **0 claims**.
+- First read after cast, 22:29: **0 claims**. At 12:5x the next day: **5 claims from 4
+  entrants**, four open pull requests on ZAODEVZ/ZAOstock, all four CI jobs green on each.
+- **THE POT HAS GROWN: 0.004 ETH at cast, 0.005 ETH at 12:5x the next day.** Somebody
+  contributed 0.001 while the round was running, which is what an OPEN bounty is for and what
+  the cast text says can happen. Round three's pot did the same thing. Recorded here because
+  bounty two's growth was never written down and is now unknowable.
 
 **THREE FIRSTS.** First code round. First round whose claim requires the poidhz.com/submit
 receipt. First round whose description names no pot, no token and no leaderboard at all.

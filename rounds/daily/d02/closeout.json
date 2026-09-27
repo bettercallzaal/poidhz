@@ -10,8 +10,8 @@
         "something said in the first person, which is the shape this run breaks most"
       ],
       "status": "broken",
-      "evidence": "No stream. Round two is still in its contributor vote as this is written, with accepted=None measured on bounty 1410.",
-      "recorded_at": "2026-09-25 15:07 EDT"
+      "evidence": "BROKEN, and now ANSWERED IN DRAFT rather than silently. No stream ran. rounds/daily/d02/winner-announce.md says so in the announcement itself rather than omitting it, the same way round one's does. Round four's cast text stopped promising a stream, which is the correction going forward. UNSENT - Zaal posts.",
+      "recorded_at": "2026-09-26 12:53 EDT"
     },
     {
       "text": "The moose mark is by attabotty; credit on the piece is asked for.",
@@ -37,8 +37,8 @@
         "a stream"
       ],
       "status": "broken",
-      "evidence": "No stream ran for round two.",
-      "recorded_at": "2026-09-25 15:07 EDT"
+      "evidence": "BROKEN, and now ANSWERED IN DRAFT rather than silently. No stream ran. rounds/daily/d02/winner-announce.md says so in the announcement itself rather than omitting it, the same way round one's does. Round four's cast text stopped promising a stream, which is the correction going forward. UNSENT - Zaal posts.",
+      "recorded_at": "2026-09-26 12:53 EDT"
     },
     {
       "text": "Same shape every day: opens, closes at 5pm Eastern, pick named live on Twitch around then, confirmed by the people who funded it.",
@@ -46,8 +46,8 @@
         "a stream"
       ],
       "status": "broken",
-      "evidence": "The pick was not named live on any day of the run. Round four deliberately promises no stream at all, which is the correction.",
-      "recorded_at": "2026-09-25 15:07 EDT"
+      "evidence": "BROKEN, and now ANSWERED IN DRAFT rather than silently. No stream ran. rounds/daily/d02/winner-announce.md says so in the announcement itself rather than omitting it, the same way round one's does. Round four's cast text stopped promising a stream, which is the correction going forward. UNSENT - Zaal posts.",
+      "recorded_at": "2026-09-26 12:53 EDT"
     }
   ]
 }

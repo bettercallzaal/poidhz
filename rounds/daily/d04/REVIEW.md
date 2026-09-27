@@ -42,6 +42,55 @@ other two claimed and unconfirmed, and the piece itself unwatched.
 
 ---
 
+## Claim 8312's X post exists. Measured 2026-09-26 16:30 EDT, with the control that makes it mean something.
+
+The claim's whole case sits in a link: `x.com/inkier35/status/2103721261570707770`, described as
+a 28.5-second spot carrying all six required facts, no watermark, built from the brand kit.
+
+**The post is public and it resolves.** `curl -L` returns **200**.
+
+**A 200 from x.com would normally prove nothing** - it is a single-page app, and an SPA
+happily serves its shell for a URL with no content behind it. So the 200 was only worth writing
+down after the control:
+
+| URL | code |
+|---|---|
+| the claim's post | **200** |
+| `x.com/inkier35/status/1111111111111111111` (same account, impossible id) | **404** |
+| a nonexistent account and id | **404** |
+
+x.com really does 404 a status that is not there, so the 200 on the claim's link is evidence
+rather than an artefact. **Without those two control rows the first row is unreadable.**
+
+**What this does NOT establish, and no script can:** whether the video contains the six facts,
+whether it carries a watermark, and whether it came from the brand kit. **The claim carries no
+media on the bounty itself** - all three round four claims have an empty media field - so the
+bounty page shows this entry with no picture, and the link is the only way in.
+
+**Somebody still has to watch 28.5 seconds of video before this round is scored.** The round
+closes 5pm Sunday. That is the whole remaining cost of judging it, and it cannot be delegated to
+a check.
+
+## Both open rounds share two entrants, and nothing anywhere shows it
+
+Reading the issuer wallets across 1418 and 1421 together:
+
+| Wallet | Round four | Round five |
+|---|---|---|
+| `0x5a844e78` | claim 8312, the ad | claims 8304 and 8305, PRs #316 and #318 |
+| `0xd34f10e2` | claim 8239 | claim 8310 |
+
+**Two entrants are competing in an ad round and a code round at the same time, this weekend.**
+That is the returning-entrant behaviour `docs/community-plan.md` was written about, happening
+inside a single weekend rather than across months, and **no page on the site shows it** - the
+gallery is organised by round, so a person who appears in two of them appears twice and is
+joined up nowhere. It is the strongest argument yet for the per-person page being first.
+
+Recorded here rather than acted on: this is an observation about the field, and it changes
+nothing about how either round is judged.
+
+---
+
 ## A fourth claim landed, and it is a piece already entered in round three. 2026-09-26 20:59 EDT
 
 Claim **8326**, wallet `0x6dce11cc` - **@joeyofdeus** - titled "ZAOstock", description

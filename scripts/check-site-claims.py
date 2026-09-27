@@ -27,6 +27,7 @@ because bounty 1249 sat marked LIVE for six weeks after it was canceled.
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import re
 import sys
@@ -59,6 +60,44 @@ def load_round_status() -> dict[int, str]:
             for r in feed.get("rounds", []) if r.get("bounty_id")}
 
 
+def snapshot_age_hours() -> float | None:
+    """How old the round-state snapshot is, or None when it cannot be read.
+
+    THIS CHECKER DOES NOT READ THE CHAIN, and until 2026-09-26 it said it did - the header
+    line claimed "N round(s) with a known on-chain state" while loading a local JSON file
+    that a workflow refreshes on a schedule. `gallery.html` is generated from THAT SAME FILE,
+    so a clean sweep can mean the page and the snapshot agree while both are hours behind
+    the chain. Two outputs of one input agreeing is not evidence.
+
+    Demonstrated the night resolveVote(426) landed: the sweep correctly reported
+    "bounty 1412 is WINNER SET but the page says OPEN NOW" - but only because the snapshot
+    had been refreshed and the page had not. Forcing the snapshot back to OPEN and rebuilding
+    the page made the sweep print clean while the page advertised a settled round as open.
+
+    So the age is now printed beside the count, and the header names the file. It is NOT a
+    pass/fail gate, and that was tried and rejected the same hour: `pr-checks.yml` runs this
+    script on every pull request, and `generated_at` is the timestamp of the last SUBSTANTIVE
+    refresh rather than the last run - refresh-bounty-dashboard.yml runs hourly but its commit
+    step discards a timestamp-only diff, so a quiet stretch leaves this field hours old while
+    every run succeeded. Failing on age would therefore block unrelated PRs on a healthy repo,
+    which is the crying-wolf failure this repo has already paid for elsewhere. The age is
+    reported so a reader can judge it; it cannot be thresholded from this field alone.
+    """
+    p = REPO_ROOT / "data" / "rounds-live.json"
+    try:
+        ts = json.loads(p.read_text()).get("generated_at")
+        if not ts:
+            return None
+        gen = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        if gen.tzinfo is None:
+            gen = gen.replace(tzinfo=dt.timezone.utc)
+        return (dt.datetime.now(dt.timezone.utc) - gen).total_seconds() / 3600.0
+    except Exception:
+        return None
+
+
+
+
 def strip_comments(html: str) -> str:
     """HTML comments explain the fix and quote the old wording, so they trip every rule
     they document. The comment on the hub card contains the literal string this checker
@@ -78,9 +117,23 @@ def stale_invitations(html: str, status: dict[int, str], *, flavor: str = "html"
     a +-320 char window reached from R5's table row into R6's, and reported R6's planned
     "closes Wed Sep 30" as an invitation attached to bounty 1330. Four of the five markdown
     hits in the first run were false like that, and a check that fires on correct content
-    gets muted - which then mutes it on the one hit that was real."""
+    gets muted - which then mutes it on the one hit that was real.
+
+    A WINDOW IS THE WRONG INSTRUMENT ON A PAGE THAT DECLARES ITS OWN SECTIONS, and this cost
+    a real miss on 2026-09-26. `gallery.html` renders one `<section class="round">` per round
+    carrying that round's OPEN NOW tag and that round's bounty links. When bounty 1412 settled,
+    the sweep reported the page correctly - and after the page was rebuilt it went silent on
+    the same disagreement, because the nearest 1412 link had moved to 458 characters from the
+    nearest "OPEN NOW" and the window is 320. The Daily 3 section alone is 1,930 characters, so
+    a section's tag and its own links are ROUTINELY further apart than the window. The catch was
+    luck of layout, and a rebuild spent it.
+
+    So when a page declares round sections, each section is its own segment - the whole section,
+    however long. The window stays for pages that declare nothing, where it is the best guess
+    available."""
     text = strip_comments(html)
     out = []
+    sections = _round_sections(text) if flavor == "html" else []
     for m in re.finditer(r"poidh\.xyz/\w+/bounty/(\d+)", text):
         bid = int(m.group(1))
         st = status.get(bid)
@@ -91,11 +144,36 @@ def stale_invitations(html: str, status: dict[int, str], *, flavor: str = "html"
             le = text.find("\n", m.end())
             seg = text[ls:le if le != -1 else len(text)]
         else:
-            seg = text[max(0, m.start() - WINDOW):m.end() + WINDOW]
+            seg = _enclosing_section(text, sections, m.start())
+            if seg is None:
+                seg = text[max(0, m.start() - WINDOW):m.end() + WINDOW]
         hit = INVITATION.search(seg)
         if hit:
             out.append(f"bounty {bid} is {st} but the page says {hit.group(0)!r} beside it")
     return sorted(set(out))
+
+
+SECTION_OPEN = re.compile(r'<section[^>]*class="[^"]*\bround\b[^"]*"[^>]*>')
+
+
+def _round_sections(text: str) -> list[tuple[int, int]]:
+    """(start, end) of each `<section class="round">` block, ending where the next one starts.
+
+    Deliberately NOT a real HTML parse. It only needs to know which round's block a position
+    falls in, and a generated page emits these siblings in order. A page with no such sections
+    returns [], and the caller falls back to the character window.
+    """
+    starts = [m.start() for m in SECTION_OPEN.finditer(text)]
+    return [(s, starts[i + 1] if i + 1 < len(starts) else len(text))
+            for i, s in enumerate(starts)]
+
+
+def _enclosing_section(text: str, sections: list[tuple[int, int]], pos: int) -> str | None:
+    """The whole round section containing `pos`, or None when it falls in none of them."""
+    for start, end in sections:
+        if start <= pos < end:
+            return text[start:end]
+    return None
 
 
 # Claims that a round is running right now. Checked against the feed rather than against a
@@ -281,6 +359,32 @@ def _selftest() -> bool:
     closed_card = ('<a href="https://poidh.xyz/base/bounty/1166">Submit on POIDH</a>')
     check("an invitation beside a settled bounty is caught",
           stale_invitations(closed_card, st))
+
+    # THE MISS OF 2026-09-26, pinned. A round section is longer than the character window, so
+    # a window-only check goes silent on exactly this page while the page lies to entrants.
+    filler = "<figure>" + ("x" * 700) + "</figure>"
+    far = ('<section class="round"><h2>Daily 3<span class="tag open">OPEN NOW</span></h2>'
+           + filler + '<a href="https://poidh.xyz/base/bounty/1166">on poidh</a></section>')
+    gap = far.index("poidh.xyz") - far.index("OPEN NOW")
+    check(f"the tag really is outside the {WINDOW}-char window in this fixture ({gap} chars)",
+          gap > WINDOW)
+    check("a settled round is caught even when its tag is far from its link",
+          stale_invitations(far, st))
+
+    # The control that stops the section rule blaming the wrong round: an OPEN round's tag must
+    # not attach to a settled round in a DIFFERENT section.
+    two = ('<section class="round"><h2>Daily 3</h2>'
+           + '<a href="https://poidh.xyz/base/bounty/1166">on poidh</a></section>'
+           + '<section class="round"><h2>Daily 5<span class="tag open">OPEN NOW</span></h2>'
+           + '<a href="https://poidh.xyz/base/bounty/9999">on poidh</a></section>')
+    check("an OPEN round's tag does not leak into the settled round's section",
+          stale_invitations(two, st) == [])
+    check("and the open round itself is still not reported",
+          not any("9999" in m for m in stale_invitations(two, st)))
+
+    # A page that declares no sections keeps the window, which is all it has.
+    check("a page with no round sections still uses the window",
+          stale_invitations(closed_card, st) and _round_sections(closed_card) == [])
     check("the same invitation beside an OPEN bounty is fine",
           not stale_invitations(closed_card.replace("1166", "9999"), st))
     check("linking to a closed bounty without inviting is fine",
@@ -420,9 +524,19 @@ def main() -> int:
 
     any_open = any(s in CAN_SUBMIT for s in status.values())
     problems = 0
+    age = snapshot_age_hours()
+    # Name the surface in the sentence that carries the claim. This reads a snapshot, not the
+    # chain, and the old wording said otherwise.
+    if age is None:
+        age_note = "snapshot age UNKNOWN"
+    else:
+        age_note = f"snapshot {age:.1f}h old"
     print(f"Site claim sweep - {len(pages)} page(s), "
-          f"{len(status)} round(s) with a known on-chain state, "
+          f"{len(status)} round(s) from data/rounds-live.json ({age_note}), "
           f"{'a round is OPEN' if any_open else 'none open'}\n")
+    print("  NOTE   this sweep compares pages against that file, not against the chain, and "
+          "gallery.html is generated from it - so a clean result means the pages agree with the "
+          "snapshot. Run refresh-rounds.py first if you need it to mean more.\n")
     for p in pages:
         html = p.read_text()
         rel = p.relative_to(REPO_ROOT)
