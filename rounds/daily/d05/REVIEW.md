@@ -515,3 +515,37 @@ note rather than a similar one.
 #341 was opened at 12:49:40Z, **ten minutes after the first four reminders went out**, by a
 contributor who had therefore never been told. Five PRs have now been reminded: #322, #325,
 #330, #336, #341.
+
+## The reminder worked, and here is the measurement. 2026-09-27 09:15 EDT
+
+**Claim 8334 landed about 34 minutes after the note went on #330**, from the same wallet as
+claim 8328, and it does exactly what the note asked:
+
+> *"Entry for bounty 1421 (ZAOstock Round 5). PR:
+> https://github.com/ZAODEVZ/ZAOstock/pull/330 - zero-warning lint ... By Metis (agent)."*
+
+| | |
+|---|---|
+| reminder posted on #330 | **2026-09-27T12:39:40Z** |
+| claim 8334 filed, citing the PR by URL | **about 34 minutes later** |
+| wallet | `0x1bd0c711`, the same as claim 8328 |
+
+**This also settles the correction above.** That section said 8328's mapping to #330 was
+*"matched by content and author, unconfirmed"* and warned that judging #330 against 8328 would
+be acting on an inference. **The entrant has now confirmed it themselves, in a claim that names
+the URL** - so #330 is an entry by citation rather than by my guess. The inference happened to
+be right, which is not the same as having been safe to rely on, and it is only not relied on
+because the round text's "a second claim naming the PR is fine" gave them a way to fix it.
+
+**The live sweep moved with it: 6 open PRs cited by a claim, up from 5.**
+
+```
+open PRs on the code repo: 11 - 6 cited by a claim (#316, #317, #318, #319, #330, #334),
+                                5 not an entry (#322, #325, #336, #341, #343)
+```
+
+**Still uncited: #322 and #325 (GhostMintOps), #336 (opdevio), #341 (0xnuminous), #343
+(Ariyachan).** The last two arrived after the first four reminders went out; #343 is new since
+and is queued for the same note.
+
+**Round five is now at 8 claims.**
