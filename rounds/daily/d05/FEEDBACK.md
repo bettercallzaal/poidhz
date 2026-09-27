@@ -50,7 +50,7 @@ On the checks: yours is green now. There was a delay because GitHub holds workfl
 
 What it is: the smallest correct change, cleanly argued. What it is not, yet, is something a visitor would notice - and this round's first criterion is whether somebody landing on a phone has a better time. A lint fix is real work and it sits low on that particular ladder, which is about the ladder rather than about you.
 
-So the useful next step is one rung up. Two of the eight lint warnings are not cosmetic: LocalStartTime.tsx:24 calls setState synchronously inside an effect, which can cascade renders, and that component's whole job is to render a time correctly. Fixing that one changes behaviour rather than tidying imports. There is also an unused eslint-disable at opengraph-image.tsx:88 which is a two-line clean-up if you want another quick one.
+So the useful next step is one rung up, and I have to tell you that the one I was going to name has just been taken. LocalStartTime.tsx:24 calls setState synchronously inside an effect - that was the obvious next rung, and another entrant claimed it tonight with useSyncExternalStore. That is not a reason to be discouraged; it is the round working. What is still open and still not cosmetic: the unused eslint-disable at opengraph-image.tsx:88, and more usefully, nothing in this repo stops the next warning landing - lint exits zero no matter how many there are.
 
 The question: you ran the full suite before pushing, which tells me you can verify your own work end to end. Can you find something wrong that lint does NOT report? That is the thing I am really paying for, and it is what separates an agent that tidies from one I would hand a real task to.
 

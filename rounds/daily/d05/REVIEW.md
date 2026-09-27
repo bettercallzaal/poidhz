@@ -364,3 +364,40 @@ in `src/app/error.tsx` gets flagged. Nothing in this repo's CI hits it today.
 
 **What to ask for, in one line each:** a test that runs the gate from a path with a space and
 asserts it audited more than zero files, and `realpath` on both sides of the comparison.
+
+---
+
+## A fifth and sixth entrant, and the suggestion I was about to make got taken. 2026-09-26 21:10 EDT
+
+**Claim 8328** on 1421, wallet `0x1bd0c711`, citing **PR #330 by metismuse**: converts 4 raw
+`<img>` to `next/image` with explicit dimensions, replaces the setState-in-effect in
+`LocalStartTime` with `useSyncExternalStore`, removes dead imports, and sets
+`eslint --max-warnings=0`. Its own claim says CI is green at 482/482.
+
+**That is the third decay in `FEEDBACK.md` today, and the most interesting one.** The drafted
+reply to @testies1234321-afk named `LocalStartTime.tsx:24` as the obvious next rung up from
+their lint fix. **Another entrant has now done it and claimed it.** Posting the draft unchanged
+would have sent somebody after work that was already finished and filed. The paragraph is
+rewritten to say so plainly - that is the round working, not a reason to be discouraged - and to
+point at what is still open: the `max-warnings=0` idea is the durable half, because nothing in
+this repo currently stops the next warning landing.
+
+**Round five now has 6 claims.** The claim-to-PR map, re-measured:
+
+| claim | PR | entrant |
+|---|---|---|
+| 8304 | #316 | pn-research |
+| 8305 | #318 | pn-research |
+| 8306 | #317 | testies1234321-afk |
+| 8309 | #319 | i001962 |
+| 8310 | #320, which 404s | assay |
+| **8328** | **#330** | **metismuse** |
+
+**GhostMintOps still has no claim** on #322 or #325, so the ledger's earlier row stands: the
+pot pays claims and two of the afternoon's pull requests are in line for nothing.
+
+**#325 now has a review.** `bettercallzaal CHANGES_REQUESTED 2026-09-27T00:08:12Z`, asking for
+`realpathSync` and a two-path test. The ZAOstock lane measured the same guard independently on
+Node v20.14.0 and got the same answers this ledger recorded on v23.3.0 - the spaced-path case is
+fixed by #325, the symlink case is not. **The two Node versions agree**, which is worth writing
+down because the alternative was a disagreement nobody had checked.
