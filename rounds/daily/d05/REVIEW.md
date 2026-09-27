@@ -756,3 +756,66 @@ without the re-encode - the review suggested splitting the video into its own PR
 
 Checked every open PR on the repo for a first maintainer comment matching the reminder's
 digest: **#322, #325, #330, #336, #341, #343, #352**. Seven.
+
+## The review worked in five and a half minutes, and it produced a judging problem. 2026-09-27 13:08 EDT
+
+**The split happened.** The COMMENTED review on #352 at 16:59:04Z suggested separating the
+video so the component fix could be judged alone. **By 17:04:34Z the entrant had done it:**
+
+- **#352** is now the component only - `HeroVideo.tsx`, its test, the CSS and page.tsx,
+  +109/-3 across four files. **The mp4 is gone from it.**
+- **#353** is the re-encoded video alone.
+- **#354** arrived two minutes later.
+
+That is three separate times today that a posted note changed what an entrant did, and this
+one took five and a half minutes. The review was submitted at 16:59:04Z and #353 was created at
+17:04:34Z. This section first said seven; that figure was arithmetic done in my head and it was
+wrong. Both timestamps come from the API.
+
+### But #354 re-implements two other entrants' claimed work
+
+**#354 touches the identical eight files as #330**, which was opened 17 hours earlier and is
+claimed by a different wallet. Reading the diff rather than the file list, #354 contains:
+
+| what #354 changes | already submitted by |
+|---|---|
+| remove the unused `SITE` import in `llms.txt/route.ts` | **#317**, claim 8306, wallet `0xb55fe134` |
+| `eslint . --max-warnings=0` in package.json | **#330**, claim 8334, wallet `0x1bd0c711` |
+| `useSyncExternalStore` replacing setState-in-effect in `LocalStartTime` | **#330**, same claim |
+| **four** `eslint-disable` lines with written justifications | **new** |
+| remove an unused `Card` import in `meetings/page.tsx` | **#330**, same claim |
+| remove a stale disable in `opengraph-image.tsx` | **#330**, same claim |
+
+Both earlier changes were verified against those PRs' own diffs, not inferred from titles.
+
+**#354 is from wallet `0x5a844e78`, which already holds three claims in this round** (8304,
+8305, 8338) and entered round four. So if #354 merged, two other wallets' submitted changes
+would land inside a third wallet's pull request.
+
+**Nothing here breaks a rule and intent is unknowable from the outside.** Every one of those
+warnings is discoverable by running `npm run lint`, so independent convergence is entirely
+plausible - three entrants have now independently found `LocalStartTime`. The other PRs are
+also public, so reading them is possible. **There is no way to tell from here and no need to
+guess.**
+
+**What makes it matter is the round's own rule.** Open PRs count and **merged wins ties**, so
+merge order is consequential, and merging #354 would quietly resolve a tie in favour of the
+wallet that submitted last. **That is a decision, not housekeeping**, and it is Zaal's.
+
+**The genuinely new part of #354 is FOUR eslint-disable justifications**, which neither
+#317 nor #330 wrote - two in `BioEditor.tsx`, one in `TeamRoles.tsx`, one in
+`MemberProfileView.tsx`, each explaining why an arbitrary user-supplied photo URL cannot go
+through `next/image`. That is real work and it is worth separating from the rest when judging.
+
+**AND THE OVERLAP IS LARGER THAN THIS SECTION FIRST SAID.** Two rows above were marked new and
+are not: #330 makes the identical `Card` import change in `meetings/page.tsx` and touches the
+same stale disable in `opengraph-image.tsx`. So #354 duplicates #330 on **four** of its changes
+rather than two, which **strengthens the merge-order point rather than softening it** - more of
+#354 is already sitting in another wallet's claimed pull request than the first table showed.
+
+**All three corrections came from an independent reviewer on PR #201, and all three were
+verified here against the API before being accepted.** The errors were mine: a time gap done in
+my head, a count taken from reading rather than from `grep -c`, and two rows called new without
+checking them against the pull request they overlap.
+
+**Round five now stands at 9 claims, 14 open PRs, 7 cited.**
