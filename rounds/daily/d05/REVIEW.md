@@ -855,3 +855,47 @@ accusation was written down, which is the only reason it is not in this file as 
 **Wallet 0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b now holds 3 of the 9 claims on 1421**,
 and #353 would be a fourth piece of work from it if claimed. Counted from `issuerAddress` on
 `fetchBountyClaims`, not from GitHub handles.
+
+## PR #363 - the zone bug is real and well tested, the refactor riding with it is not
+
+**Measured 2026-09-27 16:0x EDT, nine minutes after it opened.** #363 from
+`testies1234321-afk`, head `c44cfaab`, two files, +66/-15. No claim cites it yet, so it is
+not an entry - and its body already carries the round's claim reminder, so the entrant has
+been told.
+
+**The bug it names is real.** The old check was
+`zone.includes('New_York') || zone.includes('Eastern')`. **America/Toronto, America/Detroit,
+America/Kentucky/Louisville and America/Indiana/Indianapolis are all Eastern time and match
+neither substring**, so viewers there were shown the redundant "That's 12 PM EDT in your time
+zone." line the component exists to suppress. The fix compares the festival instant formatted
+in the viewer's zone against the same instant formatted in `America/New_York` and returns null
+when they are identical. That is semantic rather than name-based and it is the right shape.
+
+**Its test file is the best of any entry this round.** Five zones that must be suppressed,
+including all four the old check missed, plus Europe/London and Asia/Kolkata as controls that
+must still convert. A test that only asserted the happy path would have proved nothing here.
+
+**AND THE SAME DIFF MOVES THE COMPUTATION INTO A `useState` INITIALIZER, WHICH IS A
+HYDRATION MISMATCH.** The old code did the work in `useEffect`, so the first client render
+returned null exactly as the server had, and the text appeared after mount. The new code runs
+`useState(() => { if (typeof window === 'undefined') return null; ... })`, so:
+
+- **Server:** `typeof window === 'undefined'` is true, returns null, and the component emits
+  no `<p>` at all.
+- **Client, first render:** the initializer runs, computes the text, and the component emits
+  a `<p>`.
+
+`src/app/live/page.tsx` has **no `'use client'`**, so it is a server component and
+`<LocalStartTime />` is server-rendered into the HTML. Server HTML has no element where the
+client's first render has one, which is the definition of a hydration mismatch. **Nothing in
+the test file can see this** - `hydrat`, `useState` and `render` each appear 0 times in it,
+because it tests `localStartTimeText`, a pure function, and the defect is in the component.
+
+**The two changes are separable, which is what makes this worth saying rather than just
+scoring.** `localStartTimeText` is a good export and the zone fix needs none of the render
+change; keeping `useEffect` and calling the new function from inside it fixes the bug with no
+hydration risk. Recommendation is to ask for that split rather than to fail the entry.
+
+**Not measured:** I did not run the page and read a console warning. The finding is from the
+client/server boundary and the diff, and it should be confirmed against a running build
+before it is put to the entrant as fact.
