@@ -157,6 +157,7 @@ def check(round_id, bounty_id, offline=False, fetch=fetch_page, field=None):
 
     # PROMISE: every entrant gets their own page at /feedback/<bounty>/<handle>,
     # and the page must PRINT both halves, not merely be reachable.
+    live = 0
     if not offline:
         for e in entrants:
             url = f"{SITE}/feedback/{bounty_id}/{e['handle']}"
@@ -164,6 +165,7 @@ def check(round_id, bounty_id, offline=False, fetch=fetch_page, field=None):
             if status != 200:
                 problems.append(f"{e['handle']}: {url} returns HTTP {status}, so they have no page")
                 continue
+            live += 1
             txt = visible_text(page)
             did = (e.get("did_well") or "").strip()
             if did and did[:60] not in txt:
@@ -176,7 +178,14 @@ def check(round_id, bounty_id, offline=False, fetch=fetch_page, field=None):
         if status != 200:
             problems.append(f"the round index {idx} returns HTTP {status}")
         else:
-            notes.append(f"{len(entrants)} page(s) live and printing both halves, plus the round index")
+            # COUNT WHAT ANSWERED, NOT WHAT WAS ASKED FOR. This line used to read
+            # len(entrants), so on 2026-09-27 it printed "6 page(s) live and printing
+            # both halves" directly above "dee-13: ... returns HTTP 404, so they have
+            # no page". Five were live. A summary that restates the input as though it
+            # were the result is the exact failure this script exists to catch, printed
+            # by the script itself.
+            of = f"{live} of {len(entrants)}" if live != len(entrants) else f"all {live}"
+            notes.append(f"{of} page(s) live and printing both halves, plus the round index")
 
     return problems, notes, len(entrants)
 
@@ -279,6 +288,25 @@ def selftest():
                any("does not print did_well" in p for p in probs))
             probs, _, _ = check("pg", 1, field={1}, fetch=lambda u, timeout=30: (404, ""))
             ok("a 404 page is reported as having no page", any("HTTP 404" in p for p in probs))
+
+            # THE NOTE MUST COUNT WHAT ANSWERED. It used to print len(entrants) and so
+            # claimed pages were live in the same breath as reporting them 404.
+            (Path(td) / "two.json").write_text(
+                '{"entrants": ['
+                '{"handle":"a","claim":1,"did_well":"G","items":[{"title":"F"}]},'
+                '{"handle":"b","claim":2,"did_well":"G","items":[{"title":"F"}]}]}')
+            def one_missing(u, timeout=30):
+                return (404, "") if u.endswith("/b") else (200, "<p>G</p><p>F</p>")
+            probs, notes, _ = check("two", 1, field={1, 2}, fetch=one_missing)
+            ok("with one page 404, the note says 1 of 2 rather than 2",
+               any("1 of 2 page(s) live" in x for x in notes))
+            ok("it never claims all pages are live when one is missing",
+               not any("all 2 page(s) live" in x for x in notes))
+            ok("and the 404 is still reported as a break",
+               any("HTTP 404" in p for p in probs))
+            probs2, notes2, _ = check("two", 1, field={1, 2},
+                                      fetch=lambda u, timeout=30: (200, "<p>G</p><p>F</p>"))
+            ok("with every page live the note says all 2", any("all 2 page(s) live" in x for x in notes2))
         finally:
             FEEDBACK_DATA = real
 
