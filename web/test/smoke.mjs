@@ -1,7 +1,7 @@
 // Fetches every route against a running server. Usage: BASE=http://localhost:3000 node test/smoke.mjs
 const BASE = process.env.BASE || 'http://localhost:3000';
 const routes = ['/', '/people', '/b/1421', '/b/1418', '/b/1412', '/u/pascaline', '/u/assay', '/rounds.json', '/llms.txt',
-  '/submit', '/gallery', '/calendar', '/dashboard', '/create-bounty', '/about', '/best-practices', '/feedback', '/feedback/1418', '/feedback/1418/assay', '/round/5', '/round/2/judging', '/docs/about', '/docs/poidh-hub', '/rounds/r2/judging', '/b/1249',
+  '/submit', '/gallery', '/calendar', '/dashboard', '/create-bounty', '/about', '/best-practices', '/feedback', '/feedback/1418', '/feedback/1418/assay', '/round/5', '/round/2/judging', '/docs/about', '/docs/poidh-hub', '/rounds/r2/judging', '/b/1249', '/hub', '/lost', '/zabal-gamez-brand',
   '/data/claims.json', '/data/rounds-live.json', '/leaderboard', '/api/receipt?round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F352'];
 let bad = 0;
 for (const r of routes) {
@@ -29,8 +29,10 @@ for (const [from, to] of [['/index.html', '/'], ['/people.html', '/people']]) {
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${res.status} ${from} -> ${loc || 'nothing'}`);
 }
 // A malformed person key is a 404, not a 500.
+// Vercel's edge answers 400 before the app sees it; locally the proxy answers 404. Either is a refusal, never a 500.
 const mk = await fetch(BASE + '/u/%E0%A4%A');
-console.log(`${mk.status === 404 ? 'ok  ' : 'FAIL'} ${mk.status} /u/%E0%A4%A must 404`); if (mk.status !== 404) bad++;
+const mkOk = mk.status === 404 || mk.status === 400;
+console.log(`${mkOk ? 'ok  ' : 'FAIL'} ${mk.status} /u/%E0%A4%A must be 400 or 404`); if (!mkOk) bad++;
 // Phase-bearing pages must not be served from a 5-minute cache: a round that closed would still read open.
 for (const r of ['/', '/rounds.json', '/llms.txt']) {
   const cc = (await fetch(BASE + r)).headers.get('cache-control') || '';

@@ -13,25 +13,24 @@ const config: NextConfig = {
   },
   async rewrites() {
     const afterFiles = [
-      { source: '/submit', destination: '/submit.html' },
-      { source: '/gallery', destination: '/gallery.html' },
-      { source: '/calendar', destination: '/calendar.html' },
-      { source: '/best-practices', destination: '/docs/bounty-best-practices.html' },
-      { source: '/hub', destination: '/docs/poidh-hub.html' },
-      { source: '/dashboard', destination: '/docs/bounty-dashboard.html' },
-      { source: '/about', destination: '/docs/about.html' },
-      { source: '/lost', destination: '/docs/lost.html' },
-      { source: '/create-bounty', destination: '/docs/create-bounty.html' },
+      { source: '/best-practices', destination: '/docs/bounty-best-practices' },
+      { source: '/hub', destination: '/docs/poidh-hub' },
+      { source: '/dashboard', destination: '/docs/bounty-dashboard' },
+      { source: '/about', destination: '/docs/about' },
+      { source: '/lost', destination: '/docs/lost' },
+      { source: '/create-bounty', destination: '/docs/create-bounty' },
       { source: '/leaderboard', destination: '/data/leaderboard.json' },
       { source: '/feedback', destination: '/feedback/index.html' },
       { source: '/feedback/:bounty', destination: '/feedback/:bounty/index.html' },
-      { source: '/feedback/:bounty/:handle', destination: '/feedback/:bounty/:handle.html' },
+      { source: '/feedback/:bounty/:handle', destination: '/feedback/:bounty/:handle' },
       { source: '/round/:n', destination: '/rounds/r:n/README.md' },
-      { source: '/round/:n/judging', destination: '/rounds/r:n/judging.html' },
+      { source: '/round/:n/judging', destination: '/rounds/r:n/judging' },
       { source: '/zabal-gamez-brand', destination: '/assets/brand-kits/zabal-games/index.html' },
       { source: '/zabal-gamez-brand/:file', destination: '/assets/brand-kits/zabal-games/:file' },
     ];
-    // The old site had cleanUrls: any file.html was reachable without its extension.
+    // The old site had cleanUrls: any file.html was reachable without its extension. Vercel serves
+    // public HTML at the clean path in production, so rewrites above target clean paths and this
+    // fallback supplies the .html only where a server (next start) needs it.
     const fallback = [{ source: '/:path*', destination: '/:path*.html' }];
     return { beforeFiles: [], afterFiles, fallback };
   },
