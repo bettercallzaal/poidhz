@@ -25,7 +25,7 @@ const config: NextConfig = {
       { source: '/feedback/:bounty/:handle', destination: '/feedback/:bounty/:handle' },
       { source: '/round/:n', destination: '/rounds/r:n/README.md' },
       { source: '/round/:n/judging', destination: '/rounds/r:n/judging' },
-      { source: '/zabal-gamez-brand', destination: '/assets/brand-kits/zabal-games/index.html' },
+      { source: '/zabal-gamez-brand', destination: '/assets/brand-kits/zabal-games/index' },
       { source: '/zabal-gamez-brand/:file', destination: '/assets/brand-kits/zabal-games/:file' },
     ];
     // The old site had cleanUrls: any file.html was reachable without its extension. Vercel serves
