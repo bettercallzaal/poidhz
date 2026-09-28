@@ -14,10 +14,10 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 70,
-  "total_claims_accepted": 60,
-  "total_claims_rejected": 10,
-  "submitter_count": 48,
+  "total_claims_received": 72,
+  "total_claims_accepted": 61,
+  "total_claims_rejected": 11,
+  "submitter_count": 49,
   "total_eth_escrow": 0.0959,
   "bounties": [
     {
@@ -135,7 +135,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 5
+      "claims_count": 6
     }
   ],
   "claims": [
@@ -691,6 +691,16 @@
     },
     {
       "bounty_id": 1421,
+      "claim_id": 8350,
+      "issuer": "0xa7b39d1213c30e85af2bcbe3945a75892e1d1724",
+      "title": "Agent-authored mobile overflow checker fix",
+      "description": "Agent-authored fix for ZAOstock Round 5.\nUpdated the existing real-device mobile overflow checker so it detects elements overflowing both the left and right edges of the viewport. A red-control element at left:-20px was missed by the old predicate and caught by the new one.\n\nPR: https://github.com/ZAODEVZ/ZAOstock/pull/379",
+      "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmctDpmbgSvmJJW1rxGFtFMYSV5zL5GHJKWS7r8k6NyToD",
+      "accepted": false,
+      "on_chain_id": 3034
+    },
+    {
+      "bounty_id": 1421,
       "claim_id": 8338,
       "issuer": "0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b",
       "title": "ZAOstock R5: hero video payload -38% (PR #352)",
@@ -775,6 +785,12 @@
       "claim_id": 8150,
       "bounty_id": 1412,
       "issuer": "0x5dc697f2799bd232cad2d479c379ff305b699f9b",
+      "reason": "duplicate submission to same bounty"
+    },
+    {
+      "claim_id": 8349,
+      "bounty_id": 1421,
+      "issuer": "0xa7b39d1213c30e85af2bcbe3945a75892e1d1724",
       "reason": "duplicate submission to same bounty"
     },
     {
