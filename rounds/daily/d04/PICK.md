@@ -171,3 +171,26 @@ come-through, the date, the place, the lineup by name and the after-party.
 
 **Not yet decided, and both are tonight's:** which entry wins, and whether he watches before
 picking. Both are on the board as #250 and #239.
+
+---
+
+## The field at the close is SIX, not five. Correction written 2026-09-28 11:52 EDT
+
+**Two lines above are now wrong and are kept as the record of when they were written:** the
+RULED section's *"the field is five and it is settled for tonight"* (09:48 EDT) and the 08:55
+section's *"The field is now five"*. Both were true when written.
+
+**Claim 8341, @dee-13, arrived 21 minutes before the 5pm close.** The watcher's close record
+(`closeout.json`, promise "EVERYONE WHO ENTERS GETS WRITTEN NOTES") reads: *"CONFIRMED IN: 6
+claim(s) seen before the close - 8239, 8240, 8312, 8326, 8332, 8341."* It is in the field.
+
+**8341 has been watched and has notes** (`data/feedback/d04.json`). All four facts are on the
+piece, over real photographs of the Franklin Street Parklet, but **no two of them are ever on
+screen at the same moment**, and it ends on FREE TO ATTEND alone. Against rule 4's three-second
+glance that is the opposite of 8239's locked banner.
+
+**The recommendation is unchanged: 8239, @assay.** Add 8341 to the transaction table's options
+at 432 like the others; read its on-chain claim id at accept time.
+
+**Not settled at the time of writing:** bounty 1418 read **OPEN, no winner set** from
+`scripts/query-bounty.py` at 11:37 EDT on 28 September, about 18.5 hours past the stated close.
