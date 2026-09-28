@@ -7,7 +7,7 @@ import { notesFrom } from './feedback';
 import { fetchLiveBounty } from './poidh';
 import { claimsFor } from './claims';
 import { buildPeople } from './people';
-import { publicRounds } from './rounds';
+import { personBountyIds, publicRounds } from './rounds';
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://poidhz.com';
 export { sources };
@@ -36,7 +36,7 @@ export async function loadBounty(id: number) {
 
 export async function loadPeople() {
   const all = await loadAll();
-  const ids = publicRounds(all.rounds).filter((r) => r.status !== 'CANCELED').map((r) => r.bounty_id!);
+  const ids = personBountyIds(all.rounds);
   const lives = await Promise.all(ids.map((id) => fetchLiveBounty(id, sources.chain_id)));
   const claims = ids.flatMap((id, i) => claimsFor(id, lives[i], all.snapshot).claims);
   const winners = all.rounds.map((r) => r.winner).filter(Boolean) as Winner[];

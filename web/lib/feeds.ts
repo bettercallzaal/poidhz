@@ -22,7 +22,7 @@ export function roundsFeed(rounds: Round[], now: Date, site: string, channel: st
 
 export function llmsTxt(feed: ReturnType<typeof roundsFeed>, site: string): string {
   const open = feed.open.length
-    ? feed.open.map((r) => `- ${r.title}: ${r.board_url} (poidh: ${r.url}). Closes ${r.closes_at ?? 'UNKNOWN'}. Pot about $${r.pot_usd?.toFixed(2) ?? 'UNKNOWN'}. entries so far: ${countText(r.claims)}`).join('\n')
+    ? feed.open.map((r) => `- ${r.title}: ${r.board_url} (poidh: ${r.url}). Closes ${r.closes_at ?? 'UNKNOWN'}. Pot ${r.pot_usd === null ? 'UNKNOWN' : `about $${r.pot_usd.toFixed(2)}`}. entries so far: ${countText(r.claims)}`).join('\n')
     : '- None open right now. Poll the feed below.';
   return `# poidhz
 

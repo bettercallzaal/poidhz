@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import fx from '../test/fixtures/rounds-live.json';
-import { roundPhase, publicRounds } from './rounds';
+import { roundPhase, publicRounds, personBountyIds } from './rounds';
 import { countText, shortAddr, usd } from './format';
 import type { Round } from './types';
 
@@ -24,4 +24,8 @@ describe('format', () => {
   it('unknown count is UNKNOWN, never 0', () => { expect(countText(null)).toBe('UNKNOWN'); expect(countText(undefined)).toBe('UNKNOWN'); expect(countText(0)).toBe('0'); });
   it('shortAddr', () => expect(shortAddr('0x5dc697f2799bd232cad2d479c379ff305b699f9b')).toBe('0x5dc6...9f9b'));
   it('usd', () => { expect(usd(13.2706)).toBe('$13.27'); expect(usd(null)).toBe('UNKNOWN'); });
+});
+
+describe('personBountyIds', () => {
+  it('includes canceled rounds so their entrants still have pages', () => expect(personBountyIds(rs)).toEqual([1249, 1412, 1418, 1421]));
 });

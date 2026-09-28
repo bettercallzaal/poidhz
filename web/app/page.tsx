@@ -5,7 +5,8 @@ import { countText, roundName, usd } from '@/lib/format';
 import { PhaseBadge } from '@/components/PhaseBadge';
 import type { Phase, Round } from '@/lib/types';
 
-export const revalidate = 300;
+// Phase is computed from the clock; a cached render would show a closed round as open.
+export const dynamic = 'force-dynamic';
 
 type Item = { r: Round; phase: Phase };
 

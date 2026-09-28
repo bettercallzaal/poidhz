@@ -22,3 +22,12 @@ describe('llmsTxt', () => {
   it('lists the open round with its close', () => expect(t).toContain('2026-10-05T17:00:00-04:00'));
   it('prints UNKNOWN for an unknown count', () => expect(t).toContain('entries so far: UNKNOWN'));
 });
+
+describe('llmsTxt with an unknown pot', () => {
+  it('prints UNKNOWN, not $UNKNOWN', () => {
+    const f = roundsFeed([{ round: 'x', bounty_id: 5, status: 'OPEN', amount_usd: null }], now, 'https://poidhz.com', 'zao');
+    const t = llmsTxt(f, 'https://poidhz.com');
+    expect(t).toContain('Pot UNKNOWN');
+    expect(t).not.toContain('$UNKNOWN');
+  });
+});

@@ -25,6 +25,8 @@ export function buildPeople(claims: Claim[], leaderboard: LeaderRow[], notes: Ma
 }
 
 export function findPerson(people: Person[], key: string): Person | undefined {
-  const k = decodeURIComponent(key).toLowerCase().replace(/^@/, '');
+  let raw = key;
+  try { raw = decodeURIComponent(key); } catch { return undefined; }
+  const k = raw.toLowerCase().replace(/^@/, '');
   return people.find((p) => p.wallet === k || (p.handle ?? '').toLowerCase() === k);
 }

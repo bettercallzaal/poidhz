@@ -36,3 +36,10 @@ describe('people', () => {
     expect(ps[0].key).toBe('assay');
   });
 });
+
+describe('findPerson with a malformed key', () => {
+  it('a broken percent-encoding is not found rather than thrown', () => {
+    expect(() => findPerson(people, '%E0%A4%A')).not.toThrow();
+    expect(findPerson(people, '%ZZ')).toBeUndefined();
+  });
+});

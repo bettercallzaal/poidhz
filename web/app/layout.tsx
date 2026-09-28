@@ -1,6 +1,7 @@
 import './globals.css';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import sources from '@/sources.json';
 
 export const metadata: Metadata = { title: 'poidhz - The ZAO bounty board', description: 'Paid bounties for The ZAO, judged in public, with notes for everyone who enters.' };
 
@@ -13,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/people">People</Link>
           <Link href="/gallery">Gallery</Link>
           <Link href="/submit">Submit</Link>
-          <a href="https://farcaster.xyz/~/channel/zao" className="ml-auto">/zao</a>
+          <a href={`https://farcaster.xyz/~/channel/${sources.channel}`} className="ml-auto">/{sources.channel}</a>
         </header>
         <main className="mx-auto max-w-4xl px-4 pb-16">{children}</main>
       </body>

@@ -5,8 +5,14 @@ const cors = [{ key: 'Access-Control-Allow-Origin', value: '*' }, { key: 'Cache-
 const config: NextConfig = {
   // Pages read public/data from disk at request time; make sure those files ship with the functions.
   outputFileTracingIncludes: { '/*': ['./public/data/**/*'] },
-  async rewrites() {
+  async redirects() {
     return [
+      { source: '/index.html', destination: '/', permanent: false },
+      { source: '/people.html', destination: '/people', permanent: false },
+    ];
+  },
+  async rewrites() {
+    const afterFiles = [
       { source: '/submit', destination: '/submit.html' },
       { source: '/gallery', destination: '/gallery.html' },
       { source: '/calendar', destination: '/calendar.html' },
@@ -21,9 +27,13 @@ const config: NextConfig = {
       { source: '/feedback/:bounty', destination: '/feedback/:bounty/index.html' },
       { source: '/feedback/:bounty/:handle', destination: '/feedback/:bounty/:handle.html' },
       { source: '/round/:n', destination: '/rounds/r:n/README.md' },
+      { source: '/round/:n/judging', destination: '/rounds/r:n/judging.html' },
       { source: '/zabal-gamez-brand', destination: '/assets/brand-kits/zabal-games/index.html' },
       { source: '/zabal-gamez-brand/:file', destination: '/assets/brand-kits/zabal-games/:file' },
     ];
+    // The old site had cleanUrls: any file.html was reachable without its extension.
+    const fallback = [{ source: '/:path*', destination: '/:path*.html' }];
+    return { beforeFiles: [], afterFiles, fallback };
   },
   async headers() {
     return [{ source: '/data/:path*', headers: cors }, { source: '/assets/brand-kits/:path*', headers: cors }];
