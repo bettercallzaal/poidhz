@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T22:23:46.132905+00:00",
+  "generated_at": "2026-09-28T00:57:21.344064+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -80,7 +80,7 @@
       "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
       "deadline_iso": "2026-09-27",
       "deadline_raw_text": "September 27",
-      "status": "upcoming",
+      "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1418"
     },
     {
