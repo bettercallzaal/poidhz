@@ -1,0 +1,7 @@
+{ "generated_at": "2026-09-28T04:00:00Z", "rounds": [
+  { "round": "4", "bounty_id": 1249, "status": "CANCELED", "claims": 2, "winner": null, "amount_usd": 36.6 },
+  { "round": "daily-03", "label": "Daily 3", "bounty_id": 1412, "closes_at": "2026-09-23T17:00:00-04:00", "status": "WINNER SET", "claims": 5, "winner": { "claim_id": 8149, "handle": "pascaline", "wallet": "0x5dc697f2799bd232cad2d479c379ff305b699f9b" }, "amount_usd": 13.27 },
+  { "round": "daily-04", "label": "Daily 4", "bounty_id": 1418, "closes_at": "2026-09-27T17:00:00-04:00", "status": "OPEN", "claims": 6, "winner": null, "amount_usd": 13.27 },
+  { "round": "daily-05", "label": "Daily 5", "bounty_id": 1421, "closes_at": "2026-10-05T17:00:00-04:00", "status": "OPEN", "claims": null, "winner": null, "amount_usd": 13.27 },
+  { "round": "7", "status": "DRAFT", "folder": "rounds/r7" }
+] }

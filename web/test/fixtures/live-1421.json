@@ -1,0 +1,4 @@
+{ "id": 1421, "title": "ZAOstock Round 5", "description": "SHIP CODE", "claims": [
+  { "claimId": 8338, "imageUrl": "https://opengraph.githubassets.com/1/x/352", "issuerAddress": "0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b", "farcasterHandle": null, "title": "PR #352", "description": "agent" },
+  { "claimId": 8310, "imageUrl": null, "issuerAddress": "0xCCC0000000000000000000000000000000000003", "farcasterHandle": "assay", "title": "WCAG", "description": "d" }
+], "accepted": [8310] }
