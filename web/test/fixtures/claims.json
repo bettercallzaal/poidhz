@@ -1,0 +1,4 @@
+{ "claims": [
+  { "bounty_id": 1421, "claim_id": 8304, "issuer": "0xAAA0000000000000000000000000000000000001", "title": "PR #316", "description": "d", "image_url": null, "accepted": false },
+  { "bounty_id": 1412, "claim_id": 8153, "issuer": "0xBBB0000000000000000000000000000000000002", "title": "Zaostock wont be this bad", "description": "d", "image_url": "https://x/img.png", "accepted": false }
+] }
