@@ -48,3 +48,4 @@ next-env.d.ts
 /public/gallery.html
 /public/calendar.html
 /legacy-api
+.env*.local
