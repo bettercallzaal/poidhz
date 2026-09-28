@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T15:41:04.409108+00:00",
+  "generated_at": "2026-09-28T22:10:34.924955+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -27,16 +27,6 @@
       "url": "https://poidh.xyz/base/bounty/1333"
     },
     {
-      "bounty_id": 1406,
-      "title": "offline AI app interface sketch \ud83d\udcf5",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.001,
-      "deadline_iso": "2026-09-26",
-      "deadline_raw_text": "September 26, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1406"
-    },
-    {
       "bounty_id": 1418,
       "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
@@ -45,6 +35,16 @@
       "deadline_raw_text": "September 27",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1418"
+    },
+    {
+      "bounty_id": 1448,
+      "title": "comment on this bounty page",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.004,
+      "deadline_iso": "2026-09-30",
+      "deadline_raw_text": "September 30th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1448"
     },
     {
       "bounty_id": 1419,
@@ -60,7 +60,7 @@
       "bounty_id": 1417,
       "title": "open a museum for one ordinary thing \ud83c\udfdb\ufe0f",
       "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
-      "amount_eth": 0.0015,
+      "amount_eth": 0.0031,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "30 September",
       "deadline_status": "upcoming",
