@@ -1,0 +1,118 @@
+{
+ "generated_at": "2026-09-29T18:30:20.074210+00:00",
+ "chain_id": 8453,
+ "scanned": 978,
+ "ours": [
+  {
+   "id": 1446,
+   "title": "Zaostock event",
+   "issuer": "0x2805e9dbce2839c5feae858723f9499f15fd88cf",
+   "amount_eth": 0.0115,
+   "created_at": "2026-09-27T22:51:51+00:00",
+   "status": "open",
+   "has_claims": false,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1446"
+  },
+  {
+   "id": 1421,
+   "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.005,
+   "created_at": "2026-09-26T02:26:45+00:00",
+   "status": "open",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1421"
+  },
+  {
+   "id": 1418,
+   "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.005,
+   "created_at": "2026-09-24T18:12:55+00:00",
+   "status": "open",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1418"
+  },
+  {
+   "id": 1412,
+   "title": "ZAOstock Round 3 - Anything But A Poster",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.005,
+   "created_at": "2026-09-23T11:42:15+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1412"
+  },
+  {
+   "id": 1410,
+   "title": "Make one piece of media for ZAOstock",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.005,
+   "created_at": "2026-09-22T02:11:59+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1410"
+  },
+  {
+   "id": 1409,
+   "title": "Make one piece of media for ZAOstock",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0061,
+   "created_at": "2026-09-21T03:11:09+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1409"
+  },
+  {
+   "id": 1330,
+   "title": "Best 60s clip from the WaveWarZ Twitch stream",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0238,
+   "created_at": "2026-08-21T10:33:45+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1330"
+  },
+  {
+   "id": 1180,
+   "title": "ZABAL GAMEZ AD",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.025,
+   "created_at": "2026-05-31T18:45:47+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1180"
+  },
+  {
+   "id": 1166,
+   "title": "Best 60s POIDH ad from Ep 19 w/ Kenny",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0105,
+   "created_at": "2026-05-09T23:05:49+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1166"
+  },
+  {
+   "id": 1151,
+   "title": "Find your favorite clip from BCZ YapZ Ep 17 (Hannah / Farm Drop) and post it to either X, Instagram, or YouTube with a written comment about what it says to you.",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0105,
+   "created_at": "2026-04-27T19:19:51+00:00",
+   "status": "closed",
+   "has_claims": true,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1151"
+  }
+ ],
+ "community": []
+}

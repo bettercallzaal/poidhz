@@ -12,6 +12,7 @@ describe('roundPhase', () => {
   it('open before close', () => expect(roundPhase(by(1421), now)).toBe('open'));
   it('past close with chain still OPEN is awaiting pick, not open', () => expect(roundPhase(by(1418), now)).toBe('awaiting-pick'));
   it('winner set is won', () => expect(roundPhase(by(1412), now)).toBe('won'));
+  it('a list-only closed bounty is closed', () => expect(roundPhase({ round: '#1', bounty_id: 1, status: 'CLOSED' }, now)).toBe('closed'));
   it('canceled stays canceled', () => expect(roundPhase(by(1249), now)).toBe('canceled'));
   it('OPEN with no closes_at is open', () => expect(roundPhase({ status: 'OPEN', round: 'x', bounty_id: 1 }, now)).toBe('open'));
 });
