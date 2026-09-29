@@ -24,5 +24,10 @@
       "link": "Link to the bounty you created on poidh",
       "about": "What your bounty asks, its deadline, and how you will run it"
     }
+  },
+  "vote": {
+    "bounty_id": 1418,
+    "heading": "Vote for Round 4 ZAOstock",
+    "advisory": "The community votes. Zaal makes the pick, and will say so if he goes against the vote."
   }
 }
