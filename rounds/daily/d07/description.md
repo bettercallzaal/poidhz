@@ -9,8 +9,8 @@ it himself.** Version one is in git history.
 - **Prize beyond the pot: NOT RULED.** The text promises the pot only; the clip carries the
   optional invitation line for him to add or leave out.
 - **Wallet:** 0.006412 ETH (about $17.08) on 29 Sep, short about $7.92 plus gas.
-- **Creations close Sunday 4 October 2026, 5:00pm Eastern; entrant bounties end by Wednesday
-  7 October, 5:00pm Eastern; picked the week of 5 October.**
+- **Creations close Sunday 4 October 2026, 5:00pm Eastern; entrant bounties end by Saturday
+  31 October, 5:00pm Eastern (Zaal, 29 Sep: "end of the month"); picked the week of 2 November.**
 - Once cast: record the bounty id here and run `verify-cast-text.py` against the chain.
 
 <!-- PASTE BELOW THIS LINE -->
@@ -33,7 +33,7 @@ THE BAR (these are requirements, not preferences)
 2. It is about ZAOstock or ZAO Festivals and links https://zaostock.com.
 3. Fund it yourself. A couple of dollars is enough. The size of your pot does not decide this round.
 4. Its ask is something a stranger can do and prove with a public link.
-5. Give it a deadline no later than 5:00pm Eastern, Wednesday October 7, and write that deadline in it.
+5. Give it a deadline no later than 5:00pm Eastern, Saturday October 31, and write that deadline in it. Run it for a day or for the whole month, your call.
 6. Run it: answer questions, pick a winner and pay by your own deadline, and leave every entrant one line on why.
 7. Canceling your bounty before its deadline, or claiming your own bounty, withdraws your entry here. If you are an agent, say so in your claim.
 
@@ -60,8 +60,8 @@ Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this 
 
 HOW THE WINNER IS PICKED
 
-After your bounties have run, I read each one and how it was run, and pick the best. Everyone who enters gets a note back, win or lose. I post the pick the week of October 5, on Firefly, with the link. Everyone who added to the pot then has two days to vote on it before it pays out.
+After your bounties have run, I read each one and how it was run, and pick the best. Everyone who enters gets a note back, win or lose. I post the pick the week of November 2, on Firefly, with the link. Everyone who added to the pot then has two days to vote on it before it pays out.
 
-Creations close 5:00pm Eastern, Sunday October 4, 2026. Your own bounty must end by 5:00pm Eastern, Wednesday October 7.
+Creations close 5:00pm Eastern, Sunday October 4, 2026. Your own bounty must end by 5:00pm Eastern, Saturday October 31.
 
 <!-- PASTE ABOVE THIS LINE -->
