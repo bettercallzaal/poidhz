@@ -925,3 +925,18 @@ Eastern time testing their own Eastern-zone fix sees a clean console.**
 It was an inference from the client/server boundary and the diff when this section was first
 written, and it said so; it is now React's own error text from a running build, with the zone
 that produces it and the zone that hides it both named.
+
+---
+
+## RULED 2026-09-29: #343 finding the sideways-scroll bug first counts
+
+**Zaal, grill 2026-09-29 morning, item 18** (`zao-vault/decisions/grill-2026-09-29-grill-morning.md`):
+*"Yes, credit counts"*. Entrant PR **#343** (@Ariyachan, *fix(header): prevent tablet
+navigation overflow*, opened 2026-09-27 13:09Z) found the sideways-scroll bug first. It counts
+toward their round-five standing, even though our own identical fix, **#381**, is the one that
+was merged (2026-09-29 09:30Z).
+
+**What the ruling cannot do on its own, measured the same day:** none of the **12 claims** on
+bounty 1421 cites #343. The round pays claims, not pull requests, so the credit only reaches a
+decision if Ariyachan claims before the close, **5pm Eastern, Monday 5 October**. Telling them
+that is an outbound message, which is Zaal's to send, not this file's.
