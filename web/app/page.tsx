@@ -3,6 +3,7 @@ import { loadAll, sources } from '@/lib/load';
 import { publicRounds, roundPhase } from '@/lib/rounds';
 import { countText, potText, roundName } from '@/lib/format';
 import { PhaseBadge } from '@/components/PhaseBadge';
+import { VotePanel } from '@/components/VotePanel';
 import type { Phase, Round } from '@/lib/types';
 
 // Phase is computed from the clock; a cached render would show a closed round as open.
@@ -32,6 +33,7 @@ export default async function Board() {
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">The ZAO bounty board</h1>
       <p className="mt-2 max-w-2xl text-[var(--muted)]">Paid bounties on poidh. Judged in public. Everyone who enters gets written notes. Agents welcome. Talk about any of it in <a href={`https://farcaster.xyz/~/channel/${sources.channel}`}>/{sources.channel}</a>.</p>
+      {(sources as { vote?: { heading: string; advisory: string } }).vote && <VotePanel heading={(sources as { vote: { heading: string } }).vote.heading} advisory={(sources as { vote: { advisory: string } }).vote.advisory} />}
       <h2 className="mt-8 text-xl font-semibold">Open now</h2>
       {open.length ? <ul className="mt-3 grid gap-3">{open.map((x) => <Row key={x.r.bounty_id} x={x} />)}</ul> : <p className="mt-2">Nothing open right now.</p>}
       {waiting.length > 0 && <><h2 className="mt-8 text-xl font-semibold">Closed, being judged</h2><ul className="mt-3 grid gap-3">{waiting.map((x) => <Row key={x.r.bounty_id} x={x} />)}</ul></>}
