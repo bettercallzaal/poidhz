@@ -18,5 +18,11 @@
   "issuer_names": {
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af": "bettercallzaal",
     "0x2805e9dbce2839c5feae858723f9499f15fd88cf": "presdency.eth"
+  },
+  "entry_hints": {
+    "1453": {
+      "link": "Link to the bounty you created on poidh",
+      "about": "What your bounty asks, its deadline, and how you will run it"
+    }
   }
 }

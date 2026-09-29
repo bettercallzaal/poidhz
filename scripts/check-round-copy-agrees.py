@@ -85,7 +85,7 @@ def check_round(round_dir: Path) -> tuple[bool, list[str]]:
         return False, [f"FAIL: {round_dir} has no description.md"]
 
     body = paste_body(desc.read_text())
-    m = re.search(r"(?im)^\s*Submissions close\s+(.+?)[,.]", body)
+    m = re.search(r"(?im)^\s*(?:Submissions|Creations) close\s+(.+?)[,.]", body)
     if not m:
         return False, [f"FAIL: {desc} - no 'Submissions close ...' line in the cast text, so "
                        f"there is no deadline to check the copy against"]
@@ -179,6 +179,18 @@ def _selftest() -> bool:
         ok, f = check_round(r)
         check("a description with no close line fails, it does not silently pass",
               not ok and any("no 'Submissions close" in x for x in f))
+
+        # Round seven (bounty 1453, cast 2026-09-29) says "Creations close", because entrants create
+        # a bounty. Immutable on chain, so the check reads that wording rather than failing a
+        # round that does state its deadline.
+        r.joinpath("description.md").write_text(
+            f"{PASTE_START}\nCreations close 5:00pm Eastern, Sunday October 4, 2026.\n{PASTE_END}\n")
+        r.joinpath("DISTRIBUTION.md").write_text("Make yours by 5pm Eastern Sunday.\n")
+        ok, _ = check_round(r)
+        check("a 'Creations close' deadline is read and matching copy passes", ok)
+        r.joinpath("DISTRIBUTION.md").write_text("Make yours by 6pm Eastern Sunday.\n")
+        ok, f = check_round(r)
+        check("and copy on the wrong time against it still fails", not ok and any("never states" in x for x in f))
 
         # --- the retrospective exemption, added 2026-09-22 ---
         r.joinpath("description.md").write_text(desc)

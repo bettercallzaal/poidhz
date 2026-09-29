@@ -1,8 +1,19 @@
 {
- "generated_at": "2026-09-29T20:56:11.506180+00:00",
+ "generated_at": "2026-09-29T21:21:53.020193+00:00",
  "chain_id": 8453,
- "scanned": 978,
+ "scanned": 979,
  "ours": [
+  {
+   "id": 1453,
+   "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0115,
+   "created_at": "2026-09-29T21:17:57+00:00",
+   "status": "open",
+   "has_claims": false,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1453"
+  },
   {
    "id": 1446,
    "title": "Zaostock event",
