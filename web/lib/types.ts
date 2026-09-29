@@ -3,8 +3,9 @@ export type Round = {
   round: string | number; label?: string | null; folder?: string | null; closes_at?: string | null;
   bounty_id?: number; title?: string; bounty_title?: string; url?: string; status: string;
   amount_usd?: number | null; claims?: number | null; winner?: Winner | null;
+  created_at?: string | null; amount_eth?: number | null; cast_by?: string | null;
 };
-export type Phase = 'open' | 'awaiting-pick' | 'won' | 'canceled';
+export type Phase = 'open' | 'awaiting-pick' | 'won' | 'canceled' | 'closed';
 export type Claim = {
   claim_id: number; bounty_id: number; wallet: string; title: string; description: string;
   image_url: string | null; accepted: boolean; handle: string | null;

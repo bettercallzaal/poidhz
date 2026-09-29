@@ -8,6 +8,7 @@ import { fetchLiveBounty } from './poidh';
 import { claimsFor } from './claims';
 import { buildPeople } from './people';
 import { personBountyIds, publicRounds } from './rounds';
+import { mergeBounties, type ZaoList } from './zao';
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://poidhz.com';
 export { sources };
@@ -19,11 +20,14 @@ export async function loadAll() {
   const issuers = new Set(sources.issuers.map((a: string) => a.toLowerCase()));
   const snapshot = await json('claims.json');
   const issuerOf = new Map<number, string>(snapshot.bounties.map((b: any) => [Number(b.id), String(b.issuer).toLowerCase()]));
-  const rounds = (live.rounds as Round[]).filter((r) => r.bounty_id === undefined || !issuerOf.has(r.bounty_id) || issuers.has(issuerOf.get(r.bounty_id)!));
+  const tracked = (live.rounds as Round[]).filter((r) => r.bounty_id === undefined || !issuerOf.has(r.bounty_id) || issuers.has(issuerOf.get(r.bounty_id)!));
+  // The full scan is optional: without it the board still shows every tracked round.
+  const list = (await json('zao-bounties.json').catch(() => null)) as ZaoList;
+  const rounds = mergeBounties(tracked, list, (sources as { issuer_names?: Record<string, string> }).issuer_names ?? {});
   const files = (await readdir(join(DATA, 'feedback'))).filter((f) => f.endsWith('.json'));
   const notes = notesFrom(await Promise.all(files.map((f) => json(join('feedback', f)))));
   const leaderboard = (await json('leaderboard.json')) as LeaderRow[];
-  return { rounds, roundsAsOf: live.generated_at as string, snapshot, leaderboard, notes };
+  return { rounds, roundsAsOf: live.generated_at as string, listAsOf: (list as { generated_at?: string } | null)?.generated_at ?? null, snapshot, leaderboard, notes };
 }
 
 export async function loadBounty(id: number) {

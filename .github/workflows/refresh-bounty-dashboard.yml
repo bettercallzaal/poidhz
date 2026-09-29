@@ -56,6 +56,15 @@ jobs:
       - name: Refresh live round state
         run: python3 scripts/refresh-rounds.py
 
+      - name: List every ZAO bounty on poidh
+        # Added 2026-09-29. The board listed only rounds typed into org.config.json, so round
+        # six (1446, cast by @presdency.eth) never appeared. This scans poidh's whole feed and
+        # writes data/zao-bounties.json. It exits 2 on a failed or empty read rather than
+        # writing an empty list; continue-on-error keeps the last good file and lets the rest
+        # of the refresh land.
+        continue-on-error: true
+        run: python3 scripts/build-zao-bounties.py
+
       - name: Bake the round state into index.html
         # Added 2026-09-24. Without this the homepage served ZERO round data - measured:
         # `curl https://poidhz.com/` returned 17,546 bytes with no occurrence of 1412, 1410,
@@ -146,7 +155,7 @@ jobs:
           # it is a real change. Leaving it out would mean the rebuild step above runs every
           # hour and ships nothing, which is how the page came to advertise a settled round as
           # OPEN NOW.
-          FILES="data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html gallery.html feedback"
+          FILES="data/zao-bounties.json data/bounty-dashboard.json data/bounty-calendar.json data/poidh-deadlines-global.json data/poidh-deadlines.ics data/rounds-live.json index.html gallery.html feedback"
           if ! git diff --quiet -I '"generated_at"' -I '"token_usd_prices_source"' -I '^DTSTAMP' -- $FILES; then
             git add $FILES
             git commit -m "chore: auto-refresh bounty dashboard + deadline calendar data (refresh-bounty-dashboard.yml)"

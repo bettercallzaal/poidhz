@@ -2,6 +2,7 @@ import type { Phase, Round } from './types';
 export function roundPhase(r: Round, now: Date): Phase {
   if (r.status === 'CANCELED') return 'canceled';
   if (r.winner || r.status === 'WINNER SET') return 'won';
+  if (r.status === 'CLOSED') return 'closed';
   if (r.closes_at && new Date(r.closes_at).getTime() <= now.getTime()) return 'awaiting-pick';
   return 'open';
 }
