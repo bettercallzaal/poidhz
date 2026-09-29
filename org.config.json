@@ -32,7 +32,8 @@
     1410,
     1412,
     1418,
-    1421
+    1421,
+    1453
   ],
   "default_chain_id": 8453,
   "site_url": "https://poidhz.com",
@@ -117,6 +118,19 @@
       "closes_at": "2026-10-05T17:00:00-04:00",
       "closes_after_event_on_purpose": "The repo outlives the festival. Every other round is promo and must close before October 3; this one is deliberately after it.",
       "note": "CAST 2026-09-25 22:2x by Zaal, after Kenny reviewed the draft and cleared it. Cast text verified against the chain: PASS at 7,934 characters. Pot at cast is 0.004 ETH, not the 0.005 the pre-cast check modelled - his call at the form. First code round, first round requiring the /submit receipt, first round with no REWARD section in its description."
+    },
+    {
+      "round": "daily-07",
+      "label": "Daily 7",
+      "bounty_id": 1453,
+      "onchain_id": 467,
+      "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+      "folder": "rounds/daily/d07",
+      "kind": "media",
+      "pot_at_cast_eth": 0.01,
+      "closes_at": "2026-10-04T17:00:00-04:00",
+      "entrant_bounties_end": "2026-10-31T17:00:00-04:00",
+      "note": "CAST 2026-09-29 17:17 EDT by Zaal. Creations close Sunday 4 Oct 5pm ET; entrants' own bounties must end by Saturday 31 Oct 5pm ET; picked the week of 2 Nov. Cast text verified: PASS at 3,031 characters."
     }
   ],
   "planned_rounds": [
