@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-29T16:00:50.450582+00:00",
+  "generated_at": "2026-09-29T20:55:24.448562+00:00",
   "token_usd_prices": {},
   "token_usd_prices_source": null,
   "scoring_methodology": "ease and difficulty are a KEYWORD-BASED HEURISTIC estimate (see score_bounty() in scripts/build-bounty-dashboard.py), not a human or LLM judgment reading the actual bounty bar. Treat as a rough sort signal, not ground truth. 'unclassified' bounties got a flat default (6/10 ease, 5/10 difficulty) because no keyword bucket matched their title/description.",
-  "total_bounties": 124,
-  "with_deadline": 24,
-  "with_submissions_already": 64,
+  "total_bounties": 125,
+  "with_deadline": 25,
+  "with_submissions_already": 65,
   "bounties": [
     {
       "bounty_id": 1062,
@@ -467,6 +467,28 @@
       "task_type": "code",
       "ease": 3,
       "difficulty": 8,
+      "classified": true
+    },
+    {
+      "bounty_id": 1452,
+      "chain_id": 8453,
+      "title": "upload a real pic you took outside \ud83d\uddbc\ufe0f",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "created_at": 1790706193,
+      "status": "open",
+      "is_multiplayer": true,
+      "is_voting": false,
+      "has_submissions": true,
+      "has_participants": false,
+      "amount_native": 0.0022,
+      "amount_token_symbol": "ETH",
+      "amount_usd": null,
+      "deadline_iso": "2026-10-06",
+      "deadline_raw_text": "October 6th",
+      "url": "https://poidh.xyz/base/bounty/1452",
+      "task_type": "photo",
+      "ease": 9,
+      "difficulty": 2,
       "classified": true
     },
     {
