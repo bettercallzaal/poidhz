@@ -8,7 +8,8 @@
     1410,
     1412,
     1418,
-    1421
+    1421,
+    1453
   ],
   "chainId": 8453,
   "issuers": [
@@ -18,7 +19,7 @@
   "total_claims_accepted": 61,
   "total_claims_rejected": 12,
   "submitter_count": 49,
-  "total_eth_escrow": 0.0959,
+  "total_eth_escrow": 0.1074,
   "bounties": [
     {
       "id": 1151,
@@ -136,6 +137,19 @@
       "is_voting": false,
       "is_canceled": false,
       "claims_count": 6
+    },
+    {
+      "id": 1453,
+      "chainId": 8453,
+      "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+      "description": "RUN A BOUNTY FOR ZAOSTOCK.\n\nCreate your own bounty on poidh about ZAOstock or ZAO Festivals, run it well, and claim here with its link. The best-run bounty wins this one. We are looking for people who can write a bounty AND run it, because that is who we want making bounties for The ZAO next.\n\nZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Fre",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.0115,
+      "in_progress": true,
+      "is_voting": false,
+      "is_canceled": false,
+      "claims_count": 0
     }
   ],
   "claims": [
