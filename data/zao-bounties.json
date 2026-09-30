@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-30T13:58:52.316544+00:00",
+ "generated_at": "2026-09-30T19:31:55.273528+00:00",
  "chain_id": 8453,
- "scanned": 980,
+ "scanned": 981,
  "ours": [
   {
    "id": 1453,
@@ -10,7 +10,7 @@
    "amount_eth": 0.0115,
    "created_at": "2026-09-29T21:17:57+00:00",
    "status": "open",
-   "has_claims": false,
+   "has_claims": true,
    "multiplayer": true,
    "url": "https://poidh.xyz/base/bounty/1453"
   },
