@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T20:55:31.231360+00:00",
+  "generated_at": "2026-09-30T00:36:26.904138+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -10,7 +10,7 @@
       "bounty_id": 1192,
       "title": "Help Fund A Theoretical Neuroscience Paper",
       "issuer": "0x18a85ad341b2d6a2bd67fbb104b4827b922a2a3c",
-      "amount_eth": 0.0185,
+      "amount_eth": 0.0195,
       "deadline_iso": "2026-06-28",
       "deadline_raw_text": "June 28",
       "deadline_status": "past",
@@ -165,6 +165,16 @@
       "deadline_raw_text": "October 2",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1367"
+    },
+    {
+      "bounty_id": 1453,
+      "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "amount_eth": 0.0115,
+      "deadline_iso": "2026-10-04",
+      "deadline_raw_text": "October 4",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1453"
     },
     {
       "bounty_id": 1447,

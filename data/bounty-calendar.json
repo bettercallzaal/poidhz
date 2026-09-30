@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T20:55:34.845219+00:00",
+  "generated_at": "2026-09-30T00:36:30.816446+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -82,6 +82,15 @@
       "deadline_raw_text": "September 27",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1418"
+    },
+    {
+      "round": "daily-07",
+      "bounty_id": 1453,
+      "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+      "deadline_iso": "2026-10-04",
+      "deadline_raw_text": "October 4",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1453"
     },
     {
       "round": "daily-05",
