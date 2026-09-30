@@ -194,3 +194,30 @@ at 432 like the others; read its on-chain claim id at accept time.
 
 **Not settled at the time of writing:** bounty 1418 read **OPEN, no winner set** from
 `scripts/query-bounty.py` at 11:37 EDT on 28 September, about 18.5 hours past the stated close.
+
+---
+
+## PICKED: 8341, @dee-13. Zaal, 2026-09-30 06:33 EDT
+
+**Zaal picked claim 8341 (@dee-13), on-chain claim 3025**, after asking to review all six entries
+himself. The review page gave him every video, its measured length and frame, its X numbers and
+the notes. This file had recommended 8239 (@assay); **the pick is his, and the recommendation
+stays in the record above as what it was.**
+
+**What 8341 is:** 24 seconds over real photographs of the Franklin Street Parklet, with nothing
+generated and nothing stock. Every required fact is on the piece. On X it had 128 views, 2 likes,
+1 repost and 1 reply when read on 29 Sep.
+
+**The community vote had no say.** The advisory "Vote for Round 4 ZAOstock" section (#223) went
+live on 29 Sep, but its storage was never connected: `/api/vote` reported storeReady=false and 0
+votes on the morning of the pick. It is removed from the main page in the same change that
+records this.
+
+**Still to do on-chain, Zaal's taps:** accept claim 3025 on bounty 1418 (on-chain 432). The bounty
+is an OPEN bounty others joined, so that starts poidh's two-day contributor vote, and
+`resolveVote(432)` afterwards pays out.
+
+**Owed to the field:** the winner post (round four's text says "on Firefly, everywhere at once,
+with the link"). @dee-13's notes (`data/feedback/d04.json`) were written before the pick, so they
+lead with what to fix. They read as notes to a winner too, but a line naming the win belongs in
+the announcement, not in a rewrite of notes already published.
