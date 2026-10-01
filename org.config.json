@@ -33,7 +33,8 @@
     1412,
     1418,
     1421,
-    1453
+    1453,
+    1460
   ],
   "default_chain_id": 8453,
   "site_url": "https://poidhz.com",
@@ -131,6 +132,18 @@
       "closes_at": "2026-10-04T17:00:00-04:00",
       "entrant_bounties_end": "2026-10-31T17:00:00-04:00",
       "note": "CAST 2026-09-29 17:17 EDT by Zaal. Creations close Sunday 4 Oct 5pm ET; entrants' own bounties must end by Saturday 31 Oct 5pm ET; picked the week of 2 Nov. Cast text verified: PASS at 3,031 characters."
+    },
+    {
+      "round": "daily-08",
+      "label": "Daily 8",
+      "bounty_id": 1460,
+      "onchain_id": 474,
+      "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "folder": "rounds/daily/d08",
+      "kind": "media",
+      "pot_at_cast_eth": 0.0186,
+      "closes_at": "2026-10-02T17:00:00-04:00",
+      "note": "CAST 2026-10-01 11:30 EDT by Zaal. Closes Friday 2 Oct 5pm ET; pick Friday evening. Cast text equals the repo body plus one trailing paste-marker line (see rounds/daily/d08/description.md)."
     }
   ],
   "planned_rounds": [

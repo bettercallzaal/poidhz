@@ -1,4 +1,19 @@
-# Daily 08 - ZAOstock Round 8, cut the Star 97.7 radio session for Instagram (DRAFT, NOT CAST)
+# Daily 08 - ZAOstock Round 8, cut the Star 97.7 radio session for Instagram (CAST)
+
+**CAST 2026-10-01 11:30 EDT by Zaal: bounty <https://poidh.xyz/base/bounty/1460>, on-chain 474,
+chain 8453, OPEN.** Pot at cast **0.0186 ETH** (about $49.60 at poidh's read), not the 0.0019
+suggested below; his call at the form.
+
+**The cast text carries ONE extra line that this file does not: the closing paste marker (the
+HTML comment that ends the paste body below) was pasted in with the body, so it is the last
+line on chain.** It is described rather than quoted here, because quoting it in this header
+broke every tool that finds the body by that marker.
+`verify-cast-text.py --round rounds/daily/d08 --bounty 1460` reports FAIL for that reason alone:
+live 6,908 chars / 94 lines, file 6,876 / 92. Measured the same minute: the on-chain text with
+that one line removed equals this file's paste body exactly. The bounty cannot change, so the
+difference is recorded here rather than hidden. No rule, date or link is affected.
+
+Everything below this note is the pre-cast header and the body as drafted.
 
 Drafted 2026-10-01 from Zaal's ask, typed in the seat pane that morning: *"make a bounty ...
 specifically for making this all one piece of content for our partners star 97.7 use my radio

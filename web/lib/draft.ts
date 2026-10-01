@@ -8,8 +8,9 @@ export type Draft = { title: string; body: string; cast: boolean };
 
 export function extractDraft(md: string): Draft | null {
   const a = md.indexOf(START);
-  const b = md.indexOf(END);
-  if (a < 0 || b < 0 || b < a) return null;
+  // The closing marker is the first one AFTER the opening marker; a header may quote it.
+  const b = a < 0 ? -1 : md.indexOf(END, a + START.length);
+  if (a < 0 || b < 0) return null;
   const body = md.slice(a + START.length, b).trim();
   if (!body) return null;
   const heading = md.split('\n')[0] ?? '';

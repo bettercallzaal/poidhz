@@ -1,8 +1,19 @@
 {
- "generated_at": "2026-10-01T13:36:30.336492+00:00",
+ "generated_at": "2026-10-01T15:34:03.447413+00:00",
  "chain_id": 8453,
- "scanned": 983,
+ "scanned": 984,
  "ours": [
+  {
+   "id": 1460,
+   "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.0186,
+   "created_at": "2026-10-01T15:30:11+00:00",
+   "status": "open",
+   "has_claims": false,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1460"
+  },
   {
    "id": 1453,
    "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",

@@ -23,7 +23,7 @@ function Row({ x }: { x: Item }) {
 }
 
 export default async function Board() {
-  const { rounds, roundsAsOf, listAsOf } = await loadAll();
+  const { rounds, roundsAsOf, listAsOf, community } = await loadAll();
   // A community vote shows only while sources.json names one.
   const vote = (sources as { vote?: { heading: string; advisory: string } }).vote;
   const now = new Date();
@@ -57,6 +57,20 @@ export default async function Board() {
           </tbody>
         </table>
       </div>
+      {community.length > 0 && (
+        <>
+          <h2 className="mt-10 text-xl font-semibold">Bounties the community made about ZAOstock</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">Not ours. Other people funded and run these; each one is judged and paid by whoever made it.</p>
+          <ul className="mt-3 grid gap-3">
+            {community.map((b) => (
+              <li key={b.id} className="rounded-lg border border-[var(--line)] p-4">
+                <a href={b.url} target="_blank" rel="noopener ugc" className="text-lg font-semibold">{b.title}</a>
+                <p className="text-sm text-[var(--muted)]">Pot {b.amount_eth != null ? `${b.amount_eth} ETH` : 'UNKNOWN'} - {b.status} - made by {b.issuer.slice(0, 6)}...{b.issuer.slice(-4)}{b.has_claims ? ' - has entries' : ''}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <p className="mt-8 text-xs text-[var(--muted)]">Round records as of {roundsAsOf}{listAsOf ? `; full poidh scan as of ${listAsOf}` : '; the full poidh scan has not run, so only tracked rounds are listed'}. Machine-readable: <a href="/rounds.json">/rounds.json</a>, <a href="/llms.txt">/llms.txt</a>.</p>
     </>
   );
