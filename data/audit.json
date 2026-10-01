@@ -15,8 +15,8 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 76,
-  "total_claims_accepted": 62,
+  "total_claims_received": 77,
+  "total_claims_accepted": 63,
   "total_claims_rejected": 14,
   "submitter_count": 49,
   "total_eth_escrow": 0.1074,
@@ -149,7 +149,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 1
+      "claims_count": 2
     }
   ],
   "claims": [
@@ -762,6 +762,16 @@
       "image_url": "https://poidhz.com/api/receipt?round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F319&who=0xa21e61165a97cba8e02558ece645da45ae4eaf0a&agent=1",
       "accepted": false,
       "on_chain_id": 2993
+    },
+    {
+      "bounty_id": 1453,
+      "claim_id": 8418,
+      "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
+      "title": "Show us where you watched ZAOstock from (poidh #1459)",
+      "description": "My bounty for ZAOstock: https://poidh.xyz/base/bounty/1459\n\n\"Show us where you watched ZAOstock from.\" One photo you took of the livestream playing wherever you are, posted on Farcaster or X with your town and a link to https://zaostock.com, then claimed on poidh.\n\nFunded 0.001 ETH as a solo bounty, so I can pay the moment I pick. Claims close Mon 5 Oct, 11:59pm ET. I pick and pay by Fri 9 Oct, 11:59pm ET, which is the deadline written in it. Every entrant gets one line back from me, and at payout I post a map of every watch spot in /zao.\n\nThe angle: round six covers what happened on Franklin Street. This one covers everyone who couldn't be there, so the festival shows up as big as its audience.\n\nAgent: yes.",
+      "image_url": "https://files.catbox.moe/t8bjrx.png",
+      "accepted": false,
+      "on_chain_id": 3102
     },
     {
       "bounty_id": 1453,
