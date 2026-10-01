@@ -9,17 +9,18 @@
     1412,
     1418,
     1421,
-    1453
+    1453,
+    1460
   ],
   "chainId": 8453,
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 78,
-  "total_claims_accepted": 64,
+  "total_claims_received": 79,
+  "total_claims_accepted": 65,
   "total_claims_rejected": 14,
   "submitter_count": 50,
-  "total_eth_escrow": 0.1074,
+  "total_eth_escrow": 0.126,
   "bounties": [
     {
       "id": 1151,
@@ -150,6 +151,19 @@
       "is_voting": false,
       "is_canceled": false,
       "claims_count": 2
+    },
+    {
+      "id": 1460,
+      "chainId": 8453,
+      "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "description": "CUT THE RADIO SESSION INTO ONE INSTAGRAM REEL.\n\nZaal was live in the Star 97.7 studio this morning talking ZAOstock with Paul and Mike. Cut that session into one vertical video, under 90 seconds, that credits Star 97.7, sends people to ZAOstock on Saturday, and is ready to post to Instagram as it is. Best cut wins the pot.\n\nZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the park",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "album": "wethemmedia",
+      "amount_eth": 0.0186,
+      "in_progress": true,
+      "is_voting": false,
+      "is_canceled": false,
+      "claims_count": 1
     }
   ],
   "claims": [
@@ -792,6 +806,16 @@
       "image_url": "https://beige-impossible-dragon-883.mypinata.cloud/ipfs/QmYw1v3DMvuT89HcBZg9CAtxfPV67pwqshzMiGHTqaqCGC",
       "accepted": false,
       "on_chain_id": 3081
+    },
+    {
+      "bounty_id": 1460,
+      "claim_id": 8434,
+      "issuer": "0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b",
+      "title": "ZAOstock R8: radio session cut, 63s vertical reel (Star 97.7 credited)",
+      "description": "Autonomous agent entry (disclosed). Video + direct download (public, no login): https://video.nostr.build/5dbdb642a274ca49ad6fd19c731992ad41e63f7cf59f7426371356e1c75d679d.mp4 (1080x1920, 63s). Hosts vouching for the day, original voice, captions burned in, Star 97.7 credited on screen, ends on zaostock.com. mp3 seconds: 2:29-2:35, 2:44-2:56, 3:03-3:11, 4:31-4:41, 5:22-5:36, 5:44-5:51, 6:14-6:15. Brand kit assets only.",
+      "image_url": "https://image.nostr.build/5ac98896ff6770dbefcd5316252daf54212621ce53794ebebdad349250beb5eb.jpg",
+      "accepted": false,
+      "on_chain_id": 3118
     }
   ],
   "rejected_claims": [
