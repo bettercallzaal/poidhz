@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T13:36:23.792391+00:00",
+  "generated_at": "2026-10-01T15:33:57.739113+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
@@ -14,7 +14,7 @@
       "url": "https://poidh.xyz/base/bounty/1151",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 28.26978,
+      "amount_usd": 28.22337,
       "claims": 11,
       "winner": {
         "claim_id": 6368,
@@ -35,7 +35,7 @@
       "url": "https://poidh.xyz/base/bounty/1166",
       "status": "WINNER SET",
       "amount_native": 0.0105,
-      "amount_usd": 28.26978,
+      "amount_usd": 28.22337,
       "claims": 8,
       "winner": {
         "claim_id": 6645,
@@ -56,7 +56,7 @@
       "url": "https://poidh.xyz/base/bounty/1180",
       "status": "WINNER SET",
       "amount_native": 0.025,
-      "amount_usd": 67.309,
+      "amount_usd": 67.1985,
       "claims": 8,
       "winner": {
         "claim_id": 6749,
@@ -77,7 +77,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 37.15457,
+      "amount_usd": 37.09357,
       "claims": 2,
       "winner": null,
       "offchain": true,
@@ -94,7 +94,7 @@
       "url": "https://poidh.xyz/base/bounty/1330",
       "status": "WINNER SET",
       "amount_native": 0.0238,
-      "amount_usd": 64.07817,
+      "amount_usd": 63.97297,
       "claims": 9,
       "winner": {
         "claim_id": 7795,
@@ -115,7 +115,7 @@
       "url": "https://poidh.xyz/base/bounty/1409",
       "status": "WINNER SET",
       "amount_native": 0.0061,
-      "amount_usd": 16.4234,
+      "amount_usd": 16.39643,
       "claims": 6,
       "winner": {
         "claim_id": 8086,
@@ -136,7 +136,7 @@
       "url": "https://poidh.xyz/base/bounty/1410",
       "status": "WINNER SET",
       "amount_native": 0.005,
-      "amount_usd": 13.4618,
+      "amount_usd": 13.4397,
       "claims": 8,
       "winner": {
         "claim_id": 8111,
@@ -157,7 +157,7 @@
       "url": "https://poidh.xyz/base/bounty/1412",
       "status": "WINNER SET",
       "amount_native": 0.005,
-      "amount_usd": 13.4618,
+      "amount_usd": 13.4397,
       "claims": 5,
       "winner": {
         "claim_id": 8149,
@@ -178,7 +178,7 @@
       "url": "https://poidh.xyz/base/bounty/1418",
       "status": "VOTING",
       "amount_native": 0.005,
-      "amount_usd": 13.4618,
+      "amount_usd": 13.4397,
       "claims": 6,
       "winner": null,
       "offchain": false,
@@ -195,7 +195,7 @@
       "url": "https://poidh.xyz/base/bounty/1421",
       "status": "OPEN",
       "amount_native": 0.005,
-      "amount_usd": 13.4618,
+      "amount_usd": 13.4397,
       "claims": 15,
       "winner": null,
       "offchain": false,
@@ -212,8 +212,25 @@
       "url": "https://poidh.xyz/base/bounty/1453",
       "status": "OPEN",
       "amount_native": 0.0115,
-      "amount_usd": 30.96214,
+      "amount_usd": 30.91131,
       "claims": 2,
+      "winner": null,
+      "offchain": false,
+      "offchain_note": null
+    },
+    {
+      "round": "daily-08",
+      "label": "Daily 8",
+      "folder": "rounds/daily/d08",
+      "closes_at": "2026-10-02T17:00:00-04:00",
+      "bounty_id": 1460,
+      "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "bounty_title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "url": "https://poidh.xyz/base/bounty/1460",
+      "status": "OPEN",
+      "amount_native": 0.0186,
+      "amount_usd": 49.603226,
+      "claims": 0,
       "winner": null,
       "offchain": false,
       "offchain_note": null

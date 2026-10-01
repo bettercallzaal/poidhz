@@ -50,3 +50,10 @@ describe('isHeading', () => {
   it('a list item is not', () => expect(isHeading('- VIDEO - THE LOGO')).toBe(false));
   it('a multi-line block is not', () => expect(isHeading('DEADLINE\nmore')).toBe(false));
 });
+
+describe('extractDraft with the marker quoted in the header', () => {
+  it('uses the closing marker that comes after the opening one', () => {
+    const d = extractDraft('# R (CAST)\nnote quoting <!-- PASTE ABOVE THIS LINE --> in passing\n<!-- PASTE BELOW THIS LINE -->\nBODY TEXT\n<!-- PASTE ABOVE THIS LINE -->\n');
+    expect(d?.body).toBe('BODY TEXT');
+  });
+});

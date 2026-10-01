@@ -27,7 +27,7 @@ export async function loadAll() {
   const files = (await readdir(join(DATA, 'feedback'))).filter((f) => f.endsWith('.json'));
   const notes = notesFrom(await Promise.all(files.map((f) => json(join('feedback', f)))));
   const leaderboard = (await json('leaderboard.json')) as LeaderRow[];
-  return { rounds, roundsAsOf: live.generated_at as string, listAsOf: (list as { generated_at?: string } | null)?.generated_at ?? null, snapshot, leaderboard, notes };
+  return { rounds, roundsAsOf: live.generated_at as string, listAsOf: (list as { generated_at?: string } | null)?.generated_at ?? null, community: (list?.community ?? []).filter((b) => b.status !== 'canceled'), snapshot, leaderboard, notes };
 }
 
 export async function loadBounty(id: number) {

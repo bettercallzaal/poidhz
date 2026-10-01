@@ -2,7 +2,7 @@ import type { Round } from './types';
 import { publicRounds } from './rounds';
 
 export type ListRow = { id: number; title: string; issuer: string; amount_eth: number | null; created_at: string | null; status: string; has_claims: boolean; url: string };
-export type ZaoList = { ours: ListRow[] } | null;
+export type ZaoList = { ours: ListRow[]; community?: ListRow[] } | null;
 
 const STATUS: Record<string, string> = { open: 'OPEN', voting: 'OPEN', closed: 'CLOSED', canceled: 'CANCELED' };
 

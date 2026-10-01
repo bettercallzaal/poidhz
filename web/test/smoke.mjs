@@ -27,6 +27,19 @@ for (const r of ['/rounds/r5/winner-announce.md', '/rounds/daily/d01/winner-anno
   if (miss !== 404) bad++;
   console.log(`${miss === 404 ? 'ok  ' : 'FAIL'} ${miss} /draft/d99 must 404`);
 }
+// Community bounties the scan found are shown on the board, and labelled as not ours.
+{
+  const list = await (await fetch(BASE + '/data/zao-bounties.json')).json();
+  const live = (list.community || []).filter((b) => b.status !== 'canceled');
+  const home = await (await fetch(BASE + '/')).text();
+  if (live.length === 0) console.log('ok   no community bounties in the scan, nothing to show (not a pass or a fail)');
+  else {
+    const shown = live.filter((b) => home.includes(`/bounty/${b.id}`)).length;
+    const ok = shown === live.length && home.includes('Not ours.');
+    if (!ok) bad++;
+    console.log(`${ok ? 'ok  ' : 'FAIL'} ${shown} of ${live.length} community bounties shown on the board`);
+  }
+}
 const nf = await fetch(BASE + '/b/999999');
 console.log(`${nf.status === 404 ? 'ok  ' : 'FAIL'} ${nf.status} /b/999999 must 404`); if (nf.status !== 404) bad++;
 
