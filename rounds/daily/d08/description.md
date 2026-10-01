@@ -33,7 +33,7 @@ Nothing here is cast, posted or sent.
 
 CUT THE RADIO SESSION INTO ONE INSTAGRAM REEL.
 
-Zaal was live in the Star 97.7 studio this morning talking ZAOstock with Paul and Mike. Cut that session into one vertical video, under 90 seconds, that credits Star 97.7 and is ready to post to Instagram as it is. Best cut wins the pot.
+Zaal was live in the Star 97.7 studio this morning talking ZAOstock with Paul and Mike. Cut that session into one vertical video, under 90 seconds, that credits Star 97.7, sends people to ZAOstock on Saturday, and is ready to post to Instagram as it is. Best cut wins the pot.
 
 ZAOstock is a free music festival on Saturday October 3, 2026, in Ellsworth, Maine. Franklin Street closes to traffic and eight independent acts play back to back on the parklet stage from noon to six. Free, all ages, rain or shine. It streams live at https://zaostock.com/live.
 
@@ -64,7 +64,7 @@ THE BAR (these are requirements, not preferences)
 
 1. Vertical, 1080x1920, 90 seconds or under, exported as a video file. It has to be postable to Instagram with no further editing.
 2. Credit Star 97.7 on screen, by name, for long enough to read. The audio already names the station; the text has to as well, because a reel plays muted first.
-3. Carry the three facts: ZAOstock, Saturday October 3, Ellsworth Maine. Noon to six and free are the next two.
+3. Carry the three facts: ZAOstock, Saturday October 3, Ellsworth Maine. Noon to six and free are the next two. End on the festival: the last frame shows zaostock.com, readable, for long enough to type.
 4. Captions, burned in, word for word to what is said. Most people will watch this with the sound off.
 5. The audio is the session. Use original voice from the mp3 or the VOD. No library music over speech. A quiet instrumental under it is fine if it never competes with a word.
 6. No editor watermark and no corner mark from any tool. It puts another brand on ours and on Star 97.7's.
@@ -76,6 +76,7 @@ THE BAR (these are requirements, not preferences)
 WHAT EARNS WEIGHT
 
 - It works muted. Date, place and the station are readable in the first three seconds without sound.
+- It sells the day, not the interview. Someone who has never heard of ZAOstock should finish it knowing where to be on Saturday and wanting to go.
 - It is one idea, not six minutes squeezed into ninety seconds. A cut built on one passage, with the facts on screen, beats a highlight reel.
 - Zaal and the hosts both get to speak. The hosts saying "this Saturday at noon" is worth more than Zaal saying it, because it is someone else vouching for the day.
 - The acts are spelled the way the lineup page spells them: https://zaostock.com/artists

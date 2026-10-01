@@ -14,6 +14,8 @@ New ZAOstock bounty: cut this morning's Star 97.7 radio session into one Instagr
 
 Zaal was live in the studio with Paul and Mike two days out. Make the vertical cut, under 90 seconds, captions on, Star 97.7 credited on screen. Best cut wins the pot.
 
+ZAOstock is Saturday October 3, Franklin Street, Ellsworth, noon to six, free. The cut has to send people there.
+
 Source mp3, transcript and the VOD are in the bounty. Closes 5pm Eastern Friday.
 
 https://poidh.xyz/base/bounty/<BOUNTY-ID>
@@ -24,7 +26,7 @@ https://poidh.xyz/base/bounty/<BOUNTY-ID>
 ```
 New ZAOstock bounty: cut this morning's Star 97.7 radio session into one Instagram reel.
 
-Vertical, under 90s, captions on, Star 97.7 credited. Best cut wins the pot. Source audio and transcript in the bounty.
+Vertical, under 90s, captions on, Star 97.7 credited, and it sends people to ZAOstock: Saturday Oct 3, Ellsworth, noon to six, free. Best cut wins the pot.
 
 Closes 5pm Eastern Friday.
 
@@ -34,7 +36,7 @@ https://poidh.xyz/base/bounty/<BOUNTY-ID>
 ## Block 3 - Telegram / GC / Discord
 
 ```
-New poidh bounty, closes Friday 5pm Eastern: cut Zaal's Star 97.7 radio session from this morning into one Instagram-ready reel. Vertical, under 90s, captions, Star 97.7 credited on screen. Source mp3 + transcript + Twitch VOD linked in the bounty. Best cut wins the pot.
+New poidh bounty, closes Friday 5pm Eastern: cut Zaal's Star 97.7 radio session from this morning into one Instagram-ready reel. Vertical, under 90s, captions, Star 97.7 credited on screen. It has to send people to ZAOstock: Saturday Oct 3, Franklin Street Ellsworth, noon to six, free, zaostock.com. Source mp3 + transcript + Twitch VOD linked in the bounty. Best cut wins the pot.
 
 https://poidh.xyz/base/bounty/<BOUNTY-ID>
 ```
