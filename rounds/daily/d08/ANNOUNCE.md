@@ -40,3 +40,19 @@ New poidh bounty, closes Friday 5pm Eastern: cut Zaal's Star 97.7 radio session 
 
 https://poidh.xyz/base/bounty/<BOUNTY-ID>
 ```
+
+## Zaal's hands, in the first hour after casting (from `docs/what-draws-entries-2026-10-01.md`)
+
+1. **Ask Kenny to boost.** Bounties someone other than the issuer boosted drew a median 5.5
+   entries against 1.5. DM text: `rounds/_template/cast-templates/catalytic-dm.md`. He has
+   boosted every BCZ round he was told about.
+2. **DM the six people who have entered three or more rounds**, by name, with the link. Three of
+   them have already cut video from the September radio interview. @joeyofdeus, @pascaline,
+   @dee-13, @taku0x, @assay, @coolhat.
+
+```
+New one, closes Friday 5pm ET: cut this morning's Star 97.7 radio session into one Instagram reel, under 90s, captions, station credited. You have done this shape before and done it well. https://poidh.xyz/base/bounty/<BOUNTY-ID>
+```
+
+3. **Post block 1 in /zao**, not only /poidh. The text names /zao as the room where entries get
+   seen; the room only works if the announcement is in it.

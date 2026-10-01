@@ -70,7 +70,7 @@ THE BAR (these are requirements, not preferences)
 6. No editor watermark and no corner mark from any tool. It puts another brand on ours and on Star 97.7's.
 7. Use the real brand assets, linked below. No redrawn moose, no invented people, no made-up band names. These are real artists playing a real show.
 8. UPLOAD ONE FRAME HERE AND PUT TWO LINKS IN YOUR CLAIM. poidh puts uploads on IPFS and takes images, not video. So upload a frame from your cut as the claim image, and in the description give (a) the public post or page where the video plays and (b) a direct download of the video file, Drive, Dropbox or similar, open to anyone with the link. The file is what gets posted and what partners reuse, so without the file link there is no entry.
-9. Tag @bettercallzaal on X or Farcaster if you post it publicly before the close. Not required; it is how you get notes back.
+9. Post your cut in the /zao channel on Farcaster, or tag @bettercallzaal on X. Not required, and it never disqualifies you, but /zao is where the entries get seen next to each other, and it is how you get notes back before the close.
 
 
 WHAT EARNS WEIGHT
