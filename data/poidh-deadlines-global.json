@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T23:59:43.278429+00:00",
+  "generated_at": "2026-10-01T06:12:21.999577+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -33,7 +33,7 @@
       "amount_eth": 0.004,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30th",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1448"
     },
     {
@@ -43,18 +43,8 @@
       "amount_eth": 0.00575,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30th",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1419"
-    },
-    {
-      "bounty_id": 1417,
-      "title": "open a museum for one ordinary thing \ud83c\udfdb\ufe0f",
-      "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
-      "amount_eth": 0.0031,
-      "deadline_iso": "2026-09-30",
-      "deadline_raw_text": "30 September",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1417"
     },
     {
       "bounty_id": 1415,
@@ -63,7 +53,7 @@
       "amount_eth": 0.001,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30th",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1415"
     },
     {
@@ -73,7 +63,7 @@
       "amount_eth": 0.001,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30th",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1414"
     },
     {
@@ -83,7 +73,7 @@
       "amount_eth": 0.0045,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30, 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1389"
     },
     {
@@ -93,7 +83,7 @@
       "amount_eth": 0.00931,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "September 30, 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/30"
     },
     {
@@ -103,7 +93,7 @@
       "amount_eth": 0.0097,
       "deadline_iso": "2026-09-30",
       "deadline_raw_text": "30 September 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1372"
     },
     {
@@ -167,6 +157,16 @@
       "url": "https://poidh.xyz/base/bounty/1453"
     },
     {
+      "bounty_id": 1459,
+      "title": "Show us where you watched ZAOstock from \ud83d\udcfa",
+      "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-10-05",
+      "deadline_raw_text": "5 October",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1459"
+    },
+    {
       "bounty_id": 1447,
       "title": "A pencil sketch of your face.",
       "issuer": "0xfb1bbff3747b6090fce6c171ef9bfc2298ad3bd6",
@@ -220,7 +220,7 @@
       "bounty_id": 1377,
       "title": "That Poetry Guy Fights Cancer",
       "issuer": "0x4a90f5a9401158a70f5f307aa13ff0b0e62c7b51",
-      "amount_eth": 0.24285,
+      "amount_eth": 0.24495,
       "deadline_iso": "2026-10-15",
       "deadline_raw_text": "15 October",
       "deadline_status": "upcoming",
