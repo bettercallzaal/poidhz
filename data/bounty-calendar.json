@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T13:35:52.232119+00:00",
+  "generated_at": "2026-10-01T19:39:08.415442+00:00",
   "note": "Proof-of-concept for zpoidh issue #6 - deadlines are parsed from each bounty's free-text description via POID's tRPC, not read from a structured on-chain field (POID intentionally has none). Built against BCZ's own R1-R4 bounties first; generalizing to arbitrary POID bounties is a follow-up, not done here.",
   "bounties": [
     {
@@ -82,6 +82,15 @@
       "deadline_raw_text": "September 27",
       "status": "closed",
       "url": "https://poidh.xyz/base/bounty/1418"
+    },
+    {
+      "round": "daily-08",
+      "bounty_id": 1460,
+      "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "deadline_iso": "2026-10-02",
+      "deadline_raw_text": "October 2, 2026",
+      "status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1460"
     },
     {
       "round": "daily-07",
