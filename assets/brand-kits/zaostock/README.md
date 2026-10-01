@@ -1,20 +1,23 @@
 # ZAOstock audio for poidh rounds
 
-Durable copies of audio that a poidh round links. `~/Downloads` is not durable, so the file a
-bounty points at lives here, in git, served at `https://poidhz.com/assets/brand-kits/zaostock/`
-once merged. The ZAOstock brand kit proper is `https://zaostock.com/brand` (owned by the
-zaostock lane); the 10 September interview lives there as
-`brand/audio/zaostock-radio-interview-2026-09-10.mp3`, and this file is the same shape for the
-1 October session. Mirroring it into that kit is the zaostock lane's call, asked, not assumed.
+Transcripts and notes for audio that a poidh round links. The audio itself lives in the
+ZAOstock brand kit at `https://zaostock.com/brand` (owned by the zaostock lane), which is
+durable and already live; a second 15 MB copy in this repo was dropped from PR #225 once that
+was measured.
 
-## zaostock-radio-session-2026-10-01.mp3
+## The 1 October session: https://zaostock.com/brand/audio/zaostock-radio-update-2026-10-01.mp3
+
+- **Where it is:** ZAODEVZ/ZAOstock #424, merged 2026-10-01 09:42 EDT, listed first in the
+  kit's RADIO list as "Zaal on Star 97.7, 1 October 2026". Byte-identical to the Downloads
+  file below (sha256 `c77cbeba70e8d53b405d18c743d475ea75aee3da9ea4bc3fb7f11a854ac501f6`).
+  Returns 200 `audio/mpeg`, 15,174,008 bytes, with range requests honoured.
 
 - **What:** Zaal live in the Star 97.7 studio with hosts Paul and Mike, the morning of
   Thursday 1 October 2026, two days before ZAOstock. Two segments, the second after a station
   break. The station IDs itself on air at 2:35 ("More next on Star 97.7") and Zaal thanks
   Star 97.7 by name as a partner at 5:43.
 - **Source:** Zaal's own recording, saved to `~/Downloads/Zaostock Update 10-1.mp3` at 09:26
-  on 2026-10-01. Byte-identical copy (sha256 checked at copy time). The full stream of the
+  on 2026-10-01. The full stream of the
   slot is the Twitch VOD <https://www.twitch.tv/videos/2888849470> ("Live on Star 97.7",
   bettercallzaal, started 08:00:02 EDT, 32 min 49 s).
 - **Measured with ffprobe:** 379.35 s (6 min 19 s), mp3, 320 kbps, 44.1 kHz stereo, 15,174,008

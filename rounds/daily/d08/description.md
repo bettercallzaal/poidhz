@@ -23,11 +23,14 @@ Nothing here is cast, posted or sent.
   he wants square, a carousel, or longer.
 - **Numbering:** this takes d08. PR #220 holds an uncast "natural engagement" draft in the same
   slot; public round numbers follow cast order, so that draft moves to d09 if it revives.
-- **Source files are in this repo so the links survive:**
-  `assets/brand-kits/zaostock/zaostock-radio-session-2026-10-01.mp3` (byte-identical to
-  `~/Downloads/Zaostock Update 10-1.mp3`, sha256 `c77cbeba...501f6`) and the `.srt` beside it.
-  They serve at `https://poidhz.com/assets/brand-kits/zaostock/` only after this PR merges and
-  deploys. **Check both URLs return 200 before casting.** The Twitch VOD is a second source.
+- **Source audio is live in the ZAOstock brand kit already:** the zaostock lane landed the
+  same file as `https://zaostock.com/brand/audio/zaostock-radio-update-2026-10-01.mp3`
+  (ZAODEVZ/ZAOstock #424, merged 2026-10-01 09:42 EDT; byte-identical to
+  `~/Downloads/Zaostock Update 10-1.mp3`, sha256 `c77cbeba...501f6`; returns 200 audio/mpeg
+  with range support, checked 09:5x EDT). The timed transcript lives in this repo at
+  `assets/brand-kits/zaostock/zaostock-radio-session-2026-10-01.srt` and serves from
+  poidhz.com only after this PR merges. **Check the srt URL returns 200 before casting.** The
+  Twitch VOD is a second source.
 
 <!-- PASTE BELOW THIS LINE -->
 
@@ -47,7 +50,7 @@ Star 97.7 is the festival's media partner and they put Zaal on air two days befo
 
 THE SOURCE (use either, or both)
 
-- The session, 6 minutes 19 seconds, mp3: https://poidhz.com/assets/brand-kits/zaostock/zaostock-radio-session-2026-10-01.mp3
+- The session, 6 minutes 19 seconds, mp3: https://zaostock.com/brand/audio/zaostock-radio-update-2026-10-01.mp3
 - A timed transcript of it, srt, for cut points and captions (names are machine-spelled, fix them against the lineup page): https://poidhz.com/assets/brand-kits/zaostock/zaostock-radio-session-2026-10-01.srt
 - The full stream of the slot, with the studio on camera: https://www.twitch.tv/videos/2888849470
 
