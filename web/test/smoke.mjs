@@ -17,6 +17,16 @@ for (const r of ['/rounds/r5/winner-announce.md', '/rounds/daily/d01/winner-anno
   if (st !== 404) bad++;
   console.log(`${st === 404 ? 'ok  ' : 'FAIL'} ${st} ${r} must 404`);
 }
+// A draft page shows the bounty text and never the operator notes around it.
+{
+  const res = await fetch(BASE + '/draft/d08'); const body = await res.text();
+  const ok = res.status === 200 && body.includes('CUT THE RADIO SESSION') && !body.includes('Reward field') && !body.includes('Fund 0.0026');
+  if (!ok) bad++;
+  console.log(`${ok ? 'ok  ' : 'FAIL'} ${res.status} /draft/d08 shows the text, not the operator notes`);
+  const miss = (await fetch(BASE + '/draft/d99')).status;
+  if (miss !== 404) bad++;
+  console.log(`${miss === 404 ? 'ok  ' : 'FAIL'} ${miss} /draft/d99 must 404`);
+}
 const nf = await fetch(BASE + '/b/999999');
 console.log(`${nf.status === 404 ? 'ok  ' : 'FAIL'} ${nf.status} /b/999999 must 404`); if (nf.status !== 404) bad++;
 
