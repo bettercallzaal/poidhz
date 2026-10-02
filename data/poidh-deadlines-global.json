@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T12:54:57.712704+00:00",
+  "generated_at": "2026-10-02T18:33:23.458567+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -50,7 +50,7 @@
       "bounty_id": 1460,
       "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.0186,
+      "amount_eth": 0.0224,
       "deadline_iso": "2026-10-02",
       "deadline_raw_text": "October 2, 2026",
       "deadline_status": "upcoming",
@@ -65,16 +65,6 @@
       "deadline_raw_text": "October 2nd",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1451"
-    },
-    {
-      "bounty_id": 1367,
-      "title": "Take #1 Overall on OlympicDucks \ud83e\udd86\ud83e\udd47",
-      "issuer": "0xe5574554d6a4be5ca39f22990492d756ebc4d6c3",
-      "amount_eth": 0.05,
-      "deadline_iso": "2026-10-02",
-      "deadline_raw_text": "October 2",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1367"
     },
     {
       "bounty_id": 1453,
@@ -155,6 +145,26 @@
       "deadline_raw_text": "15 October",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1377"
+    },
+    {
+      "bounty_id": 36,
+      "title": "GlazeCorp Public Humiliation Ritual 001",
+      "issuer": "0x4a34e383a986127c5c6e184adfc7dacfc1e56d0e",
+      "amount_eth": 0.1,
+      "deadline_iso": "2026-10-16",
+      "deadline_raw_text": "October 16",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/36"
+    },
+    {
+      "bounty_id": 1461,
+      "title": "Show Tacit in Action \ud83e\udd2b\u200b",
+      "issuer": "0xd9a4c304e68b6b1779df9cc59b79de8cc3fd3117",
+      "amount_eth": 0.009,
+      "deadline_iso": "2026-10-18",
+      "deadline_raw_text": "October 18",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1461"
     },
     {
       "bounty_id": 34,
