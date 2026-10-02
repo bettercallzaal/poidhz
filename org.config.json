@@ -23,19 +23,7 @@
   "excluded_bounty_ids": {
     "1249": "R4, ZABAL Gamez open pot. Accidentally CANCELED instead of withdrawn (rounds/r4/CLOSEOUT.md), which closed off the on-chain claim path entirely. Its 15 real builders were credited a flat +1 directly instead, via offchain_credits, so aggregating this bounty would credit nobody and imply the opposite."
   },
-  "default_bounty_ids": [
-    1151,
-    1166,
-    1180,
-    1330,
-    1409,
-    1410,
-    1412,
-    1418,
-    1421,
-    1453,
-    1460
-  ],
+  "default_bounty_ids": [1151, 1166, 1180, 1330, 1409, 1410, 1412, 1418, 1421, 1453, 1460],
   "default_chain_id": 8453,
   "site_url": "https://poidhz.com",
   "brand": {

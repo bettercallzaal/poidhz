@@ -47,6 +47,16 @@ Nothing here is cast, posted or sent.
   poidhz.com only after this PR merges. **Check the srt URL returns 200 before casting.** The
   Twitch VOD is a second source.
 
+- **CAST 2026-10-01 11:30 EDT by Zaal: bounty <https://poidh.xyz/base/bounty/1460>, on-chain 474, chain 8453, OPEN.**
+  Pot at cast **0.0186 ETH** (poidh reads $50.29), not the 0.0019 suggested above; his call at the form.
+  **Cast text: `verify-cast-text.py --round rounds/daily/d08 --bounty 1460` FAILS by exactly 32
+  characters** - the live description ends with a blank line and the literal
+  `<!-- PASTE ABOVE THIS LINE -->`, so the closing marker went into the form. The body above it is
+  identical. The marker is immutable now; it renders as a stray HTML comment on poidh. Noted, not fixable.
+  First claim 8434 landed the same day: 63 s, 1080x1920, captions, Star 97.7 on screen, ends on
+  zaostock.com, from the wallet that posted as @inkier35 in round four (a disclosed agent).
+  Board page: https://poidhz.com/b/1460
+
 <!-- PASTE BELOW THIS LINE -->
 
 CUT THE RADIO SESSION INTO ONE INSTAGRAM REEL.
