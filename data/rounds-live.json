@@ -1,28 +1,70 @@
 {
-  "generated_at": "2026-10-03T08:21:38.615109+00:00",
+  "generated_at": "2026-10-03T13:33:45.286820+00:00",
   "chain_id": 8453,
   "note": "Live on-chain state per round, from poidh's /data endpoint merged with claims.fetchBountyClaims (see scripts/query-bounty.py). Regenerated every 6h.",
   "rounds": [
     {
       "round": 1,
+      "label": null,
+      "folder": null,
+      "closes_at": null,
       "bounty_id": 1151,
       "title": "R1 - Hannah Ep 17 clip-up",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Find your favorite clip from BCZ YapZ Ep 17 (Hannah / Farm Drop) and post it to either X, Instagram, or YouTube with a written comment about what it says to you.",
+      "url": "https://poidh.xyz/base/bounty/1151",
+      "status": "WINNER SET",
+      "amount_native": 0.0105,
+      "amount_usd": 28.16856,
+      "claims": 11,
+      "winner": {
+        "claim_id": 6368,
+        "handle": "cryptfi-mariano",
+        "wallet": "0xa34514c2150029afa4d37577daee301166105355"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": 2,
+      "label": null,
+      "folder": null,
+      "closes_at": null,
       "bounty_id": 1166,
       "title": "R2 - Best 60s POIDH ad from Ep 19",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Best 60s POIDH ad from Ep 19 w/ Kenny",
+      "url": "https://poidh.xyz/base/bounty/1166",
+      "status": "WINNER SET",
+      "amount_native": 0.0105,
+      "amount_usd": 28.16856,
+      "claims": 8,
+      "winner": {
+        "claim_id": 6645,
+        "handle": "joeyofdeus",
+        "wallet": "0x6dce11cc9bba17d3c1ef60c26f0958300bb06953"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": 3,
+      "label": null,
+      "folder": null,
+      "closes_at": null,
       "bounty_id": 1180,
       "title": "R3 - Best ad for ZABAL Gamez",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "ZABAL GAMEZ AD",
+      "url": "https://poidh.xyz/base/bounty/1180",
+      "status": "WINNER SET",
+      "amount_native": 0.025,
+      "amount_usd": 67.068,
+      "claims": 8,
+      "winner": {
+        "claim_id": 6749,
+        "handle": "femmie",
+        "wallet": "0xc143cf8515b87ea88d8db8a9892639b5046cf81c"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": 4,
@@ -35,7 +77,7 @@
       "url": "https://poidh.xyz/base/bounty/1249",
       "status": "CANCELED",
       "amount_native": 0.0138,
-      "amount_usd": 36.99697,
+      "amount_usd": 37.02154,
       "claims": 2,
       "winner": null,
       "offchain": true,
@@ -43,45 +85,125 @@
     },
     {
       "round": 5,
+      "label": null,
+      "folder": null,
+      "closes_at": null,
       "bounty_id": 1330,
       "title": "R5 - Best 60s clip from the WaveWarZ Twitch stream",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Best 60s clip from the WaveWarZ Twitch stream",
+      "url": "https://poidh.xyz/base/bounty/1330",
+      "status": "WINNER SET",
+      "amount_native": 0.0238,
+      "amount_usd": 63.84874,
+      "claims": 9,
+      "winner": {
+        "claim_id": 7795,
+        "handle": null,
+        "wallet": "0x3f07d412da0aa3615bd92a496c73823a64370ec9"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-01",
+      "label": "Daily 1",
+      "folder": "rounds/daily/d01",
+      "closes_at": "2026-09-21T16:00:00-04:00",
       "bounty_id": 1409,
       "title": "Daily 01 - Make one piece of media for ZAOstock",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Make one piece of media for ZAOstock",
+      "url": "https://poidh.xyz/base/bounty/1409",
+      "status": "WINNER SET",
+      "amount_native": 0.0061,
+      "amount_usd": 16.36459,
+      "claims": 6,
+      "winner": {
+        "claim_id": 8086,
+        "handle": "leoxcrane",
+        "wallet": "0x0551eb17f2ac1db089eaa6690ef37ad1fe835b19"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-02",
+      "label": "Daily 2",
+      "folder": "rounds/daily/d02",
+      "closes_at": "2026-09-22T17:00:00-04:00",
       "bounty_id": 1410,
       "title": "Daily 02 - Make one piece of media for ZAOstock",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "Make one piece of media for ZAOstock",
+      "url": "https://poidh.xyz/base/bounty/1410",
+      "status": "WINNER SET",
+      "amount_native": 0.005,
+      "amount_usd": 13.4136,
+      "claims": 8,
+      "winner": {
+        "claim_id": 8111,
+        "handle": "assay",
+        "wallet": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-03",
+      "label": "Daily 3",
+      "folder": "rounds/daily/d03",
+      "closes_at": "2026-09-23T17:00:00-04:00",
       "bounty_id": 1412,
       "title": "Daily 03 - Anything but a poster",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "ZAOstock Round 3 - Anything But A Poster",
+      "url": "https://poidh.xyz/base/bounty/1412",
+      "status": "WINNER SET",
+      "amount_native": 0.005,
+      "amount_usd": 13.4136,
+      "claims": 5,
+      "winner": {
+        "claim_id": 8149,
+        "handle": "pascaline",
+        "wallet": "0x5dc697f2799bd232cad2d479c379ff305b699f9b"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-04",
+      "label": "Daily 4",
+      "folder": "rounds/daily/d04",
+      "closes_at": "2026-09-27T17:00:00-04:00",
       "bounty_id": 1418,
       "title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "ZAOstock Round 4 - Make An Ad, 30 Seconds Or Less",
+      "url": "https://poidh.xyz/base/bounty/1418",
+      "status": "WINNER SET",
+      "amount_native": 0.005,
+      "amount_usd": 13.4136,
+      "claims": 6,
+      "winner": {
+        "claim_id": 8341,
+        "handle": "dee-13",
+        "wallet": "0x96e9025466a3e15dc2c3b28c1c6c71523a93f703"
+      },
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-05",
+      "label": "Daily 5",
+      "folder": "rounds/daily/d05",
+      "closes_at": "2026-10-05T17:00:00-04:00",
       "bounty_id": 1421,
       "title": "ZAOstock Round 5 - Ship Code, Not A Poster",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "ZAOstock Round 5 - Ship Code, Not A Poster",
+      "url": "https://poidh.xyz/base/bounty/1421",
+      "status": "OPEN",
+      "amount_native": 0.005,
+      "amount_usd": 13.4136,
+      "claims": 19,
+      "winner": null,
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": "daily-07",
@@ -94,7 +216,7 @@
       "url": "https://poidh.xyz/base/bounty/1453",
       "status": "OPEN",
       "amount_native": 0.0115,
-      "amount_usd": 30.83081,
+      "amount_usd": 30.85128,
       "claims": 2,
       "winner": null,
       "offchain": false,
@@ -102,10 +224,20 @@
     },
     {
       "round": "daily-08",
+      "label": "Daily 8",
+      "folder": "rounds/daily/d08",
+      "closes_at": "2026-10-02T17:00:00-04:00",
       "bounty_id": 1460,
       "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
-      "status": "UNKNOWN",
-      "error": "fetch failed"
+      "bounty_title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
+      "url": "https://poidh.xyz/base/bounty/1460",
+      "status": "OPEN",
+      "amount_native": 0.0224,
+      "amount_usd": 60.09293,
+      "claims": 12,
+      "winner": null,
+      "offchain": false,
+      "offchain_note": null
     },
     {
       "round": 9,
