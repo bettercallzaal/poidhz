@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-04T01:44:26.568239+00:00",
+ "generated_at": "2026-10-04T08:36:45.206199+00:00",
  "chain_id": 8453,
  "scanned": 990,
  "ours": [
@@ -32,7 +32,7 @@
    "amount_eth": 0.0115,
    "created_at": "2026-09-27T22:51:51+00:00",
    "status": "open",
-   "has_claims": false,
+   "has_claims": true,
    "multiplayer": true,
    "url": "https://poidh.xyz/base/bounty/1446"
   },
