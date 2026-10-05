@@ -25,7 +25,7 @@ Nothing here is cast, posted or sent.
 
 MAKE THE BEST RECAP OF ZAOSTOCK 2026.
 
-ZAOstock was Saturday, October 3, 2026, on the Franklin Street Parklet in Ellsworth, Maine: a free music festival, eight independent acts back to back, noon to six. The whole day was streamed, and the recordings are public. Cut them into one vertical video, 90 seconds or under, that makes someone who missed it wish they had been there. Best recap wins the pot.
+ZAOstock was Saturday, October 3, 2026, on the Franklin Street Parklet in Ellsworth, Maine: a free music festival, seven independent acts back to back, noon to six. The whole day was streamed, and the recordings are public. Cut them into one vertical video, 90 seconds or under, that makes someone who missed it wish they had been there. Best recap wins the pot.
 
 This closes at 5pm Eastern Sunday, October 11.
 
@@ -83,7 +83,7 @@ THE ASSET KIT (use any of this for your entry)
 - Everything in one download: https://zaostock.com/brand/zaostock-brand-kit.zip
 - The brand page, each file separately: https://zaostock.com/brand
 - The moose, primary mark: https://zaostock.com/brand/logos/zaostock26_moose.png
-- The lineup, all eight acts: https://zaostock.com/artists
+- The lineup, all seven acts: https://zaostock.com/artists
 - VIDEO - the logo draw animation, a ready-made opener or closer: https://zaostock.com/brand/video/logo-draw-animation.mp4
 
 The moose mark is by attabotty. Keep the ZAOstock name visible in your final piece.
