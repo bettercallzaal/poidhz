@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T01:03:50.054286+00:00",
+  "generated_at": "2026-10-05T07:16:04.484384+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -160,7 +160,7 @@
       "bounty_id": 1467,
       "title": "Meme Competition: Awards Paid in META Stock",
       "issuer": "0xe06e62ff50de48b7aa4fc442964e4c2c0f1fd5e6",
-      "amount_eth": 0.05,
+      "amount_eth": 0.0535,
       "deadline_iso": "2026-10-11",
       "deadline_raw_text": "October 11, 2026",
       "deadline_status": "upcoming",
