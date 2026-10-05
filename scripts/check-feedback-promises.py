@@ -143,6 +143,7 @@ def check(round_id, bounty_id, offline=False, fetch=fetch_page, field=None):
         field = live_claim_handles(bounty_id)
     if field is not None:
         covered = {int(e["claim"]) for e in entrants if e.get("claim") is not None}
+        covered |= {int(c) for e in entrants for c in (e.get("also_claims") or [])}
         missing = sorted(field - covered)
         extra = sorted(covered - field)
         if missing:
@@ -281,6 +282,17 @@ def selftest():
                not any("cover claim(s) not in the field" in p for p in probs))
             ok("but a field claim with no row IS still broken in the same run",
                any("EVERYONE WHO ENTERS" in p for p in probs))
+            # One entrant who filed the same piece as several claims gets one note, and
+            # names the other claims in also_claims. Round eight, 2026-10-05: one wallet
+            # resubmitted one reel five times, and a duplicate handle is refused above.
+            (Path(td) / "resub.json").write_text(
+                '{"entrants": [{"handle":"a","claim":3,"also_claims":[1,2],'
+                '"did_well":"x","items":[{"title":"t"}]}]}')
+            probs, notes, n = check("resub", 1, offline=True, field={1, 2, 3})
+            ok("claims named in also_claims count as covered", not probs)
+            probs, notes, n = check("resub", 1, offline=True, field={1, 2, 3, 4})
+            ok("also_claims does not cover a claim it does not name",
+               any("EVERYONE WHO ENTERS" in p and "[4]" in p for p in probs))
             probs, notes, n = check("cov", 1, offline=True)
             ok("offline with no field says UNKNOWN rather than kept",
                any("UNKNOWN, not kept" in x for x in notes))
