@@ -6,15 +6,14 @@ Nothing here is cast, posted or sent.
 
 - **Title field:** `ZAOstock Round 9 - Best Recap Video Of The Day`
 - **Type:** OPEN. Contributor vote confirms the pick. **Promises the pot and nothing else.**
-- **Close:** "end of the week" read as **Friday 9 October 2026, 5:00pm Eastern**, the same close
-  time as every daily round. If he meant Sunday, change the DEADLINE line and the first section
-  before casting.
+- **Close:** **Sunday 11 October 2026, 5:00pm Eastern.** Zaal chose it in the poidhz pane on
+  5 Oct over the drafted Friday 9 Oct, knowing the recordings are due to go around 10 Oct.
 - **Reward field:** his call at the form; the text names no amount. He asked for $10 bounties on
   5 Oct; at poidh's read that day ($2,711 per ETH) $10 is about 0.0037 ETH.
 - **Why the source is the Twitch recordings and not the files Zaal downloaded:** the recordings
   are public and need no upload. twitch.tv/zaofestivals is not an Affiliate, so Twitch keeps
   past broadcasts 7 days, and these were broadcast 3 Oct: they are due to go around Sat 10 Oct,
-  the day after this closes. The text tells entrants to download what they need now. If Zaal
+  the day BEFORE this closes. The text tells entrants to download what they need now. If Zaal
   uploads his copies somewhere public before casting, add that link under THE SOURCE.
 - **What drew reach (research doc events/2588 in ZAOOS, PR #3714):** our own channels are small,
   so the text asks entrants to post as an Instagram Collab inviting @zaofestivals, optional and
@@ -28,7 +27,7 @@ MAKE THE BEST RECAP OF ZAOSTOCK 2026.
 
 ZAOstock was Saturday, October 3, 2026, on the Franklin Street Parklet in Ellsworth, Maine: a free music festival, eight independent acts back to back, noon to six. The whole day was streamed, and the recordings are public. Cut them into one vertical video, 90 seconds or under, that makes someone who missed it wish they had been there. Best recap wins the pot.
 
-This closes at 5pm Eastern Friday, October 9.
+This closes at 5pm Eastern Sunday, October 11.
 
 
 WHY THIS ROUND EXISTS
@@ -47,7 +46,7 @@ The stream is recorded in six parts on Twitch. Times are Eastern, Saturday Octob
 - Part 5, 2:28 to 3:32pm: https://www.twitch.tv/videos/2890969100
 - Part 6, 3:32 to 6:03pm: https://www.twitch.tv/videos/2891031137
 
-DOWNLOAD WHAT YOU NEED NOW. Twitch keeps these recordings for about a week, so they may be gone soon after this closes.
+DOWNLOAD WHAT YOU NEED NOW. Twitch keeps these recordings for about a week, so they may be gone before this closes.
 
 Your own photos and video from Franklin Street on Saturday count too, if you were there.
 
@@ -112,7 +111,7 @@ Discord: https://discord.thezao.com
 
 DEADLINE
 
-Submissions close 5:00pm Eastern, Friday October 9, 2026.
+Submissions close 5:00pm Eastern, Sunday October 11, 2026.
 
 The festival: https://zaostock.com
 

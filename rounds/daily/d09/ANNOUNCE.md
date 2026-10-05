@@ -11,7 +11,7 @@ New ZAOstock bounty: make the best recap of Saturday.
 
 The whole day is on Twitch in six parts. Cut it into one vertical video, 90 seconds or under, the acts' own music, every act named right. Best recap wins.
 
-Closes 5pm Eastern Friday Oct 9.
+Closes 5pm Eastern Sunday Oct 11.
 
 https://poidh.xyz/base/bounty/BOUNTY_ID
 ```
@@ -19,7 +19,7 @@ https://poidh.xyz/base/bounty/BOUNTY_ID
 ## Block 2 - to each act, a DM (Zaal sends)
 
 ```
-Hey, there is a bounty out for the best recap video of ZAOstock, built from the stream of your set and everyone else's. If you have any footage of your own from Saturday, entrants can use it, and if you want to add to the pot or share it, that helps it reach more people. Closes Friday 5pm Eastern: https://poidh.xyz/base/bounty/BOUNTY_ID
+Hey, there is a bounty out for the best recap video of ZAOstock, built from the stream of your set and everyone else's. If you have any footage of your own from Saturday, entrants can use it, and if you want to add to the pot or share it, that helps it reach more people. Closes Sunday Oct 11, 5pm Eastern: https://poidh.xyz/base/bounty/BOUNTY_ID
 ```
 
 ## Zaal's hands, in the first hour after casting
