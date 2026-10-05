@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T16:14:00.894923+00:00",
+  "generated_at": "2026-10-05T22:47:33.559385+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -47,26 +47,6 @@
       "url": "https://poidh.xyz/base/bounty/1362"
     },
     {
-      "bounty_id": 1460,
-      "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
-      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.0224,
-      "deadline_iso": "2026-10-02",
-      "deadline_raw_text": "October 2, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1460"
-    },
-    {
-      "bounty_id": 1451,
-      "title": "best AI agent wallet setup feedback",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.002,
-      "deadline_iso": "2026-10-02",
-      "deadline_raw_text": "October 2nd",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1451"
-    },
-    {
       "bounty_id": 1453,
       "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
@@ -75,6 +55,16 @@
       "deadline_raw_text": "October 4",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1453"
+    },
+    {
+      "bounty_id": 1468,
+      "title": "beat the bots: mine a botBTC block",
+      "issuer": "0xccde39f512a710ca95464bd931e18b5ea60e801b",
+      "amount_eth": 0.003,
+      "deadline_iso": "2026-10-05",
+      "deadline_raw_text": "Oct 5",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1468"
     },
     {
       "bounty_id": 1465,
