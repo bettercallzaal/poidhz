@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T03:09:27.956628+00:00",
+  "generated_at": "2026-10-06T10:34:42.675001+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -75,16 +75,6 @@
       "deadline_raw_text": "October 5th",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1465"
-    },
-    {
-      "bounty_id": 1459,
-      "title": "Show us where you watched ZAOstock from \ud83d\udcfa",
-      "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
-      "amount_eth": 0.001,
-      "deadline_iso": "2026-10-05",
-      "deadline_raw_text": "5 October",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1459"
     },
     {
       "bounty_id": 1447,
@@ -175,6 +165,16 @@
       "deadline_raw_text": "October 18th",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/34"
+    },
+    {
+      "bounty_id": 1470,
+      "title": "Find a face in something that isn't one \ud83d\udc40",
+      "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
+      "amount_eth": 0.0038,
+      "deadline_iso": "2026-10-20",
+      "deadline_raw_text": "20 October",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1470"
     },
     {
       "bounty_id": 1365,
