@@ -113,11 +113,11 @@ color:#e4e2dd;text-decoration:none;margin-right:.25rem}
     <li><span class="n">1</span><div><h3>The sunlight CSS does not currently apply, and there is already a review on the PR saying so</h3><p>This is not being delivered twice: a Changes requested review went up on #319 on 27 September with the detail. The short version is that a selector list cannot contain an @media prelude, so the whole block is invalid and the browser keeps zero rules from it. It was run through the repo&#x27;s own CSS pipeline against a control rather than asserted from the spec.</p></div></li><li><span class="n">2</span><div><h3>The part worth taking from it is the test, not the fix</h3><p>Your test asserts that the CSS source text contains &#x27;@media (prefers-contrast: more)&#x27;. It reads the source as a string, so it passes because the broken text is present - the test passes BECAUSE of the defect it should have caught. A test that could catch this has to assert a computed style: render it, toggle the class, read getComputedStyle. Playwright is already wired here and there is exactly one e2e spec for forty pages, so there is room.</p></div></li><li><span class="n">3</span><div><h3>The question</h3><p>You fixed contrast by moving colours. Did you check the result against a measurement, or by eye? Another entrant in this round ran axe over the home page and counted failures before and after. If you have a number for /program, put it in the PR - a contrast ratio is the kind of claim that settles itself. And if you want more of this: accessibility across the rest of the site is wide open, and almost nobody does it.</p></div></li>
   </ol>
 
-  <h2>How this round pays, and it is the thing people keep missing</h2>
+  <h2>Next: the recap round</h2>
   <div class="next">
-    <span class="when">Closes 5pm Eastern, Monday 5 October</span>
-    <p>The pot pays CLAIMS on the bounty, not pull requests. If you wrote code for this round and have not filed a claim that cites your PR by its URL, you are not in line for anything yet.</p>
-    <p>A later claim does not replace an earlier one, so a second claim naming your PR is fine and costs nothing. One entrant did exactly that and it took them about thirty-four minutes.</p>
+    <span class="when">Closes 5pm Eastern, Sunday 11 October</span>
+    <p>One vertical recap of ZAOstock, 90 seconds or under, cut from the raw footage of the day and the stream, with the acts&#x27; own music and every act you show named as zaostock.com/artists spells it.</p>
+    <p>It goes live when Zaal casts it, and the board at https://poidhz.com lists it within the hour.</p>
   </div>
 
   <h2>What bounty five was judged on</h2>
