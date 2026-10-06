@@ -1,0 +1,184 @@
+{
+  "_comment": "Per-entrant feedback for bounty 1460, round eight, cut the Star 97.7 radio session into one Instagram reel. Rendered to /feedback/1460/<handle>. Written 2026-10-05 while poidh's two-day contributor vote on the pick was running, so 'winner' is deliberately empty until resolveVote lands, and nothing here ranks anyone. Every file was downloaded and probed with ffprobe, 8 to 12 frames were read per piece, and on 5 Oct the speech in the three pieces under the closest consideration was transcribed and matched against the session; whether any piece carries music under the voices was not measured. Wallet-only entrants are addressed by the first six characters of their claim wallet, because poidh resolved no handle for them. Claims 8441, 8442, 8443, 8444 and 8446 are one reel resubmitted by one wallet, by its own description, so they get one note. Claim 8457 arrived after the stated close and its note says so.",
+  "round": {
+    "id": "d08",
+    "label": "Bounty eight",
+    "bounty_url": "https://poidh.xyz/base/bounty/1460",
+    "closed": "2026-10-02, 5:00pm Eastern",
+    "winner": "",
+    "bounty_id": 1460,
+    "decided_it": [
+      "Vertical, 1080x1920, 90 seconds or under, a video file that posts to Instagram with no further editing.",
+      "Star 97.7 named on screen in text, long enough to read, because a reel plays muted first.",
+      "ZAOstock, Saturday October 3 and Ellsworth Maine readable early, and the last frame showing zaostock.com long enough to type.",
+      "Captions burned in, word for word, and the session's own voices with no library music over speech.",
+      "One idea carried through, rather than six minutes squeezed into ninety seconds, with the hosts vouching for the day."
+    ],
+    "next": {
+      "label": "Next: the recap round",
+      "closes": "5pm Eastern, Sunday 11 October",
+      "wants": "One vertical recap of ZAOstock itself, 90 seconds or under, cut from the six public stream recordings of the day, with the acts' own music and every act you show named as zaostock.com/artists spells it.",
+      "checkpoint": "It goes live when Zaal casts it, and the board at https://poidhz.com lists it within the hour. Download the recordings early: Twitch keeps them about a week."
+    }
+  },
+  "entrants": [
+    {
+      "handle": "assay",
+      "claim": 8445,
+      "headline": "The schedule builds on screen as Zaal names each act, so a list became the reason to keep watching.",
+      "did_well": "Measured: 73.2 seconds, 1080x1920, h264 with aac. A header reading LIVE ON STAR 97.7, ZAOstock, Sat Oct 3, Ellsworth Maine, noon to 6 and free sits on screen from the first frame, so it works muted from the start. The hosts speak first and vouch for the day. Every act name and every set time on the running order matched zaostock.com/program when it was checked, and the end card holds zaostock.com for about seven seconds. The speech is the session's own, transcribed and matched on 5 Oct.",
+      "items": [
+        {
+          "title": "The file is heavy for passing around",
+          "body": "50 MB for 73 seconds. Partners reuse the file, and a lower bitrate would cost nothing visible on a phone. Encoding to roughly half the size is worth a minute before you upload."
+        },
+        {
+          "title": "Your download link expires",
+          "body": "The filebin link says it is kept until 9 October. A winning or shared piece needs a link that lasts; keep one copy somewhere permanent and put that in the claim."
+        }
+      ]
+    },
+    {
+      "handle": "leoxcrane",
+      "claim": 8449,
+      "headline": "Date, town, noon and free are readable in the first second without sound.",
+      "did_well": "Measured: 87.1 seconds, 1080x1920, h264. A LIVE ON STAR 97.7 tag and the festival facts are on screen in the first frame, a clean lineup card names the acts as the lineup page spells them, and it ends on zaostock.com. The speech is the session's own, transcribed and matched on 5 Oct, and you posted it in a public Farcaster cast with a Dropbox file link anyone can open.",
+      "items": [
+        {
+          "title": "Open on a better shot",
+          "body": "The first frames look up at the ceiling from under the chin. The opening second is the one that decides whether anyone keeps watching; start on the studio wide or on the facts card instead."
+        },
+        {
+          "title": "Hold the last card longer",
+          "body": "The final card with zaostock.com is on screen for about three seconds. Someone who wants to type the address needs five or more."
+        },
+        {
+          "title": "One line repeats",
+          "body": "The transcript has 'ZAOstock is coming' twice near the start. Cut one and the opening tightens."
+        }
+      ]
+    },
+    {
+      "handle": "0x5a84",
+      "claim": 8434,
+      "headline": "The facts never leave the screen, so a viewer who drops in at any second knows where to be.",
+      "did_well": "Measured: 63.2 seconds, 1080x1920, h264 with aac. The date, the town, noon to six, free and 'Heard on Star 97.7' stay on screen for the whole runtime, the captions follow the speech, and it ends on zaostock.com for about four seconds. It was the first entry in, the same day the round opened, and the claim lists the exact seconds of the mp3 it used.",
+      "items": [
+        {
+          "title": "Use the picture, not only the sound",
+          "body": "The whole piece is a still moose card under the audio. The round linked the stream of the studio slot; the hosts on camera vouching for the day is what turns a poster with a voice into a reel."
+        },
+        {
+          "title": "Say who you are",
+          "body": "poidh shows no handle for your wallet, so this note can only address it by its first characters. A Farcaster or X handle on the claim lets people find your other work."
+        }
+      ]
+    },
+    {
+      "handle": "0xde14",
+      "claim": 8453,
+      "headline": "Short, complete and clear, with the site address on screen the whole way.",
+      "did_well": "Measured: 57.5 seconds, 1080x1920, h264. ZAOstock, Saturday October 3, Ellsworth Maine, 'On air with Star 97.7', noon to six and free stay on screen throughout, the captions follow the session's own voices, and the claim names the exact cuts it used from the mp3 and says plainly what is and is not yours.",
+      "items": [
+        {
+          "title": "Attach a frame",
+          "body": "The claim has no image, and the round asked for one frame from the cut as the claim image. Without it the claim shows nothing in the feed where people decide whether to look."
+        },
+        {
+          "title": "Give the station credit some size, and end on a card",
+          "body": "The Star 97.7 line is small next to everything else, and there is no closing card; the layout simply stops. A held final frame with zaostock.com is what the round asked the last frame to be."
+        },
+        {
+          "title": "Use the kit's type",
+          "body": "The type is a system font. The brand kit has the festival's own; using it makes the piece read as part of the festival rather than about it."
+        }
+      ]
+    },
+    {
+      "handle": "noniwontmiss",
+      "claim": 8448,
+      "headline": "The lineup card with each act's photo is a strong graphic, and the closing card is clear.",
+      "did_well": "Measured: 77.1 seconds, 1080x1920, hevc with aac. You built real designed cards around the session: a title card, a lineup with artist photos and genres, and a closing card with Saturday October 3, noon to six, Franklin Street Parklet and zaostock.com held for about five seconds. You posted to both Farcaster and X and listed the seconds of the mp3 you used.",
+      "items": [
+        {
+          "title": "Link the video file itself",
+          "body": "The download link opens a 7z archive holding the video and three posters, not a video. Partners and Instagram need the mp4 directly; zip nothing."
+        },
+        {
+          "title": "Heard on Star 97.7, not presented by",
+          "body": "'Star 97.7 presents' says the station is putting on the festival. It is the media partner that had Zaal on air. 'Heard on Star 97.7' is accurate."
+        },
+        {
+          "title": "Keep the captions off the lineup",
+          "body": "On the lineup cards the captions sit on top of the act names, so neither can be read in that moment."
+        }
+      ]
+    },
+    {
+      "handle": "pascaline",
+      "claim": 8452,
+      "headline": "The captions have energy and the closing card is clear.",
+      "did_well": "Measured: 88.8 seconds, 1080x1920, hevc with aac. Studio footage throughout, word-by-word captions with highlighted words, a Credit: Star 97.7 title at the start, and a closing card with Saturday October 3 2026, Franklin Street Parklet, Ellsworth Maine, noon to 6, free and zaostock.com, held for about four seconds. You posted on X and listed every passage of the mp3 you used.",
+      "items": [
+        {
+          "title": "Put the date and the town up front",
+          "body": "Saturday, October 3 and Ellsworth do not appear on screen until the closing card. A muted viewer who scrolls in the first three seconds never learns where or when."
+        },
+        {
+          "title": "Fill the frame",
+          "body": "Parts of the cut sit inside black bars. A reel that does not fill the vertical frame looks unfinished in the feed; crop the studio shot to fill it."
+        },
+        {
+          "title": "Spell it ZAOstock",
+          "body": "The captions read 'Zao Stock'. One word, ZAO in capitals."
+        }
+      ]
+    },
+    {
+      "handle": "0xc9d0",
+      "claim": 8446,
+      "headline": "One clear idea held for the whole reel, and an honest account of each failed upload.",
+      "did_well": "Measured: 82.4 seconds, 1080x1920, h264, faststart, hosted where it plays. The reel is built on one idea, that the festival is free, the host speaks before Zaal, the end card holds zaostock.com for about seven seconds, and the claim explains plainly what went wrong with each earlier upload. Claims 8441, 8442, 8443, 8444 and 8446 are read as this one entry, as you asked.",
+      "items": [
+        {
+          "title": "Check the first frame before you upload",
+          "body": "For the first nine seconds the title block and the captions are drawn on top of each other, and neither can be read. That is the stretch a muted viewer sees first."
+        },
+        {
+          "title": "Spell it ZAOstock",
+          "body": "A caption reads 'Zal Stock'. Captions are the part people read; check the festival's name in every one."
+        },
+        {
+          "title": "One claim, corrected, beats five",
+          "body": "Five claims for one reel make the bounty page harder to read for everyone judging it. Test the file link from outside your own network before the first claim, and the rest are not needed."
+        }
+      ],
+      "also_claims": [
+        8441,
+        8442,
+        8443,
+        8444
+      ]
+    },
+    {
+      "handle": "barsam",
+      "claim": 8457,
+      "headline": "Keeping the date, the street and free on screen for the whole reel was the right instinct.",
+      "did_well": "The round's facts stay on a translucent card over photographs for the whole piece, with word-lit captions and a Star 97.7 mark. This claim arrived after the stated close of 5:00pm Eastern on 2 October (the linked X post is timed 5:26pm), so it was read but was outside the round.",
+      "items": [
+        {
+          "title": "The town is Ellsworth, Maine",
+          "body": "The card reads 'ELLSWORTH, MAIN'. Check the place name in every frame; it is the fact people act on."
+        },
+        {
+          "title": "Check every act name against the lineup page",
+          "body": "Three act names are misspelled on screen. https://zaostock.com/artists spells each one; copy them from there."
+        },
+        {
+          "title": "End on the site, and link the file",
+          "body": "No sampled frame shows zaostock.com, and the claim links only the X post. The round asked for a direct download of the video file, and for the last frame to show the address."
+        }
+      ]
+    }
+  ]
+}
