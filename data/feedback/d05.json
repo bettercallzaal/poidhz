@@ -14,10 +14,10 @@
       "Open pull requests count as complete entries, and merged wins ties. Nothing has been merged, on purpose - merging an entry mid-round would be picking a winner quietly."
     ],
     "next": {
-      "label": "How this round pays, and it is the thing people keep missing",
-      "closes": "5pm Eastern, Monday 5 October",
-      "wants": "The pot pays CLAIMS on the bounty, not pull requests. If you wrote code for this round and have not filed a claim that cites your PR by its URL, you are not in line for anything yet.",
-      "checkpoint": "A later claim does not replace an earlier one, so a second claim naming your PR is fine and costs nothing. One entrant did exactly that and it took them about thirty-four minutes."
+      "label": "Next: the recap round",
+      "closes": "5pm Eastern, Sunday 11 October",
+      "wants": "One vertical recap of ZAOstock, 90 seconds or under, cut from the raw footage of the day and the stream, with the acts' own music and every act you show named as zaostock.com/artists spells it.",
+      "checkpoint": "It goes live when Zaal casts it, and the board at https://poidhz.com lists it within the hour."
     }
   },
   "entrants": [
@@ -59,6 +59,12 @@
           "title": "One thing to look at on #354 before it is judged",
           "body": "Four of its changes are already sitting in another entrant's claimed pull request, opened seventeen hours earlier: the unused SITE import, the eslint --max-warnings=0 gate, the useSyncExternalStore replacement in LocalStartTime, and the Card import in meetings. Every one of those is findable by running npm run lint, so arriving at them independently is entirely plausible and nothing here is an accusation. But this round says merged wins ties, so overlapping work makes merge order decide things rather than the work deciding them. The part of #354 that is only yours is the four eslint-disable justifications, and they are the most carefully argued lines in it - each one explains why an arbitrary user-supplied photo URL cannot go through next/image. A #354 that was only those would be unambiguous."
         }
+      ],
+      "also_claims": [
+        8305,
+        8338,
+        8402,
+        8403
       ]
     },
     {
@@ -76,9 +82,13 @@
           "body": "LocalStartTime.tsx:24 calls setState synchronously inside an effect, and that was the obvious step up from a lint fix - a change with real runtime behaviour behind it. Another entrant claimed it the same night with useSyncExternalStore. That is the round working rather than a reason to be discouraged. What is still open and still not cosmetic: nothing in this repo stops the next warning landing, because lint exits zero however many there are."
         },
         {
-          "title": "One practical thing about your first claim",
-          "body": "The media field on claim 8306 has your explanation in it rather than an image URL, so the claim shows on the bounty page with no picture. poidh needs a link to an actual image there. Your entry counts either way - the PR link in the description is what gets read - this is only so the work has a face on the page."
+          "title": "#363 found a real bug, and it needs one more change",
+          "body": "The old check misses Toronto, Detroit, Louisville and Indianapolis, so viewers there see the redundant start-time line, and your tests catch it. Reading window in a useState initializer returns null on the server and a value in the browser, which is a hydration mismatch, and the file has since been rewritten on main. Rebased onto main with the new zone check inside the existing useSyncExternalStore snapshot, it is a welcome merge."
         }
+      ],
+      "also_claims": [
+        8329,
+        8351
       ]
     },
     {
@@ -116,8 +126,52 @@
           "body": "The round text says a later claim does not replace an earlier one, so a second claim naming the PR is fine. From the note going up to your citing claim was about thirty-four minutes. Thirty-four minutes from reading a note to filing is the whole distance between shipped code and a claim that can be paid."
         },
         {
-          "title": "One thing to look at while you are in there",
-          "body": "eslint --max-warnings=0 is the right instinct, and the thing that makes it stick is a test that fails when the gate stops running at all. This repo had two node test suites that existed and executed in no workflow - nineteen checks that had never run in CI - which is the same shape as a lint gate that exits zero: a check that cannot fail."
+          "title": "The image conversion would break real member pages",
+          "body": "next/image refuses hosts that are not in next.config.ts remotePatterns, and member photos come from imagedelivery.net and wrpcd.net, which are not listed. Converted as it is, /team and member profiles would throw for those rows. The rest of the PR (the zero-warning gate, the unused imports, the LocalStartTime change) landed on main through #354 first."
+        }
+      ],
+      "also_claims": [
+        8328
+      ]
+    },
+    {
+      "handle": "italeex",
+      "claim": 8422,
+      "also_claims": [
+        8436,
+        8437,
+        8438,
+        8440
+      ],
+      "headline": "You fixed the check that said clean after reading almost nothing, and proved it with a control.",
+      "did_well": "#407 made the facts check fail closed: on the old code, a festival file rewritten with double quotes left it reading 1 of 6 facts and still printing clean, which was reproduced. #410 stops a 3.3 MB poster loading on /press and /brand, and #432 stops the home page preloading all 80 hero frames, 5.1 MB of images down to 0.85 MB, both verified. #407, #409 and #410 are merged, and every description shows its measurement and says what it did not measure.",
+      "items": [
+        {
+          "title": "Seven pull requests is a lot to review",
+          "body": "Three merged, one you closed as a duplicate, and #431 and #432 carry the same CI job, so only one can land as it stands. The ones that merged were the scoped ones. One change per PR gets reviewed faster."
+        },
+        {
+          "title": "Your doc script cannot fail",
+          "body": "scripts/brand-migration-counts.mjs in #411 says it exits 1 when the doc and the code disagree, and it always exits 0. #433 does the same job with a test that does fail on drift; carry that pattern over."
+        }
+      ]
+    },
+    {
+      "handle": "bconnnnn",
+      "claim": 8349,
+      "also_claims": [
+        8350
+      ],
+      "headline": "You taught the overflow check to see the left edge, and it merged.",
+      "did_well": "#379 adds left-side overflow to scripts/mobile-overflow-check.mjs and reports which side spilled; a planted element at left:-40px was caught. #377 raised a real gap: keyboard users had no visible focus on the homepage, and the translucent focus token measured about 1.2:1.",
+      "items": [
+        {
+          "title": "Check recent merges before you start",
+          "body": "#380 shipped visible keyboard focus site-wide, including the homepage classes in #377 and the RSVP pill it did not touch, and it started from the review of your PR. The Header links in #377 still used the translucent token."
+        },
+        {
+          "title": "A dev script nobody runs is a quiet win",
+          "body": "The overflow check is not wired into CI, so your fix only helps whoever runs it by hand. A PR that runs it on every pull request would make #379 count every time."
         }
       ]
     }
