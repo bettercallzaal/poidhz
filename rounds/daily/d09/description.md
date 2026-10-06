@@ -10,7 +10,8 @@ Nothing here is cast, posted or sent.
   5 Oct over the drafted Friday 9 Oct, knowing the recordings are due to go around 10 Oct.
 - **Reward field:** his call at the form; the text names no amount. He asked for $10 bounties on
   5 Oct; at poidh's read that day ($2,711 per ETH) $10 is about 0.0037 ETH.
-- **Why the source is the Twitch recordings and not the files Zaal downloaded:** the recordings
+- **Raw footage folder added 6 Oct:** Zaal, 9:35 EDT 6 Oct (relayed verbatim by the orchestrator): "for item 1 id rather use poidh and my poidhz community to have them make the videos and i give them all the raw". CAST GATE: at 11:3x EDT the Drive folder held only 1 drone clip, 4 time-lapses and 2 teaser drafts; the catalogue in it lists about 32 drone clips and the Sony 4K set recordings on the local ZUSB drive, and 07-twitch-vods was empty. Upload before casting, because the text says the folder holds drone, stage cameras, phones and the stream.
+- **Why the Twitch recordings stay listed:** the recordings
   are public and need no upload. twitch.tv/zaofestivals is not an Affiliate, so Twitch keeps
   past broadcasts 7 days, and these were broadcast 3 Oct: they are due to go around Sat 10 Oct,
   the day BEFORE this closes. The text tells entrants to download what they need now. If Zaal
@@ -25,7 +26,7 @@ Nothing here is cast, posted or sent.
 
 MAKE THE BEST RECAP OF ZAOSTOCK 2026.
 
-ZAOstock was Saturday, October 3, 2026, on the Franklin Street Parklet in Ellsworth, Maine: a free music festival, seven independent acts back to back, noon to six. The whole day was streamed, and the recordings are public. Cut them into one vertical video, 90 seconds or under, that makes someone who missed it wish they had been there. Best recap wins the pot.
+ZAOstock was Saturday, October 3, 2026, on the Franklin Street Parklet in Ellsworth, Maine: a free music festival, seven independent acts back to back, noon to six. The whole day was filmed, from the drone, from cameras at the stage and on the stream, and all of it is yours to use. Cut it into one vertical video, 90 seconds or under, that makes someone who missed it wish they had been there. Best recap wins the pot.
 
 This closes at 5pm Eastern Sunday, October 11.
 
@@ -37,7 +38,11 @@ The festival is over and the six hours of it sit in recordings almost nobody has
 
 THE SOURCE
 
-The stream is recorded in six parts on Twitch. Times are Eastern, Saturday October 3:
+The raw footage, in one public folder anyone can open and download from: https://drive.google.com/drive/folders/1SNKFMJBxIEs5lZG4dAcEy4gJb6CLZXbg
+
+The folder is sorted by source: drone flights over the parklet, stage-side time-lapses, cameras on the stage, phones, and the stream. Use any of it.
+
+The stream is also recorded in six parts on Twitch. Times are Eastern, Saturday October 3:
 
 - Part 1, 12:01 to 12:04pm: https://www.twitch.tv/videos/2890837517
 - Part 2, 12:05 to 12:15pm: https://www.twitch.tv/videos/2890841510
@@ -54,8 +59,8 @@ Your own photos and video from Franklin Street on Saturday count too, if you wer
 THE BAR (these are requirements, not preferences)
 
 1. Vertical, 1080x1920, 90 seconds or under, exported as a video file. It has to be postable as it is.
-2. Real footage only: the stream recordings, footage you shot yourself, and the brand kit below. No AI-generated crowds, people, stages or performances. These are real artists at a real show.
-3. The music is the acts' own. Use their performances from the recordings. No library music.
+2. Real footage only: the raw footage folder, the stream recordings, footage you shot yourself, and the brand kit below. No AI-generated crowds, people, stages or performances. These are real artists at a real show.
+3. The music is the acts' own. Use their performances from the footage. No library music.
 4. Name the acts you show, on screen, spelled the way the lineup page spells them: https://zaostock.com/artists
 5. Captions burned in, word for word, for anything spoken.
 6. End on the festival: the last frame shows ZAOstock and zaostock.com, readable, for long enough to type.
@@ -75,7 +80,7 @@ WHAT EARNS WEIGHT
 - It shows the day, not the stream: the street, the crowd, the stage, the acts.
 - Every act gets a moment, or the cut chooses fewer and says why in the claim.
 - It works muted, and it sounds good with the sound on.
-- The timestamps in the claim: tell us which parts and which minutes of the recordings you used.
+- The sources in the claim: tell us which files from the folder, or which parts and minutes of the stream, you used.
 
 
 THE ASSET KIT (use any of this for your entry)

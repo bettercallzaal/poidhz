@@ -9,7 +9,7 @@ cast text before anything goes out.
 ```
 New ZAOstock bounty: make the best recap of Saturday.
 
-The whole day is on Twitch in six parts. Cut it into one vertical video, 90 seconds or under, the acts' own music, every act named right. Best recap wins.
+All the raw footage is yours: drone, stage cameras, the stream. Cut one vertical video, 90 seconds or under, the acts' own music. Best recap wins.
 
 Closes 5pm Eastern Sunday Oct 11.
 
