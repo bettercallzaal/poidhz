@@ -10,7 +10,7 @@ Nothing here is cast, posted or sent.
   5 Oct over the drafted Friday 9 Oct, knowing the recordings are due to go around 10 Oct.
 - **Reward field:** his call at the form; the text names no amount. He asked for $10 bounties on
   5 Oct; at poidh's read that day ($2,711 per ETH) $10 is about 0.0037 ETH.
-- **Raw footage folder added 6 Oct:** Zaal, 9:35 EDT 6 Oct (relayed verbatim by the orchestrator): "for item 1 id rather use poidh and my poidhz community to have them make the videos and i give them all the raw". CAST GATE, re-read on Google Drive at 12:0x EDT 6 Oct: the folder holds 1 drone clip, 4 time-lapses, 2 teaser drafts, and in 07-twitch-vods five act windows cut from the stream (OPEN X, Grass Rug, Michael Anderson, LyonsDen, closing words; 1.64 GB, uploaded 11:37 EDT). Still missing: about 32 drone clips and the Sony 4K set recordings, which the folder's own CATALOGUE.md places on the local ZUSB drive (not mounted at 11:5x, per zaostock-77). The text says the folder holds drone and stage cameras, so upload those before casting. Casting also waits on Zaal's ruling on zaoos.com/bounties (orchestrator, 6 Oct).
+- **Raw footage folder added 6 Oct:** Zaal, 9:35 EDT 6 Oct (relayed verbatim by the orchestrator): "for item 1 id rather use poidh and my poidhz community to have them make the videos and i give them all the raw". Then, in the Grill on 6 Oct: "I wanna put them all up fr the poidh bounties". THE SOURCE lists what Google's public folder view served at 17:2x EDT 6 Oct, by file name (sizes not read; the Drive connector was signed out): 02-drone 38 files (32 MP4, 6 JPG), 07-twitch-vods 5, 09-small-cam-timelapse 4, 10-sony-4k 3 (C2584.MP4, C2588.MP4, C2588M01.XML), 11-livestream-obs-recordings 6 MKV. Uploaded by the zaostock lane, size-matched to the ZUSB drive on the Mac side. NOT IN at that read: C2586 (DCoop 4K, waiting on local disk space), and C2585 and C2587 (camera card only). If C2586 lands before the cast, add DCoop to the 10-sony-4k line. CAST GATE: Zaal's Grill ruling of 6 Oct is to cast after the upload and after ZAOOS #3754, which merged that day.
 - **Why the Twitch recordings stay listed:** the recordings
   are public and need no upload. twitch.tv/zaofestivals is not an Affiliate, so Twitch keeps
   past broadcasts 7 days, and these were broadcast 3 Oct: they are due to go around Sat 10 Oct,
@@ -40,9 +40,17 @@ THE SOURCE
 
 The raw footage, in one public folder anyone can open and download from: https://drive.google.com/drive/folders/1SNKFMJBxIEs5lZG4dAcEy4gJb6CLZXbg
 
-The folder is sorted by source: drone flights over the parklet, stage-side time-lapses, cameras on the stage, phones, and the stream. Use any of it.
+What is in it, by folder:
 
-The stream is also recorded in six parts on Twitch. Times are Eastern, Saturday October 3:
+- 02-drone: 32 drone clips and 6 drone photos, from setup in the morning to the last set.
+- 09-small-cam-timelapse: 4 time-lapses of the stage. The times in their file names run about three hours fast; the folder's CATALOGUE.md gives the real ones.
+- 10-sony-4k: a 4K camera at the stage for two whole sets, The Crown Vics (C2584) and Tom Fellenz (C2588).
+- 11-livestream-obs-recordings: the full stream, recorded as it went out, in 6 files.
+- 07-twitch-vods: five windows cut from the stream, one each for OPEN X, Grass Rug, Michael Anderson, LyonsDen and the closing words.
+
+The other folders are empty for now. Use any of it.
+
+The same stream is also on Twitch in six parts. Times are Eastern, Saturday October 3:
 
 - Part 1, 12:01 to 12:04pm: https://www.twitch.tv/videos/2890837517
 - Part 2, 12:05 to 12:15pm: https://www.twitch.tv/videos/2890841510
@@ -51,7 +59,7 @@ The stream is also recorded in six parts on Twitch. Times are Eastern, Saturday 
 - Part 5, 2:28 to 3:32pm: https://www.twitch.tv/videos/2890969100
 - Part 6, 3:32 to 6:03pm: https://www.twitch.tv/videos/2891031137
 
-DOWNLOAD WHAT YOU NEED NOW. Twitch keeps these recordings for about a week, so they may be gone before this closes.
+Twitch keeps these recordings for about a week, so they may be gone before this closes. The full stream in the folder stays.
 
 Your own photos and video from Franklin Street on Saturday count too, if you were there.
 
