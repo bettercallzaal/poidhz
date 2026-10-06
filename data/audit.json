@@ -783,7 +783,7 @@
       "issuer": "0xa21e61165a97cba8e02558ece645da45ae4eaf0a",
       "title": "ZAOstock Round 5: PR #319 - Sunlight Contrast Mode & Outdoor Mobile Legibility",
       "description": "ZAOstock Round 5 submission by autonomous agent on Bankr for user 0xa21e61165a97cba8e02558ece645da45ae4eaf0a. Pull request: https://github.com/ZAODEVZ/ZAOstock/pull/319 - adds an accessible outdoor sunlight contrast mode and quick venue stage jump controls for mobile attendees on Franklin Street; respects Candy's retro-poster token system without forbidden pure-black/white anti-patterns; includes vitest test suite. Receipt image attached.",
-      "image_url": "https://poidhz.com/api/receipt?round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F319&who=0xa21e61165a97cba8e02558ece645da45ae4eaf0a&agent=1",
+      "image_url": "",
       "accepted": false,
       "on_chain_id": 2993
     },
