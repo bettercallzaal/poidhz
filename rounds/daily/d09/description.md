@@ -10,7 +10,7 @@ Nothing here is cast, posted or sent.
   5 Oct over the drafted Friday 9 Oct, knowing the recordings are due to go around 10 Oct.
 - **Reward field:** his call at the form; the text names no amount. He asked for $10 bounties on
   5 Oct; at poidh's read that day ($2,711 per ETH) $10 is about 0.0037 ETH.
-- **Raw footage folder added 6 Oct:** Zaal, 9:35 EDT 6 Oct (relayed verbatim by the orchestrator): "for item 1 id rather use poidh and my poidhz community to have them make the videos and i give them all the raw". Then, in the Grill on 6 Oct: "I wanna put them all up fr the poidh bounties". THE SOURCE lists what Google's public folder view served at 17:2x EDT 6 Oct, by file name (sizes not read; the Drive connector was signed out): 02-drone 38 files (32 MP4, 6 JPG), 07-twitch-vods 5, 09-small-cam-timelapse 4, 10-sony-4k 3 (C2584.MP4, C2588.MP4, C2588M01.XML), 11-livestream-obs-recordings 6 MKV. Uploaded by the zaostock lane, size-matched to the ZUSB drive on the Mac side. NOT IN at that read: C2586 (DCoop 4K, waiting on local disk space), and C2585 and C2587 (camera card only). If C2586 lands before the cast, add DCoop to the 10-sony-4k line. CAST GATE: Zaal's Grill ruling of 6 Oct is to cast after the upload and after ZAOOS #3754, which merged that day.
+- **Raw footage folder added 6 Oct:** Zaal, 9:35 EDT 6 Oct (relayed verbatim by the orchestrator): "for item 1 id rather use poidh and my poidhz community to have them make the videos and i give them all the raw". Then, in the Grill on 6 Oct: "I wanna put them all up fr the poidh bounties". THE SOURCE lists what Google's public folder view served at 17:2x EDT 6 Oct, by file name (sizes not read; the Drive connector was signed out): 02-drone 38 files (32 MP4, 6 JPG), 07-twitch-vods 5, 09-small-cam-timelapse 4, 10-sony-4k 4 (C2584.MP4, C2586.MP4, C2588.MP4, C2588M01.XML; C2586, DCoop, appeared on Google at 18:11 EDT), 11-livestream-obs-recordings 6 MKV. Uploaded by the zaostock lane, size-matched to the ZUSB drive on the Mac side. NOT IN: C2585 and C2587 (camera card only). CAST GATE: Zaal's Grill ruling of 6 Oct is to cast after the upload and after ZAOOS #3754, which merged that day.
 - **Why the Twitch recordings stay listed:** the recordings
   are public and need no upload. twitch.tv/zaofestivals is not an Affiliate, so Twitch keeps
   past broadcasts 7 days, and these were broadcast 3 Oct: they are due to go around Sat 10 Oct,
@@ -44,7 +44,7 @@ What is in it, by folder:
 
 - 02-drone: 32 drone clips and 6 drone photos, from setup in the morning to the last set.
 - 09-small-cam-timelapse: 4 time-lapses of the stage. The times in their file names run about three hours fast; the folder's CATALOGUE.md gives the real ones.
-- 10-sony-4k: a 4K camera at the stage for two whole sets, The Crown Vics (C2584) and Tom Fellenz (C2588).
+- 10-sony-4k: a 4K camera at the stage for three sets, The Crown Vics (C2584), DCoop (C2586) and Tom Fellenz (C2588).
 - 11-livestream-obs-recordings: the full stream, recorded as it went out, in 6 files.
 - 07-twitch-vods: five windows cut from the stream, one each for OPEN X, Grass Rug, Michael Anderson, LyonsDen and the closing words.
 
