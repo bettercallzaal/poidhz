@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T17:18:44.569016+00:00",
+  "generated_at": "2026-10-06T21:45:40.570190+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -115,6 +115,16 @@
       "deadline_raw_text": "October 11, 2026",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1467"
+    },
+    {
+      "bounty_id": 1472,
+      "title": "Mint and share a BUST PROJECT portrait",
+      "issuer": "0x9d33588ae198c31946857208d93da9f1d1b59904",
+      "amount_eth": 0.01333,
+      "deadline_iso": "2026-10-13",
+      "deadline_raw_text": "October 13, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1472"
     },
     {
       "bounty_id": 1377,
