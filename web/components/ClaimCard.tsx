@@ -12,7 +12,7 @@ export function ClaimCard({ c, note, won, personKey }: { c: Claim; note?: Note; 
       <div className="flex flex-wrap items-baseline gap-2 text-sm">
         <Link href={`/u/${encodeURIComponent(personKey)}`} className="font-semibold">{c.handle ? `@${c.handle}` : personKey.startsWith('0x') ? shortAddr(personKey) : `@${personKey}`}</Link>
         <span className="text-[var(--muted)]">claim {c.claim_id}</span>
-        {won && <span className="font-semibold text-[var(--accent)]">Winner</span>}
+        {won && <span className="font-semibold text-[var(--warn)]">Winner</span>}
       </div>
       <h3 className="mt-1 font-medium">{c.title}</h3>
       {link && <a href={link} className="mt-1 block break-all text-sm">{link}</a>}

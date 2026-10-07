@@ -81,10 +81,10 @@ export function VotePanel({ heading, advisory }: { heading: string; advisory: st
       </ul>
       {s.open && s.storeReady && (
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
-          {!addr ? <button type="button" onClick={connect} className="rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--bg)]">Connect wallet to vote</button> : (
+          {!addr ? <button type="button" onClick={connect} className="rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--on-accent)]">Connect wallet to vote</button> : (
             <>
               <span>{short(addr)}: {you ? `${used} of ${you.credits} vote${you.credits === 1 ? '' : 's'} used` : 'checking...'}</span>
-              <button type="button" onClick={submit} disabled={busy || !you || you.credits === 0 || used === 0} className="rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--bg)] disabled:opacity-40">{busy ? 'Signing...' : 'Sign and vote'}</button>
+              <button type="button" onClick={submit} disabled={busy || !you || you.credits === 0 || used === 0} className="rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--on-accent)] disabled:opacity-40">{busy ? 'Signing...' : 'Sign and vote'}</button>
             </>
           )}
         </div>

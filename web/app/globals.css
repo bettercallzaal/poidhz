@@ -1,4 +1,30 @@
 @import "tailwindcss";
-:root { --bg: #fbfaf7; --fg: #1b1a17; --muted: #6b675e; --line: #e4e0d6; --accent: #2f5d50; --warn: #9a5b00; }
-@media (prefers-color-scheme: dark) { :root { --bg: #14130f; --fg: #eeebe3; --muted: #a39e92; --line: #2d2b25; --accent: #7fc3ae; --warn: #f0b35a; } }
-a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The look is poidh's own (poidh.xyz, MIT, picsoritdidnthappen/poidh-app):
+   the blue gradient, white mono type, the red call to action and the pale
+   blue card edge. Values read from its src/styles/globals.css and
+   tailwind.config.ts on 7 Oct 2026. */
+:root {
+  --bg: #2a81d5;
+  --bg-gradient: linear-gradient(to bottom, #2a81d5, #70aae2, #6fa9e1, #2a81d5);
+  --fg: #ffffff;
+  --muted: rgba(255, 255, 255, 0.85);
+  --line: rgba(209, 236, 255, 0.6);
+  --card: rgba(13, 43, 80, 0.28);
+  --accent: #f15e5f;
+  --on-accent: #ffffff;
+  --warn: #ffe9a8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1b2e;
+    --bg-gradient: linear-gradient(to bottom, #0d1b2e, #1a3a5c, #15304f, #0d1b2e);
+    --card: rgba(19, 43, 71, 0.6);
+  }
+}
+body { background: var(--bg-gradient); background-attachment: fixed; }
+/* In the base layer so a utility such as no-underline on a button can still win. */
+@layer base { a { text-decoration: underline; text-underline-offset: 3px; } }
+/* Every boxed block on the site carries this border class, so one rule gives
+   them poidh's tinted card instead of touching each page. */
+[class*="border-[var(--line)]"] { background-color: var(--card); }
