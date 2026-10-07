@@ -1,11 +1,21 @@
 {
-  "generated_at": "2026-10-07T01:40:51.486419+00:00",
+  "generated_at": "2026-10-07T08:57:31.647686+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
   "bounties_scanned": 100,
   "bounties_with_deadline_found": [
+    {
+      "bounty_id": 1062,
+      "title": "smokingfrog tattoos POIDH ",
+      "issuer": "0x66e007f39f48cffa0f59fd4d05aee1031093ed9f",
+      "amount_eth": 0.02669,
+      "deadline_iso": "2026-03-18",
+      "deadline_raw_text": "March 18th, 2026",
+      "deadline_status": "past",
+      "url": "https://poidh.xyz/base/bounty/1062"
+    },
     {
       "bounty_id": 1192,
       "title": "Help Fund A Theoretical Neuroscience Paper",
