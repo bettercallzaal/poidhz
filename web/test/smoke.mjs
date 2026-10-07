@@ -1,7 +1,7 @@
 // Fetches every route against a running server. Usage: BASE=http://localhost:3000 node test/smoke.mjs
 const BASE = process.env.BASE || 'http://localhost:3000';
 const routes = ['/', '/people', '/b/1421', '/b/1418', '/b/1412', '/u/pascaline', '/u/assay', '/rounds.json', '/llms.txt',
-  '/submit', '/gallery', '/calendar', '/dashboard', '/create-bounty', '/about', '/best-practices', '/feedback', '/feedback/1418', '/feedback/1418/assay', '/round/5', '/round/2/judging', '/docs/about', '/docs/poidh-hub', '/rounds/r2/judging', '/b/1249', '/hub', '/lost', '/zabal-gamez-brand',
+  '/submit', '/gallery', '/calendar', '/dashboard', '/create-bounty', '/about', '/best-practices', '/feedback', '/feedback/1418', '/feedback/1418/assay', '/round/5', '/round/2/judging', '/docs/about', '/docs/poidh-hub', '/rounds/r2/judging', '/b/1249', '/random', '/hub', '/lost', '/zabal-gamez-brand',
   '/data/claims.json', '/data/rounds-live.json', '/leaderboard', '/api/receipt?round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F352'];
 let bad = 0;
 for (const r of routes) {
