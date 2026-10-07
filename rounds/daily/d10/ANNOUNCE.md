@@ -7,13 +7,13 @@ cast text before anything goes out.
 ## Block 1 - the Firefly post (Farcaster /zao and X)
 
 ```
-New bounty, open to the end of the year.
+New bounty, open to the end of October.
 
 Go to wavezstation.com, buy into the top song for a dollar, and film yourself hearing it all the way through. Best reaction wins the pot.
 
 New top song? Enter again.
 
-Closes 11:59pm Eastern Dec 31.
+Closes 11:59pm Eastern Oct 31.
 
 https://poidh.xyz/base/bounty/BOUNTY_ID
 ```

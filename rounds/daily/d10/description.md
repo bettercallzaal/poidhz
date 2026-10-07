@@ -7,13 +7,12 @@ himself, and funds it first.** Nothing here is cast, posted or sent.
 
 - **Title field:** `Round 10 - Buy The Top Song On WaveZStation And React To It`
 - **Type:** OPEN. Contributor vote confirms the pick. **Promises the pot and nothing else.**
-- **Close:** **Thursday 31 December 2026, 11:59pm Eastern.** He said "til end of year"; the minute
-  is this lane's reading. Earlier rounds closed at 5pm Eastern.
+- **Close:** **Saturday 31 October 2026, 11:59pm Eastern.** Zaal, poidhz pane, 7 Oct: "lets just keep this as a til the end of the month of october as a test one first". It replaces the end-of-year close he first asked for. The minute is this lane's reading.
 - **Reward field:** $100, his number. At 2,698 dollars per ETH (Coinbase spot, 18:01 EDT 6 Oct)
   that is about 0.0371 ETH. The wallet held 0.0018 ETH at that read, and round nine needs
   0.0037 of it first. The text names no amount.
 - **OPEN QUESTIONS FOR ZAAL, each with the default this draft took:**
-  1. **What "the top song" means.** wavezstation.com shows "Live Pools" on its home page and a
+  1. **What "the top song" means. ANSWERED 7 Oct:** Zaal confirmed the biggest-fan-pool reading and said the top song right now is "saturday in LA" (his words; not read on the site by this lane). Original note: wavezstation.com shows "Live Pools" on its home page and a
      Discover page; both load in the browser and were not read by this lane, so how the site
      orders songs is UNVERIFIED. Default: the song with the biggest fan pool on the day the
      entrant records, shown by a screenshot. If the site has a named chart, name it instead.
@@ -26,8 +25,7 @@ himself, and funds it first.** Nothing here is cast, posted or sent.
   4. **Playing a whole song in a public video.** The text asks entrants to tag the artist. Whether
      WaveZStation or its artists want full songs reposted was not asked. Default: ask Hurric4n3Ike
      or the WaveZStation team before casting.
-  5. **A note back to every entrant.** Every round promises one. This round runs twelve weeks, so
-     the promise is larger than usual. Default: keep it.
+  5. **A note back to every entrant.** Every round promises one. This round runs about three and a half weeks. Default: keep it.
 - **Zaal, a few minutes later, same pane:** *"If we get 100 entries we will get our money back and if another song tops the main song people can submit again"*. The second half is rule 7. The first half is his reasoning and is NOT in the text. It is also UNMEASURED: by WaveZStation's /docs, 100 one-dollar buys are 100 dollars of sales, of which 45 goes to the fan pool, shared among every earlier buyer by how much each put in. He gets back his share of that 45, not the 100, unless the docs are read wrong.
 - **Not ZAOstock.** No festival kit, and the title drops the ZAOstock prefix.
 - **Numbering:** this takes d10. Draft PR #220's uncast round, if it revives, becomes d11.
@@ -40,12 +38,12 @@ WaveZStation is a music site where you buy into a song instead of streaming it: 
 
 Go there, find the song with the biggest fan pool that day, buy in for one dollar or more, and record yourself listening to it all the way through and reacting. One take, the whole song. Best reaction wins the pot.
 
-This closes at 11:59pm Eastern Thursday, December 31, 2026.
+This closes at 11:59pm Eastern Saturday, October 31, 2026.
 
 
 WHY THIS ROUND EXISTS
 
-Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We want a wall of people hearing these songs for the first time, and we want the artists on WaveZStation to see real listeners, not a play count. The top song changes over the weeks this runs, so the entries will not all be the same song: https://wavezstation.com
+Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We want a wall of people hearing these songs for the first time, and we want the artists on WaveZStation to see real listeners, not a play count. The top song can change while this runs, so the entries may not all be the same song: https://wavezstation.com
 
 
 THE BAR (these are requirements, not preferences)
@@ -107,7 +105,7 @@ Discord: https://discord.thezao.com
 
 DEADLINE
 
-Submissions close 11:59pm Eastern, Thursday December 31, 2026.
+Submissions close 11:59pm Eastern, Saturday October 31, 2026.
 
 WaveZStation: https://wavezstation.com
 
