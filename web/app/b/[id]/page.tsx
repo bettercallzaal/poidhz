@@ -32,7 +32,7 @@ export default async function BountyPage({ params }: { params: Promise<{ id: str
             <li>Make your entry, then claim it on poidh with a public link in the claim.</li>
             <li>Tell everyone about it with the box further down, so people can see it and reply.</li>
           </ol>
-          <p className="mt-3"><a href={round.url || `https://poidh.xyz/base/bounty/${id}`} target="_blank" rel="noopener" className="inline-block rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--bg)] no-underline">Enter on poidh</a></p>
+          <p className="mt-3"><a href={round.url || `https://poidh.xyz/base/bounty/${id}`} target="_blank" rel="noopener" className="inline-block rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--on-accent)] no-underline">Enter on poidh</a></p>
         </section>
       )}
       {live?.description && <section className="mt-6 whitespace-pre-wrap rounded-lg border border-[var(--line)] p-4 text-sm leading-relaxed">{live.description}</section>}

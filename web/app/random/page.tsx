@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { pickBounty, toRandomBounty, type RandomBounty } from '@/lib/random';
 
 export const dynamic = 'force-dynamic';
@@ -26,7 +25,8 @@ export default async function RandomPage() {
     <>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-bold tracking-tight">Random poidh bounty</h1>
-        <Link href="/random" prefetch={false} className="inline-block rounded bg-[var(--accent)] px-5 py-3 text-lg font-semibold text-[var(--bg)] no-underline">Give me another one</Link>
+        {/* A plain link with a fresh query, so the browser really loads a new pick. A Next <Link> to the page you are already on does nothing. */}
+        <a href={`/random?n=${Math.random().toString(36).slice(2, 8)}`} className="inline-block rounded-full bg-[var(--accent)] px-6 py-3 text-lg font-semibold text-[var(--on-accent)] no-underline shadow-lg">Give me another one</a>
       </div>
       {!b ? (
         <p className="mt-6">poidh did not answer. Hit the button again.</p>
