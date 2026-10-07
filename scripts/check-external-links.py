@@ -47,7 +47,9 @@ SCRIPT_BLOCK = re.compile(r"<script\b.*?</script>", re.S | re.I)
 HINT_LINK = re.compile(r"<link\b[^>]*rel=[\"'](?:preconnect|dns-prefetch)[\"'][^>]*>", re.I)
 HREF = re.compile(r'href="(https?://[^"]+)"')
 
-CONTROL_LIVE = "https://example.com"
+# example.com was the live control until 7 Oct 2026, when it began answering 403 to this
+# curl and failed every run on main. The site's own root is a control we keep alive.
+CONTROL_LIVE = "https://poidhz.com"
 CONTROL_DEAD = "https://poidhz.com/definitely-not-a-real-path-9f3a2c"
 
 
