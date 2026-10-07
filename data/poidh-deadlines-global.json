@@ -1,21 +1,11 @@
 {
-  "generated_at": "2026-10-07T16:42:28.618150+00:00",
+  "generated_at": "2026-10-07T22:06:30.718471+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
   "bounties_scanned": 100,
   "bounties_with_deadline_found": [
-    {
-      "bounty_id": 1062,
-      "title": "smokingfrog tattoos POIDH ",
-      "issuer": "0x66e007f39f48cffa0f59fd4d05aee1031093ed9f",
-      "amount_eth": 0.02669,
-      "deadline_iso": "2026-03-18",
-      "deadline_raw_text": "March 18th, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1062"
-    },
     {
       "bounty_id": 1192,
       "title": "Help Fund A Theoretical Neuroscience Paper",
@@ -67,16 +57,6 @@
       "url": "https://poidh.xyz/base/bounty/1468"
     },
     {
-      "bounty_id": 1465,
-      "title": "test staging.poidh.xyz",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.002,
-      "deadline_iso": "2026-10-05",
-      "deadline_raw_text": "October 5th",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1465"
-    },
-    {
       "bounty_id": 1447,
       "title": "A pencil sketch of your face.",
       "issuer": "0xfb1bbff3747b6090fce6c171ef9bfc2298ad3bd6",
@@ -95,16 +75,6 @@
       "deadline_raw_text": "October 5, 2026",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1446"
-    },
-    {
-      "bounty_id": 1452,
-      "title": "upload a real pic you took outside \ud83d\uddbc\ufe0f",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.0022,
-      "deadline_iso": "2026-10-06",
-      "deadline_raw_text": "October 6th",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1452"
     },
     {
       "bounty_id": 1464,
