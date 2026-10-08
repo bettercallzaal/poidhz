@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T22:06:30.718471+00:00",
+  "generated_at": "2026-10-08T02:05:58.998930+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -140,7 +140,7 @@
       "bounty_id": 34,
       "title": "Bring Snowmoon to Life",
       "issuer": "0x9aa0f215076c1404a92a5b7219512f4c57d7029b",
-      "amount_eth": 0.12625,
+      "amount_eth": 0.12725,
       "deadline_iso": "2026-10-18",
       "deadline_raw_text": "October 18th",
       "deadline_status": "upcoming",
