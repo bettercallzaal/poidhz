@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T09:11:30.690439+00:00",
+  "generated_at": "2026-10-08T16:39:29.467421+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -155,6 +155,16 @@
       "deadline_raw_text": "20 October",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1470"
+    },
+    {
+      "bounty_id": 1480,
+      "title": "Ask BOAR where there is no signal ",
+      "issuer": "0x5978246f4299ecd00cbdf1e28da94ead89885886",
+      "amount_eth": 0.0142,
+      "deadline_iso": "2026-10-31",
+      "deadline_raw_text": "October 31",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1480"
     },
     {
       "bounty_id": 1365,
