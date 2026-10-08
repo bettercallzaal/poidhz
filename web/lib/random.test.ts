@@ -28,7 +28,7 @@ describe('toRandomBounty', () => {
     isCanceled: false, isMultiplayer: true, isVoting: true, inProgress: false,
     claims: [
       { claimId: 7, title: 'one', imageUrl: 'https://x/1', issuerAddress: '0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', farcasterHandle: 'ozak' },
-      { claimId: 8, title: 'two', imageUrl: null, issuerAddress: '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', farcasterHandle: null },
+      { claimId: 8, title: 'two', uri: 'https://x/2', issuerAddress: '0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', farcasterHandle: null },
       { claimId: 9, title: 'three', imageUrl: null, issuerAddress: '0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', twitterHandle: 'tw' },
     ],
   };
@@ -37,6 +37,9 @@ describe('toRandomBounty', () => {
     expect(b).toMatchObject({ title: 'THUMBS UP', amountEth: 0.0001, usd: 0.26, open: true, url: 'https://poidh.xyz/base/bounty/50' });
     expect(b.createdAt.slice(0, 10)).toBe('2024-06-23');
     expect(b.claims).toHaveLength(3);
+  });
+  it('takes the pic from imageUrl or, since 8 Oct 2026, uri', () => {
+    expect(toRandomBounty(p, data)!.claims.map((c) => c.image)).toEqual(['https://x/1', 'https://x/2', null]);
   });
   it('counts people, not claims, ignoring wallet case', () => {
     expect(toRandomBounty(p, data)!.people).toBe(2);

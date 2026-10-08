@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ago, shortWallet, type RandomBounty } from '@/lib/random';
 
 // How many picks to keep loaded behind the one on screen.
-const AHEAD = 5;
+const AHEAD = 20;
+// Fetched a few at a time, so a fresh page does not fire twenty reads at poidh at once.
+const PARALLEL = 5;
 
 function Stat({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
@@ -31,7 +33,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
   const seen = useRef(new Set<string>(first ? [`${first.slug}-${first.id}`] : []));
 
   const fill = () => {
-    while (queue.current.length + inFlight.current < AHEAD) {
+    while (queue.current.length + inFlight.current < AHEAD && inFlight.current < PARALLEL) {
       inFlight.current++;
       fetch('/api/random', { cache: 'no-store' })
         .then((r) => (r.ok ? (r.json() as Promise<RandomBounty>) : null))
@@ -74,7 +76,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-bold tracking-tight">Random poidh bounty</h1>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-[var(--muted)]">{ready} ready</span>
+          <span className="text-xs text-[var(--muted)]">{ready > 10 ? '10+' : ready} ready</span>
           <button type="button" onClick={next} disabled={ready === 0} className="rounded-full bg-[var(--accent)] px-6 py-3 text-lg font-semibold text-[var(--on-accent)] shadow-lg disabled:opacity-60">
             {ready === 0 ? 'Loading...' : 'Give me another one'}
           </button>
@@ -87,7 +89,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
           <section className="mt-6 rounded-lg border border-[var(--line)] p-5">
             <p className="text-sm text-[var(--muted)]">{b.chainName} bounty {b.id}</p>
             <h2 className="mt-2 break-words text-3xl font-bold tracking-tight">{b.title}</h2>
-            {b.description && <p className="mt-4 max-h-64 overflow-auto whitespace-pre-wrap break-words text-sm leading-relaxed">{b.description}</p>}
+            {b.description && <p className="mt-4 max-h-64 overflow-auto whitespace-pre-wrap [overflow-wrap:anywhere] text-sm leading-relaxed">{b.description}</p>}
             <p className="mt-4 text-sm"><a href={b.url} target="_blank" rel="noopener">Open it on poidh</a></p>
           </section>
 

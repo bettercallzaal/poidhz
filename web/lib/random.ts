@@ -5,6 +5,7 @@
 // poidh.xyz/<chain>/bounty/<id>/data: Base answers up to 1478, Arbitrum up
 // to 334. Newer bounties are left out until these numbers are raised, which
 // is fine for lore. Degen did not answer on that endpoint, so it is not here.
+import { claimImage } from './poidh';
 export const CHAINS = [
   { slug: 'base', chainId: 8453, name: 'Base', maxId: 1478 },
   { slug: 'arbitrum', chainId: 42161, name: 'Arbitrum', maxId: 334 },
@@ -53,7 +54,7 @@ export function toRandomBounty(p: Pick, d: Record<string, unknown>, accepted: Se
     const wallet = String(c.issuerAddress ?? '');
     const handle = (c.farcasterHandle ?? c.twitterHandle ?? c.issuerName) as string | null | undefined;
     const id = Number(c.claimId);
-    return { id, title: String(c.title ?? ''), image: typeof c.imageUrl === 'string' ? c.imageUrl : null, by: handle ? `@${handle}` : shortWallet(wallet), wallet, won: accepted?.has(id) ?? false };
+    return { id, title: String(c.title ?? ''), image: claimImage(c), by: handle ? `@${handle}` : shortWallet(wallet), wallet, won: accepted?.has(id) ?? false };
   });
   const winner = claims.find((c) => c.won) ?? null;
   const status = d.isCanceled === true ? 'Canceled' : winner ? 'Paid out' : d.isVoting === true ? 'In a vote' : d.inProgress === true ? 'Open' : 'Closed';

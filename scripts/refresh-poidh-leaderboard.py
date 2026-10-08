@@ -586,7 +586,8 @@ def main() -> int:
                 "issuer": addr,
                 "title": (c.get("title") or ""),
                 "description": (c.get("description") or ""),
-                "image_url": c.get("imageUrl") or "",
+                # poidh renamed imageUrl to uri between 7 and 8 Oct 2026; read either.
+                "image_url": c.get("imageUrl") or c.get("uri") or "",
                 "accepted": bool(acc.get("accepted")),
                 "on_chain_id": acc.get("on_chain_id"),
             })

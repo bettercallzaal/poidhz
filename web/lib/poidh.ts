@@ -1,6 +1,13 @@
 export type LiveClaim = { claimId: number; imageUrl: string | null; issuerAddress: string; farcasterHandle: string | null; title: string; description: string };
 export type LiveBounty = { id: number; title: string; description: string; claims: LiveClaim[]; accepted: Set<number> };
 
+// poidh renamed a claim's picture from imageUrl to uri between 7 and 8 Oct 2026.
+// Read either, so the pics come back whichever one it serves.
+export function claimImage(c: Record<string, unknown>): string | null {
+  for (const k of ['imageUrl', 'uri']) if (typeof c[k] === 'string' && c[k]) return c[k] as string;
+  return null;
+}
+
 const UA = { 'User-Agent': 'poidhz.com (+https://poidhz.com)' };
 
 export async function fetchLiveBounty(id: number, chainId: number, fetchImpl: typeof fetch = fetch): Promise<LiveBounty | null> {
@@ -16,7 +23,7 @@ export async function fetchLiveBounty(id: number, chainId: number, fetchImpl: ty
       const items = (await t.json())[0].result.data.json.items as { id: number; isAccepted: boolean }[];
       for (const c of items) if (c.isAccepted) accepted.add(c.id);
     } catch { /* acceptance unknown; winner comes from rounds-live instead */ }
-    return { id: d.id, title: d.title, description: d.description, claims: d.claims ?? [], accepted };
+    return { id: d.id, title: d.title, description: d.description, claims: (d.claims ?? []).map((c: Record<string, unknown>) => ({ ...c, imageUrl: claimImage(c) })), accepted };
   } catch {
     return null;
   }
