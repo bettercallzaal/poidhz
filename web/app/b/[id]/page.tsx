@@ -35,7 +35,7 @@ export default async function BountyPage({ params }: { params: Promise<{ id: str
           <p className="mt-3"><a href={round.url || `https://poidh.xyz/base/bounty/${id}`} target="_blank" rel="noopener" className="inline-block rounded bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--on-accent)] no-underline">Enter on poidh</a></p>
         </section>
       )}
-      {live?.description && <section className="mt-6 whitespace-pre-wrap rounded-lg border border-[var(--line)] p-4 text-sm leading-relaxed">{live.description}</section>}
+      {live?.description && <section className="mt-6 whitespace-pre-wrap [overflow-wrap:anywhere] rounded-lg border border-[var(--line)] p-4 text-sm leading-relaxed">{live.description}</section>}
       {phase === 'open' && <EntryShare title={round.bounty_title || round.title || `Bounty ${id}`} boardUrl={`${SITE}/b/${id}`} channel={sources.channel} hints={(sources as { entry_hints?: Record<string, { link?: string; about?: string }> }).entry_hints?.[String(id)]} />}
       <h2 className="mt-8 text-xl font-semibold">Entries</h2>
       {set.source === 'snapshot' && <p className="mt-1 text-xs text-[var(--warn)]">poidh did not answer, so this list is from the last snapshot and may be missing recent entries.</p>}

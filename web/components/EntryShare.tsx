@@ -19,7 +19,7 @@ export function EntryShare({ title, boardUrl, channel, hints }: { title: string;
       <label className="mt-3 block text-sm">Your poidh claim number (optional)<input className={field} value={claim} onChange={(e) => setClaim(e.target.value)} placeholder="8400" /></label>
       <label className="mt-3 block text-sm">{hints?.link ?? 'Link to your work'}<input className={field} value={link} onChange={(e) => setLink(e.target.value)} placeholder="https://" /></label>
       <label className="mt-3 block text-sm">{hints?.about ?? 'A few lines about it'}<textarea className={field} rows={4} value={about} onChange={(e) => setAbout(e.target.value)} /></label>
-      {p.ready && <pre className="mt-3 whitespace-pre-wrap rounded bg-[var(--line)]/40 p-3 text-sm">{p.text}</pre>}
+      {p.ready && <pre className="mt-3 whitespace-pre-wrap [overflow-wrap:anywhere] rounded bg-[var(--line)]/40 p-3 text-sm">{p.text}</pre>}
       <div className="mt-3 flex flex-wrap gap-2">
         <a aria-disabled={!p.ready} className={`${btn} bg-[var(--accent)] text-[var(--on-accent)] ${p.ready ? '' : 'pointer-events-none opacity-40'}`} href={p.farcasterUrl} target="_blank" rel="noopener">Post in /{channel}</a>
         <a aria-disabled={!p.ready} className={`${btn} border border-[var(--line)] ${p.ready ? '' : 'pointer-events-none opacity-40'}`} href={p.xUrl} target="_blank" rel="noopener">Post on X</a>

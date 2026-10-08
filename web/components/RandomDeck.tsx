@@ -87,7 +87,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
           <section className="mt-6 rounded-lg border border-[var(--line)] p-5">
             <p className="text-sm text-[var(--muted)]">{b.chainName} bounty {b.id}</p>
             <h2 className="mt-2 break-words text-3xl font-bold tracking-tight">{b.title}</h2>
-            {b.description && <p className="mt-4 max-h-64 overflow-auto whitespace-pre-wrap break-words text-sm leading-relaxed">{b.description}</p>}
+            {b.description && <p className="mt-4 max-h-64 overflow-auto whitespace-pre-wrap [overflow-wrap:anywhere] text-sm leading-relaxed">{b.description}</p>}
             <p className="mt-4 text-sm"><a href={b.url} target="_blank" rel="noopener">Open it on poidh</a></p>
           </section>
 
