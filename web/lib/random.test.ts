@@ -35,7 +35,7 @@ describe('toRandomBounty', () => {
   it('reads poidh data into a card', () => {
     const b = toRandomBounty(p, data, new Set([9]))!;
     expect(b).toMatchObject({ title: 'THUMBS UP', amountEth: 0.0001, usd: 0.26, open: true, url: 'https://poidh.xyz/base/bounty/50' });
-    expect(b.createdAt.toISOString().slice(0, 10)).toBe('2024-06-23');
+    expect(b.createdAt.slice(0, 10)).toBe('2024-06-23');
     expect(b.claims).toHaveLength(3);
   });
   it('counts people, not claims, ignoring wallet case', () => {

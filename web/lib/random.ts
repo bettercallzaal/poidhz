@@ -32,7 +32,7 @@ export type RandomBounty = Pick & {
   description: string;
   amountEth: number;
   usd: number | null;
-  createdAt: Date;
+  createdAt: string; // ISO, so a bounty can travel as JSON to the browser
   issuer: string;
   open: boolean; // an open bounty takes contributions and a vote; a solo one has a single issuer
   status: 'Canceled' | 'Paid out' | 'In a vote' | 'Open' | 'Closed';
@@ -63,7 +63,7 @@ export function toRandomBounty(p: Pick, d: Record<string, unknown>, accepted: Se
     description: typeof d.description === 'string' ? d.description : '',
     amountEth: Number(d.amount ?? 0) / 1e18,
     usd: typeof d.priceUsd === 'number' ? d.priceUsd : null,
-    createdAt: new Date(Number(d.createdAt ?? 0) * 1000),
+    createdAt: new Date(Number(d.createdAt ?? 0) * 1000).toISOString(),
     issuer: String(d.issuer ?? ''),
     open: d.isMultiplayer === true,
     status,
