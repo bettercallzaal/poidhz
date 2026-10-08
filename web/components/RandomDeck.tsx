@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ago, shortWallet, type RandomBounty } from '@/lib/random';
 
 // How many picks to keep loaded behind the one on screen.
-const AHEAD = 5;
+const AHEAD = 20;
+// Fetched a few at a time, so a fresh page does not fire twenty reads at poidh at once.
+const PARALLEL = 5;
 
 function Stat({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
@@ -31,7 +33,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
   const seen = useRef(new Set<string>(first ? [`${first.slug}-${first.id}`] : []));
 
   const fill = () => {
-    while (queue.current.length + inFlight.current < AHEAD) {
+    while (queue.current.length + inFlight.current < AHEAD && inFlight.current < PARALLEL) {
       inFlight.current++;
       fetch('/api/random', { cache: 'no-store' })
         .then((r) => (r.ok ? (r.json() as Promise<RandomBounty>) : null))
@@ -74,7 +76,7 @@ export function RandomDeck({ first }: { first: RandomBounty | null }) {
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-bold tracking-tight">Random poidh bounty</h1>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-[var(--muted)]">{ready} ready</span>
+          <span className="text-xs text-[var(--muted)]">{ready > 10 ? '10+' : ready} ready</span>
           <button type="button" onClick={next} disabled={ready === 0} className="rounded-full bg-[var(--accent)] px-6 py-3 text-lg font-semibold text-[var(--on-accent)] shadow-lg disabled:opacity-60">
             {ready === 0 ? 'Loading...' : 'Give me another one'}
           </button>

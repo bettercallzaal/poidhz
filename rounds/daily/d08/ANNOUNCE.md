@@ -1,3 +1,4 @@
+<!-- COPY: promo text written while round eight was open. It closed Fri 2 Oct 2026 and the winner is set, so "closes Friday" below is what was written then, not a claim about now. -->
 # Round eight - promo copy, unsent
 
 **Zaal posts.** Written 2026-10-01 against the draft in `description.md`. **The round was cast
