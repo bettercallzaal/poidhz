@@ -4,6 +4,24 @@ Most recent first. Each session entry: what happened + pending items + state of 
 
 ---
 
+## 2026-10-08 - POIDH lore Space with Kenny
+
+Zaal hosted Kenny (Farcaster @kenny, X @kennyistyping) for a 75-minute "POIDH lore" Space, part one,
+bridged between X and Farcaster. Kenny told the year: the November 2025 traffic peak, the December
+hack and February relaunch, the summer raise now on ice, ZeroDev gasless onboarding built through a
+$100 bounty, and why POIDH is modelled on Reddit as an "outcome market". Statuette, Krem and the
+claimer of the Wall Street poster bounty joined in.
+
+Full recap, with the follow-through table, three draft clip windows and the lore list:
+[`docs/spaces/2026-10-08-kenny-poidh-lore.md`](spaces/2026-10-08-kenny-poidh-lore.md).
+Figures in it are Kenny's words on air, not verified elsewhere. Clip times are drafts; nothing is cut
+or posted.
+
+**Pending:** Zaal's POIDH theme song bounty (his words, no date); a bounty Statuette can win
+(no owner); clips, on Zaal's tap.
+
+---
+
 ## 2026-09-06 to 09-08 - the money got credited, the promises got counted, and the tooling started checking itself
 
 Three days in one entry. If you read nothing else: **R5's entrants were uncredited in two
