@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T16:23:16.035503+00:00",
+  "generated_at": "2026-10-09T21:03:15.540455+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -130,7 +130,7 @@
       "bounty_id": 34,
       "title": "Bring Snowmoon to Life",
       "issuer": "0x9aa0f215076c1404a92a5b7219512f4c57d7029b",
-      "amount_eth": 0.12725,
+      "amount_eth": 0.12935,
       "deadline_iso": "2026-10-18",
       "deadline_raw_text": "October 18th",
       "deadline_status": "upcoming",
@@ -145,6 +145,26 @@
       "deadline_raw_text": "20 October",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1470"
+    },
+    {
+      "bounty_id": 1481,
+      "title": "clip & remix the poidh lore space with Zaal \ud83c\udf99\ufe0f",
+      "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
+      "amount_eth": 0.0098,
+      "deadline_iso": "2026-10-21",
+      "deadline_raw_text": "October 21, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1481"
+    },
+    {
+      "bounty_id": 1482,
+      "title": "Make the case for private AI",
+      "issuer": "0x5978246f4299ecd00cbdf1e28da94ead89885886",
+      "amount_eth": 0.0082,
+      "deadline_iso": "2026-10-31",
+      "deadline_raw_text": "October 31",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1482"
     },
     {
       "bounty_id": 1480,
