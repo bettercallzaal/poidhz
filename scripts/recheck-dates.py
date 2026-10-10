@@ -84,7 +84,30 @@ def main() -> int:
         check("ignores a date with no re-check verb", f("Measured 2026-09-07.") == [])
         check("does not run across a sentence boundary",
               f("Re-check this. Something unrelated by 2026-09-09.") == [])
-        check("finds the repo's real dates", len(find_dates(REPO_ROOT)) >= 3)
+        # The scanner is tested on a fixture it writes itself, not on live repo text. The
+        # old form asserted the repo held three or more dated lines, so resolving a
+        # re-check (poidhz #248 rewrote the one r7 line it counted) turned CI red, and a
+        # synced copy under web/public/ hid that locally. A selftest must not move when
+        # the repo does its job.
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "a").mkdir()
+            (root / "a" / "one.md").write_text("Re-check by 2026-09-09.\nnothing here\n")
+            (root / "two.md").write_text("x\n**RE-CHECK BY 2026-09-13 and before any cast.**\n")
+            (root / "three.md").write_text("Re-check the figures on this page by 2026-10-08.\n")
+            (root / "data").mkdir()
+            (root / "data" / "skipped.md").write_text("re-check by 2026-01-01\n")
+            (root / "bad.md").write_text("re-check by 2026-13-40\n")
+            rows = find_dates(root)
+            check("fixture: finds the three dated lines across nested files", len(rows) == 3)
+            check("fixture: skips the data directory", all("skipped" not in str(r[0]) for r in rows))
+            check("fixture: drops an impossible date", all(r[2].year == 2026 for r in rows))
+            check("fixture: reports path, line and date",
+                  sorted((r[0].name, r[1], str(r[2])) for r in rows)
+                  == [("one.md", 1, "2026-09-09"), ("three.md", 1, "2026-10-08"), ("two.md", 2, "2026-09-13")])
+        live = len(find_dates(REPO_ROOT))
+        print(f"  info live repo currently carries {live} dated re-check line(s) (not asserted)")
         print("selftest:", "passed" if passed else "FAILED")
         return 0 if passed else 1
 

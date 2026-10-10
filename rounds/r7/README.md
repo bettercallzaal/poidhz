@@ -11,8 +11,9 @@
 >    It used to say Sunday, September 20, 2026, which was written for a Sep 7 cast and is
 >    meaningless now. Set it when you know the cast date, and keep 14 days.
 >
-> 2. **Twitch archive RE-MEASURED 2026-10-10 at 21:41Z; the 7-day constraint holds. RE-CHECK
->    AGAIN before any cast, whatever the date.** Twitch GQL (public web client id read off the
+> 2. **Twitch archive RE-MEASURED 2026-10-10 at 21:41Z; the 7-day constraint holds.
+>    RE-CHECK BY 2026-10-17 (every VOD listed below has expired by then), and again before
+>    any cast, whatever the date.** Twitch GQL (public web client id read off the
 >    channel page that minute): `twitch.tv/wavewarzofficial` is still neither Affiliate nor
 >    Partner (43 followers; Affiliate needs 50), so VODs still self-delete after 7 days. 4
 >    archive VODs on the channel, streamed 3, 6, 8 and 10 October (23 to 130 minutes, 0 to 3
