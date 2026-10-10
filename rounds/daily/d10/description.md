@@ -10,7 +10,8 @@ The reasoning is in `RESEARCH.md` and `PLAN.md` beside this file.
 - **Type:** OPEN. Contributor vote confirms the pick. **Promises the pot and nothing else.**
 - **Close:** **Saturday 31 October 2026, 11:59pm Eastern.** Zaal, 7 Oct: "keep this as a til the end of the month of october as a test one first".
 - **Reward field:** $100, his number. 0.0399 ETH at 2,506.72 USD per ETH (Coinbase spot 16:06Z 10 Oct). The text names no amount.
-- **CAST GATE, in this order:** (1) the $1,000 buy lands on chain; (2) replace `BUY_TX_HASH` below with that transaction hash, twice; (3) if the most-funded song at the moment of the buy is not Saturday in LA, replace the song and artist throughout and re-check the creator wallets; (4) cast.
+- **Q1 RULED by Zaal in the Grill 10 Oct 18:27Z (items 96 and 97): two buys of $500 this week, the second free to go to a second artist "if we need to split the top prize".** The text below is written for that.
+- **CAST GATE, in this order:** (1) both $500 buys land on chain; (2) replace `BUY_TX_HASH_1` and `BUY_TX_HASH_2` below with the two hashes, and `BUY_AMOUNT` with the words for what landed on this song (five hundred, or a thousand); (3) if the most-funded song at the moment of the buy is not Saturday in LA, replace the song and artist throughout and re-check the creator wallets; (4) cast.
 - **Validator note:** the paste body writes the buy figures in words (a thousand dollars, 450 dollars) and states Zaal's stake as a share rather than a sum because `validate-bounty-description.py` reads any `$1...` as a pot figure. They are the buy, not the pot.
 - **Review fixes 2026-10-10 (orchestrator2 verdict on #244 at 1954b162):** the 21 percent now and 65 percent after are in the text and every ANNOUNCE block; the first-four-figure line carries its bound; ARTIST-PITCH.md is in `.vercelignore` by shape.
 - **What changed from #236:** the round is pinned to the one song the $1,000 went into, so #236's "enter again when the top song changes" rule is gone; the disclosure under THE REWARD now carries numbers, because after the buy Zaal holds most of that song's fan pool; the Basescan hash is in the text so anyone can check the buy.
@@ -19,13 +20,13 @@ The reasoning is in `RESEARCH.md` and `PLAN.md` beside this file.
 
 <!-- PASTE BELOW THIS LINE -->
 
-WE JUST PUT A THOUSAND DOLLARS INTO ONE SONG ON WAVEZSTATION. BUY A DOLLAR OF IT AND FILM YOURSELF HEARING IT FOR THE FIRST TIME.
+WE JUST PUT BUY_AMOUNT DOLLARS INTO ONE SONG ON WAVEZSTATION. BUY A DOLLAR OF IT AND FILM YOURSELF HEARING IT FOR THE FIRST TIME.
 
 The song is Saturday in LA by BennyJ504 (@bennyj504). WaveZStation is a music site where you buy into a song instead of streaming it, and when a song sells, 45 cents of every dollar goes to the artist on the spot: https://wavezstation.com
 
-Our buy is on chain: https://basescan.org/tx/BUY_TX_HASH
+Our buys are on chain: https://basescan.org/tx/BUY_TX_HASH_1 and https://basescan.org/tx/BUY_TX_HASH_2
 
-As far as we can measure it is the first four-figure buy on the site. The most-sold song had around eight hundred dollars of total sales when we checked on October 10, so no single buy could have been bigger. We could not pull every buy, so that is a bound, not a count.
+As far as we can measure this makes it the first song on the site past a thousand dollars in sales. The most-sold song had around eight hundred dollars of total sales when we checked on October 10. We could not pull every buy, so that is a bound, not a count.
 
 Go to the song, buy in for one dollar or more, and record yourself listening to it all the way through and reacting. One take, the whole song. Best reaction wins the pot.
 
@@ -34,7 +35,7 @@ This closes at 11:59pm Eastern Saturday, October 31, 2026.
 
 WHY THIS ROUND EXISTS
 
-Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We put a thousand dollars behind one song so the artist got paid today, and now we want a wall of people hearing it for the first time, so the artist sees real listeners and not a play count. Song page: https://wavezstation.com/song/a6c6d732-8f7a-4621-a478-d7025e3bfc98
+Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We put real money behind one song so the artist got paid today, and now we want a wall of people hearing it for the first time, so the artist sees real listeners and not a play count. Song page: https://wavezstation.com/song/a6c6d732-8f7a-4621-a478-d7025e3bfc98
 
 
 THE BAR (these are requirements, not preferences)
@@ -68,7 +69,7 @@ THE ASSET KIT (use any of this for your entry)
 
 - The song: https://wavezstation.com/song/a6c6d732-8f7a-4621-a478-d7025e3bfc98
 - How buying in works, in WaveZStation's own words: https://wavezstation.com/docs
-- The thousand-dollar buy, on Basescan: https://basescan.org/tx/BUY_TX_HASH
+- Our buys, on Basescan: https://basescan.org/tx/BUY_TX_HASH_1 and https://basescan.org/tx/BUY_TX_HASH_2
 
 There is no logo pack for this round. The song and your face are the piece.
 
@@ -77,7 +78,7 @@ THE REWARD
 
 Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this page says it is right now, and it grows in real time as others contribute. Read the number at the top of this page, not a number in this text.
 
-The dollar you spend on the song is yours to spend and is not refunded. Read this part: on WaveZStation, 45 cents of every dollar goes to the song's earlier buyers, split by how much each of them put in. Before this buy Zaal held about 21 percent of everything spent on this song. After it he holds about 65 percent. So about 29 cents of each dollar you spend on it is his to claim. We would rather say that than have you find it.
+The dollar you spend on the song is yours to spend and is not refunded. Read this part: on WaveZStation, 45 cents of every dollar goes to the song's earlier buyers, split by how much each of them put in. Before these buys Zaal held about 21 percent of everything spent on this song. After them he holds more than half, between about 51 and 65 percent. So between 23 and 29 cents of each dollar you spend on it is his to claim. We would rather say that than have you find it.
 
 Every submitter earns $ZABAL automatically through the POIDH Submitters leaderboard on Empire Builder, and the drop scales with how many BCZ rounds you have entered in total.
 
