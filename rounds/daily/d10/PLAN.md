@@ -48,7 +48,7 @@ fan-pool formula sits in unverified bytecode (`RESEARCH.md` section 2), so that 
 | Step | What | Whose hand | Public? |
 |---|---|---|---|
 | 1 | Send the invitation (`ARTIST-PITCH.md`) to BennyJ504, and to any other artist he wants in. | Zaal | no, a DM |
-| 2 | Build the sign-up form on poidhz.com (Q5) and switch on the store behind it (Q4, a key through `/secret`). | this lane builds; Zaal switches on | the form page is public once deployed |
+| 2 | Send `HURRICANE-NOTE.md`; when his endpoint exists, set `SIGNUP_ENDPOINT` and `SIGNUP_TOKEN` through `/secret`. The page (PR #247) is already built. | Zaal | the form page is public once deployed, unlinked until the cast |
 | 3 | Paste the form URL into `description.md` and block 2 of `ANNOUNCE.md`; cast the OPEN bounty with $500 in the reward field. | Zaal | yes |
 | 4 | Post block 1 from Firefly (Farcaster /zao and X). Block 2 on Friday 16 October. | Zaal | yes |
 | 5 | Sign-up closes Sunday 18 October 11:59pm Eastern. This lane stamps each entrant's song from `/api/songs` that night: supporters, pool total, cumulative sales. | this lane | the stamp is published in this folder |
@@ -60,36 +60,32 @@ fan-pool formula sits in unverified bytecode (`RESEARCH.md` section 2), so that 
 
 ## The sign-up form, and where the emails go
 
-Zaal ruled (item 108): *"Sign up form on website after they put in email"*. He did not say which website. This
-lane reads it as poidhz.com, because that is the site this repo deploys and the round's own surface. Two findings
-shape the build:
+Zaal ruled where the form is (item 108: *"Sign up form on website after they put in email"*) and where the
+addresses go (item 111, vault 50b1457b, verbatim: *"Hurricane gets it on his database"*). So: the page is on
+poidhz.com, built in `web/` (PR #247, held, `/round/10/signup`, noindex, unlinked), and every sign-up is
+forwarded to an endpoint hurric4n3ike provides on the WaveZStation side. **Nothing is kept on poidhz.com.**
+The site's own Upstash store stays off for this (it was measured off at 20:46Z 10 Oct, `/api/vote`
+`storeReady: false`, and is not switched on).
 
-1. **poidhz.com has one store and it is off.** The site is the Next app in `web/`, which already carries an
-   Upstash Redis store (`web/lib/votestore.ts`, from PR #223) for community votes. The live endpoint
-   `https://poidhz.com/api/vote?bounty=1421` returned `"storeReady": false` at 20:46Z 10 Oct, so no
-   `KV_REST_API_*` or `UPSTASH_*` token is set on the Vercel project. A form that posts to the site today has
-   nowhere to write.
-2. **The repo says no email list.** `docs/community-plan.md`: "No email list. Same reason, plus nobody has
-   consented to one." A round sign-up is not a list, and the form and the bounty text both say the address is
-   used to reach entrants about this round only. That is the line this lane holds: no newsletter, no export into
-   a mailing tool, no reuse for round eleven without asking again.
+**What the page does.** Step one asks for an email and nothing else. Step two, after a valid email, asks
+for artist name, the song's WaveZStation link (checked on submit against `https://www.wavezstation.com/api/songs/<id>`,
+so only a listed song gets through), the handle, and where the rollout will be posted. The page shows the count
+of sign-ups, never names or addresses. Both steps carry the email-use line.
 
-**Proposed build (Q5):** a page at `poidhz.com/round/10/signup`, in the Next app. Step one asks for an email
-and nothing else. Step two, shown after a valid email, asks for artist name, the song's WaveZStation link (checked
-against `/api/songs/<id>` on submit, so only a listed song gets through), the X or Farcaster handle, and where the
-rollout will be posted. One row per song. The page shows the count of sign-ups, never the names or addresses.
+**Where the addresses live, and who can read them.** In Hurricane's database, under his control, once his
+endpoint exists. Who can read it there is his to say and UNVERIFIED from this lane; the note asks. Until
+`SIGNUP_ENDPOINT` is set on the Vercel project, `POST /api/signup` answers 503 "not switched on yet; nothing was
+stored" and sends nothing anywhere. The adapter is one function (`web/lib/signupstore.ts`): POST the row as
+JSON with a bearer token; the endpoint owns one-entry-per-song and answers 409 for a repeat.
 
-**Where the emails are stored, and who can read them (Q4, the default):** in the site's own Upstash Redis
-database under the key `signup:d10`, the same store the vote endpoint uses, once Zaal connects it. Who can read
-that store: whoever holds the Vercel project's environment variables, which is Zaal and anyone he has added to
-the Vercel project (UNVERIFIED who that is from this lane; the repo does not record it), and the Upstash account
-that owns the database. Nothing in the public repo, nothing in a deploy preview, nothing in git. This lane reads
-the rows only through a route protected by a token he sets, to stamp each entrant's song. The addresses are
-deleted from the store after the round closes out, and the plan says so in public so entrants can hold us to it.
+**The repo rule.** `docs/community-plan.md`: "No email list. Same reason, plus nobody has consented to one."
+Held by making this round contact only, said in the bounty text and on both steps of the form, with deletion
+at close-out. That deletion is now a promise on Hurricane's side; `HURRICANE-NOTE.md` asks him for it in
+writing before the cast.
 
-The alternative is a Tally or Google form embedded on the page, which puts the addresses on that vendor's
-servers under Zaal's account and needs no key here. It is faster and it is not "on the website" in the way he
-said it. Q4 asks which.
+**What needs Hurricane, who is a person:** the endpoint URL and token, the row shape (in the note), the
+409-on-repeat rule, a count GET if he wants the page to show one, and his word on who reads the table and
+when it is deleted. The ask is Zaal's to send; the draft is beside this file.
 
 ## The bounty
 
@@ -132,8 +128,8 @@ first entrant.
   to keep and that we will say whether they kept it. That is the whole enforcement, and the text says so.
 - **The winner games the numbers.** Supporters can be bought: a $1 buy from twenty wallets is twenty supporters.
   Half the weight is on the rollout itself, and the deltas are read with the sales total, not just the count.
-- **The store never gets switched on.** Then there is no form on the website and the fallback is a vendor form
-  (Q4 B). Nothing casts until a sign-up URL exists.
+- **Hurricane's endpoint never arrives.** Then the form has nowhere to send and nothing casts. The fallback
+  is a new ruling from Zaal, not a quiet switch to our own store: he ruled his database, by name.
 - **The email rule.** Someone reads `community-plan.md` and the form as a contradiction. The answer is in the
   text and above: round contact only, deleted at close-out, no list.
 - **ETH moves between cast and payout.** The pot is in ETH; "five hundred dollars of the prize" is written in
@@ -143,7 +139,7 @@ first entrant.
 
 1. Read "website" as poidhz.com, and the form as a page in the Next app, because that is the site this repo
    deploys and the one with a store already wired.
-2. Default storage: the site's own Upstash store, switched on by Zaal, not a vendor form (Q4 asks).
+2. Storage was this lane's default (the site's own store) until item 111 ruled it: Hurricane's database.
 3. The form checks the song against `/api/songs/<id>` so only listed songs get through.
 4. Five dated posts as the minimum record, because "rollout" has to mean more than one post and five is checkable.
 5. Half the judging weight on measured deltas, half on craft, because item 99 said "best marketing rollout" and
@@ -152,19 +148,13 @@ first entrant.
 7. Addresses deleted at close-out, said in public, because the repo's rule against a list has to mean something.
 8. "This week" read as the round opening the week starting Monday 12 October.
 
-## Questions for Zaal (the Grill carries them; none blocks the copy)
+## Questions for Zaal: Q4 and Q5 ruled
 
-**Q4. Where the sign-up emails live.**
-- A) The site's own Upstash store, which you switch on with the Vercel integration or a token through `/secret`.
-  Readable by you and whoever is on the Vercel project; deleted at close-out. **Recommended: it is on the
-  website, as you said, and under your account.**
-- B) A Tally or Google form embedded on the page. On the vendor's servers under your account. No key needed here.
-- C) Something else; type it.
+**Q4, where the sign-up emails live.** RULED, typed, item 111 (vault 50b1457b): *"Hurricane gets it on his
+database"*. Not A (poidhz.com's store), not B (a vendor form). Applied above and in PR #247.
 
-**Q5. Build the form now?**
-- A) Yes, this lane opens a separate PR with the page and the API route, held unlinked until you cast.
-  **Recommended.**
-- B) Not yet; cast only after the form exists and it is built later.
-- C) No form on the site; use B above.
+**Q5, build the form now.** Auto-proceeded by orchestrator2 (PR-only, nothing deployed): built as PR #247, held.
+Zaal typed "Do it." just before item 111, which the Grill read as go on that build.
 
-Default if unanswered: nothing opens, nothing is bought, nothing is posted, nothing is built.
+**Open, and his:** sending `HURRICANE-NOTE.md`; setting `SIGNUP_ENDPOINT` and `SIGNUP_TOKEN` on the Vercel
+project through `/secret` once Hurricane answers; the cast.
