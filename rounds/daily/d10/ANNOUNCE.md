@@ -18,7 +18,7 @@ https://basescan.org/tx/BUY_TX_HASH
 ## Block 2 - the bounty (Firefly). Post after casting, same day or next.
 
 ```
-New bounty. Buy a dollar of Saturday in LA by @bennyj504 on WaveZStation, film yourself hearing it, post it. Best reaction wins the pot.
+New bounty. Buy a dollar of Saturday in LA by @bennyj504 on WaveZStation, film yourself hearing it, post it. Best reaction wins.
 
 I hold ~65% of its fan pool (21% before the big buy), so part of your dollar comes back to me. Closes 11:59pm ET Oct 31.
 
