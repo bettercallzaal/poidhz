@@ -1,5 +1,7 @@
 // Round ten sign-up: artists with a song on WaveZStation enter by email first, then the form.
 // Pure checks only; the store and the song lookup live in signupstore.ts and the route.
+// The email-use line matches rounds/daily/d10/description.md rule 1; Zaal ruled where the
+// addresses go on 10 Oct 2026 (item 111: "Hurricane gets it on his database").
 // Dates come from rounds/daily/d10/description.md: sign-up closes 11:59pm Eastern, Sunday
 // 18 October 2026, which is 03:59:59 UTC on the 19th (Eastern is UTC-4 until 1 November 2026).
 
@@ -7,7 +9,7 @@ export const ROUND = {
   n: 10,
   signupClosesAt: '2026-10-19T03:59:59.999Z',
   signupClosesText: '11:59pm Eastern, Sunday October 18, 2026',
-  emailUse: 'Your email is used to reach you about this round and for nothing else. It is not a mailing list. It is deleted when the round closes out.',
+  emailUse: "Your email goes to WaveZStation's own database, run by the site's builder, and is used to reach you about this round and for nothing else. It is not a mailing list. It is deleted when the round closes out.",
 } as const;
 
 export function signupOpen(now: Date): boolean {

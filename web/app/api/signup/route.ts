@@ -1,5 +1,5 @@
 import { ROUND, SONG_API, checkSignup, signupOpen, songFromRecord, songIdFromLink, toSignup } from '@/lib/signup';
-import { countSignups, hasSignup, putSignup, storeReady } from '@/lib/signupstore';
+import { countSignups, putSignup, storeReady } from '@/lib/signupstore';
 
 export const dynamic = 'force-dynamic';
 const cors = { 'Access-Control-Allow-Origin': '*' };
@@ -38,9 +38,9 @@ export async function POST(req: Request) {
   const id = songIdFromLink(i.song)!;
   const song = await songListed(id);
   if (!song.listed) return fail(422, [song.reason!]);
-  // Checks first, store last, so the form can be tried end to end before the store is switched on.
+  // Checks first, the forward last, so the form can be tried end to end before the endpoint is set.
   if (!storeReady) return fail(503, ['sign-up is not switched on yet; nothing was stored']);
-  if (await hasSignup(ROUND.n, id)) return fail(409, ['that song is already signed up']);
-  await putSignup(ROUND.n, toSignup(i, now));
-  return Response.json({ ok: true, song: { id, title: song.title, artist: song.artist }, count: await countSignups(ROUND.n) }, { headers: cors });
+  const put = await putSignup(ROUND.n, toSignup(i, now));
+  if (!put.ok) return fail(put.status, put.errors);
+  return Response.json({ ok: true, song: { id, title: song.title, artist: song.artist }, count: put.count }, { headers: cors });
 }

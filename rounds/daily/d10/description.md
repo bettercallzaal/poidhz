@@ -13,11 +13,11 @@ rulings in `REDRAFT-v3.md`, the site facts in `RESEARCH.md`, all beside this fil
 - **Type:** OPEN. Contributor vote confirms the pick. **Promises the pot, plus one thing outside it that Zaal ruled in (item 106): his $500 buy of the winning song, from his wallet, verified by hash.** The standing rule is pot-only (`rounds/daily/README.md`); this is his call to set aside, and the text says who pays, from which wallet, by when, and how to check.
 - **Close:** **Friday 13 November 2026, 5:00pm Eastern.** Sign-up closes **Sunday 18 October 2026, 11:59pm Eastern.** Weekdays checked with `date -j` on 10 Oct.
 - **Reward field:** $500, his number (item 103). 0.1995 ETH at 2,506.72 USD per ETH (Coinbase spot 16:06Z 10 Oct, the price every d10 file uses). Re-read the price the minute he casts. The paste body names no pot amount.
-- **CAST GATE, in this order:** (1) Zaal sends the invitation in `ARTIST-PITCH.md`, or decides not to; (2) the sign-up form exists at a URL on poidhz.com with a store behind it (today the site's store is OFF: `/api/vote` on poidhz.com returned `storeReady: false` at 20:46Z 10 Oct; see `PLAN.md`, "The sign-up form"); (3) replace `SIGNUP_URL` below with that URL; (4) he reads this text one more time; (5) cast.
+- **CAST GATE, in this order:** (1) Zaal sends the invitation in `ARTIST-PITCH.md`, or decides not to; (2) Hurricane's endpoint is live and `SIGNUP_ENDPOINT` is set on the Vercel project, so `poidhz.com/api/signup` reports `storeReady: true` (`PLAN.md`, "The sign-up form"); (3) replace `SIGNUP_URL` below with that URL; (4) he reads this text one more time; (5) cast.
 - **After the winner is picked:** replace `BUY_TX_HASH` in `ANNOUNCE.md` block 3 with the hash of Zaal's buy; nothing in this text changes after the cast (cast text is immutable).
 - **Validator note:** the paste body writes every dollar figure in words (five hundred dollars, two hundred and twenty-five dollars) because `validate-bounty-description.py` reads any `$5...` as a pot figure. They are the buys, not the pot.
 - **The email form brushes a repo rule:** `docs/community-plan.md` says "No email list. Same reason, plus nobody has consented to one." This form is a round sign-up, not a list: the text below says the address is used to reach entrants about this round only and is not a mailing list. Where the addresses are stored and who can read them is in `PLAN.md` and in the PR body, and is a question back to Zaal.
-- **Still open for Zaal, with the default taken:** where the sign-up emails live (default: the site's own Upstash store, switched on by him; `PLAN.md` Q4); whether the form is built in this repo before the cast (default: yes, a separate PR, `PLAN.md` Q5).
+- **Q4 and Q5 ruled 10 Oct:** the emails go to Hurricane's database on the WaveZStation side (item 111, vault 50b1457b, verbatim *"Hurricane gets it on his database"*); the form is built in `web/` (PR #247, held) and forwards to the endpoint he provides. Rule 1 below says so. The note asking him for the endpoint is `HURRICANE-NOTE.md`, Zaal sends.
 - **Numbering:** this takes d10, as #236 and #244 did. The reaction-round text from #244 is superseded by this file and stays in git history.
 
 <!-- PASTE BELOW THIS LINE -->
@@ -40,7 +40,7 @@ A song on WaveZStation earns when someone decides to buy it, and that decision i
 
 THE BAR (these are requirements, not preferences)
 
-1. Sign up at SIGNUP_URL by 11:59pm Eastern, Sunday October 18, 2026, with your email, your artist name, the song's WaveZStation link and where you will post the rollout. Your email is used to reach you about this round and for nothing else. It is not a mailing list. No sign-up, no entry.
+1. Sign up at SIGNUP_URL by 11:59pm Eastern, Sunday October 18, 2026, with your email, your artist name, the song's WaveZStation link and where you will post the rollout. Your email goes to WaveZStation's own database and is used to reach you about this round and for nothing else. It is not a mailing list. It is deleted when the round closes out. No sign-up, no entry.
 2. One song, one artist, one entry. The song must be listed on wavezstation.com by the sign-up close.
 3. The rollout is public. Post it on X, Farcaster, Instagram, TikTok, YouTube or your own site, as it happens, and tag @WaveZStation where you can.
 4. Real work by you or your team. AI tools are fine for making things; a rollout that is only an AI-generated feed is not.

@@ -39,7 +39,7 @@ export function SignupForm() {
   return (
     <section className="mt-6 rounded-lg border border-[var(--line)] p-4">
       {status && !status.open && <p className="text-sm text-[var(--warn)]">Sign-up closed at {ROUND.signupClosesText}.</p>}
-      {status && status.open && !status.storeReady && <p className="text-sm text-[var(--warn)]">Sign-up is not switched on yet. You can fill this in, and it will tell you nothing was stored.</p>}
+      {status && status.open && !status.storeReady && <p className="text-sm text-[var(--warn)]">Sign-up is not switched on yet. You can fill this in, and it will tell you nothing was sent anywhere.</p>}
       {status?.count != null && <p className="text-sm text-[var(--muted)]">{status.count} {status.count === 1 ? 'song is' : 'songs are'} signed up.</p>}
       {step === 1 ? (
         <form onSubmit={(e) => { e.preventDefault(); const err = checkEmail(email); if (err) setErrors([err]); else { setErrors([]); setStep(2); } }}>
