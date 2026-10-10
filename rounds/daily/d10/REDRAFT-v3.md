@@ -7,8 +7,34 @@ items 96 to 99). His words, verbatim and in order:
 1. Q1, the buy: picker "Two buys of 500", then *"2 500$ buys if we need to split the top prize save this for this week"*.
 2. Q2, the DM: "DM before the buy". He sends it.
 3. Q3, what goes public: no option picked; *"Maybe we say best marketing rollout give it a month and people have to sign up"*.
+4. Then, item 103 (vault 0bdcb9e6): *"500 in poidh I'll buy 500 and they buy 500 of their favorite"*.
 
-**Nothing in this file is ruled. It is the reading that makes all three answers fit, and three questions.**
+**Nothing in this file is ruled. It is the reading that makes all four answers fit, and three questions.**
+
+## The reading, after item 103
+
+Item 103 says where each $500 goes, and it is three halves, not two:
+
+| Who pays | How much | Where | What it is |
+|---|---|---|---|
+| Zaal, into the poidh pot | $500 (about 0.20 ETH at $2,497) | the bounty's reward field, paid in ETH to the winning artist's wallet when the claim is accepted | **the prize** |
+| Zaal, from his wallet | $500 USDC | a buy of the winning artist's song on WaveZStation | **the buy**: $225 to the song's creators the second it lands, $225 into its fan pool, $50 platform |
+| The winner | $500 | a buy of their favourite song on WaveZStation, their own choice | **the pass-along**: the prize goes back into the site, to an artist the winner picks |
+
+So "two buys of 500" are one by Zaal and one by the winner; "split the top prize" is the $1,000 split into
+the pot and the buy; "this week" is when the round opens. The winner ends up with $500 in ETH plus $225
+(or their share) in USDC, and the site sees $1,000 of buys: Zaal's into the winner, the winner's into
+their favourite. **Zaal's total outlay on this reading is $1,000.** If he means the winner's $500 to be
+on top of the prize rather than out of it, it is $1,500 and the third row is a second buy from his wallet.
+That is question 1.
+
+**The pass-along cannot be enforced by poidh.** The pot pays the moment the claim is accepted; nothing
+on poidh can hold it back until the winner buys. Either it is a stated expectation we post about when
+it happens, or the order flips: the winner posts the hash of their $500 buy first and the claim is
+accepted after, which means the artist fronts $500 of their own money for up to a day. That is
+question 3.
+
+
 
 ## The reading
 
@@ -37,13 +63,13 @@ not pre-selected; he enters like everyone else, and the pitch to him becomes an 
 | The ask | run a marketing rollout for that song over the month: posts, clips, reaction videos, shows, collabs, whatever moves people to buy in. Post it publicly as it happens. |
 | Close | Friday 14 November 2026, 5:00pm Eastern (four weeks from the Friday after sign-up; the date is this lane's reading of "give it a month") |
 | What is judged | the rollout itself (clarity, consistency, craft) AND what it moved on the site, which this lane can measure at a stamp from the site's own `/api/discover` and `/api/songs`: supporters gained and fan pool growth from sign-up close to round close |
-| Top prize | a $1,000 buy of the winning song from Zaal's wallet, or two $500 buys if he splits it between two artists. Verified by Basescan hash. 45% to the creators in the same transaction, 45% to the song's fan pool, 10% to the platform. |
-| Credit | the winner is the first song on WaveZStation past four figures in sales (bound: the most-sold song had about $802 on 10 Oct). If the winner is already the most-sold song, the line still holds; if not, it needs re-checking at the close. |
+| Top prize | $500 in the poidh pot, paid in ETH on accept, plus a $500 buy of the winning song from Zaal's wallet, verified by Basescan hash (45% to the creators in the same transaction, 45% to the song's fan pool, 10% to the platform). The winner then buys $500 of their favourite song on the site. |
+| Credit | a $500 buy makes the winning song the first past four figures in sales only if it already has about $500 sold (Saturday in LA has $802; AI LUI $587; everything else is under $360 as of 10 Oct). So the four-figure line is conditional and is not promised. |
 | Fans | the reaction round from PR #244 can run alongside, pinned to the winning song after the buy lands, or be dropped. Not part of this redraft. |
 
-**The money.** Each $500 buy: $50 platform, $225 creators, $225 fan pool. A $1,000 buy on one song: $100,
-$450, $450. Zaal's own claimable share depends on whether he already supports the winning song: about 21%
-of Saturday in LA, UNVERIFIED on every other song.
+**The money.** Each $500 buy: $50 platform, $225 creators, $225 fan pool. Zaal's own claimable share
+depends on whether he already supports the winning song: about 21% of Saturday in LA, UNVERIFIED on
+every other song.
 
 **What the record says about this shape** (`docs/what-draws-entries-2026-10-01.md`, ZAOOS doc 2522
 re-measured 10 Oct): the hardest asks draw the least (our "run your own bounty" round drew 2; a month-long
@@ -53,36 +79,37 @@ site today, so the whole possible field is about twenty artists.
 
 ## Where poidh fits, and the rule it brushes against
 
-poidh pays ETH. A WaveZStation buy is not a poidh payout. So the $1,000 prize is a promise in the bounty
-text that the pot does not cover, and this repo's standing rule is that a bounty promises the pot and
+poidh pays ETH. The $500 pot is a normal poidh prize. Zaal's $500 buy is a promise in the bounty text that
+the pot does not cover, and this repo's standing rule is that a bounty promises the pot and
 nothing else (`rounds/daily/README.md`, from `docs/PROMISE-AUDIT.md`: every broken promise we ever made
 was a promise outside the pot). It is Zaal's rule to set aside, and if he does, the text has to say exactly
-who pays, from which wallet, by when, and that it is verified by hash. Question 3 below is this.
+who pays, from which wallet, by when, and that it is verified by hash. The pass-along is a second promise,
+made by the winner, which the text can ask for but not enforce.
 
 ## Three questions for Zaal
 
-**Q1. Is this the round?** The $1,000 (or two $500) is the prize for the best marketing rollout, paid as a
-buy of the winning artist's song, after a month.
-- A) Yes. Open sign-ups this week, close 14 November, buy the winner's song then. **Recommended: it is the
-  reading in which all three of his answers agree.**
-- B) No. Buy the current most-funded song this week as planned (two $500), and run the rollout contest as a
-  separate round eleven with its own prize.
-- C) Both halves: $500 into today's most-funded song this week, $500 into the rollout winner in a month.
+**Q1. The total, and the shape.** Item 103 read as three halves: $500 pot in ETH to the winner, $500 buy of
+the winner's song from your wallet, and the winner buys $500 of their favourite song.
+- A) Yes, that is it, and your total is $1,000: the pot plus your buy. The winner's $500 comes out of the
+  prize they just won. **Recommended: it is the reading in which items 96 to 103 all agree.**
+- B) Your total is $1,500: the pot, your buy of the winner's song, AND a $500 buy of the winner's favourite
+  song, all from your wallet. The winner spends nothing.
+- C) Something else; type it.
 
-**Q2. What is the sign-up?**
-- A) A poidh claim by 19 October with the song link counts as the sign-up; the final claim by 14 November
-  is the rollout. Public, on chain, feeds the Submitters leaderboard, no new tool. **Recommended.**
+**Q2. What the sign-up is.**
+- A) A poidh claim by Sunday 19 October with the song's WaveZStation link counts as the sign-up; the final
+  claim by Friday 14 November 5pm Eastern is the rollout. Public, on chain, feeds the Submitters
+  leaderboard, no new tool. **Recommended.**
 - B) A form (Tally or Google Form) linked from the bounty, with the entrant list on poidhz.com.
-- C) Reply to the announcement post or DM Zaal.
+- C) Reply to the announcement post or DM you.
 
-**Q3. How the prize is written, given the pot-only rule.**
-- A) poidh pot of $100 in the reward field (what the contributor vote confirms) AND the $1,000 buy stated in
-  the text as Zaal's own pledge, wallet named, verified by hash, with the rule set aside for this round by
-  his decision. **Recommended, and this lane records that it is the first promise outside the pot since
-  the audit.**
-- B) The whole prize in the poidh pot as ETH, no WaveZStation buy: about 0.40 ETH at today's price. Clean on
-  the rule, but the artist gets ETH instead of a four-figure song.
-- C) No poidh bounty for the artists at all: sign-up and judging on poidhz.com, the buy is the prize, and
-  poidh carries only the fan reaction round.
+**Q3. The winner's $500 buy, which poidh cannot enforce.**
+- A) It is the stated expectation, not a condition: the text says the winner is asked to put $500 into their
+  favourite song, and we post their hash when they do. The pot pays on accept as normal. **Recommended:
+  it is honest about what poidh can hold back, which is nothing.**
+- B) It is a condition: the winning claim is accepted only after the artist posts the hash of their own
+  $500 buy, so they front $500 for up to a day. Enforceable, and the one thing most likely to make an
+  independent artist walk.
+- C) Drop the pass-along. Pot plus your buy, nothing asked of the winner.
 
 Default if unanswered: nothing opens, nothing is bought, nothing is posted.
