@@ -1,47 +1,55 @@
 # Round ten - announcement copy, unsent
 
-**Zaal posts.** Written 2026-10-10 against `description.md`, before the buy and before casting.
-Replace `BUY_TX_HASH` with the hash of the $1,000 transaction and `BOUNTY_ID` with the id from
-the poidh URL after he casts, and re-read every block against the cast text before anything goes
-out. If the most-funded song at the moment of the buy is not Saturday in LA, every block changes.
+**HELD 10 Oct, every block, until Zaal has seen the final text (Grill, items 108 to 109).** Written against
+`description.md` for the ruled shape: a month-long marketing rollout contest for artists on WaveZStation, $500
+pot, Zaal's $500 buy of the winning song, the winner's $500 buy out of the prize. Replace `SIGNUP_URL` with the
+sign-up form's URL, `BOUNTY_ID` with the id from the poidh URL after he casts, `WINNER`, `WINNER_HANDLE` and
+`WINNING_SONG` after the pick, and `BUY_TX_HASH` with the hash of his buy. Re-read every block against the cast
+text before anything goes out. Each block is counted at X's 280 with URLs weighted 23; the count is in the heading.
 
-## Block 1 - the buy (Firefly: Farcaster /zao and X). Post the moment the hash is confirmed.
+**Zaal posts.** Order: block 1 the day he casts, block 2 two days before sign-up closes, block 3 after his buy
+lands, block 4 by hand to each entrant.
 
-```
-Just bought $1,000 of Saturday in LA by @bennyj504 on wavezstation.com. $450 hit the creators the second it landed.
-
-First four-figure buy on the site as far as I can measure (top song had ~$802 in sales before). I held ~21% of its fan pool, now ~65%.
-
-https://basescan.org/tx/BUY_TX_HASH
-```
-
-## Block 2 - the bounty (Firefly). Post after casting, same day or next.
+## Block 1 - HELD, not for posting - the bounty (Firefly: Farcaster /zao and X), 272
 
 ```
-New bounty. Buy a dollar of Saturday in LA by @bennyj504 on WaveZStation, film yourself hearing it, post it. Best reaction wins.
+New bounty for artists on @WaveZStation. Run the best marketing rollout for your song over a month. Sign up by Oct 18, close Nov 13.
 
-I hold ~65% of its fan pool (21% before the big buy), so part of your dollar comes back to me. Closes 11:59pm ET Oct 31.
+Winner takes the pot (opens at $500) and I buy $500 of their song. They put $500 of the prize back into the site.
 
 https://poidh.xyz/base/bounty/BOUNTY_ID
 ```
 
-## Block 3 - the artist's own line, offered in the pitch, his to use or not
+## Block 2 - HELD, not for posting - the sign-up reminder, 207
 
 ```
-Someone just bought $1,000 of my song on @WaveZStation. As far as anyone can measure, the first four-figure buy on the site (the most-sold song had about $802 in total sales before it). 45% of every buy goes to the artist on the spot. Here it is: https://basescan.org/tx/BUY_TX_HASH
+Two days left to sign up for the WaveZStation rollout round. Artists only, one song each, email first then the form. Sign-up closes 11:59pm ET Sunday Oct 18. The rollout runs to 5:00pm ET Nov 13.
+
+SIGNUP_URL
 ```
 
-## Block 4 - the reply to the first ten entries (one per entry, Zaal's hand)
+## Block 3 - HELD, not for posting - after the pick and the buy, 252
 
 ```
-Watched it. [one specific thing the video did]. Claim is in. Thank you for buying the song. Reminder since it is your dollar: I hold about 65% of its fan pool, 21% before the big buy.
+WINNING_SONG by @WINNER_HANDLE won the WaveZStation rollout round. Just bought $500 of it. $225 to the creators the second it landed, $225 into the fan pool.
+
+I now hold a slice of that pool, so I earn when it sells. Saying so.
+
+https://basescan.org/tx/BUY_TX_HASH
 ```
 
-## Zaal's hands, in order
+## Block 4 - HELD, not for posting - the reply to entries, Zaal's hand
 
-1. Send `ARTIST-PITCH.md`, or decide not to.
-2. Buy 1,000 USDC of the song in one transaction from the issuer wallet. Copy the hash.
-3. Paste the hash into `description.md` (two places) and into blocks 1 and 3 here.
-4. Cast the bounty with $100 in the reward field. Copy the id into block 2.
-5. Post block 1, then block 2.
-6. Post in /zao on Farcaster and DM the six returning entrants named in `docs/what-draws-entries-2026-10-01.md`.
+```
+Read the whole rollout. [one specific thing it did]. Claim is in. Numbers off the site on close day: [supporters] supporters, [pool] in the pool.
+```
+
+## Zaal's hands, in order - HELD with the blocks
+
+1. Send `ARTIST-PITCH.md` to BennyJ504, or decide not to.
+2. Switch on the sign-up form's store and confirm the form's URL (`PLAN.md`, "The sign-up form").
+3. Paste the URL into `description.md` and block 2, cast the bounty with $500 in the reward field, copy the id into block 1.
+4. Post block 1, then block 2 on Friday 16 October.
+5. After the close: pick, accept, two-day vote, payout.
+6. Buy 500 USDC of the winning song from the issuer wallet within a week of the pick. Paste the hash into block 3 and post it.
+7. When the winner posts their own buy, share it. If they do not within a week of payout, say so, once.
