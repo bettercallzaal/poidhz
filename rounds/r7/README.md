@@ -135,7 +135,13 @@ chain gets a different close date than any human reading the bounty. Set them to
 ## Validator status, and what its PASS does not mean
 
 `python3 scripts/validate-bounty-description.py --description rounds/r7/description.md`
-returns PASS. Two things to know before trusting that:
+returned PASS on 2026-09-05. **On 2026-10-10 it returns FAIL, identically on `origin/main` and
+on the re-measure branch, so the validator moved, not the text:** no `WHY` section (the text
+has "Why this exists" under a different heading), and the prize figure `0.0125 ETH` written
+into an OPEN bounty's text, which the validator now refuses. `check-round-copy-agrees.py` also
+fails, because the deadline is a placeholder and there is no "Submissions close" line yet.
+All three are cast-time fixes, listed here so the next reader does not inherit "PASS". Two
+things to know before trusting any green verdict:
 
 - **R5 fails the same validator** on four sections, and R5 drew nine claims. The validator
   encodes the R3-era template (`THE BAR` / `THE RUBRIC` / `THE ASSET KIT` / `THE REWARD`),
