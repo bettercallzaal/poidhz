@@ -10,10 +10,17 @@
 > 1. **The deadline is now a `<DAY>, <MONTH DAY, YEAR>` placeholder** in `description.md`.
 >    It used to say Sunday, September 20, 2026, which was written for a Sep 7 cast and is
 >    meaningless now. Set it when you know the cast date, and keep 14 days.
-> 2. **Re-measure the Twitch archive - RE-CHECK BY 2026-09-13 and before any cast.**
->    Everything below about VOD counts and the 7-day window was measured on 2026-09-06. The
->    archive self-deletes after 7 days, so those specific VODs are already gone. The
->    constraint holds; the numbers do not.
+>
+> 2. **Twitch archive RE-MEASURED 2026-10-10 at 21:41Z; the 7-day constraint holds. RE-CHECK
+>    AGAIN before any cast, whatever the date.** Twitch GQL (public web client id read off the
+>    channel page that minute): `twitch.tv/wavewarzofficial` is still neither Affiliate nor
+>    Partner (43 followers; Affiliate needs 50), so VODs still self-delete after 7 days. 4
+>    archive VODs on the channel, streamed 3, 6, 8 and 10 October (23 to 130 minutes, 0 to 3
+>    views each); the oldest was 7.84 days old and still listed, so deletion lags the 7-day
+>    mark by hours, not days. Every VOD from the 2026-09-05 measurement is gone. Raw answer:
+>    `twitch-archive-2026-10-10T214116Z.json` beside this file. The cadence is now one stream
+>    every two to three days, not "most weeknights" as `description.md` line 14 says; that
+>    line is a claim to re-read at cast time, not changed here.
 >
 > Run `python3 scripts/precast-check.py --round 7 --prize 0.0128` before casting.
 
@@ -82,8 +89,11 @@ Winner: claim 7795, accepted on-chain, 0.0238 ETH to
 ## The 7-day archive constraint, which gets worse at two weeks
 
 `twitch.tv/wavewarzofficial` is not a Twitch Affiliate or Partner channel, so VODs
-auto-delete after 7 days. Verified again 2026-09-05 via Twitch GQL: 7 archive VODs, oldest
-2026-08-29, newest 2026-09-05, 26 to 202 minutes each, 0 to 11 views apiece.
+auto-delete after 7 days. Verified 2026-09-05 via Twitch GQL: 7 archive VODs, oldest
+2026-08-29, newest 2026-09-05, 26 to 202 minutes each, 0 to 11 views apiece. **Verified again
+2026-10-10 at 21:41Z:** still not Affiliate or Partner, 43 followers, 4 archive VODs (3, 6, 8,
+10 October; 23 to 130 minutes; 0 to 3 views), oldest 7.84 days and still listed. Same
+constraint, fewer and shorter streams.
 
 At R5's 10 days this was a warning. At 14 days roughly half the window's source expires
 before the deadline, and someone who hears about the bounty in week two cannot see week
@@ -300,6 +310,9 @@ not contradicted either.
   `poidh.xyz/base/bounty/<id>/data` with `claims.fetchBountyClaims` for the real
   `isAccepted` flag. Claim counts for R1/R2/R3 from the same endpoint.
 - Twitch GQL 2026-09-05, public web client id, for the VOD list and view counts.
+- Twitch GQL 2026-10-10 21:41Z, public web client id read off the channel page, for the
+  re-measure: roles, followers, archive VOD list with ages. Raw answer in
+  `twitch-archive-2026-10-10T214116Z.json`.
 - `wavewarz.info` 2026-09-05 for the battle count (1,371, test battles excluded).
   **Unreconciled:** R5's description said 1,419 battles as of Aug 20, a higher number than
   today's. Different counting, most likely test battles included then and excluded now.

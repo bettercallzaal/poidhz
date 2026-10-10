@@ -1,0 +1,12 @@
+https://rpc.degen.tips | http=530 | error code: 1016 
+https://degen.calderachain.xyz/http | http=000 | <empty>
+https://rpc-degen-mainnet-1.t.conduit.xyz | http=000 | <empty>
+https://666666666.rpc.thirdweb.com | http=200 | {"id":1,"jsonrpc":"2.0","result":"0x27bc86aa"} 
+https://degen.rpc.thirdweb.com | http=200 | {"jsonrpc": "2.0","error": {"code": -32001,"message": "Invalid chain"}}
+https://degen.drpc.org | http=404 | {"message":"Not Found"} 
+https://rpc.ankr.com/degen_mainnet | http=403 | {"error":"message: API key is not allowed to access blockchain, json-rpc code: -32052, rest code: 403"}
+https://degen-mainnet.public.blastapi.io | http=000 | <empty>
+https://degen.gateway.tenderly.co | http=404 | <empty>
+https://degen-rpc.publicnode.com | http=404 | <empty>
+https://explorer.degen.tips/api/eth-rpc | http=000 | <empty>
+https://degen.blockscout.com/api/eth-rpc | http=404 | default backend - 404
