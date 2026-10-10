@@ -10,6 +10,7 @@ The reasoning is in `RESEARCH.md` and `PLAN.md` beside this file.
 - **Type:** OPEN. Contributor vote confirms the pick. **Promises the pot and nothing else.**
 - **Close:** **Saturday 31 October 2026, 11:59pm Eastern.** Zaal, 7 Oct: "keep this as a til the end of the month of october as a test one first".
 - **Reward field:** $100, his number. 0.0399 ETH at 2,506.72 USD per ETH (Coinbase spot 16:06Z 10 Oct). The text names no amount.
+- **HELD 10 Oct:** his later answers ("best marketing rollout give it a month and people have to sign up"; "500 in poidh I'll buy 500 and they buy 500 of their favorite") reshape the round; see `REDRAFT-v3.md`. This text is the reaction-round version and is rewritten after he rules.
 - **Q1 RULED by Zaal in the Grill 10 Oct 18:27Z (items 96 and 97): two buys of $500 this week, the second free to go to a second artist "if we need to split the top prize".** The text below is written for that.
 - **CAST GATE, in this order:** (1) both $500 buys land on chain; (2) replace `BUY_TX_HASH_1` and `BUY_TX_HASH_2` below with the two hashes, and `BUY_AMOUNT` with the words for what landed on this song (five hundred, or a thousand); (3) if the most-funded song at the moment of the buy is not Saturday in LA, replace the song and artist throughout and re-check the creator wallets; (4) cast.
 - **Validator note:** the paste body writes the buy figures in words (a thousand dollars, 450 dollars) and states Zaal's stake as a share rather than a sum because `validate-bounty-description.py` reads any `$1...` as a pot figure. They are the buy, not the pot.
@@ -35,7 +36,7 @@ This closes at 11:59pm Eastern Saturday, October 31, 2026.
 
 WHY THIS ROUND EXISTS
 
-Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We put real money behind one song so the artist got paid today, and now we want a wall of people hearing it for the first time, so the artist sees real listeners and not a play count. Song page: https://wavezstation.com/song/a6c6d732-8f7a-4621-a478-d7025e3bfc98
+Independent artists get heard when one person tells another "listen to this". A reaction video is that, on camera. We put real money behind one song so the artist got paid the day we bought in (the date is on the Basescan links above), and now we want a wall of people hearing it for the first time, so the artist sees real listeners and not a play count. Song page: https://wavezstation.com/song/a6c6d732-8f7a-4621-a478-d7025e3bfc98
 
 
 THE BAR (these are requirements, not preferences)

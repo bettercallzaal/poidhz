@@ -1,5 +1,10 @@
 <!-- NOT-ANNOUNCEMENT-COPY: a DM draft, unsent. Names no deadline anyone submits to. -->
-# Pitch to the artist - DRAFT, NOT SENT
+# Pitch to the artist - DRAFT, NOT SENT, HELD
+
+**HELD 10 Oct.** This DM pitches a $500 buy of Saturday in LA this week. The redraft in `REDRAFT-v3.md`
+(Grill items 96 to 103) makes the buy the prize of a month-long rollout contest, so no artist is pre-selected
+and this DM becomes an invitation to enter. It is rewritten after Zaal rules on the redraft; Q2's ruling (DM
+before the buy, he sends) carries over either way.
 
 Written 2026-10-10 for BennyJ504 (`@bennyj504` on X, the handle wavezstation.com lists on
 Saturday in LA). **Zaal sends it, or does not.** If the most-funded song has changed by the time
