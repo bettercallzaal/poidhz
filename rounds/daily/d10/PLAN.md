@@ -1,133 +1,170 @@
 <!-- NOT-ANNOUNCEMENT-COPY: internal plan. Names no deadline anyone submits to. -->
-# Round ten plan - the $1,000 buy on WaveZStation, and the reaction bounty around it
+# Round ten plan - best marketing rollout on WaveZStation, $500 pot, $500 buy of the winner, $500 back from the winner
 
-Status 2026-10-10: PLAN, nothing fired. **Zaal ruled Q1 in the Grill at 18:27Z (vault `decisions/grill-2026-10-09-seat-morning.md`, items 96 and 97): two buys of $500, not one of $1,000, "if we need to split the top prize", and "save this for this week". Everything below is rewritten to that ruling. Q2 ruled at the same sitting (items 98 and 99): DM before the buy, he sends it. Q3 was not picked; he typed "Maybe we say best marketing rollout give it a month and people have to sign up", which reshapes the round. The redraft is `REDRAFT-v3.md` beside this file, with three questions; nothing fires until he rules on it.** Every figure here comes from `RESEARCH.md` in this
-folder, which names the surface and the clock time for each one. The four gates are Zaal's:
-the $1,000 and the wallet that sends it; the message to the artist; every post; the cast.
+Status 2026-10-10: PLAN, nothing fired. **All three redraft questions are ruled** (`REDRAFT-v3.md` carries the
+verbatim rulings: items 103, 106, 108 and 109, relayed by the Grill). The shape is: a month-long marketing
+rollout contest for artists with a song on wavezstation.com; sign-up through an email-gated form on the website;
+$500 in the poidh pot; Zaal buys $500 of the winning song; the winner must put $500 of the prize back into
+WaveZStation, expected on the site, their own song allowed. **His total is $1,000.** He sees the final text
+before anything fires. The gates are his: the cast and the $500 pot; the $500 buy and the wallet that sends it;
+the invitation DM; every post; switching on the store behind the form.
 
-## The idea in one paragraph
+Every site and chain figure here comes from `RESEARCH.md` beside this file, which names the surface and the clock
+time for each one. The one new measurement in this file is the store check (below), made at 20:46Z 10 Oct.
 
-Zaal makes two buys of $500 on wavezstation.com this week. Default: both into the most-funded song.
-His ruling keeps the second $500 free to go to the second artist instead, "if we need to split the
-top prize". On the site's fixed split each $500 buy sends $225 to the song's creator wallets in the
-same transaction, $50 to the platform, and $225 into the song's fan pool for earlier supporters to
-claim. The first $500 alone makes Saturday in LA the first song on the site past $1,000 in sales
-(about $802 sold before it). If the second $500 goes to AI LUI instead, that song passes $1,000 too
-(about $587 sold before it), and the site gets its first two four-figure songs on the same day.
-The "first four-figure single buy" line is dropped: no one transaction is four figures any more. Then the
-poidh round that Zaal asked for on 6 Oct runs on that song: buy in for a dollar, film yourself
-hearing it, best reaction wins the pot. The buy is the news; the round is how people find it.
+## The round in one paragraph
 
-## Who, measured
+Artists with a song on WaveZStation sign up by Sunday 18 October (email first, then the form), then run a public
+marketing rollout for that one song until Friday 13 November 5:00pm Eastern. They claim on poidh with the record:
+the song link, at least five dated public posts, and the song's supporter count and fan pool on sign-up day and
+claim day. Zaal picks on the rollout's craft and on what it moved on the site, which this lane measures from the
+site's own `/api/discover` and `/api/songs` at a stamp on close day. The winner takes the pot. Within a week Zaal
+buys $500 of the winning song from the issuer wallet, which pays the song's creators $225 in the same transaction.
+The winner then puts $500 of the prize into a WaveZStation buy of their own choosing, their own song included.
 
-At 16:02:43Z on 10 Oct the most-funded song was **Saturday in LA by BennyJ504** (fan pool
-360.80 USDC, 14 supporters; `@bennyj504` on X per the song's own record). Second was AI LUI at
-264.00. The artist is fixed at the moment of the buy, not now: whoever leads `/api/discover?
-sort=funded` when Zaal opens the page is the one. If it is still Saturday in LA, the pitch and
-the copy are already written for it. If it has changed, the pitch is re-addressed and this lane
-re-reads the song's creator wallets before anything goes out.
+## Money, all three halves
+
+| Who pays | How much | Where it goes | Enforced by |
+|---|---|---|---|
+| Zaal, into the pot | $500, 0.1995 ETH at 2,506.72 USD per ETH (Coinbase spot 16:06Z 10 Oct; re-read at cast) | the winning artist's wallet, in ETH, when the claim is accepted | poidh, on chain |
+| Zaal, from the issuer wallet `0x7234c36a71ec237c2ae7698e8916e0735001e9af` | 500 USDC | the winning song: 50 platform, 225 creators in the same transaction, 225 retained as the song's fan pool | nothing. A promise in the bounty text, outside the pot, verified by Basescan hash after the fact |
+| The winner, from the prize | $500 | a buy on WaveZStation, any song including their own: same 50 / 225 / 225 split | nothing. A rule of the round the text says we are trusting them to keep, and will say publicly whether they kept |
+
+If the winner buys their own song, $225 of their $500 comes straight back to their creator wallet in the same
+transaction, and part of the $225 fan-pool half is theirs too if they already support their own song. The text
+allows this because Zaal ruled it ("can use it on their own"); the plan notes it because the net cost to a
+self-buying winner is about $275, not $500, and someone will point that out.
+
+**Zaal's own claimable share.** His buy makes him a supporter of the winning song. On Saturday in LA he already
+holds about 21% (170 of about 802 USDC sold); one $500 buy there takes him to about 51% ($670 of about $1,302).
+On any other song his existing stake is UNVERIFIED, so the text's disclosure is written for the Saturday in LA
+case by name and in general terms otherwise.
+
+**Net cost to Zaal:** $1,000 out, less whatever he later claims from the fan pool of the song he buys. The
+fan-pool formula sits in unverified bytecode (`RESEARCH.md` section 2), so that claim-back is an estimate.
 
 ## Mechanics, in order
 
 | Step | What | Whose hand | Public? |
 |---|---|---|---|
-| 1 | Send the artist the pitch (`ARTIST-PITCH.md`). It says what is coming, asks who owns the second creator wallet, and asks for three things in return. | Zaal | no, a DM |
-| 2 | Buy 500 USDC of the most-funded song from the issuer wallet `0x7234c36a71ec237c2ae7698e8916e0735001e9af`, through wavezstation.com. Then the second 500 USDC: same song by default, or the second artist if he wants the prize split. Both this week. | Zaal | yes, the instant each lands |
-| 3 | Paste both transaction hashes into `description.md` where it says `BUY_TX_HASH_1` and `BUY_TX_HASH_2`, and the amount that landed on the round's song where it says `BUY_AMOUNT` (five hundred, or a thousand), then cast the OPEN bounty with $100 in the reward field. | Zaal | yes |
-| 4 | Post block 1 of `ANNOUNCE.md` from Firefly (Farcaster /zao and X) with the Basescan link and the poidh link. Tag the artist. | Zaal | yes |
-| 5 | Round runs to 11:59pm Eastern, Saturday 31 October 2026. Zaal picks the following week; contributors vote two days; pot pays out. | Zaal picks; this lane drafts the notes | yes |
+| 1 | Send the invitation (`ARTIST-PITCH.md`) to BennyJ504, and to any other artist he wants in. | Zaal | no, a DM |
+| 2 | Build the sign-up form on poidhz.com (Q5) and switch on the store behind it (Q4, a key through `/secret`). | this lane builds; Zaal switches on | the form page is public once deployed |
+| 3 | Paste the form URL into `description.md` and block 2 of `ANNOUNCE.md`; cast the OPEN bounty with $500 in the reward field. | Zaal | yes |
+| 4 | Post block 1 from Firefly (Farcaster /zao and X). Block 2 on Friday 16 October. | Zaal | yes |
+| 5 | Sign-up closes Sunday 18 October 11:59pm Eastern. This lane stamps each entrant's song from `/api/songs` that night: supporters, pool total, cumulative sales. | this lane | the stamp is published in this folder |
+| 6 | Rollout month. Entrants post; nothing for us to do except answer questions. | entrants | yes |
+| 7 | Close Friday 13 November 5:00pm Eastern. This lane re-stamps every entrant's song and writes the deltas beside the claims. | this lane | yes, in this folder |
+| 8 | Zaal picks with the entries and the deltas in front of him; posts the pick the following week; two-day contributor vote; payout. | Zaal | yes |
+| 9 | Within a week of the pick: 500 USDC into the winning song from the issuer wallet. Hash into block 3, post it. | Zaal | yes, the instant it lands |
+| 10 | The winner's $500 buy, within a week of payout. Share their hash when they post it; if they do not, say so once. | the winner; Zaal posts | yes |
 
-Steps 1 and 2 can swap if Zaal wants the artist to find the money before he hears from us. This
-lane's default is pitch first, because $225 arriving unexplained in two wallets is a strange
-first contact. If the second $500 goes to a second artist, that artist gets the same DM with the
-numbers halved, and the announcement names both.
+## The sign-up form, and where the emails go
 
-## What each $500 buys
+Zaal ruled (item 108): *"Sign up form on website after they put in email"*. He did not say which website. This
+lane reads it as poidhz.com, because that is the site this repo deploys and the round's own surface. Two findings
+shape the build:
 
-| | USDC | Where it goes |
-|---|---|---|
-| Platform fee | 50 | WaveZStation wallet, same transaction |
-| Creators | 225 | the song's creator wallets, same transaction. Saturday in LA has two at 50/50, so 112.50 each. Who owns the second one is an open question in the pitch. AI LUI has one creator wallet, so 225 to it. |
-| Fan pool | 225 | retained by the contract for the earlier supporters, pro rata. On Saturday in LA Zaal is one of them with 170 in, about 21% of what the song has sold, so roughly 48 of this 225 is his to claim back on the first buy and a larger share on a second buy into the same song. |
+1. **poidhz.com has one store and it is off.** The site is the Next app in `web/`, which already carries an
+   Upstash Redis store (`web/lib/votestore.ts`, from PR #223) for community votes. The live endpoint
+   `https://poidhz.com/api/vote?bounty=1421` returned `"storeReady": false` at 20:46Z 10 Oct, so no
+   `KV_REST_API_*` or `UPSTASH_*` token is set on the Vercel project. A form that posts to the site today has
+   nowhere to write.
+2. **The repo says no email list.** `docs/community-plan.md`: "No email list. Same reason, plus nobody has
+   consented to one." A round sign-up is not a list, and the form and the bounty text both say the address is
+   used to reach entrants about this round only. That is the line this lane holds: no newsletter, no export into
+   a mailing tool, no reuse for round eleven without asking again.
 
-Two buys on the same song: $450 to the creators, $100 platform, $450 fan pool, of which about $120 is Zaal's own claimable share (21% of the first $225, then about 37% of the second), net cost about $880. Split across the top two songs: $225 to each song's creators, $100 platform, about $48 back to Zaal from Saturday in LA and nothing from AI LUI unless he already holds some of it (UNVERIFIED), net cost about $950. These are the site's stated split
-and the chain's observed behaviour; the fan-pool formula sits in unverified bytecode and is an
-estimate (RESEARCH.md section 2).
+**Proposed build (Q5):** a page at `poidhz.com/round/10/signup`, in the Next app. Step one asks for an email
+and nothing else. Step two, shown after a valid email, asks for artist name, the song's WaveZStation link (checked
+against `/api/songs/<id>` on submit, so only a listed song gets through), the X or Farcaster handle, and where the
+rollout will be posted. One row per song. The page shows the count of sign-ups, never the names or addresses.
+
+**Where the emails are stored, and who can read them (Q4, the default):** in the site's own Upstash Redis
+database under the key `signup:d10`, the same store the vote endpoint uses, once Zaal connects it. Who can read
+that store: whoever holds the Vercel project's environment variables, which is Zaal and anyone he has added to
+the Vercel project (UNVERIFIED who that is from this lane; the repo does not record it), and the Upstash account
+that owns the database. Nothing in the public repo, nothing in a deploy preview, nothing in git. This lane reads
+the rows only through a route protected by a token he sets, to stamp each entrant's song. The addresses are
+deleted from the store after the round closes out, and the plan says so in public so entrants can hold us to it.
+
+The alternative is a Tally or Google form embedded on the page, which puts the addresses on that vendor's
+servers under Zaal's account and needs no key here. It is faster and it is not "on the website" in the way he
+said it. Q4 asks which.
 
 ## The bounty
 
-- **Type:** OPEN, reward field $100 (0.0399 ETH at 2,506.72 USD per ETH, Coinbase 16:06Z). The
-  text names no amount, per the repo rule.
-- **Ask:** buy at least one dollar of the song, film yourself hearing it start to finish, post
-  it, claim with one frame plus the links. The shape is PR #236's, which Zaal asked for on 6
-  Oct, now pinned to one song.
-- **Close:** 11:59pm Eastern, Saturday 31 October 2026 (Zaal, 7 Oct: "keep this as a til the
-  end of the month of october as a test one first").
-- **Judging:** Zaal picks with the entries in front of him; contributor vote confirms; every
-  entrant gets one note back.
-- **Promise:** the pot and nothing else. No publication promise.
-- **Disclosure, in the text and in numbers:** Zaal held about 21% of this song's fan pool before
-  these buys. After them he holds about 65% if both $500 land on it ($1,170 of about $1,802 sold) or
-  about 51% if one does ($670 of about $1,302), so between 23 and 29 cents of each dollar an entrant
-  spends on it is claimable by him. The text says so under THE REWARD. Hiding it is the one thing
-  that could turn the round into a story about us instead of the artist.
+- **Type:** OPEN, reward field $500 (0.1995 ETH at 2,506.72 USD per ETH, Coinbase 16:06Z 10 Oct). The paste
+  body names no pot amount; every buy figure is in words.
+- **Ask:** sign up, run a public rollout for one song for a month, claim with the record and the numbers.
+- **Dates:** sign-up closes Sunday 18 October 2026 11:59pm Eastern; submissions close Friday 13 November 2026
+  5:00pm Eastern, four weeks after Friday 16 October, the first weekday after sign-up closes. Weekdays checked
+  with `date -j` on 10 Oct. "This week" (item 97) is read as the round opening the week starting Monday 12 October.
+- **Judging:** half the weight on the measured change in supporters and fan pool from sign-up close to close,
+  read off the site at both stamps; half on the rollout itself. Zaal picks; contributors vote; every entrant gets
+  one note back.
+- **Promises:** the pot; Zaal's $500 buy of the winner, named with the wallet, the week and the hash; nothing
+  else. The winner's buy is a rule on the entrant, not a promise by us.
+- **Disclosure:** his buy makes him a supporter of the winning song; on Saturday in LA about half. In the text
+  under THE REWARD.
 
-## How the artist is credited
+## What the record says about this shape
 
-- Named in the bounty title and text, with the X handle the site lists for him.
-- Named and tagged in the announcement, which links the Basescan hash so the $450 is checkable
-  by anyone.
-- The pitch offers him the "first song past four figures on WaveZStation" line to use himself,
-  with the hashes, and asks him to post the song and the bounty to his own people.
-- Every reaction video in the round names the song and the artist out loud and on screen
-  (rule 4 of the text).
+`docs/what-draws-entries-2026-10-01.md` and ZAOOS doc 2522 (re-measured 10 Oct, poidhz #245): the hardest asks
+draw the least, and a month-long build is the lowest-entry format on poidh. A sign-up step is a filter, not a
+draw. Twenty-seven songs were listed on the site at 16:02Z 10 Oct, so the whole possible field is about twenty
+artists, and the plan should expect single digits. The invitation DM is the thing most likely to produce the
+first entrant.
 
-## Verification by hash
+## Verification
 
-Two Basescan links do the whole job: `https://basescan.org/tx/<hash>` for each buy. The token
-transfers on each page show 500 USDC from the issuer wallet into `0x6eee...b255`, then 50 out to
-`0xd974...8E72` and 112.50 and 112.50 out to the two creator wallets (or 225 to AI LUI's one).
-Anyone can check it in thirty seconds. The announcement links it; the bounty text links it; the pitch promises it. The
-issuer wallet's two earlier buys on the same song (100 and 70 USDC, Sep) are on the same
-explorer page, so the "already the biggest supporter" line is also checkable.
-
-## What is public, and when
-
-| Moment | Public surface |
-|---|---|
-| The buy lands | basescan.org, immediately, whether or not anyone posts |
-| The cast | poidh.xyz bounty page, and poidhz.com/b/<id> after the record PR merges |
-| The announcement | Farcaster /zao and X from Zaal's account, then the artist's own post if he makes one |
-| The round | every entry is a public video by its own rule |
-| The pick | poidh accept, two-day contributor vote, payout on chain |
-
-The pitch, this plan and the research memo stay in the repo (public repo, so "private" means
-"not promoted", not secret). Nothing in them is a secret: wallets, hashes and splits are all
-on chain already.
+- **Zaal's buy:** `https://basescan.org/tx/<hash>` shows 500 USDC from the issuer wallet into `0x6eee...b255`,
+  then 50 to `0xd974...8E72` and 225 to the song's creator wallet or wallets. Thirty seconds for anyone.
+- **The winner's buy:** their own hash, which the text asks them to post. If they buy their own song the same
+  page shows 225 going straight back to them, which is fine and is said in advance.
+- **The numbers judged on:** this lane's stamps of `/api/songs/<id>` on sign-up night and close day, committed
+  in this folder as JSON with the clock time, beside the entrants' own self-reported numbers.
 
 ## What could go wrong
 
-- **The top song flips before the buy.** AI LUI trails by about 215 USDC of sales. Re-read
-  the discover endpoint at the moment of the buy; the copy is re-addressed if it moved.
-- **The second creator wallet is not the artist.** Then the honest line is "$450 to the
-  song's creators", and the pitch already asks.
-- **A buy cap.** No ceiling is visible in the site data, and 500 is five times the largest buy
-  on record (Zaal's own 100). If the UI refuses 500, four buys of 250 land the same money.
-- **Entrants balk at paying a dollar.** No prior round cost the entrant money. If the first
-  week draws nothing, the fallback is a sibling bounty with the buy optional, which the text
-  does not promise.
-- **The disclosure line gets cut.** This lane recommends it stays. The number is small and the
-  trust is not.
+- **Nobody signs up.** Twenty artists in the field, a form gate, a month of work. If sign-up closes with fewer
+  than three entrants, the default is to run anyway (the text promises nothing about field size) and say so.
+- **The winner does not buy.** poidh cannot hold the pot back. The text says it is a rule we are trusting them
+  to keep and that we will say whether they kept it. That is the whole enforcement, and the text says so.
+- **The winner games the numbers.** Supporters can be bought: a $1 buy from twenty wallets is twenty supporters.
+  Half the weight is on the rollout itself, and the deltas are read with the sales total, not just the count.
+- **The store never gets switched on.** Then there is no form on the website and the fallback is a vendor form
+  (Q4 B). Nothing casts until a sign-up URL exists.
+- **The email rule.** Someone reads `community-plan.md` and the form as a contradiction. The answer is in the
+  text and above: round contact only, deleted at close-out, no list.
+- **ETH moves between cast and payout.** The pot is in ETH; "five hundred dollars of the prize" is written in
+  dollars. The text does not pin a conversion; the plan reads it as five hundred dollars at the time of the buy.
 
 ## Auto-proceeded choices in this PR (one line each)
 
-1. Pinned the round to one song instead of "the top song that day" (PR #236's rule 7), because
-   the buys fix which song the round is about. If the second $500 goes to a second song, the
-   round still pins to the most-funded one.
-6. Read "split the top prize" as "the second $500 may go to the second artist", decided at the
-   buy, with same-song as the default. The ruling does not say which; this is the reading.
-7. Read "this week" as the week starting Monday 12 October, since he ruled it on Saturday the 10th.
-2. Kept the 31 October close and the $100 reward from #236; nothing new was ruled.
-3. Default order: pitch, buy, cast, announce.
-4. Default sending wallet: the issuer wallet, because its prior buys are already public.
-5. Wrote the fan-pool numbers as estimates and said why.
+1. Read "website" as poidhz.com, and the form as a page in the Next app, because that is the site this repo
+   deploys and the one with a store already wired.
+2. Default storage: the site's own Upstash store, switched on by Zaal, not a vendor form (Q4 asks).
+3. The form checks the song against `/api/songs/<id>` so only listed songs get through.
+4. Five dated posts as the minimum record, because "rollout" has to mean more than one post and five is checkable.
+5. Half the judging weight on measured deltas, half on craft, because item 99 said "best marketing rollout" and
+   the site gives us the number for free.
+6. One week for each of the two buys after the pick and payout, because neither ruling named a time.
+7. Addresses deleted at close-out, said in public, because the repo's rule against a list has to mean something.
+8. "This week" read as the round opening the week starting Monday 12 October.
+
+## Questions for Zaal (the Grill carries them; none blocks the copy)
+
+**Q4. Where the sign-up emails live.**
+- A) The site's own Upstash store, which you switch on with the Vercel integration or a token through `/secret`.
+  Readable by you and whoever is on the Vercel project; deleted at close-out. **Recommended: it is on the
+  website, as you said, and under your account.**
+- B) A Tally or Google form embedded on the page. On the vendor's servers under your account. No key needed here.
+- C) Something else; type it.
+
+**Q5. Build the form now?**
+- A) Yes, this lane opens a separate PR with the page and the API route, held unlinked until you cast.
+  **Recommended.**
+- B) Not yet; cast only after the form exists and it is built later.
+- C) No form on the site; use B above.
+
+Default if unanswered: nothing opens, nothing is bought, nothing is posted, nothing is built.

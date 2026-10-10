@@ -9,8 +9,11 @@ items 96 to 99). His words, verbatim and in order:
 3. Q3, what goes public: no option picked; *"Maybe we say best marketing rollout give it a month and people have to sign up"*.
 4. Then, item 103 (vault 0bdcb9e6): *"500 in poidh I'll buy 500 and they buy 500 of their favorite"*.
 
-**Q1 is ruled (item 106, vault 1cafd9fc, relayed by the Grill 2026-10-10): A, $1,000 total.** Q2 and Q3 are
-still open. The rest of this file is the reading that makes all four answers fit, and the two open questions.
+**All three questions are ruled (relayed by the Grill 2026-10-10).** Q1: item 106 (vault 1cafd9fc), A, $1,000
+total. Q2: item 108 (vault a3862b56), typed, *"Sign up form on website after they put in email"*. Q3: item 109
+(vault a3862b56), typed, *"Say they have to buy and are expected to use that volume in wave station but can use
+it on their own"*. Neither Q2 nor Q3 was a listed option. The copy for the ruled shape is in `description.md`,
+`ANNOUNCE.md`, `ARTIST-PITCH.md` and `PLAN.md`; this file stays as the record of the reading and the rulings.
 
 ## The reading
 
@@ -73,7 +76,7 @@ was a promise outside the pot). It is Zaal's rule to set aside, and if he does, 
 who pays, from which wallet, by when, and that it is verified by hash. The pass-along is a second promise,
 made by the winner, which the text can ask for but not enforce.
 
-## Questions for Zaal: Q1 ruled, Q2 and Q3 open
+## Questions for Zaal: all three ruled
 
 **Q1. The total, and the shape.** Item 103 read as three halves: $500 pot in ETH to the winner, $500 buy of
 the winner's song from your wallet, and the winner buys $500 of their favourite song.
@@ -91,6 +94,8 @@ the winner's song from your wallet, and the winner buys $500 of their favourite 
   leaderboard, no new tool. **Recommended.**
 - B) A form (Tally or Google Form) linked from the bounty, with the entrant list on poidhz.com.
 - C) Reply to the announcement post or DM you.
+- **RULED, typed, item 108: "Sign up form on website after they put in email". Read as a page on poidhz.com,
+  email first, then the form. Where the addresses live is `PLAN.md` Q4.**
 
 **Q3. The winner's $500 buy, which poidh cannot enforce.**
 - A) It is the stated expectation, not a condition: the text says the winner is asked to put $500 into their
@@ -100,5 +105,9 @@ the winner's song from your wallet, and the winner buys $500 of their favourite 
   $500 buy, so they front $500 for up to a day. Enforceable, and the one thing most likely to make an
   independent artist walk.
 - C) Drop the pass-along. Pot plus your buy, nothing asked of the winner.
+- **RULED, typed, item 109: "Say they have to buy and are expected to use that volume in wave station but can
+  use it on their own". The text says the winner must put $500 of the prize into a WaveZStation buy, any song
+  including their own, and that poidh cannot hold the pot back, so it is a rule we trust them to keep and say
+  publicly whether they did.**
 
-Default if unanswered: nothing opens, nothing is bought, nothing is posted.
+Nothing fires until Zaal has seen the final text.
