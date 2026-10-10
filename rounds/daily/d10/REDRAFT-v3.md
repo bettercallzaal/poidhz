@@ -9,7 +9,8 @@ items 96 to 99). His words, verbatim and in order:
 3. Q3, what goes public: no option picked; *"Maybe we say best marketing rollout give it a month and people have to sign up"*.
 4. Then, item 103 (vault 0bdcb9e6): *"500 in poidh I'll buy 500 and they buy 500 of their favorite"*.
 
-**Nothing in this file is ruled. It is the reading that makes all four answers fit, and three questions.**
+**Q1 is ruled (item 106, vault 1cafd9fc, relayed by the Grill 2026-10-10): A, $1,000 total.** Q2 and Q3 are
+still open. The rest of this file is the reading that makes all four answers fit, and the two open questions.
 
 ## The reading
 
@@ -25,9 +26,9 @@ On this reading "two buys of 500" are one by Zaal and one by the winner, "split 
 $1,000 split into the pot and the buy, and "save this for this week" is the round opening this week rather
 than a buy landing this week. The winner ends up with $500 in ETH plus $225 (or their share of it) in USDC,
 and the site sees $1,000 of buys: Zaal's into the winner, the winner's into their favourite. **Zaal's total
-outlay on this reading is $1,000.** If he means the winner's $500 to be on top of the prize rather than out
-of it, it is $1,500 and the third row is a second buy from his wallet. Both the total and the "this week"
-reading are question 1; nothing in this section is ruled.
+outlay is $1,000: the pot plus his buy. The winner's own $500 comes out of the prize.** Ruled, item 106.
+The "this week" reading (the round opens this week) went to him inside Q1 and was not contradicted; it is
+this lane's reading until he says otherwise.
 
 "Best artist" is decided by the contest, so Saturday in LA's artist is not pre-selected; he enters like
 everyone else, and the pitch to him becomes an invitation (see `ARTIST-PITCH.md`, held).
@@ -72,13 +73,14 @@ was a promise outside the pot). It is Zaal's rule to set aside, and if he does, 
 who pays, from which wallet, by when, and that it is verified by hash. The pass-along is a second promise,
 made by the winner, which the text can ask for but not enforce.
 
-## Three questions for Zaal
+## Questions for Zaal: Q1 ruled, Q2 and Q3 open
 
 **Q1. The total, and the shape.** Item 103 read as three halves: $500 pot in ETH to the winner, $500 buy of
 the winner's song from your wallet, and the winner buys $500 of their favourite song.
 - A) Yes, that is it, and your total is $1,000: the pot plus your buy. The winner's $500 comes out of the
-  prize they just won. The round opens this week and the buy lands at the close. **Recommended: it is the
-  reading in which items 96 to 103 all agree.**
+  prize they just won. The round opens this week and the buy lands at the close. **RULED A, item 106
+  (vault 1cafd9fc), 2026-10-10, via the Grill: "$500 pot plus his $500 buy of the winner's song; the
+  winner's own $500 comes out of the prize."**
 - B) Your total is $1,500: the pot, your buy of the winner's song, AND a $500 buy of the winner's favourite
   song, all from your wallet. The winner spends nothing.
 - C) Something else; type it.
