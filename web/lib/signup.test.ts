@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ROUND, checkEmail, checkSignup, signupOpen, songFromRecord, songIdFromLink, toSignup } from './signup';
+import { ROUND, checkEmail, checkSignup, readStoreConfig, signupOpen, songFromRecord, songIdFromLink, toSignup } from './signup';
 
 const id = 'a6c6d732-8f7a-4621-a478-d7025e3bfc98';
 const good = { email: 'Benny@Example.com', artist: 'BennyJ504', song: `https://wavezstation.com/song/${id}`, handle: '@bennyj504', where: 'X and TikTok' };
@@ -58,5 +58,21 @@ describe('songFromRecord', () => {
     expect(songFromRecord({ redirect: 'https://www.wavezstation.com/api/songs/' + id, status: '308' }, id)).toBeNull();
     expect(songFromRecord({ song: { id: '11111111-1111-1111-1111-111111111111' } }, id)).toBeNull();
     expect(songFromRecord(null, id)).toBeNull();
+  });
+});
+
+describe('readStoreConfig', () => {
+  const ok = { SIGNUP_ENDPOINT: 'https://wavezstation.com/api/poidhz-signup', SIGNUP_TOKEN: 'abc' };
+  it('is on only with an https endpoint and a token', () => expect(readStoreConfig(ok)).toEqual({ endpoint: 'https://wavezstation.com/api/poidhz-signup', token: 'abc' }));
+  it('refuses an http endpoint', () => expect(readStoreConfig({ ...ok, SIGNUP_ENDPOINT: 'http://wavezstation.com/api/poidhz-signup' })).toBeNull());
+  it('refuses a missing token', () => expect(readStoreConfig({ SIGNUP_ENDPOINT: ok.SIGNUP_ENDPOINT })).toBeNull());
+  it('refuses an empty or whitespace token', () => {
+    expect(readStoreConfig({ ...ok, SIGNUP_TOKEN: '' })).toBeNull();
+    expect(readStoreConfig({ ...ok, SIGNUP_TOKEN: '   ' })).toBeNull();
+  });
+  it('refuses a missing or unparsable endpoint, and credentials in the URL', () => {
+    expect(readStoreConfig({ SIGNUP_TOKEN: 'abc' })).toBeNull();
+    expect(readStoreConfig({ ...ok, SIGNUP_ENDPOINT: 'not a url' })).toBeNull();
+    expect(readStoreConfig({ ...ok, SIGNUP_ENDPOINT: 'https://user:pw@wavezstation.com/x' })).toBeNull();
   });
 });

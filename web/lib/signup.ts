@@ -77,3 +77,17 @@ export function songFromRecord(j: unknown, id: string): SongRecord | null {
   if (!s || typeof s.id !== 'string' || s.id.toLowerCase() !== id) return null;
   return { id, title: typeof s.title === 'string' ? s.title : '', artist: typeof s.artist === 'string' ? s.artist : '' };
 }
+
+// The forward is on only when the endpoint is https AND a token is set. An http endpoint or an
+// empty token would send an entrant's email in the clear or unauthenticated, so either one means
+// "not switched on" and the route sends nothing. Pure, so it is tested; signupstore.ts calls it.
+export type StoreConfig = { endpoint: string; token: string };
+export function readStoreConfig(env: Record<string, string | undefined>): StoreConfig | null {
+  const token = (env.SIGNUP_TOKEN ?? '').trim();
+  const raw = (env.SIGNUP_ENDPOINT ?? '').trim();
+  if (!token || !raw) return null;
+  let u: URL;
+  try { u = new URL(raw); } catch { return null; }
+  if (u.protocol !== 'https:' || u.username || u.password) return null;
+  return { endpoint: u.href, token };
+}

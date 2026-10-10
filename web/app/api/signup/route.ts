@@ -1,15 +1,19 @@
 import { ROUND, SONG_API, checkSignup, signupOpen, songFromRecord, songIdFromLink, toSignup } from '@/lib/signup';
 import { countSignups, putSignup, storeReady } from '@/lib/signupstore';
+import { RateLimiter, clientKey, readBodyCapped, sameOrigin } from '@/lib/guard';
 
 export const dynamic = 'force-dynamic';
-const cors = { 'Access-Control-Allow-Origin': '*' };
+
+const BODY_CAP = 4096;
+const limiter = new RateLimiter(10, 10 * 60 * 1000);
 
 // GET says whether sign-up is open and how many songs are in. Never the names or the addresses.
+// Readable from anywhere: it is a count.
 export async function GET() {
   return Response.json({
     round: ROUND.n, open: signupOpen(new Date()), closesAt: ROUND.signupClosesAt, storeReady,
     count: await countSignups(ROUND.n), emailUse: ROUND.emailUse,
-  }, { headers: cors });
+  }, { headers: { 'Access-Control-Allow-Origin': '*' } });
 }
 
 // Is this song listed on WaveZStation? Read its own record; a 404 or a timeout is a no.
@@ -25,10 +29,17 @@ async function songListed(id: string): Promise<{ listed: boolean; title?: string
   }
 }
 
+// POST is same-origin only (no CORS headers, and a foreign Origin is refused), capped at 4 KB,
+// and rate limited per client. Checks run before anything is sent anywhere.
 export async function POST(req: Request) {
-  const fail = (status: number, errors: string[]) => Response.json({ ok: false, errors }, { status, headers: cors });
+  const fail = (status: number, errors: string[]) => Response.json({ ok: false, errors }, { status });
+  if (!sameOrigin(req.headers.get('origin'), req.headers.get('host'))) return fail(403, ['sign up from the poidhz.com page']);
+  if (!limiter.allow(clientKey(req.headers))) return fail(429, ['too many tries; wait ten minutes']);
+  const text = await readBodyCapped(req, BODY_CAP);
+  if (text === null) return fail(413, ['the form is too long']);
   let input: Record<string, unknown>;
-  try { input = await req.json(); } catch { return fail(400, ['send JSON: {email, artist, song, handle, where}']); }
+  try { input = JSON.parse(text); } catch { return fail(400, ['send JSON: {email, artist, song, handle, where}']); }
+  if (!input || typeof input !== 'object') return fail(400, ['send JSON: {email, artist, song, handle, where}']);
   const pick = (k: string) => (typeof input[k] === 'string' ? (input[k] as string) : undefined);
   const i = { email: pick('email'), artist: pick('artist'), song: pick('song'), handle: pick('handle'), where: pick('where') };
   const errors = checkSignup(i);
@@ -42,5 +53,5 @@ export async function POST(req: Request) {
   if (!storeReady) return fail(503, ['sign-up is not switched on yet; nothing was stored']);
   const put = await putSignup(ROUND.n, toSignup(i, now));
   if (!put.ok) return fail(put.status, put.errors);
-  return Response.json({ ok: true, song: { id, title: song.title, artist: song.artist }, count: put.count }, { headers: cors });
+  return Response.json({ ok: true, song: { id, title: song.title, artist: song.artist }, count: put.count });
 }
