@@ -8,21 +8,19 @@ out. If the most-funded song at the moment of the buy is not Saturday in LA, eve
 ## Block 1 - the buy (Firefly: Farcaster /zao and X). Post the moment the hash is confirmed.
 
 ```
-Just bought $1,000 of Saturday in LA by @bennyj504 on wavezstation.com. One transaction.
+Just bought $1,000 of Saturday in LA by @bennyj504 on wavezstation.com. $450 hit the creators the second it landed.
 
-$450 went to the song's creators the second it landed. First four-figure buy on the site. Check it: https://basescan.org/tx/BUY_TX_HASH
+First four-figure buy on the site as far as I can measure (top song had ~$802 in sales before). I held ~21% of its fan pool, now ~65%.
 
-Go listen.
+https://basescan.org/tx/BUY_TX_HASH
 ```
 
 ## Block 2 - the bounty (Firefly). Post after casting, same day or next.
 
 ```
-New bounty, open to the end of October.
+New bounty. Buy a dollar of Saturday in LA by @bennyj504 on wavezstation.com, film yourself hearing it start to finish, post it. Best reaction wins the pot.
 
-Buy a dollar of Saturday in LA by @bennyj504 on wavezstation.com, film yourself hearing it start to finish, post it. Best reaction wins the pot.
-
-Closes 11:59pm Eastern Oct 31.
+I hold ~65% of its fan pool (21% before the big buy), so part of your dollar comes back to me. Closes 11:59pm ET Oct 31.
 
 https://poidh.xyz/base/bounty/BOUNTY_ID
 ```
@@ -30,13 +28,13 @@ https://poidh.xyz/base/bounty/BOUNTY_ID
 ## Block 3 - the artist's own line, offered in the pitch, his to use or not
 
 ```
-Someone just bought $1,000 of my song on @WaveZStation. First artist to four figures on the site. 45% of every buy goes to the artist on the spot. Here it is: https://basescan.org/tx/BUY_TX_HASH
+Someone just bought $1,000 of my song on @WaveZStation. As far as anyone can measure, the first four-figure buy on the site (the most-sold song had about $802 in total sales before it). 45% of every buy goes to the artist on the spot. Here it is: https://basescan.org/tx/BUY_TX_HASH
 ```
 
 ## Block 4 - the reply to the first ten entries (one per entry, Zaal's hand)
 
 ```
-Watched it. [one specific thing the video did]. Claim is in. Thank you for buying the song.
+Watched it. [one specific thing the video did]. Claim is in. Thank you for buying the song. Reminder since it is your dollar: I hold about 65% of its fan pool, 21% before the big buy.
 ```
 
 ## Zaal's hands, in order

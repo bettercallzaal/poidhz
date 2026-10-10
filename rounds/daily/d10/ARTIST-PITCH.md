@@ -14,7 +14,9 @@ figures of any song on the site, and no song has sold $1,000 in total.
 ```
 Benny, Zaal from WaveWarZ / The ZAO. I have 170 bucks in Saturday in LA already and I want to go further.
 
-Here is the idea. I buy $1,000 of the song in one transaction. On WaveZStation's split that is $450 to the song's creators the second it lands, no waiting, and you become the first artist on the site to clear four figures. Nobody has done it yet. I checked the chain.
+Here is the idea. I buy $1,000 of the song in one transaction. On WaveZStation's split that is $450 to the song's creators the second it lands, no waiting, and as far as I can measure you become the first artist on the site to clear four figures. The most-sold song had about $802 in total sales when I checked on Oct 10, so nobody has. I could not pull every single buy, so I am calling it a bound, not a count.
+
+Full disclosure: I already hold about 21% of the song's fan pool. After this I hold about 65%, so I earn a cut when it sells. That is in the bounty text too.
 
 One question first: the song pays out to two wallets, 50/50. Are both yours, or is one a producer or a feature? I want to say the right thing when I post about it.
 

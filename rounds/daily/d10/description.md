@@ -12,6 +12,7 @@ The reasoning is in `RESEARCH.md` and `PLAN.md` beside this file.
 - **Reward field:** $100, his number. 0.0399 ETH at 2,506.72 USD per ETH (Coinbase spot 16:06Z 10 Oct). The text names no amount.
 - **CAST GATE, in this order:** (1) the $1,000 buy lands on chain; (2) replace `BUY_TX_HASH` below with that transaction hash, twice; (3) if the most-funded song at the moment of the buy is not Saturday in LA, replace the song and artist throughout and re-check the creator wallets; (4) cast.
 - **Validator note:** the paste body writes the buy figures in words (a thousand dollars, 450 dollars) and states Zaal's stake as a share rather than a sum because `validate-bounty-description.py` reads any `$1...` as a pot figure. They are the buy, not the pot.
+- **Review fixes 2026-10-10 (orchestrator2 verdict on #244 at 1954b162):** the 21 percent now and 65 percent after are in the text and every ANNOUNCE block; the first-four-figure line carries its bound; ARTIST-PITCH.md is in `.vercelignore` by shape.
 - **What changed from #236:** the round is pinned to the one song the $1,000 went into, so #236's "enter again when the top song changes" rule is gone; the disclosure under THE REWARD now carries numbers, because after the buy Zaal holds most of that song's fan pool; the Basescan hash is in the text so anyone can check the buy.
 - **Still open for Zaal, with the default taken:** whether both creator wallets are the artist's (the text says "the song's creators", which is true either way); whether WaveZStation and the artist are fine with full-song reaction videos (the pitch asks; default is to ask before casting).
 - **Numbering:** this takes d10, as #236 did. #236 stays parked and is superseded by this file.
@@ -22,7 +23,9 @@ WE JUST PUT A THOUSAND DOLLARS INTO ONE SONG ON WAVEZSTATION. BUY A DOLLAR OF IT
 
 The song is Saturday in LA by BennyJ504 (@bennyj504). WaveZStation is a music site where you buy into a song instead of streaming it, and when a song sells, 45 cents of every dollar goes to the artist on the spot: https://wavezstation.com
 
-Our buy is on chain, and it is the first four-figure buy on the site: https://basescan.org/tx/BUY_TX_HASH
+Our buy is on chain: https://basescan.org/tx/BUY_TX_HASH
+
+As far as we can measure it is the first four-figure buy on the site. The most-sold song had around eight hundred dollars of total sales when we checked on October 10, so no single buy could have been bigger. We could not pull every buy, so that is a bound, not a count.
 
 Go to the song, buy in for one dollar or more, and record yourself listening to it all the way through and reacting. One take, the whole song. Best reaction wins the pot.
 
@@ -74,7 +77,7 @@ THE REWARD
 
 Winner takes the whole pot. This is an OPEN bounty, so the pot is whatever this page says it is right now, and it grows in real time as others contribute. Read the number at the top of this page, not a number in this text.
 
-The dollar you spend on the song is yours to spend and is not refunded. Read this part: on WaveZStation, 45 cents of every dollar goes to the song's earlier buyers, split by how much each of them put in. Zaal has put more than half of everything ever spent on this song into it himself, so about 29 cents of each dollar you spend on it is his to claim. We would rather say that than have you find it.
+The dollar you spend on the song is yours to spend and is not refunded. Read this part: on WaveZStation, 45 cents of every dollar goes to the song's earlier buyers, split by how much each of them put in. Before this buy Zaal held about 21 percent of everything spent on this song. After it he holds about 65 percent. So about 29 cents of each dollar you spend on it is his to claim. We would rather say that than have you find it.
 
 Every submitter earns $ZABAL automatically through the POIDH Submitters leaderboard on Empire Builder, and the drop scales with how many BCZ rounds you have entered in total.
 
