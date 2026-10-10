@@ -1,0 +1,566 @@
+[
+ {
+  "id": "a6c6d732-8f7a-4621-a478-d7025e3bfc98",
+  "title": "Saturday in LA",
+  "artist": "BennyJ504",
+  "artist_x_handle": "@bennyj504",
+  "created_at": "2026-09-09T15:42:49.306813+00:00",
+  "wavestation_song_id": "0xe755fe3707d0030383321d44e9d31679495280428aaf8f11332c2fd796c7b1f4",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x7e1e8eD40A57E4defd80d60228Cc3E3F1E81a811",
+   "0x73A8C85CcAD4cfc7C37e12Ad37d64Aa5427C0c5b"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x793ca48aba7a905c584c803360808958d0dd53bd2dd18b579a4445115ab354c8",
+  "chain_id": 8453
+ },
+ {
+  "id": "3a13512d-4d7e-4191-9a2f-99c088f2f457",
+  "title": "AI LUI - The Album (The Wavewarz Chronicles)",
+  "artist": "AI LUI",
+  "artist_x_handle": "@Cryptogodlui",
+  "created_at": "2026-09-18T02:23:40.025185+00:00",
+  "wavestation_song_id": "0x5ede9f12d38a2ed1c0cc618fc206d16dbd8067751ac5ab2a9a830d2994d0b97c",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x96755841Aed8Bc6866d0a2ca6f2487F737718846"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x01d3510691c72a16417d7a0e6225f8b4d8456919935ac7841c497edaf71c8a4b",
+  "chain_id": 8453
+ },
+ {
+  "id": "e1bcf512-5326-4d0c-9178-b9780e052d29",
+  "title": "Killing Floor",
+  "artist": "GodclouD",
+  "artist_x_handle": "@therealgodcloud",
+  "created_at": "2026-08-23T21:54:47.869265+00:00",
+  "wavestation_song_id": "0x35c7534287990b4270191fcbb441167536edd368e2be76de207f91f046bbd7ab",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xa36411680ABBFd712E5F6C61DF054b5cf5ae6810"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x015dd6fa7178a6edb397ecb342e81891154a9cc5265577110191156d3c4ff088",
+  "chain_id": 8453
+ },
+ {
+  "id": "f7272477-2c1b-42ed-93de-86f54000b27f",
+  "title": "WYAU - No Sleep Gang Anthem (ft. DaDutchess)",
+  "artist": "PKMN CTO",
+  "artist_x_handle": "@pokemon_cto",
+  "created_at": "2026-09-25T16:43:04.408046+00:00",
+  "wavestation_song_id": "0xd22de577912da4816a0bdd8eb57081c2bb1f7fcead79b49c4d2dc4416133c915",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x4BCEe979fa5E984751F9D1DaB4eCF50D134F2834",
+   "0x268411e78978416bee9991dca7938cec5c9d8d6e"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x1a634e05453fa4813e03d247585c94f823cfe770fc805119806c968c3f078b73",
+  "chain_id": 8453
+ },
+ {
+  "id": "55d7032b-33b9-4120-ab26-7cc130254d7a",
+  "title": "WAGBG",
+  "artist": "Nessy the Rilla",
+  "artist_x_handle": "@NessyTheRilla",
+  "created_at": "2026-09-24T05:23:13.609176+00:00",
+  "wavestation_song_id": "0x59ae6092feb75a81c19239e630912c618e74a596f879cb71a90953bb54d1b2b7",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x3C85652F1784D154840AE327e57D31c82bD9754b"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x5972bd3fe04ffd3ae46cb4846876ade60540ed79b89c1cf9dbc1dd8bdba63aab",
+  "chain_id": 8453
+ },
+ {
+  "id": "a3c95792-1878-4698-b28b-89050c1a6f02",
+  "title": "Rid This Rock of Disasters",
+  "artist": "r3plic4nt",
+  "artist_x_handle": "@r3plic4nt206",
+  "created_at": "2026-08-29T15:26:00.077266+00:00",
+  "wavestation_song_id": "0x38304b638d0745a24ee49e64d49e3e802850dd327c8bfd9901ef9ffe3fee7d1a",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x48D9fC7bF715B77479ce626471603d2Eb3c8235e"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x7d5aa41fd08c8e9690f27324d83cc5e50095d7a7b4847a025e313a10fef6d696",
+  "chain_id": 8453
+ },
+ {
+  "id": "3d0a3cad-760b-471e-aefa-e46db67d48fb",
+  "title": "Fuck Yo FeelinZ",
+  "artist": "GodclouD",
+  "artist_x_handle": "@therealgodcloud",
+  "created_at": "2026-10-02T16:35:06.192369+00:00",
+  "wavestation_song_id": "0xc9c01aff1182c2df19e9a66b23676490f1eeface32a61c7f1fec52b0ba885bb8",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xa36411680ABBFd712E5F6C61DF054b5cf5ae6810"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xfdc2c93ff850207a8bd68b5ecd2a579eac8e09c120fbf681c3d60212617605f4",
+  "chain_id": 8453
+ },
+ {
+  "id": "4827d99b-5c6d-4c4b-809c-4946ef32ae35",
+  "title": "MO$$",
+  "artist": "r3plic4nt",
+  "artist_x_handle": "@r3plic4nt206",
+  "created_at": "2026-09-23T15:48:07.181403+00:00",
+  "wavestation_song_id": "0x704a148e123653b87a99a97b03feca157636a863bafec7bffe046f8ec3d282ff",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x48D9fC7bF715B77479ce626471603d2Eb3c8235e"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x69ecd6befae6b8585314cbf9470c126d77a78d50d9611abed50a06286473da5d",
+  "chain_id": 8453
+ },
+ {
+  "id": "31d1e669-fcd4-4dbe-bf34-ddb4e2c90302",
+  "title": "What It Douie?",
+  "artist": "Retrospect",
+  "artist_x_handle": "@retrospect82",
+  "created_at": "2026-09-28T16:02:54.324427+00:00",
+  "wavestation_song_id": "0xf24ac8c1266a2b0dbed566473d62c0b990619bddd470a92f2762a0cfc2df7dd2",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x29F5DeE65E1Fb856B816EaB4f0B702c10e5Eaa34",
+   "0x268411e78978416bee9991dca7938cec5c9d8d6e",
+   "0x995409C021fe5Db6fd1c516728884437D21C46d4",
+   "0xb68CbE14929D2090Fb4908f1FC56b77F6D434Ae9",
+   "0x316c6d65208EFc20E5F66F9aC58D0b21EF78F4fC",
+   "0x96755841Aed8Bc6866d0a2ca6f2487F737718846"
+  ],
+  "wavestation_creator_splits_bps": [
+   250,
+   3000,
+   6000,
+   250,
+   250,
+   250
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x12e6e6d9f2920fa3e238112c4cbbe38fef60272346caba05cb940ebf1300907c",
+  "chain_id": 8453
+ },
+ {
+  "id": "af8cda36-fdbc-4bd2-ba3d-97e41820759a",
+  "title": "LegendWaveZ (Prod. x AporkALYPSE_NoW)",
+  "artist": "Hurric4n3Ike",
+  "artist_x_handle": "@Hurric4n3Ike",
+  "created_at": "2026-09-30T15:46:39.561945+00:00",
+  "wavestation_song_id": "0x182e860a29257b929acc08fb0ba3005765ebe40c1483806a491f42a469cea42f",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xd026CF3EF95c3061A95bC2E0FB4Cfe71f0872A12",
+   "0x434594Ffa320139c6E8211d510Ce2De0f1152Bc3"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x262fb765ac5774358d00f6d3bdcb652c1cbff12e198b25dd857d79df098360a4",
+  "chain_id": 8453
+ },
+ {
+  "id": "c3047f09-5f3b-4d63-8f30-f32185492eec",
+  "title": "High Levels Only",
+  "artist": "Cannon Jones973",
+  "artist_x_handle": "@cannonjones973",
+  "created_at": "2026-09-10T15:48:51.148198+00:00",
+  "wavestation_song_id": "0xafd9fd0f687d8031a927410ac623457a013f35891988dea3390d1aa8f689908a",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x316c6d65208EFc20E5F66F9aC58D0b21EF78F4fC"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x155550e25a06331c9ced2d826d86bab872becd156e9bc5fe9f9f48c8f59a3e33",
+  "chain_id": 8453
+ },
+ {
+  "id": "0d4e040e-9a9e-4401-b72a-4b6ea2ae6bc0",
+  "title": "UGOTMESAYIN",
+  "artist": "STILOWORLD",
+  "artist_x_handle": "@STILOWORLD",
+  "created_at": "2026-08-31T14:58:37.250999+00:00",
+  "wavestation_song_id": "0x71b841601d1b376053ba20f3a8e4853d467ec7631f7be61771ca32d51389f249",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x73A8C85CcAD4cfc7C37e12Ad37d64Aa5427C0c5b"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x92f7c34a02ee19b211b05439b4e3c19e2c60845bf7b858ba8f110f8eeea4d4a4",
+  "chain_id": 8453
+ },
+ {
+  "id": "0a6b3cbd-135b-4551-9c00-1f4e15cdff76",
+  "title": "Into the Maelstrom",
+  "artist": "Stormbourne",
+  "artist_x_handle": "@Stormiunleashed",
+  "created_at": "2026-09-22T16:33:56.099497+00:00",
+  "wavestation_song_id": "0xb26a6b50d73249f0f7dbd45af5c277d28f245347e3b057399e083168454fa1c8",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xD99b5d58dEc2Fb2F6feb024a5FC60225d76dD0E0"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x414cf1a7b57c8f21768fc146d5beb27068875c49c52ddcd8812dd35cefed09c2",
+  "chain_id": 8453
+ },
+ {
+  "id": "1bfbb2ce-9867-42f4-811c-8faf90f2451e",
+  "title": "Krypto Legendz",
+  "artist": "Steve Strange",
+  "artist_x_handle": "@RAKPHOf8",
+  "created_at": "2026-10-06T16:11:59.506784+00:00",
+  "wavestation_song_id": "0x4e622e991472cc2f742757fe9f5d260bccba2cbe69f79df9a7faadc9a7f508bd",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x6BA6Ef8d4c1951F23774c39Bd84D424f5E269624"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xdb5d8050bf0de5c5d6e456f716a46daa18c69c45d170d287243bd442e4c4d44e",
+  "chain_id": 8453
+ },
+ {
+  "id": "eaa587b0-c62f-4f02-a6b8-2eea79a05b21",
+  "title": "Even When The Seasons Change",
+  "artist": "Phoenix",
+  "artist_x_handle": "@TRue_JDHarmony",
+  "created_at": "2026-09-29T16:23:25.6162+00:00",
+  "wavestation_song_id": "0x8e2aa3697e7f29e16529f85f684569348cda2c471c890cf6a68d9a1a9e079e34",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xe12B1451D8977E5f895379D16815Dddd39599dAc",
+   "0xb7D85A4c65bfECD83c5e323b1DFC5Cba1D58ABf3"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x0d7c9fbc437da210e4b0b9c8a71531bc9a9c7c8e5b8c21d8096de9496fcf7088",
+  "chain_id": 8453
+ },
+ {
+  "id": "21bbc865-d27f-4e06-b3f8-bf142ee16d35",
+  "title": "Let Dutchess Shine",
+  "artist": "Retrospect",
+  "artist_x_handle": "@retrospect82",
+  "created_at": "2026-09-16T14:04:58.538478+00:00",
+  "wavestation_song_id": "0xdad63bc9e7f560fab7b0f8312b61a881bf86e1fb0fa3ded6ce0bbc726128d6e1",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x995409C021fe5Db6fd1c516728884437D21C46d4"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xb5e9c450b63e5aa70c0c715fafc1bab8d4b9eff787b7fda94a53afe760443a13",
+  "chain_id": 8453
+ },
+ {
+  "id": "54f57e3c-0e0f-48b8-92d8-baecc0eb63f7",
+  "title": "Ghost Town (Table for One)",
+  "artist": "Aporkalypse Now",
+  "artist_x_handle": "@AporkALYPSE78",
+  "created_at": "2026-10-07T16:27:48.584653+00:00",
+  "wavestation_song_id": "0x710bcede9657d797fc5eadae7c22781318c8aa3adbe8fcc4c72a4a0ae9499bcf",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x434594Ffa320139c6E8211d510Ce2De0f1152Bc3"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x8e740247b7b9c5f2480b889e8d5b7ff7e9a4e0aa8e531692a73f99951d7f5154",
+  "chain_id": 8453
+ },
+ {
+  "id": "5988fe73-027c-473f-b0db-78dbaee632be",
+  "title": "GESD1 [Prod By IMan Afrikah]",
+  "artist": "GESD1",
+  "artist_x_handle": "@Gesd01",
+  "created_at": "2026-09-14T15:41:15.819633+00:00",
+  "wavestation_song_id": "0xc491be07b8e53191951f384edbf92c8ee0a9eef11fa285b2bb460de3ce164b42",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x648aaff4618c537888470faedeaf28b75607f7b3",
+   "0xA0434a9A5403b9E2a197BA1cAe9963406c4f31ac"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x3ff55db8f6ce09ba978aab11cf613d5abcc30900bda9fcf600127536db073d29",
+  "chain_id": 8453
+ },
+ {
+  "id": "ddaa6090-bc95-4038-afab-1e3c4224b0ed",
+  "title": "Heata",
+  "artist": "Snow Tha Saint",
+  "artist_x_handle": "@Satisfiedheart",
+  "created_at": "2026-10-09T15:54:44.726392+00:00",
+  "wavestation_song_id": "0x4d1ab73c08c88cc531ce6dcfee66e51a20f92cb2ac7bf21c25096685d5c58910",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x40573de739a33F357f5c2EEa30E89BCA4603809C"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xe121d20941d0845683b0bfdbd5173603df190dfba5e16049f502a86cd6c4d992",
+  "chain_id": 8453
+ },
+ {
+  "id": "adb9e7e4-b11c-4143-9785-b53d4c37fd6f",
+  "title": "Dream It (Prod. x King of Heart)",
+  "artist": "Rj",
+  "artist_x_handle": "@RjSmithy",
+  "created_at": "2026-09-08T13:47:01.213362+00:00",
+  "wavestation_song_id": "0x481551e27b2958bf37a0ecfc33154d73eb3093f1fdd2ad5d19822a372034d9c9",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x4b561706Ad0157c64e0F000e2b942aEb1de47e37"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x6441da21af9d6dad12ffedfc0c1c2b7f76aac13350703729f868a787462d61d5",
+  "chain_id": 8453
+ },
+ {
+  "id": "92c201d7-787f-4752-b2ab-80ac918b9f36",
+  "title": "GangWavez (Prod. x K1DDv3NOM)",
+  "artist": "Hurric4n3Ike",
+  "artist_x_handle": "@Hurric4n3Ike",
+  "created_at": "2026-08-23T21:49:13.76343+00:00",
+  "wavestation_song_id": "0xbbb1caa33a0d878cd7d15ec1da61e1d6bd22db81c7aa7e0786e995984d0e2115",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x29F5DeE65E1Fb856B816EaB4f0B702c10e5Eaa34",
+   "0xC09286B8087fA009D34a6cf14B033B4e96662fC7"
+  ],
+  "wavestation_creator_splits_bps": [
+   5000,
+   5000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xc21c7743ba52755220110388f0210a3ce45554761c05f6c5e6e680d1528ed5ae",
+  "chain_id": 8453
+ },
+ {
+  "id": "c6b98f65-9c4b-47c5-8f8d-2099c8036c32",
+  "title": "UdeWavez",
+  "artist": "Hurric4n3Ike",
+  "artist_x_handle": "@Hurric4n3Ike",
+  "created_at": "2026-08-02T20:56:41.163854+00:00",
+  "wavestation_song_id": "0xe08b5f747806202e4b1114b02fd75001d42a43dfb3d7e1463a8c23c62cdf448a",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x29F5DeE65E1Fb856B816EaB4f0B702c10e5Eaa34",
+   "0x26fbB5a9DE954621103FDeBB5317212e00CE08b4"
+  ],
+  "wavestation_creator_splits_bps": [
+   7000,
+   3000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x7dbb6f9bcc84cb5d49b94b3d7394b1f520e8a5172331e0de0fdc83fd6d30b7cb",
+  "chain_id": 8453
+ },
+ {
+  "id": "fadfde66-87de-4491-8313-762294c1db44",
+  "title": "You're Gonna Be Ok",
+  "artist": "SLAVA",
+  "artist_x_handle": "@LavaWithAnS",
+  "created_at": "2026-10-01T16:48:52.718143+00:00",
+  "wavestation_song_id": "0x4ad1220bda768db7e88b1b2455472132d0b0b72d31c3b6f1d7e115c738220806",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x43134F4ea4949690B8b29cCE40178fEeb98EB1F3"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x17d54729bf19f6f9cc71b6d4d026043ebf33939d98affc83ba5c26b297870329",
+  "chain_id": 8453
+ },
+ {
+  "id": "7cfe7f28-4235-472b-b1db-aaf67f543d50",
+  "title": "Gr3y",
+  "artist": "NEMESIS",
+  "artist_x_handle": "@LadyrynNemesis",
+  "created_at": "2026-09-04T16:29:34.646777+00:00",
+  "wavestation_song_id": "0x15473c89c4a243477aee6734d3a625566a00951c18339b8c759b963af85b171e",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xe243c5c876fd259ac41bf8a15aef64cf522fea8f"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x902be1a70ae12618fa1757bc596026e5e4faf45b45c130fe38ba0746f71ce5b7",
+  "chain_id": 8453
+ },
+ {
+  "id": "7ece4562-00ac-4bb4-aac0-3d52a8266e88",
+  "title": "Follow me",
+  "artist": "freemanlay",
+  "artist_x_handle": "@freemanlay39704",
+  "created_at": "2026-09-15T16:22:38.583378+00:00",
+  "wavestation_song_id": "0xa5b4401ef9dd78ebc5f1e43b166d637639138ff8be700c1328c3072b8104f4cd",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0xd9ca38b9f70f56912d596a9e177dba74df0a77fb"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x8aa3b10cf74cb81c25f40f620cc4cf17522cef97f2eef8152c2abd4f458ffc67",
+  "chain_id": 8453
+ },
+ {
+  "id": "5fe85e65-7d44-436e-8ec9-1657a567ecfd",
+  "title": "Eat Away Dough",
+  "artist": "S.R.Chappell",
+  "artist_x_handle": "@SRChappell",
+  "created_at": "2026-08-30T17:06:47.899561+00:00",
+  "wavestation_song_id": "0x633f3c5f4aed26a777849a7820a852ca27c26a951fcd197175b2afed19b1f604",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x16F586aDc8A715E8112E01C9Dddd6e1607ba519e"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0x482af39497c2c2f89439db7c035371bce6d601619b72557ad741394a7f466921",
+  "chain_id": 8453
+ },
+ {
+  "id": "3d0289fa-b327-48b6-a1a4-e3a7e22b9674",
+  "title": "JammerWaveZ",
+  "artist": "Hurric4n3Ike",
+  "artist_x_handle": "@Hurric4n3Ike",
+  "created_at": "2026-08-23T22:02:12.333788+00:00",
+  "wavestation_song_id": "0xc8140856d4c313a641846592336de9bedd2b5e60a5d90a4750a96cc064238369",
+  "wavestation_platform_wallet": "0xd97409D949d032A12bD4B7af1f94F7D3222C8E72",
+  "wavestation_creator_wallets": [
+   "0x29F5DeE65E1Fb856B816EaB4f0B702c10e5Eaa34"
+  ],
+  "wavestation_creator_splits_bps": [
+   10000
+  ],
+  "wavestation_creator_pct_bps": 4500,
+  "wavestation_fan_pct_bps": 4500,
+  "wavestation_min_amount": 1000000,
+  "wavestation_create_tx_hash": "0xb6a11150f0eb8f4147bc81d026e9f0f13f504683cec341a6111b1867dfd73433",
+  "chain_id": 8453
+ }
+]
