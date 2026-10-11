@@ -1,26 +1,22 @@
-<!-- NOT-ANNOUNCEMENT-COPY: a DM draft, unsent. Names no deadline anyone submits to. -->
-# Note to Hurricane - DRAFT, NOT SENT, HELD
+<!-- NOT-ANNOUNCEMENT-COPY: a team-chat draft, unsent. Names no deadline anyone submits to. -->
+# Team note to Hurricane - DRAFT, NOT SENT, HELD
 
-**Zaal sends it, or does not.** Written 2026-10-10 after he ruled (item 111) that round ten's sign-up emails go
-to Hurricane's database. hurric4n3ike builds WaveZStation; the page that collects the sign-ups is on poidhz.com
-(PR #247) and forwards each one to an endpoint he provides. Nothing is kept on our side.
+**Zaal sends it, or says it out loud, or does not.** Rewritten 2026-10-11 after he stopped the first
+version (Grill item 125, verbatim: *"wait not we are on a team togetehr im on wavewarz / wavezstation
+aswell"*). The first draft read like a request to an outside party: a row spec, a token, a deletion
+promise "in writing". He and Hurricane are on the same WaveWarZ and WaveZStation team, so this is a
+teammate asking a teammate where a table goes.
 
-## The DM (about 180 words)
+## The note (team chat, about 60 words)
 
 ```
-Hurricane, Zaal. I am running a round for artists on WaveZStation: best marketing rollout for one song over a month, $500 pot on poidh, and I buy $500 of the winner's song. Artists sign up on poidhz.com with their email and their song link. I want the sign-ups in your database, not ours.
-
-What I need from you, whenever you have a minute:
-
-1. A POST endpoint that takes one JSON row: {round, email, artist, song_id, song_link, handle, where, recorded_at}, with a bearer token you give me. One row per song_id; answer 409 if the song is already in. Answer {ok: true, count: N} on success.
-2. Optional: GET the same URL with ?round=10 returning {count: N}, so the page can show how many are in. Never names or emails.
-3. Your word on two things I have already told entrants: the emails are used to reach them about this round and for nothing else, and they are deleted when the round closes out (mid-November). Also, who on your side can read the table.
-
-The page is built and does nothing until the endpoint is set. Sign-up closes Oct 18, so the sooner the better, but it waits for you.
+Running a poidh round for WaveZStation artists: best marketing rollout for one song, a month. They sign up on poidhz.com with an email and their song link. I want those sign-ups living with us on the WaveZStation side. Easiest for you: add me to the repo and I will PR the table and the route, or tell me where you would rather they go.
 ```
 
-## What it does not say
+## What it leaves out, on purpose
 
-- No request for data back beyond a count. The emails are his to hold; we read nothing.
-- No promise of anything to WaveZStation beyond the round itself.
-- No deadline on him. If the endpoint is late, the cast waits (`PLAN.md`, "What could go wrong").
+- No row spec, no token, no status codes. Those are in `PLAN.md` for whoever writes the route, which
+  on this plan is our side, not him.
+- No deletion promise asked of him. Deleting the addresses at close-out is our promise to entrants
+  (it is in the bounty text), and it is ours to keep wherever the table sits.
+- No deadline on him. Monday's cast does not wait on this (`PLAN.md`, "The sign-up store").

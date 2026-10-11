@@ -48,7 +48,7 @@ fan-pool formula sits in unverified bytecode (`RESEARCH.md` section 2), so that 
 | Step | What | Whose hand | Public? |
 |---|---|---|---|
 | 1 | Send the invitation (`ARTIST-PITCH.md`) to BennyJ504, and to any other artist he wants in. | Zaal | no, a DM |
-| 2 | Send `HURRICANE-NOTE.md`; when his endpoint exists, set `SIGNUP_ENDPOINT` and `SIGNUP_TOKEN` through `/secret`. The page (PR #247) is already built. | Zaal | the form page is public once deployed, unlinked until the cast |
+| 2 | Decide Q6 (where the form stores on day one). Ask Hurricane, teammate to teammate, to add Zaal to the WaveZStation repo (`HURRICANE-NOTE.md`). The page (PR #247) is built and merged. | Zaal | the form page is public, unlinked until the cast |
 | 3 | Paste the form URL into `description.md` and block 2 of `ANNOUNCE.md`; cast the OPEN bounty with $500 in the reward field. | Zaal | yes |
 | 4 | Post block 1 from Firefly (Farcaster /zao and X). Block 2 on Friday 16 October. | Zaal | yes |
 | 5 | Sign-up closes Sunday 18 October 11:59pm Eastern. This lane stamps each entrant's song from `/api/songs` that night: supporters, pool total, cumulative sales. | this lane | the stamp is published in this folder |
@@ -60,32 +60,36 @@ fan-pool formula sits in unverified bytecode (`RESEARCH.md` section 2), so that 
 
 ## The sign-up form, and where the emails go
 
-Zaal ruled where the form is (item 108: *"Sign up form on website after they put in email"*) and where the
-addresses go (item 111, vault 50b1457b, verbatim: *"Hurricane gets it on his database"*). So: the page is on
-poidhz.com, built in `web/` (PR #247, held, `/round/10/signup`, noindex, unlinked), and every sign-up is
-forwarded to an endpoint hurric4n3ike provides on the WaveZStation side. **Nothing is kept on poidhz.com.**
-The site's own Upstash store stays off for this (it was measured off at 20:46Z 10 Oct, `/api/vote`
-`storeReady: false`, and is not switched on).
+Three rulings shape this. Item 108: *"Sign up form on website after they put in email"*. Item 111:
+*"Hurricane gets it on his database"*. Item 125, 11 Oct, stopping the first note to Hurricane: *"wait not we
+are on a team togetehr im on wavewarz / wavezstation aswell"*. So the sign-up store is **a team build, not
+a request to a partner**: Zaal is on the WaveZStation team, and the sign-ups belong to that team.
 
-**What the page does.** Step one asks for an email and nothing else. Step two, after a valid email, asks
-for artist name, the song's WaveZStation link (checked on submit against `https://www.wavezstation.com/api/songs/<id>`,
-so only a listed song gets through), the handle, and where the rollout will be posted. The page shows the count
-of sign-ups, never names or addresses. Both steps carry the email-use line.
+**What exists.** The page is built and merged (PR #247): `poidhz.com/round/10/signup`, email first, then
+the form, noindex, unlinked. It checks the song against `https://www.wavezstation.com/api/songs/<id>` and
+forwards the row to `SIGNUP_ENDPOINT` over https with a bearer `SIGNUP_TOKEN`. Neither is set, so the page
+answers "not switched on yet; nothing was stored".
 
-**Where the addresses live, and who can read them.** In Hurricane's database, under his control, once his
-endpoint exists. Who can read it there is his to say and UNVERIFIED from this lane; the note asks. Until
-`SIGNUP_ENDPOINT` is set on the Vercel project, `POST /api/signup` answers 503 "not switched on yet; nothing was
-stored" and sends nothing anywhere. The adapter is one function (`web/lib/signupstore.ts`): POST the row as
-JSON with a bearer token; the endpoint owns one-entry-per-song and answers 409 for a repeat.
+**What our side can reach, measured 2026-10-11 at 12:40Z.** No WaveZStation repo and no WaveZStation
+hosting project is reachable from this lane, and the WaveZStation database is UNKNOWN. The surfaces read,
+the counts and what was not searched are in the vault, not in this public repo.
+
+So from this machine nobody on our side can write to the WaveZStation repo or database today. Either
+Hurricane adds Zaal to the repo and this lane sends the table and route as a PR for him to merge, or he
+says where he would rather the rows go. `HURRICANE-NOTE.md` is now that question, in three sentences,
+teammate to teammate.
+
+**The row, for whoever writes the route:** `{round, email, artist, song_id, song_link, handle, where,
+recorded_at}`, one per `song_id`, 409 on a repeat, `{ok: true, count}` on success, and a GET with
+`?round=10` returning `{count}`. `web/lib/signupstore.ts` is the one function on our side.
+
+**Monday's cast does not have to wait for it.** The open question to Zaal (below) is how the form stores
+on day one. The honest constraint: the bounty text is immutable once cast, and rule 1 says where the email
+goes, so the wording has to be true on Monday and still true when the rows move.
 
 **The repo rule.** `docs/community-plan.md`: "No email list. Same reason, plus nobody has consented to one."
 Held by making this round contact only, said in the bounty text and on both steps of the form, with deletion
-at close-out. That deletion is now a promise on Hurricane's side; `HURRICANE-NOTE.md` asks him for it in
-writing before the cast.
-
-**What needs Hurricane, who is a person:** the endpoint URL and token, the row shape (in the note), the
-409-on-repeat rule, a count GET if he wants the page to show one, and his word on who reads the table and
-when it is deleted. The ask is Zaal's to send; the draft is beside this file.
+at close-out. That deletion is our promise to entrants and ours to keep, wherever the table sits.
 
 ## The bounty
 
@@ -128,8 +132,8 @@ first entrant.
   to keep and that we will say whether they kept it. That is the whole enforcement, and the text says so.
 - **The winner games the numbers.** Supporters can be bought: a $1 buy from twenty wallets is twenty supporters.
   Half the weight is on the rollout itself, and the deltas are read with the sales total, not just the count.
-- **Hurricane's endpoint never arrives.** Then the form has nowhere to send and nothing casts. The fallback
-  is a new ruling from Zaal, not a quiet switch to our own store: he ruled his database, by name.
+- **The WaveZStation route is not live by Monday.** That is Q6. Option A starts the rows on our side under
+  the same team and moves them later; it needs his yes, because item 111 named Hurricane's database.
 - **The email rule.** Someone reads `community-plan.md` and the form as a contradiction. The answer is in the
   text and above: round contact only, deleted at close-out, no list.
 - **ETH moves between cast and payout.** The pot is in ETH; "five hundred dollars of the prize" is written in
@@ -148,13 +152,23 @@ first entrant.
 7. Addresses deleted at close-out, said in public, because the repo's rule against a list has to mean something.
 8. "This week" read as the round opening the week starting Monday 12 October.
 
-## Questions for Zaal: Q4 and Q5 ruled
+## Questions for Zaal: one open
 
-**Q4, where the sign-up emails live.** RULED, typed, item 111 (vault 50b1457b): *"Hurricane gets it on his
-database"*. Not A (poidhz.com's store), not B (a vendor form). Applied above and in PR #247.
+**Q4, where the sign-up emails live.** Ruled item 111 (*"Hurricane gets it on his database"*), then reframed
+by item 125: he and Hurricane are one team, so it is a team build. **Q5** was auto-proceeded: PR #247, merged.
 
-**Q5, build the form now.** Auto-proceeded by orchestrator2 (PR-only, nothing deployed): built as PR #247, held.
-Zaal typed "Do it." just before item 111, which the Grill read as go on that build.
+**Q6, open, for a Monday 12 October cast: where the form stores on day one.**
+- A) The team's store, starting on our side: Zaal connects poidhz.com's own Upstash with one key through
+  `/secret`, the form goes live Monday, and the rows move to the WaveZStation database when Hurricane adds
+  him to the repo. Rule 1 of the bounty text changes from "WaveZStation's own database" to "the WaveZStation
+  team", which is true on both days. This lane restores the Upstash adapter behind the same one function
+  (it was written and reviewed in PR #247 before item 111). **Recommended: it is the only path that does not
+  hang Monday on someone else's Sunday.**
+- B) Wait for the WaveZStation side: send the team note, cast when the route is live. The text stays as it
+  is. The cast slips if the route does.
+- C) Cast Monday with the form dark: the page says "sign-up opens this week" until the route lands. Nothing
+  to build, and the first artists to click find a closed door.
 
-**Open, and his:** sending `HURRICANE-NOTE.md`; setting `SIGNUP_ENDPOINT` and `SIGNUP_TOKEN` on the Vercel
-project through `/secret` once Hurricane answers; the cast.
+Default if unanswered: nothing is cast, nothing is stored, nothing is sent.
+
+**Open, and his:** the team note to Hurricane; the invitation to BennyJ504; the cast.
