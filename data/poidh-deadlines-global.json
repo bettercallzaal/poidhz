@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T11:47:19.681590+00:00",
+  "generated_at": "2026-10-15T17:12:36.139900+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -117,6 +117,16 @@
       "url": "https://poidh.xyz/base/bounty/1481"
     },
     {
+      "bounty_id": 1485,
+      "title": "poidh as Freedom Tech",
+      "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
+      "amount_eth": 0.0065,
+      "deadline_iso": "2026-10-23",
+      "deadline_raw_text": "October 23rd",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1485"
+    },
+    {
       "bounty_id": 37,
       "title": "Send Your AI Agent Into New Eden \ud83c\udf0d\ud83e\udd16",
       "issuer": "0xe423b19262ea8fbc68ab9509f90080ab6aa1930b",
@@ -145,6 +155,16 @@
       "deadline_raw_text": "October 31",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1480"
+    },
+    {
+      "bounty_id": 1486,
+      "title": "find Phil Flash in Seattle \ud83c\udfa8",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.0088,
+      "deadline_iso": "2026-11-15",
+      "deadline_raw_text": "November 15th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1486"
     },
     {
       "bounty_id": 335,
