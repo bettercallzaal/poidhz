@@ -1,21 +1,11 @@
 {
-  "generated_at": "2026-10-15T20:25:43.255487+00:00",
+  "generated_at": "2026-10-15T23:08:15.248740+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
   "bounties_with_native_deadline": 0,
   "bounties_scanned": 100,
   "bounties_with_deadline_found": [
-    {
-      "bounty_id": 1062,
-      "title": "smokingfrog tattoos POIDH ",
-      "issuer": "0x66e007f39f48cffa0f59fd4d05aee1031093ed9f",
-      "amount_eth": 0.02669,
-      "deadline_iso": "2026-03-18",
-      "deadline_raw_text": "March 18th, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1062"
-    },
     {
       "bounty_id": 1192,
       "title": "Help Fund A Theoretical Neuroscience Paper",
@@ -55,6 +45,46 @@
       "deadline_raw_text": "October 5, 2026",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1447"
+    },
+    {
+      "bounty_id": 1490,
+      "title": "Post and fund a real task on Verdikta Bounties (\u22650.0041 ETH), get it judged, publish a 300-word write-up \u2014 slot 4/4",
+      "issuer": "0x5676a53433cb8622093e500d787ab3113a2e7948",
+      "amount_eth": 0.0125,
+      "deadline_iso": "2026-10-14",
+      "deadline_raw_text": "14 October 2026",
+      "deadline_status": "past",
+      "url": "https://poidh.xyz/base/bounty/1490"
+    },
+    {
+      "bounty_id": 1489,
+      "title": "Post and fund a real task on Verdikta Bounties (\u22650.0041 ETH), get it judged, publish a 300-word write-up \u2014 slot 3/4",
+      "issuer": "0x5676a53433cb8622093e500d787ab3113a2e7948",
+      "amount_eth": 0.0125,
+      "deadline_iso": "2026-10-14",
+      "deadline_raw_text": "14 October 2026",
+      "deadline_status": "past",
+      "url": "https://poidh.xyz/base/bounty/1489"
+    },
+    {
+      "bounty_id": 1488,
+      "title": "Post and fund a real task on Verdikta Bounties (\u22650.0041 ETH), get it judged, publish a 300-word write-up \u2014 slot 2/4",
+      "issuer": "0x5676a53433cb8622093e500d787ab3113a2e7948",
+      "amount_eth": 0.0125,
+      "deadline_iso": "2026-10-14",
+      "deadline_raw_text": "14 October 2026",
+      "deadline_status": "past",
+      "url": "https://poidh.xyz/base/bounty/1488"
+    },
+    {
+      "bounty_id": 1487,
+      "title": "Post and fund a real task on Verdikta Bounties (\u22650.0041 ETH), get it judged, publish a 300-word write-up \u2014 slot 1/4",
+      "issuer": "0x5676a53433cb8622093e500d787ab3113a2e7948",
+      "amount_eth": 0.0125,
+      "deadline_iso": "2026-10-14",
+      "deadline_raw_text": "14 October 2026",
+      "deadline_status": "past",
+      "url": "https://poidh.xyz/base/bounty/1487"
     },
     {
       "bounty_id": 1377,
