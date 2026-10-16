@@ -2,7 +2,7 @@ name: Refresh Bounty Dashboard
 
 on:
   schedule:
-    # HOURLY, and the reason it is safe to be hourly is the `-I '"generated_at"'`
+    # Was HOURLY (see below for the 3-hour change), and the reason it was safe to be hourly is the `-I '"generated_at"'`
     # guard on the commit step below: a run where only the timestamp moved
     # discards its own diff, so it does not commit, does not push and does not
     # trigger a Vercel build.
@@ -24,7 +24,13 @@ on:
     # The client-side argument in the old comment was right about COUNTDOWNS,
     # which render from deadline timestamps and never needed a rebake. It did
     # not cover claim counts, which only change server-side.
-    - cron: '30 * * * *'
+    #
+    # EVERY 3 HOURS since 2026-10-16 (orchestrator seat, Vercel cost pass). The
+    # daily one-day ladder above has ended, and the guard already holds this job
+    # to 32 commits in the 7.5 days to 16 Oct, so 3h trims only the commits that
+    # land inside one window. If a one-day bounty series runs again, go back to
+    # hourly: '30 * * * *'. Zaal can set hourly or 6h at any time.
+    - cron: '30 */3 * * *'
   workflow_dispatch:
 
 permissions:
