@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T12:35:08.427961+00:00",
+  "generated_at": "2026-10-16T18:59:27.351470+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -155,6 +155,26 @@
       "deadline_raw_text": "October 22nd, 2026",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1491"
+    },
+    {
+      "bounty_id": 39,
+      "title": "Rename Risk Pricing",
+      "issuer": "0x0f7536d21fe1c9cdb472391cd80fc82e3560736f",
+      "amount_eth": 0.5,
+      "deadline_iso": "2026-10-23",
+      "deadline_raw_text": "23rd October 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/39"
+    },
+    {
+      "bounty_id": 38,
+      "title": "DESIGN SEER\u2019S SIX INTERFACES",
+      "issuer": "0x0f7536d21fe1c9cdb472391cd80fc82e3560736f",
+      "amount_eth": 0.5,
+      "deadline_iso": "2026-10-23",
+      "deadline_raw_text": "23rd October 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/38"
     },
     {
       "bounty_id": 1485,
