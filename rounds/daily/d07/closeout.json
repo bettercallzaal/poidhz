@@ -1,0 +1,25 @@
+{
+  "bounty_id": 1453,
+  "round": "daily-07",
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "Everyone who enters gets a note back, win or lose.",
+      "commits_to": [
+        "something promised to every entrant, not just the winner"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "I post the pick the week of November 2, on Firefly, with the link.",
+      "commits_to": [
+        "something said in the first person, which is the shape this run breaks most"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    }
+  ]
+}

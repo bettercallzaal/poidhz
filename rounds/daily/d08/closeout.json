@@ -1,0 +1,70 @@
+{
+  "bounty_id": 1460,
+  "round": "daily-08",
+  "note": "One row per promise in the live bounty text. status is one of unrecorded / kept / broken / na. Set it BY HAND with evidence - a terminal cannot see a post. Regenerating preserves what you set.",
+  "promises": [
+    {
+      "text": "Cut that session into one vertical video, under 90 seconds, that credits Star 97.7, sends people to ZAOstock on Saturday, and is ready to post to Instagram as it is.",
+      "commits_to": [
+        "crediting the entrant"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "Credit Star 97.7 on screen, by name, for long enough to read.",
+      "commits_to": [
+        "crediting the entrant"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "Not required, and it never disqualifies you, but /zao is where the entries get seen next to each other, and it is how you get notes back before the close.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "That is the test for the credit and for the taste.",
+      "commits_to": [
+        "crediting the entrant"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "Every submitter earns $ZABAL automatically through the POIDH Submitters leaderboard on Empire Builder, and the drop scales with how many BCZ rounds you have entered in total.",
+      "commits_to": [
+        "a token or leaderboard drop"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "Everyone who enters gets a note back on their piece, win or lose.",
+      "commits_to": [
+        "something promised to every entrant, not just the winner"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    },
+    {
+      "text": "One thing it did and one thing to do better.",
+      "commits_to": [
+        "feedback owed to entrants"
+      ],
+      "status": "unrecorded",
+      "evidence": "",
+      "recorded_at": ""
+    }
+  ]
+}

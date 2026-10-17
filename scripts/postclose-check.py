@@ -319,6 +319,14 @@ def _selftest() -> bool:
         print(f"  {'ok  ' if cond else 'FAIL'} {label}")
         passed = passed and cond
 
+    mixed = [{"round": "daily-02"}, {"round": 5}, {"round": "daily-01"}, {"round": 1}, {}]
+    try:
+        order = [r.get("round", 0) for r in sorted(mixed, key=round_sort_key)]
+    except TypeError:
+        order = None
+    check("--all can sort numbered and named rounds together",
+          order == [0, 1, 5, "daily-01", "daily-02"])
+
     r5 = ("One winner, chosen using poidh consensus. Winner paid here within 48 hours, "
           "and the clip goes up on @wavewarz with your name on it.")
     p = find_promises(r5)
@@ -476,9 +484,9 @@ def scaffold_closeout(bounty_id: int, round_num, description: str,
     return 0
 
 
-def read_closeout(round_num: int) -> tuple[int, int, int] | None:
+def read_closeout(round_num, folder: Path | None = None) -> tuple[int, int, int] | None:
     """(unrecorded, broken, total) or None if this round has no ledger."""
-    path = closeout_path(round_num)
+    path = closeout_path(round_num, folder)
     if not path.exists():
         return None
     try:
@@ -517,13 +525,13 @@ DRAFT_CLAIMS = [
 ]
 
 
-def banner_text(round_num: int) -> str | None:
+def banner_text(round_num, folder: Path | None = None) -> str | None:
     """The top of a round's README - the part that actually gets read.
 
     Only the first lines count, on purpose. R5's README carried CLOSED further down while
     the top still read LIVE, and the top is what everyone acted on. A correction that is
     not at the top has not been made."""
-    p = REPO_ROOT / "rounds" / f"r{round_num}" / "README.md"
+    p = (folder or REPO_ROOT / "rounds" / f"r{round_num}") / "README.md"
     if not p.exists():
         return None
     return "".join(p.read_text().splitlines(keepends=True)[:BANNER_LINES])
@@ -554,6 +562,18 @@ def banner_problems(banner: str, *, owing: bool, settled: bool | None, cast: boo
     return out
 
 
+def round_sort_key(r: dict) -> tuple:
+    """Numbered rounds first in numeric order, then named rounds ("daily-01") by name.
+
+    org.config.json holds both. Sorting on the raw value compared int with str and raised
+    TypeError, so --all died before it checked a single round - on every cron run, behind
+    continue-on-error, from the day the first daily round was added."""
+    n = r.get("round", 0)
+    if isinstance(n, int):
+        return (0, n, "")
+    return (1, 0, str(n))
+
+
 def sweep_all(chain: int) -> int:
     """Every cast round, automatic checks only. Built for the 6h cron.
 
@@ -566,7 +586,7 @@ def sweep_all(chain: int) -> int:
     Deliberately does NOT check promises - those need a human, and a cron that asked a
     human something every six hours would be ignored inside a day."""
     cfg = load_org_config()
-    rounds = sorted(cfg.get("rounds") or [], key=lambda r: r.get("round", 0))
+    rounds = sorted(cfg.get("rounds") or [], key=round_sort_key)
     ids = set(cfg.get("default_bounty_ids") or [])
     problems = 0
 
@@ -575,7 +595,7 @@ def sweep_all(chain: int) -> int:
         n, bid = r.get("round"), r.get("bounty_id")
         if not bid:
             continue
-        label = f"R{n} ({bid})"
+        label = f"{r.get('label') or f'R{n}'} ({bid})"
         if r.get("offchain"):
             print(f"  skip   {label} - offchain by design: {str(r.get('offchain_note',''))[:60]}...")
             continue
@@ -599,7 +619,11 @@ def sweep_all(chain: int) -> int:
         else:
             print(f"  ok     {label} - wired for scoring, payout settled")
 
-        led = read_closeout(n)
+        # The folder comes from the config, same as the single-round path. Without it a
+        # daily round was looked up in rounds/rdaily-NN, which does not exist, and its
+        # real ledger in rounds/daily/dNN was reported as missing.
+        folder = round_folder_for(cfg, bid, n)
+        led = read_closeout(n, folder)
         if led is None:
             print(f"         no {CLOSEOUT_NAME} - promises for this round are untracked")
             problems += 1
@@ -615,7 +639,7 @@ def sweep_all(chain: int) -> int:
             if not br and not un:
                 print(f"         all {tot} promise(s) recorded as kept or n/a")
 
-        banner = banner_text(n)
+        banner = banner_text(n, folder)
         if banner is None:
             print(f"         no README - this round cannot say what state it is in")
             problems += 1
