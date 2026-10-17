@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T04:54:23.398370+00:00",
+  "generated_at": "2026-10-17T11:06:06.518660+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -97,16 +97,6 @@
       "url": "https://poidh.xyz/base/bounty/1377"
     },
     {
-      "bounty_id": 1471,
-      "title": "Plant a Sprout",
-      "issuer": "0xceac422b0db8e2924824b5ca4741c464b9b7b6f4",
-      "amount_eth": 0.0057,
-      "deadline_iso": "2026-10-16",
-      "deadline_raw_text": "16 October",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1471"
-    },
-    {
       "bounty_id": 1461,
       "title": "Show Tacit in Action \ud83e\udd2b\u200b",
       "issuer": "0xd9a4c304e68b6b1779df9cc59b79de8cc3fd3117",
@@ -125,6 +115,16 @@
       "deadline_raw_text": "October 18th",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/34"
+    },
+    {
+      "bounty_id": 1493,
+      "title": "Share your weekend with us on Collective Memory",
+      "issuer": "0x5d6ae7e2e76d9f15e42f20a02bbc2e7cdecdbb0d",
+      "amount_eth": 0.0082,
+      "deadline_iso": "2026-10-19",
+      "deadline_raw_text": "19th October",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1493"
     },
     {
       "bounty_id": 1470,
