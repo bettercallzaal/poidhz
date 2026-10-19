@@ -137,8 +137,11 @@ export default async function handler(req) {
       'Content-Type': 'image/svg+xml; charset=utf-8',
       'Access-Control-Allow-Origin': '*',
       // Short cache only: the stamp is part of the image, so a long cache would hand a later
-      // fetcher an earlier submitter's minute.
-      'Cache-Control': 'public, max-age=60',
+      // fetcher an earlier submitter's minute. The CDN keys on the full URL, so a different
+      // round/pr/who is always a fresh render; only an identical URL is shared, for at most
+      // 60s fresh plus 60s stale while it re-renders. That caps a served stamp at two minutes
+      // old and stops repeat fetches of one card each costing edge CPU on the Hobby cap.
+      'Cache-Control': 'public, max-age=60, s-maxage=60, stale-while-revalidate=60',
     },
   });
 }
