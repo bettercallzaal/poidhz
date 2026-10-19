@@ -28,6 +28,8 @@ check('a bare call does NOT serve the gamez card', !JSON.stringify(body).include
 check('a bare call falls back to poidhz own og image', body.image === 'https://poidhz.com/assets/og/og.png');
 check('a bare call still returns the keys poidh reads', 'name' in body && 'description' in body && 'image' in body);
 check('serves JSON', res.headers.get('Content-Type') === 'application/json');
+check('the CDN may cache it (s-maxage)', /s-maxage=\d+/.test(res.headers.get('Cache-Control')));
+check('and serve it stale while revalidating', /stale-while-revalidate=\d+/.test(res.headers.get('Cache-Control')));
 check('CORS is open, which is why poidh can read it at all', res.headers.get('Access-Control-Allow-Origin') === '*');
 
 // A supplied image must win over the fallback, or the fix would have broken the feature.

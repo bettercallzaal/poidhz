@@ -25,7 +25,10 @@ function json(body) {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      // The body is a pure function of the query string (no cookies, no per-user state), and
+      // the uri it answers is immutable once on-chain, so the CDN may keep serving it while it
+      // revalidates in the background. Each edge call is CPU on the Vercel Hobby cap.
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800',
     },
   });
 }

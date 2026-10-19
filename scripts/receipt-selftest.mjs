@@ -13,6 +13,12 @@ const get = async (qs) => {
 let { res, body } = await get('round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F312&who=assay&agent=1');
 check('serves image/svg+xml', res.headers.get('Content-Type').startsWith('image/svg+xml'));
 check('CORS is open so an agent can fetch it', res.headers.get('Access-Control-Allow-Origin') === '*');
+// The stamp is in the image, so the CDN window must stay short: fresh plus stale <= 120s.
+const cc = res.headers.get('Cache-Control');
+const secs = (k) => Number((cc.match(new RegExp(k + '=(\\d+)')) || [])[1]);
+check('the CDN may cache an identical URL (s-maxage)', secs('s-maxage') > 0);
+check('but never long enough to hand out a stale stamp (s-maxage + swr <= 120s)',
+      secs('s-maxage') + (secs('stale-while-revalidate') || 0) <= 120);
 check('renders the PR as owner/repo#number', body.includes('ZAODEVZ/ZAOstock#312'));
 check('renders the handle with one @', body.includes('@assay') && !body.includes('@@'));
 check('declares AGENT when asked', body.includes('>AGENT<'));
