@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T14:27:41.980466+00:00",
+  "generated_at": "2026-10-20T19:32:37.538187+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -205,6 +205,16 @@
       "deadline_raw_text": "October 31",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1480"
+    },
+    {
+      "bounty_id": 1496,
+      "title": "Send Your AI Agent Into The Hateful Desert \ud83c\udf83\ud83e\udd16",
+      "issuer": "0xbcc768c69c7dc405269a3c7bf9003a62af7ff7e6",
+      "amount_eth": 0.02075,
+      "deadline_iso": "2026-11-01",
+      "deadline_raw_text": "November 1, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1496"
     },
     {
       "bounty_id": 335,
