@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T21:52:31.333933+00:00",
+  "generated_at": "2026-10-23T05:14:53.798613+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -113,7 +113,7 @@
       "amount_eth": 0.0033,
       "deadline_iso": "2026-10-22",
       "deadline_raw_text": "October 22nd, 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1491"
     },
     {
@@ -160,7 +160,7 @@
       "bounty_id": 1500,
       "title": "CC0 Halloween",
       "issuer": "0xc1aebd6f0d37611d744b0ecd0865984fbcb4b4c4",
-      "amount_eth": 0.05,
+      "amount_eth": 0.0565,
       "deadline_iso": "2026-10-31",
       "deadline_raw_text": "Oct 31",
       "deadline_status": "upcoming",
