@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T21:07:13.611467+00:00",
+  "generated_at": "2026-10-24T23:35:10.595658+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -175,6 +175,26 @@
       "deadline_raw_text": "October 31",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1480"
+    },
+    {
+      "bounty_id": 1506,
+      "title": "Bring Your App to NPC Hackathon Bounty 2",
+      "issuer": "0x8be2929d68cbc2b200c4363e7657d997ef80467f",
+      "amount_eth": 0.004284,
+      "deadline_iso": "2026-11-01",
+      "deadline_raw_text": "November 1",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1506"
+    },
+    {
+      "bounty_id": 1505,
+      "title": "Bring Your App to NPC Hackathon",
+      "issuer": "0x8be2929d68cbc2b200c4363e7657d997ef80467f",
+      "amount_eth": 0.004284,
+      "deadline_iso": "2026-11-01",
+      "deadline_raw_text": "November 1",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1505"
     },
     {
       "bounty_id": 1496,
