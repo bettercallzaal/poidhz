@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T11:28:38.687053+00:00",
+  "generated_at": "2026-10-24T16:11:15.439242+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -87,16 +87,6 @@
       "url": "https://poidh.xyz/base/bounty/1461"
     },
     {
-      "bounty_id": 1481,
-      "title": "clip & remix the poidh lore space with Zaal \ud83c\udf99\ufe0f",
-      "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
-      "amount_eth": 0.0098,
-      "deadline_iso": "2026-10-21",
-      "deadline_raw_text": "October 21, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1481"
-    },
-    {
       "bounty_id": 1491,
       "title": "\ud83c\udf31 take a pic touching grass",
       "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
@@ -125,16 +115,6 @@
       "deadline_raw_text": "23rd October 2026",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/38"
-    },
-    {
-      "bounty_id": 1485,
-      "title": "poidh as Freedom Tech",
-      "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
-      "amount_eth": 0.0065,
-      "deadline_iso": "2026-10-23",
-      "deadline_raw_text": "October 23rd",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1485"
     },
     {
       "bounty_id": 1492,
