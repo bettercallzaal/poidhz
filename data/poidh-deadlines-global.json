@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:36:07.264833+00:00",
+  "generated_at": "2026-10-24T04:56:50.120791+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -113,7 +113,7 @@
       "amount_eth": 0.5,
       "deadline_iso": "2026-10-23",
       "deadline_raw_text": "23rd October 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/39"
     },
     {
@@ -123,7 +123,7 @@
       "amount_eth": 0.5,
       "deadline_iso": "2026-10-23",
       "deadline_raw_text": "23rd October 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/38"
     },
     {
@@ -133,7 +133,7 @@
       "amount_eth": 0.0065,
       "deadline_iso": "2026-10-23",
       "deadline_raw_text": "October 23rd",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1485"
     },
     {
