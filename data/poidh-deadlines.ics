@@ -5,8 +5,8 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:POID Bounty Deadlines
 BEGIN:VEVENT
-UID:poidh-1192-71677587@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1192-37895227@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20260628
 SUMMARY:Help Fund A Theoretical Neuroscience Paper - deadline
 DESCRIPTION:Stated: June 28 - 0.0195 ETH - https://poidh.xyz/base/bounty/11
@@ -14,8 +14,8 @@ DESCRIPTION:Stated: June 28 - 0.0195 ETH - https://poidh.xyz/base/bounty/11
 URL:https://poidh.xyz/base/bounty/1192
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1372-76727309@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1372-46605309@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20260930
 SUMMARY:Give old "mining" hardware a new life with PiLoader - deadline
 DESCRIPTION:Stated: 30 September 2026 - 0.0097 ETH - https://poidh.xyz/base
@@ -23,8 +23,8 @@ DESCRIPTION:Stated: 30 September 2026 - 0.0097 ETH - https://poidh.xyz/base
 URL:https://poidh.xyz/base/bounty/1372
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1453-37689827@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1453-84813252@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261004
 SUMMARY:ZAOstock Round 7 - Run A Bounty For ZAOstock - deadline
 DESCRIPTION:Stated: October 4 - 0.0115 ETH - https://poidh.xyz/base/bounty/
@@ -32,8 +32,8 @@ DESCRIPTION:Stated: October 4 - 0.0115 ETH - https://poidh.xyz/base/bounty/
 URL:https://poidh.xyz/base/bounty/1453
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1489-39222503@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1489-52451856@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261014
 SUMMARY:Post and fund a real task on Verdikta Bounties (≥0.0041 ETH)\, get 
  it judged\, publish a 300-word write-up — slot 3/4 - deadline
@@ -42,8 +42,8 @@ DESCRIPTION:Stated: 14 October 2026 - 0.0125 ETH - https://poidh.xyz/base/b
 URL:https://poidh.xyz/base/bounty/1489
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1488-67361879@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1488-55659853@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261014
 SUMMARY:Post and fund a real task on Verdikta Bounties (≥0.0041 ETH)\, get 
  it judged\, publish a 300-word write-up — slot 2/4 - deadline
@@ -52,8 +52,8 @@ DESCRIPTION:Stated: 14 October 2026 - 0.0125 ETH - https://poidh.xyz/base/b
 URL:https://poidh.xyz/base/bounty/1488
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1487-93805140@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1487-74513406@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261014
 SUMMARY:Post and fund a real task on Verdikta Bounties (≥0.0041 ETH)\, get 
  it judged\, publish a 300-word write-up — slot 1/4 - deadline
@@ -62,8 +62,8 @@ DESCRIPTION:Stated: 14 October 2026 - 0.0125 ETH - https://poidh.xyz/base/b
 URL:https://poidh.xyz/base/bounty/1487
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1377-90881846@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1377-3163680@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261015
 SUMMARY:That Poetry Guy Fights Cancer - deadline
 DESCRIPTION:Stated: 15 October - 0.256936 ETH - https://poidh.xyz/base/boun
@@ -71,8 +71,8 @@ DESCRIPTION:Stated: 15 October - 0.256936 ETH - https://poidh.xyz/base/boun
 URL:https://poidh.xyz/base/bounty/1377
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1461-86267948@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1461-68051044@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261018
 SUMMARY:Show Tacit in Action 🤫​ - deadline
 DESCRIPTION:Stated: October 18 - 0.0495 ETH - https://poidh.xyz/base/bounty
@@ -80,8 +80,8 @@ DESCRIPTION:Stated: October 18 - 0.0495 ETH - https://poidh.xyz/base/bounty
 URL:https://poidh.xyz/base/bounty/1461
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1491-74994334@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1491-48106308@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261022
 SUMMARY:🌱 take a pic touching grass - deadline
 DESCRIPTION:Stated: October 22nd\, 2026 - 0.0033 ETH - https://poidh.xyz/ba
@@ -89,8 +89,8 @@ DESCRIPTION:Stated: October 22nd\, 2026 - 0.0033 ETH - https://poidh.xyz/ba
 URL:https://poidh.xyz/base/bounty/1491
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-39-52317352@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-39-59669490@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261023
 SUMMARY:Rename Risk Pricing - deadline
 DESCRIPTION:Stated: 23rd October 2026 - 0.5 ETH - https://poidh.xyz/base/bo
@@ -98,8 +98,8 @@ DESCRIPTION:Stated: 23rd October 2026 - 0.5 ETH - https://poidh.xyz/base/bo
 URL:https://poidh.xyz/base/bounty/39
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-38-80289654@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-38-14957454@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261023
 SUMMARY:DESIGN SEER’S SIX INTERFACES - deadline
 DESCRIPTION:Stated: 23rd October 2026 - 0.5 ETH - https://poidh.xyz/base/bo
@@ -107,8 +107,8 @@ DESCRIPTION:Stated: 23rd October 2026 - 0.5 ETH - https://poidh.xyz/base/bo
 URL:https://poidh.xyz/base/bounty/38
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1492-24887892@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1492-98658949@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261030
 SUMMARY:The Most Unnecessary Proof 🏆 - deadline
 DESCRIPTION:Stated: October 30\, 2026 - 0.001 ETH - https://poidh.xyz/base/
@@ -116,8 +116,8 @@ DESCRIPTION:Stated: October 30\, 2026 - 0.001 ETH - https://poidh.xyz/base/
 URL:https://poidh.xyz/base/bounty/1492
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1500-11356401@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1500-74891754@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261031
 SUMMARY:CC0 Halloween - deadline
 DESCRIPTION:Stated: Oct 31 - 0.0935 ETH - https://poidh.xyz/base/bounty/150
@@ -125,8 +125,8 @@ DESCRIPTION:Stated: Oct 31 - 0.0935 ETH - https://poidh.xyz/base/bounty/150
 URL:https://poidh.xyz/base/bounty/1500
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-42-59512258@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-42-88851614@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261031
 SUMMARY:GlazeCorp Costume Contest  - deadline
 DESCRIPTION:Stated: October 31st - 0.1055 ETH - https://poidh.xyz/base/boun
@@ -134,8 +134,8 @@ DESCRIPTION:Stated: October 31st - 0.1055 ETH - https://poidh.xyz/base/boun
 URL:https://poidh.xyz/base/bounty/42
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-37-53156224@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-37-39737306@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261031
 SUMMARY:Send Your AI Agent Into New Eden 🌍🤖 - deadline
 DESCRIPTION:Stated: October 31\, 2026 - 0.030566 ETH - https://poidh.xyz/ba
@@ -143,8 +143,8 @@ DESCRIPTION:Stated: October 31\, 2026 - 0.030566 ETH - https://poidh.xyz/ba
 URL:https://poidh.xyz/base/bounty/37
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1482-16843301@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1482-6050394@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261031
 SUMMARY:Make the case for private AI - deadline
 DESCRIPTION:Stated: October 31 - 0.0082 ETH - https://poidh.xyz/base/bounty
@@ -152,8 +152,8 @@ DESCRIPTION:Stated: October 31 - 0.0082 ETH - https://poidh.xyz/base/bounty
 URL:https://poidh.xyz/base/bounty/1482
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1480-57613876@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1480-92009343@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261031
 SUMMARY:Ask BOAR where there is no signal  - deadline
 DESCRIPTION:Stated: October 31 - 0.0142 ETH - https://poidh.xyz/base/bounty
@@ -161,8 +161,8 @@ DESCRIPTION:Stated: October 31 - 0.0142 ETH - https://poidh.xyz/base/bounty
 URL:https://poidh.xyz/base/bounty/1480
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1506-4180914@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1506-45666683@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261101
 SUMMARY:Bring Your App to NPC Hackathon Bounty 2 - deadline
 DESCRIPTION:Stated: November 1 - 0.004284 ETH - https://poidh.xyz/base/boun
@@ -170,8 +170,8 @@ DESCRIPTION:Stated: November 1 - 0.004284 ETH - https://poidh.xyz/base/boun
 URL:https://poidh.xyz/base/bounty/1506
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1505-55349405@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1505-37599683@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261101
 SUMMARY:Bring Your App to NPC Hackathon - deadline
 DESCRIPTION:Stated: November 1 - 0.004284 ETH - https://poidh.xyz/base/boun
@@ -179,8 +179,8 @@ DESCRIPTION:Stated: November 1 - 0.004284 ETH - https://poidh.xyz/base/boun
 URL:https://poidh.xyz/base/bounty/1505
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1496-40808609@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1496-55170322@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261101
 SUMMARY:Send Your AI Agent Into The Hateful Desert 🎃🤖 - deadline
 DESCRIPTION:Stated: November 1\, 2026 - 0.02075 ETH - https://poidh.xyz/bas
@@ -188,8 +188,8 @@ DESCRIPTION:Stated: November 1\, 2026 - 0.02075 ETH - https://poidh.xyz/bas
 URL:https://poidh.xyz/base/bounty/1496
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-335-75463598@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-335-66927592@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261210
 SUMMARY:Teach Someone Bitcoin and Inflation: The One Question Bounty - dead
  line
@@ -198,8 +198,8 @@ DESCRIPTION:Stated: December 10th - 0.0111 ETH - https://poidh.xyz/base/bou
 URL:https://poidh.xyz/base/bounty/335
 END:VEVENT
 BEGIN:VEVENT
-UID:poidh-1365-84660955@zpoidh
-DTSTAMP:20261025T164316Z
+UID:poidh-1365-1149966@zpoidh
+DTSTAMP:20261025T210932Z
 DTSTART;VALUE=DATE:20261231
 SUMMARY:Help fund a CAMRT tutor + reading tablet for Offor Precious Chineme
  rem - deadline
