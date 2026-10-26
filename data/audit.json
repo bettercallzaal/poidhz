@@ -16,10 +16,10 @@
   "issuers": [
     "0x7234c36a71ec237c2ae7698e8916e0735001e9af"
   ],
-  "total_claims_received": 94,
-  "total_claims_accepted": 72,
+  "total_claims_received": 95,
+  "total_claims_accepted": 73,
   "total_claims_rejected": 22,
-  "submitter_count": 51,
+  "submitter_count": 52,
   "total_eth_escrow": 0.1298,
   "bounties": [
     {
@@ -150,7 +150,7 @@
       "in_progress": true,
       "is_voting": false,
       "is_canceled": false,
-      "claims_count": 2
+      "claims_count": 3
     },
     {
       "id": 1460,
@@ -786,6 +786,16 @@
       "image_url": "https://poidhz.com/api/receipt?round=5&pr=https%3A%2F%2Fgithub.com%2FZAODEVZ%2FZAOstock%2Fpull%2F319&who=0xa21e61165a97cba8e02558ece645da45ae4eaf0a&agent=1",
       "accepted": false,
       "on_chain_id": 2993
+    },
+    {
+      "bounty_id": 1453,
+      "claim_id": 9099,
+      "issuer": "0x02c1f87f514493f359afc0b3ff6b587434770361",
+      "title": "ZAOstock Round 7 - Run A Bounty For ZAOstock",
+      "description": "Live: https://ramgox.github.io/autonomous-micro-entrepreneur/ | Code: https://github.com/RAMGOX/autonomous-micro-entrepreneur | Payout: 0xdCEa1CDdA6E23Be9670Eda3073691FA6E4e140bf",
+      "image_url": "https://raw.githubusercontent.com/RAMGOX/autonomous-micro-entrepreneur/main/docs/dashboard_preview.png",
+      "accepted": false,
+      "on_chain_id": 3783
     },
     {
       "bounty_id": 1453,
