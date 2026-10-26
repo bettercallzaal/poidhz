@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T13:28:14.314439+00:00",
+  "generated_at": "2026-10-26T20:42:43.235887+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -87,16 +87,6 @@
       "url": "https://poidh.xyz/base/bounty/1461"
     },
     {
-      "bounty_id": 1491,
-      "title": "\ud83c\udf31 take a pic touching grass",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.0033,
-      "deadline_iso": "2026-10-22",
-      "deadline_raw_text": "October 22nd, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1491"
-    },
-    {
       "bounty_id": 39,
       "title": "Rename Risk Pricing",
       "issuer": "0x0f7536d21fe1c9cdb472391cd80fc82e3560736f",
@@ -140,7 +130,7 @@
       "bounty_id": 42,
       "title": "GlazeCorp Costume Contest ",
       "issuer": "0x4a34e383a986127c5c6e184adfc7dacfc1e56d0e",
-      "amount_eth": 0.1055,
+      "amount_eth": 0.1065,
       "deadline_iso": "2026-10-31",
       "deadline_raw_text": "October 31st",
       "deadline_status": "upcoming",
@@ -205,6 +195,36 @@
       "deadline_raw_text": "November 1, 2026",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1496"
+    },
+    {
+      "bounty_id": 1512,
+      "title": "find a fake fact the internet believes",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-11-02",
+      "deadline_raw_text": "November 2nd",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1512"
+    },
+    {
+      "bounty_id": 1513,
+      "title": "find the worst tech prediction from 2016",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-11-03",
+      "deadline_raw_text": "November 3rd",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1513"
+    },
+    {
+      "bounty_id": 339,
+      "title": "find the most useful free API nobody knows about",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-11-05",
+      "deadline_raw_text": "November 5th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/339"
     },
     {
       "bounty_id": 1510,
