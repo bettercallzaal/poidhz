@@ -1,5 +1,5 @@
 <!-- NOT-ANNOUNCEMENT-COPY: one catch-up post for five unannounced ZAOstock round winners, unsent. Names no deadline anyone submits to. -->
-# ZAOstock rounds - the winners never posted, in one post (UNSENT)
+# ZAOstock rounds - catch-up winner announcement, the five never posted (UNSENT)
 
 **NOTHING HERE HAS BEEN POSTED.** Zaal posts. Written 2026-10-28.
 
