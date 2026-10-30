@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T01:18:16.765054+00:00",
+  "generated_at": "2026-10-30T10:24:02.324817+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -250,7 +250,7 @@
       "bounty_id": 1520,
       "title": "Audit a Month of Offline AI Research",
       "issuer": "0x39a7b6fa1597bb6657fe84e64e3b836c37d6f75d",
-      "amount_eth": 0.013,
+      "amount_eth": 0.016,
       "deadline_iso": "2026-11-30",
       "deadline_raw_text": "November 30th",
       "deadline_status": "upcoming",
