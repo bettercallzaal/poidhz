@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T05:10:10Z",
+  "generated_at": "2026-10-31T12:04:17Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
@@ -271,15 +271,15 @@
       "address": "0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b",
       "score": 3,
       "rank": 7,
-      "farcaster_username": "0x5a844e7871e0cd7dcf080046e3c17d0c637cd58b",
-      "displayName": "0x5a84...d58b",
+      "farcaster_username": null,
+      "displayName": null,
       "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
       "fid": null,
       "boost": 1,
       "totalRewards": 0.7044991788311211,
-      "follower": 0,
+      "follower": null,
       "offchain_credit": null,
       "offchain_note": null
     },
