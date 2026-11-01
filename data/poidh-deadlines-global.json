@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T00:22:03.476480+00:00",
+  "generated_at": "2026-11-01T06:42:25.717229+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -190,7 +190,7 @@
       "bounty_id": 1523,
       "title": "Celebration Hub Halloween 2026",
       "issuer": "0x98bb6321aa10562ba458e9e449485a9d93520263",
-      "amount_eth": 0.01,
+      "amount_eth": 0.0123,
       "deadline_iso": "2026-11-02",
       "deadline_raw_text": "Nov 2, 2026",
       "deadline_status": "upcoming",
