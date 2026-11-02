@@ -11,6 +11,8 @@ export type Receipt = {
   note: string;
 };
 
+// The goal includes Zaal's own $100 POIDH seed (grill item 124): once funded it is the first row,
+// { date, channel: 'poidh', net_usd: 100, note: 'owner seed' }. The community raises the other $900.
 export const GOAL_USD = 1000;
 
 // The day the tracker opened; shown as the "updated" date until the first receipt lands.

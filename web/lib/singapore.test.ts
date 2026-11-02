@@ -28,6 +28,14 @@ describe('singapore tracker', () => {
   });
 });
 
+describe('owner seed counts toward the goal (grill item 124)', () => {
+  it('a $100 owner seed row leaves $900 for the community', () => {
+    const t = totals([{ date: '2026-11-03', channel: 'poidh', net_usd: 100, note: 'owner seed' }]);
+    expect(t.total).toBe(100);
+    expect(t.remaining).toBe(900);
+  });
+});
+
 describe('singapore page', () => {
   const src = readFileSync(join(__dirname, '..', 'app', 'singapore', 'page.tsx'), 'utf8');
   it('renders a button only for a non-empty link and carries no placeholder text', () => {

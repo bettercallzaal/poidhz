@@ -4,7 +4,7 @@ import { CHANNELS, GOAL_USD, totals } from './tracker';
 
 export const metadata: Metadata = {
   title: 'Singapore Congress crowdfund - poidhz',
-  description: 'Help Zaal travel to the 13th World Zoroastrian Congress in Singapore as a youth delegate. $1,000 community goal, tracked across every platform.',
+  description: 'Help Zaal travel to the 13th World Zoroastrian Congress in Singapore as a youth delegate. $1,000 goal, tracked across every platform.',
 };
 
 const usd = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 })}`;
@@ -14,8 +14,9 @@ const START: [string, string, string][] = [
   ['Estimated travel cost', '$2,200', 'Flights already purchased'],
   ['Set aside myself', '$900', 'Not part of the goal'],
   ['Support before this fundraiser', '$200', 'Not part of the goal'],
-  ['My POIDH bounty seed', '$100', 'Planned, separate from the goal'],
-  ['New community support', '$1,000 net', 'The goal, counted after fees and refunds'],
+  ['Goal', '$1,000', 'Counted after fees and refunds'],
+  ['My POIDH seed, part of the goal', '$100', 'Planned, the first row on the tracker once funded'],
+  ['Community support, part of the goal', '$900', 'What I am asking the community for'],
 ];
 
 function Button({ href, children }: { href: string; children: React.ReactNode }) {
@@ -33,7 +34,7 @@ export default function Singapore() {
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">Help bring the World Zoroastrian Congress back to our community</h1>
       <p className="mt-3 max-w-2xl">I&apos;m attending the 13th World Zoroastrian Congress in Singapore as a youth delegate. My youth subsidy covers the hotel, registration and meals, but not the flights. My travel cost is about $2,200, and the flights have already been purchased.</p>
-      <p className="mt-3 max-w-2xl">I have $900 set aside and received $200 in support before opening this fundraiser. I&apos;m asking the community for $1,000 in net travel support. I also plan to contribute $100 of my own to start the POIDH bounty; that seed is separate from the community goal.</p>
+      <p className="mt-3 max-w-2xl">I have $900 set aside and received $200 in support before opening this fundraiser. I&apos;m asking the community for $900 toward a $1,000 goal; I&apos;m seeding the first $100 on POIDH myself.</p>
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>
@@ -58,7 +59,6 @@ export default function Singapore() {
           </tbody>
         </table>
       </div>
-      <p className="mt-2 text-sm text-[var(--muted)]">$900 + $200 + $100 + $1,000 = $2,200.</p>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
       <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism, and I&apos;ll make a piece of content answering it. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
