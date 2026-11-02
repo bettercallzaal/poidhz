@@ -9,6 +9,7 @@ const config: NextConfig = {
     return [
       { source: '/index.html', destination: '/', permanent: false },
       { source: '/people.html', destination: '/people', permanent: false },
+      { source: '/tracker', destination: '/singapore', permanent: false },
     ];
   },
   async rewrites() {
