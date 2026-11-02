@@ -61,7 +61,7 @@ export default function Singapore() {
       </div>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
-      <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism, and I&apos;ll make a piece of content answering it. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
+      <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism, and I&apos;ll make you your own video answering it. Each one aims to teach something about Zoroastrianism. If a lot of small donations come in, some videos will be short. I aim to finish them all before the Congress, and if I&apos;m not done by then I&apos;ll keep making them after. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
       {QUESTION_URL && <p className="mt-3"><Button href={QUESTION_URL}>Send a question</Button></p>}
 
       <h2 className="mt-8 text-xl font-semibold">How to back</h2>
