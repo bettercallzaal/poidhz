@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T06:41:51.088744+00:00",
+  "generated_at": "2026-11-02T19:43:06.522905+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -125,26 +125,6 @@
       "deadline_raw_text": "October 31, 2026",
       "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/37"
-    },
-    {
-      "bounty_id": 1482,
-      "title": "Make the case for private AI",
-      "issuer": "0x5978246f4299ecd00cbdf1e28da94ead89885886",
-      "amount_eth": 0.0082,
-      "deadline_iso": "2026-10-31",
-      "deadline_raw_text": "October 31",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1482"
-    },
-    {
-      "bounty_id": 1480,
-      "title": "Ask BOAR where there is no signal ",
-      "issuer": "0x5978246f4299ecd00cbdf1e28da94ead89885886",
-      "amount_eth": 0.0142,
-      "deadline_iso": "2026-10-31",
-      "deadline_raw_text": "October 31",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1480"
     },
     {
       "bounty_id": 1518,
