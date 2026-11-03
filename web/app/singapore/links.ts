@@ -3,7 +3,7 @@
 // so an empty string here means that button does not exist on the page.
 
 export const STRIPE_LINK = '';
-export const PAYPAL_LINK = '';
+export const PAYPAL_LINK = 'https://www.paypal.com/biz/profile/zaalpanthaki';
 export const POIDH_BOUNTY_URL = '';
 // Where a backer sends a question about Zoroastrianism.
 export const QUESTION_URL = '';
