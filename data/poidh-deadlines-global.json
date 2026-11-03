@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T03:01:41.957620+00:00",
+  "generated_at": "2026-11-03T11:16:37.173912+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -157,16 +157,6 @@
       "url": "https://poidh.xyz/base/bounty/1505"
     },
     {
-      "bounty_id": 1523,
-      "title": "Celebration Hub Halloween 2026",
-      "issuer": "0x98bb6321aa10562ba458e9e449485a9d93520263",
-      "amount_eth": 0.0123,
-      "deadline_iso": "2026-11-02",
-      "deadline_raw_text": "Nov 2, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1523"
-    },
-    {
       "bounty_id": 1512,
       "title": "find a fake fact the internet believes",
       "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
@@ -225,6 +215,16 @@
       "deadline_raw_text": "November 15",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1519"
+    },
+    {
+      "bounty_id": 1527,
+      "title": "Best poidh Meme \ud83d\udcf8",
+      "issuer": "0x41f2600443691cba7775f0488d87ada2f279a64d",
+      "amount_eth": 0.007,
+      "deadline_iso": "2026-11-30",
+      "deadline_raw_text": "November 30, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1527"
     },
     {
       "bounty_id": 1520,
