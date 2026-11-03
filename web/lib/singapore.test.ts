@@ -41,6 +41,8 @@ describe('singapore page', () => {
   it('renders a button only for a non-empty link and carries no placeholder text', () => {
     expect(src).toContain('.filter((b) => b.href)');
     expect(src).toContain('QUESTION_URL &&');
+    expect(src).toContain('zaal.eth');
+    expect(src).toContain('href={STRIPE_REQUEST_URL}');
     expect(src).not.toMatch(/coming soon|TODO|TBD|\[[A-Z ]+\]/i);
   });
 });
