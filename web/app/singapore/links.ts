@@ -6,4 +6,5 @@ export const STRIPE_LINK = '';
 export const PAYPAL_LINK = 'https://www.paypal.com/biz/profile/zaalpanthaki';
 export const POIDH_BOUNTY_URL = '';
 // Where a backer sends a question about Zoroastrianism.
-export const QUESTION_URL = '';
+// Interim until the ZAO learns about Zoroastrianism site has a URL (seat, from misc item 148).
+export const QUESTION_URL = 'mailto:zaal@thezao.com?subject=Question%20for%20Zaal%20about%20Zoroastrianism';
