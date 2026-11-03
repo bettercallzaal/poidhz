@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK } from './links';
+import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
 
 export const metadata: Metadata = {
@@ -69,6 +69,8 @@ export default function Singapore() {
       <h2 className="mt-8 text-xl font-semibold">How to back</h2>
       <p className="mt-2 max-w-2xl">Give $25, $50, $100, or another amount. These are examples, not reward tiers.</p>
       {pay.length > 0 && <div className="mt-3 flex flex-wrap gap-3">{pay.map((b) => <Button key={b.label} href={b.href}>{b.label}</Button>)}</div>}
+      <p className="mt-3 max-w-2xl">You can also send crypto directly to <span className="font-mono">zaal.eth</span>.</p>
+      <p className="mt-3 max-w-2xl">If you need a Stripe link, I can provide one. <a className="underline" href={STRIPE_REQUEST_URL}>Email me</a> and I&apos;ll send it.</p>
 
       <h2 className="mt-8 text-xl font-semibold">Updates</h2>
       <p className="mt-2 max-w-2xl">While the fundraiser is open I&apos;ll update the total on this page each week. During the Congress I&apos;ll share a short dispatch each day, and one recap after the trip. I&apos;ll probably keep this open until even after the Congress, because I need the support to be able to take a trip like this.</p>
