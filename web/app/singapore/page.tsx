@@ -12,7 +12,7 @@ const day = (ymd: string) => new Date(`${ymd}T12:00:00Z`).toLocaleDateString('en
 
 const START: [string, string, string][] = [
   ['Estimated travel cost', '$2,200', 'Flights already purchased'],
-  ['Set aside myself', '$900', 'Not part of the goal'],
+  ['Set aside by me and my family', '$900', 'Not part of the goal'],
   ['Support before this fundraiser', '$200', 'Not part of the goal'],
   ['Goal', '$1,000', 'Counted after fees and refunds'],
   ['My POIDH seed, part of the goal', '$100', 'Planned, the first row on the tracker once funded'],
@@ -33,8 +33,9 @@ export default function Singapore() {
   return (
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">Help bring the World Zoroastrian Congress back to our community</h1>
-      <p className="mt-3 max-w-2xl">I&apos;m attending the 13th World Zoroastrian Congress in Singapore as a youth delegate. My youth subsidy covers the hotel, registration and meals, but not the flights. My travel cost is about $2,200, and the flights have already been purchased.</p>
-      <p className="mt-3 max-w-2xl">I have $900 set aside and received $200 in support before opening this fundraiser. I&apos;m asking the community for $900 toward a $1,000 goal; I&apos;m seeding the first $100 on POIDH myself.</p>
+      <p className="mt-3 max-w-2xl">I&apos;m attending the 13th World Zoroastrian Congress in Singapore as a youth delegate. I was selected for a full subsidy from ZYAB Singapore to join the ZYAB Singapore Program at the 13th World Zoroastrian Congress. It covers my hotel, registration and meals, but not the flight. My travel cost is about $2,200, and the flights have already been purchased.</p>
+      <p className="mt-3 max-w-2xl">My family and I have $900 set aside, and I received $200 in support before opening this fundraiser. I&apos;m asking the community for $900 toward a $1,000 goal; I&apos;m seeding the first $100 on POIDH myself.</p>
+      <p className="mt-3 max-w-2xl">I need the support to be able to take a trip like this. I am also excited to share more about this part of my life.</p>
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>
@@ -61,7 +62,7 @@ export default function Singapore() {
       </div>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
-      <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism, and I&apos;ll make you your own video answering it. Each one aims to teach something about Zoroastrianism. If a lot of small donations come in, some videos will be short. I aim to finish them all before the Congress, and if I&apos;m not done by then I&apos;ll keep making them after. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
+      <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism. I&apos;ll answer every question on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
       {QUESTION_URL && <p className="mt-3"><Button href={QUESTION_URL}>Send a question</Button></p>}
 
       <h2 className="mt-8 text-xl font-semibold">How to back</h2>
@@ -69,7 +70,7 @@ export default function Singapore() {
       {pay.length > 0 && <div className="mt-3 flex flex-wrap gap-3">{pay.map((b) => <Button key={b.label} href={b.href}>{b.label}</Button>)}</div>}
 
       <h2 className="mt-8 text-xl font-semibold">Updates</h2>
-      <p className="mt-2 max-w-2xl">While the fundraiser is open I&apos;ll update the total on this page each week. During the Congress I&apos;ll share a short dispatch each day, and one recap after the trip.</p>
+      <p className="mt-2 max-w-2xl">While the fundraiser is open I&apos;ll update the total on this page each week. During the Congress I&apos;ll share a short dispatch each day, and one recap after the trip. I&apos;ll probably keep this open until even after the Congress, because I need the support to be able to take a trip like this.</p>
 
       <p className="mt-8 text-xs text-[var(--muted)]">This is personal travel support. Contributions are not tax-deductible.</p>
     </>
