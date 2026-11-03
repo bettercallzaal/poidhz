@@ -62,8 +62,9 @@ export default function Singapore() {
       </div>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
-      <p className="mt-2 max-w-2xl">Back this trip and send me a question about Zoroastrianism. I&apos;ll answer every question on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
+      <p className="mt-2 max-w-2xl">Anyone can send me a question about Zoroastrianism, and I&apos;ll try and answer as many as I can on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
       {QUESTION_URL && <p className="mt-3"><Button href={QUESTION_URL}>Send a question</Button></p>}
+      {POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">If you have a suggestion, you can also comment it on the <a href={POIDH_BOUNTY_URL} target="_blank" rel="noopener">POIDH bounty</a>, and as long as it&apos;s reasonable I&apos;ll make sure to try and make it happen.</p>}
 
       <h2 className="mt-8 text-xl font-semibold">How to back</h2>
       <p className="mt-2 max-w-2xl">Give $25, $50, $100, or another amount. These are examples, not reward tiers.</p>
