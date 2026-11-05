@@ -2,11 +2,13 @@
 // "What does being Zoroastrian mean to you?", saved raw in the vault at
 // inbox/clips/clip-20261105-140443-zoro-q1-raw.md. Light repair only (spelling, punctuation,
 // order). He reads it aloud before merge and changes any word to his own. No one is named.
+// Standing rule (vault decisions/grill-2026-11-02-misc-morning.md item 232): organize and
+// synthesize only his ideas, in as many of his own phrasings as possible; ask him, never fill a gap.
 export const STORY_HEADING = 'What being Zoroastrian means to me';
 
 export const STORY: string[] = [
   "Honestly, it is most of my family's culture. I grew up with most of my closest family friends in a local Zoroastrian community called ZAGBA. My dad was the main priest and my mom was a vice president when I was growing up, so I'd always be one of the first people there and the last people leaving after cleaning up.",
-  "In 6th grade I went to India for a month to become a mobed, a Zoroastrian priest. From then on I performed ceremonies for our local community whenever it was needed, including house warmings, funerals, celebrations, and even one wedding. Until college I was my father's right hand assistant priest in the jashan ceremony. Whenever dad was called, I was there.",
+  "In 6th grade I went to India for a month to become a mobed, a Zoroastrian priest. From then on I performed ceremonies for our local community whenever it was needed, including house warmings, funerals, celebrations, and even one wedding. Until college I was my father's right hand assistant priest in the jashan ceremony. The assistant priest, known as the Zoti or Rathwi, or Ervad or Mobed depending on the role distribution, represents Spenta Mainyu, the Holy Spirit, or specific Amesha Spentas, the Archangels who govern the physical creation. So until college I was there whenever dad was called.",
   "In college I was only active in the summers. Then I got sent out to Portland, Oregon, where there were few to no known Zoroastrians. I spent 2 years out there before moving to Maine with my then girlfriend, now fiancee. After a year of living together we bought our house, and my father and I were able to do a ceremony as a house warming, with my fiancee and her parents there for the first time.",
   "In 2022 I went with my parents to the World Zoroastrian Congress in New York, and for the first time I realized there was a world of Zoroastrians outside my small Boston community. This is where I met someone who started me down the blockchain rabbit hole, and from there the rest is history. I learned more and started to build my community around education around music and blockchain.",
   "Then in 2023 I went to London for the first time, for a London youth Zoroastrian congress, and learned about more of the problems with our dying religion. There are around 100k to 200k known Zoroastrians in the world, the most famous one being Freddie Mercury of Queen. We needed to come together.",
