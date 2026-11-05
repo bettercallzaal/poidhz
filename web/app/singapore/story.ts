@@ -1,0 +1,16 @@
+// The personal section of /singapore. Assembled only from Zaal's own words: his answer to
+// "What does being Zoroastrian mean to you?", saved raw in the vault at
+// inbox/clips/clip-20261105-140443-zoro-q1-raw.md. Light repair only (spelling, punctuation,
+// order). He reads it aloud before merge and changes any word to his own. No one is named.
+export const STORY_HEADING = 'What being Zoroastrian means to me';
+
+export const STORY: string[] = [
+  "Honestly, it is most of my family's culture. I grew up with most of my closest family friends in a local Zoroastrian community called ZAGBA. My dad was the main priest and my mom was a vice president when I was growing up, so I'd always be one of the first people there and the last people leaving after cleaning up.",
+  "In 6th grade I went to India for a month to become a mobed, a Zoroastrian priest. From then on I performed ceremonies for our local community whenever it was needed, including house warmings, funerals, celebrations, and even one wedding. Until college I was my father's right hand assistant priest in the jashan ceremony. Whenever dad was called, I was there.",
+  "In college I was only active in the summers. Then I got sent out to Portland, Oregon, where there were few to no known Zoroastrians. I spent 2 years out there before moving to Maine with my then girlfriend, now fiancee. After a year of living together we bought our house, and my father and I were able to do a ceremony as a house warming, with my fiancee and her parents there for the first time.",
+  "In 2022 I went with my parents to the World Zoroastrian Congress in New York, and for the first time I realized there was a world of Zoroastrians outside my small Boston community. This is where I met someone who started me down the blockchain rabbit hole, and from there the rest is history. I learned more and started to build my community around education around music and blockchain.",
+  "Then in 2023 I went to London for the first time, for a London youth Zoroastrian congress, and learned about more of the problems with our dying religion. There are around 100k to 200k known Zoroastrians in the world, the most famous one being Freddie Mercury of Queen. We needed to come together.",
+  "Something I learned about was the traditional mindset of some Zoroastrians still in India and Iran, who have shunned or not been happy when their children married out of the religion. My parents were always ok with it, growing up in the USA, and I'm grateful for that, because I found the love of my life and have never been happier.",
+  "I also learned about the rift between Indian (Parsi) Zoroastrians and Iranian Zoroastrians, based purely on cultural customs and more. I had never really known about it, even though one of my best friends from ZAGBA, who will be joining me in Singapore, is an Iranian Z and I'm a Parsi Z. One of my goals on this trip is to learn more about the rift, learn more about both customs, and share them with my community.",
+  "I also want to talk more about being a mobed from my perspective. Since 6th grade I've been looked at in a different light, even though I'm just a normal person. There's a lot more that I could talk about.",
+];

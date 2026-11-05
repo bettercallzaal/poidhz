@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
+import { STORY, STORY_HEADING } from './story';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
 
 export const metadata: Metadata = {
@@ -60,6 +61,9 @@ export default function Singapore() {
           </tbody>
         </table>
       </div>
+
+      <h2 className="mt-8 text-xl font-semibold">{STORY_HEADING}</h2>
+      {STORY.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
       <p className="mt-2 max-w-2xl">Anyone can send me a question about Zoroastrianism, and I&apos;ll try and answer as many as I can on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
