@@ -46,3 +46,12 @@ describe('singapore page', () => {
     expect(src).not.toMatch(/coming soon|TODO|TBD|\[[A-Z ]+\]/i);
   });
 });
+
+describe('singapore story', () => {
+  it('is plain voice: no dashes', async () => {
+    const { STORY, STORY_HEADING } = await import('@/app/singapore/story');
+    const all = [STORY_HEADING, ...STORY].join('\n');
+    expect(STORY.length).toBeGreaterThan(0);
+    expect(all).not.toMatch(/[\u2013\u2014]| - /);
+  });
+});
