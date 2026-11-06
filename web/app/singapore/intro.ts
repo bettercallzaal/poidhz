@@ -19,6 +19,7 @@ export type MomentBlock = {
   text: string;
   link?: { href: string; label: string };
   image?: { src: string; alt: string };
+  images?: { src: string; alt: string }[];
 };
 
 export const NAVAR_PAGE = 'https://web.archive.org/web/20141221183716/http://www.zagba.org/Navar.htm';
@@ -26,6 +27,14 @@ export const NAVAR_PHOTO = 'https://web.archive.org/web/20141029011334im_/http:/
 export const NAVJOTE_PAGE = 'https://pluralism.org/zoroastrianism';
 export const NAVJOTE_PHOTO =
   'https://web.archive.org/web/20260913211523im_/https://pluralism.org/sites/g/files/omnuum10836/files/styles/hwp_1_1__960x960/public/2025-09/navjote.foxboro_1.jpg?itok=cO5ZIjr_';
+
+// House warming jashan photos, June 2025, from a family member's Facebook post. Zaal picked all three
+// for public use on 6 Nov 2026 ("All 3"). Nobody is named. Served from repo assets/singapore/.
+export const HOUSEWARMING_PHOTOS = [
+  { src: '/assets/singapore/housewarming-1.jpg', alt: 'The jashan setup for my house warming' },
+  { src: '/assets/singapore/housewarming-2.jpg', alt: 'My dad and me during the house warming jashan' },
+  { src: '/assets/singapore/housewarming-3.jpg', alt: 'Family and friends after the house warming jashan' },
+];
 
 export const MOMENT: MomentBlock[] = [
   {
@@ -40,5 +49,6 @@ export const MOMENT: MomentBlock[] = [
   },
   {
     text: 'I have participated multiple times in doing the jashan prayer for our ZAGBA community. Our Ayathrem Gahambar Jashan is one of the ones I participated in, in the community as a child, and then I was one of the priests as a kid, in the center praying with everyone. I also had the opportunity to do a house warming for my own home.',
+    images: HOUSEWARMING_PHOTOS,
   },
 ];

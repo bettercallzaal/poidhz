@@ -131,3 +131,16 @@ describe('singapore story-gap answers (6 Nov)', () => {
     expect(all).not.toMatch(/[\u2012-\u2015]| - /);
   });
 });
+
+describe('singapore house warming photos (his pick, all 3)', () => {
+  it('ships three local photos with alt text and no names', async () => {
+    const { HOUSEWARMING_PHOTOS, MOMENT } = await import('@/app/singapore/intro');
+    expect(HOUSEWARMING_PHOTOS).toHaveLength(3);
+    for (const p of HOUSEWARMING_PHOTOS) {
+      expect(p.src).toMatch(/^\/assets\/singapore\/housewarming-[123]\.jpg$/);
+      expect(readFileSync(join(__dirname, '../..', p.src)).length).toBeGreaterThan(100000);
+      expect(p.alt).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood|Lauren|Peggy|Denis/);
+    }
+    expect(MOMENT.some((b) => b.images === HOUSEWARMING_PHOTOS)).toBe(true);
+  });
+});

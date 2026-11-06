@@ -44,6 +44,14 @@ export default function Singapore() {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={m.image.src} alt={m.image.alt} loading="lazy" className="mt-2 w-full max-w-sm rounded-lg border border-[var(--line)]" />
           )}
+          {m.images && (
+            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {m.images.map((im) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={im.src} src={im.src} alt={im.alt} loading="lazy" className="w-full rounded-lg border border-[var(--line)]" />
+              ))}
+            </div>
+          )}
         </div>
       ))}
       {INTRO.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
