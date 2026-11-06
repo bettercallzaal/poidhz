@@ -16,9 +16,8 @@ const START: [string, string, string][] = [
   ['Estimated travel cost', '$2,200', 'Flights already bought; this pays them back'],
   ['Set aside by me and my family', '$900', 'Not part of the goal'],
   ['Support before this fundraiser', '$200', 'Not part of the goal'],
-  ['Goal', '$1,000', 'Counted after fees and refunds'],
-  ['My POIDH seed, part of the goal', '$100', 'Planned, the first row on the tracker once funded'],
-  ['Community support, part of the goal', '$900', 'What I am asking the community for'],
+  ['My POIDH seed', '$100', 'Not part of the goal; I fund it when I cast the bounty'],
+  ['Goal, from the community', '$1,000', 'Counted after fees and refunds'],
 ];
 
 function Button({ href, children }: { href: string; children: React.ReactNode }) {
@@ -52,6 +51,7 @@ export default function Singapore() {
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>
+      {t.seed > 0 && <p className="text-sm text-[var(--muted)]">Plus my own {usd(t.seed)} POIDH seed, on top of the goal.</p>}
       <p className="text-sm text-[var(--muted)]">Updated {day(t.updated)}. Settled support across every platform, after fees and refunds.</p>
       <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {CHANNELS.map((c) => (

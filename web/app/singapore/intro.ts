@@ -82,7 +82,7 @@ export const STORY_BLOCKS: StoryBlock[] = [
     text: "My communities have backed my business. This time I'm asking you to back something personal. It's not a something for something. It's supporting me on a personal journey, and the chance to ask questions and learn with me as I make content about Zoroastrianism.",
   },
   {
-    text: "The goal is $1,000 across every platform, and I'm putting in the first $100 on POIDH myself. The tracker below shows the current amount on all platforms, and I update it each week.",
+    text: "The goal is $1,000 from the community across every platform. On top of that, I'm putting in the first $100 on POIDH myself. The tracker below shows the current amount on all platforms, and I update it each week.",
   },
   {
     text: "If you can support me, I'd love that. If not, I'll keep rocking out until I find a way to raise the $1,000, even if I have to keep crowdfunding after the trip.",

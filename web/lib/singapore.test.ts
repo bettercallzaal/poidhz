@@ -28,11 +28,23 @@ describe('singapore tracker', () => {
   });
 });
 
-describe('owner seed counts toward the goal (grill item 124)', () => {
-  it('a $100 owner seed row leaves $900 for the community', () => {
-    const t = totals([{ date: '2026-11-03', channel: 'poidh', net_usd: 100, note: 'owner seed' }]);
-    expect(t.total).toBe(100);
-    expect(t.remaining).toBe(900);
+describe('owner seed sits on top of the goal (misc item 260)', () => {
+  it('a $100 owner seed is shown apart and leaves the full $1,000 for the community', () => {
+    const t = totals([{ date: '2026-11-06', channel: 'poidh', net_usd: 100, note: 'owner seed', ownerSeed: true }]);
+    expect(t.seed).toBe(100);
+    expect(t.total).toBe(0);
+    expect(t.byChannel.poidh).toBe(0);
+    expect(t.remaining).toBe(1000);
+    expect(t.updated).toBe('2026-11-06');
+  });
+  it('the START table adds up to the trip: 900 + 200 + 100 + 1,000 = 2,200, with no $900 community row', () => {
+    const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
+    const rows = [...page.matchAll(/\['([^']+)', '\$([\d,]+)', '[^']*'\]/g)].map((m) => [m[1], Number(m[2].replace(',', ''))] as const);
+    const trip = rows.find(([k]) => k === 'Estimated travel cost')![1];
+    const parts = rows.filter(([k]) => k !== 'Estimated travel cost').reduce((a, [, v]) => a + v, 0);
+    expect(trip).toBe(2200);
+    expect(parts).toBe(2200);
+    expect(page).not.toContain('Community support, part of the goal');
   });
 });
 
@@ -77,7 +89,7 @@ describe('singapore story blocks (bounty v12d order and words)', () => {
   it('carries the money facts, item 259 wording, and his 6 Nov answers', async () => {
     const { STORY_BLOCKS } = await import('@/app/singapore/intro');
     const all = STORY_BLOCKS.map((b) => b.text).join(' ');
-    for (const k of ['28 to 30 December 2026', 'covers my hotel, registration and meals, but not the flight', 'already bought, and this fundraiser helps pay them back', 'the extra hotel night the day before', 'death penalty', 'my version of art', 'The ZAO', 'first $100 on POIDH']) expect(all).toContain(k);
+    for (const k of ['28 to 30 December 2026', 'covers my hotel, registration and meals, but not the flight', 'already bought, and this fundraiser helps pay them back', 'the extra hotel night the day before', 'death penalty', 'my version of art', 'The ZAO', 'first $100 on POIDH myself']) expect(all).toContain(k);
     expect(all).not.toContain('shuffl');
     expect(page).toContain("'Flights already bought; this pays them back'");
     expect(page).toContain('I&apos;ll focus on the ones I can share about');
