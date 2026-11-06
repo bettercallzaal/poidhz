@@ -9,7 +9,7 @@
 export const PITCH = 'Help me bring my story onchain through POIDH.';
 
 export const INTRO: string[] = [
-  "So now I'm going to the 13th World Zoroastrian Congress in Singapore as a youth delegate. I got a sponsorship from ZYAB Singapore that covers a bunch of it, my hotel, registration and meals, but not the flight. My family and friends are supporting over half of the travel. The flights are around $2k and the extra $200 is for hotel and public transport, so that's why I'm working on raising $1k from my community who is interested in supporting my personal journey.",
+  "So now I'm going to the 13th World Zoroastrian Congress in Singapore as a youth delegate, 28 to 30 December 2026. I got a sponsorship from ZYAB Singapore that covers my hotel, registration and meals, but not the flight. My family and friends are supporting over half of the travel. The flights are around $2k and are already bought, and this fundraiser helps pay them back. The extra $200 is for hotel and public transport, so that's why I'm working on raising $1k from my community who is interested in supporting my personal journey.",
   "One of my goals on this trip is to learn more about the rift between Parsi and Iranian Zoroastrians, learn more about both customs, and share them with my community. During the Congress I'll share a short dispatch each day, and one recap after the trip.",
   "If anyone wants to support me in my personal journey, I'd love that support. If not, I'll keep rocking out until I find a way to raise the $1,000 for this trip, even if I have to keep crowdfunding after the trip.",
 ];
