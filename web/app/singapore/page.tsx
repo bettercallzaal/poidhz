@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
-import { INTRO, MOMENT, PITCH } from './intro';
+import { FUN_FACTS, FUN_FACTS_INTRO, PITCH, STORY_BLOCKS } from './intro';
 import { STORY, STORY_HEADING } from './story';
-import { SCHOOL, SCHOOL_HEADING, schoolReady } from './school';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
 
 export const metadata: Metadata = {
@@ -37,15 +36,11 @@ export default function Singapore() {
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">Help bring the World Zoroastrian Congress back to our community</h1>
       <p className="mt-3 max-w-2xl text-lg font-semibold">{PITCH}</p>
-      {MOMENT.map((m) => (
+      {STORY_BLOCKS.map((m) => (
         <div key={m.text.slice(0, 40)} className="mt-4 max-w-2xl">
           <p>{m.text}{m.link && <> <a className="underline" href={m.link.href} target="_blank" rel="noopener">{m.link.label}</a></>}</p>
-          {m.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={m.image.src} alt={m.image.alt} loading="lazy" className="mt-2 w-full max-w-sm rounded-lg border border-[var(--line)]" />
-          )}
           {m.images && (
-            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <div className={`mt-2 grid gap-2 ${m.images.length > 1 ? 'grid-cols-1 sm:grid-cols-3' : 'max-w-sm grid-cols-1'}`}>
               {m.images.map((im) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img key={im.src} src={im.src} alt={im.alt} loading="lazy" className="w-full rounded-lg border border-[var(--line)]" />
@@ -54,7 +49,6 @@ export default function Singapore() {
           )}
         </div>
       ))}
-      {INTRO.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>
@@ -89,16 +83,14 @@ export default function Singapore() {
 
       <h2 className="mt-8 text-xl font-semibold">{STORY_HEADING}</h2>
       {STORY.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
-      {schoolReady() && (
-        <>
-          <h2 className="mt-8 text-xl font-semibold">{SCHOOL_HEADING}</h2>
-          {SCHOOL.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
-        </>
-      )}
+
+      <h2 className="mt-8 text-xl font-semibold">Fun facts to get you asking</h2>
+      <p className="mt-2 max-w-2xl">{FUN_FACTS_INTRO}</p>
+      <ul className="mt-2 max-w-2xl list-disc pl-6">{FUN_FACTS.map((f) => <li key={f.slice(0, 40)} className="mt-1">{f}</li>)}</ul>
+      <p className="mt-2 max-w-2xl">Curious about any of it? Anyone can ask, and how to send a question is right below.</p>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
-      <p className="mt-2 max-w-2xl">It&apos;s not a something for something. It&apos;s supporting me in a personal journey, and the opportunity to ask questions and learn more with me as I make content around my journey in Zoroastrianism.</p>
-      <p className="mt-2 max-w-2xl">Anyone can send me a question about Zoroastrianism, and I&apos;ll try and answer as many as I can on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
+      <p className="mt-2 max-w-2xl">Anyone can send me a question about Zoroastrianism. I&apos;ll focus on the ones I can share about and answer as many as I can on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
       {QUESTION_URL && <p className="mt-3"><Button href={QUESTION_URL}>Send a question</Button></p>}
       {POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">If you have a suggestion, you can also comment it on the <a href={POIDH_BOUNTY_URL} target="_blank" rel="noopener">POIDH bounty</a>, and as long as it&apos;s reasonable I&apos;ll make sure to try and make it happen.</p>}
 

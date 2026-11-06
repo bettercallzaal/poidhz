@@ -56,91 +56,49 @@ describe('singapore story', () => {
   });
 });
 
-describe('singapore intro and POIDH moment', () => {
-  it('is plain voice, names no one, and uses https archive images', async () => {
-    const { INTRO, MOMENT, PITCH } = await import('@/app/singapore/intro');
-    const all = [PITCH, ...INTRO, ...MOMENT.map((m) => m.text)].join('\n');
-    expect(all).not.toMatch(/[\u2013\u2014]| - /);
-    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
-    const images = MOMENT.flatMap((m) => (m.image ? [m.image.src] : []));
-    expect(images).toHaveLength(2);
-    for (const src of images) expect(src).toMatch(/^https:\/\/web\.archive\.org\//);
-    expect(all).toContain('$200 is for hotel and public transport');
-  });
-});
-
-describe('singapore culture-first order', () => {
-  it('opens with his culture, then the trip', async () => {
-    const { INTRO, MOMENT } = await import('@/app/singapore/intro');
-    expect(MOMENT[0].text.startsWith("I'm gonna tell you a bit about my culture.")).toBe(true);
-    expect(MOMENT[0].text).toContain('a mobed, a Zoroastrian priest, since 6th grade');
-    expect(INTRO[0].startsWith("So now I'm going to the 13th World Zoroastrian Congress")).toBe(true);
-    expect(INTRO.join(' ')).not.toContain('since 6th grade');
-    const page = (await import('node:fs')).readFileSync('app/singapore/page.tsx', 'utf8');
-    expect(page.indexOf('{MOMENT.map')).toBeLessThan(page.indexOf('{INTRO.map'));
-  });
-});
-
-describe('singapore Catholic school section', () => {
-  it('renders only once filled from his words', async () => {
-    const m = await import('@/app/singapore/school');
-    expect(m.SCHOOL_PENDING).toBe(false);
-    expect(m.SCHOOL_HEADING).toBe('My time in Catholic school');
-    expect(m.SCHOOL.join(' ')).toContain('K to 12');
-    expect((await import('@/app/singapore/intro')).MOMENT.map((b) => b.text).join(' ')).toContain('a house warming for my own home');
-    expect(m.schoolReady()).toBe(true);
-    expect(m.schoolReady('h', ['p'], true)).toBe(false);
-    expect(m.schoolReady('h', ['p'], false)).toBe(true);
-  });
-  it('once filled, has no dashes and names no family member', async () => {
-    const m = await import('@/app/singapore/school');
-    const text = [m.SCHOOL_HEADING ?? '', ...m.SCHOOL].join(' ');
-    expect(text).not.toMatch(/[‒-―]| - /);
-    expect(text).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
-  });
-});
-
-describe('singapore Iman review fixes (item 259)', () => {
+describe('singapore story blocks (bounty v12d order and words)', () => {
   const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
-  it('intro has the dates and the flights-already-bought wording', async () => {
-    const { INTRO } = await import('@/app/singapore/intro');
-    expect(INTRO[0]).toContain('as a youth delegate, 28 to 30 December 2026.');
-    expect(INTRO[0]).toContain('covers my hotel, registration and meals, but not the flight');
-    expect(INTRO[0]).toContain('The flights are around $2k and are already bought, and this fundraiser helps pay them back.');
-    expect(page).toContain("'Flights already bought; this pays them back'");
+  it('is plain voice and names no family member', async () => {
+    const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
+    const all = [PITCH, ...STORY_BLOCKS.map((b) => b.text), FUN_FACTS_INTRO, ...FUN_FACTS].join('\n');
+    expect(all).not.toMatch(/[‒-―]| - /);
+    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood|Lauren|Peggy|Denis/);
+    expect(FUN_FACTS).toHaveLength(5);
   });
-  it('How to back sits directly under Raised so far, before Where the trip stands', () => {
+  it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    expect(STORY_BLOCKS[0].text.startsWith('In 6th grade I went to India for a month to become a mobed')).toBe(true);
+    expect(STORY_BLOCKS[1].text).toContain('POIDH (pics or it didn\'t happen)');
+    expect(STORY_BLOCKS.at(-1)!.text).toContain("I'll keep rocking out");
+    const order = ['Catholic school', 'New York', 'London', 'house warming', 'Singapore as a youth delegate', 'full subsidy', 'flights are around $2k'];
+    const idx = order.map((k) => STORY_BLOCKS.findIndex((b) => b.text.includes(k)));
+    for (let i = 1; i < idx.length; i++) expect(idx[i]).toBeGreaterThan(idx[i - 1]);
+  });
+  it('carries the money facts, item 259 wording, and his 6 Nov answers', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const all = STORY_BLOCKS.map((b) => b.text).join(' ');
+    for (const k of ['28 to 30 December 2026', 'covers my hotel, registration and meals, but not the flight', 'already bought, and this fundraiser helps pay them back', 'the extra hotel night the day before', 'death penalty', 'my version of art', 'The ZAO', 'first $100 on POIDH']) expect(all).toContain(k);
+    expect(all).not.toContain('shuffl');
+    expect(page).toContain("'Flights already bought; this pays them back'");
+    expect(page).toContain('I&apos;ll focus on the ones I can share about');
+  });
+  it('photos: two archive images, three house warming photos and the subsidy letter, all present', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const imgs = STORY_BLOCKS.flatMap((b) => b.images ?? []);
+    expect(imgs.filter((i) => i.src.startsWith('https://web.archive.org/'))).toHaveLength(2);
+    const local = imgs.filter((i) => i.src.startsWith('/assets/singapore/'));
+    expect(local.map((i) => i.src).sort()).toEqual(['/assets/singapore/housewarming-1.jpg', '/assets/singapore/housewarming-2.jpg', '/assets/singapore/housewarming-3.jpg', '/assets/singapore/zyab-subsidy-letter.jpg']);
+    for (const i of local) expect(readFileSync(join(__dirname, '../..', i.src)).length).toBeGreaterThan(100000);
+  });
+  it('How to back sits under Raised so far, before Where the trip stands, with the POIDH placeholder', () => {
     const raised = page.indexOf('>Raised so far<'), back = page.indexOf('>How to back<'), trip = page.indexOf('>Where the trip stands<');
-    expect(raised).toBeGreaterThan(-1);
+    expect(raised).toBeGreaterThan(page.indexOf('{STORY_BLOCKS.map'));
     expect(raised).toBeLessThan(back);
     expect(back).toBeLessThan(trip);
-  });
-  it('shows a placeholder line only while the POIDH link is empty', () => {
     expect(page).toContain('{!POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">The POIDH bounty link goes here when it is live.</p>}');
   });
-});
-
-describe('singapore story-gap answers (6 Nov)', () => {
-  it('carries his answers 2, 3, 4, 5, 6 and 8, with no dashes', async () => {
-    const { INTRO } = await import('@/app/singapore/intro');
+  it('the story section keeps only what the main story does not tell', async () => {
     const { STORY } = await import('@/app/singapore/story');
-    const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
-    const all = [...INTRO, ...STORY].join(' ');
-    for (const k of ['the next World Congress from the last one I went to', 'language, snacks, customs and more', 'a community based on learning more about my culture and faith', 'support in my business from these communities']) expect(all).toContain(k);
-    expect(page).toContain('It&apos;s not a something for something.');
-    expect(all).not.toMatch(/[\u2012-\u2015]| - /);
-  });
-});
-
-describe('singapore house warming photos (his pick, all 3)', () => {
-  it('ships three local photos with alt text and no names', async () => {
-    const { HOUSEWARMING_PHOTOS, MOMENT } = await import('@/app/singapore/intro');
-    expect(HOUSEWARMING_PHOTOS).toHaveLength(3);
-    for (const p of HOUSEWARMING_PHOTOS) {
-      expect(p.src).toMatch(/^\/assets\/singapore\/housewarming-[123]\.jpg$/);
-      expect(readFileSync(join(__dirname, '../..', p.src)).length).toBeGreaterThan(100000);
-      expect(p.alt).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood|Lauren|Peggy|Denis/);
-    }
-    expect(MOMENT.some((b) => b.images === HOUSEWARMING_PHOTOS)).toBe(true);
+    expect(STORY).toHaveLength(3);
   });
 });
