@@ -39,6 +39,6 @@ export const MOMENT: MomentBlock[] = [
     image: { src: NAVJOTE_PHOTO, alt: 'My Navjote' },
   },
   {
-    text: 'I have participated multiple times in doing the jashan prayer for our ZAGBA community. Our Ayathrem Gahambar Jashan is one of the ones I participated in, in the community as a child, and then I was one of the priests as a kid, in the center praying with everyone.',
+    text: 'I have participated multiple times in doing the jashan prayer for our ZAGBA community. Our Ayathrem Gahambar Jashan is one of the ones I participated in, in the community as a child, and then I was one of the priests as a kid, in the center praying with everyone. I also had the opportunity to do a house warming for my own home.',
   },
 ];

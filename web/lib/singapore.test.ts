@@ -87,6 +87,7 @@ describe('singapore Catholic school section', () => {
     expect(m.SCHOOL_PENDING).toBe(false);
     expect(m.SCHOOL_HEADING).toBe('My time in Catholic school');
     expect(m.SCHOOL.join(' ')).toContain('K to 12');
+    expect((await import('@/app/singapore/intro')).MOMENT.map((b) => b.text).join(' ')).toContain('a house warming for my own home');
     expect(m.schoolReady()).toBe(true);
     expect(m.schoolReady('h', ['p'], true)).toBe(false);
     expect(m.schoolReady('h', ['p'], false)).toBe(true);
