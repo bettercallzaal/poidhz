@@ -1,4 +1,5 @@
-// The intro and the POIDH moment of /singapore. Assembled only from Zaal's own words: his
+// The intro and the POIDH moment of /singapore. Culture first (misc items 255 and 257): the
+// pitch, then MOMENT (his culture, the mobed line and the ceremonies), then INTRO (the trip). Assembled only from Zaal's own words: his
 // pitch line, his Q1 and later answers, and rulings 236, 244, 247, 248 and 251 in vault
 // decisions/grill-2026-11-02-misc-morning.md (draft 4, inbox/clips/clip-20261105-192727-singapore-intro-draft4.md).
 // The photos are Internet Archive copies because the original hosts are gone or block tools;
@@ -8,7 +9,7 @@
 export const PITCH = 'Help me bring my story onchain through POIDH.';
 
 export const INTRO: string[] = [
-  "I'm going to the 13th World Zoroastrian Congress in Singapore as a youth delegate. I grew up in the Zoroastrian community and have been a mobed, a Zoroastrian priest, since 6th grade. I got a sponsorship from ZYAB Singapore that covers a bunch of it, my hotel, registration and meals, but not the flight. My family and friends are supporting over half of the travel. The flights are around $2k and the extra $200 is for hotel and public transport, so that's why I'm working on raising $1k from my community who is interested in supporting my personal journey.",
+  "So now I'm going to the 13th World Zoroastrian Congress in Singapore as a youth delegate. I got a sponsorship from ZYAB Singapore that covers a bunch of it, my hotel, registration and meals, but not the flight. My family and friends are supporting over half of the travel. The flights are around $2k and the extra $200 is for hotel and public transport, so that's why I'm working on raising $1k from my community who is interested in supporting my personal journey.",
   "One of my goals on this trip is to learn more about the rift between Parsi and Iranian Zoroastrians, learn more about both customs, and share them with my community. During the Congress I'll share a short dispatch each day, and one recap after the trip.",
   "If anyone wants to support me in my personal journey, I'd love that support. If not, I'll keep rocking out until I find a way to raise the $1,000 for this trip, even if I have to keep crowdfunding after the trip.",
 ];
@@ -27,7 +28,7 @@ export const NAVJOTE_PHOTO =
 
 export const MOMENT: MomentBlock[] = [
   {
-    text: "And as always, POIDH, so here's a link to my ceremony when I was in 6th grade, when I became a mobed:",
+    text: "I'm gonna tell you a bit about my culture. I grew up in the Zoroastrian community and have been a mobed, a Zoroastrian priest, since 6th grade. And as always, POIDH, so here's a link to my ceremony when I was in 6th grade, when I became a mobed:",
     link: { href: NAVAR_PAGE, label: 'my Navar, 20 December 2010' },
     image: { src: NAVAR_PHOTO, alt: 'My Navar, 20 December 2010' },
   },

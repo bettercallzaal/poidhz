@@ -36,7 +36,6 @@ export default function Singapore() {
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">Help bring the World Zoroastrian Congress back to our community</h1>
       <p className="mt-3 max-w-2xl text-lg font-semibold">{PITCH}</p>
-      {INTRO.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
       {MOMENT.map((m) => (
         <div key={m.text.slice(0, 40)} className="mt-4 max-w-2xl">
           <p>{m.text}{m.link && <> <a className="underline" href={m.link.href} target="_blank" rel="noopener">{m.link.label}</a></>}</p>
@@ -46,6 +45,7 @@ export default function Singapore() {
           )}
         </div>
       ))}
+      {INTRO.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>

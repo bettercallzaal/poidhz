@@ -68,3 +68,15 @@ describe('singapore intro and POIDH moment', () => {
     expect(all).toContain('$200 is for hotel and public transport');
   });
 });
+
+describe('singapore culture-first order', () => {
+  it('opens with his culture, then the trip', async () => {
+    const { INTRO, MOMENT } = await import('@/app/singapore/intro');
+    expect(MOMENT[0].text.startsWith("I'm gonna tell you a bit about my culture.")).toBe(true);
+    expect(MOMENT[0].text).toContain('a mobed, a Zoroastrian priest, since 6th grade');
+    expect(INTRO[0].startsWith("So now I'm going to the 13th World Zoroastrian Congress")).toBe(true);
+    expect(INTRO.join(' ')).not.toContain('since 6th grade');
+    const page = (await import('node:fs')).readFileSync('app/singapore/page.tsx', 'utf8');
+    expect(page.indexOf('{MOMENT.map')).toBeLessThan(page.indexOf('{INTRO.map'));
+  });
+});
