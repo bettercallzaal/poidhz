@@ -81,13 +81,13 @@ describe('singapore culture-first order', () => {
   });
 });
 
-describe('singapore Catholic school section (pending)', () => {
-  it('renders nothing while pending, and invents no heading or text', async () => {
+describe('singapore Catholic school section', () => {
+  it('renders only once filled from his words', async () => {
     const m = await import('@/app/singapore/school');
-    expect(m.SCHOOL_PENDING).toBe(true);
-    expect(m.SCHOOL_HEADING).toBeNull();
-    expect(m.SCHOOL).toEqual([]);
-    expect(m.schoolReady()).toBe(false);
+    expect(m.SCHOOL_PENDING).toBe(false);
+    expect(m.SCHOOL_HEADING).toBe('My time in Catholic school');
+    expect(m.SCHOOL.join(' ')).toContain('K to 12');
+    expect(m.schoolReady()).toBe(true);
     expect(m.schoolReady('h', ['p'], true)).toBe(false);
     expect(m.schoolReady('h', ['p'], false)).toBe(true);
   });
@@ -96,6 +96,9 @@ describe('singapore Catholic school section (pending)', () => {
     const text = [m.SCHOOL_HEADING ?? '', ...m.SCHOOL].join(' ');
     expect(text).not.toMatch(/[‒-―]| - /);
     expect(text).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
+  });
+});
+
 describe('singapore Iman review fixes (item 259)', () => {
   const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
   it('intro has the dates and the flights-already-bought wording', async () => {
@@ -113,5 +116,17 @@ describe('singapore Iman review fixes (item 259)', () => {
   });
   it('shows a placeholder line only while the POIDH link is empty', () => {
     expect(page).toContain('{!POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">The POIDH bounty link goes here when it is live.</p>}');
+  });
+});
+
+describe('singapore story-gap answers (6 Nov)', () => {
+  it('carries his answers 2, 3, 4, 5, 6 and 8, with no dashes', async () => {
+    const { INTRO } = await import('@/app/singapore/intro');
+    const { STORY } = await import('@/app/singapore/story');
+    const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
+    const all = [...INTRO, ...STORY].join(' ');
+    for (const k of ['shuffling in late as I', 'the next World Congress from the last one I went to', 'language, snacks, customs and more', 'a community based on learning more about my culture and faith', 'support in my business from these communities']) expect(all).toContain(k);
+    expect(page).toContain('It&apos;s not a something for something.');
+    expect(all).not.toMatch(/[\u2012-\u2015]| - /);
   });
 });
