@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
+import { PAYPAL_LINK, POIDH_BOUNTY_ID, POIDH_BOUNTY_URL, POIDH_LAST_KNOWN, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
+import { loadPot } from '@/lib/poidh-pot';
 import { INTRO, MOMENT, PITCH } from './intro';
 import { STORY, STORY_HEADING } from './story';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
   title: 'Singapore Congress crowdfund - poidhz',
   description: 'Help Zaal travel to the 13th World Zoroastrian Congress in Singapore as a youth delegate. $1,000 goal, tracked across every platform.',
 };
+
+export const revalidate = 300;
 
 const usd = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 })}`;
 const day = (ymd: string) => new Date(`${ymd}T12:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', dateStyle: 'medium' });
@@ -25,8 +28,13 @@ function Button({ href, children }: { href: string; children: React.ReactNode })
   return <a href={href} target="_blank" rel="noopener" className="inline-block rounded-lg bg-[var(--accent)] px-4 py-2 font-semibold text-[var(--on-accent)] no-underline">{children}</a>;
 }
 
-export default function Singapore() {
+export default async function Singapore() {
   const t = totals();
+  const pot = await loadPot(POIDH_BOUNTY_ID, POIDH_LAST_KNOWN);
+  const poidhUsd = pot?.usd ?? null;
+  const total = poidhUsd != null ? Math.round((t.total - t.byChannel.poidh + poidhUsd) * 100) / 100 : t.total;
+  const tile = (id: string) =>
+    id === 'poidh' && pot ? `${pot.eth.toFixed(4)} ETH${pot.usd != null ? ` (about ${usd(pot.usd)})` : ''}` : usd(t.byChannel[id as keyof typeof t.byChannel]);
   const pay = [
     { href: STRIPE_LINK, label: 'Back with card (Stripe)' },
     { href: PAYPAL_LINK, label: 'Back with PayPal' },
@@ -48,13 +56,19 @@ export default function Singapore() {
       ))}
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
-      <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>
+      <p className="mt-2 text-2xl font-bold">{poidhUsd != null ? 'About ' : ''}{usd(total)} of {usd(GOAL_USD)} raised so far</p>
       <p className="text-sm text-[var(--muted)]">Updated {day(t.updated)}. Settled support across every platform, after fees and refunds.</p>
       <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {CHANNELS.map((c) => (
-          <li key={c.id} className="rounded-lg border border-[var(--line)] p-3"><span className="block text-sm text-[var(--muted)]">{c.label}</span><span className="font-semibold">{usd(t.byChannel[c.id])}</span></li>
+          <li key={c.id} className="rounded-lg border border-[var(--line)] p-3"><span className="block text-sm text-[var(--muted)]">{c.label}</span><span className="font-semibold">{tile(c.id)}</span></li>
         ))}
       </ul>
+      {pot && (
+        <p className="mt-2 text-sm text-[var(--muted)]">
+          {pot.source === 'live' ? 'POIDH updates on its own from the live bounty.' : `POIDH as last seen on ${day(pot.asOf!)}; the live bounty could not be read.`}
+          {pot.usd != null && ' Its dollar figure is approximate, at the current ETH price.'}
+        </p>
+      )}
 
       <h2 className="mt-8 text-xl font-semibold">Where the trip stands</h2>
       <div className="mt-3 overflow-x-auto">
