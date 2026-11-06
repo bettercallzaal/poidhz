@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { RECEIPTS, TRACKER_OPENED, totals, type Receipt } from '@/app/singapore/tracker';
 
@@ -74,7 +74,6 @@ describe('singapore story blocks (bounty v12d order and words)', () => {
     const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
     const all = [PITCH, ...STORY_BLOCKS.map((b) => b.text), FUN_FACTS_INTRO, ...FUN_FACTS].join('\n');
     expect(all).not.toMatch(/[‒-―]| - /);
-    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
     expect(FUN_FACTS).toHaveLength(5);
   });
   it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
@@ -112,5 +111,26 @@ describe('singapore story blocks (bounty v12d order and words)', () => {
   it('the story section keeps only what the main story does not tell', async () => {
     const { STORY } = await import('@/app/singapore/story');
     expect(STORY).toHaveLength(3);
+  });
+});
+
+// Family-names guard (misc item 261). The names live only in a gitignored local file, one per line,
+// so this public repo never lists them. Without the file the check is skipped, and says so loudly.
+const NAMES_FILE = join(__dirname, '..', '.private-names.txt');
+const privateNames = existsSync(NAMES_FILE)
+  ? readFileSync(NAMES_FILE, 'utf8').split('\n').map((l) => l.trim()).filter(Boolean)
+  : [];
+if (privateNames.length === 0) console.warn(`SKIPPED family-names guard: ${NAMES_FILE} is absent or empty, so /singapore was NOT checked for family names.`);
+
+describe.skipIf(privateNames.length === 0)('singapore names no family member (private list)', () => {
+  it('no name from the private list appears in any /singapore source file', () => {
+    const dir = join(__dirname, '..', 'app', 'singapore');
+    for (const f of readdirSync(dir)) {
+      const text = readFileSync(join(dir, f), 'utf8');
+      for (const n of privateNames) expect(text.includes(n), `${f} contains a private name`).toBe(false);
+    }
+  });
+  it('the private list is not tracked by git', () => {
+    expect(readFileSync(join(__dirname, '..', '.gitignore'), 'utf8')).toContain('/.private-names.txt');
   });
 });
