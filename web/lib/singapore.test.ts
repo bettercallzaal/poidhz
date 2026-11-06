@@ -80,3 +80,23 @@ describe('singapore culture-first order', () => {
     expect(page.indexOf('{MOMENT.map')).toBeLessThan(page.indexOf('{INTRO.map'));
   });
 });
+
+describe('singapore Iman review fixes (item 259)', () => {
+  const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
+  it('intro has the dates and the flights-already-bought wording', async () => {
+    const { INTRO } = await import('@/app/singapore/intro');
+    expect(INTRO[0]).toContain('as a youth delegate, 28 to 30 December 2026.');
+    expect(INTRO[0]).toContain('covers my hotel, registration and meals, but not the flight');
+    expect(INTRO[0]).toContain('The flights are around $2k and are already bought, and this fundraiser helps pay them back.');
+    expect(page).toContain("'Flights already bought; this pays them back'");
+  });
+  it('How to back sits directly under Raised so far, before Where the trip stands', () => {
+    const raised = page.indexOf('>Raised so far<'), back = page.indexOf('>How to back<'), trip = page.indexOf('>Where the trip stands<');
+    expect(raised).toBeGreaterThan(-1);
+    expect(raised).toBeLessThan(back);
+    expect(back).toBeLessThan(trip);
+  });
+  it('shows a placeholder line only while the POIDH link is empty', () => {
+    expect(page).toContain('{!POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">The POIDH bounty link goes here when it is live.</p>}');
+  });
+});
