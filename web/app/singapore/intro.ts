@@ -1,5 +1,5 @@
-// The story of /singapore, in the same order and words as the POIDH bounty text Zaal casts (v15c,
-// vault inbox/clips/clip-20261106-080613-singapore-bounty-v15c-submit.md; decisions items 263 to 265). Every
+// The story of /singapore, in the same order and words as the POIDH bounty text Zaal casts (v15d,
+// vault inbox/clips/clip-20261106-080913-singapore-bounty-v15d-final.md; decisions items 263 to 266). Every
 // fact comes from his own answers and his own 2016 and 2017 essays. He chose
 // to link his dad's 2014 interview (item 263). No content-schedule promises (item 263: "dont comit to anythign").
 
@@ -42,6 +42,9 @@ export const STORY_BLOCKS: StoryBlock[] = [
   },
   {
     text: "When I was out for a month in 6th grade, all my friends knew, and maybe some asked questions. But I never really spoke about it a ton. I wasn't as sure of myself as I am now, and I didn't understand how blessed I was with this opportunity.",
+  },
+  {
+    text: "My Zoroastrian community backed me in college too. Some of my college scholarships came from Zoroastrian organizations, including the Vakhshoori Foundation. In my scholarship applications back in 2017, I wrote that I had heard so much about the Zoroastrian Congresses and would love to take part, and that I hoped to lead the youth groups there one day.",
   },
   {
     text: "Then in 2022 I went to the World Zoroastrian Congress in New York. For the first time I saw Zoroastrian communities from all around the world coming together, a whole world outside my small Boston community. I learned a lot more, I made some friends, and I got to spend more time with my cousins.",

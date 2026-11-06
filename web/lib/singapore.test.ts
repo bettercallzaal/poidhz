@@ -142,12 +142,21 @@ describe('singapore v15c (items 263 to 265)', () => {
   it('carries his essay paragraphs, the explained terms, the corrections, and the interview links', async () => {
     const m = await import('@/app/singapore/intro');
     const all = m.STORY_BLOCKS.map((b) => b.text).join(' ');
-    for (const k of ['first Zoroastrian priest born and brought up in our Boston community', '24 days at a Zoroastrian temple in Mumbai', 'humata, hukhta, hvarshta', 'daena, also means conscience', 'with my fiance and her family there with us', "she's the president now", 'Iranian Zoroastrians are the ones who stayed', 'as much content as I can from the Congress, fueled by the questions']) expect(all).toContain(k);
+    for (const k of ['first Zoroastrian priest born and brought up in our Boston community', '24 days at a Zoroastrian temple in Mumbai', 'humata, hukhta, hvarshta', 'daena, also means conscience', 'with my fiance and her family there with us', "she's the president now", 'Iranian Zoroastrians are the ones who stayed', 'as much content as I can from the Congress, fueled by the questions', 'including the Vakhshoori Foundation']) expect(all).toContain(k);
     const letter = m.STORY_BLOCKS.findIndex((b) => b.images?.some((i) => i.src.endsWith('zyab-subsidy-letter.jpg')));
     expect(m.STORY_BLOCKS[letter + 1].text).toBe('The hotel dates should read 27 to 31 December 2026, five nights. ZYAB corrected this after sending.');
     expect(m.INTERVIEW_PARTS.map((p) => p.label)).toEqual(['Part 1', 'Part 2', 'Part 3']);
     for (const p of m.INTERVIEW_PARTS) expect(p.href).toMatch(/^https:\/\/projectinterfaith\.blogspot\.com\/2014\//);
     expect(m.WHAT_YOU_GET).toContain("I'll bring your questions with me to Singapore");
     expect(m.WHAT_YOU_GET).not.toContain('poidhz.com');
+  });
+});
+
+describe('singapore v15d (item 266)', () => {
+  it('the scholarships paragraph sits directly before New York 2022', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const i = STORY_BLOCKS.findIndex((b) => b.text.startsWith('My Zoroastrian community backed me in college too.'));
+    expect(i).toBeGreaterThan(-1);
+    expect(STORY_BLOCKS[i + 1].text.startsWith('Then in 2022 I went to the World Zoroastrian Congress in New York.')).toBe(true);
   });
 });
