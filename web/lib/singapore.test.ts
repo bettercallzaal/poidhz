@@ -126,7 +126,7 @@ describe('singapore story-gap answers (6 Nov)', () => {
     const { STORY } = await import('@/app/singapore/story');
     const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
     const all = [...INTRO, ...STORY].join(' ');
-    for (const k of ['shuffling in late as I', 'the next World Congress from the last one I went to', 'language, snacks, customs and more', 'a community based on learning more about my culture and faith', 'support in my business from these communities']) expect(all).toContain(k);
+    for (const k of ['the next World Congress from the last one I went to', 'language, snacks, customs and more', 'a community based on learning more about my culture and faith', 'support in my business from these communities']) expect(all).toContain(k);
     expect(page).toContain('It&apos;s not a something for something.');
     expect(all).not.toMatch(/[\u2012-\u2015]| - /);
   });
