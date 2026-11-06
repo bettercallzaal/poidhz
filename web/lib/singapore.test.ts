@@ -80,3 +80,21 @@ describe('singapore culture-first order', () => {
     expect(page.indexOf('{MOMENT.map')).toBeLessThan(page.indexOf('{INTRO.map'));
   });
 });
+
+describe('singapore Catholic school section (pending)', () => {
+  it('renders nothing while pending, and invents no heading or text', async () => {
+    const m = await import('@/app/singapore/school');
+    expect(m.SCHOOL_PENDING).toBe(true);
+    expect(m.SCHOOL_HEADING).toBeNull();
+    expect(m.SCHOOL).toEqual([]);
+    expect(m.schoolReady()).toBe(false);
+    expect(m.schoolReady('h', ['p'], true)).toBe(false);
+    expect(m.schoolReady('h', ['p'], false)).toBe(true);
+  });
+  it('once filled, has no dashes and names no family member', async () => {
+    const m = await import('@/app/singapore/school');
+    const text = [m.SCHOOL_HEADING ?? '', ...m.SCHOOL].join(' ');
+    expect(text).not.toMatch(/[‒-―]| - /);
+    expect(text).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
+  });
+});
