@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { fetchEthUsd, fetchPotEth, loadPot, potView, type LastKnownPot } from '@/lib/poidh-pot';
+import { communityShare, fetchEthUsd, fetchPotEth, loadPot, potView, type LastKnownPot } from '@/lib/poidh-pot';
 
 const json = (body: unknown, ok = true) => ({ ok, json: async () => body }) as Response;
 const trpc = (b: unknown) => [{ result: { data: { json: b } } }];
@@ -61,5 +61,15 @@ describe('poidh live pot', () => {
     expect(await fetchPotEth(42, 8453, cancelled)).toBeNull();
     expect(await fetchPotEth(42, 8453, fakeFetch({ amount: 'abc' }))).toBeNull();
     expect(await fetchEthUsd(fakeFetch({ rate: -1 }))).toBeNull();
+  });
+
+  it('the seed sits on top of the goal: subtracted from the pot, never below zero', () => {
+    const v = potView(0.0947, 2000, null)!;
+    const s = communityShare(v, 0.0447);
+    expect(s.eth).toBeCloseTo(0.05, 6);
+    expect(s.usd).toBeCloseTo(100, 2);
+    expect(communityShare(v, null).eth).toBeCloseTo(0.0947, 6);
+    expect(communityShare(potView(0.04, 2000, null)!, 0.0447)).toEqual({ eth: 0, usd: 0 });
+    expect(communityShare(potView(0.05, null, null)!, 0.01).usd).toBeNull();
   });
 });

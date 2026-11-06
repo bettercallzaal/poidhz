@@ -12,6 +12,10 @@ export const POIDH_BOUNTY_URL = '';
 export const POIDH_BOUNTY_ID: number | null = null;
 // The last pot this repo saw, shown with its date if poidh cannot be read. Never zero by accident:
 // null until the first real reading after the cast.
+// The ETH Zaal funds the bounty with at the cast: his own seed, on top of the goal (misc item 260).
+// The page subtracts it from the live pot. Null until he casts.
+export const POIDH_SEED_ETH: number | null = null;
+
 export const POIDH_LAST_KNOWN: { eth: number; usdPerEth: number; date: string } | null = null;
 // Where a backer sends a question about Zoroastrianism.
 // Interim until the ZAO learns about Zoroastrianism site has a URL (seat, from misc item 148).

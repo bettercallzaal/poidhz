@@ -70,3 +70,11 @@ export async function loadPot(id: number | null, last: LastKnownPot | null, fetc
   const [eth, rate] = await Promise.all([fetchPotEth(id, 8453, fetchImpl), fetchEthUsd(fetchImpl)]);
   return potView(eth, rate, last);
 }
+
+/** The community's share of the pot: the live pot minus Zaal's own seed, which sits on top of the
+ * goal (misc item 260). USD scales with the same rate; never below zero. */
+export function communityShare(pot: PotView, seedEth: number | null): { eth: number; usd: number | null } {
+  const eth = Math.max(0, pot.eth - (seedEth ?? 0));
+  const usd = pot.usd == null ? null : pot.eth > 0 ? round2((pot.usd * eth) / pot.eth) : 0;
+  return { eth, usd };
+}
