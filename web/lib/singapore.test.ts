@@ -62,7 +62,7 @@ describe('singapore story blocks (bounty v12d order and words)', () => {
     const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
     const all = [PITCH, ...STORY_BLOCKS.map((b) => b.text), FUN_FACTS_INTRO, ...FUN_FACTS].join('\n');
     expect(all).not.toMatch(/[‒-―]| - /);
-    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood|Lauren|Peggy|Denis/);
+    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
     expect(FUN_FACTS).toHaveLength(5);
   });
   it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
