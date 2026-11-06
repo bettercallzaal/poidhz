@@ -56,15 +56,49 @@ describe('singapore story', () => {
   });
 });
 
-describe('singapore intro and POIDH moment', () => {
-  it('is plain voice, names no one, and uses https archive images', async () => {
-    const { INTRO, MOMENT, PITCH } = await import('@/app/singapore/intro');
-    const all = [PITCH, ...INTRO, ...MOMENT.map((m) => m.text)].join('\n');
-    expect(all).not.toMatch(/[\u2013\u2014]| - /);
+describe('singapore story blocks (bounty v12d order and words)', () => {
+  const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
+  it('is plain voice and names no family member', async () => {
+    const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
+    const all = [PITCH, ...STORY_BLOCKS.map((b) => b.text), FUN_FACTS_INTRO, ...FUN_FACTS].join('\n');
+    expect(all).not.toMatch(/[‒-―]| - /);
     expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
-    const images = MOMENT.flatMap((m) => (m.image ? [m.image.src] : []));
-    expect(images).toHaveLength(2);
-    for (const src of images) expect(src).toMatch(/^https:\/\/web\.archive\.org\//);
-    expect(all).toContain('$200 is for hotel and public transport');
+    expect(FUN_FACTS).toHaveLength(5);
+  });
+  it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    expect(STORY_BLOCKS[0].text.startsWith('In 6th grade I went to India for a month to become a mobed')).toBe(true);
+    expect(STORY_BLOCKS[1].text).toContain('POIDH (pics or it didn\'t happen)');
+    expect(STORY_BLOCKS.at(-1)!.text).toContain("I'll keep rocking out");
+    const order = ['Catholic school', 'New York', 'London', 'house warming', 'Singapore as a youth delegate', 'full subsidy', 'flights are around $2k'];
+    const idx = order.map((k) => STORY_BLOCKS.findIndex((b) => b.text.includes(k)));
+    for (let i = 1; i < idx.length; i++) expect(idx[i]).toBeGreaterThan(idx[i - 1]);
+  });
+  it('carries the money facts, item 259 wording, and his 6 Nov answers', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const all = STORY_BLOCKS.map((b) => b.text).join(' ');
+    for (const k of ['28 to 30 December 2026', 'covers my hotel, registration and meals, but not the flight', 'already bought, and this fundraiser helps pay them back', 'the extra hotel night the day before', 'death penalty', 'my version of art', 'The ZAO', 'first $100 on POIDH']) expect(all).toContain(k);
+    expect(all).not.toContain('shuffl');
+    expect(page).toContain("'Flights already bought; this pays them back'");
+    expect(page).toContain('I&apos;ll focus on the ones I can share about');
+  });
+  it('photos: two archive images, three house warming photos and the subsidy letter, all present', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const imgs = STORY_BLOCKS.flatMap((b) => b.images ?? []);
+    expect(imgs.filter((i) => i.src.startsWith('https://web.archive.org/'))).toHaveLength(2);
+    const local = imgs.filter((i) => i.src.startsWith('/assets/singapore/'));
+    expect(local.map((i) => i.src).sort()).toEqual(['/assets/singapore/housewarming-1.jpg', '/assets/singapore/housewarming-2.jpg', '/assets/singapore/housewarming-3.jpg', '/assets/singapore/zyab-subsidy-letter.jpg']);
+    for (const i of local) expect(readFileSync(join(__dirname, '../..', i.src)).length).toBeGreaterThan(100000);
+  });
+  it('How to back sits under Raised so far, before Where the trip stands, with the POIDH placeholder', () => {
+    const raised = page.indexOf('>Raised so far<'), back = page.indexOf('>How to back<'), trip = page.indexOf('>Where the trip stands<');
+    expect(raised).toBeGreaterThan(page.indexOf('{STORY_BLOCKS.map'));
+    expect(raised).toBeLessThan(back);
+    expect(back).toBeLessThan(trip);
+    expect(page).toContain('{!POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">The POIDH bounty link goes here when it is live.</p>}');
+  });
+  it('the story section keeps only what the main story does not tell', async () => {
+    const { STORY } = await import('@/app/singapore/story');
+    expect(STORY).toHaveLength(3);
   });
 });
