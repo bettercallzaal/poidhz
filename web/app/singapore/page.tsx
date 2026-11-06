@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
+import { INTRO, MOMENT, PITCH } from './intro';
 import { STORY, STORY_HEADING } from './story';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
 
@@ -34,9 +35,17 @@ export default function Singapore() {
   return (
     <>
       <h1 className="mt-6 text-3xl font-bold tracking-tight">Help bring the World Zoroastrian Congress back to our community</h1>
-      <p className="mt-3 max-w-2xl">I&apos;m attending the 13th World Zoroastrian Congress in Singapore as a youth delegate. I was selected for a full subsidy from ZYAB Singapore to join the ZYAB Singapore Program at the 13th World Zoroastrian Congress. It covers my hotel, registration and meals, but not the flight. My travel cost is about $2,200, and the flights have already been purchased.</p>
-      <p className="mt-3 max-w-2xl">My family and I have $900 set aside, and I received $200 in support before opening this fundraiser. I&apos;m asking the community for $900 toward a $1,000 goal; I&apos;m seeding the first $100 on POIDH myself.</p>
-      <p className="mt-3 max-w-2xl">I need the support to be able to take a trip like this. I am also excited to share more about this part of my life.</p>
+      <p className="mt-3 max-w-2xl text-lg font-semibold">{PITCH}</p>
+      {INTRO.map((p) => <p key={p.slice(0, 40)} className="mt-3 max-w-2xl">{p}</p>)}
+      {MOMENT.map((m) => (
+        <div key={m.text.slice(0, 40)} className="mt-4 max-w-2xl">
+          <p>{m.text}{m.link && <> <a className="underline" href={m.link.href} target="_blank" rel="noopener">{m.link.label}</a></>}</p>
+          {m.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={m.image.src} alt={m.image.alt} loading="lazy" className="mt-2 w-full max-w-sm rounded-lg border border-[var(--line)]" />
+          )}
+        </div>
+      ))}
 
       <h2 className="mt-8 text-xl font-semibold">Raised so far</h2>
       <p className="mt-2 text-2xl font-bold">{usd(t.total)} of {usd(GOAL_USD)} raised so far</p>

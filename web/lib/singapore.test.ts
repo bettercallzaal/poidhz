@@ -55,3 +55,16 @@ describe('singapore story', () => {
     expect(all).not.toMatch(/[\u2013\u2014]| - /);
   });
 });
+
+describe('singapore intro and POIDH moment', () => {
+  it('is plain voice, names no one, and uses https archive images', async () => {
+    const { INTRO, MOMENT, PITCH } = await import('@/app/singapore/intro');
+    const all = [PITCH, ...INTRO, ...MOMENT.map((m) => m.text)].join('\n');
+    expect(all).not.toMatch(/[\u2013\u2014]| - /);
+    expect(all).not.toMatch(/Farhad|Firoza|Sanaya|Keki|Norwood/);
+    const images = MOMENT.flatMap((m) => (m.image ? [m.image.src] : []));
+    expect(images).toHaveLength(2);
+    for (const src of images) expect(src).toMatch(/^https:\/\/web\.archive\.org\//);
+    expect(all).toContain('$200 is for hotel and public transport');
+  });
+});
