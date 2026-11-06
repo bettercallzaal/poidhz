@@ -49,3 +49,6 @@ next-env.d.ts
 /public/calendar.html
 /legacy-api
 .env*.local
+
+# Family names for the /singapore no-names test (misc item 261); never committed
+/.private-names.txt
