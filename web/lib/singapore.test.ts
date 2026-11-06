@@ -68,20 +68,20 @@ describe('singapore story', () => {
   });
 });
 
-describe('singapore story blocks (bounty v15c order and words)', () => {
+describe('singapore story blocks (bounty v16 order and words)', () => {
   const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
   it('is plain voice and names no family member', async () => {
     const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
     const all = [PITCH, ...STORY_BLOCKS.map((b) => b.text), FUN_FACTS_INTRO, ...FUN_FACTS].join('\n');
     expect(all).not.toMatch(/[‒-―]| - /);
-    expect(FUN_FACTS).toHaveLength(5);
+    expect(FUN_FACTS).toHaveLength(6);
   });
   it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
     const { STORY_BLOCKS } = await import('@/app/singapore/intro');
     expect(STORY_BLOCKS[0].text.startsWith('In 6th grade I went to India for a month to become a mobed')).toBe(true);
     expect(STORY_BLOCKS[1].text).toContain('POIDH (pics or it didn\'t happen)');
     expect(STORY_BLOCKS.at(-1)!.text).toContain("I'll keep rocking out");
-    const order = ['Catholic school', 'New York', 'London', 'house warming', 'Singapore as a youth delegate', 'full subsidy', 'flights are around $2k'];
+    const order = ['Zoroastrian kid at Catholic school', 'Congress in New York', 'congress in London', 'house warming jashan in my own home', 'Congress in Singapore as a youth delegate', 'full subsidy', 'flights are around $2k'];
     const idx = order.map((k) => STORY_BLOCKS.findIndex((b) => b.text.includes(k)));
     for (let i = 1; i < idx.length; i++) expect(idx[i]).toBeGreaterThan(idx[i - 1]);
   });
@@ -158,5 +158,14 @@ describe('singapore v15d (item 266)', () => {
     const i = STORY_BLOCKS.findIndex((b) => b.text.startsWith('My Zoroastrian community backed me in college too.'));
     expect(i).toBeGreaterThan(-1);
     expect(STORY_BLOCKS[i + 1].text.startsWith('Then in 2022 I went to the World Zoroastrian Congress in New York.')).toBe(true);
+  });
+});
+
+describe('singapore v16 (item 267)', () => {
+  it('carries his picks and his own past writing, quoted', async () => {
+    const { STORY_BLOCKS, FUN_FACTS } = await import('@/app/singapore/intro');
+    const all = [...STORY_BLOCKS.map((b) => b.text), ...FUN_FACTS].join(' ');
+    for (const k of ['Priesthood runs in families', 'pocket of merit', 'one for each of the 72 chapters of the Yasna', 'In America the two streams come back together', 'I even wrote my college essay about it back in 2016', 'needs to be known about more in the US']) expect(all).toContain(k);
+    expect(FUN_FACTS.join(' ')).toMatch(/sugar/i);
   });
 });

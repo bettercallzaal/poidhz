@@ -1,7 +1,8 @@
-// The story of /singapore, in the same order and words as the POIDH bounty text Zaal casts (v15d,
-// vault inbox/clips/clip-20261106-080913-singapore-bounty-v15d-final.md; decisions items 263 to 266). Every
-// fact comes from his own answers and his own 2016 and 2017 essays. He chose
-// to link his dad's 2014 interview (item 263). No content-schedule promises (item 263: "dont comit to anythign").
+// The story of /singapore, in the same order and words as the POIDH bounty text Zaal casts (v16,
+// vault inbox/clips/clip-20261106-081800-singapore-bounty-v16-final.md; decisions items 263 to 267). Every
+// fact comes from his own answers and his own 2016 and 2017 writing; quotes from that writing are
+// framed as his. He chose to link his dad's 2014 interview (item 263). No content-schedule promises
+// (item 263: "dont comit to anythign").
 
 export const PITCH = "Help me bring my story onchain through POIDH.";
 
@@ -21,7 +22,7 @@ export const STORY_BLOCKS: StoryBlock[] = [
     images: [{ src: "https://web.archive.org/web/20141029011334im_/http://www.zagba.org/Dec20.JPG", alt: "My Navar, 20 December 2010" }],
   },
   {
-    text: "And here's my Navjote. It's like a first communion or a baptism. You get your sudreh and kusti, and you wear them for the rest of your life.",
+    text: "And here's my Navjote. It's like a first communion or a baptism. You get your sudreh and kusti, and you wear them for the rest of your life. The sudreh even has a tiny pocket on the front, called the pocket of merit. The idea is that every night you think back on the good thoughts, good words and good deeds you put in it that day.",
     link: { href: "https://pluralism.org/zoroastrianism", label: "the Pluralism Project" },
     images: [{ src: "https://web.archive.org/web/20260913211523im_/https://pluralism.org/sites/g/files/omnuum10836/files/styles/hwp_1_1__960x960/public/2025-09/navjote.foxboro_1.jpg?itok=cO5ZIjr_", alt: "My Navjote" }],
   },
@@ -32,7 +33,10 @@ export const STORY_BLOCKS: StoryBlock[] = [
     text: "Becoming a priest started years before India, at home. Most weekends, in between Boy Scouts, baseball and homework, I spent hours learning the ancient Avesta prayers with my dad. Then I spent 24 days at a Zoroastrian temple in Mumbai, sleeping on a floor mat and memorizing prayers. I missed my family, and yes, I even missed school. After 14 days another kid from New Zealand joined me, and between prayers we played dominos and cards. We still text. On the 24th day I wore the white priest robe and cap for the first time, with my family looking on.",
   },
   {
-    text: "I was the first Zoroastrian priest born and brought up in our Boston community. Until college I was my dad's right hand, his assistant priest whenever he was called. House warmings, funerals, community thanksgiving prayers, Navjotes (our coming of age ceremony, kind of like a bar mitzvah) and even one wedding, when I was 16. And every year our Ayathrem Gahambar Jashan, where I did the prayers alongside my dad and the other community priests. (A jashan is our thanksgiving prayer, and a gahambar is one of our seasonal feasts.)",
+    text: "Priesthood runs in families. My dad, my grandfather and generations of boys before me went through the same thing. I was the first Zoroastrian priest born and brought up in our Boston community. Until college I was my dad's right hand, his assistant priest whenever he was called. House warmings, funerals, community thanksgiving prayers, Navjotes (our coming of age ceremony, kind of like a bar mitzvah) and even one wedding, when I was 16. And every year our Ayathrem Gahambar Jashan, where I did the prayers alongside my dad and the other community priests. (A jashan is our thanksgiving prayer, and a gahambar is one of our seasonal feasts.)",
+  },
+  {
+    text: "I even wrote my college essay about it back in 2016. It opened with: \"Most of my classmates are amazed when I tell them I'm a priest and that last summer I performed a wedding!\"",
   },
   {
     text: "And at the same time, I was the Zoroastrian kid at Catholic school, K to 12. That taught me the importance of learning about other religions and customs. Junior year we had to argue for or against the death penalty, and the class was split in half. For me it was a chance to hear a lot of people's opinions, and to realize how many people's beliefs conflict with one another.",
@@ -44,7 +48,7 @@ export const STORY_BLOCKS: StoryBlock[] = [
     text: "When I was out for a month in 6th grade, all my friends knew, and maybe some asked questions. But I never really spoke about it a ton. I wasn't as sure of myself as I am now, and I didn't understand how blessed I was with this opportunity.",
   },
   {
-    text: "My Zoroastrian community backed me in college too. Some of my college scholarships came from Zoroastrian organizations, including the Vakhshoori Foundation. In my scholarship applications back in 2017, I wrote that I had heard so much about the Zoroastrian Congresses and would love to take part, and that I hoped to lead the youth groups there one day.",
+    text: "My Zoroastrian community backed me in college too. Some of my college scholarships came from Zoroastrian organizations, including the Vakhshoori Foundation. In my scholarship applications back in 2017, I wrote that I had heard so much about the Zoroastrian Congresses and would love to take part, and that I hoped to lead the youth groups there one day. I even wrote that I hoped \"to organize a summer camp or a ski camp where Zoroastrian youth can come together.\" Going to Singapore as a youth delegate is a step toward that.",
   },
   {
     text: "Then in 2022 I went to the World Zoroastrian Congress in New York. For the first time I saw Zoroastrian communities from all around the world coming together, a whole world outside my small Boston community. I learned a lot more, I made some friends, and I got to spend more time with my cousins.",
@@ -54,7 +58,7 @@ export const STORY_BLOCKS: StoryBlock[] = [
     link: { href: "https://thezao.com", label: "thezao.com" },
   },
   {
-    text: "New York, and then growing my supportive community, is what changed me. Now I'm sure of myself, and I want to share it. This is my version of art: storytelling about this long lost religion.",
+    text: "New York, and then growing my supportive community, is what changed me. Now I'm sure of myself, and I want to share it. This is my version of art: storytelling about this long lost religion. And it's not a new idea for me. Back in 2017 I wrote: \"I believe that the Zoroastrian Religion needs to be known about more in the US.\" I suggested a website or a video showing our ideals, ceremonies and traditions. Nine years later, this is me doing it.",
   },
   {
     text: "In 2023 I went to a youth Zoroastrian congress in London and learned more about the problems facing our religion. There are around 100k to 200k known Zoroastrians in the world. We need to come together.",
@@ -83,6 +87,9 @@ export const STORY_BLOCKS: StoryBlock[] = [
     text: "On this trip I want to learn more about the rift between Parsi and Iranian Zoroastrians and about both sets of customs, and bring that back to my community. (Parsis like my family are the Zoroastrians who left Iran for India over a thousand years ago to keep their faith. Iranian Zoroastrians are the ones who stayed.)",
   },
   {
+    text: "In America the two streams come back together. Parsi and Iranian Zoroastrians share organizations, youth programs and Congresses, and a lot of us hope that one day we will just be Zoroastrians.",
+  },
+  {
     text: "I'll share as much content as I can from the Congress, fueled by the questions people send me. What I really want is a community built around learning more about my culture and faith.",
   },
   {
@@ -100,9 +107,10 @@ export const FUN_FACTS_INTRO = 'A few fun facts, the way my dad explains them, t
 export const FUN_FACTS: string[] = [
   "Zoroastrianism started over 3,500 years ago in ancient Persia, with the prophet Zarathushtra.",
   "We don't worship fire. Fire is a symbol of wisdom and truth, light pushing out darkness.",
-  "The kusti is 72 strands of lamb's wool, looped three times around the waist for good thoughts, good words and good deeds.",
+  "The kusti is 72 threads of lamb's wool, one for each of the 72 chapters of the Yasna, our main book of prayers. It loops three times around the waist for good thoughts, good words and good deeds.",
   "There are six gahambars, seasonal feasts for the skies, waters, earth, plants, animals and humans. Our Ayathrem Gahambar is one of them.",
   "Around the 10th century, Zoroastrians left Iran for India to keep their faith, and they became the Parsis. That's my side of the family.",
+  "When the Parsis landed in India, the story goes, the local king sent them a glass of milk filled to the brim, meaning there was no room. A priest stirred in a spoon of sugar: we will blend in and make things sweeter. Parsis still call themselves the sugar in the milk.",
 ];
 
 export const INTERVIEW_INTRO = "Want to go deeper? My dad did a three part interview in 2014 that I found while making this. He's humble and would never ask for credit, but he's a big part of why I'm on this journey.";
