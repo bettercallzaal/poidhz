@@ -96,6 +96,15 @@ jobs:
         continue-on-error: true
         run: python3 scripts/check-eb-sync.py
 
+      - name: Log Zaal's rank on poidh's own leaderboard
+        # Step 1 of docs/poidh-leaderboard-plan.md: one row per day plus every change, so
+        # a before-and-after shows which of his actions move the score (poidh does not
+        # publish the formula). continue-on-error: an unreachable poidh API prints UNKNOWN
+        # and exits 2 without writing, and that must not stop the refresh above it from
+        # being committed.
+        continue-on-error: true
+        run: python3 scripts/poidh-rank-snapshot.py
+
       - name: Guard against degenerate data
         # Second line of defence, same as refresh-bounty-dashboard.yml. The script
         # already refuses to write a degraded run, but nothing degenerate should be
@@ -189,7 +198,7 @@ jobs:
 
           # Check if any data files changed
           if ! git diff --quiet data/; then
-            git add data/leaderboard.json data/claims.json data/audit.json data/stranded.json data/health.json
+            git add data/leaderboard.json data/claims.json data/audit.json data/stranded.json data/health.json data/poidh-rank.json
             git commit -m "chore: auto-refresh POIDH leaderboard data (refresh-leaderboard.yml)"
             git push
           else
