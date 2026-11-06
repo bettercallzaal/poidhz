@@ -68,7 +68,7 @@ describe('singapore story', () => {
   });
 });
 
-describe('singapore story blocks (bounty v12d order and words)', () => {
+describe('singapore story blocks (bounty v15c order and words)', () => {
   const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
   it('is plain voice and names no family member', async () => {
     const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
@@ -91,7 +91,6 @@ describe('singapore story blocks (bounty v12d order and words)', () => {
     for (const k of ['28 to 30 December 2026', 'covers my hotel, registration and meals, but not the flight', 'already bought, and this fundraiser helps pay them back', 'the extra hotel night the day before', 'death penalty', 'my version of art', 'The ZAO', 'first $100 on POIDH myself']) expect(all).toContain(k);
     expect(all).not.toContain('shuffl');
     expect(page).toContain("'Flights already bought; this pays them back'");
-    expect(page).toContain('I&apos;ll focus on the ones I can share about');
   });
   it('photos: two archive images, three house warming photos and the subsidy letter, all present', async () => {
     const { STORY_BLOCKS } = await import('@/app/singapore/intro');
@@ -132,5 +131,23 @@ describe.skipIf(privateNames.length === 0)('singapore names no family member (pr
   });
   it('the private list is not tracked by git', () => {
     expect(readFileSync(join(__dirname, '..', '.gitignore'), 'utf8')).toContain('/.private-names.txt');
+  });
+});
+
+describe('singapore v15c (items 263 to 265)', () => {
+  it('makes no fixed content promise anywhere on the page', () => {
+    const dir = join(__dirname, '..', 'app', 'singapore');
+    for (const f of readdirSync(dir)) expect(readFileSync(join(dir, f), 'utf8'), f).not.toMatch(/dispatch|livestream|one recap/i);
+  });
+  it('carries his essay paragraphs, the explained terms, the corrections, and the interview links', async () => {
+    const m = await import('@/app/singapore/intro');
+    const all = m.STORY_BLOCKS.map((b) => b.text).join(' ');
+    for (const k of ['first Zoroastrian priest born and brought up in our Boston community', '24 days at a Zoroastrian temple in Mumbai', 'humata, hukhta, hvarshta', 'daena, also means conscience', 'with my fiance and her family there with us', "she's the president now", 'Iranian Zoroastrians are the ones who stayed', 'as much content as I can from the Congress, fueled by the questions']) expect(all).toContain(k);
+    const letter = m.STORY_BLOCKS.findIndex((b) => b.images?.some((i) => i.src.endsWith('zyab-subsidy-letter.jpg')));
+    expect(m.STORY_BLOCKS[letter + 1].text).toBe('The hotel dates should read 27 to 31 December 2026, five nights. ZYAB corrected this after sending.');
+    expect(m.INTERVIEW_PARTS.map((p) => p.label)).toEqual(['Part 1', 'Part 2', 'Part 3']);
+    for (const p of m.INTERVIEW_PARTS) expect(p.href).toMatch(/^https:\/\/projectinterfaith\.blogspot\.com\/2014\//);
+    expect(m.WHAT_YOU_GET).toContain("I'll bring your questions with me to Singapore");
+    expect(m.WHAT_YOU_GET).not.toContain('poidhz.com');
   });
 });

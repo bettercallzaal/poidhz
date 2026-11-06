@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { PAYPAL_LINK, POIDH_BOUNTY_URL, QUESTION_URL, STRIPE_LINK, STRIPE_REQUEST_URL } from './links';
-import { FUN_FACTS, FUN_FACTS_INTRO, PITCH, STORY_BLOCKS } from './intro';
+import { CURIOUS, FUN_FACTS, FUN_FACTS_INTRO, INTERVIEW_INTRO, INTERVIEW_PARTS, PITCH, STORY_BLOCKS, WHAT_YOU_GET } from './intro';
 import { STORY, STORY_HEADING } from './story';
 import { CHANNELS, GOAL_USD, totals } from './tracker';
 
@@ -87,15 +87,17 @@ export default function Singapore() {
       <h2 className="mt-8 text-xl font-semibold">Fun facts to get you asking</h2>
       <p className="mt-2 max-w-2xl">{FUN_FACTS_INTRO}</p>
       <ul className="mt-2 max-w-2xl list-disc pl-6">{FUN_FACTS.map((f) => <li key={f.slice(0, 40)} className="mt-1">{f}</li>)}</ul>
-      <p className="mt-2 max-w-2xl">Curious about any of it? Anyone can ask, and how to send a question is right below.</p>
+      <p className="mt-3 max-w-2xl">{INTERVIEW_INTRO}</p>
+      <ul className="mt-1 max-w-2xl list-disc pl-6">{INTERVIEW_PARTS.map((x) => <li key={x.href}><a className="underline" href={x.href} target="_blank" rel="noopener">{x.label}</a></li>)}</ul>
+      <p className="mt-3 max-w-2xl">{CURIOUS}</p>
 
       <h2 className="mt-8 text-xl font-semibold">What you get</h2>
-      <p className="mt-2 max-w-2xl">Anyone can send me a question about Zoroastrianism. I&apos;ll focus on the ones I can share about and answer as many as I can on one YouTube livestream, then clip it into one edited YouTube video. If no questions come in, I&apos;ll make one piece of content about Zoroastrianism and credit it to everyone who crowdfunded this trip.</p>
+      <p className="mt-2 max-w-2xl">{WHAT_YOU_GET}</p>
       {QUESTION_URL && <p className="mt-3"><Button href={QUESTION_URL}>Send a question</Button></p>}
       {POIDH_BOUNTY_URL && <p className="mt-3 max-w-2xl">If you have a suggestion, you can also comment it on the <a href={POIDH_BOUNTY_URL} target="_blank" rel="noopener">POIDH bounty</a>, and as long as it&apos;s reasonable I&apos;ll make sure to try and make it happen.</p>}
 
       <h2 className="mt-8 text-xl font-semibold">Updates</h2>
-      <p className="mt-2 max-w-2xl">While the fundraiser is open I&apos;ll update the total on this page each week. During the Congress I&apos;ll share a short dispatch each day, and one recap after the trip. I&apos;ll probably keep this open until even after the Congress, because I need the support to be able to take a trip like this.</p>
+      <p className="mt-2 max-w-2xl">While the fundraiser is open I&apos;ll update the total on this page each week. During the Congress I&apos;ll share as much content as I can, fueled by the questions people send me. I&apos;ll probably keep this open until even after the Congress, because I need the support to be able to take a trip like this.</p>
 
       <p className="mt-8 text-xs text-[var(--muted)]">This is personal travel support. Contributions are not tax-deductible.</p>
     </>
