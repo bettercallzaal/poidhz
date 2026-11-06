@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T11:24:20.409274+00:00",
+  "generated_at": "2026-11-06T19:38:43.746608+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -137,6 +137,16 @@
       "url": "https://poidh.xyz/base/bounty/1529"
     },
     {
+      "bounty_id": 1537,
+      "title": "Submit the Foreguild plan to Seer\u2019s FAO Google Form (Google account required)",
+      "issuer": "0x21c1bef234cfad8780013d28ef54fcd934771cd0",
+      "amount_eth": 0.001,
+      "deadline_iso": "2026-11-12",
+      "deadline_raw_text": "2026-11-12",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1537"
+    },
+    {
       "bounty_id": 1531,
       "title": "FAO Operating Plan Contest",
       "issuer": "0x0f7536d21fe1c9cdb472391cd80fc82e3560736f",
@@ -195,6 +205,16 @@
       "deadline_raw_text": "December 10th",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/335"
+    },
+    {
+      "bounty_id": 1536,
+      "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
+      "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+      "amount_eth": 0.05,
+      "deadline_iso": "2026-12-30",
+      "deadline_raw_text": "30 December 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1536"
     },
     {
       "bounty_id": 1365,

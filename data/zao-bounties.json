@@ -1,8 +1,19 @@
 {
- "generated_at": "2026-11-06T11:24:59.215001+00:00",
+ "generated_at": "2026-11-06T19:39:23.853145+00:00",
  "chain_id": 8453,
- "scanned": 1045,
+ "scanned": 1050,
  "ours": [
+  {
+   "id": 1536,
+   "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
+   "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+   "amount_eth": 0.05,
+   "created_at": "2026-11-06T15:25:18+00:00",
+   "status": "open",
+   "has_claims": false,
+   "multiplayer": true,
+   "url": "https://poidh.xyz/base/bounty/1536"
+  },
   {
    "id": 1460,
    "title": "ZAOstock Round 8 - Cut The Radio Session For Instagram",
