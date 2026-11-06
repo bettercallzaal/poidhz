@@ -68,7 +68,7 @@ describe('singapore story', () => {
   });
 });
 
-describe('singapore story blocks (bounty v16 order and words)', () => {
+describe('singapore story blocks (bounty v19b order and words)', () => {
   const page = readFileSync(join(__dirname, '../app/singapore/page.tsx'), 'utf8');
   it('is plain voice and names no family member', async () => {
     const { PITCH, STORY_BLOCKS, FUN_FACTS, FUN_FACTS_INTRO } = await import('@/app/singapore/intro');
@@ -76,12 +76,15 @@ describe('singapore story blocks (bounty v16 order and words)', () => {
     expect(all).not.toMatch(/[‒-―]| - /);
     expect(FUN_FACTS).toHaveLength(6);
   });
-  it('opens with India at 6th grade, then the POIDH proof, and ends on the ask', async () => {
+  it('opens with the v19b hook up to "here\'s how I got here", then tells the story in time order, and ends on the ask', async () => {
     const { STORY_BLOCKS } = await import('@/app/singapore/intro');
-    expect(STORY_BLOCKS[0].text.startsWith('In 6th grade I went to India for a month to become a mobed')).toBe(true);
-    expect(STORY_BLOCKS[1].text).toContain('POIDH (pics or it didn\'t happen)');
+    expect(STORY_BLOCKS[0].text.startsWith("I've been a Zoroastrian priest since I was 12.")).toBe(true);
+    expect(STORY_BLOCKS[1].text).toContain('to help cover my travel');
+    expect(STORY_BLOCKS[2].text.startsWith('Back this bounty and send me your questions')).toBe(true);
+    expect(STORY_BLOCKS[3].text).toBe("And as always, POIDH (pics or it didn't happen), so here's how I got here.");
+    expect(STORY_BLOCKS[4].text.startsWith("I'm Zaal.")).toBe(true);
     expect(STORY_BLOCKS.at(-1)!.text).toContain("I'll keep rocking out");
-    const order = ['Zoroastrian kid at Catholic school', 'Congress in New York', 'congress in London', 'house warming jashan in my own home', 'Congress in Singapore as a youth delegate', 'full subsidy', 'flights are around $2k'];
+    const order = ['Before I became a priest, I had my Navjote', "Pluralism Project's page", 'Becoming a priest started years before India', "Here's my Navar", 'Zoroastrian kid at Catholic school', 'That 2016 college essay opened with', 'Congress in New York', 'congress in London', 'house warming jashan in my own home', 'Which brings me to Singapore', 'full subsidy from ZYAB', 'flights are around $2k'];
     const idx = order.map((k) => STORY_BLOCKS.findIndex((b) => b.text.includes(k)));
     for (let i = 1; i < idx.length; i++) expect(idx[i]).toBeGreaterThan(idx[i - 1]);
   });
@@ -142,7 +145,7 @@ describe('singapore v15c (items 263 to 265)', () => {
   it('carries his essay paragraphs, the explained terms, the corrections, and the interview links', async () => {
     const m = await import('@/app/singapore/intro');
     const all = m.STORY_BLOCKS.map((b) => b.text).join(' ');
-    for (const k of ['first Zoroastrian priest born and brought up in our Boston community', '24 days at a Zoroastrian temple in Mumbai', 'humata, hukhta, hvarshta', 'daena, also means conscience', 'with my fiance and her family there with us', "she's the president now", 'Iranian Zoroastrians are the ones who stayed', 'as much content as I can from the Congress, fueled by the questions', 'including the Vakhshoori Foundation']) expect(all).toContain(k);
+    for (const k of ['one of the first Zoroastrian priests born and brought up in our Boston community', '24 days at a Zoroastrian temple in Mumbai', 'humata, hukhta, hvarshta', 'daena, also means conscience', 'with my fiance and her family there with us', 'my mom was vice president and later president', 'Iranian Zoroastrians are the ones who stayed', 'as much content as I can from the Congress, fueled by the questions', 'including the Vakhshoori Foundation']) expect(all).toContain(k);
     const letter = m.STORY_BLOCKS.findIndex((b) => b.images?.some((i) => i.src.endsWith('zyab-subsidy-letter.jpg')));
     expect(m.STORY_BLOCKS[letter + 1].text).toBe('The hotel dates should read 27 to 31 December 2026, five nights. ZYAB corrected this after sending.');
     expect(m.INTERVIEW_PARTS.map((p) => p.label)).toEqual(['Part 1', 'Part 2', 'Part 3']);
@@ -165,7 +168,41 @@ describe('singapore v16 (item 267)', () => {
   it('carries his picks and his own past writing, quoted', async () => {
     const { STORY_BLOCKS, FUN_FACTS } = await import('@/app/singapore/intro');
     const all = [...STORY_BLOCKS.map((b) => b.text), ...FUN_FACTS].join(' ');
-    for (const k of ['Priesthood runs in families', 'pocket of merit', 'one for each of the 72 chapters of the Yasna', 'In America the two streams come back together', 'I even wrote my college essay about it back in 2016', 'needs to be known about more in the US']) expect(all).toContain(k);
+    for (const k of ['Priesthood runs in families', 'pocket of merit', 'one for each of the 72 chapters of the Yasna', 'In America the two streams come back together', 'That 2016 college essay opened with', 'needs to be known about more in the US']) expect(all).toContain(k);
     expect(FUN_FACTS.join(' ')).toMatch(/sugar/i);
+  });
+});
+
+describe('singapore v17g (items 268 to 275)', () => {
+  it('matches the v17g wording, puts each photo after its line, and drops the old president wording', async () => {
+    const { STORY_BLOCKS } = await import('@/app/singapore/intro');
+    const all = STORY_BLOCKS.map((b) => b.text).join(' ');
+    expect(all).not.toContain("she's the president now");
+    expect(all).not.toContain('In 6th grade I went to India for a month to become a mobed');
+    const nav = STORY_BLOCKS.find((b) => b.text.startsWith("Here's my Navar"))!;
+    expect(nav.images?.[0].src).toContain('zagba.org/Dec20.JPG');
+    const plu = STORY_BLOCKS.find((b) => b.text.includes("Pluralism Project's page"))!;
+    expect(plu.link?.href).toBe('https://pluralism.org/zoroastrianism');
+    expect(plu.images?.[0].alt).toBe('My Navjote');
+    for (const b of STORY_BLOCKS) expect(b.text).not.toMatch(/https?:/);
+  });
+});
+
+describe('singapore v19b, the cast text (items 279 to 297)', () => {
+  it('links the live bounty 1536, seeds 0.045 ETH, and carries his episode quotes and the sources', async () => {
+    const links = await import('@/app/singapore/links');
+    expect(links.POIDH_BOUNTY_URL).toBe('https://poidh.xyz/base/bounty/1536');
+    expect(links.POIDH_BOUNTY_ID).toBe(1536);
+    expect(links.POIDH_SEED_ETH).toBe(0.045);
+    expect(links.POIDH_LAST_KNOWN).toMatchObject({ eth: 0.045, date: '2026-11-06' });
+    const m = await import('@/app/singapore/intro');
+    const all = m.STORY_BLOCKS.map((b) => b.text).join(' ');
+    for (const k of ['one of the first monotheistic religions [1]', 'I could count on two or three hands', 'Very similar to a crypto event, ironically enough', 'onboarded through a religion', 'We just learned more about each other']) expect(all).toContain(k);
+    expect(all).not.toContain('100k to 200k');
+    expect(m.INTERVIEW_INTRO).toContain("We don't have a pope or any central figure");
+    expect(m.SOURCES.map((s) => s.text.match(/^\[(\d+)\]/)?.[1]).filter(Boolean)).toEqual(['1', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']);
+    expect(m.SOURCES.find((s) => s.text.startsWith('[11]'))!.text).toContain('Antia, Kersey H.');
+    const cited = new Set([...all.matchAll(/\[(\d+)\]/g)].map((x) => x[1]));
+    for (const n of cited) expect(m.SOURCES.some((s) => s.text.startsWith(`[${n}]`)), `[${n}] has a source`).toBe(true);
   });
 });
