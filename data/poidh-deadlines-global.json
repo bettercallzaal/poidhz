@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T19:38:43.746608+00:00",
+  "generated_at": "2026-11-07T01:06:03.814506+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -97,16 +97,6 @@
       "url": "https://poidh.xyz/base/bounty/1492"
     },
     {
-      "bounty_id": 339,
-      "title": "find the most useful free API nobody knows about",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.001,
-      "deadline_iso": "2026-11-05",
-      "deadline_raw_text": "November 5th",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/339"
-    },
-    {
       "bounty_id": 1510,
       "title": "Create business card sized handout on the benefits of using/accepting cash",
       "issuer": "0xf0465138c7e5a41cb97fa6838e81beab549789de",
@@ -135,16 +125,6 @@
       "deadline_raw_text": "November 10",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1529"
-    },
-    {
-      "bounty_id": 1537,
-      "title": "Submit the Foreguild plan to Seer\u2019s FAO Google Form (Google account required)",
-      "issuer": "0x21c1bef234cfad8780013d28ef54fcd934771cd0",
-      "amount_eth": 0.001,
-      "deadline_iso": "2026-11-12",
-      "deadline_raw_text": "2026-11-12",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1537"
     },
     {
       "bounty_id": 1531,
