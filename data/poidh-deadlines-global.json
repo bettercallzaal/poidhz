@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:15:10.746529+00:00",
+  "generated_at": "2026-11-08T22:23:04.517285+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -215,6 +215,16 @@
       "deadline_raw_text": "December 10th",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/335"
+    },
+    {
+      "bounty_id": 1541,
+      "title": "Binary Pixels Bounty \u2014 Letters & Numbers Challenge! \ud83d\udd20\ud83d\udd22",
+      "issuer": "0xfc5708cb64604dcf6f62de5d63a051ed577e10c1",
+      "amount_eth": 0.007,
+      "deadline_iso": "2026-12-15",
+      "deadline_raw_text": "December 15, 2026",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1541"
     },
     {
       "bounty_id": 1536,
