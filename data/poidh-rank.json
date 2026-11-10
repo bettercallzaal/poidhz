@@ -31,5 +31,16 @@
     "arbitrum": 0,
     "mainnet": 44,
     "board_size": 100
+  },
+  {
+    "at": "2026-11-10T01:25:41Z",
+    "address": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
+    "rank": 47,
+    "total": 223,
+    "base": 179,
+    "degen": 0,
+    "arbitrum": 0,
+    "mainnet": 44,
+    "board_size": 100
   }
 ]
