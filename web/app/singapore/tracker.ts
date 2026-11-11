@@ -20,7 +20,10 @@ export const GOAL_USD = 1000;
 // The day the tracker opened; shown as the "updated" date until the first receipt lands.
 export const TRACKER_OPENED = '2026-11-02';
 
-export const RECEIPTS: Receipt[] = [];
+export const RECEIPTS: Receipt[] = [
+  // Zaal's word 2026-11-11: $100 on PayPal from one family. Settle date and fee not given; logged on the day he reported it.
+  { date: '2026-11-11', channel: 'paypal', net_usd: 100, note: 'family backer' },
+];
 
 export const CHANNELS: { id: Channel; label: string }[] = [
   { id: 'poidh', label: 'POIDH' },
