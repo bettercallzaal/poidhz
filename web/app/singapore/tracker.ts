@@ -1,5 +1,6 @@
 // Money tracker for the Singapore Congress crowdfund, across every platform.
-// One row per SETTLED receipt, net of fees and refunds. Aggregates only: never a name, email,
+// One row per SETTLED receipt, at what the backer gave: Zaal covers the fees (his ruling 2026-11-11),
+// refunds come off. net_usd keeps its name. Aggregates only: never a name, email,
 // payment id, transaction hash or wallet. Add rows by PR; the page totals them.
 
 export type Channel = 'poidh' | 'stripe' | 'paypal' | 'other';

@@ -20,7 +20,7 @@ const START: [string, string, string][] = [
   ['Set aside by me and my family', '$900', 'Not part of the goal'],
   ['Support before this fundraiser', '$200', 'Not part of the goal'],
   ['My POIDH seed', '$100', 'Not part of the goal; I fund it when I cast the bounty'],
-  ['Goal, from the community', '$1,000', 'Counted after fees and refunds'],
+  ['Goal, from the community', '$1,000', 'Counted as given; I cover the fees'],
 ];
 
 function Button({ href, children }: { href: string; children: React.ReactNode }) {
@@ -65,7 +65,7 @@ export default async function Singapore() {
       <p className="mt-2 text-2xl font-bold">{poidhUsd != null ? 'About ' : ''}{usd(total)} of {usd(GOAL_USD)} raised so far</p>
       {pot && seedEth > 0 && <p className="text-sm text-[var(--muted)]">Plus my own {seedEth} ETH POIDH seed, on top of the goal and not counted in it.</p>}
       {!pot && t.seed > 0 && <p className="text-sm text-[var(--muted)]">Plus my own {usd(t.seed)} POIDH seed, on top of the goal.</p>}
-      <p className="text-sm text-[var(--muted)]">Updated {day(t.updated)}. Settled support across every platform, after fees and refunds.</p>
+      <p className="text-sm text-[var(--muted)]">Updated {day(t.updated)}. Support across every platform, counted as people gave it. I cover the fees myself.</p>
       <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {CHANNELS.map((c) => (
           <li key={c.id} className="rounded-lg border border-[var(--line)] p-3"><span className="block text-sm text-[var(--muted)]">{c.label}</span><span className="font-semibold">{tile(c.id)}</span></li>
