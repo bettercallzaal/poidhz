@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T21:23:42.432489+00:00",
+  "generated_at": "2026-11-11T01:25:44.712724+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -117,23 +117,13 @@
       "url": "https://poidh.xyz/base/bounty/1539"
     },
     {
-      "bounty_id": 1538,
-      "title": "Test Kuza, a savings-goals mini app in Nimiq Pay, and send the most useful bug + improvement report",
-      "issuer": "0x2481e29895b43e87e547a50fb0bb5aa1e70585eb",
-      "amount_eth": 0.001202881569626795,
-      "deadline_iso": "2026-11-10",
-      "deadline_raw_text": "10 November 2026",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1538"
-    },
-    {
       "bounty_id": 340,
       "title": "Best IRL Bounty Idea Using BMKG Open Data",
       "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
       "amount_eth": 0.001,
       "deadline_iso": "2026-11-10",
       "deadline_raw_text": "November 10, 2026",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/340"
     },
     {
@@ -143,7 +133,7 @@
       "amount_eth": 0.0023,
       "deadline_iso": "2026-11-10",
       "deadline_raw_text": "November 10",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1529"
     },
     {
