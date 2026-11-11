@@ -4,8 +4,15 @@ import { join } from 'node:path';
 import { RECEIPTS, TRACKER_OPENED, totals, type Receipt } from '@/app/singapore/tracker';
 
 describe('singapore tracker', () => {
-  it('starts empty and reads $0, dated the day it opened', () => {
-    expect(RECEIPTS).toEqual([]);
+  it('the live receipts: the first $100 PayPal row (Zaal, 2026-11-11)', () => {
+    const live = totals(RECEIPTS);
+    expect(live.total).toBe(100);
+    expect(live.byChannel.paypal).toBe(100);
+    expect(live.remaining).toBe(900);
+    expect(live.updated).toBe('2026-11-11');
+  });
+
+  it('an empty list reads $0, dated the day it opened', () => {
     const t = totals([]);
     expect(t.total).toBe(0);
     expect(t.remaining).toBe(1000);
