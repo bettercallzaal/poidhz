@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T11:44:30.891344+00:00",
+  "generated_at": "2026-11-12T20:19:42.149901+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -157,6 +157,16 @@
       "url": "https://poidh.xyz/base/bounty/1545"
     },
     {
+      "bounty_id": 1546,
+      "title": "Snowmoon Character Backstory",
+      "issuer": "0x5be8bdc96c423f265fc589ff8611e4c72ee94dca",
+      "amount_eth": 0.033,
+      "deadline_iso": "2026-11-29",
+      "deadline_raw_text": "29 November",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1546"
+    },
+    {
       "bounty_id": 1527,
       "title": "Best poidh Meme \ud83d\udcf8",
       "issuer": "0x41f2600443691cba7775f0488d87ada2f279a64d",
@@ -210,7 +220,7 @@
       "bounty_id": 1536,
       "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.0661,
+      "amount_eth": 0.069588,
       "deadline_iso": "2026-12-30",
       "deadline_raw_text": "30 December 2026",
       "deadline_status": "upcoming",

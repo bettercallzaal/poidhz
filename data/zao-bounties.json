@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-12T11:45:04.581528+00:00",
+ "generated_at": "2026-11-12T20:20:21.591937+00:00",
  "chain_id": 8453,
- "scanned": 1057,
+ "scanned": 1058,
  "ours": [
   {
    "id": 1536,
    "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
    "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-   "amount_eth": 0.0661,
+   "amount_eth": 0.069588,
    "created_at": "2026-11-06T15:25:18+00:00",
    "status": "open",
    "has_claims": true,
