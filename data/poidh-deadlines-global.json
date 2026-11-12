@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T19:49:00.487661+00:00",
+  "generated_at": "2026-11-12T02:27:37.136066+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -200,7 +200,7 @@
       "bounty_id": 1536,
       "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.0631,
+      "amount_eth": 0.0661,
       "deadline_iso": "2026-12-30",
       "deadline_raw_text": "30 December 2026",
       "deadline_status": "upcoming",
