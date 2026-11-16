@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T23:05:16.659635+00:00",
+  "generated_at": "2026-11-16T07:09:40.547738+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -107,16 +107,6 @@
       "url": "https://poidh.xyz/base/bounty/1510"
     },
     {
-      "bounty_id": 340,
-      "title": "Best IRL Bounty Idea Using BMKG Open Data",
-      "issuer": "0x4200ac338555e25b20c8fe82ac02a5c8d4e5a5b4",
-      "amount_eth": 0.001,
-      "deadline_iso": "2026-11-10",
-      "deadline_raw_text": "November 10, 2026",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/340"
-    },
-    {
       "bounty_id": 1531,
       "title": "FAO Operating Plan Contest",
       "issuer": "0x0f7536d21fe1c9cdb472391cd80fc82e3560736f",
@@ -133,7 +123,7 @@
       "amount_eth": 0.0035,
       "deadline_iso": "2026-11-15",
       "deadline_raw_text": "November 15th",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/341"
     },
     {
@@ -143,7 +133,7 @@
       "amount_eth": 0.0069,
       "deadline_iso": "2026-11-15",
       "deadline_raw_text": "November 15",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1519"
     },
     {
@@ -180,7 +170,7 @@
       "bounty_id": 1553,
       "title": "Create Your Own Bounty, Use Collective Memory As A Requirement For Submissions To Ensure Submissions Are Authentic.",
       "issuer": "0x5d6ae7e2e76d9f15e42f20a02bbc2e7cdecdbb0d",
-      "amount_eth": 0.028,
+      "amount_eth": 0.0313,
       "deadline_iso": "2026-11-28",
       "deadline_raw_text": "November 28",
       "deadline_status": "upcoming",
