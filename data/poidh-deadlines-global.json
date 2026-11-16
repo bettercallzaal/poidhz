@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T07:09:40.547738+00:00",
+  "generated_at": "2026-11-16T19:47:58.770340+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -145,6 +145,16 @@
       "deadline_raw_text": "November 19th",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1550"
+    },
+    {
+      "bounty_id": 1555,
+      "title": "Feature in a poetry publication",
+      "issuer": "0xcecaacdd987688ccdff15c775cba8e5ba63a8460",
+      "amount_eth": 0.011,
+      "deadline_iso": "2026-11-20",
+      "deadline_raw_text": "20th November",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1555"
     },
     {
       "bounty_id": 1551,
