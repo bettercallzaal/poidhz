@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T19:47:58.770340+00:00",
+  "generated_at": "2026-11-17T04:08:07.489719+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -150,7 +150,7 @@
       "bounty_id": 1555,
       "title": "Feature in a poetry publication",
       "issuer": "0xcecaacdd987688ccdff15c775cba8e5ba63a8460",
-      "amount_eth": 0.011,
+      "amount_eth": 0.014,
       "deadline_iso": "2026-11-20",
       "deadline_raw_text": "20th November",
       "deadline_status": "upcoming",
@@ -167,6 +167,16 @@
       "url": "https://poidh.xyz/base/bounty/1551"
     },
     {
+      "bounty_id": 1556,
+      "title": "Price tag time machine: one price, 2019 vs today \ud83c\udff7\ufe0f",
+      "issuer": "0x2481e29895b43e87e547a50fb0bb5aa1e70585eb",
+      "amount_eth": 0.00499338061205992,
+      "deadline_iso": "2026-11-24",
+      "deadline_raw_text": "24 November",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1556"
+    },
+    {
       "bounty_id": 1545,
       "title": "Catch a public clock lying \ud83d\udd70\ufe0f",
       "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
@@ -175,6 +185,16 @@
       "deadline_raw_text": "26 November 2026",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1545"
+    },
+    {
+      "bounty_id": 1557,
+      "title": "put up a checkpoint poster in your city",
+      "issuer": "0x70d9b2084d24823789073d3732a327b2c18a7e6f",
+      "amount_eth": 0.0617,
+      "deadline_iso": "2026-11-27",
+      "deadline_raw_text": "27 Nov",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1557"
     },
     {
       "bounty_id": 1553,
