@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T16:24:14.606430+00:00",
+  "generated_at": "2026-11-18T01:12:32.214464+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -107,16 +107,6 @@
       "url": "https://poidh.xyz/base/bounty/1531"
     },
     {
-      "bounty_id": 341,
-      "title": "upload a pic of your weekend \ud83d\udcf8",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.0035,
-      "deadline_iso": "2026-11-15",
-      "deadline_raw_text": "November 15th",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/341"
-    },
-    {
       "bounty_id": 1519,
       "title": "Vibecode a Tacit Explorer \ud83e\udd2b\ud83d\udd0d",
       "issuer": "0xfb706da8ad6fc35777c041cd3ec049a4e431fd43",
@@ -140,7 +130,7 @@
       "bounty_id": 1555,
       "title": "Feature in a poetry publication",
       "issuer": "0xcecaacdd987688ccdff15c775cba8e5ba63a8460",
-      "amount_eth": 0.014,
+      "amount_eth": 0.015,
       "deadline_iso": "2026-11-20",
       "deadline_raw_text": "20th November",
       "deadline_status": "upcoming",
@@ -260,7 +250,7 @@
       "bounty_id": 1536,
       "title": "Help get Zaal to the World Zoroastrian Congress in Singapore",
       "issuer": "0x7234c36a71ec237c2ae7698e8916e0735001e9af",
-      "amount_eth": 0.069588,
+      "amount_eth": 0.070588,
       "deadline_iso": "2026-12-30",
       "deadline_raw_text": "30 December 2026",
       "deadline_status": "upcoming",
