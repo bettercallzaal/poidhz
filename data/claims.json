@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T00:10:33Z",
+  "generated_at": "2026-11-19T15:36:22Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
@@ -384,14 +384,14 @@
       "score": 2,
       "rank": 14,
       "farcaster_username": "barsam",
-      "displayName": "arshad58.base.eth",
-      "avatar": null,
+      "displayName": "Barsam",
+      "avatar": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/fc7c6bc6-08c9-4b7d-3d37-b3be1ad65800/original",
       "twitter_handle": "skycrypto58",
-      "twitter_url": null,
-      "fid": null,
+      "twitter_url": "https://x.com/scott5814",
+      "fid": 355554,
       "boost": 1,
       "totalRewards": 0.7972462505453999,
-      "follower": null,
+      "follower": 1441,
       "offchain_credit": null,
       "offchain_note": null
     },
