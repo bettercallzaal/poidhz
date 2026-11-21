@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T06:47:00Z",
+  "generated_at": "2026-11-21T19:00:13Z",
   "empire": {
     "token_address": "0xbB48f19B0494Ff7C1fE5Dc2032aeEE14312f0b07",
     "leaderboard_uuid": "06d91c2d-ca46-4ffa-99b1-14cab5159d93",
@@ -783,9 +783,9 @@
       "address": "0xa21e61165a97cba8e02558ece645da45ae4eaf0a",
       "score": 1,
       "rank": 39,
-      "farcaster_username": "splitsbankrbot.eth",
-      "displayName": "splitsbankrbot.eth",
-      "avatar": "https://ipfs.io/ipfs/bafybeibm35j5iuejkdbhybovjz6ybolciiiyi4i5pgv75gbt46cz53mrhm",
+      "farcaster_username": null,
+      "displayName": null,
+      "avatar": null,
       "twitter_handle": null,
       "twitter_url": null,
       "fid": null,
