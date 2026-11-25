@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T09:01:22.865718+00:00",
+  "generated_at": "2026-11-25T19:32:06.786528+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -107,16 +107,6 @@
       "url": "https://poidh.xyz/base/bounty/1531"
     },
     {
-      "bounty_id": 1519,
-      "title": "Vibecode a Tacit Explorer \ud83e\udd2b\ud83d\udd0d",
-      "issuer": "0xfb706da8ad6fc35777c041cd3ec049a4e431fd43",
-      "amount_eth": 0.0069,
-      "deadline_iso": "2026-11-15",
-      "deadline_raw_text": "November 15",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1519"
-    },
-    {
       "bounty_id": 1564,
       "title": "The same hour, everywhere \ud83c\udf0d Capture 14:00\u201315:00 UTC on Wed 25 Nov in Collective Memory",
       "issuer": "0xbc97e8588c29d2f3495a8f1384e6aa9de61becc4",
@@ -165,6 +155,16 @@
       "deadline_raw_text": "27 Nov",
       "deadline_status": "upcoming",
       "url": "https://poidh.xyz/base/bounty/1557"
+    },
+    {
+      "bounty_id": 1565,
+      "title": "take a pic of what you're thankful for",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.007,
+      "deadline_iso": "2026-11-28",
+      "deadline_raw_text": "November 28th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1565"
     },
     {
       "bounty_id": 1553,
