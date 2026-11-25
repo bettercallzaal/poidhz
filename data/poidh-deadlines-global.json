@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T14:10:50.245611+00:00",
+  "generated_at": "2026-11-25T00:02:51.957188+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -117,23 +117,13 @@
       "url": "https://poidh.xyz/base/bounty/1519"
     },
     {
-      "bounty_id": 1551,
-      "title": "write a bounty for Saltorious",
-      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.0033,
-      "deadline_iso": "2026-11-21",
-      "deadline_raw_text": "November 21st",
-      "deadline_status": "past",
-      "url": "https://poidh.xyz/base/bounty/1551"
-    },
-    {
       "bounty_id": 1556,
       "title": "Price tag time machine: one price, 2019 vs today \ud83c\udff7\ufe0f",
       "issuer": "0x2481e29895b43e87e547a50fb0bb5aa1e70585eb",
       "amount_eth": 0.00499338061205992,
       "deadline_iso": "2026-11-24",
       "deadline_raw_text": "24 November",
-      "deadline_status": "upcoming",
+      "deadline_status": "past",
       "url": "https://poidh.xyz/base/bounty/1556"
     },
     {
