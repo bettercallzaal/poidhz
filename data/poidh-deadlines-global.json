@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T03:43:53.072843+00:00",
+  "generated_at": "2026-11-26T17:14:52.941442+00:00",
   "scan_status": "open",
   "pages_scanned": 4,
   "note": "Generalized scan beyond BCZ's own rounds (see build-bounty-calendar.py for the BCZ-specific proof of concept). Confirms POID's on-chain/API `deadline` field is essentially unused in practice - only 0 of the bounties scanned had it set at all, even though many describe a clear deadline in free text. That gap is exactly why this tool exists.",
@@ -107,16 +107,6 @@
       "url": "https://poidh.xyz/base/bounty/1531"
     },
     {
-      "bounty_id": 1564,
-      "title": "The same hour, everywhere \ud83c\udf0d Capture 14:00\u201315:00 UTC on Wed 25 Nov in Collective Memory",
-      "issuer": "0xbc97e8588c29d2f3495a8f1384e6aa9de61becc4",
-      "amount_eth": 0.0015,
-      "deadline_iso": "2026-11-26",
-      "deadline_raw_text": "26 Nov",
-      "deadline_status": "upcoming",
-      "url": "https://poidh.xyz/base/bounty/1564"
-    },
-    {
       "bounty_id": 1545,
       "title": "Catch a public clock lying \ud83d\udd70\ufe0f",
       "issuer": "0xd34f10e24ecce7b943aaa859460d7cd5c6e50f60",
@@ -127,10 +117,20 @@
       "url": "https://poidh.xyz/base/bounty/1545"
     },
     {
+      "bounty_id": 1569,
+      "title": "Build a 2026 Seahawks defense data explorer",
+      "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
+      "amount_eth": 0.002,
+      "deadline_iso": "2026-11-27",
+      "deadline_raw_text": "November 27th",
+      "deadline_status": "upcoming",
+      "url": "https://poidh.xyz/base/bounty/1569"
+    },
+    {
       "bounty_id": 1567,
       "title": "Capture Your Coffee Moments with Collective Memory \u2615",
       "issuer": "0x171718d134ea16d5be3906fc5422fa1450fc0bff",
-      "amount_eth": 0.0043,
+      "amount_eth": 0.0053,
       "deadline_iso": "2026-11-27",
       "deadline_raw_text": "November 27",
       "deadline_status": "upcoming",
@@ -170,7 +170,7 @@
       "bounty_id": 1565,
       "title": "take a pic of what you're thankful for",
       "issuer": "0x10fc964ef70c8467cd8c53e9ed9347422adf96a8",
-      "amount_eth": 0.007,
+      "amount_eth": 0.0127,
       "deadline_iso": "2026-11-28",
       "deadline_raw_text": "November 28th",
       "deadline_status": "upcoming",
